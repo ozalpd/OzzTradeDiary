@@ -1,0 +1,1320 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeGenProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Name>OzzTradeDiary</Name>
+  <NamespaceName>TD</NamespaceName>
+  <ModelProviderId>Model_Provider_Empty</ModelProviderId>
+  <TargetFolder>..\GeneratedCodes</TargetFolder>
+  <ModelSource>EmptyModel</ModelSource>
+  <EntityTrackEnum>EntityType</EntityTrackEnum>
+  <EnumDefinitions>
+    <EnumDefinition>
+      <Name>EntryMethod</Name>
+      <NamespaceName>TD</NamespaceName>
+      <Members>
+        <EnumMember>
+          <Name>Market</Name>
+          <Value>10</Value>
+        </EnumMember>
+        <EnumMember>
+          <Name>Limit</Name>
+          <Value>20</Value>
+        </EnumMember>
+      </Members>
+    </EnumDefinition>
+    <EnumDefinition>
+      <Name>MarketType</Name>
+      <NamespaceName>TD</NamespaceName>
+      <Members>
+        <EnumMember>
+          <Name>Unspecified</Name>
+          <Value>0</Value>
+        </EnumMember>
+        <EnumMember>
+          <Name>Stock</Name>
+          <Value>20</Value>
+        </EnumMember>
+        <EnumMember>
+          <Name>Fund</Name>
+          <Value>30</Value>
+        </EnumMember>
+        <EnumMember>
+          <Name>Futures</Name>
+          <Value>40</Value>
+        </EnumMember>
+        <EnumMember>
+          <Name>Forex</Name>
+          <Value>50</Value>
+        </EnumMember>
+        <EnumMember>
+          <Name>Option</Name>
+          <Value>60</Value>
+        </EnumMember>
+        <EnumMember>
+          <Name>Commodity</Name>
+          <Value>70</Value>
+        </EnumMember>
+        <EnumMember>
+          <Name>Crypto</Name>
+          <Value>80</Value>
+        </EnumMember>
+        <EnumMember>
+          <Name>CryptoPerpetual</Name>
+          <Value>90</Value>
+        </EnumMember>
+        <EnumMember>
+          <Name>Index</Name>
+          <Value>100</Value>
+        </EnumMember>
+      </Members>
+    </EnumDefinition>
+    <EnumDefinition>
+      <Name>OrderType</Name>
+      <NamespaceName>TD</NamespaceName>
+      <Members>
+        <EnumMember>
+          <Name>Entry</Name>
+          <Value>10</Value>
+        </EnumMember>
+        <EnumMember>
+          <Name>TakeProfit</Name>
+          <Value>20</Value>
+        </EnumMember>
+        <EnumMember>
+          <Name>StopLoss</Name>
+          <Value>30</Value>
+        </EnumMember>
+      </Members>
+    </EnumDefinition>
+    <EnumDefinition>
+      <Name>SettingType</Name>
+      <NamespaceName>TD</NamespaceName>
+      <Members>
+        <EnumMember>
+          <Name>String</Name>
+          <Value>1010</Value>
+        </EnumMember>
+        <EnumMember>
+          <Name>Email</Name>
+          <Value>1020</Value>
+        </EnumMember>
+        <EnumMember>
+          <Name>StringArray</Name>
+          <Value>1101</Value>
+        </EnumMember>
+        <EnumMember>
+          <Name>Boolean</Name>
+          <Value>2000</Value>
+        </EnumMember>
+        <EnumMember>
+          <Name>Integer</Name>
+          <Value>2010</Value>
+        </EnumMember>
+        <EnumMember>
+          <Name>IntegerArray</Name>
+          <Value>2011</Value>
+        </EnumMember>
+        <EnumMember>
+          <Name>Decimal</Name>
+          <Value>2021</Value>
+        </EnumMember>
+        <EnumMember>
+          <Name>DecimalArray</Name>
+          <Value>2022</Value>
+        </EnumMember>
+        <EnumMember>
+          <Name>Date</Name>
+          <Value>3010</Value>
+        </EnumMember>
+        <EnumMember>
+          <Name>DateArray</Name>
+          <Value>3011</Value>
+        </EnumMember>
+        <EnumMember>
+          <Name>DateTime</Name>
+          <Value>3020</Value>
+        </EnumMember>
+        <EnumMember>
+          <Name>DateTimeArray</Name>
+          <Value>3021</Value>
+        </EnumMember>
+      </Members>
+    </EnumDefinition>
+  </EnumDefinitions>
+  <DataModel>
+    <EntityDefinition>
+      <Name>IPrimaryKey</Name>
+      <EntitySource />
+      <Comment>For defining the PrimaryKey of entities</Comment>
+      <NamespaceName>TD</NamespaceName>
+      <DisplayOrder>1</DisplayOrder>
+      <Abstract>true</Abstract>
+      <LetDownloadAll>false</LetDownloadAll>
+      <DisplayName>IPrimaryKey</DisplayName>
+      <DisplayMember>Id</DisplayMember>
+      <Properties>
+        <BaseProperty xsi:type="SimpleProperty">
+          <Name>Id</Name>
+          <Comment>PrimaryKey field</Comment>
+          <DisplayOrder>101</DisplayOrder>
+          <DisplayName>Id</DisplayName>
+          <Editable>false</Editable>
+          <TypeName>int</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <IsStoreGenerated>true</IsStoreGenerated>
+          <RestrictedData>false</RestrictedData>
+          <UiVisible>false</UiVisible>
+          <EnumTypeName />
+          <IsKey>true</IsKey>
+          <IsForeignKey>false</IsForeignKey>
+          <IsNullable>false</IsNullable>
+        </BaseProperty>
+      </Properties>
+    </EntityDefinition>
+    <EntityDefinition>
+      <Name>IModifyDate</Name>
+      <EntitySource />
+      <NamespaceName>TD</NamespaceName>
+      <DisplayOrder>2</DisplayOrder>
+      <Abstract>true</Abstract>
+      <LetDownloadAll>false</LetDownloadAll>
+      <DisplayName>IModify Date</DisplayName>
+      <DisplayMember>Id</DisplayMember>
+      <BaseTypeName>IPrimaryKey</BaseTypeName>
+      <Properties>
+        <BaseProperty xsi:type="SimpleProperty">
+          <Name>ModifyDate</Name>
+          <DisplayOrder>200100</DisplayOrder>
+          <DisplayName>Modify Date</DisplayName>
+          <Editable>true</Editable>
+          <TypeName>DateTime</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <IsStoreGenerated>false</IsStoreGenerated>
+          <RestrictedData>false</RestrictedData>
+          <UiVisible>true</UiVisible>
+          <EnumTypeName />
+          <IsKey>false</IsKey>
+          <IsForeignKey>false</IsForeignKey>
+          <IsNullable>false</IsNullable>
+        </BaseProperty>
+      </Properties>
+    </EntityDefinition>
+    <EntityDefinition>
+      <Name>IDisplayOrder</Name>
+      <EntitySource />
+      <NamespaceName>TD</NamespaceName>
+      <DisplayOrder>3</DisplayOrder>
+      <Abstract>true</Abstract>
+      <LetDownloadAll>false</LetDownloadAll>
+      <DisplayName>IDisplay Order</DisplayName>
+      <DisplayMember>Id</DisplayMember>
+      <BaseTypeName>IPrimaryKey</BaseTypeName>
+      <Properties>
+        <BaseProperty xsi:type="SimpleProperty">
+          <Name>DisplayOrder</Name>
+          <DisplayOrder>100100</DisplayOrder>
+          <DisplayName>Display Order</DisplayName>
+          <Editable>true</Editable>
+          <TypeName>int</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <IsStoreGenerated>false</IsStoreGenerated>
+          <RestrictedData>false</RestrictedData>
+          <UiVisible>true</UiVisible>
+          <EnumTypeName />
+          <IsKey>false</IsKey>
+          <IsForeignKey>false</IsForeignKey>
+          <IsNullable>false</IsNullable>
+        </BaseProperty>
+      </Properties>
+    </EntityDefinition>
+    <EntityDefinition>
+      <Name>IIsActive</Name>
+      <EntitySource />
+      <NamespaceName>TD</NamespaceName>
+      <DisplayOrder>4</DisplayOrder>
+      <Abstract>true</Abstract>
+      <LetDownloadAll>false</LetDownloadAll>
+      <DisplayName>IIs Active</DisplayName>
+      <DisplayMember>Id</DisplayMember>
+      <BaseTypeName>IDisplayOrder</BaseTypeName>
+      <Properties>
+        <BaseProperty xsi:type="SimpleProperty">
+          <Name>IsActive</Name>
+          <DisplayOrder>100200</DisplayOrder>
+          <DisplayName>Is Active</DisplayName>
+          <Editable>true</Editable>
+          <TypeName>bool</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <IsStoreGenerated>false</IsStoreGenerated>
+          <RestrictedData>false</RestrictedData>
+          <UiVisible>true</UiVisible>
+          <EnumTypeName />
+          <IsKey>false</IsKey>
+          <IsForeignKey>false</IsForeignKey>
+          <IsNullable>false</IsNullable>
+        </BaseProperty>
+      </Properties>
+    </EntityDefinition>
+    <EntityDefinition>
+      <Name>ITradeOrder</Name>
+      <EntitySource />
+      <NamespaceName>TD</NamespaceName>
+      <DisplayOrder>5</DisplayOrder>
+      <Abstract>true</Abstract>
+      <LetDownloadAll>false</LetDownloadAll>
+      <DisplayName>ITrade Order</DisplayName>
+      <DisplayMember>Id</DisplayMember>
+      <BaseTypeName>IDisplayOrder</BaseTypeName>
+      <Properties>
+        <BaseProperty xsi:type="SimpleProperty">
+          <Name>ExecuteTime</Name>
+          <DisplayOrder>20100</DisplayOrder>
+          <DisplayName>Execute Time</DisplayName>
+          <Editable>true</Editable>
+          <TypeName>DateTime</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <IsStoreGenerated>false</IsStoreGenerated>
+          <RestrictedData>false</RestrictedData>
+          <UiVisible>true</UiVisible>
+          <EnumTypeName />
+          <IsKey>false</IsKey>
+          <IsForeignKey>false</IsForeignKey>
+          <IsNullable>true</IsNullable>
+        </BaseProperty>
+        <BaseProperty xsi:type="SimpleProperty">
+          <Name>OrderPrice</Name>
+          <Comment>Planned Entry Price</Comment>
+          <DisplayOrder>20200</DisplayOrder>
+          <DisplayName>Order Price</DisplayName>
+          <Editable>true</Editable>
+          <TypeName>decimal</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <IsStoreGenerated>false</IsStoreGenerated>
+          <RestrictedData>false</RestrictedData>
+          <UiVisible>true</UiVisible>
+          <EnumTypeName />
+          <IsKey>false</IsKey>
+          <IsForeignKey>false</IsForeignKey>
+          <IsNullable>false</IsNullable>
+        </BaseProperty>
+        <BaseProperty xsi:type="SimpleProperty">
+          <Name>FilledPrice</Name>
+          <Comment>Executed Entry Price</Comment>
+          <DisplayOrder>20300</DisplayOrder>
+          <DisplayName>Filled Price</DisplayName>
+          <Editable>true</Editable>
+          <TypeName>decimal</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <IsStoreGenerated>false</IsStoreGenerated>
+          <RestrictedData>false</RestrictedData>
+          <UiVisible>true</UiVisible>
+          <EnumTypeName />
+          <IsKey>false</IsKey>
+          <IsForeignKey>false</IsForeignKey>
+          <IsNullable>true</IsNullable>
+        </BaseProperty>
+        <BaseProperty xsi:type="SimpleProperty">
+          <Name>OrderQuantity</Name>
+          <Comment>Planned contract quantity of order</Comment>
+          <DisplayOrder>20400</DisplayOrder>
+          <DisplayName>Order Quantity</DisplayName>
+          <Editable>true</Editable>
+          <TypeName>decimal</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <IsStoreGenerated>false</IsStoreGenerated>
+          <RestrictedData>false</RestrictedData>
+          <UiVisible>true</UiVisible>
+          <EnumTypeName />
+          <IsKey>false</IsKey>
+          <IsForeignKey>false</IsForeignKey>
+          <IsNullable>true</IsNullable>
+        </BaseProperty>
+        <BaseProperty xsi:type="SimpleProperty">
+          <Name>FilledQuantity</Name>
+          <Comment>Realized contract quantity of order</Comment>
+          <DisplayOrder>20500</DisplayOrder>
+          <DisplayName>Filled Quantity</DisplayName>
+          <Editable>true</Editable>
+          <TypeName>decimal</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <IsStoreGenerated>false</IsStoreGenerated>
+          <RestrictedData>false</RestrictedData>
+          <UiVisible>true</UiVisible>
+          <EnumTypeName />
+          <IsKey>false</IsKey>
+          <IsForeignKey>false</IsForeignKey>
+          <IsNullable>true</IsNullable>
+        </BaseProperty>
+        <BaseProperty xsi:type="SimpleProperty">
+          <Name>OrderAmount</Name>
+          <Comment>Planned amount in currency, like $100</Comment>
+          <DisplayOrder>20600</DisplayOrder>
+          <DisplayName>Order Amount</DisplayName>
+          <Editable>true</Editable>
+          <TypeName>decimal</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <IsStoreGenerated>false</IsStoreGenerated>
+          <RestrictedData>false</RestrictedData>
+          <UiVisible>true</UiVisible>
+          <EnumTypeName />
+          <IsKey>false</IsKey>
+          <IsForeignKey>false</IsForeignKey>
+          <IsNullable>true</IsNullable>
+        </BaseProperty>
+        <BaseProperty xsi:type="SimpleProperty">
+          <Name>FilledAmount</Name>
+          <Comment>Filled contract amount in currency, like $100</Comment>
+          <DisplayOrder>20700</DisplayOrder>
+          <DisplayName>Filled Amount</DisplayName>
+          <Editable>true</Editable>
+          <TypeName>decimal</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <IsStoreGenerated>false</IsStoreGenerated>
+          <RestrictedData>false</RestrictedData>
+          <UiVisible>true</UiVisible>
+          <EnumTypeName />
+          <IsKey>false</IsKey>
+          <IsForeignKey>false</IsForeignKey>
+          <IsNullable>true</IsNullable>
+        </BaseProperty>
+      </Properties>
+    </EntityDefinition>
+    <EntityDefinition>
+      <Name>AppSetting</Name>
+      <EntitySource />
+      <NamespaceName>TD</NamespaceName>
+      <DisplayOrder>6</DisplayOrder>
+      <Abstract>false</Abstract>
+      <LetDownloadAll>false</LetDownloadAll>
+      <DisplayName>App Setting</DisplayName>
+      <DisplayMember>Id</DisplayMember>
+      <BaseTypeName>IPrimaryKey</BaseTypeName>
+      <Properties>
+        <BaseProperty xsi:type="SimpleProperty">
+          <Name>SettingType</Name>
+          <DisplayOrder>100</DisplayOrder>
+          <DisplayName>Setting Type</DisplayName>
+          <Editable>true</Editable>
+          <TypeName>int</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <IsStoreGenerated>false</IsStoreGenerated>
+          <RestrictedData>false</RestrictedData>
+          <UiVisible>true</UiVisible>
+          <EnumTypeName>SettingType</EnumTypeName>
+          <IsKey>false</IsKey>
+          <IsForeignKey>false</IsForeignKey>
+          <IsNullable>false</IsNullable>
+        </BaseProperty>
+        <BaseProperty xsi:type="StringProperty">
+          <Name>SettingName</Name>
+          <DisplayOrder>200</DisplayOrder>
+          <DisplayName>Setting Name</DisplayName>
+          <Editable>true</Editable>
+          <TypeName>string</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <IsStoreGenerated>false</IsStoreGenerated>
+          <RestrictedData>false</RestrictedData>
+          <UiVisible>true</UiVisible>
+          <EnumTypeName />
+          <IsKey>false</IsKey>
+          <IsForeignKey>false</IsForeignKey>
+          <IsNullable>false</IsNullable>
+          <MaxLenght>64</MaxLenght>
+        </BaseProperty>
+        <BaseProperty xsi:type="StringProperty">
+          <Name>SettingValue</Name>
+          <Comment>This entities must be read from DB rapidly, so field of this property limited to 2048 characters</Comment>
+          <DisplayOrder>300</DisplayOrder>
+          <DisplayName>Setting Value</DisplayName>
+          <Editable>true</Editable>
+          <TypeName>string</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <IsStoreGenerated>false</IsStoreGenerated>
+          <RestrictedData>false</RestrictedData>
+          <UiVisible>true</UiVisible>
+          <EnumTypeName />
+          <IsKey>false</IsKey>
+          <IsForeignKey>false</IsForeignKey>
+          <IsNullable>false</IsNullable>
+          <MaxLenght>2048</MaxLenght>
+        </BaseProperty>
+        <BaseProperty xsi:type="StringProperty">
+          <Name>Description</Name>
+          <Comment>This entities must be read from DB rapidly, so field of this property limited to 255 characters</Comment>
+          <DisplayOrder>400</DisplayOrder>
+          <DisplayName>Description</DisplayName>
+          <Editable>true</Editable>
+          <TypeName>string</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <IsStoreGenerated>false</IsStoreGenerated>
+          <RestrictedData>false</RestrictedData>
+          <UiVisible>true</UiVisible>
+          <EnumTypeName />
+          <IsKey>false</IsKey>
+          <IsForeignKey>false</IsForeignKey>
+          <IsNullable>true</IsNullable>
+          <MaxLenght>255</MaxLenght>
+        </BaseProperty>
+      </Properties>
+    </EntityDefinition>
+    <EntityDefinition>
+      <Name>Exchange</Name>
+      <EntitySource />
+      <NamespaceName>TD</NamespaceName>
+      <DisplayOrder>7</DisplayOrder>
+      <Abstract>false</Abstract>
+      <LetDownloadAll>false</LetDownloadAll>
+      <DisplayName>Exchange</DisplayName>
+      <DisplayMember>ExchangeCode</DisplayMember>
+      <BaseTypeName>IIsActive</BaseTypeName>
+      <Properties>
+        <BaseProperty xsi:type="StringProperty">
+          <Name>ExchangeName</Name>
+          <DisplayOrder>10100</DisplayOrder>
+          <DisplayName>Exchange Name</DisplayName>
+          <Editable>true</Editable>
+          <TypeName>string</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <IsStoreGenerated>false</IsStoreGenerated>
+          <RestrictedData>false</RestrictedData>
+          <UiVisible>true</UiVisible>
+          <EnumTypeName />
+          <IsKey>false</IsKey>
+          <IsForeignKey>false</IsForeignKey>
+          <IsNullable>true</IsNullable>
+          <MaxLenght>48</MaxLenght>
+        </BaseProperty>
+        <BaseProperty xsi:type="StringProperty">
+          <Name>ExchangeCode</Name>
+          <DisplayOrder>10200</DisplayOrder>
+          <DisplayName>Exchange Code</DisplayName>
+          <Editable>true</Editable>
+          <TypeName>string</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <IsStoreGenerated>false</IsStoreGenerated>
+          <RestrictedData>false</RestrictedData>
+          <UiVisible>true</UiVisible>
+          <EnumTypeName />
+          <IsKey>false</IsKey>
+          <IsForeignKey>false</IsForeignKey>
+          <IsNullable>true</IsNullable>
+          <MaxLenght>8</MaxLenght>
+        </BaseProperty>
+      </Properties>
+    </EntityDefinition>
+    <EntityDefinition>
+      <Name>TradingAccount</Name>
+      <EntitySource />
+      <NamespaceName>TD</NamespaceName>
+      <DisplayOrder>8</DisplayOrder>
+      <Abstract>false</Abstract>
+      <LetDownloadAll>false</LetDownloadAll>
+      <DisplayName>Trading Account</DisplayName>
+      <DisplayMember>Title</DisplayMember>
+      <BaseTypeName>IIsActive</BaseTypeName>
+      <Properties>
+        <BaseProperty xsi:type="StringProperty">
+          <Name>Title</Name>
+          <DisplayOrder>10100</DisplayOrder>
+          <DisplayName>Title</DisplayName>
+          <Editable>true</Editable>
+          <TypeName>string</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <IsStoreGenerated>false</IsStoreGenerated>
+          <RestrictedData>false</RestrictedData>
+          <UiVisible>true</UiVisible>
+          <EnumTypeName />
+          <IsKey>false</IsKey>
+          <IsForeignKey>false</IsForeignKey>
+          <IsNullable>false</IsNullable>
+          <MaxLenght>128</MaxLenght>
+        </BaseProperty>
+        <BaseProperty xsi:type="StringProperty">
+          <Name>AccountCode</Name>
+          <DisplayOrder>10200</DisplayOrder>
+          <DisplayName>Account Code</DisplayName>
+          <Editable>true</Editable>
+          <TypeName>string</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <IsStoreGenerated>false</IsStoreGenerated>
+          <RestrictedData>false</RestrictedData>
+          <UiVisible>true</UiVisible>
+          <EnumTypeName />
+          <IsKey>false</IsKey>
+          <IsForeignKey>false</IsForeignKey>
+          <IsNullable>true</IsNullable>
+          <MaxLenght>20</MaxLenght>
+        </BaseProperty>
+        <BaseProperty xsi:type="SimpleProperty">
+          <Name>ExchangeId</Name>
+          <Comment>The Id value of exchange record that related to the account.</Comment>
+          <DisplayOrder>10300</DisplayOrder>
+          <DisplayName>Exchange Id</DisplayName>
+          <Editable>true</Editable>
+          <TypeName>int</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <IsStoreGenerated>false</IsStoreGenerated>
+          <RestrictedData>false</RestrictedData>
+          <UiVisible>true</UiVisible>
+          <EnumTypeName />
+          <IsKey>false</IsKey>
+          <IsForeignKey>true</IsForeignKey>
+          <IsNullable>false</IsNullable>
+        </BaseProperty>
+        <BaseProperty xsi:type="ComplexProperty">
+          <Name>Exchange</Name>
+          <Comment>Exchange of the account.</Comment>
+          <DisplayOrder>10400</DisplayOrder>
+          <DisplayName>Exchange</DisplayName>
+          <Editable>true</Editable>
+          <TypeName>Exchange</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <IsStoreGenerated>false</IsStoreGenerated>
+          <RestrictedData>false</RestrictedData>
+          <UiVisible>true</UiVisible>
+          <DependentPropertyName>ExchangeId</DependentPropertyName>
+          <DependentPropertyType>int</DependentPropertyType>
+        </BaseProperty>
+        <BaseProperty xsi:type="StringProperty">
+          <Name>Notes</Name>
+          <DisplayOrder>10500</DisplayOrder>
+          <DisplayName>Notes</DisplayName>
+          <Editable>true</Editable>
+          <TypeName>string</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <IsStoreGenerated>false</IsStoreGenerated>
+          <RestrictedData>false</RestrictedData>
+          <UiVisible>true</UiVisible>
+          <EnumTypeName />
+          <IsKey>false</IsKey>
+          <IsForeignKey>false</IsForeignKey>
+          <IsNullable>true</IsNullable>
+          <MaxLenght>0</MaxLenght>
+        </BaseProperty>
+      </Properties>
+    </EntityDefinition>
+    <EntityDefinition>
+      <Name>Currency</Name>
+      <EntitySource />
+      <NamespaceName>TD</NamespaceName>
+      <DisplayOrder>9</DisplayOrder>
+      <Abstract>false</Abstract>
+      <LetDownloadAll>false</LetDownloadAll>
+      <DisplayName>Currency</DisplayName>
+      <DisplayMember>Ticker</DisplayMember>
+      <BaseTypeName>IIsActive</BaseTypeName>
+      <Properties>
+        <BaseProperty xsi:type="StringProperty">
+          <Name>CurrencyTicker</Name>
+          <Comment>Ticker or short code of the currency</Comment>
+          <DisplayOrder>10100</DisplayOrder>
+          <DisplayName>Currency Ticker</DisplayName>
+          <Editable>true</Editable>
+          <TypeName>string</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <IsStoreGenerated>false</IsStoreGenerated>
+          <RestrictedData>false</RestrictedData>
+          <UiVisible>true</UiVisible>
+          <EnumTypeName />
+          <IsKey>false</IsKey>
+          <IsForeignKey>false</IsForeignKey>
+          <IsNullable>false</IsNullable>
+          <MaxLenght>8</MaxLenght>
+        </BaseProperty>
+        <BaseProperty xsi:type="StringProperty">
+          <Name>Description</Name>
+          <Comment>Description for the currency.</Comment>
+          <DisplayOrder>10200</DisplayOrder>
+          <DisplayName>Description</DisplayName>
+          <Editable>true</Editable>
+          <TypeName>string</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <IsStoreGenerated>false</IsStoreGenerated>
+          <RestrictedData>false</RestrictedData>
+          <UiVisible>true</UiVisible>
+          <EnumTypeName />
+          <IsKey>false</IsKey>
+          <IsForeignKey>false</IsForeignKey>
+          <IsNullable>true</IsNullable>
+          <MaxLenght>255</MaxLenght>
+        </BaseProperty>
+      </Properties>
+    </EntityDefinition>
+    <EntityDefinition>
+      <Name>Symbol</Name>
+      <EntitySource />
+      <NamespaceName>TD</NamespaceName>
+      <DisplayOrder>10</DisplayOrder>
+      <Abstract>false</Abstract>
+      <LetDownloadAll>false</LetDownloadAll>
+      <DisplayName>Symbol</DisplayName>
+      <DisplayMember>Ticker</DisplayMember>
+      <BaseTypeName>IIsActive</BaseTypeName>
+      <Properties>
+        <BaseProperty xsi:type="StringProperty">
+          <Name>Ticker</Name>
+          <Comment>Symbol name without exchange prefix, e.g. 'BTUSDT'</Comment>
+          <DisplayOrder>10100</DisplayOrder>
+          <DisplayName>Ticker</DisplayName>
+          <Editable>true</Editable>
+          <TypeName>string</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <IsStoreGenerated>false</IsStoreGenerated>
+          <RestrictedData>false</RestrictedData>
+          <UiVisible>true</UiVisible>
+          <EnumTypeName />
+          <IsKey>false</IsKey>
+          <IsForeignKey>false</IsForeignKey>
+          <IsNullable>false</IsNullable>
+          <MaxLenght>48</MaxLenght>
+        </BaseProperty>
+        <BaseProperty xsi:type="StringProperty">
+          <Name>TickerFull</Name>
+          <Comment>Symbol name with exchange prefix, e.g. 'BYBIT:BTCUSD.P'</Comment>
+          <DisplayOrder>10200</DisplayOrder>
+          <DisplayName>Ticker Full</DisplayName>
+          <Editable>true</Editable>
+          <TypeName>string</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <IsStoreGenerated>false</IsStoreGenerated>
+          <RestrictedData>false</RestrictedData>
+          <UiVisible>true</UiVisible>
+          <EnumTypeName />
+          <IsKey>false</IsKey>
+          <IsForeignKey>false</IsForeignKey>
+          <IsNullable>false</IsNullable>
+          <MaxLenght>64</MaxLenght>
+        </BaseProperty>
+        <BaseProperty xsi:type="StringProperty">
+          <Name>BaseCurrency</Name>
+          <Comment>Contains a string (CurrencyTicker) that representing the symbol's base currency if the instrument is a Crypto pair or a Forex pair or a derivative based on such a pair. Otherwise, it contains empty string. For example, this property holds "GBP" for "GBPJPY", "BTC" for "BTCUSDT" and "" for "NASDAQ:MSFT".</Comment>
+          <DisplayOrder>10300</DisplayOrder>
+          <DisplayName>Base Currency</DisplayName>
+          <Editable>true</Editable>
+          <TypeName>string</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <IsStoreGenerated>false</IsStoreGenerated>
+          <RestrictedData>false</RestrictedData>
+          <UiVisible>true</UiVisible>
+          <EnumTypeName />
+          <IsKey>false</IsKey>
+          <IsForeignKey>false</IsForeignKey>
+          <IsNullable>true</IsNullable>
+          <MaxLenght>8</MaxLenght>
+        </BaseProperty>
+        <BaseProperty xsi:type="StringProperty">
+          <Name>PriceCurrency</Name>
+          <Comment>Contains a string (CurrencyTicker) that representing currency of the symbol's price. For example, this property holds "JPY" for "GBPJPY", "USDT" for "BTCUSDT" and "USD" for "NASDAQ:MSFT".</Comment>
+          <DisplayOrder>10400</DisplayOrder>
+          <DisplayName>Price Currency</DisplayName>
+          <Editable>true</Editable>
+          <TypeName>string</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <IsStoreGenerated>false</IsStoreGenerated>
+          <RestrictedData>false</RestrictedData>
+          <UiVisible>true</UiVisible>
+          <EnumTypeName />
+          <IsKey>false</IsKey>
+          <IsForeignKey>false</IsForeignKey>
+          <IsNullable>false</IsNullable>
+          <MaxLenght>8</MaxLenght>
+        </BaseProperty>
+        <BaseProperty xsi:type="StringProperty">
+          <Name>Description</Name>
+          <Comment>Description of the symbol.</Comment>
+          <DisplayOrder>10500</DisplayOrder>
+          <DisplayName>Description</DisplayName>
+          <Editable>true</Editable>
+          <TypeName>string</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <IsStoreGenerated>false</IsStoreGenerated>
+          <RestrictedData>false</RestrictedData>
+          <UiVisible>true</UiVisible>
+          <EnumTypeName />
+          <IsKey>false</IsKey>
+          <IsForeignKey>false</IsForeignKey>
+          <IsNullable>true</IsNullable>
+          <MaxLenght>255</MaxLenght>
+        </BaseProperty>
+        <BaseProperty xsi:type="SimpleProperty">
+          <Name>ExchangeId</Name>
+          <Comment>The Id value of exchange record that related to the symbol.</Comment>
+          <DisplayOrder>10600</DisplayOrder>
+          <DisplayName>Exchange Id</DisplayName>
+          <Editable>true</Editable>
+          <TypeName>int</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <IsStoreGenerated>false</IsStoreGenerated>
+          <RestrictedData>false</RestrictedData>
+          <UiVisible>true</UiVisible>
+          <EnumTypeName />
+          <IsKey>false</IsKey>
+          <IsForeignKey>true</IsForeignKey>
+          <IsNullable>false</IsNullable>
+        </BaseProperty>
+        <BaseProperty xsi:type="ComplexProperty">
+          <Name>Exchange</Name>
+          <Comment>Exchange of the symbol.</Comment>
+          <DisplayOrder>10700</DisplayOrder>
+          <DisplayName>Exchange</DisplayName>
+          <Editable>true</Editable>
+          <TypeName>Exchange</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <IsStoreGenerated>false</IsStoreGenerated>
+          <RestrictedData>false</RestrictedData>
+          <UiVisible>true</UiVisible>
+          <DependentPropertyName>ExchangeId</DependentPropertyName>
+          <DependentPropertyType>int</DependentPropertyType>
+        </BaseProperty>
+        <BaseProperty xsi:type="SimpleProperty">
+          <Name>MarketType</Name>
+          <DisplayOrder>10800</DisplayOrder>
+          <DisplayName>Market Type</DisplayName>
+          <Editable>true</Editable>
+          <TypeName>int</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <IsStoreGenerated>false</IsStoreGenerated>
+          <RestrictedData>false</RestrictedData>
+          <UiVisible>true</UiVisible>
+          <EnumTypeName>MarketType</EnumTypeName>
+          <IsKey>false</IsKey>
+          <IsForeignKey>false</IsForeignKey>
+          <IsNullable>false</IsNullable>
+        </BaseProperty>
+      </Properties>
+    </EntityDefinition>
+    <EntityDefinition>
+      <Name>EntryOrder</Name>
+      <EntitySource />
+      <NamespaceName>TD</NamespaceName>
+      <DisplayOrder>11</DisplayOrder>
+      <Abstract>false</Abstract>
+      <LetDownloadAll>false</LetDownloadAll>
+      <DisplayName>Entry Order</DisplayName>
+      <DisplayMember>Id</DisplayMember>
+      <BaseTypeName>ITradeOrder</BaseTypeName>
+      <Properties>
+        <BaseProperty xsi:type="SimpleProperty">
+          <Name>TradeId</Name>
+          <DisplayOrder>10100</DisplayOrder>
+          <DisplayName>Trade Id</DisplayName>
+          <Editable>true</Editable>
+          <TypeName>int</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <IsStoreGenerated>false</IsStoreGenerated>
+          <RestrictedData>false</RestrictedData>
+          <UiVisible>true</UiVisible>
+          <EnumTypeName />
+          <IsKey>false</IsKey>
+          <IsForeignKey>true</IsForeignKey>
+          <IsNullable>false</IsNullable>
+        </BaseProperty>
+        <BaseProperty xsi:type="ComplexProperty">
+          <Name>Trade</Name>
+          <DisplayOrder>10200</DisplayOrder>
+          <DisplayName>Trade</DisplayName>
+          <Editable>true</Editable>
+          <TypeName>Trade</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <IsStoreGenerated>false</IsStoreGenerated>
+          <RestrictedData>false</RestrictedData>
+          <UiVisible>true</UiVisible>
+          <DependentPropertyName>TradeId</DependentPropertyName>
+          <DependentPropertyType>int</DependentPropertyType>
+        </BaseProperty>
+      </Properties>
+    </EntityDefinition>
+    <EntityDefinition>
+      <Name>TakeProfitOrder</Name>
+      <EntitySource />
+      <NamespaceName>TD</NamespaceName>
+      <DisplayOrder>12</DisplayOrder>
+      <Abstract>false</Abstract>
+      <LetDownloadAll>false</LetDownloadAll>
+      <DisplayName>Entry Order</DisplayName>
+      <DisplayMember>Id</DisplayMember>
+      <BaseTypeName>ITradeOrder</BaseTypeName>
+      <Properties>
+        <BaseProperty xsi:type="SimpleProperty">
+          <Name>TradeId</Name>
+          <DisplayOrder>10100</DisplayOrder>
+          <DisplayName>Trade Id</DisplayName>
+          <Editable>true</Editable>
+          <TypeName>int</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <IsStoreGenerated>false</IsStoreGenerated>
+          <RestrictedData>false</RestrictedData>
+          <UiVisible>true</UiVisible>
+          <EnumTypeName />
+          <IsKey>false</IsKey>
+          <IsForeignKey>true</IsForeignKey>
+          <IsNullable>false</IsNullable>
+        </BaseProperty>
+        <BaseProperty xsi:type="ComplexProperty">
+          <Name>Trade</Name>
+          <DisplayOrder>10200</DisplayOrder>
+          <DisplayName>Trade</DisplayName>
+          <Editable>true</Editable>
+          <TypeName>Trade</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <IsStoreGenerated>false</IsStoreGenerated>
+          <RestrictedData>false</RestrictedData>
+          <UiVisible>true</UiVisible>
+          <DependentPropertyName>TradeId</DependentPropertyName>
+          <DependentPropertyType>int</DependentPropertyType>
+        </BaseProperty>
+      </Properties>
+    </EntityDefinition>
+    <EntityDefinition>
+      <Name>StopLossOrder</Name>
+      <EntitySource />
+      <NamespaceName>TD</NamespaceName>
+      <DisplayOrder>13</DisplayOrder>
+      <Abstract>false</Abstract>
+      <LetDownloadAll>false</LetDownloadAll>
+      <DisplayName>Entry Order</DisplayName>
+      <DisplayMember>Id</DisplayMember>
+      <BaseTypeName>ITradeOrder</BaseTypeName>
+      <Properties>
+        <BaseProperty xsi:type="SimpleProperty">
+          <Name>TradeId</Name>
+          <DisplayOrder>10100</DisplayOrder>
+          <DisplayName>Trade Id</DisplayName>
+          <Editable>true</Editable>
+          <TypeName>int</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <IsStoreGenerated>false</IsStoreGenerated>
+          <RestrictedData>false</RestrictedData>
+          <UiVisible>true</UiVisible>
+          <EnumTypeName />
+          <IsKey>false</IsKey>
+          <IsForeignKey>true</IsForeignKey>
+          <IsNullable>false</IsNullable>
+        </BaseProperty>
+        <BaseProperty xsi:type="ComplexProperty">
+          <Name>Trade</Name>
+          <DisplayOrder>10200</DisplayOrder>
+          <DisplayName>Trade</DisplayName>
+          <Editable>true</Editable>
+          <TypeName>Trade</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <IsStoreGenerated>false</IsStoreGenerated>
+          <RestrictedData>false</RestrictedData>
+          <UiVisible>true</UiVisible>
+          <DependentPropertyName>TradeId</DependentPropertyName>
+          <DependentPropertyType>int</DependentPropertyType>
+        </BaseProperty>
+        <BaseProperty xsi:type="SimpleProperty">
+          <Name>StopAll</Name>
+          <Comment>Indicates that all remaining quantity of the trade was or will be closed</Comment>
+          <DisplayOrder>10300</DisplayOrder>
+          <DisplayName>Stop All</DisplayName>
+          <Editable>true</Editable>
+          <TypeName>bool</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <IsStoreGenerated>false</IsStoreGenerated>
+          <RestrictedData>false</RestrictedData>
+          <UiVisible>true</UiVisible>
+          <EnumTypeName />
+          <IsKey>false</IsKey>
+          <IsForeignKey>false</IsForeignKey>
+          <IsNullable>false</IsNullable>
+        </BaseProperty>
+      </Properties>
+    </EntityDefinition>
+    <EntityDefinition>
+      <Name>TradePlan</Name>
+      <EntitySource />
+      <NamespaceName>TD</NamespaceName>
+      <DisplayOrder>14</DisplayOrder>
+      <Abstract>false</Abstract>
+      <LetDownloadAll>false</LetDownloadAll>
+      <DisplayName>Trade Plan</DisplayName>
+      <DisplayMember>Id</DisplayMember>
+      <BaseTypeName>IModifyDate</BaseTypeName>
+      <Properties>
+        <BaseProperty xsi:type="SimpleProperty">
+          <Name>TradeId</Name>
+          <DisplayOrder>10100</DisplayOrder>
+          <DisplayName>Trade Id</DisplayName>
+          <Editable>true</Editable>
+          <TypeName>int</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <IsStoreGenerated>false</IsStoreGenerated>
+          <RestrictedData>false</RestrictedData>
+          <UiVisible>true</UiVisible>
+          <EnumTypeName />
+          <IsKey>false</IsKey>
+          <IsForeignKey>true</IsForeignKey>
+          <IsNullable>false</IsNullable>
+        </BaseProperty>
+        <BaseProperty xsi:type="ComplexProperty">
+          <Name>Trade</Name>
+          <DisplayOrder>10200</DisplayOrder>
+          <DisplayName>Trade</DisplayName>
+          <Editable>true</Editable>
+          <TypeName>Trade</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <IsStoreGenerated>false</IsStoreGenerated>
+          <RestrictedData>false</RestrictedData>
+          <UiVisible>true</UiVisible>
+          <DependentPropertyName>TradeId</DependentPropertyName>
+          <DependentPropertyType>int</DependentPropertyType>
+        </BaseProperty>
+        <BaseProperty xsi:type="StringProperty">
+          <Name>ImageURL</Name>
+          <Comment>Web URL or local file path of the image</Comment>
+          <DisplayOrder>10300</DisplayOrder>
+          <DisplayName>Image URL</DisplayName>
+          <Editable>true</Editable>
+          <TypeName>string</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <IsStoreGenerated>false</IsStoreGenerated>
+          <RestrictedData>false</RestrictedData>
+          <UiVisible>true</UiVisible>
+          <EnumTypeName />
+          <IsKey>false</IsKey>
+          <IsForeignKey>false</IsForeignKey>
+          <IsNullable>false</IsNullable>
+          <MaxLenght>0</MaxLenght>
+        </BaseProperty>
+        <BaseProperty xsi:type="StringProperty">
+          <Name>Notes</Name>
+          <DisplayOrder>10400</DisplayOrder>
+          <DisplayName>Notes</DisplayName>
+          <Editable>true</Editable>
+          <TypeName>string</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <IsStoreGenerated>false</IsStoreGenerated>
+          <RestrictedData>false</RestrictedData>
+          <UiVisible>true</UiVisible>
+          <EnumTypeName />
+          <IsKey>false</IsKey>
+          <IsForeignKey>false</IsForeignKey>
+          <IsNullable>true</IsNullable>
+          <MaxLenght>0</MaxLenght>
+        </BaseProperty>
+      </Properties>
+    </EntityDefinition>
+    <EntityDefinition>
+      <Name>Trade</Name>
+      <EntitySource />
+      <NamespaceName>TD</NamespaceName>
+      <DisplayOrder>15</DisplayOrder>
+      <Abstract>false</Abstract>
+      <LetDownloadAll>false</LetDownloadAll>
+      <DisplayName>Trade</DisplayName>
+      <DisplayMember>Id</DisplayMember>
+      <BaseTypeName>IModifyDate</BaseTypeName>
+      <Properties>
+        <BaseProperty xsi:type="SimpleProperty">
+          <Name>TradingAccountId</Name>
+          <DisplayOrder>10100</DisplayOrder>
+          <DisplayName>Trading Account Id</DisplayName>
+          <Editable>true</Editable>
+          <TypeName>int</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <IsStoreGenerated>false</IsStoreGenerated>
+          <RestrictedData>false</RestrictedData>
+          <UiVisible>true</UiVisible>
+          <EnumTypeName />
+          <IsKey>false</IsKey>
+          <IsForeignKey>true</IsForeignKey>
+          <IsNullable>false</IsNullable>
+        </BaseProperty>
+        <BaseProperty xsi:type="ComplexProperty">
+          <Name>TradingAccount</Name>
+          <DisplayOrder>10200</DisplayOrder>
+          <DisplayName>Trading Account</DisplayName>
+          <Editable>true</Editable>
+          <TypeName>TradingAccount</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <IsStoreGenerated>false</IsStoreGenerated>
+          <RestrictedData>false</RestrictedData>
+          <UiVisible>true</UiVisible>
+          <DependentPropertyName>TradingAccountId</DependentPropertyName>
+          <DependentPropertyType>int</DependentPropertyType>
+        </BaseProperty>
+        <BaseProperty xsi:type="SimpleProperty">
+          <Name>SymbolId</Name>
+          <DisplayOrder>10300</DisplayOrder>
+          <DisplayName>Symbol Id</DisplayName>
+          <Editable>true</Editable>
+          <TypeName>int</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <IsStoreGenerated>false</IsStoreGenerated>
+          <RestrictedData>false</RestrictedData>
+          <UiVisible>true</UiVisible>
+          <EnumTypeName />
+          <IsKey>false</IsKey>
+          <IsForeignKey>true</IsForeignKey>
+          <IsNullable>false</IsNullable>
+        </BaseProperty>
+        <BaseProperty xsi:type="ComplexProperty">
+          <Name>Symbol</Name>
+          <DisplayOrder>10400</DisplayOrder>
+          <DisplayName>Symbol</DisplayName>
+          <Editable>true</Editable>
+          <TypeName>Symbol</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <IsStoreGenerated>false</IsStoreGenerated>
+          <RestrictedData>false</RestrictedData>
+          <UiVisible>true</UiVisible>
+          <DependentPropertyName>SymbolId</DependentPropertyName>
+          <DependentPropertyType>int</DependentPropertyType>
+        </BaseProperty>
+        <BaseProperty xsi:type="SimpleProperty">
+          <Name>EntryTime</Name>
+          <DisplayOrder>10500</DisplayOrder>
+          <DisplayName>Entry Time</DisplayName>
+          <Editable>true</Editable>
+          <TypeName>DateTime</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <IsStoreGenerated>false</IsStoreGenerated>
+          <RestrictedData>false</RestrictedData>
+          <UiVisible>true</UiVisible>
+          <EnumTypeName />
+          <IsKey>false</IsKey>
+          <IsForeignKey>false</IsForeignKey>
+          <IsNullable>true</IsNullable>
+        </BaseProperty>
+        <BaseProperty xsi:type="SimpleProperty">
+          <Name>EntryMethod</Name>
+          <DisplayOrder>10600</DisplayOrder>
+          <DisplayName>Entry Method</DisplayName>
+          <Editable>true</Editable>
+          <TypeName>int</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <IsStoreGenerated>false</IsStoreGenerated>
+          <RestrictedData>false</RestrictedData>
+          <UiVisible>true</UiVisible>
+          <EnumTypeName>EntryMethod</EnumTypeName>
+          <IsKey>false</IsKey>
+          <IsForeignKey>false</IsForeignKey>
+          <IsNullable>false</IsNullable>
+        </BaseProperty>
+        <BaseProperty xsi:type="SimpleProperty">
+          <Name>TradeDirection</Name>
+          <DisplayOrder>10700</DisplayOrder>
+          <DisplayName>Trade Direction</DisplayName>
+          <Editable>true</Editable>
+          <TypeName>int</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <IsStoreGenerated>false</IsStoreGenerated>
+          <RestrictedData>false</RestrictedData>
+          <UiVisible>true</UiVisible>
+          <EnumTypeName>TradeDirection</EnumTypeName>
+          <IsKey>false</IsKey>
+          <IsForeignKey>false</IsForeignKey>
+          <IsNullable>false</IsNullable>
+        </BaseProperty>
+        <BaseProperty xsi:type="CollectionProperty">
+          <Name>EntryOrders</Name>
+          <DisplayOrder>10800</DisplayOrder>
+          <DisplayName>Entry Orders</DisplayName>
+          <Editable>true</Editable>
+          <TypeName>ICollection&lt;EntryOrder&gt;</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <IsStoreGenerated>false</IsStoreGenerated>
+          <RestrictedData>false</RestrictedData>
+          <UiVisible>true</UiVisible>
+        </BaseProperty>
+        <BaseProperty xsi:type="SimpleProperty">
+          <Name>PlannedEntry</Name>
+          <Comment>Planned Entry Price, calculated from EntryOrders</Comment>
+          <DisplayOrder>10900</DisplayOrder>
+          <DisplayName>Planned Entry Price</DisplayName>
+          <Editable>true</Editable>
+          <TypeName>decimal</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <IsStoreGenerated>false</IsStoreGenerated>
+          <RestrictedData>false</RestrictedData>
+          <UiVisible>true</UiVisible>
+          <EnumTypeName />
+          <IsKey>false</IsKey>
+          <IsForeignKey>false</IsForeignKey>
+          <IsNullable>true</IsNullable>
+        </BaseProperty>
+        <BaseProperty xsi:type="SimpleProperty">
+          <Name>ExecutedEntry</Name>
+          <Comment>Executed Entry Price, calculated from EntryOrders</Comment>
+          <DisplayOrder>11000</DisplayOrder>
+          <DisplayName>Exec. Entry Price</DisplayName>
+          <Editable>true</Editable>
+          <TypeName>decimal</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <IsStoreGenerated>false</IsStoreGenerated>
+          <RestrictedData>false</RestrictedData>
+          <UiVisible>true</UiVisible>
+          <EnumTypeName />
+          <IsKey>false</IsKey>
+          <IsForeignKey>false</IsForeignKey>
+          <IsNullable>true</IsNullable>
+        </BaseProperty>
+        <BaseProperty xsi:type="CollectionProperty">
+          <Name>TakeProfitOrders</Name>
+          <DisplayOrder>11100</DisplayOrder>
+          <DisplayName>Take Profit Orders</DisplayName>
+          <Editable>true</Editable>
+          <TypeName>ICollection&lt;TakeProfitOrder&gt;</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <IsStoreGenerated>false</IsStoreGenerated>
+          <RestrictedData>false</RestrictedData>
+          <UiVisible>true</UiVisible>
+        </BaseProperty>
+        <BaseProperty xsi:type="SimpleProperty">
+          <Name>PlannedTP</Name>
+          <Comment>Planned Take Profit Price, calculated from TakeProfitOrders</Comment>
+          <DisplayOrder>11200</DisplayOrder>
+          <DisplayName>Planned Take Profit</DisplayName>
+          <Editable>true</Editable>
+          <TypeName>decimal</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <IsStoreGenerated>false</IsStoreGenerated>
+          <RestrictedData>false</RestrictedData>
+          <UiVisible>true</UiVisible>
+          <EnumTypeName />
+          <IsKey>false</IsKey>
+          <IsForeignKey>false</IsForeignKey>
+          <IsNullable>true</IsNullable>
+        </BaseProperty>
+        <BaseProperty xsi:type="SimpleProperty">
+          <Name>ExecutedTP</Name>
+          <Comment>Executed Take Profit Price, calculated from TakeProfitOrders</Comment>
+          <DisplayOrder>11300</DisplayOrder>
+          <DisplayName>Exec. Take Profit</DisplayName>
+          <Editable>true</Editable>
+          <TypeName>decimal</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <IsStoreGenerated>false</IsStoreGenerated>
+          <RestrictedData>false</RestrictedData>
+          <UiVisible>true</UiVisible>
+          <EnumTypeName />
+          <IsKey>false</IsKey>
+          <IsForeignKey>false</IsForeignKey>
+          <IsNullable>true</IsNullable>
+        </BaseProperty>
+        <BaseProperty xsi:type="CollectionProperty">
+          <Name>StopLossOrders</Name>
+          <DisplayOrder>11400</DisplayOrder>
+          <DisplayName>Stop Loss Orders</DisplayName>
+          <Editable>true</Editable>
+          <TypeName>ICollection&lt;StopLossOrder&gt;</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <IsStoreGenerated>false</IsStoreGenerated>
+          <RestrictedData>false</RestrictedData>
+          <UiVisible>true</UiVisible>
+        </BaseProperty>
+        <BaseProperty xsi:type="SimpleProperty">
+          <Name>PlannedSL</Name>
+          <Comment>Planned Stop Loss Price, calculated from StopLossOrders</Comment>
+          <DisplayOrder>11500</DisplayOrder>
+          <DisplayName>Planned Stop Loss</DisplayName>
+          <Editable>true</Editable>
+          <TypeName>decimal</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <IsStoreGenerated>false</IsStoreGenerated>
+          <RestrictedData>false</RestrictedData>
+          <UiVisible>true</UiVisible>
+          <EnumTypeName />
+          <IsKey>false</IsKey>
+          <IsForeignKey>false</IsForeignKey>
+          <IsNullable>true</IsNullable>
+        </BaseProperty>
+        <BaseProperty xsi:type="SimpleProperty">
+          <Name>ExecutedSL</Name>
+          <Comment>Executed Stop Loss Price, calculated from StopLossOrders</Comment>
+          <DisplayOrder>11600</DisplayOrder>
+          <DisplayName>Exec. Stop Loss</DisplayName>
+          <Editable>true</Editable>
+          <TypeName>decimal</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <IsStoreGenerated>false</IsStoreGenerated>
+          <RestrictedData>false</RestrictedData>
+          <UiVisible>true</UiVisible>
+          <EnumTypeName />
+          <IsKey>false</IsKey>
+          <IsForeignKey>false</IsForeignKey>
+          <IsNullable>true</IsNullable>
+        </BaseProperty>
+        <BaseProperty xsi:type="CollectionProperty">
+          <Name>TradePlans</Name>
+          <DisplayOrder>11700</DisplayOrder>
+          <DisplayName>Trade Plans</DisplayName>
+          <Editable>true</Editable>
+          <TypeName>ICollection&lt;TradePlan&gt;</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <IsStoreGenerated>false</IsStoreGenerated>
+          <RestrictedData>false</RestrictedData>
+          <UiVisible>true</UiVisible>
+        </BaseProperty>
+      </Properties>
+    </EntityDefinition>
+  </DataModel>
+  <StripSourcePrefixes>false</StripSourcePrefixes>
+  <SourceClassPrefix />
+  <CodeEngineList>
+    <string>T-Sql_Scripts_Generator</string>
+    <string>Sqlite_Scripts_Generator</string>
+    <string>Localization_Resource_Generator</string>
+  </CodeEngineList>
+</CodeGenProject>

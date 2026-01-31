@@ -1,0 +1,1131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfVocab xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Vocab>
+    <Name>Action</Name>
+    <Translation>Action</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Add</Name>
+    <Translation>Add</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddCompany</Name>
+    <Translation>Add Company</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddContact</Name>
+    <Translation>Add Contact</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddCountry</Name>
+    <Translation>Add Country</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddCustomer</Name>
+    <Translation>Add Customer</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddNew</Name>
+    <Translation>Add New</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddNewCity</Name>
+    <Translation>Add New City</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddNewCompany</Name>
+    <Translation>Add New Company</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddNewContact</Name>
+    <Translation>Add New Contact</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddNewCountry</Name>
+    <Translation>Add New Country</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddNewCustomer</Name>
+    <Translation>Add New Customer</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddNewOrderItem</Name>
+    <Translation>Add New Order Item</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddNewPerson</Name>
+    <Translation>Add New Person</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddNewProduct</Name>
+    <Translation>Add New Product</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddNewProductCategory</Name>
+    <Translation>Add New Product Category</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddNewPurchaseOrder</Name>
+    <Translation>Add New Purchase Order</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddNewStore</Name>
+    <Translation>Add New Store</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddNewStoreStaff</Name>
+    <Translation>Add New Store Staff</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddNewSupplier</Name>
+    <Translation>Add New Supplier</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddOrderItem</Name>
+    <Translation>Add Order Item</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddPerson</Name>
+    <Translation>Add Person</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddProduct</Name>
+    <Translation>Add Product</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddProductCategory</Name>
+    <Translation>Add Product Category</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddPurchaseOrder</Name>
+    <Translation>Add Purchase Order</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Address</Name>
+    <Translation>Address</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Address1</Name>
+    <Translation>Address Line 1</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Address2</Name>
+    <Translation>Address Line 2</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddStore</Name>
+    <Translation>Add Store</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddStoreStaff</Name>
+    <Translation>Add Store Staff</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddSupplier</Name>
+    <Translation>Add Supplier</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Admin</Name>
+    <Translation>Admin</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Always</Name>
+    <Translation>Always</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ApproveDate</Name>
+    <Translation>Approve Date</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ApprovedUserId</Name>
+    <Translation>Approved User ID</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ApprovedUserIp</Name>
+    <Translation>Approved User IP</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AreYouSure</Name>
+    <Translation>Are you sure</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>BackToIndex</Name>
+    <Translation>Go to List</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>BecauseOfRelatedRecords</Name>
+    <Translation>This record has some relations.</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Cancel</Name>
+    <Translation>Cancel</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CanNotDelete</Name>
+    <Translation>Can not delete</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Categories</Name>
+    <Translation>Categories</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Category</Name>
+    <Translation>Category</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CategoryId</Name>
+    <Translation>Category</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Choose</Name>
+    <Translation>Choose</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Cities</Name>
+    <Translation>Cities</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CitiesList</Name>
+    <Translation>Cities List</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>City</Name>
+    <Translation>City</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CityName</Name>
+    <Translation>City Name</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Clear</Name>
+    <Translation>Clear</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Clone</Name>
+    <Translation>Clone</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Code</Name>
+    <Translation>Code</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Command</Name>
+    <Translation>Command</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Companies</Name>
+    <Translation>Companies</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CompaniesList</Name>
+    <Translation>Companies List</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Company</Name>
+    <Translation>Company</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CompanyId</Name>
+    <Translation>Company Id</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CompanyName</Name>
+    <Translation>Company Name</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ConfirmEmail</Name>
+    <Translation>Confirm Email</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ConfirmPassword</Name>
+    <Translation>Confirm Password</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Contact</Name>
+    <Translation>Contact</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Contacts</Name>
+    <Translation>Contacts</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ContactsList</Name>
+    <Translation>Contacts List</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Countries</Name>
+    <Translation>Countries</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CountriesList</Name>
+    <Translation>Countries List</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Country</Name>
+    <Translation>Country</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CountryId</Name>
+    <Translation>Country Id</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CountryName</Name>
+    <Translation>Country Name</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Create</Name>
+    <Translation>Create</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CreateCity</Name>
+    <Translation>Create City</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CreateCompany</Name>
+    <Translation>Create Company</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CreateContact</Name>
+    <Translation>Create Contact</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CreateCountry</Name>
+    <Translation>Create Country</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CreateCustomer</Name>
+    <Translation>Create Customer</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CreateCustomerAddress</Name>
+    <Translation>Create Customer Address</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CreateDate</Name>
+    <Translation>Create Date</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CreateNew</Name>
+    <Translation>Create New</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CreateOrder</Name>
+    <Translation>Create Order</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CreateOrderItem</Name>
+    <Translation>Create Order Item</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CreatePerson</Name>
+    <Translation>Create Person</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CreateProduct</Name>
+    <Translation>Create Product</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CreateProductCategory</Name>
+    <Translation>Create Product Category</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CreatePurchaseOrder</Name>
+    <Translation>Create Purchase Order</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CreateStore</Name>
+    <Translation>Create Store</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CreateStoreStaff</Name>
+    <Translation>Create Store Staff</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CreateSupplier</Name>
+    <Translation>Create Supplier</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CreatorId</Name>
+    <Translation>Creator</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CreatorIp</Name>
+    <Translation>Creator Ip</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Customer</Name>
+    <Translation>Customer</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CustomerAddress</Name>
+    <Translation>Customer Address</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CustomerAddresses</Name>
+    <Translation>Customer Addresses</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CustomerAddressesList</Name>
+    <Translation>Customer Addresses List</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CustomerAddressId</Name>
+    <Translation>Customer Address Id</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CustomerCode</Name>
+    <Translation>Customer Code</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CustomerId</Name>
+    <Translation>Customer Id</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Customers</Name>
+    <Translation>Customers</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CustomersList</Name>
+    <Translation>Customers List</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Date</Name>
+    <Translation>Date</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Delete</Name>
+    <Translation>Delete</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>DeleteCity</Name>
+    <Translation>Delete City</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>DeleteCompany</Name>
+    <Translation>Delete Company</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>DeleteContact</Name>
+    <Translation>Delete Contact</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>DeleteCountry</Name>
+    <Translation>Delete Country</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>DeleteCustomer</Name>
+    <Translation>Delete Customer</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>DeleteCustomerAddress</Name>
+    <Translation>Delete Customer Address</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>DeleteOrder</Name>
+    <Translation>Delete Order</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>DeleteOrderItem</Name>
+    <Translation>Delete Order Item</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>DeletePerson</Name>
+    <Translation>Delete Person</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>DeleteProduct</Name>
+    <Translation>Delete Product</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>DeleteProductCategory</Name>
+    <Translation>Delete Product Category</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>DeletePurchaseOrder</Name>
+    <Translation>Delete Purchase Order</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>DeleteStore</Name>
+    <Translation>Delete Store</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>DeleteStoreStaff</Name>
+    <Translation>Delete Store Staff</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>DeleteSupplier</Name>
+    <Translation>Delete Supplier</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Deleting</Name>
+    <Translation>Deleting</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Depth</Name>
+    <Translation>Depth</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Description</Name>
+    <Translation>Description</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Details</Name>
+    <Translation>Details</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Display</Name>
+    <Translation>Display</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>DisplayOrder</Name>
+    <Translation>Display Order</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>District</Name>
+    <Translation>District</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>DistrictName</Name>
+    <Translation>District Name</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>DoNotSet</Name>
+    <Translation>Do Not Set</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>DueDate</Name>
+    <Translation>Due Date</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Duplicate</Name>
+    <Translation>Duplicate</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Edit</Name>
+    <Translation>Edit</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>EditCity</Name>
+    <Translation>Edit City</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>EditCompany</Name>
+    <Translation>Edit Company</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>EditContact</Name>
+    <Translation>Edit Contact</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>EditCountry</Name>
+    <Translation>Edit Country</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>EditCustomer</Name>
+    <Translation>Edit Customer</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>EditCustomerAddress</Name>
+    <Translation>Edit Customer Address</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>EditOrder</Name>
+    <Translation>Edit Order</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>EditOrderItem</Name>
+    <Translation>Edit Order Item</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>EditPerson</Name>
+    <Translation>Edit Person</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>EditProduct</Name>
+    <Translation>Edit Product</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>EditProductCategory</Name>
+    <Translation>Edit Product Category</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>EditPurchaseOrder</Name>
+    <Translation>Edit Purchase Order</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>EditStore</Name>
+    <Translation>Edit Store</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>EditStoreStaff</Name>
+    <Translation>Edit Store Staff</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>EditSupplier</Name>
+    <Translation>Edit Supplier</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Email</Name>
+    <Translation>Email</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>EmailHome</Name>
+    <Translation>Email Home</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>EmailWork</Name>
+    <Translation>Email Work</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>EnterKeywordHere</Name>
+    <Translation>Enter Keyword Here</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Erase</Name>
+    <Translation>Erase</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ExpireDate</Name>
+    <Translation>Expire Date</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Fast</Name>
+    <Translation>Fast</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Fax</Name>
+    <Translation>Fax</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Female</Name>
+    <Translation>Female</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>FirstName</Name>
+    <Translation>First Name</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Height</Name>
+    <Translation>Height</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Home</Name>
+    <Translation>Home</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Id</Name>
+    <Translation>Record Nr</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ImageFile</Name>
+    <Translation>Image File</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ImageFileName</Name>
+    <Translation>Image File</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ImageFileNames</Name>
+    <Translation>Image Files</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ImageFiles</Name>
+    <Translation>Image Files</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Index</Name>
+    <Translation>Index</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>IsApproved</Name>
+    <Translation>Is Approved</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>IsPublished</Name>
+    <Translation>Is Published</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Lastname</Name>
+    <Translation>Lastname</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>LastName</Name>
+    <Translation>Last Name</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Latitude</Name>
+    <Translation>Latitude</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Loading</Name>
+    <Translation>Loading</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Location</Name>
+    <Translation>Location</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Login</Name>
+    <Translation>Login</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>LogIn</Name>
+    <Translation>Log In</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>LogOff</Name>
+    <Translation>Log Off</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>LogOn</Name>
+    <Translation>Log On</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Logout</Name>
+    <Translation>Logout</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>LogOut</Name>
+    <Translation>Log Out</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Longitude</Name>
+    <Translation>Longitude</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Male</Name>
+    <Translation>Male</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ModifierId</Name>
+    <Translation>Modifier</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ModifierIp</Name>
+    <Translation>Modifier Ip</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ModifyDate</Name>
+    <Translation>Modify Date</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ModifyNr</Name>
+    <Translation>Modify Nr</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Name</Name>
+    <Translation>Name</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Never</Name>
+    <Translation>Never</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>No</Name>
+    <Translation>No</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>NoResults</Name>
+    <Translation>There is no results to display</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Normal</Name>
+    <Translation>Normal</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Notes</Name>
+    <Translation>Notes</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>NumericIsoCode</Name>
+    <Translation>Numeric Iso Code</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Often</Name>
+    <Translation>Often</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Order</Name>
+    <Translation>Order</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>OrderDate</Name>
+    <Translation>Order Date</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>OrderId</Name>
+    <Translation>Order Id</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>OrderItem</Name>
+    <Translation>Order Item</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>OrderItems</Name>
+    <Translation>Order Items</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>OrderItemsList</Name>
+    <Translation>Order Items List</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Orders</Name>
+    <Translation>Orders</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>OrdersList</Name>
+    <Translation>Orders List</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ParentCategories</Name>
+    <Translation>Parent Categories</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ParentCategory</Name>
+    <Translation>Parent Category</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ParentCategoryId</Name>
+    <Translation>Parent Category Id</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Password</Name>
+    <Translation>Password</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Person</Name>
+    <Translation>Person</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Persons</Name>
+    <Translation>Persons</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>PersonsList</Name>
+    <Translation>Persons List</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Phone</Name>
+    <Translation>Phone</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Phone1</Name>
+    <Translation>Phone1</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Phone2</Name>
+    <Translation>Phone2</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Phone3</Name>
+    <Translation>Phone3</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>PhoneHome</Name>
+    <Translation>Home Phone</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>PhoneMobile</Name>
+    <Translation>Mobile Phone</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>PhoneOther</Name>
+    <Translation>Other Phone</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>PhoneWork</Name>
+    <Translation>Work Phone</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>PhoneWork1</Name>
+    <Translation>Phone Work1</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>PhoneWork2</Name>
+    <Translation>Phone Work2</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>PleaseWait</Name>
+    <Translation>Please Wait</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>PositionX</Name>
+    <Translation>Position X</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>PositionY</Name>
+    <Translation>Position Y</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>PositionZ</Name>
+    <Translation>Position Z</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Price</Name>
+    <Translation>Price</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Print</Name>
+    <Translation>Print</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Product</Name>
+    <Translation>Product</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ProductCategories</Name>
+    <Translation>Product Categories</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ProductCategoriesList</Name>
+    <Translation>Product Categories List</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ProductCategory</Name>
+    <Translation>Product Category</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ProductCategoryId</Name>
+    <Translation>Product Category Id</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ProductId</Name>
+    <Translation>Product Id</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Products</Name>
+    <Translation>Products</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ProductsList</Name>
+    <Translation>Products List</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>PublishDate</Name>
+    <Translation>Publish Date</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>PurchaseOrder</Name>
+    <Translation>Purchase Order</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>PurchaseOrderId</Name>
+    <Translation>Purchase Order Id</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>PurchaseOrders</Name>
+    <Translation>Purchase Orders</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>PurchaseOrdersList</Name>
+    <Translation>Purchase Orders List</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Quantity</Name>
+    <Translation>Quantity</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Rarely</Name>
+    <Translation>Rarely</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Record</Name>
+    <Translation>Record</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Register</Name>
+    <Translation>Register</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>RelatedRecordsExist</Name>
+    <Translation>This record has {0} related {1}.</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Remove</Name>
+    <Translation>Remove</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>RotationX</Name>
+    <Translation>Rotation X</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>RotationY</Name>
+    <Translation>Rotation Y</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>RotationZ</Name>
+    <Translation>Rotation Z</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Save</Name>
+    <Translation>Save</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Search</Name>
+    <Translation>Search</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>SearchActives</Name>
+    <Translation>Search Actives</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Select</Name>
+    <Translation>Select</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>SelectPlease</Name>
+    <Translation>Please Select</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Show</Name>
+    <Translation>Show</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Size</Name>
+    <Translation>Size</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Slow</Name>
+    <Translation>Slow</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Sometimes</Name>
+    <Translation>Sometimes</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>State</Name>
+    <Translation>State</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Store</Name>
+    <Translation>Store</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>StoreId</Name>
+    <Translation>Store Id</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Stores</Name>
+    <Translation>Stores</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>StoresList</Name>
+    <Translation>Stores List</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>StoreStaff</Name>
+    <Translation>Store Staff</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>StoreStaffs</Name>
+    <Translation>Store Staffs</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>StoreStaffsList</Name>
+    <Translation>Store Staffs List</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>SubCategories</Name>
+    <Translation>Sub Categories</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>SubCategory</Name>
+    <Translation>Sub Category</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>SubjectToVat</Name>
+    <Translation>Subject To Vat</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Supplier</Name>
+    <Translation>Supplier</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>SupplierCode</Name>
+    <Translation>Supplier Code</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Suppliers</Name>
+    <Translation>Suppliers</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>SuppliersList</Name>
+    <Translation>Suppliers List</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Surname</Name>
+    <Translation>Surname</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>TaxNr</Name>
+    <Translation>Tax Nr</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>TaxOffice</Name>
+    <Translation>Tax Office</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ThreeLetterIsoCode</Name>
+    <Translation>Three Letter Iso Code</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Title</Name>
+    <Translation>Title</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Township</Name>
+    <Translation>Township</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>TownshipName</Name>
+    <Translation>Township Name</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Townships</Name>
+    <Translation>Townships</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>TwoLetterIsoCode</Name>
+    <Translation>Two Letter Iso Code</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>UnableToDelete</Name>
+    <Translation>Unable to Delete</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>UnexpectedError</Name>
+    <Translation>Unexpected Error</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Unit</Name>
+    <Translation>Unit</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Update</Name>
+    <Translation>Update</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>UserName</Name>
+    <Translation>UserName</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>VAT</Name>
+    <Translation>VAT</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Width</Name>
+    <Translation>Width</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Yes</Name>
+    <Translation>Yes</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>YouAreAboutToDelete</Name>
+    <Translation>You are about to delete the record</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ZipCode</Name>
+    <Translation>Zip Code</Translation>
+  </Vocab>
+</ArrayOfVocab>

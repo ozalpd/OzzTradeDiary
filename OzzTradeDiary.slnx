@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="OzzTradeDiary.NET/TD.Data/TD.Data.csproj" Id="080a78f6-f54f-40f3-91f8-e4202fdd6de3" />
+  <Project Path="OzzTradeDiary.NET/TD.WPF/TD.WPF.csproj" />
+</Solution>
