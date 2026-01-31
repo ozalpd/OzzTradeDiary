@@ -1,0 +1,740 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="TradeDiaryModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AppSettings">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SettingType" Type="int" Nullable="false" />
+          <Property Name="SettingName" Type="nvarchar" MaxLength="64" Nullable="false" />
+          <Property Name="SettingValue" Type="nvarchar" MaxLength="2048" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Currencies">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CurrencyTicker" Type="nvarchar" MaxLength="8" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="255" />
+          <Property Name="DisplayOrder" Type="int" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EntryOrders">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TradeId" Type="int" Nullable="false" />
+          <Property Name="ExecuteTime" Type="datetime" />
+          <Property Name="OrderPrice" Type="decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="FilledPrice" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="OrderQuantity" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="FilledQuantity" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="OrderAmount" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="FilledAmount" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="DisplayOrder" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Exchanges">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ExchangeName" Type="nvarchar" MaxLength="48" />
+          <Property Name="ExchangeCode" Type="nvarchar" MaxLength="8" />
+          <Property Name="DisplayOrder" Type="int" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="StopLossOrders">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TradeId" Type="int" Nullable="false" />
+          <Property Name="StopAll" Type="bit" Nullable="false" />
+          <Property Name="ExecuteTime" Type="datetime" />
+          <Property Name="OrderPrice" Type="decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="FilledPrice" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="OrderQuantity" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="FilledQuantity" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="OrderAmount" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="FilledAmount" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="DisplayOrder" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Symbols">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Ticker" Type="nvarchar" MaxLength="48" Nullable="false" />
+          <Property Name="TickerFull" Type="nvarchar" MaxLength="64" Nullable="false" />
+          <Property Name="BaseCurrency" Type="nvarchar" MaxLength="8" />
+          <Property Name="PriceCurrency" Type="nvarchar" MaxLength="8" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="255" />
+          <Property Name="ExchangeId" Type="int" Nullable="false" />
+          <Property Name="MarketType" Type="int" Nullable="false" />
+          <Property Name="DisplayOrder" Type="int" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TakeProfitOrders">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TradeId" Type="int" Nullable="false" />
+          <Property Name="ExecuteTime" Type="datetime" />
+          <Property Name="OrderPrice" Type="decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="FilledPrice" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="OrderQuantity" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="FilledQuantity" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="OrderAmount" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="FilledAmount" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="DisplayOrder" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TradePlans">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TradeId" Type="int" Nullable="false" />
+          <Property Name="ImageURL" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Notes" Type="nvarchar(max)" />
+          <Property Name="ModifyDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Trades">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TradingAccountId" Type="int" Nullable="false" />
+          <Property Name="SymbolId" Type="int" Nullable="false" />
+          <Property Name="EntryTime" Type="datetime" />
+          <Property Name="EntryMethod" Type="int" Nullable="false" />
+          <Property Name="TradeDirection" Type="int" Nullable="false" />
+          <Property Name="PlannedEntry" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="ExecutedEntry" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="PlannedTP" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="ExecutedTP" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="PlannedSL" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="ExecutedSL" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="ModifyDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TradingAccounts">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="AccountCode" Type="nvarchar" MaxLength="20" />
+          <Property Name="ExchangeId" Type="int" Nullable="false" />
+          <Property Name="Notes" Type="nvarchar(max)" />
+          <Property Name="DisplayOrder" Type="int" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_EntryOrder_TradeId">
+          <End Role="Trades" Type="Self.Trades" Multiplicity="1" />
+          <End Role="EntryOrders" Type="Self.EntryOrders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Trades">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EntryOrders">
+              <PropertyRef Name="TradeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StopLossOrder_TradeId">
+          <End Role="Trades" Type="Self.Trades" Multiplicity="1" />
+          <End Role="StopLossOrders" Type="Self.StopLossOrders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Trades">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StopLossOrders">
+              <PropertyRef Name="TradeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Symbol_ExchangeId">
+          <End Role="Exchanges" Type="Self.Exchanges" Multiplicity="1" />
+          <End Role="Symbols" Type="Self.Symbols" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Exchanges">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Symbols">
+              <PropertyRef Name="ExchangeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TakeProfitOrder_TradeId">
+          <End Role="Trades" Type="Self.Trades" Multiplicity="1" />
+          <End Role="TakeProfitOrders" Type="Self.TakeProfitOrders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Trades">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TakeProfitOrders">
+              <PropertyRef Name="TradeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Trade_SymbolId">
+          <End Role="Symbols" Type="Self.Symbols" Multiplicity="1" />
+          <End Role="Trades" Type="Self.Trades" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Symbols">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Trades">
+              <PropertyRef Name="SymbolId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Trade_TradingAccountId">
+          <End Role="TradingAccounts" Type="Self.TradingAccounts" Multiplicity="1" />
+          <End Role="Trades" Type="Self.Trades" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TradingAccounts">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Trades">
+              <PropertyRef Name="TradingAccountId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TradePlan_TradeId">
+          <End Role="Trades" Type="Self.Trades" Multiplicity="1" />
+          <End Role="TradePlans" Type="Self.TradePlans" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Trades">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TradePlans">
+              <PropertyRef Name="TradeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TradingAccount_ExchangeId">
+          <End Role="Exchanges" Type="Self.Exchanges" Multiplicity="1" />
+          <End Role="TradingAccounts" Type="Self.TradingAccounts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Exchanges">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TradingAccounts">
+              <PropertyRef Name="ExchangeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TradeDiaryModelStoreContainer">
+          <EntitySet Name="AppSettings" EntityType="Self.AppSettings" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Currencies" EntityType="Self.Currencies" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EntryOrders" EntityType="Self.EntryOrders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Exchanges" EntityType="Self.Exchanges" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StopLossOrders" EntityType="Self.StopLossOrders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Symbols" EntityType="Self.Symbols" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TakeProfitOrders" EntityType="Self.TakeProfitOrders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TradePlans" EntityType="Self.TradePlans" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Trades" EntityType="Self.Trades" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TradingAccounts" EntityType="Self.TradingAccounts" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_EntryOrder_TradeId" Association="Self.FK_EntryOrder_TradeId">
+            <End Role="Trades" EntitySet="Trades" />
+            <End Role="EntryOrders" EntitySet="EntryOrders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StopLossOrder_TradeId" Association="Self.FK_StopLossOrder_TradeId">
+            <End Role="Trades" EntitySet="Trades" />
+            <End Role="StopLossOrders" EntitySet="StopLossOrders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Symbol_ExchangeId" Association="Self.FK_Symbol_ExchangeId">
+            <End Role="Exchanges" EntitySet="Exchanges" />
+            <End Role="Symbols" EntitySet="Symbols" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TakeProfitOrder_TradeId" Association="Self.FK_TakeProfitOrder_TradeId">
+            <End Role="Trades" EntitySet="Trades" />
+            <End Role="TakeProfitOrders" EntitySet="TakeProfitOrders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Trade_SymbolId" Association="Self.FK_Trade_SymbolId">
+            <End Role="Symbols" EntitySet="Symbols" />
+            <End Role="Trades" EntitySet="Trades" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Trade_TradingAccountId" Association="Self.FK_Trade_TradingAccountId">
+            <End Role="TradingAccounts" EntitySet="TradingAccounts" />
+            <End Role="Trades" EntitySet="Trades" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TradePlan_TradeId" Association="Self.FK_TradePlan_TradeId">
+            <End Role="Trades" EntitySet="Trades" />
+            <End Role="TradePlans" EntitySet="TradePlans" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TradingAccount_ExchangeId" Association="Self.FK_TradingAccount_ExchangeId">
+            <End Role="Exchanges" EntitySet="Exchanges" />
+            <End Role="TradingAccounts" EntitySet="TradingAccounts" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TradeDiaryModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AppSetting">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SettingType" Type="Int32" Nullable="false" />
+          <Property Name="SettingName" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SettingValue" Type="String" MaxLength="2048" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Currency">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CurrencyTicker" Type="String" MaxLength="8" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="DisplayOrder" Type="Int32" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EntryOrder">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TradeId" Type="Int32" Nullable="false" />
+          <Property Name="ExecuteTime" Type="DateTime" />
+          <Property Name="OrderPrice" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="FilledPrice" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="OrderQuantity" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="FilledQuantity" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="OrderAmount" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="FilledAmount" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="DisplayOrder" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Trade" Relationship="Self.FK_EntryOrder_TradeId" FromRole="EntryOrders" ToRole="Trades" />
+        </EntityType>
+        <EntityType Name="Exchange">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ExchangeName" Type="String" MaxLength="48" FixedLength="false" Unicode="true" />
+          <Property Name="ExchangeCode" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+          <Property Name="DisplayOrder" Type="Int32" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Symbols" Relationship="Self.FK_Symbol_ExchangeId" FromRole="Exchanges" ToRole="Symbols" />
+          <NavigationProperty Name="TradingAccounts" Relationship="Self.FK_TradingAccount_ExchangeId" FromRole="Exchanges" ToRole="TradingAccounts" />
+        </EntityType>
+        <EntityType Name="StopLossOrder">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TradeId" Type="Int32" Nullable="false" />
+          <Property Name="StopAll" Type="Boolean" Nullable="false" />
+          <Property Name="ExecuteTime" Type="DateTime" />
+          <Property Name="OrderPrice" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="FilledPrice" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="OrderQuantity" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="FilledQuantity" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="OrderAmount" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="FilledAmount" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="DisplayOrder" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Trade" Relationship="Self.FK_StopLossOrder_TradeId" FromRole="StopLossOrders" ToRole="Trades" />
+        </EntityType>
+        <EntityType Name="Symbol">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ticker" Type="String" MaxLength="48" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TickerFull" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="BaseCurrency" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+          <Property Name="PriceCurrency" Type="String" MaxLength="8" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ExchangeId" Type="Int32" Nullable="false" />
+          <Property Name="MarketType" Type="Int32" Nullable="false" />
+          <Property Name="DisplayOrder" Type="Int32" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Exchanx" Relationship="Self.FK_Symbol_ExchangeId" FromRole="Symbols" ToRole="Exchanges" />
+          <NavigationProperty Name="Trades" Relationship="Self.FK_Trade_SymbolId" FromRole="Symbols" ToRole="Trades" />
+        </EntityType>
+        <EntityType Name="TakeProfitOrder">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TradeId" Type="Int32" Nullable="false" />
+          <Property Name="ExecuteTime" Type="DateTime" />
+          <Property Name="OrderPrice" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="FilledPrice" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="OrderQuantity" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="FilledQuantity" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="OrderAmount" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="FilledAmount" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="DisplayOrder" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Trade" Relationship="Self.FK_TakeProfitOrder_TradeId" FromRole="TakeProfitOrders" ToRole="Trades" />
+        </EntityType>
+        <EntityType Name="TradePlan">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TradeId" Type="Int32" Nullable="false" />
+          <Property Name="ImageURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ModifyDate" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="Trade" Relationship="Self.FK_TradePlan_TradeId" FromRole="TradePlans" ToRole="Trades" />
+        </EntityType>
+        <EntityType Name="Trade">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TradingAccountId" Type="Int32" Nullable="false" />
+          <Property Name="SymbolId" Type="Int32" Nullable="false" />
+          <Property Name="EntryTime" Type="DateTime" />
+          <Property Name="EntryMethod" Type="Int32" Nullable="false" />
+          <Property Name="TradeDirection" Type="Int32" Nullable="false" />
+          <Property Name="PlannedEntry" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="ExecutedEntry" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="PlannedTP" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="ExecutedTP" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="PlannedSL" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="ExecutedSL" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="ModifyDate" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="EntryOrders" Relationship="Self.FK_EntryOrder_TradeId" FromRole="Trades" ToRole="EntryOrders" />
+          <NavigationProperty Name="StopLossOrders" Relationship="Self.FK_StopLossOrder_TradeId" FromRole="Trades" ToRole="StopLossOrders" />
+          <NavigationProperty Name="Symbol" Relationship="Self.FK_Trade_SymbolId" FromRole="Trades" ToRole="Symbols" />
+          <NavigationProperty Name="TakeProfitOrders" Relationship="Self.FK_TakeProfitOrder_TradeId" FromRole="Trades" ToRole="TakeProfitOrders" />
+          <NavigationProperty Name="TradePlans" Relationship="Self.FK_TradePlan_TradeId" FromRole="Trades" ToRole="TradePlans" />
+          <NavigationProperty Name="TradingAccount" Relationship="Self.FK_Trade_TradingAccountId" FromRole="Trades" ToRole="TradingAccounts" />
+        </EntityType>
+        <EntityType Name="TradingAccount">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AccountCode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="ExchangeId" Type="Int32" Nullable="false" />
+          <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DisplayOrder" Type="Int32" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Exchances" Relationship="Self.FK_TradingAccount_ExchangeId" FromRole="TradingAccounts" ToRole="Exchanges" />
+          <NavigationProperty Name="Trades" Relationship="Self.FK_Trade_TradingAccountId" FromRole="TradingAccounts" ToRole="Trades" />
+        </EntityType>
+        <Association Name="FK_EntryOrder_TradeId">
+          <End Role="Trades" Type="Self.Trade" Multiplicity="1" />
+          <End Role="EntryOrders" Type="Self.EntryOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Trades">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EntryOrders">
+              <PropertyRef Name="TradeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Symbol_ExchangeId">
+          <End Role="Exchanges" Type="TradeDiaryModel.Exchange" Multiplicity="1" />
+          <End Role="Symbols" Type="Self.Symbol" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Exchanges">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Symbols">
+              <PropertyRef Name="ExchangeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TradingAccount_ExchangeId">
+          <End Role="Exchanges" Type="TradeDiaryModel.Exchange" Multiplicity="1" />
+          <End Role="TradingAccounts" Type="Self.TradingAccount" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Exchanges">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TradingAccounts">
+              <PropertyRef Name="ExchangeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StopLossOrder_TradeId">
+          <End Role="Trades" Type="Self.Trade" Multiplicity="1" />
+          <End Role="StopLossOrders" Type="Self.StopLossOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Trades">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StopLossOrders">
+              <PropertyRef Name="TradeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Trade_SymbolId">
+          <End Role="Symbols" Type="Self.Symbol" Multiplicity="1" />
+          <End Role="Trades" Type="Self.Trade" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Symbols">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Trades">
+              <PropertyRef Name="SymbolId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TakeProfitOrder_TradeId">
+          <End Role="Trades" Type="Self.Trade" Multiplicity="1" />
+          <End Role="TakeProfitOrders" Type="Self.TakeProfitOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Trades">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TakeProfitOrders">
+              <PropertyRef Name="TradeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TradePlan_TradeId">
+          <End Role="Trades" Type="Self.Trade" Multiplicity="1" />
+          <End Role="TradePlans" Type="Self.TradePlan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Trades">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TradePlans">
+              <PropertyRef Name="TradeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Trade_TradingAccountId">
+          <End Role="TradingAccounts" Type="Self.TradingAccount" Multiplicity="1" />
+          <End Role="Trades" Type="Self.Trade" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TradingAccounts">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Trades">
+              <PropertyRef Name="TradingAccountId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TradeDiaryDB" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AppSettings" EntityType="Self.AppSetting" />
+          <EntitySet Name="Currencies" EntityType="Self.Currency" />
+          <EntitySet Name="EntryOrders" EntityType="Self.EntryOrder" />
+          <EntitySet Name="Exchanges" EntityType="TradeDiaryModel.Exchange" />
+          <EntitySet Name="StopLossOrders" EntityType="Self.StopLossOrder" />
+          <EntitySet Name="Symbols" EntityType="Self.Symbol" />
+          <EntitySet Name="TakeProfitOrders" EntityType="Self.TakeProfitOrder" />
+          <EntitySet Name="TradePlans" EntityType="Self.TradePlan" />
+          <EntitySet Name="Trades" EntityType="Self.Trade" />
+          <EntitySet Name="TradingAccounts" EntityType="Self.TradingAccount" />
+          <AssociationSet Name="FK_EntryOrder_TradeId" Association="Self.FK_EntryOrder_TradeId">
+            <End Role="Trades" EntitySet="Trades" />
+            <End Role="EntryOrders" EntitySet="EntryOrders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Symbol_ExchangeId" Association="Self.FK_Symbol_ExchangeId">
+            <End Role="Exchanges" EntitySet="Exchanges" />
+            <End Role="Symbols" EntitySet="Symbols" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TradingAccount_ExchangeId" Association="Self.FK_TradingAccount_ExchangeId">
+            <End Role="Exchanges" EntitySet="Exchanges" />
+            <End Role="TradingAccounts" EntitySet="TradingAccounts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StopLossOrder_TradeId" Association="Self.FK_StopLossOrder_TradeId">
+            <End Role="Trades" EntitySet="Trades" />
+            <End Role="StopLossOrders" EntitySet="StopLossOrders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Trade_SymbolId" Association="Self.FK_Trade_SymbolId">
+            <End Role="Symbols" EntitySet="Symbols" />
+            <End Role="Trades" EntitySet="Trades" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TakeProfitOrder_TradeId" Association="Self.FK_TakeProfitOrder_TradeId">
+            <End Role="Trades" EntitySet="Trades" />
+            <End Role="TakeProfitOrders" EntitySet="TakeProfitOrders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TradePlan_TradeId" Association="Self.FK_TradePlan_TradeId">
+            <End Role="Trades" EntitySet="Trades" />
+            <End Role="TradePlans" EntitySet="TradePlans" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Trade_TradingAccountId" Association="Self.FK_Trade_TradingAccountId">
+            <End Role="TradingAccounts" EntitySet="TradingAccounts" />
+            <End Role="Trades" EntitySet="Trades" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TradeDiaryModelStoreContainer" CdmEntityContainer="TradeDiaryDB">
+          <EntitySetMapping Name="AppSettings">
+            <EntityTypeMapping TypeName="TradeDiaryModel.AppSetting">
+              <MappingFragment StoreEntitySet="AppSettings">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="SettingType" ColumnName="SettingType" />
+                <ScalarProperty Name="SettingName" ColumnName="SettingName" />
+                <ScalarProperty Name="SettingValue" ColumnName="SettingValue" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Currencies">
+            <EntityTypeMapping TypeName="TradeDiaryModel.Currency">
+              <MappingFragment StoreEntitySet="Currencies">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CurrencyTicker" ColumnName="CurrencyTicker" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EntryOrders">
+            <EntityTypeMapping TypeName="TradeDiaryModel.EntryOrder">
+              <MappingFragment StoreEntitySet="EntryOrders">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="TradeId" ColumnName="TradeId" />
+                <ScalarProperty Name="ExecuteTime" ColumnName="ExecuteTime" />
+                <ScalarProperty Name="OrderPrice" ColumnName="OrderPrice" />
+                <ScalarProperty Name="FilledPrice" ColumnName="FilledPrice" />
+                <ScalarProperty Name="OrderQuantity" ColumnName="OrderQuantity" />
+                <ScalarProperty Name="FilledQuantity" ColumnName="FilledQuantity" />
+                <ScalarProperty Name="OrderAmount" ColumnName="OrderAmount" />
+                <ScalarProperty Name="FilledAmount" ColumnName="FilledAmount" />
+                <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Exchanges">
+            <EntityTypeMapping TypeName="TradeDiaryModel.Exchange">
+              <MappingFragment StoreEntitySet="Exchanges">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ExchangeName" ColumnName="ExchangeName" />
+                <ScalarProperty Name="ExchangeCode" ColumnName="ExchangeCode" />
+                <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StopLossOrders">
+            <EntityTypeMapping TypeName="TradeDiaryModel.StopLossOrder">
+              <MappingFragment StoreEntitySet="StopLossOrders">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="TradeId" ColumnName="TradeId" />
+                <ScalarProperty Name="StopAll" ColumnName="StopAll" />
+                <ScalarProperty Name="ExecuteTime" ColumnName="ExecuteTime" />
+                <ScalarProperty Name="OrderPrice" ColumnName="OrderPrice" />
+                <ScalarProperty Name="FilledPrice" ColumnName="FilledPrice" />
+                <ScalarProperty Name="OrderQuantity" ColumnName="OrderQuantity" />
+                <ScalarProperty Name="FilledQuantity" ColumnName="FilledQuantity" />
+                <ScalarProperty Name="OrderAmount" ColumnName="OrderAmount" />
+                <ScalarProperty Name="FilledAmount" ColumnName="FilledAmount" />
+                <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Symbols">
+            <EntityTypeMapping TypeName="TradeDiaryModel.Symbol">
+              <MappingFragment StoreEntitySet="Symbols">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Ticker" ColumnName="Ticker" />
+                <ScalarProperty Name="TickerFull" ColumnName="TickerFull" />
+                <ScalarProperty Name="BaseCurrency" ColumnName="BaseCurrency" />
+                <ScalarProperty Name="PriceCurrency" ColumnName="PriceCurrency" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ExchangeId" ColumnName="ExchangeId" />
+                <ScalarProperty Name="MarketType" ColumnName="MarketType" />
+                <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TakeProfitOrders">
+            <EntityTypeMapping TypeName="TradeDiaryModel.TakeProfitOrder">
+              <MappingFragment StoreEntitySet="TakeProfitOrders">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="TradeId" ColumnName="TradeId" />
+                <ScalarProperty Name="ExecuteTime" ColumnName="ExecuteTime" />
+                <ScalarProperty Name="OrderPrice" ColumnName="OrderPrice" />
+                <ScalarProperty Name="FilledPrice" ColumnName="FilledPrice" />
+                <ScalarProperty Name="OrderQuantity" ColumnName="OrderQuantity" />
+                <ScalarProperty Name="FilledQuantity" ColumnName="FilledQuantity" />
+                <ScalarProperty Name="OrderAmount" ColumnName="OrderAmount" />
+                <ScalarProperty Name="FilledAmount" ColumnName="FilledAmount" />
+                <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TradePlans">
+            <EntityTypeMapping TypeName="TradeDiaryModel.TradePlan">
+              <MappingFragment StoreEntitySet="TradePlans">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="TradeId" ColumnName="TradeId" />
+                <ScalarProperty Name="ImageURL" ColumnName="ImageURL" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Trades">
+            <EntityTypeMapping TypeName="TradeDiaryModel.Trade">
+              <MappingFragment StoreEntitySet="Trades">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="TradingAccountId" ColumnName="TradingAccountId" />
+                <ScalarProperty Name="SymbolId" ColumnName="SymbolId" />
+                <ScalarProperty Name="EntryTime" ColumnName="EntryTime" />
+                <ScalarProperty Name="EntryMethod" ColumnName="EntryMethod" />
+                <ScalarProperty Name="TradeDirection" ColumnName="TradeDirection" />
+                <ScalarProperty Name="PlannedEntry" ColumnName="PlannedEntry" />
+                <ScalarProperty Name="ExecutedEntry" ColumnName="ExecutedEntry" />
+                <ScalarProperty Name="PlannedTP" ColumnName="PlannedTP" />
+                <ScalarProperty Name="ExecutedTP" ColumnName="ExecutedTP" />
+                <ScalarProperty Name="PlannedSL" ColumnName="PlannedSL" />
+                <ScalarProperty Name="ExecutedSL" ColumnName="ExecutedSL" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TradingAccounts">
+            <EntityTypeMapping TypeName="TradeDiaryModel.TradingAccount">
+              <MappingFragment StoreEntitySet="TradingAccounts">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="AccountCode" ColumnName="AccountCode" />
+                <ScalarProperty Name="ExchangeId" ColumnName="ExchangeId" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

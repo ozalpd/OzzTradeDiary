@@ -1,4 +1,7 @@
 <Solution>
-  <Project Path="OzzTradeDiary.NET/TD.Data/TD.Data.csproj" Id="080a78f6-f54f-40f3-91f8-e4202fdd6de3" />
-  <Project Path="OzzTradeDiary.NET/TD.WPF/TD.WPF.csproj" />
+  <Folder Name="/Solution Items/">
+    <File Path="README.md" />
+  </Folder>
+  <Project Path="OzzTradeDiary.NET/TD.Data/TD.Data.csproj" Id="8e9a7b4d-3f2c-4e1a-9b5d-6c8a9f0e2d3b" />
+  <Project Path="OzzTradeDiary.NET/TD.WPF/TD.WPF.csproj" Id="4d6d7dfe-8cc3-4b3f-9c8e-9aab2ab6c4d0" />
 </Solution>

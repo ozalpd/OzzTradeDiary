@@ -8,7 +8,7 @@ OzzTradeDiary is a trading diary application for tracking trades across various 
 ### Three-Tier Structure
 1. **OzzCodeGen/** - Code generation definitions (source of truth for data model)
 2. **DbScripts/T-SQL/** - Generated SQL Server database schema and stored procedures
-3. **OzzTradeDiary.NET/** - .NET 10 application layer
+3. **OzzTradeDiary.NET/** - .NET Framework 4.8 application layer
    - **TD.Data** - Data access layer (Entity Framework 6.5.1)
    - **TD.WPF** - WPF presentation layer
 
@@ -142,9 +142,10 @@ Entity relationships enforced via SQL constraints:
 - Example: `Trade.SymbolId` → `FK_Trade_SymbolId` → `Symbols(Id)`
 
 ### Target Framework
-- **.NET 10** (cutting-edge, note the `net10.0` target in project files)
+- **.NET Framework 4.8** (Windows desktop runtime, compatible with EF6 EDMX designer)
 - **Entity Framework 6.5.1** (classic EF, not EF Core)
 - **WPF** for Windows desktop UI
+- **C# Language Version**: 7.3
 
 ### Entity Framework 6 Usage
 This project uses **Entity Framework 6.5.1** (the classic version, not EF Core):

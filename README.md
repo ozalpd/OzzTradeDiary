@@ -15,34 +15,35 @@ OzzTradeDiary is a professional trading diary application for tracking and analy
 
 ```
 OzzTradeDiary/
---- OzzCodeGen/                     # Code generation definitions (source of truth)
--   --- OzzTradeDiary.OzzGen        # Entity model definitions (XML)
--   --- TSqlScriptsGen.settings     # SQL Server generation config
--   --- ResourceGen.settings        # Localization config
--   --- Vocabulary/                 # Localization vocabulary files
--
---- DbScripts/T-SQL/                 # Generated database scripts
--   --- _Create_OzzTradeDiary.bat    # Create development database
--   --- _Drop_Create_OzzTradeDiary.bat # Drop and recreate database
--   --- *.sql                        # Generated schema and stored procedures
--
---- OzzTradeDiary.NET/               # .NET 10 Application Layer
-    --- TD.Data/                     # Data Access Layer (Entity Framework 6.5.1)
-    -   --- Enums.cs                 # Domain enumerations
-    -   --- DbContext.cs             # EF6 DbContext
-    --- TD.WPF/                      # WPF Presentation Layer
-        --- MainWindow.xaml
-        --- App.xaml
-        --- Views/                   # UI views
+——— OzzCodeGen/                     # Code generation definitions (source of truth)
+⁕   ——— OzzTradeDiary.OzzGen        # Entity model definitions (XML)
+⁕   ——— TSqlScriptsGen.settings     # SQL Server generation config
+⁕   ——— ResourceGen.settings        # Localization config
+⁕   ——— Vocabulary/                 # Localization vocabulary files
+⁕
+——— DbScripts/T-SQL/                 # Generated database scripts
+⁕   ——— _Create_OzzTradeDiary.bat    # Create development database
+⁕   ——— _Drop_Create_OzzTradeDiary.bat # Drop and recreate database
+⁕   ——— *.sql                        # Generated schema and stored procedures
+⁕
+——— OzzTradeDiary.NET/               # .NET Framework 4.8 Application Layer
+⁕   ——— TD.Data/                     # Data Access Layer (Entity Framework 6.5.1)
+⁕   ⁕   ——— Enums.cs                 # Domain enumerations
+⁕   ⁕   ——— DbModel.edmx             # EF6 EDMX (Entity Data Model)
+⁕   ——— TD.WPF/                      # WPF Presentation Layer
+⁕   ⁕   ——— MainWindow.xaml
+⁕   ⁕   ——— App.xaml
+⁕   ⁕   ——— Views/                   # UI views
 ```
 
 ## Technology Stack
 
-- **Framework**: .NET 10
+- **Framework**: .NET Framework 4.8 (Windows desktop runtime)
 - **Desktop UI**: Windows Presentation Foundation (WPF)
-- **Data Access**: Entity Framework 6.5.1 with SQL Server
+- **Data Access**: Entity Framework 6.5.1 with SQL Server and EDMX designer support
 - **Database**: SQL Server LocalDB (`.\SqlExpress`)
 - **Code Generation**: OzzCodeGen (external tool)
+- **Language Version**: C# 7.3
 
 ## Prerequisites
 
