@@ -15,25 +15,25 @@ OzzTradeDiary is a professional trading diary application for tracking and analy
 
 ```
 OzzTradeDiary/
-??? OzzCodeGen/                      # Code generation definitions (source of truth)
-?   ??? OzzTradeDiary.OzzGen        # Entity model definitions (XML)
-?   ??? TSqlScriptsGen.settings     # SQL Server generation config
-?   ??? ResourceGen.settings        # Localization config
-?   ??? Vocabulary/                 # Localization vocabulary files
-?
-??? DbScripts/T-SQL/                 # Generated database scripts
-?   ??? _Create_OzzTradeDiary.bat    # Create development database
-?   ??? _Drop_Create_OzzTradeDiary.bat # Drop and recreate database
-?   ??? *.sql                        # Generated schema and stored procedures
-?
-??? OzzTradeDiary.NET/               # .NET 10 Application Layer
-    ??? TD.Data/                     # Data Access Layer (Entity Framework 6.5.1)
-    ?   ??? Enums.cs                 # Domain enumerations
-    ?   ??? DbContext.cs             # EF6 DbContext
-    ??? TD.WPF/                      # WPF Presentation Layer
-        ??? MainWindow.xaml
-        ??? App.xaml
-        ??? Views/                   # UI views
+--- OzzCodeGen/                     # Code generation definitions (source of truth)
+-   --- OzzTradeDiary.OzzGen        # Entity model definitions (XML)
+-   --- TSqlScriptsGen.settings     # SQL Server generation config
+-   --- ResourceGen.settings        # Localization config
+-   --- Vocabulary/                 # Localization vocabulary files
+-
+--- DbScripts/T-SQL/                 # Generated database scripts
+-   --- _Create_OzzTradeDiary.bat    # Create development database
+-   --- _Drop_Create_OzzTradeDiary.bat # Drop and recreate database
+-   --- *.sql                        # Generated schema and stored procedures
+-
+--- OzzTradeDiary.NET/               # .NET 10 Application Layer
+    --- TD.Data/                     # Data Access Layer (Entity Framework 6.5.1)
+    -   --- Enums.cs                 # Domain enumerations
+    -   --- DbContext.cs             # EF6 DbContext
+    --- TD.WPF/                      # WPF Presentation Layer
+        --- MainWindow.xaml
+        --- App.xaml
+        --- Views/                   # UI views
 ```
 
 ## Technology Stack
@@ -99,7 +99,7 @@ cd DbScripts\T-SQL
 
 **Details**: Safely drops all existing development database objects (if they exist), then invokes `_Create_OzzTradeDiary.bat` to recreate the database from scratch. Use this when you need a clean development environment after data model changes.
 
-**Script Execution Order**: Schema ? AppSettings ? Exchange ? TradingAccount ? Currency ? Symbol ? Trade ? Orders
+**Script Execution Order**: Schema → AppSettings → Exchange → TradingAccount → Currency → Symbol → Trade → Orders
 
 ## Core Entities
 
