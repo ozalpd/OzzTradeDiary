@@ -9,20 +9,31 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="DbModel.edmx" />
+    <None Remove="DbModel.Context.tt" />
+    <None Remove="DbModel.tt" />
   </ItemGroup>
 
   <ItemGroup>
-    <EntityDeploy Include="DbModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>DbModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
+    <Content Include="DbModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DbModel.edmx</DependentUpon>
+      <LastGenOutput>DbModel.Context.cs</LastGenOutput>
+    </Content>
+    <None Include="DbModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DbModel.Context.tt</DependentUpon>
+    </None>
+    <Content Include="DbModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DbModel.edmx</DependentUpon>
+      <LastGenOutput>DbModel.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="EntityFramework" Version="6.5.1" />
   </ItemGroup>
-
   <ItemGroup>
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data.Entity" />
@@ -30,11 +41,70 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EntityDeploy Include="DbModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DbModel.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <None Include="DbModel.edmx.diagram">
+      <DependentUpon>DbModel.edmx</DependentUpon>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="DbModel.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DbModel.tt</DependentUpon>
+    </Compile>
     <Compile Update="DbModel.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>DbModel.edmx</DependentUpon>
     </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="AppSetting.cs">
+      <DependentUpon>DbModel.tt</DependentUpon>
+    </None>
+    <None Include="Currency.cs">
+      <DependentUpon>DbModel.tt</DependentUpon>
+    </None>
+    <None Include="DbModel.cs">
+      <DependentUpon>DbModel.tt</DependentUpon>
+    </None>
+    <None Include="EntryOrder.cs">
+      <DependentUpon>DbModel.tt</DependentUpon>
+    </None>
+    <None Include="Exchange.cs">
+      <DependentUpon>DbModel.tt</DependentUpon>
+    </None>
+    <None Include="StopLossOrder.cs">
+      <DependentUpon>DbModel.tt</DependentUpon>
+    </None>
+    <None Include="Symbol.cs">
+      <DependentUpon>DbModel.tt</DependentUpon>
+    </None>
+    <None Include="TakeProfitOrder.cs">
+      <DependentUpon>DbModel.tt</DependentUpon>
+    </None>
+    <None Include="Trade.cs">
+      <DependentUpon>DbModel.tt</DependentUpon>
+    </None>
+    <None Include="TradePlan.cs">
+      <DependentUpon>DbModel.tt</DependentUpon>
+    </None>
+    <None Include="TradingAccount.cs">
+      <DependentUpon>DbModel.tt</DependentUpon>
+    </None>
   </ItemGroup>
 
 </Project>

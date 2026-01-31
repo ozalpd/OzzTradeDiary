@@ -5,14 +5,14 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="de02a8c6838946149b85efbe0628ee33" Name="Diagram1" ZoomLevel="100">
-        <EntityTypeShape EntityType="TradeDiaryModel.AppSetting" Width="1.5" PointX="0.5" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="TradeDiaryModel.Currency" Width="1.5" PointX="0.5" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TradeDiaryModel.AppSetting" Width="1.5" PointX="0.5" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TradeDiaryModel.Currency" Width="1.5" PointX="2.75" PointY="6.875" IsExpanded="true" />
         <EntityTypeShape EntityType="TradeDiaryModel.EntryOrder" Width="1.5" PointX="8.75" PointY="0.5" IsExpanded="true" />
         <EntityTypeShape EntityType="TradeDiaryModel.Exchange" Width="1.5" PointX="0.5" PointY="3.875" IsExpanded="true" />
         <EntityTypeShape EntityType="TradeDiaryModel.StopLossOrder" Width="1.5" PointX="10.75" PointY="1.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="TradeDiaryModel.Symbol" Width="1.5" PointX="2.625" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TradeDiaryModel.Symbol" Width="1.5" PointX="2.625" PointY="1.625" IsExpanded="true" />
         <EntityTypeShape EntityType="TradeDiaryModel.TakeProfitOrder" Width="1.5" PointX="8.75" PointY="4.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="TradeDiaryModel.TradePlan" Width="1.5" PointX="5.125" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TradeDiaryModel.TradePlan" Width="1.5" PointX="5.125" PointY="6" IsExpanded="true" />
         <EntityTypeShape EntityType="TradeDiaryModel.Trade" Width="2.375" PointX="5.125" PointY="0.5" IsExpanded="true" />
         <EntityTypeShape EntityType="TradeDiaryModel.TradingAccount" Width="1.5" PointX="0.5" PointY="0.5" IsExpanded="true" />
         <AssociationConnector Association="TradeDiaryModel.FK_EntryOrder_TradeId" ManuallyRouted="false" />

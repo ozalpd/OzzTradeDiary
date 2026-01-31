@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="TradeDiaryModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="TradeDiaryModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="AppSettings">
           <Key>
             <PropertyRef Name="Id" />
@@ -276,21 +276,11 @@
             <End Role="TradingAccounts" EntitySet="TradingAccounts" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="TradeDiaryModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="AppSetting">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="SettingType" Type="Int32" Nullable="false" />
-          <Property Name="SettingName" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="SettingValue" Type="String" MaxLength="2048" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-        </EntityType>
+       
         <EntityType Name="Currency">
           <Key>
             <PropertyRef Name="Id" />
@@ -307,7 +297,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TradeId" Type="Int32" Nullable="false" />
-          <Property Name="ExecuteTime" Type="DateTime" />
+          <Property Name="ExecuteTime" Type="DateTime" Precision="3" />
           <Property Name="OrderPrice" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
           <Property Name="FilledPrice" Type="Decimal" Precision="18" Scale="4" />
           <Property Name="OrderQuantity" Type="Decimal" Precision="18" Scale="4" />
@@ -336,7 +326,7 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TradeId" Type="Int32" Nullable="false" />
           <Property Name="StopAll" Type="Boolean" Nullable="false" />
-          <Property Name="ExecuteTime" Type="DateTime" />
+          <Property Name="ExecuteTime" Type="DateTime" Precision="3" />
           <Property Name="OrderPrice" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
           <Property Name="FilledPrice" Type="Decimal" Precision="18" Scale="4" />
           <Property Name="OrderQuantity" Type="Decimal" Precision="18" Scale="4" />
@@ -360,7 +350,7 @@
           <Property Name="MarketType" Type="Int32" Nullable="false" />
           <Property Name="DisplayOrder" Type="Int32" Nullable="false" />
           <Property Name="IsActive" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="Exchanx" Relationship="Self.FK_Symbol_ExchangeId" FromRole="Symbols" ToRole="Exchanges" />
+          <NavigationProperty Name="Exchanges" Relationship="Self.FK_Symbol_ExchangeId" FromRole="Symbols" ToRole="Exchanges" />
           <NavigationProperty Name="Trades" Relationship="Self.FK_Trade_SymbolId" FromRole="Symbols" ToRole="Trades" />
         </EntityType>
         <EntityType Name="TakeProfitOrder">
@@ -369,7 +359,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TradeId" Type="Int32" Nullable="false" />
-          <Property Name="ExecuteTime" Type="DateTime" />
+          <Property Name="ExecuteTime" Type="DateTime" Precision="3" />
           <Property Name="OrderPrice" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
           <Property Name="FilledPrice" Type="Decimal" Precision="18" Scale="4" />
           <Property Name="OrderQuantity" Type="Decimal" Precision="18" Scale="4" />
@@ -387,7 +377,7 @@
           <Property Name="TradeId" Type="Int32" Nullable="false" />
           <Property Name="ImageURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="ModifyDate" Type="DateTime" Nullable="false" />
+          <Property Name="ModifyDate" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="Trade" Relationship="Self.FK_TradePlan_TradeId" FromRole="TradePlans" ToRole="Trades" />
         </EntityType>
         <EntityType Name="Trade">
@@ -397,7 +387,7 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TradingAccountId" Type="Int32" Nullable="false" />
           <Property Name="SymbolId" Type="Int32" Nullable="false" />
-          <Property Name="EntryTime" Type="DateTime" />
+          <Property Name="EntryTime" Type="DateTime" Precision="3" />
           <Property Name="EntryMethod" Type="Int32" Nullable="false" />
           <Property Name="TradeDirection" Type="Int32" Nullable="false" />
           <Property Name="PlannedEntry" Type="Decimal" Precision="18" Scale="4" />
@@ -406,7 +396,7 @@
           <Property Name="ExecutedTP" Type="Decimal" Precision="18" Scale="4" />
           <Property Name="PlannedSL" Type="Decimal" Precision="18" Scale="4" />
           <Property Name="ExecutedSL" Type="Decimal" Precision="18" Scale="4" />
-          <Property Name="ModifyDate" Type="DateTime" Nullable="false" />
+          <Property Name="ModifyDate" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="EntryOrders" Relationship="Self.FK_EntryOrder_TradeId" FromRole="Trades" ToRole="EntryOrders" />
           <NavigationProperty Name="StopLossOrders" Relationship="Self.FK_StopLossOrder_TradeId" FromRole="Trades" ToRole="StopLossOrders" />
           <NavigationProperty Name="Symbol" Relationship="Self.FK_Trade_SymbolId" FromRole="Trades" ToRole="Symbols" />
@@ -525,7 +515,6 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="TradeDiaryDB" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="AppSettings" EntityType="Self.AppSetting" />
           <EntitySet Name="Currencies" EntityType="Self.Currency" />
           <EntitySet Name="EntryOrders" EntityType="Self.EntryOrder" />
           <EntitySet Name="Exchanges" EntityType="TradeDiaryModel.Exchange" />
@@ -567,24 +556,25 @@
             <End Role="TradingAccounts" EntitySet="TradingAccounts" />
             <End Role="Trades" EntitySet="Trades" />
           </AssociationSet>
+          <EntitySet Name="AppSettings" EntityType="TradeDiaryModel.AppSetting" />
         </EntityContainer>
+        <EntityType Name="AppSetting">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SettingType" Type="Int32" Nullable="false" />
+          <Property Name="SettingName" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="SettingValue" Type="String" Nullable="false" MaxLength="2048" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="TradeDiaryModelStoreContainer" CdmEntityContainer="TradeDiaryDB">
-          <EntitySetMapping Name="AppSettings">
-            <EntityTypeMapping TypeName="TradeDiaryModel.AppSetting">
-              <MappingFragment StoreEntitySet="AppSettings">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="SettingType" ColumnName="SettingType" />
-                <ScalarProperty Name="SettingName" ColumnName="SettingName" />
-                <ScalarProperty Name="SettingValue" ColumnName="SettingValue" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
+        
           <EntitySetMapping Name="Currencies">
             <EntityTypeMapping TypeName="TradeDiaryModel.Currency">
               <MappingFragment StoreEntitySet="Currencies">
@@ -715,6 +705,17 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="AppSettings">
+            <EntityTypeMapping TypeName="TradeDiaryModel.AppSetting">
+              <MappingFragment StoreEntitySet="AppSettings">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="SettingValue" ColumnName="SettingValue" />
+                <ScalarProperty Name="SettingName" ColumnName="SettingName" />
+                <ScalarProperty Name="SettingType" ColumnName="SettingType" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -732,6 +733,7 @@
         <DesignerProperty Name="EnablePluralization" Value="true" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
       </DesignerInfoPropertySet>
     </Options>
     <!-- Diagram content (shape and connector positions) -->
