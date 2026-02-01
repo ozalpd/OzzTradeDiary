@@ -29,11 +29,29 @@ namespace TD.Data
         public Nullable<System.DateTime> EntryTime { get; set; }
         public int EntryMethod { get; set; }
         public int TradeDirection { get; set; }
+        /// <summary>
+        /// Planned Entry Price, calculated from EntryOrders
+        /// </summary>
         public Nullable<decimal> PlannedEntry { get; set; }
+        /// <summary>
+        /// Executed Entry Price, calculated from EntryOrders
+        /// </summary>
         public Nullable<decimal> ExecutedEntry { get; set; }
+        /// <summary>
+        /// Planned Take Profit Price, calculated from TakeProfitOrders
+        /// </summary>
         public Nullable<decimal> PlannedTP { get; set; }
+        /// <summary>
+        /// Executed Take Profit Price, calculated from TakeProfitOrders
+        /// </summary>
         public Nullable<decimal> ExecutedTP { get; set; }
+        /// <summary>
+        /// Planned Stop Loss Price, calculated from StopLossOrders
+        /// </summary>
         public Nullable<decimal> PlannedSL { get; set; }
+        /// <summary>
+        /// Executed Stop Loss Price, calculated from StopLossOrders
+        /// </summary>
         public Nullable<decimal> ExecutedSL { get; set; }
         public System.DateTime ModifyDate { get; set; }
     
@@ -134,11 +152,29 @@ namespace TD.Data
         public Nullable<System.DateTime> EntryTime { get; set; }
         public int EntryMethod { get; set; }
         public int TradeDirection { get; set; }
+        /// <summary>
+        /// Planned Entry Price, calculated from EntryOrders
+        /// </summary>
         public Nullable<decimal> PlannedEntry { get; set; }
+        /// <summary>
+        /// Executed Entry Price, calculated from EntryOrders
+        /// </summary>
         public Nullable<decimal> ExecutedEntry { get; set; }
+        /// <summary>
+        /// Planned Take Profit Price, calculated from TakeProfitOrders
+        /// </summary>
         public Nullable<decimal> PlannedTP { get; set; }
+        /// <summary>
+        /// Executed Take Profit Price, calculated from TakeProfitOrders
+        /// </summary>
         public Nullable<decimal> ExecutedTP { get; set; }
+        /// <summary>
+        /// Planned Stop Loss Price, calculated from StopLossOrders
+        /// </summary>
         public Nullable<decimal> PlannedSL { get; set; }
+        /// <summary>
+        /// Executed Stop Loss Price, calculated from StopLossOrders
+        /// </summary>
         public Nullable<decimal> ExecutedSL { get; set; }
         public System.DateTime ModifyDate { get; set; }
     }

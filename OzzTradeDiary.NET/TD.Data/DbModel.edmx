@@ -286,8 +286,16 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="CurrencyTicker" Type="String" MaxLength="8" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CurrencyTicker" Type="String" MaxLength="8" FixedLength="false" Unicode="true" Nullable="false" >
+            <Documentation>
+              <Summary>Ticker or short code of the currency</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" >
+            <Documentation>
+              <Summary>Description for the currency</Summary>
+            </Documentation>
+          </Property>
           <Property Name="DisplayOrder" Type="Int32" Nullable="false" />
           <Property Name="IsActive" Type="Boolean" Nullable="false" />
         </EntityType>
@@ -298,12 +306,36 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TradeId" Type="Int32" Nullable="false" />
           <Property Name="ExecuteTime" Type="DateTime" Precision="3" />
-          <Property Name="OrderPrice" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
-          <Property Name="FilledPrice" Type="Decimal" Precision="18" Scale="4" />
-          <Property Name="OrderQuantity" Type="Decimal" Precision="18" Scale="4" />
-          <Property Name="FilledQuantity" Type="Decimal" Precision="18" Scale="4" />
-          <Property Name="OrderAmount" Type="Decimal" Precision="18" Scale="4" />
-          <Property Name="FilledAmount" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="OrderPrice" Type="Decimal" Precision="18" Scale="4" Nullable="false" >
+            <Documentation>
+              <Summary>Planned Entry Price</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="FilledPrice" Type="Decimal" Precision="18" Scale="4" >
+            <Documentation>
+              <Summary>Executed Entry Price</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="OrderQuantity" Type="Decimal" Precision="18" Scale="4" >
+            <Documentation>
+              <Summary>Planned contract quantity of order</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="FilledQuantity" Type="Decimal" Precision="18" Scale="4" >
+            <Documentation>
+              <Summary>Realized contract quantity of order</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="OrderAmount" Type="Decimal" Precision="18" Scale="4" >
+            <Documentation>
+              <Summary>Planned amount in currency, like $100</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="FilledAmount" Type="Decimal" Precision="18" Scale="4" >
+            <Documentation>
+              <Summary>Filled contract amount in currency, like $100</Summary>
+            </Documentation>
+          </Property>
           <Property Name="DisplayOrder" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Trade" Relationship="Self.FK_EntryOrder_TradeId" FromRole="EntryOrders" ToRole="Trades" />
         </EntityType>
@@ -325,14 +357,42 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TradeId" Type="Int32" Nullable="false" />
-          <Property Name="StopAll" Type="Boolean" Nullable="false" />
+          <Property Name="StopAll" Type="Boolean" Nullable="false" >
+            <Documentation>
+              <Summary>Indicates that all remaining quantity of the trade was or will be closed</Summary>
+            </Documentation>
+          </Property>
           <Property Name="ExecuteTime" Type="DateTime" Precision="3" />
-          <Property Name="OrderPrice" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
-          <Property Name="FilledPrice" Type="Decimal" Precision="18" Scale="4" />
-          <Property Name="OrderQuantity" Type="Decimal" Precision="18" Scale="4" />
-          <Property Name="FilledQuantity" Type="Decimal" Precision="18" Scale="4" />
-          <Property Name="OrderAmount" Type="Decimal" Precision="18" Scale="4" />
-          <Property Name="FilledAmount" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="OrderPrice" Type="Decimal" Precision="18" Scale="4" Nullable="false" >
+            <Documentation>
+              <Summary>Planned Stop Loss Price</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="FilledPrice" Type="Decimal" Precision="18" Scale="4" >
+            <Documentation>
+              <Summary>Executed Stop Loss Price</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="OrderQuantity" Type="Decimal" Precision="18" Scale="4" >
+            <Documentation>
+              <Summary>Planned contract quantity of order</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="FilledQuantity" Type="Decimal" Precision="18" Scale="4" >
+            <Documentation>
+              <Summary>Realized contract quantity of order</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="OrderAmount" Type="Decimal" Precision="18" Scale="4" >
+            <Documentation>
+              <Summary>Planned amount in currency, like $100</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="FilledAmount" Type="Decimal" Precision="18" Scale="4" >
+            <Documentation>
+              <Summary>Filled contract amount in currency, like $100</Summary>
+            </Documentation>
+          </Property>
           <Property Name="DisplayOrder" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Trade" Relationship="Self.FK_StopLossOrder_TradeId" FromRole="StopLossOrders" ToRole="Trades" />
         </EntityType>
@@ -341,16 +401,46 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Ticker" Type="String" MaxLength="48" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="TickerFull" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="BaseCurrency" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
-          <Property Name="PriceCurrency" Type="String" MaxLength="8" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="ExchangeId" Type="Int32" Nullable="false" />
+          <Property Name="Ticker" Type="String" MaxLength="48" FixedLength="false" Unicode="true" Nullable="false" >
+            <Documentation>
+              <Summary>Symbol name without exchange prefix, e.g. 'BTUSDT'</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="TickerFull" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" >
+            <Documentation>
+              <Summary>Symbol name with exchange prefix, e.g. 'BYBIT:BTCUSD.P'</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="BaseCurrency" Type="String" MaxLength="8" FixedLength="false" Unicode="true" >
+            <Documentation>
+              <Summary>Contains a string (CurrencyTicker) that representing the symbol's base currency if the instrument is a Crypto pair or a Forex pair or a derivative based on such a pair.</Summary>
+              <LongDescription>For example, this property holds "GBP" for "GBPJPY", "BTC" for "BTCUSDT" and "" for "NASDAQ:MSFT".</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Name="PriceCurrency" Type="String" MaxLength="8" FixedLength="false" Unicode="true" Nullable="false" >
+            <Documentation>
+              <Summary>Contains a string (CurrencyTicker) that representing currency of the symbol's price.</Summary>
+              <LongDescription>For example, this property holds "JPY" for "GBPJPY", "USDT" for "BTCUSDT" and "USD" for "NASDAQ:MSFT".</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" >
+            <Documentation>
+              <Summary>Description of the symbol</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="ExchangeId" Type="Int32" Nullable="false" >
+            <Documentation>
+              <Summary>The Id value of exchange record that related to the symbol</Summary>
+            </Documentation>
+          </Property>
           <Property Name="MarketType" Type="Int32" Nullable="false" />
           <Property Name="DisplayOrder" Type="Int32" Nullable="false" />
           <Property Name="IsActive" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="Exchanges" Relationship="Self.FK_Symbol_ExchangeId" FromRole="Symbols" ToRole="Exchanges" />
+          <NavigationProperty Name="Exchange" Relationship="Self.FK_Symbol_ExchangeId" FromRole="Symbols" ToRole="Exchanges" >
+            <Documentation>
+              <Summary>Exchange of the symbol</Summary>
+            </Documentation>
+          </NavigationProperty>
           <NavigationProperty Name="Trades" Relationship="Self.FK_Trade_SymbolId" FromRole="Symbols" ToRole="Trades" />
         </EntityType>
         <EntityType Name="TakeProfitOrder">
@@ -360,12 +450,36 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TradeId" Type="Int32" Nullable="false" />
           <Property Name="ExecuteTime" Type="DateTime" Precision="3" />
-          <Property Name="OrderPrice" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
-          <Property Name="FilledPrice" Type="Decimal" Precision="18" Scale="4" />
-          <Property Name="OrderQuantity" Type="Decimal" Precision="18" Scale="4" />
-          <Property Name="FilledQuantity" Type="Decimal" Precision="18" Scale="4" />
-          <Property Name="OrderAmount" Type="Decimal" Precision="18" Scale="4" />
-          <Property Name="FilledAmount" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="OrderPrice" Type="Decimal" Precision="18" Scale="4" Nullable="false" >
+            <Documentation>
+              <Summary>Planned Take Profit Price</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="FilledPrice" Type="Decimal" Precision="18" Scale="4" >
+            <Documentation>
+              <Summary>Executed Take Profit Price</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="OrderQuantity" Type="Decimal" Precision="18" Scale="4" >
+            <Documentation>
+              <Summary>Planned contract quantity of order</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="FilledQuantity" Type="Decimal" Precision="18" Scale="4" >
+            <Documentation>
+              <Summary>Realized contract quantity of order</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="OrderAmount" Type="Decimal" Precision="18" Scale="4" >
+            <Documentation>
+              <Summary>Planned amount in currency, like $100</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="FilledAmount" Type="Decimal" Precision="18" Scale="4" >
+            <Documentation>
+              <Summary>Filled contract amount in currency, like $100</Summary>
+            </Documentation>
+          </Property>
           <Property Name="DisplayOrder" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Trade" Relationship="Self.FK_TakeProfitOrder_TradeId" FromRole="TakeProfitOrders" ToRole="Trades" />
         </EntityType>
@@ -375,7 +489,11 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TradeId" Type="Int32" Nullable="false" />
-          <Property Name="ImageURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ImageURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" >
+            <Documentation>
+              <Summary>Web URL or local file path of the image</Summary>
+            </Documentation>
+          </Property>
           <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="ModifyDate" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="Trade" Relationship="Self.FK_TradePlan_TradeId" FromRole="TradePlans" ToRole="Trades" />
@@ -390,12 +508,36 @@
           <Property Name="EntryTime" Type="DateTime" Precision="3" />
           <Property Name="EntryMethod" Type="Int32" Nullable="false" />
           <Property Name="TradeDirection" Type="Int32" Nullable="false" />
-          <Property Name="PlannedEntry" Type="Decimal" Precision="18" Scale="4" />
-          <Property Name="ExecutedEntry" Type="Decimal" Precision="18" Scale="4" />
-          <Property Name="PlannedTP" Type="Decimal" Precision="18" Scale="4" />
-          <Property Name="ExecutedTP" Type="Decimal" Precision="18" Scale="4" />
-          <Property Name="PlannedSL" Type="Decimal" Precision="18" Scale="4" />
-          <Property Name="ExecutedSL" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="PlannedEntry" Type="Decimal" Precision="18" Scale="4" >
+            <Documentation>
+              <Summary>Planned Entry Price, calculated from EntryOrders</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="ExecutedEntry" Type="Decimal" Precision="18" Scale="4" >
+            <Documentation>
+              <Summary>Executed Entry Price, calculated from EntryOrders</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="PlannedTP" Type="Decimal" Precision="18" Scale="4" >
+            <Documentation>
+              <Summary>Planned Take Profit Price, calculated from TakeProfitOrders</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="ExecutedTP" Type="Decimal" Precision="18" Scale="4" >
+            <Documentation>
+              <Summary>Executed Take Profit Price, calculated from TakeProfitOrders</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="PlannedSL" Type="Decimal" Precision="18" Scale="4" >
+            <Documentation>
+              <Summary>Planned Stop Loss Price, calculated from StopLossOrders</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="ExecutedSL" Type="Decimal" Precision="18" Scale="4" >
+            <Documentation>
+              <Summary>Executed Stop Loss Price, calculated from StopLossOrders</Summary>
+            </Documentation>
+          </Property>
           <Property Name="ModifyDate" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="EntryOrders" Relationship="Self.FK_EntryOrder_TradeId" FromRole="Trades" ToRole="EntryOrders" />
           <NavigationProperty Name="StopLossOrders" Relationship="Self.FK_StopLossOrder_TradeId" FromRole="Trades" ToRole="StopLossOrders" />
@@ -411,11 +553,19 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Title" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="AccountCode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="ExchangeId" Type="Int32" Nullable="false" />
+          <Property Name="ExchangeId" Type="Int32" Nullable="false" >
+            <Documentation>
+              <Summary>The Id value of exchange record that related to the account.</Summary>
+            </Documentation>
+          </Property>
           <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="DisplayOrder" Type="Int32" Nullable="false" />
           <Property Name="IsActive" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="Exchances" Relationship="Self.FK_TradingAccount_ExchangeId" FromRole="TradingAccounts" ToRole="Exchanges" />
+          <NavigationProperty Name="Exchance" Relationship="Self.FK_TradingAccount_ExchangeId" FromRole="TradingAccounts" ToRole="Exchanges" >
+            <Documentation>
+              <Summary>Exchange of the account</Summary>
+            </Documentation>
+          </NavigationProperty>
           <NavigationProperty Name="Trades" Relationship="Self.FK_Trade_TradingAccountId" FromRole="TradingAccounts" ToRole="Trades" />
         </EntityType>
         <Association Name="FK_EntryOrder_TradeId">

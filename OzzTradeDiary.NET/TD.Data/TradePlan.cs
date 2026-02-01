@@ -16,6 +16,9 @@ namespace TD.Data
     {
         public int Id { get; set; }
         public int TradeId { get; set; }
+        /// <summary>
+        /// Web URL or local file path of the image
+        /// </summary>
         public string ImageURL { get; set; }
         public string Notes { get; set; }
         public System.DateTime ModifyDate { get; set; }
@@ -80,6 +83,9 @@ namespace TD.Data
       
         public int Id { get; set; }
         public int TradeId { get; set; }
+        /// <summary>
+        /// Web URL or local file path of the image
+        /// </summary>
         public string ImageURL { get; set; }
         public string Notes { get; set; }
         public System.DateTime ModifyDate { get; set; }

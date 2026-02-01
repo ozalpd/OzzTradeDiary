@@ -23,12 +23,18 @@ namespace TD.Data
         public int Id { get; set; }
         public string Title { get; set; }
         public string AccountCode { get; set; }
+        /// <summary>
+        /// The Id value of exchange record that related to the account.
+        /// </summary>
         public int ExchangeId { get; set; }
         public string Notes { get; set; }
         public int DisplayOrder { get; set; }
         public bool IsActive { get; set; }
     
-        public virtual Exchange Exchances { get; set; }
+        /// <summary>
+        /// Exchange of the account
+        /// </summary>
+        public virtual Exchange Exchance { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Trade> Trades { get; set; }
         /// <summary>
@@ -97,6 +103,9 @@ namespace TD.Data
         public int Id { get; set; }
         public string Title { get; set; }
         public string AccountCode { get; set; }
+        /// <summary>
+        /// The Id value of exchange record that related to the account.
+        /// </summary>
         public int ExchangeId { get; set; }
         public string Notes { get; set; }
         public int DisplayOrder { get; set; }

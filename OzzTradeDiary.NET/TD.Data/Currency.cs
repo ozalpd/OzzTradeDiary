@@ -15,7 +15,13 @@ namespace TD.Data
     public partial class Currency : IId, IDisplayOrder, IIsActive
     {
         public int Id { get; set; }
+        /// <summary>
+        /// Ticker or short code of the currency
+        /// </summary>
         public string CurrencyTicker { get; set; }
+        /// <summary>
+        /// Description for the currency
+        /// </summary>
         public string Description { get; set; }
         public int DisplayOrder { get; set; }
         public bool IsActive { get; set; }
@@ -77,7 +83,13 @@ namespace TD.Data
         partial void Converting(Currency entity);
       
         public int Id { get; set; }
+        /// <summary>
+        /// Ticker or short code of the currency
+        /// </summary>
         public string CurrencyTicker { get; set; }
+        /// <summary>
+        /// Description for the currency
+        /// </summary>
         public string Description { get; set; }
         public int DisplayOrder { get; set; }
         public bool IsActive { get; set; }

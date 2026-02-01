@@ -1,13 +1,13 @@
 ﻿<#@ template language="C#" debug="false" hostspecific="true"#>
-<#@ include file="DbModel.Settings.ttinclude"#><#@ 
- output extension=".cs"#><#
-
+<#@ include file="DbModel.Settings.ttinclude"#>
+<#@ output extension=".cs"#>
+<#
 const string inputFile = @"DbModel.edmx";
 var textTransform = DynamicTextTransformation.Create(this);
 var code = new CodeGenerationTools(this);
 var ef = new MetadataTools(this);
 var typeMapper = new TypeMapper(code, ef, textTransform.Errors);
-var    fileManager = EntityFrameworkTemplateFileManager.Create(this);
+var fileManager = EntityFrameworkTemplateFileManager.Create(this);
 var itemCollection = new EdmMetadataLoader(textTransform.Host, textTransform.Errors).CreateEdmItemCollection(inputFile);
 var codeStringGenerator = new CodeStringGenerator(code, typeMapper, ef);
 
@@ -19,16 +19,11 @@ if (!typeMapper.VerifyCaseInsensitiveTypeUniqueness(typeMapper.GetAllGlobalItems
 WriteHeader(codeStringGenerator, fileManager);
 //Ozalp 2015.07.13 - Auto Generated Interfaces
 BeginNamespace(code);#>
-<#=codeStringGenerator.UsingDirectives(inHeader: false)#>
+<#= codeStringGenerator.UsingDirectives(inHeader: false) #>
 <# if(AutoGenInterfaces!=null && AutoGenInterfaces.Any())
-{ #>
-#region Generated Interfaces
-<#
-WriteInterfaces(AutoGenInterfaces);#>
-#endregion
-<#
-} #>
-<#
+{ 
+    WriteInterfaces(AutoGenInterfaces);
+}
 EndNamespace(code);
 
 foreach (var entity in typeMapper.GetItemsToGenerate<EntityType>(itemCollection))
@@ -38,7 +33,7 @@ foreach (var entity in typeMapper.GetItemsToGenerate<EntityType>(itemCollection)
     //Ozalp 2013.12.10
     List<InterfaceDefinition> matchedInterfaces = GetMatchedInterfaces(code, entity.Properties.Where(e => e.DeclaringType == entity), AutoGenInterfaces);
 #>
-<#=codeStringGenerator.UsingDirectives(inHeader: false)#>
+<#= codeStringGenerator.UsingDirectives(inHeader: false) #>
 <# /* Ozalp 2013.12.10 */ #>
 <# /*= codeStringGenerator.EntityClassOpening(entity) Replaced with below line */ #>
 <#= EntityClassInterfaces(codeStringGenerator.EntityClassOpening(entity), matchedInterfaces) #>

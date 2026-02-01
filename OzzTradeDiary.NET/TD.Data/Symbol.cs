@@ -21,17 +21,40 @@ namespace TD.Data
         }
     
         public int Id { get; set; }
+        /// <summary>
+        /// Symbol name without exchange prefix, e.g. 'BTUSDT'
+        /// </summary>
         public string Ticker { get; set; }
+        /// <summary>
+        /// Symbol name with exchange prefix, e.g. 'BYBIT:BTCUSD.P'
+        /// </summary>
         public string TickerFull { get; set; }
+        /// <summary>
+        /// Contains a string (CurrencyTicker) that representing the symbol's base currency if the instrument is a Crypto pair or a Forex pair or a derivative based on such a pair.
+        /// For example, this property holds "GBP" for "GBPJPY", "BTC" for "BTCUSDT" and "" for "NASDAQ:MSFT".
+        /// </summary>
         public string BaseCurrency { get; set; }
+        /// <summary>
+        /// Contains a string (CurrencyTicker) that representing currency of the symbol's price.
+        /// For example, this property holds "JPY" for "GBPJPY", "USDT" for "BTCUSDT" and "USD" for "NASDAQ:MSFT".
+        /// </summary>
         public string PriceCurrency { get; set; }
+        /// <summary>
+        /// Description of the symbol
+        /// </summary>
         public string Description { get; set; }
+        /// <summary>
+        /// The Id value of exchange record that related to the symbol
+        /// </summary>
         public int ExchangeId { get; set; }
         public int MarketType { get; set; }
         public int DisplayOrder { get; set; }
         public bool IsActive { get; set; }
     
-        public virtual Exchange Exchanges { get; set; }
+        /// <summary>
+        /// Exchange of the symbol
+        /// </summary>
+        public virtual Exchange Exchange { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Trade> Trades { get; set; }
         /// <summary>
@@ -107,11 +130,31 @@ namespace TD.Data
         partial void Converting(Symbol entity);
       
         public int Id { get; set; }
+        /// <summary>
+        /// Symbol name without exchange prefix, e.g. 'BTUSDT'
+        /// </summary>
         public string Ticker { get; set; }
+        /// <summary>
+        /// Symbol name with exchange prefix, e.g. 'BYBIT:BTCUSD.P'
+        /// </summary>
         public string TickerFull { get; set; }
+        /// <summary>
+        /// Contains a string (CurrencyTicker) that representing the symbol's base currency if the instrument is a Crypto pair or a Forex pair or a derivative based on such a pair.
+        /// For example, this property holds "GBP" for "GBPJPY", "BTC" for "BTCUSDT" and "" for "NASDAQ:MSFT".
+        /// </summary>
         public string BaseCurrency { get; set; }
+        /// <summary>
+        /// Contains a string (CurrencyTicker) that representing currency of the symbol's price.
+        /// For example, this property holds "JPY" for "GBPJPY", "USDT" for "BTCUSDT" and "USD" for "NASDAQ:MSFT".
+        /// </summary>
         public string PriceCurrency { get; set; }
+        /// <summary>
+        /// Description of the symbol
+        /// </summary>
         public string Description { get; set; }
+        /// <summary>
+        /// The Id value of exchange record that related to the symbol
+        /// </summary>
         public int ExchangeId { get; set; }
         public int MarketType { get; set; }
         public int DisplayOrder { get; set; }
