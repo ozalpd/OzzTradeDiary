@@ -62,6 +62,7 @@ Early-stage development (v0.0.2).
 - **Localization**: Bilingual (English/Turkish) — planned; vocabulary XML files scaffolded in `OzzCodeGen/Vocabulary/` but not yet implemented
 - **Code generation**: OzzCodeGen generates SQLite DDL scripts and localization resources — settings files in `OzzCodeGen/` define mappings
 - **Backup**: SQLite backup via `BackupDatabase` API → ZIP archives with timestamps
+- **Icons**: Bootstrap Icons v1.13.1 (MIT) — icon paths stored as `StreamGeometry` resources in `OzzTradeDiary.WPF/Resources/BootstrapIcons.xaml`; reference via `{StaticResource <IconKey>}` in XAML
 - **Window state**: DPI-aware multi-monitor positioning via WinAPI (`WindowPosition`)
 - **Database path**: Default is `{AppData}/taxpayers.db`
 
