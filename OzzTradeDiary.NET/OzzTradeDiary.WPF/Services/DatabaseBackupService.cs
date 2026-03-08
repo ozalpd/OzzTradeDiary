@@ -1,0 +1,247 @@
+using Microsoft.Data.Sqlite;
+using System.IO;
+using System.IO.Compression;
+using TD.WPF.Models;
+
+namespace TD.WPF.Services;
+
+/// <summary>
+/// Service for creating and managing database backups.
+/// </summary>
+internal class DatabaseBackupService : IBackupService
+{
+    private readonly AppSettings _settings;
+    private string _backupFilePrefix = "dbbackup-";
+    public DatabaseBackupService(AppSettings settings)
+    {
+        _settings = settings ?? throw new ArgumentNullException(nameof(settings));
+    }
+
+    /// <summary>
+    /// Creates a timestamped backup of the database using SQLite's BACKUP API.
+    /// </summary>
+    /// <param name="connectionString">The connection string to the source database.</param>
+    /// <returns>The full path to the created backup file, or null if backup failed.</returns>
+    public async Task<string?> CreateBackupAsync(string connectionString)
+    {
+        var backupFolder = _settings.BackupFolder;
+        if (!Directory.Exists(backupFolder))
+        {
+            Directory.CreateDirectory(backupFolder);
+        }
+
+        //Since this is a desktop application users don't need more than one backup in a minute,
+        //so we can use minute-level timestamps to avoid creating multiple backups in a short time frame.
+        var timestamp = DateTime.Now.ToString("yyyy-MM-dd-HHmm");
+        var backupFileName = $"{_backupFilePrefix}{timestamp}.zip";
+        var backupPath = Path.Combine(backupFolder, backupFileName);
+
+        //Also users can easily click to the manual backup button multiple times,
+        //so we should prevent creating multiple backups in the same minute.
+        if (File.Exists(backupPath))
+            return null;
+
+        string? tempDbPath = null;
+
+        try
+        {
+            var sourcePath = _settings.DatabasePath;
+            if (!File.Exists(sourcePath))
+            {
+                return null;
+            }
+
+            tempDbPath = Path.Combine(Path.GetTempPath(), $"taxpayers_temp_{timestamp}.db");
+
+            await Task.Run(() =>
+            {
+                using (var sourceConnection = new SqliteConnection(connectionString))
+                {
+                    sourceConnection.Open();
+
+                    using (var backupConnection = new SqliteConnection($"Data Source={tempDbPath}"))
+                    {
+                        backupConnection.Open();
+                        sourceConnection.BackupDatabase(backupConnection);
+                    }
+                }
+
+                SqliteConnection.ClearAllPools();
+            });
+
+            await Task.Run(() =>
+            {
+                using var archive = ZipFile.Open(backupPath, ZipArchiveMode.Create);
+                archive.CreateEntryFromFile(tempDbPath, Path.GetFileName(sourcePath), CompressionLevel.Optimal);
+            });
+
+            if (File.Exists(tempDbPath))
+            {
+                File.Delete(tempDbPath);
+            }
+
+            _settings.LastBackupTimeUtc = DateTime.UtcNow;
+            _settings.Save();
+
+            return backupPath;
+        }
+        catch (IOException)
+        {
+            return null;
+        }
+        catch (UnauthorizedAccessException)
+        {
+            return null;
+        }
+        catch (SqliteException)
+        {
+            return null;
+        }
+        finally
+        {
+            if (tempDbPath != null && File.Exists(tempDbPath))
+            {
+                try
+                {
+                    SqliteConnection.ClearAllPools();
+                    File.Delete(tempDbPath);
+                }
+                catch
+                {
+                    // Ignore cleanup errors
+                }
+            }
+        }
+    }
+
+    /// <summary>
+    /// Deletes old backup files, keeping only the most recent ones.
+    /// </summary>
+    /// <returns>Number of files deleted.</returns>
+    public async Task<int> CleanupOldBackupsAsync()
+    {
+        try
+        {
+            var backupFolder = _settings.BackupFolder;
+            if (!Directory.Exists(backupFolder))
+            {
+                return 0;
+            }
+
+            var backupFiles = Directory.GetFiles(backupFolder, $"{_backupFilePrefix}*.zip")
+                .Select(f => new FileInfo(f))
+                .OrderByDescending(f => f.CreationTime)
+                .ToList();
+
+            if (backupFiles.Count <= _settings.MaxBackupFiles)
+            {
+                return 0;
+            }
+
+            var filesToDelete = backupFiles.Skip((int)_settings.MaxBackupFiles).ToList();
+            var deletedCount = 0;
+
+            await Task.Run(() =>
+            {
+                foreach (var file in filesToDelete)
+                {
+                    try
+                    {
+                        file.Delete();
+                        deletedCount++;
+                    }
+                    catch (IOException)
+                    {
+                    }
+                    catch (UnauthorizedAccessException)
+                    {
+                    }
+                }
+            });
+
+            return deletedCount;
+        }
+        catch (IOException)
+        {
+            return 0;
+        }
+        catch (UnauthorizedAccessException)
+        {
+            return 0;
+        }
+    }
+
+    /// <summary>
+    /// Checks if auto-backup is due based on settings.
+    /// </summary>
+    /// <returns>True if backup should be performed, false otherwise.</returns>
+    public bool IsBackupDue()
+    {
+        if (!_settings.AutoBackupEnabled)
+        {
+            return false;
+        }
+
+        if (_settings.LastBackupTimeUtc is null)
+        {
+            return true;
+        }
+
+        var intervalMinutes = _settings.AutoBackupIntervalMinutes;
+        var nextBackupTime = _settings.LastBackupTimeUtc.Value.AddMinutes(intervalMinutes);
+
+        return DateTime.UtcNow >= nextBackupTime;
+    }
+
+    /// <summary>
+    /// Gets the list of backup files in the backup folder.
+    /// </summary>
+    /// <returns>List of backup file information ordered by creation time (newest first).</returns>
+    public async Task<List<BackupFileInfo>> GetBackupFilesAsync()
+    {
+        try
+        {
+            var backupFolder = _settings.BackupFolder;
+            if (!Directory.Exists(backupFolder))
+            {
+                return new List<BackupFileInfo>();
+            }
+
+            return await Task.Run(() =>
+            {
+                var backupFiles = Directory.GetFiles(backupFolder, $"{_backupFilePrefix}*.zip")
+                    .Select(f => new FileInfo(f))
+                    .OrderByDescending(f => f.Name)
+                    .Select(f => new BackupFileInfo
+                    {
+                        FileName = f.Name,
+                        CreatedDate = f.CreationTime,
+                        CreatedDateUtc = f.CreationTimeUtc,
+                        SizeInBytes = f.Length
+                    })
+                    .ToList();
+
+                return backupFiles;
+            });
+        }
+        catch (IOException)
+        {
+            return new List<BackupFileInfo>();
+        }
+        catch (UnauthorizedAccessException)
+        {
+            return new List<BackupFileInfo>();
+        }
+    }
+
+    /// <summary>
+    /// Checks if any backup files exist that are newer than the specified UTC time.
+    /// </summary>
+    /// <param name="lastBackupTimeUtc">The UTC timestamp to compare against backup file creation times.</param>
+    /// <returns>True if one or more backup files were created after the specified time; otherwise, false.</returns>
+    public async Task<bool> HasNewerBackupThanAsync(DateTime lastBackupTimeUtc)
+    {
+        var backupFiles = await GetBackupFilesAsync();
+        return backupFiles.Any(f => f.CreatedDateUtc > lastBackupTimeUtc);
+    }
+}

@@ -1,0 +1,8 @@
+<Solution>
+  <Project Path="OzzTradeDiary.NET/OzzTradeDiary.WPF/OzzTradeDiary.WPF.csproj" />
+  <Project Path="OzzTradeDiary.NET/OzzTradeDiary/OzzTradeDiary.csproj" Id="19976e79-998a-4777-a38d-88d8b65258f0" />
+  <Folder Name="/Solution Items/">
+    <File Path="README.md" />
+  </Folder>
+  <Project Path="OzzTradeDiary.NET/OzzTradeDiary.SQLite/OzzTradeDiary.SQLite.csproj" Id="7719c9b6-3a14-4aa1-8798-de8cac7c71dd" />
+</Solution>

@@ -1,0 +1,61 @@
+namespace TD.Models
+{
+    public partial class TakeProfitOrder
+    {
+        public TakeProfitOrder()
+        {
+            Trade = new Trade();
+        }
+
+        public int Id { get; set; }
+        public int TradeId { get; set; }
+        public Nullable<System.DateTime> ExecuteTime { get; set; }
+        /// <summary>
+        /// Planned Take Profit Price
+        /// </summary>
+        public decimal OrderPrice { get; set; }
+        /// <summary>
+        /// Executed Take Profit Price
+        /// </summary>
+        public Nullable<decimal> FilledPrice { get; set; }
+        /// <summary>
+        /// Planned contract quantity of order
+        /// </summary>
+        public Nullable<decimal> OrderQuantity { get; set; }
+        /// <summary>
+        /// Realized contract quantity of order
+        /// </summary>
+        public Nullable<decimal> FilledQuantity { get; set; }
+        /// <summary>
+        /// Planned amount in currency, like $100
+        /// </summary>
+        public Nullable<decimal> OrderAmount { get; set; }
+        /// <summary>
+        /// Filled contract amount in currency, like $100
+        /// </summary>
+        public Nullable<decimal> FilledAmount { get; set; }
+        public int DisplayOrder { get; set; }
+    
+        public virtual Trade Trade { get; set; }
+        /// <summary>
+        /// Clones all properties in a new TakeProfitOrder instance,
+        /// except PrimaryKey(s)
+        /// </summary>
+        /// <returns>New TakeProfitOrder instance</returns>
+        public TakeProfitOrder Clone()
+        {
+            var clone = new TakeProfitOrder();
+            clone.TradeId = TradeId;
+            clone.ExecuteTime = ExecuteTime;
+            clone.OrderPrice = OrderPrice;
+            clone.FilledPrice = FilledPrice;
+            clone.OrderQuantity = OrderQuantity;
+            clone.FilledQuantity = FilledQuantity;
+            clone.OrderAmount = OrderAmount;
+            clone.FilledAmount = FilledAmount;
+            clone.DisplayOrder = DisplayOrder;
+    
+            return clone;
+        }
+    }
+}
