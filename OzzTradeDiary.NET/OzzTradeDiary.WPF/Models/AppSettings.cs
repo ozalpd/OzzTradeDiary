@@ -69,14 +69,14 @@ internal class AppSettings
     /// is generated.
     /// </summary>
     /// <remarks>The database path is automatically created if it does not exist when accessed. The
-    /// default path is located in the application's default database folder and is named 'taxpayers.db'.</remarks>
+    /// default path is located in the application's default database folder and is named 'trades.db'.</remarks>
     public string DatabasePath
     {
         get
         {
             if (string.IsNullOrWhiteSpace(_dbPath))
             {
-                _dbPath = Path.Combine(GetDefaultDatabaseFolderPath(), "taxpayers.db");
+                _dbPath = Path.Combine(GetDefaultDatabaseFolderPath(), "trades.db");
             }
 
             var dbDirPath = Path.GetDirectoryName(_dbPath);
@@ -128,12 +128,12 @@ internal class AppSettings
 
     private static string GetDefaultBackupFolderPath() => Path.Combine(
         Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
-        "VergiNoDogrula",
+        "OzzTradeDiary",
         "BackUp");
 
     private static string GetDefaultDatabaseFolderPath() => Path.Combine(
         Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
-        "VergiNoDogrula");
+        "OzzTradeDiary");
 
     public string GetDatabaseFolderPath() => Path.GetDirectoryName(DatabasePath) ?? string.Empty;
 
@@ -179,10 +179,10 @@ internal class AppSettings
     {
         var settingsFolder = Path.Combine(
             Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
-            "VergiNoDogrula");
+            "OzzTradeDiary");
         Directory.CreateDirectory(settingsFolder);
 
-        return Path.Combine(settingsFolder, "appsettings.json");
+        return Path.Combine(settingsFolder, "tdsettings.json");
     }
 
     public void Save()

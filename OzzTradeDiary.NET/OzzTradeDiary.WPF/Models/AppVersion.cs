@@ -27,7 +27,7 @@ internal static class AppVersion
     public static string Product =>
         Assembly.GetExecutingAssembly()
             .GetCustomAttribute<AssemblyProductAttribute>()?
-            .Product ?? "VergiNo ve TCKN Doğrula";
+            .Product ?? "Ozz Trade Diary";
 
     /// <summary>
     /// Gets the copyright information.
@@ -35,7 +35,7 @@ internal static class AppVersion
     public static string Copyright =>
         Assembly.GetExecutingAssembly()
             .GetCustomAttribute<AssemblyCopyrightAttribute>()?
-            .Copyright ?? "Copyright © 2025";
+            .Copyright ?? "Copyright © 2026";
 
     /// <summary>
     /// Gets the description.

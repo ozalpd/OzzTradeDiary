@@ -2,7 +2,7 @@
 
 ## Overview
 
-OzzTradeDiary is a trade journaling application for tracking trades across multiple markets (crypto, stocks, forex, futures, etc.). Currently a **Windows desktop app (WPF)** — additional platforms may be added in the future. Early-stage development (v0.0.1).
+Early-stage development (v0.0.2).
 
 ## Architecture
 
@@ -59,7 +59,7 @@ OzzTradeDiary is a trade journaling application for tracking trades across multi
 ## Conventions
 
 - **Singleton pattern** for `AppSettings` (lazy-loaded)
-- **Localization**: Bilingual (English/Turkish) via OzzCodeGen vocabulary XML files in `OzzCodeGen/Vocabulary/`
+- **Localization**: Bilingual (English/Turkish) — planned; vocabulary XML files scaffolded in `OzzCodeGen/Vocabulary/` but not yet implemented
 - **Code generation**: OzzCodeGen generates SQLite DDL scripts and localization resources — settings files in `OzzCodeGen/` define mappings
 - **Backup**: SQLite backup via `BackupDatabase` API → ZIP archives with timestamps
 - **Window state**: DPI-aware multi-monitor positioning via WinAPI (`WindowPosition`)

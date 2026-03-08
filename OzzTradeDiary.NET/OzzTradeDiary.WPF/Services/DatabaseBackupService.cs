@@ -51,7 +51,7 @@ internal class DatabaseBackupService : IBackupService
                 return null;
             }
 
-            tempDbPath = Path.Combine(Path.GetTempPath(), $"taxpayers_temp_{timestamp}.db");
+            tempDbPath = Path.Combine(Path.GetTempPath(), $"trades_temp_{timestamp}.db");
 
             await Task.Run(() =>
             {

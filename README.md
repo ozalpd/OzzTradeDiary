@@ -2,9 +2,17 @@
 
 A Windows desktop trade journaling application for tracking trades across multiple markets — crypto, stocks, forex, futures, options, commodities, and more.
 
-> **Status**: Early development (v0.0.1)
+> **Status**: Early development (v0.0.2)
+
+## Changelog
+
+See [`CHANGELOG.md`](CHANGELOG.md) for release history.
 
 ## Features
+
+- DPI-aware multi-monitor window positioning
+
+## Planned
 
 - Multi-market support: Stock, Forex, Crypto, Futures, Options, Commodities, and more
 - Trade tracking with entry/exit orders, stop-loss, and take-profit levels
@@ -13,7 +21,6 @@ A Windows desktop trade journaling application for tracking trades across multip
 - Trade plans with chart image attachments and notes
 - Multi-account and multi-exchange support
 - Automatic SQLite database backup with ZIP archiving
-- DPI-aware multi-monitor window positioning
 - Bilingual interface (English / Turkish)
 
 ## Prerequisites
