@@ -961,13 +961,13 @@
       </Properties>
     </EntityDefinition>
     <EntityDefinition>
-      <Name>TradePlan</Name>
+      <Name>TradeImage</Name>
       <EntitySource />
       <NamespaceName>TD</NamespaceName>
       <DisplayOrder>14</DisplayOrder>
       <Abstract>false</Abstract>
       <LetDownloadAll>false</LetDownloadAll>
-      <DisplayName>Trade Plan</DisplayName>
+      <DisplayName>Trade Image</DisplayName>
       <DisplayMember>Id</DisplayMember>
       <BaseTypeName>IModifyDate</BaseTypeName>
       <Properties>
@@ -1003,7 +1003,7 @@
         </BaseProperty>
         <BaseProperty xsi:type="StringProperty">
           <Name>ImageURL</Name>
-          <Comment>Web URL or local file path of the image</Comment>
+          <Comment>Web URL or local file path of the image associated with a trade that is referred by TradeId</Comment>
           <DisplayOrder>10300</DisplayOrder>
           <DisplayName>Image URL</DisplayName>
           <Editable>true</Editable>
@@ -1296,11 +1296,12 @@
           <IsNullable>true</IsNullable>
         </BaseProperty>
         <BaseProperty xsi:type="CollectionProperty">
-          <Name>TradePlans</Name>
+          <Name>TradeImages</Name>
+          <Comment>Keeps Web URL or local file path of the images associated with the trade, along with optional notes. This collection allows for multiple images to be linked to a single trade, providing visual documentation or evidence of the trade setup, execution, or outcome. Each TradeImage instance contains details about the image and its relation to the trade, facilitating better organization and reference within the trading diary.</Comment>
           <DisplayOrder>11700</DisplayOrder>
-          <DisplayName>Trade Plans</DisplayName>
+          <DisplayName>Trade Images</DisplayName>
           <Editable>true</Editable>
-          <TypeName>ICollection&lt;TradePlan&gt;</TypeName>
+          <TypeName>ICollection&lt;TradeImage&gt;</TypeName>
           <IsClientComputed>false</IsClientComputed>
           <IsServerComputed>false</IsServerComputed>
           <IsStoreGenerated>false</IsStoreGenerated>

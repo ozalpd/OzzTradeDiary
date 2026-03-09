@@ -27,7 +27,7 @@ See [`CHANGELOG.md`](CHANGELOG.md) for release history.
 - Trade tracking with entry/exit orders, stop-loss, and take-profit levels
 - Long and short trade directions
 - Multiple order types: Market, Limit, Stop, StopLimit, TrailingStop
-- Trade plans with chart image attachments and notes
+- Trade images with chart attachments and notes
 - Multi-account and multi-exchange support
 - Automatic SQLite database backup with ZIP archiving
 - Bilingual interface (English / Turkish)
@@ -57,9 +57,10 @@ dotnet run --project OzzTradeDiary.NET/OzzTradeDiary.WPF/OzzTradeDiary.WPF.cspro
 OzzTradeDiary.slnx
 ├── OzzTradeDiary.NET/
 │   ├── OzzTradeDiary/            # Core models (TD namespace) — platform-independent
-│   │   └── Models/               # Trade, Symbol, Exchange, Currency, Orders, etc.
+│   │   └── Models/               # Trade, TradeImage, Symbol, Exchange, Currency, Orders, etc.
 │   ├── OzzTradeDiary.SQLite/     # Data access (TD.SQLite namespace) — platform-independent
-│   │   └── DbScripts/            # Generated SQL DDL scripts
+│   │   ├── DbScripts/            # Generated SQL DDL scripts (one per model in OzzTradeDiary/Models)
+│   │   └── Repositories/         # Data access repositories (one per entity)
 │   └── OzzTradeDiary.WPF/       # Desktop UI (TD.WPF namespace) — Windows only
 │       ├── Commands/             # ICommand implementations
 │       ├── Extensions/           # String/text helpers

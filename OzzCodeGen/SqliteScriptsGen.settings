@@ -633,13 +633,13 @@
       </Properties>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="StorageEntitySetting">
-      <Name>TradePlan</Name>
+      <Name>TradeImage</Name>
       <Exclude>false</Exclude>
-      <OverwriteExisting>false</OverwriteExisting>
+      <OverwriteExisting>true</OverwriteExisting>
       <InheritedEntity>IModifyDate</InheritedEntity>
       <UseInheritance>false</UseInheritance>
       <SchemaName>dbo</SchemaName>
-      <TableName>TradePlans</TableName>
+      <TableName>TradeImages</TableName>
       <HasLogTable>false</HasLogTable>
       <StoredProcGeneration>NoStoredProcedure</StoredProcGeneration>
       <CustomStoredProcs>false</CustomStoredProcs>
@@ -653,7 +653,7 @@
           <Indexed>false</Indexed>
           <Unique>false</Unique>
           <SortDesc>false</SortDesc>
-          <Nullable>false</Nullable>
+          <Nullable>true</Nullable>
           <CheckIfAltered>false</CheckIfAltered>
           <DoNotLog>false</DoNotLog>
           <ForeignKeyTable>Trades</ForeignKeyTable>

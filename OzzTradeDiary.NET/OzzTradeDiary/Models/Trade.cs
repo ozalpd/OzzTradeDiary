@@ -7,7 +7,7 @@ namespace TD.Models
             EntryOrders = new HashSet<EntryOrder>();
             StopLossOrders = new HashSet<StopLossOrder>();
             TakeProfitOrders = new HashSet<TakeProfitOrder>();
-            TradePlans = new HashSet<TradePlan>();
+            TradeImages = new HashSet<TradeImage>();
             Symbol = new Symbol();
             TradingAccount = new TradingAccount();
         }
@@ -51,7 +51,11 @@ namespace TD.Models
         public virtual ICollection<StopLossOrder> StopLossOrders { get; set; }
         public virtual Symbol Symbol { get; set; }
         public virtual ICollection<TakeProfitOrder> TakeProfitOrders { get; set; }
-        public virtual ICollection<TradePlan> TradePlans { get; set; }
+        /// <summary>
+        /// Keeps Web URL or local file path of the images associated with the trade, along with optional notes. This collection allows for multiple images to be linked to a single trade, providing visual documentation or evidence of the trade setup, execution, or outcome. Each TradeImage instance contains details about the image and its relation to the trade, facilitating better organization and reference within the trading diary.
+        /// </summary>
+        public virtual ICollection<TradeImage> TradeImages { get; set; }
+
         public virtual TradingAccount TradingAccount { get; set; }
 
         /// <summary>
