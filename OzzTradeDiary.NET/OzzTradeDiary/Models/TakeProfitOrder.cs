@@ -9,6 +9,7 @@ namespace TD.Models
 
         public int Id { get; set; }
         public int TradeId { get; set; }
+        public OrderType OrderType { get; set; }
         public Nullable<System.DateTime> ExecuteTime { get; set; }
         /// <summary>
         /// Planned Take Profit Price
@@ -46,6 +47,7 @@ namespace TD.Models
         {
             var clone = new TakeProfitOrder();
             clone.TradeId = TradeId;
+            clone.OrderType = OrderType;
             clone.ExecuteTime = ExecuteTime;
             clone.OrderPrice = OrderPrice;
             clone.FilledPrice = FilledPrice;

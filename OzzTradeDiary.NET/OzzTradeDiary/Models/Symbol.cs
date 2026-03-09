@@ -39,7 +39,7 @@ namespace TD.Models
         /// The Id value of exchange record that related to the symbol
         /// </summary>
         public int ExchangeId { get; set; }
-        public int MarketType { get; set; }
+        public MarketType MarketType { get; set; }
         public int DisplayOrder { get; set; }
         public bool IsActive { get; set; }
     

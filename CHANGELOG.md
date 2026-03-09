@@ -11,6 +11,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ### Changed
 - Renamed `TradePlan` model to `TradeImage` to better reflect its purpose as image attachments with notes for trades.
+- Added enum properties in model files (`OrderType`, `TradeDirection`, and related enum usage updates).
+- Added missing `OrderType` column to generated DDL scripts for `EntryOrder`, `TakeProfitOrder`, and `StopLossOrder`.
+
+### Technical
+- Data layer implementation is still in progress; current changes are model and generated DDL alignment.
+- Confirmed `DbScripts` SQL files are generated via `OzzCodeGen` (not manually edited).
 
 ### Documentation
 - Updated `README.md` and `.github/copilot-instructions.md` for unreleased status guidance.

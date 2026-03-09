@@ -270,8 +270,24 @@
       <BaseTypeName>IDisplayOrder</BaseTypeName>
       <Properties>
         <BaseProperty xsi:type="SimpleProperty">
-          <Name>ExecuteTime</Name>
+          <Name>OrderType</Name>
           <DisplayOrder>20100</DisplayOrder>
+          <DisplayName>Order Type</DisplayName>
+          <Editable>true</Editable>
+          <TypeName>int</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <IsStoreGenerated>false</IsStoreGenerated>
+          <RestrictedData>false</RestrictedData>
+          <UiVisible>true</UiVisible>
+          <EnumTypeName />
+          <IsKey>false</IsKey>
+          <IsForeignKey>false</IsForeignKey>
+          <IsNullable>false</IsNullable>
+        </BaseProperty>
+        <BaseProperty xsi:type="SimpleProperty">
+          <Name>ExecuteTime</Name>
+          <DisplayOrder>20200</DisplayOrder>
           <DisplayName>Execute Time</DisplayName>
           <Editable>true</Editable>
           <TypeName>DateTime</TypeName>
@@ -288,7 +304,7 @@
         <BaseProperty xsi:type="SimpleProperty">
           <Name>OrderPrice</Name>
           <Comment>Planned Entry Price</Comment>
-          <DisplayOrder>20200</DisplayOrder>
+          <DisplayOrder>20300</DisplayOrder>
           <DisplayName>Order Price</DisplayName>
           <Editable>true</Editable>
           <TypeName>decimal</TypeName>
@@ -305,7 +321,7 @@
         <BaseProperty xsi:type="SimpleProperty">
           <Name>FilledPrice</Name>
           <Comment>Executed Entry Price</Comment>
-          <DisplayOrder>20300</DisplayOrder>
+          <DisplayOrder>20400</DisplayOrder>
           <DisplayName>Filled Price</DisplayName>
           <Editable>true</Editable>
           <TypeName>decimal</TypeName>
@@ -322,7 +338,7 @@
         <BaseProperty xsi:type="SimpleProperty">
           <Name>OrderQuantity</Name>
           <Comment>Planned contract quantity of order</Comment>
-          <DisplayOrder>20400</DisplayOrder>
+          <DisplayOrder>20500</DisplayOrder>
           <DisplayName>Order Quantity</DisplayName>
           <Editable>true</Editable>
           <TypeName>decimal</TypeName>
@@ -339,7 +355,7 @@
         <BaseProperty xsi:type="SimpleProperty">
           <Name>FilledQuantity</Name>
           <Comment>Realized contract quantity of order</Comment>
-          <DisplayOrder>20500</DisplayOrder>
+          <DisplayOrder>20600</DisplayOrder>
           <DisplayName>Filled Quantity</DisplayName>
           <Editable>true</Editable>
           <TypeName>decimal</TypeName>
@@ -356,7 +372,7 @@
         <BaseProperty xsi:type="SimpleProperty">
           <Name>OrderAmount</Name>
           <Comment>Planned amount in currency, like $100</Comment>
-          <DisplayOrder>20600</DisplayOrder>
+          <DisplayOrder>20700</DisplayOrder>
           <DisplayName>Order Amount</DisplayName>
           <Editable>true</Editable>
           <TypeName>decimal</TypeName>
@@ -373,7 +389,7 @@
         <BaseProperty xsi:type="SimpleProperty">
           <Name>FilledAmount</Name>
           <Comment>Filled contract amount in currency, like $100</Comment>
-          <DisplayOrder>20700</DisplayOrder>
+          <DisplayOrder>20800</DisplayOrder>
           <DisplayName>Filled Amount</DisplayName>
           <Editable>true</Editable>
           <TypeName>decimal</TypeName>

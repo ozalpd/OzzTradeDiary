@@ -20,9 +20,12 @@ See [`CHANGELOG.md`](CHANGELOG.md) for release history.
 ## Features
 
 - DPI-aware multi-monitor window positioning
+- Domain enums wired in models (including `OrderType` and `TradeDirection`)
+- Generated SQLite schema includes `OrderType` for `EntryOrder`, `TakeProfitOrder`, and `StopLossOrder`
 
 ## Planned
 
+- Functional data layer repositories and query logic
 - Multi-market support: Stock, Forex, Crypto, Futures, Options, Commodities, and more
 - Trade tracking with entry/exit orders, stop-loss, and take-profit levels
 - Long and short trade directions

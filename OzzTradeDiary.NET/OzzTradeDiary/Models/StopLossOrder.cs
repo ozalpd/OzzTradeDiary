@@ -8,6 +8,7 @@ namespace TD.Models
         /// Indicates that all remaining quantity of the trade was or will be closed
         /// </summary>
         public bool StopAll { get; set; }
+        public OrderType OrderType { get; set; }
         public Nullable<System.DateTime> ExecuteTime { get; set; }
         /// <summary>
         /// Planned Stop Loss Price
@@ -46,6 +47,7 @@ namespace TD.Models
             var clone = new StopLossOrder();
             clone.TradeId = TradeId;
             clone.StopAll = StopAll;
+            clone.OrderType = OrderType;
             clone.ExecuteTime = ExecuteTime;
             clone.OrderPrice = OrderPrice;
             clone.FilledPrice = FilledPrice;

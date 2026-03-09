@@ -1,6 +1,7 @@
 CREATE TABLE TakeProfitOrders(
     Id INTEGER PRIMARY KEY,
 	TradeId INTEGER Not Null, 
+	OrderType INTEGER Not Null, 
 	ExecuteTime INTEGER, 
 	OrderPrice REAL Not Null, 
 	FilledPrice REAL, 

@@ -16,8 +16,8 @@ namespace TD.Models
         public int TradingAccountId { get; set; }
         public int SymbolId { get; set; }
         public Nullable<System.DateTime> EntryTime { get; set; }
-        public int EntryMethod { get; set; }
-        public int TradeDirection { get; set; }
+        public EntryMethod EntryMethod { get; set; }
+        public TradeDirection TradeDirection { get; set; }
         /// <summary>
         /// Planned Entry Price, calculated from EntryOrders
         /// </summary>
