@@ -2,7 +2,7 @@
 
 A Windows desktop trade journaling application for tracking trades across multiple markets — crypto, stocks, forex, futures, options, commodities, and more.
 
-> **Status**: Early development (v0.0.2)
+> **Status**: Pre-release development (no public release yet)
 
 ## Changelog
 

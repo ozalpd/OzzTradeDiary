@@ -6,11 +6,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
-### Changed
-- Renamed `TradePlan` model to `TradeImage` to better reflect its purpose as image attachments with notes for trades
-
 ### Added
-- Placeholder for upcoming changes.
+- Added application icon.
+
+### Changed
+- Renamed `TradePlan` model to `TradeImage` to better reflect its purpose as image attachments with notes for trades.
+
+### Documentation
+- Updated `README.md` and `.github/copilot-instructions.md` for unreleased status guidance.
+- Documented that `OzzTradeDiary.SQLite/DbScripts/` contains one generated DDL file per model in `OzzTradeDiary/Models`.
 
 ## [0.0.2] - 2026-03-08
 

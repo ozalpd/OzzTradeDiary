@@ -6,7 +6,8 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
-    <RootNamespace>TD.WPF</RootNamespace>
+	  <ApplicationIcon>Assets\OzzTradeDiary-256.ico</ApplicationIcon>
+	  <RootNamespace>TD.WPF</RootNamespace>
     
     <Version>0.0.2</Version>
     <AssemblyVersion>0.0.2.0</AssemblyVersion>
@@ -17,6 +18,10 @@
     <Copyright>Copyright © 2026</Copyright>
     <Description>Trade Journal Application</Description>
   </PropertyGroup>
+
+	<ItemGroup>
+		<Resource Include="Assets\OzzTradeDiary-256.ico" />
+	</ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\OzzTradeDiary\OzzTradeDiary.csproj" />

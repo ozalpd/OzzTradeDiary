@@ -2,7 +2,7 @@
 
 ## Overview
 
-Early-stage development (v0.0.2).
+Early-stage development (pre-release, no public release yet).
 
 ## Architecture
 
