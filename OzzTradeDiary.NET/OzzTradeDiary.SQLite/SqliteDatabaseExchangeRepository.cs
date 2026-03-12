@@ -56,6 +56,28 @@ public class SqliteDatabaseExchangeRepository : IDatabaseExchangeRepository
         return result;
     }
 
+    public async Task<Exchange?> GetByExchangeCodeAsync(string exchangeCode)
+    {
+        if (string.IsNullOrWhiteSpace(exchangeCode))
+            return null;
+
+        await using var connection = new SqliteConnection(_connectionString);
+        await connection.OpenAsync();
+
+        await using var command = connection.CreateCommand();
+        command.CommandText = @"
+            SELECT Id, ExchangeName, ExchangeCode, DisplayOrder, IsActive
+            FROM Exchanges
+            WHERE ExchangeCode = @exchangeCode";
+        command.Parameters.AddWithValue("@exchangeCode", exchangeCode);
+
+        await using var reader = await command.ExecuteReaderAsync();
+        if (!await reader.ReadAsync())
+            return null;
+
+        return MapExchange(reader);
+    }
+
     public async Task<Exchange?> GetByIdAsync(int id)
     {
         await using var connection = new SqliteConnection(_connectionString);
@@ -82,6 +104,14 @@ public class SqliteDatabaseExchangeRepository : IDatabaseExchangeRepository
         await using var connection = new SqliteConnection(_connectionString);
         await connection.OpenAsync();
 
+        var existingExchange = await GetByExchangeCodeAsync(exchange.ExchangeCode);
+        if (existingExchange != null)
+        {
+            exchange.Id = existingExchange.Id;
+            await UpdateAsync(exchange);
+            return existingExchange.Id;
+        }
+
         await using var command = connection.CreateCommand();
         command.CommandText = @"
             INSERT INTO Exchanges (ExchangeName, ExchangeCode, DisplayOrder, IsActive)
@@ -107,18 +137,30 @@ public class SqliteDatabaseExchangeRepository : IDatabaseExchangeRepository
         await using var connection = new SqliteConnection(_connectionString);
         await connection.OpenAsync();
 
+        var existingExchange = await GetByExchangeCodeAsync(exchange.ExchangeCode);
+        if (existingExchange != null && existingExchange.Id != exchange.Id)
+            throw new InvalidOperationException($"A different exchange with the same code already exists: {exchange.ExchangeCode}");
+
+        bool noChanges = existingExchange != null
+                      && existingExchange.ExchangeName.Equals(exchange.ExchangeName)
+                      && existingExchange.DisplayOrder == exchange.DisplayOrder
+                      && existingExchange.IsActive == exchange.IsActive;
+
+        if (noChanges)
+            return false;
+
         await using var command = connection.CreateCommand();
+        // ExchangeCode is not updated to avoid complications with existing references,
+        // so only ExchangeName, DisplayOrder and IsActive are updated
         command.CommandText = @"
             UPDATE Exchanges
             SET ExchangeName = @exchangeName,
-                ExchangeCode = @exchangeCode,
                 DisplayOrder = @displayOrder,
                 IsActive = @isActive
             WHERE Id = @id";
 
         command.Parameters.AddWithValue("@id", exchange.Id);
         command.Parameters.AddWithValue("@exchangeName", exchange.ExchangeName);
-        command.Parameters.AddWithValue("@exchangeCode", exchange.ExchangeCode);
         command.Parameters.AddWithValue("@displayOrder", exchange.DisplayOrder);
         command.Parameters.AddWithValue("@isActive", exchange.IsActive ? 1 : 0);
 

@@ -55,6 +55,28 @@ public class SqliteDatabaseTradingAccountRepository : IDatabaseTradingAccountRep
         return result;
     }
 
+    public async Task<TradingAccount?> GetByAccountCodeAsync(string accountCode)
+    {
+        if (string.IsNullOrWhiteSpace(accountCode))
+            return null;
+
+        await using var connection = new SqliteConnection(_connectionString);
+        await connection.OpenAsync();
+
+        await using var command = connection.CreateCommand();
+        command.CommandText = @"
+            SELECT Id, Title, AccountCode, ExchangeId, Notes, DisplayOrder, IsActive
+            FROM TradingAccounts
+            WHERE AccountCode = @accountCode";
+        command.Parameters.AddWithValue("@accountCode", accountCode);
+
+        await using var reader = await command.ExecuteReaderAsync();
+        if (!await reader.ReadAsync())
+            return null;
+
+        return MapTradingAccount(reader);
+    }
+
     public async Task<TradingAccount?> GetByIdAsync(int id)
     {
         await using var connection = new SqliteConnection(_connectionString);
@@ -80,6 +102,14 @@ public class SqliteDatabaseTradingAccountRepository : IDatabaseTradingAccountRep
 
         await using var connection = new SqliteConnection(_connectionString);
         await connection.OpenAsync();
+
+        var existingTradingAccount = await GetByAccountCodeAsync(tradingAccount.AccountCode);
+        if (existingTradingAccount != null)
+        {
+            tradingAccount.Id = existingTradingAccount.Id;
+            await UpdateAsync(tradingAccount);
+            return existingTradingAccount.Id;
+        }
 
         await using var command = connection.CreateCommand();
         command.CommandText = @"
@@ -108,12 +138,26 @@ public class SqliteDatabaseTradingAccountRepository : IDatabaseTradingAccountRep
         await using var connection = new SqliteConnection(_connectionString);
         await connection.OpenAsync();
 
+        var existingTradingAccount = await GetByAccountCodeAsync(tradingAccount.AccountCode);
+        if (existingTradingAccount != null && existingTradingAccount.Id != tradingAccount.Id)
+            throw new InvalidOperationException($"A different trading account with the same code already exists: {tradingAccount.AccountCode}");
+
+        bool noChanges = existingTradingAccount != null
+                      && existingTradingAccount.Title.Equals(tradingAccount.Title)
+                      && existingTradingAccount.ExchangeId == tradingAccount.ExchangeId
+                      && string.Equals(existingTradingAccount.Notes, tradingAccount.Notes, StringComparison.Ordinal)
+                      && existingTradingAccount.DisplayOrder == tradingAccount.DisplayOrder
+                      && existingTradingAccount.IsActive == tradingAccount.IsActive;
+
+        if (noChanges)
+            return false;
+
         await using var command = connection.CreateCommand();
+        // AccountCode and ExchangeId are not updated to avoid complications with existing references,
+        // so only Title, Notes, DisplayOrder and IsActive are updated
         command.CommandText = @"
             UPDATE TradingAccounts
             SET Title = @title,
-                AccountCode = @accountCode,
-                ExchangeId = @exchangeId,
                 Notes = @notes,
                 DisplayOrder = @displayOrder,
                 IsActive = @isActive
@@ -121,8 +165,6 @@ public class SqliteDatabaseTradingAccountRepository : IDatabaseTradingAccountRep
 
         command.Parameters.AddWithValue("@id", tradingAccount.Id);
         command.Parameters.AddWithValue("@title", tradingAccount.Title);
-        command.Parameters.AddWithValue("@accountCode", (object?)tradingAccount.AccountCode ?? DBNull.Value);
-        command.Parameters.AddWithValue("@exchangeId", tradingAccount.ExchangeId);
         command.Parameters.AddWithValue("@notes", (object?)tradingAccount.Notes ?? DBNull.Value);
         command.Parameters.AddWithValue("@displayOrder", tradingAccount.DisplayOrder);
         command.Parameters.AddWithValue("@isActive", tradingAccount.IsActive ? 1 : 0);

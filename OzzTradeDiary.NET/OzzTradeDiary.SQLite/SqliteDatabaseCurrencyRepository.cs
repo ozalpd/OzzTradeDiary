@@ -56,6 +56,24 @@ public class SqliteDatabaseCurrencyRepository : IDatabaseCurrencyRepository
         return result;
     }
 
+    public async Task<Currency?> GetByCurrencyTickerAsync(string currencyTicker)
+    {
+        if (string.IsNullOrWhiteSpace(currencyTicker))
+            return null;
+        await using var connection = new SqliteConnection(_connectionString);
+        await connection.OpenAsync();
+        await using var command = connection.CreateCommand();
+        command.CommandText = @"
+            SELECT Id, CurrencyTicker, Description, DisplayOrder, IsActive
+            FROM Currencies
+            WHERE CurrencyTicker = @currencyTicker";
+        command.Parameters.AddWithValue("@currencyTicker", currencyTicker);
+        await using var reader = await command.ExecuteReaderAsync();
+        if (!await reader.ReadAsync())
+            return null;
+        return MapCurrency(reader);
+    }
+
     public async Task<Currency?> GetByIdAsync(int id)
     {
         await using var connection = new SqliteConnection(_connectionString);
@@ -81,6 +99,13 @@ public class SqliteDatabaseCurrencyRepository : IDatabaseCurrencyRepository
 
         await using var connection = new SqliteConnection(_connectionString);
         await connection.OpenAsync();
+        var existingCurrency = await GetByCurrencyTickerAsync(currency.CurrencyTicker);
+        if (existingCurrency != null)
+        {
+            currency.Id = existingCurrency.Id;
+            await UpdateAsync(currency);
+            return existingCurrency.Id;
+        }
 
         await using var command = connection.CreateCommand();
         command.CommandText = @"
@@ -106,18 +131,29 @@ public class SqliteDatabaseCurrencyRepository : IDatabaseCurrencyRepository
 
         await using var connection = new SqliteConnection(_connectionString);
         await connection.OpenAsync();
+        var existingCurrency = await GetByCurrencyTickerAsync(currency.CurrencyTicker);
+        if (existingCurrency != null && existingCurrency.Id != currency.Id)
+            throw new InvalidOperationException($"A different currency with the same ticker already exists: {currency.CurrencyTicker}");
+
+        bool noChanges = existingCurrency != null
+                      && existingCurrency.Description.Equals(currency.Description)
+                      && existingCurrency.DisplayOrder == currency.DisplayOrder
+                      && existingCurrency.IsActive == currency.IsActive;
+        
+        if (noChanges)
+            return false;
 
         await using var command = connection.CreateCommand();
+        //CurrencyTicker is not updated to avoid complications with existing references in trades,
+        //so only Description, DisplayOrder and IsActive are updated
         command.CommandText = @"
             UPDATE Currencies
-            SET CurrencyTicker = @currencyTicker,
-                Description = @description,
+            SET Description = @description,
                 DisplayOrder = @displayOrder,
                 IsActive = @isActive
             WHERE Id = @id";
 
         command.Parameters.AddWithValue("@id", currency.Id);
-        command.Parameters.AddWithValue("@currencyTicker", currency.CurrencyTicker);
         command.Parameters.AddWithValue("@description", currency.Description);
         command.Parameters.AddWithValue("@displayOrder", currency.DisplayOrder);
         command.Parameters.AddWithValue("@isActive", currency.IsActive ? 1 : 0);

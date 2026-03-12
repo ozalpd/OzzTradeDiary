@@ -338,7 +338,7 @@
     <BaseEntitySetting xsi:type="StorageEntitySetting">
       <Name>TradingAccount</Name>
       <Exclude>false</Exclude>
-      <OverwriteExisting>false</OverwriteExisting>
+      <OverwriteExisting>true</OverwriteExisting>
       <InheritedEntity>IIsActive</InheritedEntity>
       <UseInheritance>false</UseInheritance>
       <SchemaName>dbo</SchemaName>
@@ -367,7 +367,7 @@
           <Lenght>0</Lenght>
           <PrimaryKey>false</PrimaryKey>
           <Indexed>true</Indexed>
-          <Unique>false</Unique>
+          <Unique>true</Unique>
           <SortDesc>false</SortDesc>
           <Nullable>true</Nullable>
           <CheckIfAltered>false</CheckIfAltered>

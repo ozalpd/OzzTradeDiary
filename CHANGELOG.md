@@ -6,6 +6,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+## [0.0.4] - 2026-03-12
 ### Added
 - Added application icon.
 
@@ -13,7 +14,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - Renamed `TradePlan` model to `TradeImage` to better reflect its purpose as image attachments with notes for trades.
 - Added enum properties in model files (`OrderType`, `TradeDirection`, and related enum usage updates).
 - Added missing `OrderType` column to generated DDL scripts for `EntryOrder`, `TakeProfitOrder`, and `StopLossOrder`.
-- Updated project versions of `OzzTradeDiary.WPF` and `OzzTradeDiary.SQLite` to `0.0.3` for internal change tracking.
+- Updated project versions of `OzzTradeDiary.WPF` and `OzzTradeDiary.SQLite` to `0.0.4` for internal change tracking (`2026-03-12`).
 - Updated DDL generation to use idempotent table creation (`CREATE TABLE IF NOT EXISTS`).
 
 ### Technical

@@ -4,7 +4,7 @@
 
 Early-stage development (pre-release, no public release yet).
 
-Internal tracking versions: `OzzTradeDiary.WPF` `0.0.3`, `OzzTradeDiary.SQLite` `0.0.3`.
+Internal tracking versions: `OzzTradeDiary.WPF` `0.0.4`, `OzzTradeDiary.SQLite` `0.0.4`.
 
 ## Architecture
 
@@ -65,6 +65,10 @@ Internal tracking versions: `OzzTradeDiary.WPF` `0.0.3`, `OzzTradeDiary.SQLite` 
 - Each CUD operation must call `SaveLastUpdateUtcAsync` via `SqliteDatabaseMetadataRepository`
 - SQLite types: `INTEGER` (ints, dates as ticks, enums), `REAL` (decimals), `TEXT` (strings)
 - Dates stored as ticks (`INTEGER`), not ISO 8601 text
+- **`Currency.CurrencyTicker` must be treated as a unique immutable key in repositories** (do not update it after creation).
+- **`Exchange.ExchangeCode` must be treated as a unique immutable key in repositories** (do not update it after creation).
+- **`TradingAccount.AccountCode` must be treated as a unique immutable key in repositories** (do not update it after creation).
+- **`TradingAccount.ExchangeId` must not be changed in repositories** (do not update it after creation).
 
 ## Conventions
 
