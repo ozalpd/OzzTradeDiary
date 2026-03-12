@@ -9,6 +9,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using TD.WPF.Models;
+using TD.WPF.ViewModels;
 
 namespace TD.WPF
 {
@@ -18,6 +19,7 @@ namespace TD.WPF
     public partial class MainWindow : Window
     {
         private readonly AppSettings _appSettings = AppSettings.GetAppSettings();
+        private MainWindowVM _viewModel;
 
         public MainWindow()
         {
@@ -31,6 +33,8 @@ namespace TD.WPF
             SourceInitialized -= MainWindow_SourceInitialized;
             _appSettings.MainWindowPosition.SetWindowPositions(this);
             Title = $"Ozz Trade Diary - v{AppVersion.Version}";
+            _viewModel = new MainWindowVM();
+            DataContext = _viewModel;
         }
 
         private async void MainWindow_Closing(object? sender, System.ComponentModel.CancelEventArgs e)

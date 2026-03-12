@@ -1,0 +1,159 @@
+using Microsoft.Data.Sqlite;
+using TD.Models;
+
+namespace TD.SQLite;
+
+/// <summary>
+/// SQLite-based repository for currency CRUD operations.
+/// </summary>
+public class SqliteDatabaseCurrencyRepository : IDatabaseCurrencyRepository
+{
+    private readonly string _connectionString;
+    private readonly SqliteDatabaseMetadataRepository _metadataRepository;
+
+    public SqliteDatabaseCurrencyRepository(string databasePath, SqliteDatabaseMetadataRepository? metadataRepository = null)
+    {
+        _connectionString = $"Data Source={databasePath}";
+        _metadataRepository = metadataRepository ?? new SqliteDatabaseMetadataRepository(databasePath);
+        InitializeDatabase();
+    }
+
+    private void InitializeDatabase()
+    {
+        using var connection = new SqliteConnection(_connectionString);
+        connection.Open();
+
+        SqliteDbScriptInitializer.ExecuteScript(connection, "Currency.sql");
+        SqliteDbScriptInitializer.SeedIfEmpty(connection, "Currencies", "Currencies-Data.sql");
+    }
+
+    public async Task<IReadOnlyList<Currency>> GetAllAsync(bool? isActive = null)
+    {
+        var result = new List<Currency>();
+
+        await using var connection = new SqliteConnection(_connectionString);
+        await connection.OpenAsync();
+
+        await using var command = connection.CreateCommand();
+        command.CommandText = @"
+            SELECT Id, CurrencyTicker, Description, DisplayOrder, IsActive
+            FROM Currencies";
+
+        if (isActive.HasValue)
+        {
+            command.CommandText += " WHERE IsActive = @isActive";
+            command.Parameters.AddWithValue("@isActive", isActive.Value ? 1 : 0);
+        }
+
+        command.CommandText += " ORDER BY DisplayOrder, CurrencyTicker";
+
+        await using var reader = await command.ExecuteReaderAsync();
+        while (await reader.ReadAsync())
+        {
+            result.Add(MapCurrency(reader));
+        }
+
+        return result;
+    }
+
+    public async Task<Currency?> GetByIdAsync(int id)
+    {
+        await using var connection = new SqliteConnection(_connectionString);
+        await connection.OpenAsync();
+
+        await using var command = connection.CreateCommand();
+        command.CommandText = @"
+            SELECT Id, CurrencyTicker, Description, DisplayOrder, IsActive
+            FROM Currencies
+            WHERE Id = @id";
+        command.Parameters.AddWithValue("@id", id);
+
+        await using var reader = await command.ExecuteReaderAsync();
+        if (!await reader.ReadAsync())
+            return null;
+
+        return MapCurrency(reader);
+    }
+
+    public async Task<int> CreateAsync(Currency currency)
+    {
+        ArgumentNullException.ThrowIfNull(currency);
+
+        await using var connection = new SqliteConnection(_connectionString);
+        await connection.OpenAsync();
+
+        await using var command = connection.CreateCommand();
+        command.CommandText = @"
+            INSERT INTO Currencies (CurrencyTicker, Description, DisplayOrder, IsActive)
+            VALUES (@currencyTicker, @description, @displayOrder, @isActive);
+            SELECT last_insert_rowid();";
+
+        command.Parameters.AddWithValue("@currencyTicker", currency.CurrencyTicker);
+        command.Parameters.AddWithValue("@description", currency.Description);
+        command.Parameters.AddWithValue("@displayOrder", currency.DisplayOrder);
+        command.Parameters.AddWithValue("@isActive", currency.IsActive ? 1 : 0);
+
+        var id = Convert.ToInt32((long)(await command.ExecuteScalarAsync() ?? 0));
+
+        await _metadataRepository.SaveLastUpdateUtcAsync(connection);
+
+        return id;
+    }
+
+    public async Task<bool> UpdateAsync(Currency currency)
+    {
+        ArgumentNullException.ThrowIfNull(currency);
+
+        await using var connection = new SqliteConnection(_connectionString);
+        await connection.OpenAsync();
+
+        await using var command = connection.CreateCommand();
+        command.CommandText = @"
+            UPDATE Currencies
+            SET CurrencyTicker = @currencyTicker,
+                Description = @description,
+                DisplayOrder = @displayOrder,
+                IsActive = @isActive
+            WHERE Id = @id";
+
+        command.Parameters.AddWithValue("@id", currency.Id);
+        command.Parameters.AddWithValue("@currencyTicker", currency.CurrencyTicker);
+        command.Parameters.AddWithValue("@description", currency.Description);
+        command.Parameters.AddWithValue("@displayOrder", currency.DisplayOrder);
+        command.Parameters.AddWithValue("@isActive", currency.IsActive ? 1 : 0);
+
+        var affectedRows = await command.ExecuteNonQueryAsync();
+        if (affectedRows > 0)
+            await _metadataRepository.SaveLastUpdateUtcAsync(connection);
+
+        return affectedRows > 0;
+    }
+
+    public async Task<bool> DeleteAsync(int id)
+    {
+        await using var connection = new SqliteConnection(_connectionString);
+        await connection.OpenAsync();
+
+        await using var command = connection.CreateCommand();
+        command.CommandText = "DELETE FROM Currencies WHERE Id = @id";
+        command.Parameters.AddWithValue("@id", id);
+
+        var affectedRows = await command.ExecuteNonQueryAsync();
+        if (affectedRows > 0)
+            await _metadataRepository.SaveLastUpdateUtcAsync(connection);
+
+        return affectedRows > 0;
+    }
+
+    private static Currency MapCurrency(SqliteDataReader reader)
+    {
+        return new Currency
+        {
+            Id = reader.GetInt32(0),
+            CurrencyTicker = reader.GetString(1),
+            Description = reader.IsDBNull(2) ? string.Empty : reader.GetString(2),
+            DisplayOrder = reader.GetInt32(3),
+            IsActive = reader.GetInt64(4) == 1
+        };
+    }
+}

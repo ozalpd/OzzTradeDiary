@@ -76,6 +76,11 @@ public class SqliteDatabaseMetadataRepository : IDatabaseMetadataRepository
         return null;
     }
 
+    /// <summary>
+    /// Saves the current UTC time as the last database update time.
+    /// </summary>
+    /// <param name="connection">The SQLite connection to use for the update.</param>
+    /// <returns>A task representing the asynchronous operation.</returns>
     public async Task SaveLastUpdateUtcAsync(SqliteConnection connection)
     {
         var nowUtc = DateTimeOffset.UtcNow;

@@ -512,7 +512,7 @@
           <EnumTypeName />
           <IsKey>false</IsKey>
           <IsForeignKey>false</IsForeignKey>
-          <IsNullable>true</IsNullable>
+          <IsNullable>false</IsNullable>
           <MaxLenght>48</MaxLenght>
         </BaseProperty>
         <BaseProperty xsi:type="StringProperty">
@@ -529,7 +529,7 @@
           <EnumTypeName />
           <IsKey>false</IsKey>
           <IsForeignKey>false</IsForeignKey>
-          <IsNullable>true</IsNullable>
+          <IsNullable>false</IsNullable>
           <MaxLenght>8</MaxLenght>
         </BaseProperty>
       </Properties>
@@ -1332,5 +1332,6 @@
   <CodeEngineList>
     <string>Sqlite_Scripts_Generator</string>
     <string>Localization_Resource_Generator</string>
+    <string>T-Sql_Scripts_Generator</string>
   </CodeEngineList>
 </CodeGenProject>

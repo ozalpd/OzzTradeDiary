@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SqliteScriptsEngine xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<TSqlScriptsEngine xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Language>CSharp</Language>
   <NamespaceName>TD.Models</NamespaceName>
-  <TargetFolder>..\OzzTradeDiary.NET\OzzTradeDiary.SQLite\DbScripts</TargetFolder>
+  <TargetFolder>..\DbScripts\T-SQL</TargetFolder>
   <EntitySettings>
     <BaseEntitySetting xsi:type="StorageEntitySetting">
       <Name>IPrimaryKey</Name>
@@ -18,7 +18,7 @@
         <StorageColumnSetting>
           <Name>Id</Name>
           <Exclude>false</Exclude>
-          <DataType>INTEGER</DataType>
+          <DataType>int</DataType>
           <Lenght>0</Lenght>
           <PrimaryKey>true</PrimaryKey>
           <Indexed>false</Indexed>
@@ -45,7 +45,7 @@
         <StorageColumnSetting>
           <Name>ModifyDate</Name>
           <Exclude>false</Exclude>
-          <DataType>INTEGER</DataType>
+          <DataType>DateTime</DataType>
           <Lenght>0</Lenght>
           <PrimaryKey>false</PrimaryKey>
           <Indexed>true</Indexed>
@@ -54,6 +54,8 @@
           <Nullable>false</Nullable>
           <CheckIfAltered>false</CheckIfAltered>
           <DoNotLog>false</DoNotLog>
+          <InsertDefault>GetDate()</InsertDefault>
+          <UpdateDefault>NeverUpdate</UpdateDefault>
         </StorageColumnSetting>
       </Properties>
     </BaseEntitySetting>
@@ -72,7 +74,7 @@
         <StorageColumnSetting>
           <Name>DisplayOrder</Name>
           <Exclude>false</Exclude>
-          <DataType>INTEGER</DataType>
+          <DataType>int</DataType>
           <Lenght>0</Lenght>
           <PrimaryKey>false</PrimaryKey>
           <Indexed>true</Indexed>
@@ -81,6 +83,8 @@
           <Nullable>false</Nullable>
           <CheckIfAltered>false</CheckIfAltered>
           <DoNotLog>false</DoNotLog>
+          <InsertDefault>1000</InsertDefault>
+          <UpdateDefault>NeverUpdate</UpdateDefault>
         </StorageColumnSetting>
       </Properties>
     </BaseEntitySetting>
@@ -99,7 +103,7 @@
         <StorageColumnSetting>
           <Name>IsActive</Name>
           <Exclude>false</Exclude>
-          <DataType>INTEGER</DataType>
+          <DataType>bit</DataType>
           <Lenght>0</Lenght>
           <PrimaryKey>false</PrimaryKey>
           <Indexed>true</Indexed>
@@ -108,6 +112,8 @@
           <Nullable>false</Nullable>
           <CheckIfAltered>false</CheckIfAltered>
           <DoNotLog>false</DoNotLog>
+          <InsertDefault>1</InsertDefault>
+          <UpdateDefault>NeverUpdate</UpdateDefault>
         </StorageColumnSetting>
       </Properties>
     </BaseEntitySetting>
@@ -126,10 +132,10 @@
         <StorageColumnSetting>
           <Name>OrderType</Name>
           <Exclude>false</Exclude>
-          <DataType>INTEGER</DataType>
+          <DataType>int</DataType>
           <Lenght>0</Lenght>
           <PrimaryKey>false</PrimaryKey>
-          <Indexed>true</Indexed>
+          <Indexed>false</Indexed>
           <Unique>false</Unique>
           <SortDesc>false</SortDesc>
           <Nullable>false</Nullable>
@@ -139,7 +145,7 @@
         <StorageColumnSetting>
           <Name>ExecuteTime</Name>
           <Exclude>false</Exclude>
-          <DataType>INTEGER</DataType>
+          <DataType>DateTime</DataType>
           <Lenght>0</Lenght>
           <PrimaryKey>false</PrimaryKey>
           <Indexed>true</Indexed>
@@ -148,11 +154,12 @@
           <Nullable>true</Nullable>
           <CheckIfAltered>false</CheckIfAltered>
           <DoNotLog>false</DoNotLog>
+          <InsertDefault>null</InsertDefault>
         </StorageColumnSetting>
         <StorageColumnSetting>
           <Name>OrderPrice</Name>
           <Exclude>false</Exclude>
-          <DataType>REAL</DataType>
+          <DataType>[decimal](18, 4)</DataType>
           <Lenght>0</Lenght>
           <PrimaryKey>false</PrimaryKey>
           <Indexed>false</Indexed>
@@ -165,7 +172,7 @@
         <StorageColumnSetting>
           <Name>FilledPrice</Name>
           <Exclude>false</Exclude>
-          <DataType>REAL</DataType>
+          <DataType>[decimal](18, 4)</DataType>
           <Lenght>0</Lenght>
           <PrimaryKey>false</PrimaryKey>
           <Indexed>false</Indexed>
@@ -178,7 +185,7 @@
         <StorageColumnSetting>
           <Name>OrderQuantity</Name>
           <Exclude>false</Exclude>
-          <DataType>REAL</DataType>
+          <DataType>[decimal](18, 4)</DataType>
           <Lenght>0</Lenght>
           <PrimaryKey>false</PrimaryKey>
           <Indexed>false</Indexed>
@@ -191,7 +198,7 @@
         <StorageColumnSetting>
           <Name>FilledQuantity</Name>
           <Exclude>false</Exclude>
-          <DataType>REAL</DataType>
+          <DataType>[decimal](18, 4)</DataType>
           <Lenght>0</Lenght>
           <PrimaryKey>false</PrimaryKey>
           <Indexed>false</Indexed>
@@ -204,7 +211,7 @@
         <StorageColumnSetting>
           <Name>OrderAmount</Name>
           <Exclude>false</Exclude>
-          <DataType>REAL</DataType>
+          <DataType>[decimal](18, 4)</DataType>
           <Lenght>0</Lenght>
           <PrimaryKey>false</PrimaryKey>
           <Indexed>false</Indexed>
@@ -217,7 +224,7 @@
         <StorageColumnSetting>
           <Name>FilledAmount</Name>
           <Exclude>false</Exclude>
-          <DataType>REAL</DataType>
+          <DataType>[decimal](18, 4)</DataType>
           <Lenght>0</Lenght>
           <PrimaryKey>false</PrimaryKey>
           <Indexed>false</Indexed>
@@ -231,20 +238,21 @@
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="StorageEntitySetting">
       <Name>AppSetting</Name>
-      <Exclude>true</Exclude>
+      <Exclude>false</Exclude>
       <OverwriteExisting>false</OverwriteExisting>
       <InheritedEntity>IPrimaryKey</InheritedEntity>
       <UseInheritance>false</UseInheritance>
       <SchemaName>dbo</SchemaName>
       <TableName>AppSettings</TableName>
       <HasLogTable>false</HasLogTable>
-      <StoredProcGeneration>NoStoredProcedure</StoredProcGeneration>
+      <StoredProcGeneration>CUD</StoredProcGeneration>
       <CustomStoredProcs>false</CustomStoredProcs>
+      <FinishingScript>AppSettings.Data.sql;AppSettings-AddtSP.sql</FinishingScript>
       <Properties>
         <StorageColumnSetting>
           <Name>SettingType</Name>
           <Exclude>false</Exclude>
-          <DataType>INTEGER</DataType>
+          <DataType>int</DataType>
           <Lenght>0</Lenght>
           <PrimaryKey>false</PrimaryKey>
           <Indexed>false</Indexed>
@@ -253,12 +261,13 @@
           <Nullable>false</Nullable>
           <CheckIfAltered>false</CheckIfAltered>
           <DoNotLog>false</DoNotLog>
+          <UpdateDefault>NeverUpdate</UpdateDefault>
         </StorageColumnSetting>
         <StorageColumnSetting>
           <Name>SettingName</Name>
           <Exclude>false</Exclude>
-          <DataType>TEXT</DataType>
-          <Lenght>0</Lenght>
+          <DataType>nVarChar</DataType>
+          <Lenght>64</Lenght>
           <PrimaryKey>false</PrimaryKey>
           <Indexed>false</Indexed>
           <Unique>false</Unique>
@@ -266,12 +275,13 @@
           <Nullable>false</Nullable>
           <CheckIfAltered>false</CheckIfAltered>
           <DoNotLog>false</DoNotLog>
+          <UpdateDefault>NeverUpdate</UpdateDefault>
         </StorageColumnSetting>
         <StorageColumnSetting>
           <Name>SettingValue</Name>
           <Exclude>false</Exclude>
-          <DataType>TEXT</DataType>
-          <Lenght>0</Lenght>
+          <DataType>nVarChar</DataType>
+          <Lenght>2048</Lenght>
           <PrimaryKey>false</PrimaryKey>
           <Indexed>false</Indexed>
           <Unique>false</Unique>
@@ -283,8 +293,8 @@
         <StorageColumnSetting>
           <Name>Description</Name>
           <Exclude>false</Exclude>
-          <DataType>TEXT</DataType>
-          <Lenght>0</Lenght>
+          <DataType>nVarChar</DataType>
+          <Lenght>255</Lenght>
           <PrimaryKey>false</PrimaryKey>
           <Indexed>false</Indexed>
           <Unique>false</Unique>
@@ -292,13 +302,14 @@
           <Nullable>true</Nullable>
           <CheckIfAltered>false</CheckIfAltered>
           <DoNotLog>false</DoNotLog>
+          <UpdateDefault>NeverUpdate</UpdateDefault>
         </StorageColumnSetting>
       </Properties>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="StorageEntitySetting">
       <Name>Exchange</Name>
       <Exclude>false</Exclude>
-      <OverwriteExisting>true</OverwriteExisting>
+      <OverwriteExisting>false</OverwriteExisting>
       <InheritedEntity>IIsActive</InheritedEntity>
       <UseInheritance>false</UseInheritance>
       <SchemaName>dbo</SchemaName>
@@ -310,26 +321,26 @@
         <StorageColumnSetting>
           <Name>ExchangeName</Name>
           <Exclude>false</Exclude>
-          <DataType>TEXT</DataType>
-          <Lenght>0</Lenght>
+          <DataType>nVarChar</DataType>
+          <Lenght>48</Lenght>
           <PrimaryKey>false</PrimaryKey>
           <Indexed>true</Indexed>
-          <Unique>true</Unique>
+          <Unique>false</Unique>
           <SortDesc>false</SortDesc>
-          <Nullable>false</Nullable>
+          <Nullable>true</Nullable>
           <CheckIfAltered>false</CheckIfAltered>
           <DoNotLog>false</DoNotLog>
         </StorageColumnSetting>
         <StorageColumnSetting>
           <Name>ExchangeCode</Name>
           <Exclude>false</Exclude>
-          <DataType>TEXT</DataType>
-          <Lenght>0</Lenght>
+          <DataType>nVarChar</DataType>
+          <Lenght>8</Lenght>
           <PrimaryKey>false</PrimaryKey>
           <Indexed>true</Indexed>
-          <Unique>true</Unique>
+          <Unique>false</Unique>
           <SortDesc>false</SortDesc>
-          <Nullable>false</Nullable>
+          <Nullable>true</Nullable>
           <CheckIfAltered>false</CheckIfAltered>
           <DoNotLog>false</DoNotLog>
         </StorageColumnSetting>
@@ -338,20 +349,21 @@
     <BaseEntitySetting xsi:type="StorageEntitySetting">
       <Name>TradingAccount</Name>
       <Exclude>false</Exclude>
-      <OverwriteExisting>false</OverwriteExisting>
+      <OverwriteExisting>true</OverwriteExisting>
       <InheritedEntity>IIsActive</InheritedEntity>
       <UseInheritance>false</UseInheritance>
       <SchemaName>dbo</SchemaName>
       <TableName>TradingAccounts</TableName>
       <HasLogTable>false</HasLogTable>
-      <StoredProcGeneration>NoStoredProcedure</StoredProcGeneration>
+      <LogTableName>TradingAccountsLog</LogTableName>
+      <StoredProcGeneration>CUD</StoredProcGeneration>
       <CustomStoredProcs>false</CustomStoredProcs>
       <Properties>
         <StorageColumnSetting>
           <Name>Title</Name>
           <Exclude>false</Exclude>
-          <DataType>TEXT</DataType>
-          <Lenght>0</Lenght>
+          <DataType>nVarChar</DataType>
+          <Lenght>128</Lenght>
           <PrimaryKey>false</PrimaryKey>
           <Indexed>true</Indexed>
           <Unique>false</Unique>
@@ -363,10 +375,10 @@
         <StorageColumnSetting>
           <Name>AccountCode</Name>
           <Exclude>false</Exclude>
-          <DataType>TEXT</DataType>
-          <Lenght>0</Lenght>
+          <DataType>nVarChar</DataType>
+          <Lenght>20</Lenght>
           <PrimaryKey>false</PrimaryKey>
-          <Indexed>true</Indexed>
+          <Indexed>false</Indexed>
           <Unique>false</Unique>
           <SortDesc>false</SortDesc>
           <Nullable>true</Nullable>
@@ -376,7 +388,7 @@
         <StorageColumnSetting>
           <Name>ExchangeId</Name>
           <Exclude>false</Exclude>
-          <DataType>INTEGER</DataType>
+          <DataType>int</DataType>
           <Lenght>0</Lenght>
           <PrimaryKey>false</PrimaryKey>
           <Indexed>true</Indexed>
@@ -386,11 +398,12 @@
           <CheckIfAltered>false</CheckIfAltered>
           <DoNotLog>false</DoNotLog>
           <ForeignKeyTable>Exchanges</ForeignKeyTable>
+          <UpdateDefault>NeverUpdate</UpdateDefault>
         </StorageColumnSetting>
         <StorageColumnSetting>
           <Name>Notes</Name>
           <Exclude>false</Exclude>
-          <DataType>TEXT</DataType>
+          <DataType>nVarChar</DataType>
           <Lenght>0</Lenght>
           <PrimaryKey>false</PrimaryKey>
           <Indexed>false</Indexed>
@@ -411,27 +424,28 @@
       <SchemaName>dbo</SchemaName>
       <TableName>Currencies</TableName>
       <HasLogTable>false</HasLogTable>
-      <StoredProcGeneration>NoStoredProcedure</StoredProcGeneration>
+      <StoredProcGeneration>CUD</StoredProcGeneration>
       <CustomStoredProcs>false</CustomStoredProcs>
       <Properties>
         <StorageColumnSetting>
           <Name>CurrencyTicker</Name>
           <Exclude>false</Exclude>
-          <DataType>TEXT</DataType>
-          <Lenght>0</Lenght>
+          <DataType>nVarChar</DataType>
+          <Lenght>8</Lenght>
           <PrimaryKey>false</PrimaryKey>
           <Indexed>true</Indexed>
-          <Unique>true</Unique>
+          <Unique>false</Unique>
           <SortDesc>false</SortDesc>
           <Nullable>false</Nullable>
           <CheckIfAltered>false</CheckIfAltered>
           <DoNotLog>false</DoNotLog>
+          <UpdateDefault>NeverUpdate</UpdateDefault>
         </StorageColumnSetting>
         <StorageColumnSetting>
           <Name>Description</Name>
           <Exclude>false</Exclude>
-          <DataType>TEXT</DataType>
-          <Lenght>0</Lenght>
+          <DataType>nVarChar</DataType>
+          <Lenght>255</Lenght>
           <PrimaryKey>false</PrimaryKey>
           <Indexed>false</Indexed>
           <Unique>false</Unique>
@@ -445,20 +459,20 @@
     <BaseEntitySetting xsi:type="StorageEntitySetting">
       <Name>Symbol</Name>
       <Exclude>false</Exclude>
-      <OverwriteExisting>false</OverwriteExisting>
+      <OverwriteExisting>true</OverwriteExisting>
       <InheritedEntity>IIsActive</InheritedEntity>
       <UseInheritance>false</UseInheritance>
       <SchemaName>dbo</SchemaName>
       <TableName>Symbols</TableName>
       <HasLogTable>false</HasLogTable>
-      <StoredProcGeneration>NoStoredProcedure</StoredProcGeneration>
+      <StoredProcGeneration>CUD</StoredProcGeneration>
       <CustomStoredProcs>false</CustomStoredProcs>
       <Properties>
         <StorageColumnSetting>
           <Name>Ticker</Name>
           <Exclude>false</Exclude>
-          <DataType>TEXT</DataType>
-          <Lenght>0</Lenght>
+          <DataType>nVarChar</DataType>
+          <Lenght>48</Lenght>
           <PrimaryKey>false</PrimaryKey>
           <Indexed>true</Indexed>
           <Unique>false</Unique>
@@ -466,15 +480,16 @@
           <Nullable>false</Nullable>
           <CheckIfAltered>false</CheckIfAltered>
           <DoNotLog>false</DoNotLog>
+          <UpdateDefault>NeverUpdate</UpdateDefault>
         </StorageColumnSetting>
         <StorageColumnSetting>
           <Name>TickerFull</Name>
           <Exclude>false</Exclude>
-          <DataType>TEXT</DataType>
-          <Lenght>0</Lenght>
+          <DataType>nVarChar</DataType>
+          <Lenght>64</Lenght>
           <PrimaryKey>false</PrimaryKey>
-          <Indexed>true</Indexed>
-          <Unique>true</Unique>
+          <Indexed>false</Indexed>
+          <Unique>false</Unique>
           <SortDesc>false</SortDesc>
           <Nullable>false</Nullable>
           <CheckIfAltered>false</CheckIfAltered>
@@ -483,8 +498,8 @@
         <StorageColumnSetting>
           <Name>BaseCurrency</Name>
           <Exclude>false</Exclude>
-          <DataType>TEXT</DataType>
-          <Lenght>0</Lenght>
+          <DataType>nVarChar</DataType>
+          <Lenght>8</Lenght>
           <PrimaryKey>false</PrimaryKey>
           <Indexed>false</Indexed>
           <Unique>false</Unique>
@@ -496,8 +511,8 @@
         <StorageColumnSetting>
           <Name>PriceCurrency</Name>
           <Exclude>false</Exclude>
-          <DataType>TEXT</DataType>
-          <Lenght>0</Lenght>
+          <DataType>nVarChar</DataType>
+          <Lenght>8</Lenght>
           <PrimaryKey>false</PrimaryKey>
           <Indexed>false</Indexed>
           <Unique>false</Unique>
@@ -509,8 +524,8 @@
         <StorageColumnSetting>
           <Name>Description</Name>
           <Exclude>false</Exclude>
-          <DataType>TEXT</DataType>
-          <Lenght>0</Lenght>
+          <DataType>nVarChar</DataType>
+          <Lenght>255</Lenght>
           <PrimaryKey>false</PrimaryKey>
           <Indexed>false</Indexed>
           <Unique>false</Unique>
@@ -522,7 +537,7 @@
         <StorageColumnSetting>
           <Name>ExchangeId</Name>
           <Exclude>false</Exclude>
-          <DataType>INTEGER</DataType>
+          <DataType>int</DataType>
           <Lenght>0</Lenght>
           <PrimaryKey>false</PrimaryKey>
           <Indexed>true</Indexed>
@@ -532,14 +547,15 @@
           <CheckIfAltered>false</CheckIfAltered>
           <DoNotLog>false</DoNotLog>
           <ForeignKeyTable>Exchanges</ForeignKeyTable>
+          <UpdateDefault>NeverUpdate</UpdateDefault>
         </StorageColumnSetting>
         <StorageColumnSetting>
           <Name>MarketType</Name>
           <Exclude>false</Exclude>
-          <DataType>INTEGER</DataType>
+          <DataType>int</DataType>
           <Lenght>0</Lenght>
           <PrimaryKey>false</PrimaryKey>
-          <Indexed>true</Indexed>
+          <Indexed>false</Indexed>
           <Unique>false</Unique>
           <SortDesc>false</SortDesc>
           <Nullable>false</Nullable>
@@ -551,19 +567,20 @@
     <BaseEntitySetting xsi:type="StorageEntitySetting">
       <Name>EntryOrder</Name>
       <Exclude>false</Exclude>
-      <OverwriteExisting>false</OverwriteExisting>
+      <OverwriteExisting>true</OverwriteExisting>
       <InheritedEntity>ITradeOrder</InheritedEntity>
       <UseInheritance>false</UseInheritance>
       <SchemaName>dbo</SchemaName>
       <TableName>EntryOrders</TableName>
-      <HasLogTable>false</HasLogTable>
-      <StoredProcGeneration>NoStoredProcedure</StoredProcGeneration>
+      <HasLogTable>true</HasLogTable>
+      <LogTableName>EntryOrdersLog</LogTableName>
+      <StoredProcGeneration>CUD</StoredProcGeneration>
       <CustomStoredProcs>false</CustomStoredProcs>
       <Properties>
         <StorageColumnSetting>
           <Name>TradeId</Name>
           <Exclude>false</Exclude>
-          <DataType>INTEGER</DataType>
+          <DataType>int</DataType>
           <Lenght>0</Lenght>
           <PrimaryKey>false</PrimaryKey>
           <Indexed>true</Indexed>
@@ -573,25 +590,27 @@
           <CheckIfAltered>false</CheckIfAltered>
           <DoNotLog>false</DoNotLog>
           <ForeignKeyTable>Trades</ForeignKeyTable>
+          <UpdateDefault>NeverUpdate</UpdateDefault>
         </StorageColumnSetting>
       </Properties>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="StorageEntitySetting">
       <Name>TakeProfitOrder</Name>
       <Exclude>false</Exclude>
-      <OverwriteExisting>false</OverwriteExisting>
+      <OverwriteExisting>true</OverwriteExisting>
       <InheritedEntity>ITradeOrder</InheritedEntity>
       <UseInheritance>false</UseInheritance>
       <SchemaName>dbo</SchemaName>
       <TableName>TakeProfitOrders</TableName>
-      <HasLogTable>false</HasLogTable>
-      <StoredProcGeneration>NoStoredProcedure</StoredProcGeneration>
+      <HasLogTable>true</HasLogTable>
+      <LogTableName>TakeProfitOrdersLog</LogTableName>
+      <StoredProcGeneration>CUD</StoredProcGeneration>
       <CustomStoredProcs>false</CustomStoredProcs>
       <Properties>
         <StorageColumnSetting>
           <Name>TradeId</Name>
           <Exclude>false</Exclude>
-          <DataType>INTEGER</DataType>
+          <DataType>int</DataType>
           <Lenght>0</Lenght>
           <PrimaryKey>false</PrimaryKey>
           <Indexed>true</Indexed>
@@ -601,25 +620,27 @@
           <CheckIfAltered>false</CheckIfAltered>
           <DoNotLog>false</DoNotLog>
           <ForeignKeyTable>Trades</ForeignKeyTable>
+          <UpdateDefault>NeverUpdate</UpdateDefault>
         </StorageColumnSetting>
       </Properties>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="StorageEntitySetting">
       <Name>StopLossOrder</Name>
       <Exclude>false</Exclude>
-      <OverwriteExisting>false</OverwriteExisting>
+      <OverwriteExisting>true</OverwriteExisting>
       <InheritedEntity>ITradeOrder</InheritedEntity>
       <UseInheritance>false</UseInheritance>
       <SchemaName>dbo</SchemaName>
       <TableName>StopLossOrders</TableName>
-      <HasLogTable>false</HasLogTable>
-      <StoredProcGeneration>NoStoredProcedure</StoredProcGeneration>
+      <HasLogTable>true</HasLogTable>
+      <LogTableName>StopLossOrdersLog</LogTableName>
+      <StoredProcGeneration>CUD</StoredProcGeneration>
       <CustomStoredProcs>false</CustomStoredProcs>
       <Properties>
         <StorageColumnSetting>
           <Name>TradeId</Name>
           <Exclude>false</Exclude>
-          <DataType>INTEGER</DataType>
+          <DataType>int</DataType>
           <Lenght>0</Lenght>
           <PrimaryKey>false</PrimaryKey>
           <Indexed>true</Indexed>
@@ -629,11 +650,12 @@
           <CheckIfAltered>false</CheckIfAltered>
           <DoNotLog>false</DoNotLog>
           <ForeignKeyTable>Trades</ForeignKeyTable>
+          <UpdateDefault>NeverUpdate</UpdateDefault>
         </StorageColumnSetting>
         <StorageColumnSetting>
           <Name>StopAll</Name>
           <Exclude>false</Exclude>
-          <DataType>INTEGER</DataType>
+          <DataType>bit</DataType>
           <Lenght>0</Lenght>
           <PrimaryKey>false</PrimaryKey>
           <Indexed>false</Indexed>
@@ -648,7 +670,7 @@
     <BaseEntitySetting xsi:type="StorageEntitySetting">
       <Name>TradeImage</Name>
       <Exclude>false</Exclude>
-      <OverwriteExisting>true</OverwriteExisting>
+      <OverwriteExisting>false</OverwriteExisting>
       <InheritedEntity>IModifyDate</InheritedEntity>
       <UseInheritance>false</UseInheritance>
       <SchemaName>dbo</SchemaName>
@@ -660,10 +682,10 @@
         <StorageColumnSetting>
           <Name>TradeId</Name>
           <Exclude>false</Exclude>
-          <DataType>INTEGER</DataType>
+          <DataType>int</DataType>
           <Lenght>0</Lenght>
           <PrimaryKey>false</PrimaryKey>
-          <Indexed>true</Indexed>
+          <Indexed>false</Indexed>
           <Unique>false</Unique>
           <SortDesc>false</SortDesc>
           <Nullable>true</Nullable>
@@ -674,7 +696,7 @@
         <StorageColumnSetting>
           <Name>ImageURL</Name>
           <Exclude>false</Exclude>
-          <DataType>TEXT</DataType>
+          <DataType>nVarChar</DataType>
           <Lenght>0</Lenght>
           <PrimaryKey>false</PrimaryKey>
           <Indexed>false</Indexed>
@@ -687,7 +709,7 @@
         <StorageColumnSetting>
           <Name>Notes</Name>
           <Exclude>false</Exclude>
-          <DataType>TEXT</DataType>
+          <DataType>nVarChar</DataType>
           <Lenght>0</Lenght>
           <PrimaryKey>false</PrimaryKey>
           <Indexed>false</Indexed>
@@ -702,63 +724,68 @@
     <BaseEntitySetting xsi:type="StorageEntitySetting">
       <Name>Trade</Name>
       <Exclude>false</Exclude>
-      <OverwriteExisting>false</OverwriteExisting>
+      <OverwriteExisting>true</OverwriteExisting>
       <InheritedEntity>IModifyDate</InheritedEntity>
       <UseInheritance>false</UseInheritance>
       <SchemaName>dbo</SchemaName>
       <TableName>Trades</TableName>
-      <HasLogTable>false</HasLogTable>
-      <StoredProcGeneration>NoStoredProcedure</StoredProcGeneration>
+      <HasLogTable>true</HasLogTable>
+      <LogTableName>TradesLog</LogTableName>
+      <StoredProcGeneration>CUD</StoredProcGeneration>
       <CustomStoredProcs>false</CustomStoredProcs>
       <Properties>
         <StorageColumnSetting>
           <Name>TradingAccountId</Name>
           <Exclude>false</Exclude>
-          <DataType>INTEGER</DataType>
+          <DataType>int</DataType>
           <Lenght>0</Lenght>
           <PrimaryKey>false</PrimaryKey>
-          <Indexed>true</Indexed>
+          <Indexed>false</Indexed>
           <Unique>false</Unique>
           <SortDesc>false</SortDesc>
           <Nullable>false</Nullable>
           <CheckIfAltered>false</CheckIfAltered>
           <DoNotLog>false</DoNotLog>
           <ForeignKeyTable>TradingAccounts</ForeignKeyTable>
+          <UpdateDefault>NeverUpdate</UpdateDefault>
         </StorageColumnSetting>
         <StorageColumnSetting>
           <Name>SymbolId</Name>
           <Exclude>false</Exclude>
-          <DataType>INTEGER</DataType>
+          <DataType>int</DataType>
           <Lenght>0</Lenght>
           <PrimaryKey>false</PrimaryKey>
-          <Indexed>true</Indexed>
+          <Indexed>false</Indexed>
           <Unique>false</Unique>
           <SortDesc>false</SortDesc>
           <Nullable>false</Nullable>
           <CheckIfAltered>false</CheckIfAltered>
           <DoNotLog>false</DoNotLog>
           <ForeignKeyTable>Symbols</ForeignKeyTable>
+          <UpdateDefault>NeverUpdate</UpdateDefault>
         </StorageColumnSetting>
         <StorageColumnSetting>
           <Name>EntryTime</Name>
           <Exclude>false</Exclude>
-          <DataType>INTEGER</DataType>
+          <DataType>DateTime</DataType>
           <Lenght>0</Lenght>
           <PrimaryKey>false</PrimaryKey>
-          <Indexed>true</Indexed>
+          <Indexed>false</Indexed>
           <Unique>false</Unique>
-          <SortDesc>true</SortDesc>
+          <SortDesc>false</SortDesc>
           <Nullable>true</Nullable>
           <CheckIfAltered>false</CheckIfAltered>
           <DoNotLog>false</DoNotLog>
+          <InsertDefault>null</InsertDefault>
+          <UpdateDefault>NeverUpdate</UpdateDefault>
         </StorageColumnSetting>
         <StorageColumnSetting>
           <Name>EntryMethod</Name>
           <Exclude>false</Exclude>
-          <DataType>INTEGER</DataType>
+          <DataType>int</DataType>
           <Lenght>0</Lenght>
           <PrimaryKey>false</PrimaryKey>
-          <Indexed>true</Indexed>
+          <Indexed>false</Indexed>
           <Unique>false</Unique>
           <SortDesc>false</SortDesc>
           <Nullable>false</Nullable>
@@ -768,20 +795,21 @@
         <StorageColumnSetting>
           <Name>TradeDirection</Name>
           <Exclude>false</Exclude>
-          <DataType>INTEGER</DataType>
+          <DataType>int</DataType>
           <Lenght>0</Lenght>
           <PrimaryKey>false</PrimaryKey>
-          <Indexed>true</Indexed>
+          <Indexed>false</Indexed>
           <Unique>false</Unique>
           <SortDesc>false</SortDesc>
           <Nullable>false</Nullable>
           <CheckIfAltered>false</CheckIfAltered>
           <DoNotLog>false</DoNotLog>
+          <UpdateDefault>NeverUpdate</UpdateDefault>
         </StorageColumnSetting>
         <StorageColumnSetting>
           <Name>PlannedEntry</Name>
           <Exclude>false</Exclude>
-          <DataType>REAL</DataType>
+          <DataType>[decimal](18, 4)</DataType>
           <Lenght>0</Lenght>
           <PrimaryKey>false</PrimaryKey>
           <Indexed>false</Indexed>
@@ -794,7 +822,7 @@
         <StorageColumnSetting>
           <Name>ExecutedEntry</Name>
           <Exclude>false</Exclude>
-          <DataType>REAL</DataType>
+          <DataType>[decimal](18, 4)</DataType>
           <Lenght>0</Lenght>
           <PrimaryKey>false</PrimaryKey>
           <Indexed>false</Indexed>
@@ -807,7 +835,7 @@
         <StorageColumnSetting>
           <Name>PlannedTP</Name>
           <Exclude>false</Exclude>
-          <DataType>REAL</DataType>
+          <DataType>[decimal](18, 4)</DataType>
           <Lenght>0</Lenght>
           <PrimaryKey>false</PrimaryKey>
           <Indexed>false</Indexed>
@@ -820,7 +848,7 @@
         <StorageColumnSetting>
           <Name>ExecutedTP</Name>
           <Exclude>false</Exclude>
-          <DataType>REAL</DataType>
+          <DataType>[decimal](18, 4)</DataType>
           <Lenght>0</Lenght>
           <PrimaryKey>false</PrimaryKey>
           <Indexed>false</Indexed>
@@ -833,7 +861,7 @@
         <StorageColumnSetting>
           <Name>PlannedSL</Name>
           <Exclude>false</Exclude>
-          <DataType>REAL</DataType>
+          <DataType>[decimal](18, 4)</DataType>
           <Lenght>0</Lenght>
           <PrimaryKey>false</PrimaryKey>
           <Indexed>false</Indexed>
@@ -846,7 +874,7 @@
         <StorageColumnSetting>
           <Name>ExecutedSL</Name>
           <Exclude>false</Exclude>
-          <DataType>REAL</DataType>
+          <DataType>[decimal](18, 4)</DataType>
           <Lenght>0</Lenght>
           <PrimaryKey>false</PrimaryKey>
           <Indexed>false</Indexed>
@@ -861,9 +889,10 @@
   </EntitySettings>
   <RenderAllEntities>false</RenderAllEntities>
   <PluralizeTableNames>true</PluralizeTableNames>
-  <DatabaseName>LocalDB.Sqlite</DatabaseName>
+  <DatabaseName>OzzTradeDiary</DatabaseName>
   <DatabaseServer>.\SqlExpress</DatabaseServer>
+  <BeforeScripts>_Schema.sql</BeforeScripts>
   <LogSchemaName>log</LogSchemaName>
   <SchemaName>dbo</SchemaName>
   <PutCommentsIntoScripts>true</PutCommentsIntoScripts>
-</SqliteScriptsEngine>
+</TSqlScriptsEngine>
