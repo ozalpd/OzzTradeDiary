@@ -1,7 +1,4 @@
-﻿using System.Collections.ObjectModel;
-using TD.Models;
-using TD.SQLite;
-using TD.WPF.Commands;
+﻿using TD.WPF.Commands;
 using TD.WPF.Models;
 
 namespace TD.WPF.ViewModels
@@ -15,9 +12,11 @@ namespace TD.WPF.ViewModels
 
             ShowMaintenanceCommand = new ShowMaintenanceCommand();
             ShowAboutCommand = new ShowAboutCommand();
+            ExitCommand = new ExitCommand();
         }
 
         public ShowMaintenanceCommand ShowMaintenanceCommand { get; }
         public ShowAboutCommand ShowAboutCommand { get; }
+        public ExitCommand ExitCommand { get; }
     }
 }
