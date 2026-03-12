@@ -8,6 +8,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TD.Models;
 using TD.WPF.Models;
 using TD.WPF.ViewModels;
 
@@ -28,7 +29,7 @@ namespace TD.WPF
             Closing += MainWindow_Closing;
         }
 
-        private void MainWindow_SourceInitialized(object? sender, EventArgs e)
+        private async void MainWindow_SourceInitialized(object? sender, EventArgs e)
         {
             SourceInitialized -= MainWindow_SourceInitialized;
             _appSettings.MainWindowPosition.SetWindowPositions(this);
@@ -37,7 +38,7 @@ namespace TD.WPF
             DataContext = _viewModel;
         }
 
-        private async void MainWindow_Closing(object? sender, System.ComponentModel.CancelEventArgs e)
+        private void MainWindow_Closing(object? sender, System.ComponentModel.CancelEventArgs e)
         {
             _appSettings.MainWindowPosition.GetWindowPositions(this);
             _appSettings.Save();

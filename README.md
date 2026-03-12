@@ -4,7 +4,7 @@ A Windows desktop trade journaling application for tracking trades across multip
 
 > **Status**: Pre-release development (no public release yet)
 > 
-> **Internal tracking versions**: `OzzTradeDiary.WPF` `0.0.4`, `OzzTradeDiary.SQLite` `0.0.4`
+> **Internal tracking versions**: `OzzTradeDiary.WPF` `0.0.5`, `OzzTradeDiary.SQLite` `0.0.4`
 
 ## Changelog
 
@@ -25,6 +25,9 @@ See [`CHANGELOG.md`](CHANGELOG.md) for release history.
 - Domain enums wired in models (including `OrderType` and `TradeDirection`)
 - Generated SQLite schema includes `OrderType` for `EntryOrder`, `TakeProfitOrder`, and `StopLossOrder`
 - Repositories implemented: `Currency`, `Exchange`, `TradingAccount`, `Symbol`
+- Maintenance window accessible from menu, with singleton window management (bring-to-front if already open)
+- About dialog with auto-close on deactivation, high-resolution icon rendering, and GitHub link
+- Bootstrap Icons rendered as window title bar icons via `WindowExtensions`
 
 ## Planned
 

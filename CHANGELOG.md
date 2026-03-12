@@ -6,8 +6,17 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+## [0.0.5] - 2026-03-12
 ### Added
 - Added `IDatabaseSymbolRepository` and `SqliteDatabaseSymbolRepository` in `TD.SQLite`.
+- Added `_Maintenance` menu to `MainWindow` with `ShowMaintenanceCommand` — opens `MaintenanceWindow` and brings it to front if already open.
+- Added `_Help` menu to `MainWindow` with `ShowAboutCommand` that displays `AboutDialog` as a modal dialog.
+- Added `AboutDialog` with product name, version, description, copyright, and GitHub hyperlink.
+- `AboutDialog` auto-closes on deactivation to prevent blocking `MainWindow` when another window is focused.
+- `AboutDialog` loads the highest resolution frame available from the `.ico` file.
+- Added info-circle-fill icon to the About menu item.
+- Added `WindowExtensions.SetIconFromGeometryResource()` extension method for rendering Bootstrap Icon geometry as a window title bar icon.
+- `MaintenanceWindow` title bar icon set to `gear-wide-connected` via `SetIconFromGeometryResource()`.
 
 ### Changed
 - Enforced `Symbol.TickerFull` as a unique immutable key in repository behavior (cannot be changed after insert).

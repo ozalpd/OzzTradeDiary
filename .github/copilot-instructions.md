@@ -4,7 +4,7 @@
 
 Early-stage development (pre-release, no public release yet).
 
-Internal tracking versions: `OzzTradeDiary.WPF` `0.0.4`, `OzzTradeDiary.SQLite` `0.0.4`.
+Internal tracking versions: `OzzTradeDiary.WPF` `0.0.5`, `OzzTradeDiary.SQLite` `0.0.4`.
 
 ## Architecture
 
@@ -79,8 +79,9 @@ Internal tracking versions: `OzzTradeDiary.WPF` `0.0.4`, `OzzTradeDiary.SQLite` 
 - **Code generation**: OzzCodeGen generates SQLite DDL scripts and localization resources — settings files in `OzzCodeGen/` define mappings
 - **Backup**: SQLite backup via `BackupDatabase` API → ZIP archives with timestamps
 - **Icons**: Bootstrap Icons v1.13.1 (MIT) — icon paths stored as `StreamGeometry` resources in `OzzTradeDiary.WPF/Resources/BootstrapIcons.xaml`; reference via `{StaticResource <IconKey>}` in XAML
+- **Window icons**: Use `WindowExtensions.SetIconFromGeometryResource(string geometryResourceKey, string fillColor, int size = 16)` (in `TD.WPF.Extensions`) to render a Bootstrap Icon geometry as a window title bar/taskbar icon. Example: `this.SetIconFromGeometryResource("gear-wide-connected", "#93191C");`
 - **Window state**: DPI-aware multi-monitor positioning via WinAPI (`WindowPosition`)
-- **Database path**: Default is `{AppData}/taxpayers.db`
+- **Database path**: Default is `{AppData}/trades.db`
 
 ## Key Entities
 
@@ -97,4 +98,4 @@ Internal tracking versions: `OzzTradeDiary.WPF` `0.0.4`, `OzzTradeDiary.SQLite` 
 ## UI Guidelines
 
 - Prefer a master/detail UI for MainWindow which contains a main data grid list for trades and a detail pane for the selected trade, with tabs for related entities (e.g., trade details, images).
-- Prefer dialog windows for rarely used maintenance screens such as TradingAccount, Currency, and Exchange, while keeping Trade as the primary workflow.
+- Prefer dialog windows for rarely used maintenance screens such as Currency, Exchange, TradingAccount, and Symbol while keeping Trade as the primary workflow.

@@ -1,0 +1,125 @@
+﻿<Window x:Class="TD.WPF.Views.MaintenanceWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:models="clr-namespace:TD.Models;assembly=OzzTradeDiary"
+        xmlns:sys="clr-namespace:System;assembly=System.Runtime"
+        xmlns:local="clr-namespace:TD.WPF.Views"
+        mc:Ignorable="d"
+        Title="Maintenance Window" Height="700" Width="1200" MinHeight="520" MinWidth="900">
+    <Window.Resources>
+        <ObjectDataProvider x:Key="MarketTypeValues"
+                            MethodName="GetValues"
+                            ObjectType="{x:Type sys:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="models:MarketType" />
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+    </Window.Resources>
+    <Grid Margin="10">
+        <TabControl>
+            <TabItem Header="Currency">
+                <DockPanel>
+                    <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="0,0,0,8">
+                        <Button Content="Add" Width="90" Margin="0,0,8,0" Click="AddCurrency_Click" />
+                        <Button Content="Save" Width="90" Margin="0,0,8,0" Click="SaveCurrencies_Click" />
+                        <Button Content="Refresh" Width="90" Click="RefreshCurrencies_Click" />
+                    </StackPanel>
+                    <DataGrid ItemsSource="{Binding Currencies}"
+                              AutoGenerateColumns="False"
+                              CanUserAddRows="False"
+                              CanUserDeleteRows="False"
+                              IsReadOnly="False">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Id" Binding="{Binding Id}" IsReadOnly="True" Width="70" />
+                            <DataGridTextColumn Header="CurrencyTicker" Binding="{Binding CurrencyTicker}" Width="180" />
+                            <DataGridTextColumn Header="Description" Binding="{Binding Description}" Width="*" />
+                            <DataGridTextColumn Header="DisplayOrder" Binding="{Binding DisplayOrder}" Width="130" />
+                            <DataGridCheckBoxColumn Header="IsActive" Binding="{Binding IsActive}" Width="120" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </DockPanel>
+            </TabItem>
+
+            <TabItem Header="Exchange">
+                <DockPanel>
+                    <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="0,0,0,8">
+                        <Button Content="Add" Width="90" Margin="0,0,8,0" Click="AddExchange_Click" />
+                        <Button Content="Save" Width="90" Margin="0,0,8,0" Click="SaveExchanges_Click" />
+                        <Button Content="Refresh" Width="90" Click="RefreshExchanges_Click" />
+                    </StackPanel>
+                    <DataGrid ItemsSource="{Binding Exchanges}"
+                              AutoGenerateColumns="False"
+                              CanUserAddRows="False"
+                              CanUserDeleteRows="False"
+                              IsReadOnly="False">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Id" Binding="{Binding Id}" IsReadOnly="True" Width="70" />
+                            <DataGridTextColumn Header="ExchangeName" Binding="{Binding ExchangeName}" Width="260" />
+                            <DataGridTextColumn Header="ExchangeCode" Binding="{Binding ExchangeCode}" Width="200" />
+                            <DataGridTextColumn Header="DisplayOrder" Binding="{Binding DisplayOrder}" Width="130" />
+                            <DataGridCheckBoxColumn Header="IsActive" Binding="{Binding IsActive}" Width="120" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </DockPanel>
+            </TabItem>
+
+            <TabItem Header="TradingAccount">
+                <DockPanel>
+                    <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="0,0,0,8">
+                        <Button Content="Add" Width="90" Margin="0,0,8,0" Click="AddTradingAccount_Click" />
+                        <Button Content="Save" Width="90" Margin="0,0,8,0" Click="SaveTradingAccounts_Click" />
+                        <Button Content="Refresh" Width="90" Click="RefreshTradingAccounts_Click" />
+                    </StackPanel>
+                    <DataGrid ItemsSource="{Binding TradingAccounts}"
+                              AutoGenerateColumns="False"
+                              CanUserAddRows="False"
+                              CanUserDeleteRows="False"
+                              IsReadOnly="False">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Id" Binding="{Binding Id}" IsReadOnly="True" Width="70" />
+                            <DataGridTextColumn Header="Title" Binding="{Binding Title}" Width="220" />
+                            <DataGridTextColumn Header="AccountCode" Binding="{Binding AccountCode}" Width="200" />
+                            <DataGridTextColumn Header="ExchangeId" Binding="{Binding ExchangeId}" Width="130" />
+                            <DataGridTextColumn Header="Notes" Binding="{Binding Notes}" Width="*" />
+                            <DataGridTextColumn Header="DisplayOrder" Binding="{Binding DisplayOrder}" Width="130" />
+                            <DataGridCheckBoxColumn Header="IsActive" Binding="{Binding IsActive}" Width="120" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </DockPanel>
+            </TabItem>
+
+            <TabItem Header="Symbol">
+                <DockPanel>
+                    <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="0,0,0,8">
+                        <Button Content="Add" Width="90" Margin="0,0,8,0" Click="AddSymbol_Click" />
+                        <Button Content="Save" Width="90" Margin="0,0,8,0" Click="SaveSymbols_Click" />
+                        <Button Content="Refresh" Width="90" Click="RefreshSymbols_Click" />
+                    </StackPanel>
+                    <DataGrid ItemsSource="{Binding Symbols}"
+                              AutoGenerateColumns="False"
+                              CanUserAddRows="False"
+                              CanUserDeleteRows="False"
+                              IsReadOnly="False">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Id" Binding="{Binding Id}" IsReadOnly="True" Width="70" />
+                            <DataGridTextColumn Header="Ticker" Binding="{Binding Ticker}" Width="140" />
+                            <DataGridTextColumn Header="TickerFull" Binding="{Binding TickerFull}" Width="220" />
+                            <DataGridTextColumn Header="BaseCurrency" Binding="{Binding BaseCurrency}" Width="130" />
+                            <DataGridTextColumn Header="PriceCurrency" Binding="{Binding PriceCurrency}" Width="130" />
+                            <DataGridTextColumn Header="Description" Binding="{Binding Description}" Width="*" />
+                            <DataGridTextColumn Header="ExchangeId" Binding="{Binding ExchangeId}" Width="110" />
+                            <DataGridComboBoxColumn Header="MarketType"
+                                                    SelectedItemBinding="{Binding MarketType}"
+                                                    ItemsSource="{Binding Source={StaticResource MarketTypeValues}}"
+                                                    Width="140" />
+                            <DataGridTextColumn Header="DisplayOrder" Binding="{Binding DisplayOrder}" Width="130" />
+                            <DataGridCheckBoxColumn Header="IsActive" Binding="{Binding IsActive}" Width="120" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </DockPanel>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

@@ -3,10 +3,60 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:TD.WPF"
+        xmlns:models="clr-namespace:TD.Models;assembly=OzzTradeDiary"
+        xmlns:sys="clr-namespace:System;assembly=System.Runtime"
         mc:Ignorable="d"
-        Title="Ozz Trade Diary" Height="450" Width="800">
+        Title="Ozz Trade Diary" Height="700" Width="1200" MinHeight="520" MinWidth="900">
+    <Window.Resources>
+        <ObjectDataProvider x:Key="MarketTypeValues"
+                            MethodName="GetValues"
+                            ObjectType="{x:Type sys:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="models:MarketType" />
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+    </Window.Resources>
     <Grid>
-
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Menu Grid.Row="0">
+            <MenuItem Header="_File">
+                <MenuItem Header="_Import" Command="{Binding ImportCommand}" />
+                <MenuItem Header="_Export" Command="{Binding ExportCommand}" />
+                <Separator />
+                <MenuItem Header="_Exit" Command="{Binding ExitCommand}" />
+            </MenuItem>
+            <MenuItem Header="_Edit">
+                <MenuItem Header="_Add Trade" Command="{Binding AddTradeCommand}" />
+                <MenuItem Header="_Edit Trade" Command="{Binding EditTradeCommand}" />
+                <MenuItem Header="_Delete Trade" Command="{Binding DeleteTradeCommand}" />
+            </MenuItem>
+            <MenuItem Header="_View">
+                <MenuItem Header="_Summary" Command="{Binding ShowSummaryCommand}" />
+                <MenuItem Header="_Charts" Command="{Binding ShowChartsCommand}" />
+            </MenuItem>
+                <MenuItem Header="_Maintenance">
+                <MenuItem Header="_Manage Data..." Command="{Binding ShowMaintenanceCommand}">
+                    <MenuItem.Icon>
+                        <Path Fill="#93191C" Data="{StaticResource gear-wide-connected}"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <!-- Future items: Database backup, settings, etc. -->
+                </MenuItem>
+                <MenuItem Header="_Help">
+                    <MenuItem Header="_About" Command="{Binding ShowAboutCommand}">
+                        <MenuItem.Icon>
+                            <Path Fill="#1D9BF0" Data="{StaticResource info-circle-fill}"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+            </Menu>
+        <!-- Main content area -->
+        <Grid Grid.Row="1">
+            <!-- Placeholder for trade list, summary, charts, etc. -->
+            <!-- You can use a TabControl or other layout to organize the content -->
+        </Grid>
     </Grid>
 </Window>

@@ -1,24 +1,23 @@
-﻿using TD.SQLite;
+﻿using System.Collections.ObjectModel;
+using TD.Models;
+using TD.SQLite;
+using TD.WPF.Commands;
 using TD.WPF.Models;
 
 namespace TD.WPF.ViewModels
 {
-    internal class MainWindowVM : AbstractViewModel
+    internal class MainWindowVM : AbstractDiaryVM
     {
         public MainWindowVM()
         {
             var appSettings = AppSettings.GetAppSettings();
             var databasePath = appSettings.DatabasePath;
 
-            MetadataRepository = new SqliteDatabaseMetadataRepository(databasePath);
-            CurrencyRepository = new SqliteDatabaseCurrencyRepository(databasePath, MetadataRepository);
-            ExchangeRepository = new SqliteDatabaseExchangeRepository(databasePath, MetadataRepository);
-            TradingAccountRepository = new SqliteDatabaseTradingAccountRepository(databasePath, MetadataRepository);    
+            ShowMaintenanceCommand = new ShowMaintenanceCommand();
+            ShowAboutCommand = new ShowAboutCommand();
         }
 
-        public SqliteDatabaseMetadataRepository MetadataRepository { get; }
-        public IDatabaseCurrencyRepository CurrencyRepository { get; }
-        public IDatabaseExchangeRepository ExchangeRepository { get; }
-        public IDatabaseTradingAccountRepository TradingAccountRepository { get; }
+        public ShowMaintenanceCommand ShowMaintenanceCommand { get; }
+        public ShowAboutCommand ShowAboutCommand { get; }
     }
 }

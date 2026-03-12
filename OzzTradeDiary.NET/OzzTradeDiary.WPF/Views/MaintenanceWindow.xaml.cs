@@ -1,0 +1,110 @@
+﻿using System.Windows;
+using TD.Models;
+using TD.WPF.Extensions;
+using TD.WPF.ViewModels;
+
+namespace TD.WPF.Views
+{
+    /// <summary>
+    /// Interaction logic for MaintenanceWindow.xaml
+    /// </summary>
+    public partial class MaintenanceWindow : Window
+    {
+        private MaintenanceWindowVM _viewModel;
+
+        public MaintenanceWindow()
+        {
+            InitializeComponent();
+            this.SetIconFromGeometryResource("gear-wide-connected", "#93191C");
+            SourceInitialized += MainWindow_SourceInitialized;
+        }
+
+
+        private async void MainWindow_SourceInitialized(object? sender, EventArgs e)
+        {
+            _viewModel = new MaintenanceWindowVM();
+            DataContext = _viewModel;
+            await ExecuteUiActionAsync(_viewModel.LoadAllAsync, "Load data");
+        }
+
+        private async void AddCurrency_Click(object sender, RoutedEventArgs e)
+        {
+            _viewModel.Currencies.Add(new Currency { IsActive = true });
+            await Task.CompletedTask;
+        }
+
+        private async void SaveCurrencies_Click(object sender, RoutedEventArgs e)
+        {
+            await ExecuteUiActionAsync(_viewModel.SaveCurrenciesAsync, "Save currencies");
+            await ExecuteUiActionAsync(_viewModel.LoadCurrenciesAsync, "Refresh currencies");
+        }
+
+        private async void RefreshCurrencies_Click(object sender, RoutedEventArgs e)
+        {
+            await ExecuteUiActionAsync(_viewModel.LoadCurrenciesAsync, "Refresh currencies");
+        }
+
+        private async void AddExchange_Click(object sender, RoutedEventArgs e)
+        {
+            _viewModel.Exchanges.Add(new Exchange { IsActive = true });
+            await Task.CompletedTask;
+        }
+
+        private async void SaveExchanges_Click(object sender, RoutedEventArgs e)
+        {
+            await ExecuteUiActionAsync(_viewModel.SaveExchangesAsync, "Save exchanges");
+            await ExecuteUiActionAsync(_viewModel.LoadExchangesAsync, "Refresh exchanges");
+        }
+
+        private async void RefreshExchanges_Click(object sender, RoutedEventArgs e)
+        {
+            await ExecuteUiActionAsync(_viewModel.LoadExchangesAsync, "Refresh exchanges");
+        }
+
+        private async void AddTradingAccount_Click(object sender, RoutedEventArgs e)
+        {
+            _viewModel.TradingAccounts.Add(new TradingAccount { IsActive = true });
+            await Task.CompletedTask;
+        }
+
+        private async void SaveTradingAccounts_Click(object sender, RoutedEventArgs e)
+        {
+            await ExecuteUiActionAsync(_viewModel.SaveTradingAccountsAsync, "Save trading accounts");
+            await ExecuteUiActionAsync(_viewModel.LoadTradingAccountsAsync, "Refresh trading accounts");
+        }
+
+        private async void RefreshTradingAccounts_Click(object sender, RoutedEventArgs e)
+        {
+            await ExecuteUiActionAsync(_viewModel.LoadTradingAccountsAsync, "Refresh trading accounts");
+        }
+
+        private async void AddSymbol_Click(object sender, RoutedEventArgs e)
+        {
+            _viewModel.Symbols.Add(new Symbol { IsActive = true, MarketType = MarketType.Unspecified });
+            await Task.CompletedTask;
+        }
+
+        private async void SaveSymbols_Click(object sender, RoutedEventArgs e)
+        {
+            await ExecuteUiActionAsync(_viewModel.SaveSymbolsAsync, "Save symbols");
+            await ExecuteUiActionAsync(_viewModel.LoadSymbolsAsync, "Refresh symbols");
+        }
+
+        private async void RefreshSymbols_Click(object sender, RoutedEventArgs e)
+        {
+            await ExecuteUiActionAsync(_viewModel.LoadSymbolsAsync, "Refresh symbols");
+        }
+
+        private async Task ExecuteUiActionAsync(Func<Task> action, string operationName)
+        {
+            try
+            {
+                await action();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"{operationName} failed.\n{ex.Message}", "Ozz Trade Diary", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+    }
+}
