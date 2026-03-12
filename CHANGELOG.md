@@ -6,6 +6,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+### Added
+- Added `IDatabaseSymbolRepository` and `SqliteDatabaseSymbolRepository` in `TD.SQLite`.
+
+### Changed
+- Enforced `Symbol.TickerFull` as a unique immutable key in repository behavior (cannot be changed after insert).
+- `Symbol` update flow now only updates mutable fields (`Description`, `DisplayOrder`, `IsActive`) to protect identifier/classification fields after creation.
+
+### Technical
+- Implemented repositories now include `Currency`, `Exchange`, `TradingAccount`, and `Symbol`.
+
 ## [0.0.4] - 2026-03-12
 ### Added
 - Added application icon.

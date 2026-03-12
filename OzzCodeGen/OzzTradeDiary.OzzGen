@@ -692,7 +692,7 @@
       <Properties>
         <BaseProperty xsi:type="StringProperty">
           <Name>Ticker</Name>
-          <Comment>Symbol name without exchange prefix, e.g. 'BTUSDT'</Comment>
+          <Comment>Symbol name without exchange prefix, e.g. 'BTCUSDT'</Comment>
           <DisplayOrder>10100</DisplayOrder>
           <DisplayName>Ticker</DisplayName>
           <Editable>true</Editable>

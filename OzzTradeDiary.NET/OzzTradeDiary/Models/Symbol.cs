@@ -14,7 +14,7 @@ namespace TD.Models
     
         public int Id { get; set; }
         /// <summary>
-        /// Symbol name without exchange prefix, e.g. 'BTUSDT'
+        /// Symbol name without exchange prefix, e.g. 'BTCUSDT'
         /// </summary>
         public string Ticker { get; set; }
         /// <summary>

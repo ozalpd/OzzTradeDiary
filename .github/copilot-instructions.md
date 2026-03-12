@@ -57,7 +57,7 @@ Internal tracking versions: `OzzTradeDiary.WPF` `0.0.4`, `OzzTradeDiary.SQLite` 
 ### SQLite (TD.SQLite namespace)
 
 - Repository pattern — one repository per entity (implementation may be incremental while schema/model alignment progresses)
-- Implemented repositories: `Currency`, `Exchange`, `TradingAccount`; remaining repositories will be added
+- Implemented repositories: `Currency`, `Exchange`, `TradingAccount`, `Symbol`; remaining repositories will be added
 - **Each model has a matching DDL file** in `OzzTradeDiary.SQLite/DbScripts` named `<ModelName>.sql`; optional seed files are named `<PluralTableName>-Data.sql`
 - DDL scripts in `DbScripts/` folder are **generated** by OzzCodeGen — do not edit manually
 - Schema changes must be done via `OzzCodeGen/SqliteScriptsGen.settings`, then regenerate scripts
@@ -69,6 +69,8 @@ Internal tracking versions: `OzzTradeDiary.WPF` `0.0.4`, `OzzTradeDiary.SQLite` 
 - **`Exchange.ExchangeCode` must be treated as a unique immutable key in repositories** (do not update it after creation).
 - **`TradingAccount.AccountCode` must be treated as a unique immutable key in repositories** (do not update it after creation).
 - **`TradingAccount.ExchangeId` must not be changed in repositories** (do not update it after creation).
+- **`Symbol.TickerFull` must be treated as a unique immutable key in repositories** (do not update it after creation).
+- **`Symbol` repository updates should only modify mutable fields (`Description`, `DisplayOrder`, `IsActive`) after creation.**
 
 ## Conventions
 
@@ -91,3 +93,8 @@ Internal tracking versions: `OzzTradeDiary.WPF` `0.0.4`, `OzzTradeDiary.SQLite` 
 - `TradeDirection`: Long (200), Short (100)
 - `EntryMethod`: Market, Limit
 - `OrderType`: Market, Limit, Stop, StopLimit, TrailingStop
+
+## UI Guidelines
+
+- Prefer a master/detail UI for MainWindow which contains a main data grid list for trades and a detail pane for the selected trade, with tabs for related entities (e.g., trade details, images).
+- Prefer dialog windows for rarely used maintenance screens such as TradingAccount, Currency, and Exchange, while keeping Trade as the primary workflow.
