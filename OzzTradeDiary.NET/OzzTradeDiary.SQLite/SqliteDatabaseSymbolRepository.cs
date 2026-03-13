@@ -24,6 +24,7 @@ public class SqliteDatabaseSymbolRepository : IDatabaseSymbolRepository
         connection.Open();
 
         SqliteDbScriptInitializer.ExecuteScript(connection, "Symbol.sql");
+        SqliteDbScriptInitializer.SeedIfEmpty(connection, "Symbols", "Symbols-Data.sql");
     }
 
     public async Task<IReadOnlyList<Symbol>> GetAllAsync(bool? isActive = null)

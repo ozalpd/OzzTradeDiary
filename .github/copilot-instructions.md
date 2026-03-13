@@ -4,7 +4,9 @@
 
 Early-stage development (pre-release, no public release yet).
 
-Internal tracking versions: `OzzTradeDiary.WPF` `0.0.5`, `OzzTradeDiary.SQLite` `0.0.4`.
+Internal tracking versions: `OzzTradeDiary.WPF` `0.0.5`, `OzzTradeDiary.SQLite` `0.0.5`.
+
+- **Changelog discipline**: Any behavior change (repository logic, initialization, seeding, schema generation impact, UI-visible behavior) must be recorded in `CHANGELOG.md` under `## [Unreleased]`.
 
 ## Architecture
 
@@ -61,8 +63,10 @@ Internal tracking versions: `OzzTradeDiary.WPF` `0.0.5`, `OzzTradeDiary.SQLite` 
 - Implemented repositories: `Currency`, `Exchange`, `TradingAccount`, `Symbol`; remaining repositories will be added
 - **Each model has a matching DDL file** in `OzzTradeDiary.SQLite/DbScripts` named `<ModelName>.sql`; optional seed files are named `<PluralTableName>-Data.sql`
 - DDL scripts in `DbScripts/` folder are **generated** by OzzCodeGen — do not edit manually
+- Seed scripts in `DbScripts/` (for example `<PluralTableName>-Data.sql`) are also generated artifacts — do not edit manually
 - Schema changes must be done via `OzzCodeGen/SqliteScriptsGen.settings`, then regenerate scripts
 - DDL generation uses idempotent table creation (`CREATE TABLE IF NOT EXISTS`)
+- When adding a generated seed file `<PluralTableName>-Data.sql`, the corresponding repository `InitializeDatabase()` should call `SqliteDbScriptInitializer.SeedIfEmpty(connection, "<PluralTableName>", "<PluralTableName>-Data.sql")`
 - Each CUD operation must call `SaveLastUpdateUtcAsync` via `SqliteDatabaseMetadataRepository`
 - SQLite types: `INTEGER` (ints, dates as ticks, enums), `REAL` (decimals), `TEXT` (strings)
 - Dates stored as ticks (`INTEGER`), not ISO 8601 text
