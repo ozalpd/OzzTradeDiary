@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using TD.Models;
 using TD.WPF.Extensions;
+using TD.WPF.Models;
 using TD.WPF.ViewModels;
 
 namespace TD.WPF.Views
@@ -11,20 +12,28 @@ namespace TD.WPF.Views
     public partial class MaintenanceWindow : Window
     {
         private MaintenanceWindowVM _viewModel;
+        private readonly AppSettings _appSettings = AppSettings.GetAppSettings();
 
         public MaintenanceWindow()
         {
             InitializeComponent();
             this.SetIconFromGeometryResource("gear-wide-connected", "#93191C");
-            SourceInitialized += MainWindow_SourceInitialized;
+            SourceInitialized += Window_SourceInitialized;
+            Closing += Window_Closing;
         }
 
 
-        private async void MainWindow_SourceInitialized(object? sender, EventArgs e)
+        private async void Window_SourceInitialized(object? sender, EventArgs e)
         {
             _viewModel = new MaintenanceWindowVM();
             DataContext = _viewModel;
+            _appSettings.MaintenanceWindowPosition.SetWindowPositions(this);
             await ExecuteUiActionAsync(_viewModel.LoadAllAsync, "Load data");
+        }
+
+        private void Window_Closing(object? sender, System.ComponentModel.CancelEventArgs e)
+        {
+            _appSettings.MaintenanceWindowPosition.GetWindowPositions(this);
         }
 
         private async void AddCurrency_Click(object sender, RoutedEventArgs e)

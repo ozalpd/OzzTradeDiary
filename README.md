@@ -25,9 +25,12 @@ See [`CHANGELOG.md`](CHANGELOG.md) for release history.
 - Domain enums wired in models (including `OrderType` and `TradeDirection`)
 - Generated SQLite schema includes `OrderType` for `EntryOrder`, `TakeProfitOrder`, and `StopLossOrder`
 - Repositories implemented: `Currency`, `Exchange`, `TradingAccount`, `Symbol`
+- `AbstractDiaryVM` base ViewModel consolidates repository initialization and CRUD operations shared across ViewModels
 - Maintenance window accessible from menu, with singleton window management (bring-to-front if already open)
+- Maintenance window provides Add, Save, and Refresh CRUD operations for Currency, Exchange, TradingAccount, and Symbol
 - About dialog with auto-close on deactivation, high-resolution icon rendering, and GitHub link
 - Bootstrap Icons rendered as window title bar icons via `WindowExtensions`
+- Application version displayed in `MainWindow` title bar via `AppVersion`
 
 ## Planned
 

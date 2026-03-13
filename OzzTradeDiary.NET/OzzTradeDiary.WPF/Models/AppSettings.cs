@@ -116,7 +116,15 @@ internal class AppSettings
     }
     uint backupFilesToKeep = 10;
 
+    /// <summary>
+    /// Gets or sets the position and size of the main application window.
+    /// </summary>
     public WindowPosition MainWindowPosition { get; set; } = new WindowPosition();
+    
+    /// <summary>
+    /// Gets or sets the position and size of the maintenance window.
+    /// </summary>
+    public WindowPosition MaintenanceWindowPosition { get; set; } = new WindowPosition();
 
     /// <summary>
     /// Gets or sets a value indicating whether audio playback is muted.

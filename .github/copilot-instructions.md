@@ -52,6 +52,7 @@ Internal tracking versions: `OzzTradeDiary.WPF` `0.0.5`, `OzzTradeDiary.SQLite` 
 - Inherit from `AbstractViewModel` (provides `INotifyPropertyChanged` via `RaisePropertyChanged()`)
 - Validation: extend `AbstractDataErrorInfoVM` (implements `INotifyDataErrorInfo`)
 - Collections: extend `AbstractCollectionVM<T>` (provides `ObservableCollection<T>`, filtering, selection)
+- Data access: extend `AbstractDiaryVM` (provides repository instances and CRUD operations for Currency, Exchange, TradingAccount, Symbol — use as base when a ViewModel needs direct repository access)
 - Commands: extend `AbstractCommand` (implements `ICommand`)
 
 ### SQLite (TD.SQLite namespace)
@@ -75,6 +76,7 @@ Internal tracking versions: `OzzTradeDiary.WPF` `0.0.5`, `OzzTradeDiary.SQLite` 
 ## Conventions
 
 - **Singleton pattern** for `AppSettings` (lazy-loaded)
+- **App version**: `AppVersion` static class (`TD.WPF.Models`) reads product name, version, copyright, and description from assembly attributes; use `AppVersion.Version` for display
 - **Localization**: Bilingual (English/Turkish) — planned; vocabulary XML files scaffolded in `OzzCodeGen/Vocabulary/` but not yet implemented
 - **Code generation**: OzzCodeGen generates SQLite DDL scripts and localization resources — settings files in `OzzCodeGen/` define mappings
 - **Backup**: SQLite backup via `BackupDatabase` API → ZIP archives with timestamps
