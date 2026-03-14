@@ -26,6 +26,7 @@ See [`CHANGELOG.md`](CHANGELOG.md) for release history.
 - Generated SQLite schema includes `OrderType` for `EntryOrder`, `TakeProfitOrder`, and `StopLossOrder`
 - Repositories implemented: `Currency`, `Exchange`, `TradingAccount`, `Symbol`
 - `AbstractDiaryVM` base ViewModel consolidates repository initialization and CRUD operations shared across ViewModels
+- `ModelValidator` shared utility in `TD.Validation` for DataAnnotations-based model validation reusable by WPF, MAUI, and ASP.NET
 - Maintenance window accessible from menu, with singleton window management (bring-to-front if already open)
 - Maintenance window provides Add, Save, and Refresh CRUD operations for Currency, Exchange, TradingAccount, and Symbol
 - About dialog with auto-close on deactivation, high-resolution icon rendering, and GitHub link
@@ -93,7 +94,7 @@ Three-project MVVM architecture layered for future platform portability:
 
 | Project | Target | Role |
 |---------|--------|------|
-| **OzzTradeDiary** | `net10.0` | Core data models — plain C# classes with no platform dependencies |
+| **OzzTradeDiary** | `net10.0` | Core data models and shared validation utilities (for example `TD.Validation.ModelValidator`) with no platform dependencies |
 | **OzzTradeDiary.SQLite** | `net10.0` | Data access layer — raw SQLite via Microsoft.Data.Sqlite, repository pattern |
 | **OzzTradeDiary.WPF** | `net10.0-windows10.0.19041.0` | WPF desktop frontend — views, view models, commands, services |
 

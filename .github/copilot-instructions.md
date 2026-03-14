@@ -14,7 +14,7 @@ Internal tracking versions: `OzzTradeDiary.WPF` `0.0.5`, `OzzTradeDiary.SQLite` 
 
 | Project | Namespace | Role | Platform |
 |---------|-----------|------|----------|
-| `OzzTradeDiary` | `TD` | Core data models (plain C# classes) | Platform-independent |
+| `OzzTradeDiary` | `TD` | Core data models and shared validation utilities (`TD.Validation`) | Platform-independent |
 | `OzzTradeDiary.SQLite` | `TD.SQLite` | Data access — raw SQLite via Microsoft.Data.Sqlite | Platform-independent |
 | `OzzTradeDiary.WPF` | `TD.WPF` | Desktop UI — views, view models, commands, services | Windows only |
 
@@ -81,6 +81,7 @@ Internal tracking versions: `OzzTradeDiary.WPF` `0.0.5`, `OzzTradeDiary.SQLite` 
 
 - **Singleton pattern** for `AppSettings` (lazy-loaded)
 - **App version**: `AppVersion` static class (`TD.WPF.Models`) reads product name, version, copyright, and description from assembly attributes; use `AppVersion.Version` for display
+- **Validation**: Use `TD.Validation.ModelValidator` for shared DataAnnotations-based model validation logic so WPF, MAUI, and ASP.NET can reuse the same validation rules
 - **Localization**: Bilingual (English/Turkish) — planned; vocabulary XML files scaffolded in `OzzCodeGen/Vocabulary/` but not yet implemented
 - **Code generation**: OzzCodeGen generates SQLite DDL scripts and localization resources — settings files in `OzzCodeGen/` define mappings
 - **Backup**: SQLite backup via `BackupDatabase` API → ZIP archives with timestamps
