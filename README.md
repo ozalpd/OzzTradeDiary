@@ -71,17 +71,21 @@ dotnet run --project OzzTradeDiary.NET/OzzTradeDiary.WPF/OzzTradeDiary.WPF.cspro
 OzzTradeDiary.slnx
 ├── OzzTradeDiary.NET/
 │   ├── OzzTradeDiary/            # Core models (TD namespace) — platform-independent
-│   │   └── Models/               # Trade, TradeImage, Symbol, Exchange, Currency, Orders, etc.
+│   │   ├── Models/               # Trade, TradeImage, Symbol, Exchange, Currency, Orders, etc.
+│   │   └── Validation/           # Shared DataAnnotations-based validation (TD.Validation.ModelValidator)
 │   ├── OzzTradeDiary.SQLite/     # Data access (TD.SQLite namespace) — platform-independent
 │   │   ├── DbScripts/            # Generated SQL DDL scripts (one per model in OzzTradeDiary/Models)
 │   │   └── Repositories/         # Data access repositories (one per entity)
-│   └── OzzTradeDiary.WPF/       # Desktop UI (TD.WPF namespace) — Windows only
+│   └── OzzTradeDiary.WPF/        # Desktop UI (TD.WPF namespace) — Windows only
 │       ├── Commands/             # ICommand implementations
 │       ├── Extensions/           # String/text helpers
 │       ├── Models/               # App settings, versioning, window positioning
 │       ├── Resources/            # XAML styles, Bootstrap Icons
 │       ├── Services/             # Database backup, auto-backup
-│       └── ViewModels/           # MVVM view models
+│       ├── ViewModels/           # MVVM view models
+│       │   └── Maintenance/      # ViewModels for maintenance screens (TD.WPF.ViewModels.Maintenance)
+│       └── Views/                # XAML views
+│           └── Maintenance/      # Maintenance window and related views (TD.WPF.Views.Maintenance)
 └── OzzCodeGen/                   # Code generation settings
     ├── SqliteScriptsGen.settings # SQLite DDL generation config
     ├── ResourceGen.settings      # Localization resource generation config

@@ -1,11 +1,11 @@
-﻿<Window x:Class="TD.WPF.Views.MaintenanceWindow"
+﻿<Window x:Class="TD.WPF.Views.Maintenance.MaintenanceWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:models="clr-namespace:TD.Models;assembly=OzzTradeDiary"
         xmlns:sys="clr-namespace:System;assembly=System.Runtime"
-        xmlns:local="clr-namespace:TD.WPF.Views"
+        xmlns:local="clr-namespace:TD.WPF.Views.Maintenance"
         mc:Ignorable="d"
         Title="Maintenance Window" Height="700" Width="1200" MinHeight="520" MinWidth="900">
     <Window.Resources>

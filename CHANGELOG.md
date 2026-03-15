@@ -16,6 +16,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ### Changed
 - Bumped `OzzTradeDiary` project version to `0.0.3`.
+- Moved `MainWindow` into `Views/` subfolder; namespace updated to `TD.WPF.Views`.
+- Moved `MaintenanceWindow` and its view-model into `Views/Maintenance/` and `ViewModels/Maintenance/` subfolders; namespaces updated to `TD.WPF.Views.Maintenance` and `TD.WPF.ViewModels.Maintenance`.
 
 ## [0.0.5] - 2026-03-12
 ### Added

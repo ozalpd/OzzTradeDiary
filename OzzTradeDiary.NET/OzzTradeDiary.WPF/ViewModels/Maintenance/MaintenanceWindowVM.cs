@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Text;
-using TD.Models;
-using TD.WPF.Models;
+﻿using TD.WPF.Models;
 
-namespace TD.WPF.ViewModels
+namespace TD.WPF.ViewModels.Maintenance
 {
     internal class MaintenanceWindowVM : AbstractDiaryVM
     {

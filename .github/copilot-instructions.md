@@ -56,6 +56,13 @@ Internal tracking versions: `OzzTradeDiary.WPF` `0.0.5`, `OzzTradeDiary.SQLite` 
 - Collections: extend `AbstractCollectionVM<T>` (provides `ObservableCollection<T>`, filtering, selection)
 - Data access: extend `AbstractDiaryVM` (provides repository instances and CRUD operations for Currency, Exchange, TradingAccount, Symbol — use as base when a ViewModel needs direct repository access)
 - Commands: extend `AbstractCommand` (implements `ICommand`)
+- Feature-specific ViewModels are grouped in subfolders matching their feature area (e.g., `ViewModels/Maintenance/` → namespace `TD.WPF.ViewModels.Maintenance`)
+
+### Views (TD.WPF namespace)
+
+- View files: `{EntityName}View.xaml` or `{Feature}Window.xaml`
+- Feature-specific views are grouped in subfolders matching their feature area (e.g., `Views/Maintenance/` → namespace `TD.WPF.Views.Maintenance`)
+- `MainWindow` lives directly under `Views/` (`TD.WPF.Views`)
 
 ### SQLite (TD.SQLite namespace)
 

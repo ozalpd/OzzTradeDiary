@@ -4,6 +4,7 @@
   <NamespaceName>TD</NamespaceName>
   <ModelProviderId>Model_Provider_Empty</ModelProviderId>
   <TargetFolder>..\GeneratedCodes</TargetFolder>
+  <TargetPlatform>ModernDotNet</TargetPlatform>
   <ModelSource>EmptyModel</ModelSource>
   <EntityTrackEnum>EntityType</EntityTrackEnum>
   <EnumDefinitions>
@@ -406,88 +407,6 @@
       </Properties>
     </EntityDefinition>
     <EntityDefinition>
-      <Name>AppSetting</Name>
-      <EntitySource />
-      <NamespaceName>TD</NamespaceName>
-      <DisplayOrder>6</DisplayOrder>
-      <Abstract>false</Abstract>
-      <LetDownloadAll>false</LetDownloadAll>
-      <DisplayName>App Setting</DisplayName>
-      <DisplayMember>Id</DisplayMember>
-      <BaseTypeName>IPrimaryKey</BaseTypeName>
-      <Properties>
-        <BaseProperty xsi:type="SimpleProperty">
-          <Name>SettingType</Name>
-          <DisplayOrder>100</DisplayOrder>
-          <DisplayName>Setting Type</DisplayName>
-          <Editable>true</Editable>
-          <TypeName>int</TypeName>
-          <IsClientComputed>false</IsClientComputed>
-          <IsServerComputed>false</IsServerComputed>
-          <IsStoreGenerated>false</IsStoreGenerated>
-          <RestrictedData>false</RestrictedData>
-          <UiVisible>true</UiVisible>
-          <EnumTypeName>SettingType</EnumTypeName>
-          <IsKey>false</IsKey>
-          <IsForeignKey>false</IsForeignKey>
-          <IsNullable>false</IsNullable>
-        </BaseProperty>
-        <BaseProperty xsi:type="StringProperty">
-          <Name>SettingName</Name>
-          <DisplayOrder>200</DisplayOrder>
-          <DisplayName>Setting Name</DisplayName>
-          <Editable>true</Editable>
-          <TypeName>string</TypeName>
-          <IsClientComputed>false</IsClientComputed>
-          <IsServerComputed>false</IsServerComputed>
-          <IsStoreGenerated>false</IsStoreGenerated>
-          <RestrictedData>false</RestrictedData>
-          <UiVisible>true</UiVisible>
-          <EnumTypeName />
-          <IsKey>false</IsKey>
-          <IsForeignKey>false</IsForeignKey>
-          <IsNullable>false</IsNullable>
-          <MaxLenght>64</MaxLenght>
-        </BaseProperty>
-        <BaseProperty xsi:type="StringProperty">
-          <Name>SettingValue</Name>
-          <Comment>This entities must be read from DB rapidly, so field of this property limited to 2048 characters</Comment>
-          <DisplayOrder>300</DisplayOrder>
-          <DisplayName>Setting Value</DisplayName>
-          <Editable>true</Editable>
-          <TypeName>string</TypeName>
-          <IsClientComputed>false</IsClientComputed>
-          <IsServerComputed>false</IsServerComputed>
-          <IsStoreGenerated>false</IsStoreGenerated>
-          <RestrictedData>false</RestrictedData>
-          <UiVisible>true</UiVisible>
-          <EnumTypeName />
-          <IsKey>false</IsKey>
-          <IsForeignKey>false</IsForeignKey>
-          <IsNullable>false</IsNullable>
-          <MaxLenght>2048</MaxLenght>
-        </BaseProperty>
-        <BaseProperty xsi:type="StringProperty">
-          <Name>Description</Name>
-          <Comment>This entities must be read from DB rapidly, so field of this property limited to 255 characters</Comment>
-          <DisplayOrder>400</DisplayOrder>
-          <DisplayName>Description</DisplayName>
-          <Editable>true</Editable>
-          <TypeName>string</TypeName>
-          <IsClientComputed>false</IsClientComputed>
-          <IsServerComputed>false</IsServerComputed>
-          <IsStoreGenerated>false</IsStoreGenerated>
-          <RestrictedData>false</RestrictedData>
-          <UiVisible>true</UiVisible>
-          <EnumTypeName />
-          <IsKey>false</IsKey>
-          <IsForeignKey>false</IsForeignKey>
-          <IsNullable>true</IsNullable>
-          <MaxLenght>255</MaxLenght>
-        </BaseProperty>
-      </Properties>
-    </EntityDefinition>
-    <EntityDefinition>
       <Name>Exchange</Name>
       <EntitySource />
       <NamespaceName>TD</NamespaceName>
@@ -513,7 +432,7 @@
           <IsKey>false</IsKey>
           <IsForeignKey>false</IsForeignKey>
           <IsNullable>false</IsNullable>
-          <MaxLenght>48</MaxLenght>
+          <MaxLength>48</MaxLength>
         </BaseProperty>
         <BaseProperty xsi:type="StringProperty">
           <Name>ExchangeCode</Name>
@@ -530,7 +449,7 @@
           <IsKey>false</IsKey>
           <IsForeignKey>false</IsForeignKey>
           <IsNullable>false</IsNullable>
-          <MaxLenght>8</MaxLenght>
+          <MaxLength>8</MaxLength>
         </BaseProperty>
       </Properties>
     </EntityDefinition>
@@ -560,7 +479,7 @@
           <IsKey>false</IsKey>
           <IsForeignKey>false</IsForeignKey>
           <IsNullable>false</IsNullable>
-          <MaxLenght>128</MaxLenght>
+          <MaxLength>128</MaxLength>
         </BaseProperty>
         <BaseProperty xsi:type="StringProperty">
           <Name>AccountCode</Name>
@@ -577,7 +496,7 @@
           <IsKey>false</IsKey>
           <IsForeignKey>false</IsForeignKey>
           <IsNullable>true</IsNullable>
-          <MaxLenght>20</MaxLenght>
+          <MaxLength>20</MaxLength>
         </BaseProperty>
         <BaseProperty xsi:type="SimpleProperty">
           <Name>ExchangeId</Name>
@@ -626,7 +545,7 @@
           <IsKey>false</IsKey>
           <IsForeignKey>false</IsForeignKey>
           <IsNullable>true</IsNullable>
-          <MaxLenght>0</MaxLenght>
+          <MaxLength>0</MaxLength>
         </BaseProperty>
       </Properties>
     </EntityDefinition>
@@ -657,7 +576,7 @@
           <IsKey>false</IsKey>
           <IsForeignKey>false</IsForeignKey>
           <IsNullable>false</IsNullable>
-          <MaxLenght>8</MaxLenght>
+          <MaxLength>8</MaxLength>
         </BaseProperty>
         <BaseProperty xsi:type="StringProperty">
           <Name>Description</Name>
@@ -675,7 +594,7 @@
           <IsKey>false</IsKey>
           <IsForeignKey>false</IsForeignKey>
           <IsNullable>true</IsNullable>
-          <MaxLenght>255</MaxLenght>
+          <MaxLength>255</MaxLength>
         </BaseProperty>
       </Properties>
     </EntityDefinition>
@@ -706,7 +625,7 @@
           <IsKey>false</IsKey>
           <IsForeignKey>false</IsForeignKey>
           <IsNullable>false</IsNullable>
-          <MaxLenght>48</MaxLenght>
+          <MaxLength>48</MaxLength>
         </BaseProperty>
         <BaseProperty xsi:type="StringProperty">
           <Name>TickerFull</Name>
@@ -724,7 +643,7 @@
           <IsKey>false</IsKey>
           <IsForeignKey>false</IsForeignKey>
           <IsNullable>false</IsNullable>
-          <MaxLenght>64</MaxLenght>
+          <MaxLength>64</MaxLength>
         </BaseProperty>
         <BaseProperty xsi:type="StringProperty">
           <Name>BaseCurrency</Name>
@@ -742,7 +661,7 @@
           <IsKey>false</IsKey>
           <IsForeignKey>false</IsForeignKey>
           <IsNullable>true</IsNullable>
-          <MaxLenght>8</MaxLenght>
+          <MaxLength>8</MaxLength>
         </BaseProperty>
         <BaseProperty xsi:type="StringProperty">
           <Name>PriceCurrency</Name>
@@ -760,7 +679,7 @@
           <IsKey>false</IsKey>
           <IsForeignKey>false</IsForeignKey>
           <IsNullable>false</IsNullable>
-          <MaxLenght>8</MaxLenght>
+          <MaxLength>8</MaxLength>
         </BaseProperty>
         <BaseProperty xsi:type="StringProperty">
           <Name>Description</Name>
@@ -778,7 +697,7 @@
           <IsKey>false</IsKey>
           <IsForeignKey>false</IsForeignKey>
           <IsNullable>true</IsNullable>
-          <MaxLenght>255</MaxLenght>
+          <MaxLength>255</MaxLength>
         </BaseProperty>
         <BaseProperty xsi:type="SimpleProperty">
           <Name>ExchangeId</Name>
@@ -1033,7 +952,7 @@
           <IsKey>false</IsKey>
           <IsForeignKey>false</IsForeignKey>
           <IsNullable>false</IsNullable>
-          <MaxLenght>0</MaxLenght>
+          <MaxLength>0</MaxLength>
         </BaseProperty>
         <BaseProperty xsi:type="StringProperty">
           <Name>Notes</Name>
@@ -1050,7 +969,7 @@
           <IsKey>false</IsKey>
           <IsForeignKey>false</IsForeignKey>
           <IsNullable>true</IsNullable>
-          <MaxLenght>0</MaxLenght>
+          <MaxLength>0</MaxLength>
         </BaseProperty>
       </Properties>
     </EntityDefinition>
@@ -1330,6 +1249,7 @@
   <StripSourcePrefixes>false</StripSourcePrefixes>
   <SourceClassPrefix />
   <CodeEngineList>
+    <string>Metadata_Class_Generator</string>
     <string>Sqlite_Scripts_Generator</string>
     <string>Localization_Resource_Generator</string>
     <string>T-Sql_Scripts_Generator</string>

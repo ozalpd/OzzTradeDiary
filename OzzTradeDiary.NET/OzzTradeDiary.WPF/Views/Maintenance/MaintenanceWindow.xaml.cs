@@ -2,9 +2,9 @@
 using TD.Models;
 using TD.WPF.Extensions;
 using TD.WPF.Models;
-using TD.WPF.ViewModels;
+using TD.WPF.ViewModels.Maintenance;
 
-namespace TD.WPF.Views
+namespace TD.WPF.Views.Maintenance
 {
     /// <summary>
     /// Interaction logic for MaintenanceWindow.xaml
