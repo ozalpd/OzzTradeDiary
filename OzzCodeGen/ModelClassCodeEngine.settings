@@ -1,549 +1,549 @@
 <?xml version="1.0" encoding="utf-8"?>
-<MetadataCodeEngine xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<ModelClassCodeEngine xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Language>CSharp</Language>
   <NamespaceName>TD.Models</NamespaceName>
   <TargetFolder>Metadata</TargetFolder>
   <EntitySettings>
-    <BaseEntitySetting xsi:type="MetadataEntitySetting">
+    <BaseEntitySetting xsi:type="ModelClassEntitySetting">
       <Name>IPrimaryKey</Name>
       <Exclude>true</Exclude>
       <OverwriteExisting>false</OverwriteExisting>
       <Properties>
-        <MetadataPropertySetting>
+        <ModelClassPropertySetting>
           <Name>Id</Name>
           <Exclude>false</Exclude>
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required />
-        </MetadataPropertySetting>
+        </ModelClassPropertySetting>
       </Properties>
     </BaseEntitySetting>
-    <BaseEntitySetting xsi:type="MetadataEntitySetting">
+    <BaseEntitySetting xsi:type="ModelClassEntitySetting">
       <Name>IModifyDate</Name>
       <Exclude>true</Exclude>
       <OverwriteExisting>false</OverwriteExisting>
       <Properties>
-        <MetadataPropertySetting>
+        <ModelClassPropertySetting>
           <Name>ModifyDate</Name>
           <Exclude>false</Exclude>
           <DataType>Date</DataType>
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required>[Required]</Required>
-        </MetadataPropertySetting>
+        </ModelClassPropertySetting>
       </Properties>
     </BaseEntitySetting>
-    <BaseEntitySetting xsi:type="MetadataEntitySetting">
+    <BaseEntitySetting xsi:type="ModelClassEntitySetting">
       <Name>IDisplayOrder</Name>
       <Exclude>true</Exclude>
       <OverwriteExisting>false</OverwriteExisting>
       <Properties>
-        <MetadataPropertySetting>
+        <ModelClassPropertySetting>
           <Name>DisplayOrder</Name>
           <Exclude>false</Exclude>
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required>[Required]</Required>
-        </MetadataPropertySetting>
+        </ModelClassPropertySetting>
       </Properties>
     </BaseEntitySetting>
-    <BaseEntitySetting xsi:type="MetadataEntitySetting">
+    <BaseEntitySetting xsi:type="ModelClassEntitySetting">
       <Name>IIsActive</Name>
       <Exclude>true</Exclude>
       <OverwriteExisting>false</OverwriteExisting>
       <Properties>
-        <MetadataPropertySetting>
+        <ModelClassPropertySetting>
           <Name>IsActive</Name>
           <Exclude>false</Exclude>
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required />
-        </MetadataPropertySetting>
+        </ModelClassPropertySetting>
       </Properties>
     </BaseEntitySetting>
-    <BaseEntitySetting xsi:type="MetadataEntitySetting">
+    <BaseEntitySetting xsi:type="ModelClassEntitySetting">
       <Name>ITradeOrder</Name>
       <Exclude>true</Exclude>
       <OverwriteExisting>false</OverwriteExisting>
       <Properties>
-        <MetadataPropertySetting>
+        <ModelClassPropertySetting>
           <Name>OrderType</Name>
           <Exclude>false</Exclude>
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required>[Required]</Required>
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
+        </ModelClassPropertySetting>
+        <ModelClassPropertySetting>
           <Name>ExecuteTime</Name>
           <Exclude>false</Exclude>
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
+        </ModelClassPropertySetting>
+        <ModelClassPropertySetting>
           <Name>OrderPrice</Name>
           <Exclude>false</Exclude>
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required>[Required]</Required>
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
+        </ModelClassPropertySetting>
+        <ModelClassPropertySetting>
           <Name>FilledPrice</Name>
           <Exclude>false</Exclude>
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
+        </ModelClassPropertySetting>
+        <ModelClassPropertySetting>
           <Name>OrderQuantity</Name>
           <Exclude>false</Exclude>
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
+        </ModelClassPropertySetting>
+        <ModelClassPropertySetting>
           <Name>FilledQuantity</Name>
           <Exclude>false</Exclude>
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
+        </ModelClassPropertySetting>
+        <ModelClassPropertySetting>
           <Name>OrderAmount</Name>
           <Exclude>false</Exclude>
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
+        </ModelClassPropertySetting>
+        <ModelClassPropertySetting>
           <Name>FilledAmount</Name>
           <Exclude>false</Exclude>
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required />
-        </MetadataPropertySetting>
+        </ModelClassPropertySetting>
       </Properties>
     </BaseEntitySetting>
-    <BaseEntitySetting xsi:type="MetadataEntitySetting">
+    <BaseEntitySetting xsi:type="ModelClassEntitySetting">
       <Name>Exchange</Name>
       <Exclude>false</Exclude>
       <OverwriteExisting>true</OverwriteExisting>
       <Properties>
-        <MetadataPropertySetting>
+        <ModelClassPropertySetting>
           <Name>ExchangeName</Name>
           <Exclude>false</Exclude>
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required>[Required]</Required>
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
+        </ModelClassPropertySetting>
+        <ModelClassPropertySetting>
           <Name>ExchangeCode</Name>
           <Exclude>false</Exclude>
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required>[Required]</Required>
-        </MetadataPropertySetting>
+        </ModelClassPropertySetting>
       </Properties>
     </BaseEntitySetting>
-    <BaseEntitySetting xsi:type="MetadataEntitySetting">
+    <BaseEntitySetting xsi:type="ModelClassEntitySetting">
       <Name>TradingAccount</Name>
       <Exclude>false</Exclude>
       <OverwriteExisting>true</OverwriteExisting>
       <Properties>
-        <MetadataPropertySetting>
+        <ModelClassPropertySetting>
           <Name>Title</Name>
           <Exclude>false</Exclude>
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required>[Required]</Required>
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
+        </ModelClassPropertySetting>
+        <ModelClassPropertySetting>
           <Name>AccountCode</Name>
           <Exclude>false</Exclude>
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
+        </ModelClassPropertySetting>
+        <ModelClassPropertySetting>
           <Name>ExchangeId</Name>
           <Exclude>false</Exclude>
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required>[Required]</Required>
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
+        </ModelClassPropertySetting>
+        <ModelClassPropertySetting>
           <Name>Exchange</Name>
           <Exclude>false</Exclude>
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
+        </ModelClassPropertySetting>
+        <ModelClassPropertySetting>
           <Name>Notes</Name>
           <Exclude>false</Exclude>
           <DataType>MultilineText</DataType>
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required />
-        </MetadataPropertySetting>
+        </ModelClassPropertySetting>
       </Properties>
     </BaseEntitySetting>
-    <BaseEntitySetting xsi:type="MetadataEntitySetting">
+    <BaseEntitySetting xsi:type="ModelClassEntitySetting">
       <Name>Currency</Name>
       <Exclude>false</Exclude>
       <OverwriteExisting>true</OverwriteExisting>
       <Properties>
-        <MetadataPropertySetting>
+        <ModelClassPropertySetting>
           <Name>CurrencyTicker</Name>
           <Exclude>false</Exclude>
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required>[Required]</Required>
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
+        </ModelClassPropertySetting>
+        <ModelClassPropertySetting>
           <Name>Description</Name>
           <Exclude>false</Exclude>
           <DataType>Not Special</DataType>
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required />
-        </MetadataPropertySetting>
+        </ModelClassPropertySetting>
       </Properties>
     </BaseEntitySetting>
-    <BaseEntitySetting xsi:type="MetadataEntitySetting">
+    <BaseEntitySetting xsi:type="ModelClassEntitySetting">
       <Name>Symbol</Name>
       <Exclude>false</Exclude>
       <OverwriteExisting>true</OverwriteExisting>
       <Properties>
-        <MetadataPropertySetting>
+        <ModelClassPropertySetting>
           <Name>Ticker</Name>
           <Exclude>false</Exclude>
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required>[Required]</Required>
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
+        </ModelClassPropertySetting>
+        <ModelClassPropertySetting>
           <Name>TickerFull</Name>
           <Exclude>false</Exclude>
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required>[Required]</Required>
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
+        </ModelClassPropertySetting>
+        <ModelClassPropertySetting>
           <Name>BaseCurrency</Name>
           <Exclude>false</Exclude>
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
+        </ModelClassPropertySetting>
+        <ModelClassPropertySetting>
           <Name>PriceCurrency</Name>
           <Exclude>false</Exclude>
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required>[Required]</Required>
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
+        </ModelClassPropertySetting>
+        <ModelClassPropertySetting>
           <Name>Description</Name>
           <Exclude>false</Exclude>
           <DataType>MultilineText</DataType>
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
+        </ModelClassPropertySetting>
+        <ModelClassPropertySetting>
           <Name>ExchangeId</Name>
           <Exclude>false</Exclude>
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required>[Required]</Required>
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
+        </ModelClassPropertySetting>
+        <ModelClassPropertySetting>
           <Name>Exchange</Name>
           <Exclude>false</Exclude>
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
+        </ModelClassPropertySetting>
+        <ModelClassPropertySetting>
           <Name>MarketType</Name>
           <Exclude>false</Exclude>
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required>[Required]</Required>
-        </MetadataPropertySetting>
+        </ModelClassPropertySetting>
       </Properties>
     </BaseEntitySetting>
-    <BaseEntitySetting xsi:type="MetadataEntitySetting">
+    <BaseEntitySetting xsi:type="ModelClassEntitySetting">
       <Name>EntryOrder</Name>
       <Exclude>false</Exclude>
       <OverwriteExisting>true</OverwriteExisting>
       <Properties>
-        <MetadataPropertySetting>
+        <ModelClassPropertySetting>
           <Name>TradeId</Name>
           <Exclude>false</Exclude>
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required>[Required]</Required>
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
+        </ModelClassPropertySetting>
+        <ModelClassPropertySetting>
           <Name>Trade</Name>
           <Exclude>false</Exclude>
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required />
-        </MetadataPropertySetting>
+        </ModelClassPropertySetting>
       </Properties>
     </BaseEntitySetting>
-    <BaseEntitySetting xsi:type="MetadataEntitySetting">
+    <BaseEntitySetting xsi:type="ModelClassEntitySetting">
       <Name>TakeProfitOrder</Name>
       <Exclude>false</Exclude>
       <OverwriteExisting>true</OverwriteExisting>
       <Properties>
-        <MetadataPropertySetting>
+        <ModelClassPropertySetting>
           <Name>TradeId</Name>
           <Exclude>false</Exclude>
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required>[Required]</Required>
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
+        </ModelClassPropertySetting>
+        <ModelClassPropertySetting>
           <Name>Trade</Name>
           <Exclude>false</Exclude>
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required />
-        </MetadataPropertySetting>
+        </ModelClassPropertySetting>
       </Properties>
     </BaseEntitySetting>
-    <BaseEntitySetting xsi:type="MetadataEntitySetting">
+    <BaseEntitySetting xsi:type="ModelClassEntitySetting">
       <Name>StopLossOrder</Name>
       <Exclude>false</Exclude>
       <OverwriteExisting>true</OverwriteExisting>
       <Properties>
-        <MetadataPropertySetting>
+        <ModelClassPropertySetting>
           <Name>TradeId</Name>
           <Exclude>false</Exclude>
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required>[Required]</Required>
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
+        </ModelClassPropertySetting>
+        <ModelClassPropertySetting>
           <Name>Trade</Name>
           <Exclude>false</Exclude>
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
+        </ModelClassPropertySetting>
+        <ModelClassPropertySetting>
           <Name>StopAll</Name>
           <Exclude>false</Exclude>
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required />
-        </MetadataPropertySetting>
+        </ModelClassPropertySetting>
       </Properties>
     </BaseEntitySetting>
-    <BaseEntitySetting xsi:type="MetadataEntitySetting">
+    <BaseEntitySetting xsi:type="ModelClassEntitySetting">
       <Name>TradeImage</Name>
       <Exclude>false</Exclude>
       <OverwriteExisting>true</OverwriteExisting>
       <Properties>
-        <MetadataPropertySetting>
+        <ModelClassPropertySetting>
           <Name>TradeId</Name>
           <Exclude>false</Exclude>
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
+        </ModelClassPropertySetting>
+        <ModelClassPropertySetting>
           <Name>Trade</Name>
           <Exclude>false</Exclude>
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
+        </ModelClassPropertySetting>
+        <ModelClassPropertySetting>
           <Name>ImageURL</Name>
           <Exclude>false</Exclude>
           <DataType>ImageUrl</DataType>
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required>[Required]</Required>
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
+        </ModelClassPropertySetting>
+        <ModelClassPropertySetting>
           <Name>Notes</Name>
           <Exclude>false</Exclude>
           <DataType>MultilineText</DataType>
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required />
-        </MetadataPropertySetting>
+        </ModelClassPropertySetting>
       </Properties>
     </BaseEntitySetting>
-    <BaseEntitySetting xsi:type="MetadataEntitySetting">
+    <BaseEntitySetting xsi:type="ModelClassEntitySetting">
       <Name>Trade</Name>
       <Exclude>false</Exclude>
       <OverwriteExisting>true</OverwriteExisting>
       <Properties>
-        <MetadataPropertySetting>
+        <ModelClassPropertySetting>
           <Name>TradingAccountId</Name>
           <Exclude>false</Exclude>
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required>[Required]</Required>
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
+        </ModelClassPropertySetting>
+        <ModelClassPropertySetting>
           <Name>TradingAccount</Name>
           <Exclude>false</Exclude>
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
+        </ModelClassPropertySetting>
+        <ModelClassPropertySetting>
           <Name>SymbolId</Name>
           <Exclude>false</Exclude>
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required>[Required]</Required>
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
+        </ModelClassPropertySetting>
+        <ModelClassPropertySetting>
           <Name>Symbol</Name>
           <Exclude>false</Exclude>
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
+        </ModelClassPropertySetting>
+        <ModelClassPropertySetting>
           <Name>EntryTime</Name>
           <Exclude>false</Exclude>
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
+        </ModelClassPropertySetting>
+        <ModelClassPropertySetting>
           <Name>EntryMethod</Name>
           <Exclude>false</Exclude>
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required>[Required]</Required>
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
+        </ModelClassPropertySetting>
+        <ModelClassPropertySetting>
           <Name>TradeDirection</Name>
           <Exclude>false</Exclude>
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required>[Required]</Required>
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
+        </ModelClassPropertySetting>
+        <ModelClassPropertySetting>
           <Name>EntryOrders</Name>
           <Exclude>false</Exclude>
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
+        </ModelClassPropertySetting>
+        <ModelClassPropertySetting>
           <Name>PlannedEntry</Name>
           <Exclude>false</Exclude>
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
+        </ModelClassPropertySetting>
+        <ModelClassPropertySetting>
           <Name>ExecutedEntry</Name>
           <Exclude>false</Exclude>
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
+        </ModelClassPropertySetting>
+        <ModelClassPropertySetting>
           <Name>TakeProfitOrders</Name>
           <Exclude>false</Exclude>
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
+        </ModelClassPropertySetting>
+        <ModelClassPropertySetting>
           <Name>PlannedTP</Name>
           <Exclude>false</Exclude>
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
+        </ModelClassPropertySetting>
+        <ModelClassPropertySetting>
           <Name>ExecutedTP</Name>
           <Exclude>false</Exclude>
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
+        </ModelClassPropertySetting>
+        <ModelClassPropertySetting>
           <Name>StopLossOrders</Name>
           <Exclude>false</Exclude>
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
+        </ModelClassPropertySetting>
+        <ModelClassPropertySetting>
           <Name>PlannedSL</Name>
           <Exclude>false</Exclude>
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
+        </ModelClassPropertySetting>
+        <ModelClassPropertySetting>
           <Name>ExecutedSL</Name>
           <Exclude>false</Exclude>
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
+        </ModelClassPropertySetting>
+        <ModelClassPropertySetting>
           <Name>TradeImages</Name>
           <Exclude>false</Exclude>
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required />
-        </MetadataPropertySetting>
+        </ModelClassPropertySetting>
       </Properties>
     </BaseEntitySetting>
   </EntitySettings>
@@ -551,6 +551,6 @@
   <CustomAttribNamespace>TD.Validation</CustomAttribNamespace>
   <GenerateForDTO>false</GenerateForDTO>
   <GenerateXmlDoc>true</GenerateXmlDoc>
-  <SeperateMetaDataClass>false</SeperateMetaDataClass>
   <UseResourceFiles>false</UseResourceFiles>
-</MetadataCodeEngine>
+  <SeperateMetaDataClass>false</SeperateMetaDataClass>
+</ModelClassCodeEngine>
