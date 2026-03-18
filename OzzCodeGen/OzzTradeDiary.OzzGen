@@ -140,6 +140,28 @@
         </EnumMember>
       </Members>
     </EnumDefinition>
+    <EnumDefinition>
+      <Name>ReportTypes</Name>
+      <NamespaceName>TD</NamespaceName>
+      <Members>
+        <EnumMember>
+          <Name>Balance</Name>
+          <Value>1</Value>
+        </EnumMember>
+        <EnumMember>
+          <Name>Performance</Name>
+          <Value>2</Value>
+        </EnumMember>
+        <EnumMember>
+          <Name>NetResult</Name>
+          <Value>3</Value>
+        </EnumMember>
+        <EnumMember>
+          <Name>TradeHistory</Name>
+          <Value>4</Value>
+        </EnumMember>
+      </Members>
+    </EnumDefinition>
   </EnumDefinitions>
   <DataModel>
     <EntityDefinition>
@@ -1249,9 +1271,9 @@
   <StripSourcePrefixes>false</StripSourcePrefixes>
   <SourceClassPrefix />
   <CodeEngineList>
+    <string>Localization_Resource_Generator</string>
     <string>Model_Class_Generator</string>
     <string>T-Sql_Scripts_Generator</string>
     <string>Sqlite_Scripts_Generator</string>
-    <string>Localization_Resource_Generator</string>
   </CodeEngineList>
 </CodeGenProject>

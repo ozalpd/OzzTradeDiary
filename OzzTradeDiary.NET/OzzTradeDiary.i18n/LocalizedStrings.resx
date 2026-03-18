@@ -1,0 +1,550 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+    <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+    <data name="AccountCode" xml:space="preserve">
+        <value>Account Code</value>
+    </data>
+    <data name="AddCurrency" xml:space="preserve">
+        <value>Add Currency</value>
+    </data>
+    <data name="AddEntryOrder" xml:space="preserve">
+        <value>Add Entry Order</value>
+    </data>
+    <data name="AddExchange" xml:space="preserve">
+        <value>Add Exchange</value>
+    </data>
+    <data name="AddIModifyDate" xml:space="preserve">
+        <value>Add IModify Date</value>
+    </data>
+    <data name="AddNewCurrency" xml:space="preserve">
+        <value>Add New Currency</value>
+    </data>
+    <data name="AddNewEntryOrder" xml:space="preserve">
+        <value>Add New Entry Order</value>
+    </data>
+    <data name="AddNewExchange" xml:space="preserve">
+        <value>Add New Exchange</value>
+    </data>
+    <data name="AddNewIModifyDate" xml:space="preserve">
+        <value>Add New IModify Date</value>
+    </data>
+    <data name="AddNewStopLossOrder" xml:space="preserve">
+        <value>Add New Stop Loss Order</value>
+    </data>
+    <data name="AddNewSymbol" xml:space="preserve">
+        <value>Add New Symbol</value>
+    </data>
+    <data name="AddNewTakeProfitOrder" xml:space="preserve">
+        <value>Add New Take Profit Order</value>
+    </data>
+    <data name="AddNewTrade" xml:space="preserve">
+        <value>Add New Trade</value>
+    </data>
+    <data name="AddNewTradeImage" xml:space="preserve">
+        <value>Add New Trade Image</value>
+    </data>
+    <data name="AddNewTradingAccount" xml:space="preserve">
+        <value>Add New Trading Account</value>
+    </data>
+    <data name="AddRemoveCurrency" xml:space="preserve">
+        <value>Add Remove Currency</value>
+    </data>
+    <data name="AddRemoveEntryOrder" xml:space="preserve">
+        <value>Add Remove Entry Order</value>
+    </data>
+    <data name="AddRemoveExchange" xml:space="preserve">
+        <value>Add Remove Exchange</value>
+    </data>
+    <data name="AddRemoveIModifyDate" xml:space="preserve">
+        <value>Add Remove IModify Date</value>
+    </data>
+    <data name="AddRemoveStopLossOrder" xml:space="preserve">
+        <value>Add Remove Stop Loss Order</value>
+    </data>
+    <data name="AddRemoveSymbol" xml:space="preserve">
+        <value>Add Remove Symbol</value>
+    </data>
+    <data name="AddRemoveTakeProfitOrder" xml:space="preserve">
+        <value>Add Remove Take Profit Order</value>
+    </data>
+    <data name="AddRemoveTrade" xml:space="preserve">
+        <value>Add Remove Trade</value>
+    </data>
+    <data name="AddRemoveTradeImage" xml:space="preserve">
+        <value>Add Remove Trade Image</value>
+    </data>
+    <data name="AddRemoveTradingAccount" xml:space="preserve">
+        <value>Add Remove Trading Account</value>
+    </data>
+    <data name="AddStopLossOrder" xml:space="preserve">
+        <value>Add Stop Loss Order</value>
+    </data>
+    <data name="AddSymbol" xml:space="preserve">
+        <value>Add Symbol</value>
+    </data>
+    <data name="AddTakeProfitOrder" xml:space="preserve">
+        <value>Add Take Profit Order</value>
+    </data>
+    <data name="AddTrade" xml:space="preserve">
+        <value>Add Trade</value>
+    </data>
+    <data name="AddTradeImage" xml:space="preserve">
+        <value>Add Trade Image</value>
+    </data>
+    <data name="AddTradingAccount" xml:space="preserve">
+        <value>Add Trading Account</value>
+    </data>
+    <data name="Balance" xml:space="preserve">
+        <value>Balance</value>
+    </data>
+    <data name="BaseCurrency" xml:space="preserve">
+        <value>Base Currency</value>
+    </data>
+    <data name="Boolean" xml:space="preserve">
+        <value>Boolean</value>
+    </data>
+    <data name="Commodity" xml:space="preserve">
+        <value>Commodity</value>
+    </data>
+    <data name="CreateCurrency" xml:space="preserve">
+        <value>Create Currency</value>
+    </data>
+    <data name="CreateEntryOrder" xml:space="preserve">
+        <value>Create Entry Order</value>
+    </data>
+    <data name="CreateExchange" xml:space="preserve">
+        <value>Create Exchange</value>
+    </data>
+    <data name="CreateIModifyDate" xml:space="preserve">
+        <value>Create IModify Date</value>
+    </data>
+    <data name="CreateStopLossOrder" xml:space="preserve">
+        <value>Create Stop Loss Order</value>
+    </data>
+    <data name="CreateSymbol" xml:space="preserve">
+        <value>Create Symbol</value>
+    </data>
+    <data name="CreateTakeProfitOrder" xml:space="preserve">
+        <value>Create Take Profit Order</value>
+    </data>
+    <data name="CreateTrade" xml:space="preserve">
+        <value>Create Trade</value>
+    </data>
+    <data name="CreateTradeImage" xml:space="preserve">
+        <value>Create Trade Image</value>
+    </data>
+    <data name="CreateTradingAccount" xml:space="preserve">
+        <value>Create Trading Account</value>
+    </data>
+    <data name="Crypto" xml:space="preserve">
+        <value>Crypto</value>
+    </data>
+    <data name="CryptoPerpetual" xml:space="preserve">
+        <value>Crypto Perpetual</value>
+    </data>
+    <data name="Currencies" xml:space="preserve">
+        <value>Currencies</value>
+    </data>
+    <data name="CurrenciesList" xml:space="preserve">
+        <value>Currencies List</value>
+    </data>
+    <data name="Currency" xml:space="preserve">
+        <value>Currency</value>
+    </data>
+    <data name="CurrencyTicker" xml:space="preserve">
+        <value>Currency Ticker</value>
+    </data>
+    <data name="Date" xml:space="preserve">
+        <value>Date</value>
+    </data>
+    <data name="DateArray" xml:space="preserve">
+        <value>Date Array</value>
+    </data>
+    <data name="DateTime" xml:space="preserve">
+        <value>Date Time</value>
+    </data>
+    <data name="DateTimeArray" xml:space="preserve">
+        <value>Date Time Array</value>
+    </data>
+    <data name="Decimal" xml:space="preserve">
+        <value>Decimal</value>
+    </data>
+    <data name="DecimalArray" xml:space="preserve">
+        <value>Decimal Array</value>
+    </data>
+    <data name="DeleteCurrency" xml:space="preserve">
+        <value>Delete Currency</value>
+    </data>
+    <data name="DeleteEntryOrder" xml:space="preserve">
+        <value>Delete Entry Order</value>
+    </data>
+    <data name="DeleteExchange" xml:space="preserve">
+        <value>Delete Exchange</value>
+    </data>
+    <data name="DeleteIModifyDate" xml:space="preserve">
+        <value>Delete IModify Date</value>
+    </data>
+    <data name="DeleteStopLossOrder" xml:space="preserve">
+        <value>Delete Stop Loss Order</value>
+    </data>
+    <data name="DeleteSymbol" xml:space="preserve">
+        <value>Delete Symbol</value>
+    </data>
+    <data name="DeleteTakeProfitOrder" xml:space="preserve">
+        <value>Delete Take Profit Order</value>
+    </data>
+    <data name="DeleteTrade" xml:space="preserve">
+        <value>Delete Trade</value>
+    </data>
+    <data name="DeleteTradeImage" xml:space="preserve">
+        <value>Delete Trade Image</value>
+    </data>
+    <data name="DeleteTradingAccount" xml:space="preserve">
+        <value>Delete Trading Account</value>
+    </data>
+    <data name="Description" xml:space="preserve">
+        <value>Description</value>
+    </data>
+    <data name="EditCurrency" xml:space="preserve">
+        <value>Edit Currency</value>
+    </data>
+    <data name="EditEntryOrder" xml:space="preserve">
+        <value>Edit Entry Order</value>
+    </data>
+    <data name="EditExchange" xml:space="preserve">
+        <value>Edit Exchange</value>
+    </data>
+    <data name="EditIModifyDate" xml:space="preserve">
+        <value>Edit IModify Date</value>
+    </data>
+    <data name="EditStopLossOrder" xml:space="preserve">
+        <value>Edit Stop Loss Order</value>
+    </data>
+    <data name="EditSymbol" xml:space="preserve">
+        <value>Edit Symbol</value>
+    </data>
+    <data name="EditTakeProfitOrder" xml:space="preserve">
+        <value>Edit Take Profit Order</value>
+    </data>
+    <data name="EditTrade" xml:space="preserve">
+        <value>Edit Trade</value>
+    </data>
+    <data name="EditTradeImage" xml:space="preserve">
+        <value>Edit Trade Image</value>
+    </data>
+    <data name="EditTradingAccount" xml:space="preserve">
+        <value>Edit Trading Account</value>
+    </data>
+    <data name="Email" xml:space="preserve">
+        <value>Email</value>
+    </data>
+    <data name="Entry" xml:space="preserve">
+        <value>Entry</value>
+    </data>
+    <data name="EntryMethod" xml:space="preserve">
+        <value>Entry Method</value>
+    </data>
+    <data name="EntryOrder" xml:space="preserve">
+        <value>Entry Order</value>
+    </data>
+    <data name="EntryOrders" xml:space="preserve">
+        <value>Entry Orders</value>
+    </data>
+    <data name="EntryOrdersList" xml:space="preserve">
+        <value>Entry Orders List</value>
+    </data>
+    <data name="EntryTime" xml:space="preserve">
+        <value>Entry Time</value>
+    </data>
+    <data name="Exchange" xml:space="preserve">
+        <value>Exchange</value>
+    </data>
+    <data name="ExchangeCode" xml:space="preserve">
+        <value>Exchange Code</value>
+    </data>
+    <data name="ExchangeId" xml:space="preserve">
+        <value>Exchange Id</value>
+    </data>
+    <data name="ExchangeName" xml:space="preserve">
+        <value>Exchange Name</value>
+    </data>
+    <data name="Exchanges" xml:space="preserve">
+        <value>Exchanges</value>
+    </data>
+    <data name="ExchangesList" xml:space="preserve">
+        <value>Exchanges List</value>
+    </data>
+    <data name="ExecutedEntry" xml:space="preserve">
+        <value>Executed Entry</value>
+    </data>
+    <data name="ExecutedSL" xml:space="preserve">
+        <value>Executed SL</value>
+    </data>
+    <data name="ExecutedTP" xml:space="preserve">
+        <value>Executed TP</value>
+    </data>
+    <data name="Forex" xml:space="preserve">
+        <value>Forex</value>
+    </data>
+    <data name="Fund" xml:space="preserve">
+        <value>Fund</value>
+    </data>
+    <data name="Futures" xml:space="preserve">
+        <value>Futures</value>
+    </data>
+    <data name="Id" xml:space="preserve">
+        <value>Record Nr</value>
+    </data>
+    <data name="ImageURL" xml:space="preserve">
+        <value>Image URL</value>
+    </data>
+    <data name="IModifyDate" xml:space="preserve">
+        <value>IModify Date</value>
+    </data>
+    <data name="IModifyDates" xml:space="preserve">
+        <value>IModify Dates</value>
+    </data>
+    <data name="IModifyDatesList" xml:space="preserve">
+        <value>IModify Dates List</value>
+    </data>
+    <data name="Index" xml:space="preserve">
+        <value>Index</value>
+    </data>
+    <data name="Integer" xml:space="preserve">
+        <value>Integer</value>
+    </data>
+    <data name="IntegerArray" xml:space="preserve">
+        <value>Integer Array</value>
+    </data>
+    <data name="Limit" xml:space="preserve">
+        <value>Limit</value>
+    </data>
+    <data name="Market" xml:space="preserve">
+        <value>Market</value>
+    </data>
+    <data name="MarketType" xml:space="preserve">
+        <value>Market Type</value>
+    </data>
+    <data name="ModifyDate" xml:space="preserve">
+        <value>Modify Date</value>
+    </data>
+    <data name="NetResult" xml:space="preserve">
+        <value>Net Result</value>
+    </data>
+    <data name="Notes" xml:space="preserve">
+        <value>Notes</value>
+    </data>
+    <data name="Option" xml:space="preserve">
+        <value>Option</value>
+    </data>
+    <data name="OrderType" xml:space="preserve">
+        <value>Order Type</value>
+    </data>
+    <data name="Performance" xml:space="preserve">
+        <value>Performance</value>
+    </data>
+    <data name="PlannedEntry" xml:space="preserve">
+        <value>Planned Entry</value>
+    </data>
+    <data name="PlannedSL" xml:space="preserve">
+        <value>Planned SL</value>
+    </data>
+    <data name="PlannedTP" xml:space="preserve">
+        <value>Planned TP</value>
+    </data>
+    <data name="PriceCurrency" xml:space="preserve">
+        <value>Price Currency</value>
+    </data>
+    <data name="RemoveCurrency" xml:space="preserve">
+        <value>Remove Currency</value>
+    </data>
+    <data name="RemoveEntryOrder" xml:space="preserve">
+        <value>Remove Entry Order</value>
+    </data>
+    <data name="RemoveExchange" xml:space="preserve">
+        <value>Remove Exchange</value>
+    </data>
+    <data name="RemoveIModifyDate" xml:space="preserve">
+        <value>Remove IModify Date</value>
+    </data>
+    <data name="RemoveStopLossOrder" xml:space="preserve">
+        <value>Remove Stop Loss Order</value>
+    </data>
+    <data name="RemoveSymbol" xml:space="preserve">
+        <value>Remove Symbol</value>
+    </data>
+    <data name="RemoveTakeProfitOrder" xml:space="preserve">
+        <value>Remove Take Profit Order</value>
+    </data>
+    <data name="RemoveTrade" xml:space="preserve">
+        <value>Remove Trade</value>
+    </data>
+    <data name="RemoveTradeImage" xml:space="preserve">
+        <value>Remove Trade Image</value>
+    </data>
+    <data name="RemoveTradingAccount" xml:space="preserve">
+        <value>Remove Trading Account</value>
+    </data>
+    <data name="ReportTypes" xml:space="preserve">
+        <value>Report Types</value>
+    </data>
+    <data name="SettingType" xml:space="preserve">
+        <value>Setting Type</value>
+    </data>
+    <data name="Stock" xml:space="preserve">
+        <value>Stock</value>
+    </data>
+    <data name="StopAll" xml:space="preserve">
+        <value>Stop All</value>
+    </data>
+    <data name="StopLoss" xml:space="preserve">
+        <value>Stop Loss</value>
+    </data>
+    <data name="StopLossOrder" xml:space="preserve">
+        <value>Stop Loss Order</value>
+    </data>
+    <data name="StopLossOrders" xml:space="preserve">
+        <value>Stop Loss Orders</value>
+    </data>
+    <data name="StopLossOrdersList" xml:space="preserve">
+        <value>Stop Loss Orders List</value>
+    </data>
+    <data name="String" xml:space="preserve">
+        <value>String</value>
+    </data>
+    <data name="StringArray" xml:space="preserve">
+        <value>String Array</value>
+    </data>
+    <data name="Symbol" xml:space="preserve">
+        <value>Symbol</value>
+    </data>
+    <data name="SymbolId" xml:space="preserve">
+        <value>Symbol Id</value>
+    </data>
+    <data name="Symbols" xml:space="preserve">
+        <value>Symbols</value>
+    </data>
+    <data name="SymbolsList" xml:space="preserve">
+        <value>Symbols List</value>
+    </data>
+    <data name="TakeProfit" xml:space="preserve">
+        <value>Take Profit</value>
+    </data>
+    <data name="TakeProfitOrder" xml:space="preserve">
+        <value>Take Profit Order</value>
+    </data>
+    <data name="TakeProfitOrders" xml:space="preserve">
+        <value>Take Profit Orders</value>
+    </data>
+    <data name="TakeProfitOrdersList" xml:space="preserve">
+        <value>Take Profit Orders List</value>
+    </data>
+    <data name="Ticker" xml:space="preserve">
+        <value>Ticker</value>
+    </data>
+    <data name="TickerFull" xml:space="preserve">
+        <value>Ticker Full</value>
+    </data>
+    <data name="Title" xml:space="preserve">
+        <value>Title</value>
+    </data>
+    <data name="Trade" xml:space="preserve">
+        <value>Trade</value>
+    </data>
+    <data name="TradeDirection" xml:space="preserve">
+        <value>Trade Direction</value>
+    </data>
+    <data name="TradeHistory" xml:space="preserve">
+        <value>Trade History</value>
+    </data>
+    <data name="TradeId" xml:space="preserve">
+        <value>Trade Id</value>
+    </data>
+    <data name="TradeImage" xml:space="preserve">
+        <value>Trade Image</value>
+    </data>
+    <data name="TradeImages" xml:space="preserve">
+        <value>Trade Images</value>
+    </data>
+    <data name="TradeImagesList" xml:space="preserve">
+        <value>Trade Images List</value>
+    </data>
+    <data name="Trades" xml:space="preserve">
+        <value>Trades</value>
+    </data>
+    <data name="TradesList" xml:space="preserve">
+        <value>Trades List</value>
+    </data>
+    <data name="TradingAccount" xml:space="preserve">
+        <value>Trading Account</value>
+    </data>
+    <data name="TradingAccountId" xml:space="preserve">
+        <value>Trading Account Id</value>
+    </data>
+    <data name="TradingAccounts" xml:space="preserve">
+        <value>Trading Accounts</value>
+    </data>
+    <data name="TradingAccountsList" xml:space="preserve">
+        <value>Trading Accounts List</value>
+    </data>
+    <data name="Unspecified" xml:space="preserve">
+        <value>Unspecified</value>
+    </data>
+</root>

@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ArrayOfVocab xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Vocab>
+    <Name>AccountCode</Name>
+    <Translation>Hesap Kodu</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Action</Name>
     <Translation>Eylem</Translation>
   </Vocab>
@@ -21,8 +25,24 @@
     <Translation>Ülke Ekle</Translation>
   </Vocab>
   <Vocab>
+    <Name>AddCurrency</Name>
+    <Translation>Döviz Ekle</Translation>
+  </Vocab>
+  <Vocab>
     <Name>AddCustomer</Name>
     <Translation>Müşteri Ekle</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddEntryOrder</Name>
+    <Translation>Giriş Emri Ekle</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddExchange</Name>
+    <Translation>Borsa Ekle</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddIModifyDate</Name>
+    <Translation>Değişiklik Tarihi Ekle</Translation>
   </Vocab>
   <Vocab>
     <Name>AddNew</Name>
@@ -45,8 +65,24 @@
     <Translation>Yeni Ülke Ekle</Translation>
   </Vocab>
   <Vocab>
+    <Name>AddNewCurrency</Name>
+    <Translation>Yeni Döviz Ekle</Translation>
+  </Vocab>
+  <Vocab>
     <Name>AddNewCustomer</Name>
     <Translation>Yeni Müşteri Ekle</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddNewEntryOrder</Name>
+    <Translation>Yeni Giriş Emri Ekle</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddNewExchange</Name>
+    <Translation>Yeni Borsa Ekle</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddNewIModifyDate</Name>
+    <Translation>Yeni Değişiklik Tarihi Ekle</Translation>
   </Vocab>
   <Vocab>
     <Name>AddNewOrderItem</Name>
@@ -69,6 +105,10 @@
     <Translation>Yeni Sipariş Ekle</Translation>
   </Vocab>
   <Vocab>
+    <Name>AddNewStopLossOrder</Name>
+    <Translation>Yeni Zarar Kes Emri Ekle</Translation>
+  </Vocab>
+  <Vocab>
     <Name>AddNewStore</Name>
     <Translation>Yeni Mağaza Ekle</Translation>
   </Vocab>
@@ -79,6 +119,26 @@
   <Vocab>
     <Name>AddNewSupplier</Name>
     <Translation>Yeni Tedarikçi Ekle</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddNewSymbol</Name>
+    <Translation>Yeni Sembol Ekle</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddNewTakeProfitOrder</Name>
+    <Translation>Yeni Kar Al Emri Ekle</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddNewTrade</Name>
+    <Translation>Yeni İşlem Ekle</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddNewTradeImage</Name>
+    <Translation>Yeni İşlem Resmi Ekle</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddNewTradingAccount</Name>
+    <Translation>Yeni İşlem Hesabı Ekle</Translation>
   </Vocab>
   <Vocab>
     <Name>AddOrderItem</Name>
@@ -101,6 +161,46 @@
     <Translation>Sipariş Ekle</Translation>
   </Vocab>
   <Vocab>
+    <Name>AddRemoveCurrency</Name>
+    <Translation>Döviz Ekle/Çıkart</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddRemoveEntryOrder</Name>
+    <Translation>Giriş Emri Ekle/Çıkar</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddRemoveExchange</Name>
+    <Translation>Borsa Ekle/Çıkart</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddRemoveIModifyDate</Name>
+    <Translation>Değişiklik Tarihi Ekle/Çıkar</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddRemoveStopLossOrder</Name>
+    <Translation>Zarar Kes Emri Ekle/Çıkar</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddRemoveSymbol</Name>
+    <Translation>Sembol Ekle/Çıkart</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddRemoveTakeProfitOrder</Name>
+    <Translation>Kar Al Emri Ekle/Çıkar</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddRemoveTrade</Name>
+    <Translation>İşlem Ekle/Çıkart</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddRemoveTradeImage</Name>
+    <Translation>İşlem Resmi Ekle/Çıkart</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddRemoveTradingAccount</Name>
+    <Translation>İşlem Hesabı Ekle/Çİkart</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Address</Name>
     <Translation>Adres</Translation>
   </Vocab>
@@ -113,6 +213,10 @@
     <Translation>Adres Satır 2</Translation>
   </Vocab>
   <Vocab>
+    <Name>AddStopLossOrder</Name>
+    <Translation>Zarar Kes Emri Ekle</Translation>
+  </Vocab>
+  <Vocab>
     <Name>AddStore</Name>
     <Translation>Mağaza Ekle</Translation>
   </Vocab>
@@ -123,6 +227,26 @@
   <Vocab>
     <Name>AddSupplier</Name>
     <Translation>Tedarikçi Ekle</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddSymbol</Name>
+    <Translation>Sembol Ekle</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddTakeProfitOrder</Name>
+    <Translation>Kar Al Emri Ekle</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddTrade</Name>
+    <Translation>İşlem Ekle</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddTradeImage</Name>
+    <Translation>İşlem Resmi Ekle</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddTradingAccount</Name>
+    <Translation>İşlem Hesabı Ekle</Translation>
   </Vocab>
   <Vocab>
     <Name>Admin</Name>
@@ -153,8 +277,20 @@
     <Translation>Listeye Git</Translation>
   </Vocab>
   <Vocab>
+    <Name>Balance</Name>
+    <Translation>Bakiye</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>BaseCurrency</Name>
+    <Translation>Baz Döviz</Translation>
+  </Vocab>
+  <Vocab>
     <Name>BecauseOfRelatedRecords</Name>
     <Translation>Bu kayıtla ilişkili başka kayıtlar mevcut.</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Boolean</Name>
+    <Translation>Boolean</Translation>
   </Vocab>
   <Vocab>
     <Name>Cancel</Name>
@@ -213,6 +349,10 @@
     <Translation>Komut</Translation>
   </Vocab>
   <Vocab>
+    <Name>Commodity</Name>
+    <Translation>Emtia</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Companies</Name>
     <Translation>Şirketler</Translation>
   </Vocab>
@@ -237,6 +377,10 @@
     <Translation>Eposta Doğrulama</Translation>
   </Vocab>
   <Vocab>
+    <Name>ConfirmNewPassword</Name>
+    <Translation>Yeni Parolayı Doğrulayınız</Translation>
+  </Vocab>
+  <Vocab>
     <Name>ConfirmPassword</Name>
     <Translation>Parola Doğrulama</Translation>
   </Vocab>
@@ -259,10 +403,6 @@
   <Vocab>
     <Name>CountriesList</Name>
     <Translation>Ülke Listesi</Translation>
-  </Vocab>
-  <Vocab>
-    <Name>Country</Name>
-    <Translation>Ülke</Translation>
   </Vocab>
   <Vocab>
     <Name>Country</Name>
@@ -297,6 +437,10 @@
     <Translation>Ülke Oluştur</Translation>
   </Vocab>
   <Vocab>
+    <Name>CreateCurrency</Name>
+    <Translation>Döviz Oluştur</Translation>
+  </Vocab>
+  <Vocab>
     <Name>CreateCustomer</Name>
     <Translation>Müşteri Oluştur</Translation>
   </Vocab>
@@ -307,6 +451,18 @@
   <Vocab>
     <Name>CreateDate</Name>
     <Translation>Oluşturma Tarihi</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CreateEntryOrder</Name>
+    <Translation>Giriş Emri Oluştur</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CreateExchange</Name>
+    <Translation>Borsa Oluştur</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CreateIModifyDate</Name>
+    <Translation>Değişiklik Tarihi Oluştur</Translation>
   </Vocab>
   <Vocab>
     <Name>CreateNew</Name>
@@ -337,6 +493,10 @@
     <Translation>Sipariş Oluştur</Translation>
   </Vocab>
   <Vocab>
+    <Name>CreateStopLossOrder</Name>
+    <Translation>Zarar Kes Emri Oluştur</Translation>
+  </Vocab>
+  <Vocab>
     <Name>CreateStore</Name>
     <Translation>Mağaza Oluştur</Translation>
   </Vocab>
@@ -349,12 +509,56 @@
     <Translation>Tedarikçi Oluştur</Translation>
   </Vocab>
   <Vocab>
+    <Name>CreateSymbol</Name>
+    <Translation>Sembol Oluştur</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CreateTakeProfitOrder</Name>
+    <Translation>Kar Al Emri Oluştur</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CreateTrade</Name>
+    <Translation>İşlem Oluştur</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CreateTradeImage</Name>
+    <Translation>İşlem Resmi Oluştur</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CreateTradingAccount</Name>
+    <Translation>İşlem Hesabı Oluştur</Translation>
+  </Vocab>
+  <Vocab>
     <Name>CreatorId</Name>
     <Translation>Oluşturan</Translation>
   </Vocab>
   <Vocab>
     <Name>CreatorIp</Name>
     <Translation>Oluşturan IP</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Crypto</Name>
+    <Translation>Kripto</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CryptoPerpetual</Name>
+    <Translation>Süresiz Kripto Sözleşmesi</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Currencies</Name>
+    <Translation>Dövizler</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CurrenciesList</Name>
+    <Translation>Döviz Listesi</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Currency</Name>
+    <Translation>Döviz</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CurrencyTicker</Name>
+    <Translation>Döviz Kodu</Translation>
   </Vocab>
   <Vocab>
     <Name>Customer</Name>
@@ -397,6 +601,26 @@
     <Translation>Tarihi</Translation>
   </Vocab>
   <Vocab>
+    <Name>DateArray</Name>
+    <Translation>Tarih Dizisi</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>DateTime</Name>
+    <Translation>Tarih/Zaman</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>DateTimeArray</Name>
+    <Translation>Tarih/Zaman Dizisi</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Decimal</Name>
+    <Translation>Ondalık</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>DecimalArray</Name>
+    <Translation>Ondalık Dizisi</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Delete</Name>
     <Translation>Sil</Translation>
   </Vocab>
@@ -417,12 +641,28 @@
     <Translation>Ülkeyi Sil</Translation>
   </Vocab>
   <Vocab>
+    <Name>DeleteCurrency</Name>
+    <Translation>Dövizi Sil</Translation>
+  </Vocab>
+  <Vocab>
     <Name>DeleteCustomer</Name>
     <Translation>Müşteri Sil</Translation>
   </Vocab>
   <Vocab>
     <Name>DeleteCustomerAddress</Name>
     <Translation>Müşteri Adresini Sil</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>DeleteEntryOrder</Name>
+    <Translation>Giriş Emrini Sil</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>DeleteExchange</Name>
+    <Translation>Borsayı Sil</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>DeleteIModifyDate</Name>
+    <Translation>Değişiklik Tarihini Sil</Translation>
   </Vocab>
   <Vocab>
     <Name>DeleteOrder</Name>
@@ -449,6 +689,10 @@
     <Translation>Siparişi Sil</Translation>
   </Vocab>
   <Vocab>
+    <Name>DeleteStopLossOrder</Name>
+    <Translation>Zarar Kes Emrini Sil</Translation>
+  </Vocab>
+  <Vocab>
     <Name>DeleteStore</Name>
     <Translation>Mağazayı Sil</Translation>
   </Vocab>
@@ -459,6 +703,26 @@
   <Vocab>
     <Name>DeleteSupplier</Name>
     <Translation>Tedarikçiyi Sil</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>DeleteSymbol</Name>
+    <Translation>Sembolü Sil</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>DeleteTakeProfitOrder</Name>
+    <Translation>Kar Al Emrini Sil</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>DeleteTrade</Name>
+    <Translation>İşlemi Sil</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>DeleteTradeImage</Name>
+    <Translation>İşlem Resmini Sil</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>DeleteTradingAccount</Name>
+    <Translation>İşlem Hesabını Sil</Translation>
   </Vocab>
   <Vocab>
     <Name>Deleting</Name>
@@ -521,12 +785,12 @@
     <Translation>Kişiyi Düzenle</Translation>
   </Vocab>
   <Vocab>
-    <Name>EditContact</Name>
-    <Translation>Kişiyi Düzenle</Translation>
-  </Vocab>
-  <Vocab>
     <Name>EditCountry</Name>
     <Translation>Ülkeyi Düzenle</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>EditCurrency</Name>
+    <Translation>Dövizi Düzenle</Translation>
   </Vocab>
   <Vocab>
     <Name>EditCustomer</Name>
@@ -535,6 +799,18 @@
   <Vocab>
     <Name>EditCustomerAddress</Name>
     <Translation>Müşteri Adresini Düzenle</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>EditEntryOrder</Name>
+    <Translation>Giriş Emrini Düzenle</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>EditExchange</Name>
+    <Translation>Borsayı Düzenle</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>EditIModifyDate</Name>
+    <Translation>Değişiklik Tarihini Düzenle</Translation>
   </Vocab>
   <Vocab>
     <Name>EditOrder</Name>
@@ -561,6 +837,10 @@
     <Translation>Siparişi Düzenle</Translation>
   </Vocab>
   <Vocab>
+    <Name>EditStopLossOrder</Name>
+    <Translation>Zarar Kes Emrini Düzenle</Translation>
+  </Vocab>
+  <Vocab>
     <Name>EditStore</Name>
     <Translation>Mağazayı Düzenle</Translation>
   </Vocab>
@@ -571,6 +851,26 @@
   <Vocab>
     <Name>EditSupplier</Name>
     <Translation>Tedarikçiyi Düzenle</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>EditSymbol</Name>
+    <Translation>Sembolü Düzenle</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>EditTakeProfitOrder</Name>
+    <Translation>Kar Al Emrini Düzenle</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>EditTrade</Name>
+    <Translation>İşlemi Düzenle</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>EditTradeImage</Name>
+    <Translation>İşlem Resmini Düzenle</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>EditTradingAccount</Name>
+    <Translation>İşlem Hesabını Düzenle</Translation>
   </Vocab>
   <Vocab>
     <Name>Email</Name>
@@ -589,8 +889,68 @@
     <Translation>Arama kelimenizi girin</Translation>
   </Vocab>
   <Vocab>
+    <Name>Entry</Name>
+    <Translation>İşleme Giriş</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>EntryMethod</Name>
+    <Translation>İşlem Şekli</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>EntryOrder</Name>
+    <Translation>Giriş Emri</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>EntryOrders</Name>
+    <Translation>Giriş Emirleri</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>EntryOrdersList</Name>
+    <Translation>Giriş Emir Listesi</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>EntryTime</Name>
+    <Translation>İşlem Zamanı</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Erase</Name>
     <Translation>Tam Sil</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Exchange</Name>
+    <Translation>Borsa</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ExchangeCode</Name>
+    <Translation>Borsa Kodu</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ExchangeId</Name>
+    <Translation>Borsa</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ExchangeName</Name>
+    <Translation>Borsa Adı</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Exchanges</Name>
+    <Translation>Borsalar</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ExchangesList</Name>
+    <Translation>Borsa Listesi</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ExecutedEntry</Name>
+    <Translation>Gerçekleşen İşlem</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ExecutedSL</Name>
+    <Translation>Gerçekleşen Zarar Kes</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ExecutedTP</Name>
+    <Translation>Gerçekleşen Kar Al</Translation>
   </Vocab>
   <Vocab>
     <Name>ExpireDate</Name>
@@ -611,6 +971,18 @@
   <Vocab>
     <Name>FirstName</Name>
     <Translation>Ad</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Forex</Name>
+    <Translation>Foreks</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Fund</Name>
+    <Translation>Fon</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Futures</Name>
+    <Translation>Vadeli İşlem</Translation>
   </Vocab>
   <Vocab>
     <Name>Height</Name>
@@ -641,8 +1013,32 @@
     <Translation>Resim Dosyaları</Translation>
   </Vocab>
   <Vocab>
+    <Name>ImageURL</Name>
+    <Translation>Resim Yolu</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>IModifyDate</Name>
+    <Translation>Değişiklik Tarihi</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>IModifyDates</Name>
+    <Translation>Değişiklik Tarihleri</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>IModifyDatesList</Name>
+    <Translation>Değişiklik Tarih Listesi</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Index</Name>
     <Translation>Indeks</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Integer</Name>
+    <Translation>Tamsayı</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>IntegerArray</Name>
+    <Translation>Tamsayı Dizisi</Translation>
   </Vocab>
   <Vocab>
     <Name>IsApproved</Name>
@@ -663,6 +1059,10 @@
   <Vocab>
     <Name>Latitude</Name>
     <Translation>Enlem</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Limit</Name>
+    <Translation>Limit</Translation>
   </Vocab>
   <Vocab>
     <Name>Loading</Name>
@@ -705,6 +1105,22 @@
     <Translation>Erkek</Translation>
   </Vocab>
   <Vocab>
+    <Name>Market</Name>
+    <Translation>Market</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>MarketType</Name>
+    <Translation>Piyasa Tipi</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>MaxLength</Name>
+    <Translation>{0} sahasına en fazla {1} karakter girebilirsiniz.</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>MinLength</Name>
+    <Translation>{0} sahasına en az {2} karakter girmelisiniz.</Translation>
+  </Vocab>
+  <Vocab>
     <Name>ModifierId</Name>
     <Translation>Değiştiren</Translation>
   </Vocab>
@@ -725,8 +1141,16 @@
     <Translation>İsim</Translation>
   </Vocab>
   <Vocab>
+    <Name>NetResult</Name>
+    <Translation>Net Sonuç</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Never</Name>
     <Translation>Asla</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>NewPasswordNotMatch</Name>
+    <Translation>Yeni Parola ve Yeni Parola Doğrulaması aynı değil.</Translation>
   </Vocab>
   <Vocab>
     <Name>No</Name>
@@ -751,6 +1175,10 @@
   <Vocab>
     <Name>Often</Name>
     <Translation>Sık sık</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Option</Name>
+    <Translation>Opsiyon</Translation>
   </Vocab>
   <Vocab>
     <Name>Order</Name>
@@ -785,6 +1213,10 @@
     <Translation>Sipariş Listesi</Translation>
   </Vocab>
   <Vocab>
+    <Name>OrderType</Name>
+    <Translation>Emir Tipi</Translation>
+  </Vocab>
+  <Vocab>
     <Name>ParentCategories</Name>
     <Translation>Üst Kategoriler</Translation>
   </Vocab>
@@ -799,6 +1231,14 @@
   <Vocab>
     <Name>Password</Name>
     <Translation>Parola</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>PasswordNotMatch</Name>
+    <Translation>Parola ve Parola Doğrulaması aynı değil.</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Performance</Name>
+    <Translation>Performans</Translation>
   </Vocab>
   <Vocab>
     <Name>Person</Name>
@@ -853,6 +1293,18 @@
     <Translation>İş Telefonu 2</Translation>
   </Vocab>
   <Vocab>
+    <Name>PlannedEntry</Name>
+    <Translation>Planlanan İşlem</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>PlannedSL</Name>
+    <Translation>Planlanan Zarar Kes</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>PlannedTP</Name>
+    <Translation>Planlanan Kar Al</Translation>
+  </Vocab>
+  <Vocab>
     <Name>PleaseWait</Name>
     <Translation>Lütfen Bekleyiniz</Translation>
   </Vocab>
@@ -871,6 +1323,10 @@
   <Vocab>
     <Name>Price</Name>
     <Translation>Fiyat</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>PriceCurrency</Name>
+    <Translation>Karşı Döviz</Translation>
   </Vocab>
   <Vocab>
     <Name>Print</Name>
@@ -953,6 +1409,66 @@
     <Translation>Çıkar</Translation>
   </Vocab>
   <Vocab>
+    <Name>RemoveCurrency</Name>
+    <Translation>Dövizi Çıkart</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>RemoveEntryOrder</Name>
+    <Translation>Giriş Emrini Çıkar</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>RemoveExchange</Name>
+    <Translation>Borsayı Çıkart</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>RemoveIModifyDate</Name>
+    <Translation>Değişiklik Tarihini Çıkar</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>RemoveStopLossOrder</Name>
+    <Translation>Zarar Kes Emrini Çıkar</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>RemoveSymbol</Name>
+    <Translation>Sembolü Çıkart</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>RemoveTakeProfitOrder</Name>
+    <Translation>Kar Al Emrini Çıkar</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>RemoveTrade</Name>
+    <Translation>İşlemi Çıkart</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>RemoveTradeImage</Name>
+    <Translation>İşlem Resmini Çıkart</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>RemoveTradingAccount</Name>
+    <Translation>İşlem Hesabını Çıkart</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ReportTypes</Name>
+    <Translation>Rapor Tipi</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Required</Name>
+    <Translation>Lütfen {0} sahasına bilgi giriniz.</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>RequiredEmail</Name>
+    <Translation>Lütfen {0} sahasına geçerli bir eposta adresi giriniz.</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>RequiredEnum</Name>
+    <Translation>Lütfen {0} sahasına bilgi giriniz.</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>RequiredPassword</Name>
+    <Translation>Lütfen {0} sahasına parolanızı giriniz.</Translation>
+  </Vocab>
+  <Vocab>
     <Name>RotationX</Name>
     <Translation>X Dönüşü</Translation>
   </Vocab>
@@ -985,6 +1501,10 @@
     <Translation>Lütfen Seçiniz</Translation>
   </Vocab>
   <Vocab>
+    <Name>SettingType</Name>
+    <Translation>Ayar Tipi</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Show</Name>
     <Translation>Göster</Translation>
   </Vocab>
@@ -1003,6 +1523,30 @@
   <Vocab>
     <Name>State</Name>
     <Translation>Eyalet</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Stock</Name>
+    <Translation>Hisse Senedi</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>StopAll</Name>
+    <Translation>Tümünü Kapat</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>StopLoss</Name>
+    <Translation>Zarar Kes</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>StopLossOrder</Name>
+    <Translation>Zarar Kes Emri</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>StopLossOrders</Name>
+    <Translation>Zarar Kes Emirleri</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>StopLossOrdersList</Name>
+    <Translation>Zarar Kes Emir Listesi</Translation>
   </Vocab>
   <Vocab>
     <Name>Store</Name>
@@ -1031,6 +1575,14 @@
   <Vocab>
     <Name>StoreStaffsList</Name>
     <Translation>Mağaza Personel Listesi</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>String</Name>
+    <Translation>Metin</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>StringArray</Name>
+    <Translation>Metin Dizisi</Translation>
   </Vocab>
   <Vocab>
     <Name>SubCategories</Name>
@@ -1065,6 +1617,38 @@
     <Translation>Soyad</Translation>
   </Vocab>
   <Vocab>
+    <Name>Symbol</Name>
+    <Translation>Sembol</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>SymbolId</Name>
+    <Translation>Sembol</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Symbols</Name>
+    <Translation>Semboller</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>SymbolsList</Name>
+    <Translation>Sembol Listesi</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>TakeProfit</Name>
+    <Translation>Kar Al</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>TakeProfitOrder</Name>
+    <Translation>Kar Al Emri</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>TakeProfitOrders</Name>
+    <Translation>Kar Al Emirleri</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>TakeProfitOrdersList</Name>
+    <Translation>Kar Al Emir Listesi</Translation>
+  </Vocab>
+  <Vocab>
     <Name>TaxNr</Name>
     <Translation>Vergi</Translation>
   </Vocab>
@@ -1075,6 +1659,14 @@
   <Vocab>
     <Name>ThreeLetterIsoCode</Name>
     <Translation>Üç Harfli Iso Kodu</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Ticker</Name>
+    <Translation>İşlem Kodu</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>TickerFull</Name>
+    <Translation>Uzun İşlem Kodu</Translation>
   </Vocab>
   <Vocab>
     <Name>Title</Name>
@@ -1093,6 +1685,58 @@
     <Translation>İlçeler</Translation>
   </Vocab>
   <Vocab>
+    <Name>Trade</Name>
+    <Translation>İşlem</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>TradeDirection</Name>
+    <Translation>İşlem Yönü</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>TradeHistory</Name>
+    <Translation>İşlem Geçmişi</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>TradeId</Name>
+    <Translation>İşlem</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>TradeImage</Name>
+    <Translation>İşlem Resmi</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>TradeImages</Name>
+    <Translation>İşlem Resimleri</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>TradeImagesList</Name>
+    <Translation>İşlem Resim Listesi</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Trades</Name>
+    <Translation>İşlemler</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>TradesList</Name>
+    <Translation>İşlem Listesi</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>TradingAccount</Name>
+    <Translation>İşlem Hesabı</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>TradingAccountId</Name>
+    <Translation>İşlem Hesabı</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>TradingAccounts</Name>
+    <Translation>İşlem Hesapları</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>TradingAccountsList</Name>
+    <Translation>İşlem Hesap Listesi</Translation>
+  </Vocab>
+  <Vocab>
     <Name>TwoLetterIsoCode</Name>
     <Translation>İki Harfli Iso Kodu</Translation>
   </Vocab>
@@ -1109,12 +1753,12 @@
     <Translation>Birim</Translation>
   </Vocab>
   <Vocab>
-    <Name>Update</Name>
-    <Translation>Güncelle</Translation>
+    <Name>Unspecified</Name>
+    <Translation>Belirtilmemiş</Translation>
   </Vocab>
   <Vocab>
-    <Name>UserName</Name>
-    <Translation>Kullanıcı Adı</Translation>
+    <Name>Update</Name>
+    <Translation>Güncelle</Translation>
   </Vocab>
   <Vocab>
     <Name>UserName</Name>

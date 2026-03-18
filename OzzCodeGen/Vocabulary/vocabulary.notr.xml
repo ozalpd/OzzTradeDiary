@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ArrayOfVocab xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Vocab>
+    <Name>AccountCode</Name>
+    <Translation>Account Code</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Action</Name>
     <Translation>Action</Translation>
   </Vocab>
@@ -21,8 +25,24 @@
     <Translation>Add Country</Translation>
   </Vocab>
   <Vocab>
+    <Name>AddCurrency</Name>
+    <Translation>Add Currency</Translation>
+  </Vocab>
+  <Vocab>
     <Name>AddCustomer</Name>
     <Translation>Add Customer</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddEntryOrder</Name>
+    <Translation>Add Entry Order</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddExchange</Name>
+    <Translation>Add Exchange</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddIModifyDate</Name>
+    <Translation>Add IModify Date</Translation>
   </Vocab>
   <Vocab>
     <Name>AddNew</Name>
@@ -45,8 +65,24 @@
     <Translation>Add New Country</Translation>
   </Vocab>
   <Vocab>
+    <Name>AddNewCurrency</Name>
+    <Translation>Add New Currency</Translation>
+  </Vocab>
+  <Vocab>
     <Name>AddNewCustomer</Name>
     <Translation>Add New Customer</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddNewEntryOrder</Name>
+    <Translation>Add New Entry Order</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddNewExchange</Name>
+    <Translation>Add New Exchange</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddNewIModifyDate</Name>
+    <Translation>Add New IModify Date</Translation>
   </Vocab>
   <Vocab>
     <Name>AddNewOrderItem</Name>
@@ -69,6 +105,10 @@
     <Translation>Add New Purchase Order</Translation>
   </Vocab>
   <Vocab>
+    <Name>AddNewStopLossOrder</Name>
+    <Translation>Add New Stop Loss Order</Translation>
+  </Vocab>
+  <Vocab>
     <Name>AddNewStore</Name>
     <Translation>Add New Store</Translation>
   </Vocab>
@@ -79,6 +119,26 @@
   <Vocab>
     <Name>AddNewSupplier</Name>
     <Translation>Add New Supplier</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddNewSymbol</Name>
+    <Translation>Add New Symbol</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddNewTakeProfitOrder</Name>
+    <Translation>Add New Take Profit Order</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddNewTrade</Name>
+    <Translation>Add New Trade</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddNewTradeImage</Name>
+    <Translation>Add New Trade Image</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddNewTradingAccount</Name>
+    <Translation>Add New Trading Account</Translation>
   </Vocab>
   <Vocab>
     <Name>AddOrderItem</Name>
@@ -101,6 +161,46 @@
     <Translation>Add Purchase Order</Translation>
   </Vocab>
   <Vocab>
+    <Name>AddRemoveCurrency</Name>
+    <Translation>Add Remove Currency</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddRemoveEntryOrder</Name>
+    <Translation>Add Remove Entry Order</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddRemoveExchange</Name>
+    <Translation>Add Remove Exchange</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddRemoveIModifyDate</Name>
+    <Translation>Add Remove IModify Date</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddRemoveStopLossOrder</Name>
+    <Translation>Add Remove Stop Loss Order</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddRemoveSymbol</Name>
+    <Translation>Add Remove Symbol</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddRemoveTakeProfitOrder</Name>
+    <Translation>Add Remove Take Profit Order</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddRemoveTrade</Name>
+    <Translation>Add Remove Trade</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddRemoveTradeImage</Name>
+    <Translation>Add Remove Trade Image</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddRemoveTradingAccount</Name>
+    <Translation>Add Remove Trading Account</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Address</Name>
     <Translation>Address</Translation>
   </Vocab>
@@ -113,6 +213,10 @@
     <Translation>Address Line 2</Translation>
   </Vocab>
   <Vocab>
+    <Name>AddStopLossOrder</Name>
+    <Translation>Add Stop Loss Order</Translation>
+  </Vocab>
+  <Vocab>
     <Name>AddStore</Name>
     <Translation>Add Store</Translation>
   </Vocab>
@@ -123,6 +227,26 @@
   <Vocab>
     <Name>AddSupplier</Name>
     <Translation>Add Supplier</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddSymbol</Name>
+    <Translation>Add Symbol</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddTakeProfitOrder</Name>
+    <Translation>Add Take Profit Order</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddTrade</Name>
+    <Translation>Add Trade</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddTradeImage</Name>
+    <Translation>Add Trade Image</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddTradingAccount</Name>
+    <Translation>Add Trading Account</Translation>
   </Vocab>
   <Vocab>
     <Name>Admin</Name>
@@ -153,8 +277,20 @@
     <Translation>Go to List</Translation>
   </Vocab>
   <Vocab>
+    <Name>Balance</Name>
+    <Translation>Balance</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>BaseCurrency</Name>
+    <Translation>Base Currency</Translation>
+  </Vocab>
+  <Vocab>
     <Name>BecauseOfRelatedRecords</Name>
     <Translation>This record has some relations.</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Boolean</Name>
+    <Translation>Boolean</Translation>
   </Vocab>
   <Vocab>
     <Name>Cancel</Name>
@@ -213,6 +349,10 @@
     <Translation>Command</Translation>
   </Vocab>
   <Vocab>
+    <Name>Commodity</Name>
+    <Translation>Commodity</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Companies</Name>
     <Translation>Companies</Translation>
   </Vocab>
@@ -235,6 +375,10 @@
   <Vocab>
     <Name>ConfirmEmail</Name>
     <Translation>Confirm Email</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ConfirmNewPassword</Name>
+    <Translation>Confirm New Password</Translation>
   </Vocab>
   <Vocab>
     <Name>ConfirmPassword</Name>
@@ -293,6 +437,10 @@
     <Translation>Create Country</Translation>
   </Vocab>
   <Vocab>
+    <Name>CreateCurrency</Name>
+    <Translation>Create Currency</Translation>
+  </Vocab>
+  <Vocab>
     <Name>CreateCustomer</Name>
     <Translation>Create Customer</Translation>
   </Vocab>
@@ -303,6 +451,18 @@
   <Vocab>
     <Name>CreateDate</Name>
     <Translation>Create Date</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CreateEntryOrder</Name>
+    <Translation>Create Entry Order</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CreateExchange</Name>
+    <Translation>Create Exchange</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CreateIModifyDate</Name>
+    <Translation>Create IModify Date</Translation>
   </Vocab>
   <Vocab>
     <Name>CreateNew</Name>
@@ -333,6 +493,10 @@
     <Translation>Create Purchase Order</Translation>
   </Vocab>
   <Vocab>
+    <Name>CreateStopLossOrder</Name>
+    <Translation>Create Stop Loss Order</Translation>
+  </Vocab>
+  <Vocab>
     <Name>CreateStore</Name>
     <Translation>Create Store</Translation>
   </Vocab>
@@ -345,12 +509,56 @@
     <Translation>Create Supplier</Translation>
   </Vocab>
   <Vocab>
+    <Name>CreateSymbol</Name>
+    <Translation>Create Symbol</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CreateTakeProfitOrder</Name>
+    <Translation>Create Take Profit Order</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CreateTrade</Name>
+    <Translation>Create Trade</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CreateTradeImage</Name>
+    <Translation>Create Trade Image</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CreateTradingAccount</Name>
+    <Translation>Create Trading Account</Translation>
+  </Vocab>
+  <Vocab>
     <Name>CreatorId</Name>
     <Translation>Creator</Translation>
   </Vocab>
   <Vocab>
     <Name>CreatorIp</Name>
     <Translation>Creator Ip</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Crypto</Name>
+    <Translation>Crypto</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CryptoPerpetual</Name>
+    <Translation>Crypto Perpetual</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Currencies</Name>
+    <Translation>Currencies</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CurrenciesList</Name>
+    <Translation>Currencies List</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Currency</Name>
+    <Translation>Currency</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CurrencyTicker</Name>
+    <Translation>Currency Ticker</Translation>
   </Vocab>
   <Vocab>
     <Name>Customer</Name>
@@ -393,6 +601,26 @@
     <Translation>Date</Translation>
   </Vocab>
   <Vocab>
+    <Name>DateArray</Name>
+    <Translation>Date Array</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>DateTime</Name>
+    <Translation>Date Time</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>DateTimeArray</Name>
+    <Translation>Date Time Array</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Decimal</Name>
+    <Translation>Decimal</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>DecimalArray</Name>
+    <Translation>Decimal Array</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Delete</Name>
     <Translation>Delete</Translation>
   </Vocab>
@@ -413,12 +641,28 @@
     <Translation>Delete Country</Translation>
   </Vocab>
   <Vocab>
+    <Name>DeleteCurrency</Name>
+    <Translation>Delete Currency</Translation>
+  </Vocab>
+  <Vocab>
     <Name>DeleteCustomer</Name>
     <Translation>Delete Customer</Translation>
   </Vocab>
   <Vocab>
     <Name>DeleteCustomerAddress</Name>
     <Translation>Delete Customer Address</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>DeleteEntryOrder</Name>
+    <Translation>Delete Entry Order</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>DeleteExchange</Name>
+    <Translation>Delete Exchange</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>DeleteIModifyDate</Name>
+    <Translation>Delete IModify Date</Translation>
   </Vocab>
   <Vocab>
     <Name>DeleteOrder</Name>
@@ -445,6 +689,10 @@
     <Translation>Delete Purchase Order</Translation>
   </Vocab>
   <Vocab>
+    <Name>DeleteStopLossOrder</Name>
+    <Translation>Delete Stop Loss Order</Translation>
+  </Vocab>
+  <Vocab>
     <Name>DeleteStore</Name>
     <Translation>Delete Store</Translation>
   </Vocab>
@@ -455,6 +703,26 @@
   <Vocab>
     <Name>DeleteSupplier</Name>
     <Translation>Delete Supplier</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>DeleteSymbol</Name>
+    <Translation>Delete Symbol</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>DeleteTakeProfitOrder</Name>
+    <Translation>Delete Take Profit Order</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>DeleteTrade</Name>
+    <Translation>Delete Trade</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>DeleteTradeImage</Name>
+    <Translation>Delete Trade Image</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>DeleteTradingAccount</Name>
+    <Translation>Delete Trading Account</Translation>
   </Vocab>
   <Vocab>
     <Name>Deleting</Name>
@@ -521,12 +789,28 @@
     <Translation>Edit Country</Translation>
   </Vocab>
   <Vocab>
+    <Name>EditCurrency</Name>
+    <Translation>Edit Currency</Translation>
+  </Vocab>
+  <Vocab>
     <Name>EditCustomer</Name>
     <Translation>Edit Customer</Translation>
   </Vocab>
   <Vocab>
     <Name>EditCustomerAddress</Name>
     <Translation>Edit Customer Address</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>EditEntryOrder</Name>
+    <Translation>Edit Entry Order</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>EditExchange</Name>
+    <Translation>Edit Exchange</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>EditIModifyDate</Name>
+    <Translation>Edit IModify Date</Translation>
   </Vocab>
   <Vocab>
     <Name>EditOrder</Name>
@@ -553,6 +837,10 @@
     <Translation>Edit Purchase Order</Translation>
   </Vocab>
   <Vocab>
+    <Name>EditStopLossOrder</Name>
+    <Translation>Edit Stop Loss Order</Translation>
+  </Vocab>
+  <Vocab>
     <Name>EditStore</Name>
     <Translation>Edit Store</Translation>
   </Vocab>
@@ -563,6 +851,26 @@
   <Vocab>
     <Name>EditSupplier</Name>
     <Translation>Edit Supplier</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>EditSymbol</Name>
+    <Translation>Edit Symbol</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>EditTakeProfitOrder</Name>
+    <Translation>Edit Take Profit Order</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>EditTrade</Name>
+    <Translation>Edit Trade</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>EditTradeImage</Name>
+    <Translation>Edit Trade Image</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>EditTradingAccount</Name>
+    <Translation>Edit Trading Account</Translation>
   </Vocab>
   <Vocab>
     <Name>Email</Name>
@@ -581,8 +889,68 @@
     <Translation>Enter Keyword Here</Translation>
   </Vocab>
   <Vocab>
+    <Name>Entry</Name>
+    <Translation>Entry</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>EntryMethod</Name>
+    <Translation>Entry Method</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>EntryOrder</Name>
+    <Translation>Entry Order</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>EntryOrders</Name>
+    <Translation>Entry Orders</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>EntryOrdersList</Name>
+    <Translation>Entry Orders List</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>EntryTime</Name>
+    <Translation>Entry Time</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Erase</Name>
     <Translation>Erase</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Exchange</Name>
+    <Translation>Exchange</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ExchangeCode</Name>
+    <Translation>Exchange Code</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ExchangeId</Name>
+    <Translation>Exchange Id</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ExchangeName</Name>
+    <Translation>Exchange Name</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Exchanges</Name>
+    <Translation>Exchanges</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ExchangesList</Name>
+    <Translation>Exchanges List</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ExecutedEntry</Name>
+    <Translation>Executed Entry</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ExecutedSL</Name>
+    <Translation>Executed SL</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ExecutedTP</Name>
+    <Translation>Executed TP</Translation>
   </Vocab>
   <Vocab>
     <Name>ExpireDate</Name>
@@ -603,6 +971,18 @@
   <Vocab>
     <Name>FirstName</Name>
     <Translation>First Name</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Forex</Name>
+    <Translation>Forex</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Fund</Name>
+    <Translation>Fund</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Futures</Name>
+    <Translation>Futures</Translation>
   </Vocab>
   <Vocab>
     <Name>Height</Name>
@@ -633,8 +1013,32 @@
     <Translation>Image Files</Translation>
   </Vocab>
   <Vocab>
+    <Name>ImageURL</Name>
+    <Translation>Image URL</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>IModifyDate</Name>
+    <Translation>IModify Date</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>IModifyDates</Name>
+    <Translation>IModify Dates</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>IModifyDatesList</Name>
+    <Translation>IModify Dates List</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Index</Name>
     <Translation>Index</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Integer</Name>
+    <Translation>Integer</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>IntegerArray</Name>
+    <Translation>Integer Array</Translation>
   </Vocab>
   <Vocab>
     <Name>IsApproved</Name>
@@ -655,6 +1059,10 @@
   <Vocab>
     <Name>Latitude</Name>
     <Translation>Latitude</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Limit</Name>
+    <Translation>Limit</Translation>
   </Vocab>
   <Vocab>
     <Name>Loading</Name>
@@ -697,6 +1105,22 @@
     <Translation>Male</Translation>
   </Vocab>
   <Vocab>
+    <Name>Market</Name>
+    <Translation>Market</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>MarketType</Name>
+    <Translation>Market Type</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>MaxLength</Name>
+    <Translation>The {0} field maximum length is {1}.</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>MinLength</Name>
+    <Translation>The {0} must be at least {2} characters long.</Translation>
+  </Vocab>
+  <Vocab>
     <Name>ModifierId</Name>
     <Translation>Modifier</Translation>
   </Vocab>
@@ -717,8 +1141,16 @@
     <Translation>Name</Translation>
   </Vocab>
   <Vocab>
+    <Name>NetResult</Name>
+    <Translation>Net Result</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Never</Name>
     <Translation>Never</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>NewPasswordNotMatch</Name>
+    <Translation>The new password and confirmation password do not match.</Translation>
   </Vocab>
   <Vocab>
     <Name>No</Name>
@@ -743,6 +1175,10 @@
   <Vocab>
     <Name>Often</Name>
     <Translation>Often</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Option</Name>
+    <Translation>Option</Translation>
   </Vocab>
   <Vocab>
     <Name>Order</Name>
@@ -777,6 +1213,10 @@
     <Translation>Orders List</Translation>
   </Vocab>
   <Vocab>
+    <Name>OrderType</Name>
+    <Translation>Order Type</Translation>
+  </Vocab>
+  <Vocab>
     <Name>ParentCategories</Name>
     <Translation>Parent Categories</Translation>
   </Vocab>
@@ -791,6 +1231,14 @@
   <Vocab>
     <Name>Password</Name>
     <Translation>Password</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>PasswordNotMatch</Name>
+    <Translation>The password and confirmation password do not match.</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Performance</Name>
+    <Translation>Performance</Translation>
   </Vocab>
   <Vocab>
     <Name>Person</Name>
@@ -845,6 +1293,18 @@
     <Translation>Phone Work2</Translation>
   </Vocab>
   <Vocab>
+    <Name>PlannedEntry</Name>
+    <Translation>Planned Entry</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>PlannedSL</Name>
+    <Translation>Planned SL</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>PlannedTP</Name>
+    <Translation>Planned TP</Translation>
+  </Vocab>
+  <Vocab>
     <Name>PleaseWait</Name>
     <Translation>Please Wait</Translation>
   </Vocab>
@@ -863,6 +1323,10 @@
   <Vocab>
     <Name>Price</Name>
     <Translation>Price</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>PriceCurrency</Name>
+    <Translation>Price Currency</Translation>
   </Vocab>
   <Vocab>
     <Name>Print</Name>
@@ -945,6 +1409,66 @@
     <Translation>Remove</Translation>
   </Vocab>
   <Vocab>
+    <Name>RemoveCurrency</Name>
+    <Translation>Remove Currency</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>RemoveEntryOrder</Name>
+    <Translation>Remove Entry Order</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>RemoveExchange</Name>
+    <Translation>Remove Exchange</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>RemoveIModifyDate</Name>
+    <Translation>Remove IModify Date</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>RemoveStopLossOrder</Name>
+    <Translation>Remove Stop Loss Order</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>RemoveSymbol</Name>
+    <Translation>Remove Symbol</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>RemoveTakeProfitOrder</Name>
+    <Translation>Remove Take Profit Order</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>RemoveTrade</Name>
+    <Translation>Remove Trade</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>RemoveTradeImage</Name>
+    <Translation>Remove Trade Image</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>RemoveTradingAccount</Name>
+    <Translation>Remove Trading Account</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ReportTypes</Name>
+    <Translation>Report Types</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Required</Name>
+    <Translation>The {0} field is required.</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>RequiredEmail</Name>
+    <Translation>Please enter a valid email address to {0} field.</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>RequiredEnum</Name>
+    <Translation>The {0} field is required.</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>RequiredPassword</Name>
+    <Translation>Please enter your password to {0} field.</Translation>
+  </Vocab>
+  <Vocab>
     <Name>RotationX</Name>
     <Translation>Rotation X</Translation>
   </Vocab>
@@ -977,6 +1501,10 @@
     <Translation>Please Select</Translation>
   </Vocab>
   <Vocab>
+    <Name>SettingType</Name>
+    <Translation>Setting Type</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Show</Name>
     <Translation>Show</Translation>
   </Vocab>
@@ -995,6 +1523,30 @@
   <Vocab>
     <Name>State</Name>
     <Translation>State</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Stock</Name>
+    <Translation>Stock</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>StopAll</Name>
+    <Translation>Stop All</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>StopLoss</Name>
+    <Translation>Stop Loss</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>StopLossOrder</Name>
+    <Translation>Stop Loss Order</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>StopLossOrders</Name>
+    <Translation>Stop Loss Orders</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>StopLossOrdersList</Name>
+    <Translation>Stop Loss Orders List</Translation>
   </Vocab>
   <Vocab>
     <Name>Store</Name>
@@ -1023,6 +1575,14 @@
   <Vocab>
     <Name>StoreStaffsList</Name>
     <Translation>Store Staffs List</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>String</Name>
+    <Translation>String</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>StringArray</Name>
+    <Translation>String Array</Translation>
   </Vocab>
   <Vocab>
     <Name>SubCategories</Name>
@@ -1057,6 +1617,38 @@
     <Translation>Surname</Translation>
   </Vocab>
   <Vocab>
+    <Name>Symbol</Name>
+    <Translation>Symbol</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>SymbolId</Name>
+    <Translation>Symbol Id</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Symbols</Name>
+    <Translation>Symbols</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>SymbolsList</Name>
+    <Translation>Symbols List</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>TakeProfit</Name>
+    <Translation>Take Profit</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>TakeProfitOrder</Name>
+    <Translation>Take Profit Order</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>TakeProfitOrders</Name>
+    <Translation>Take Profit Orders</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>TakeProfitOrdersList</Name>
+    <Translation>Take Profit Orders List</Translation>
+  </Vocab>
+  <Vocab>
     <Name>TaxNr</Name>
     <Translation>Tax Nr</Translation>
   </Vocab>
@@ -1067,6 +1659,14 @@
   <Vocab>
     <Name>ThreeLetterIsoCode</Name>
     <Translation>Three Letter Iso Code</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Ticker</Name>
+    <Translation>Ticker</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>TickerFull</Name>
+    <Translation>Ticker Full</Translation>
   </Vocab>
   <Vocab>
     <Name>Title</Name>
@@ -1085,6 +1685,58 @@
     <Translation>Townships</Translation>
   </Vocab>
   <Vocab>
+    <Name>Trade</Name>
+    <Translation>Trade</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>TradeDirection</Name>
+    <Translation>Trade Direction</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>TradeHistory</Name>
+    <Translation>Trade History</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>TradeId</Name>
+    <Translation>Trade Id</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>TradeImage</Name>
+    <Translation>Trade Image</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>TradeImages</Name>
+    <Translation>Trade Images</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>TradeImagesList</Name>
+    <Translation>Trade Images List</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Trades</Name>
+    <Translation>Trades</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>TradesList</Name>
+    <Translation>Trades List</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>TradingAccount</Name>
+    <Translation>Trading Account</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>TradingAccountId</Name>
+    <Translation>Trading Account Id</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>TradingAccounts</Name>
+    <Translation>Trading Accounts</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>TradingAccountsList</Name>
+    <Translation>Trading Accounts List</Translation>
+  </Vocab>
+  <Vocab>
     <Name>TwoLetterIsoCode</Name>
     <Translation>Two Letter Iso Code</Translation>
   </Vocab>
@@ -1099,6 +1751,10 @@
   <Vocab>
     <Name>Unit</Name>
     <Translation>Unit</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Unspecified</Name>
+    <Translation>Unspecified</Translation>
   </Vocab>
   <Vocab>
     <Name>Update</Name>

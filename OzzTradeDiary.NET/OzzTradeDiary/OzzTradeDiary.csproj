@@ -12,4 +12,8 @@
     <InformationalVersion>0.0.3</InformationalVersion>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\OzzTradeDiary.i18n\OzzTradeDiary.i18n.csproj" />
+  </ItemGroup>
+
 </Project>

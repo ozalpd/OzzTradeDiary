@@ -24,6 +24,7 @@
 	</ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\OzzTradeDiary.i18n\OzzTradeDiary.i18n.csproj" />
     <ProjectReference Include="..\OzzTradeDiary\OzzTradeDiary.csproj" />
     <ProjectReference Include="..\OzzTradeDiary.SQLite\OzzTradeDiary.SQLite.csproj" />
   </ItemGroup>
