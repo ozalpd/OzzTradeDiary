@@ -61,14 +61,32 @@
     <data name="MaxLength" xml:space="preserve">
         <value>{0} sahasına en fazla {1} karakter girebilirsiniz.</value>
     </data>
+    <data name="MaxValue" xml:space="preserve">
+        <value>{0} sahasına en fazla {1} değerini girmelisiniz.</value>
+    </data>
     <data name="MinLength" xml:space="preserve">
         <value>{0} sahasına en az {2} karakter girmelisiniz.</value>
+    </data>
+    <data name="MinValue" xml:space="preserve">
+        <value>{0} sahasına en az {1} değerini girmelisiniz.</value>
     </data>
     <data name="NewPasswordNotMatch" xml:space="preserve">
         <value>Yeni Parola ve Yeni Parola Doğrulaması aynı değil.</value>
     </data>
     <data name="PasswordNotMatch" xml:space="preserve">
         <value>Parola ve Parola Doğrulaması aynı değil.</value>
+    </data>
+    <data name="Range" xml:space="preserve">
+        <value>{0} sahasına en az {1} en fazla {2} değeri girmelisiniz.</value>
+    </data>
+    <data name="RangeDateTime" xml:space="preserve">
+        <value>{0} sahasına en az {1} en fazla {2} değeri girmelisiniz.</value>
+    </data>
+    <data name="RangeDecimal" xml:space="preserve">
+        <value>{0} sahasına en az {1} en fazla {2} değeri girmelisiniz.</value>
+    </data>
+    <data name="RangeInt" xml:space="preserve">
+        <value>{0} sahasına en az {1} en fazla {2} değeri girmelisiniz.</value>
     </data>
     <data name="Required" xml:space="preserve">
         <value>Lütfen {0} sahasına bilgi giriniz.</value>

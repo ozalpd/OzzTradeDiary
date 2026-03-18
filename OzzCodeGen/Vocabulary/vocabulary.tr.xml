@@ -1117,8 +1117,16 @@
     <Translation>{0} sahasına en fazla {1} karakter girebilirsiniz.</Translation>
   </Vocab>
   <Vocab>
+    <Name>MaxValue</Name>
+    <Translation>{0} sahasına en fazla {1} değerini girmelisiniz.</Translation>
+  </Vocab>
+  <Vocab>
     <Name>MinLength</Name>
     <Translation>{0} sahasına en az {2} karakter girmelisiniz.</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>MinValue</Name>
+    <Translation>{0} sahasına en az {1} değerini girmelisiniz.</Translation>
   </Vocab>
   <Vocab>
     <Name>ModifierId</Name>
@@ -1321,6 +1329,10 @@
     <Translation>Z Pozisyonu</Translation>
   </Vocab>
   <Vocab>
+    <Name>PositiveDecimal</Name>
+    <Translation>Positive Decimal</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Price</Name>
     <Translation>Fiyat</Translation>
   </Vocab>
@@ -1387,6 +1399,22 @@
   <Vocab>
     <Name>Quantity</Name>
     <Translation>Miktar</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Range</Name>
+    <Translation>{0} sahasına en az {1} en fazla {2} değeri girmelisiniz.</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>RangeDateTime</Name>
+    <Translation>{0} sahasına en az {1} en fazla {2} değeri girmelisiniz.</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>RangeDecimal</Name>
+    <Translation>{0} sahasına en az {1} en fazla {2} değeri girmelisiniz.</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>RangeInt</Name>
+    <Translation>{0} sahasına en az {1} en fazla {2} değeri girmelisiniz.</Translation>
   </Vocab>
   <Vocab>
     <Name>Rarely</Name>

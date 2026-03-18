@@ -61,14 +61,32 @@
     <data name="MaxLength" xml:space="preserve">
         <value>The {0} field maximum length is {1}.</value>
     </data>
+    <data name="MaxValue" xml:space="preserve">
+        <value>The {0} field must be less than or equal to {1}.</value>
+    </data>
     <data name="MinLength" xml:space="preserve">
         <value>The {0} must be at least {2} characters long.</value>
+    </data>
+    <data name="MinValue" xml:space="preserve">
+        <value>The {0} field must be greater than or equal to {1}.</value>
     </data>
     <data name="NewPasswordNotMatch" xml:space="preserve">
         <value>The new password and confirmation password do not match.</value>
     </data>
     <data name="PasswordNotMatch" xml:space="preserve">
         <value>The password and confirmation password do not match.</value>
+    </data>
+    <data name="Range" xml:space="preserve">
+        <value>The {0} field must be between {1} and {2}.</value>
+    </data>
+    <data name="RangeDateTime" xml:space="preserve">
+        <value>The {0} field must be between {1} and {2}.</value>
+    </data>
+    <data name="RangeDecimal" xml:space="preserve">
+        <value>The {0} field must be between {1} and {2}.</value>
+    </data>
+    <data name="RangeInt" xml:space="preserve">
+        <value>The {0} field must be between {1} and {2}.</value>
     </data>
     <data name="Required" xml:space="preserve">
         <value>The {0} field is required.</value>

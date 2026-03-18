@@ -30,7 +30,7 @@
           <DataType>Date</DataType>
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
-          <Required>[Required]</Required>
+          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
         </ModelPropertySetting>
       </Properties>
     </BaseEntitySetting>
@@ -45,7 +45,7 @@
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
-          <Required>[Required]</Required>
+          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
         </ModelPropertySetting>
       </Properties>
     </BaseEntitySetting>
@@ -75,7 +75,7 @@
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
-          <Required>[Required]</Required>
+          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
         </ModelPropertySetting>
         <ModelPropertySetting>
           <Name>ExecuteTime</Name>
@@ -83,6 +83,7 @@
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
+          <Range>typeof(DateTime), "1/1/2000", "12/31/2220"</Range>
           <Required />
         </ModelPropertySetting>
         <ModelPropertySetting>
@@ -91,7 +92,8 @@
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
-          <Required>[Required]</Required>
+          <Range>0.00000001, double.MaxValue</Range>
+          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
         </ModelPropertySetting>
         <ModelPropertySetting>
           <Name>FilledPrice</Name>
@@ -146,7 +148,7 @@
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
-          <Required>[Required]</Required>
+          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
         </ModelPropertySetting>
         <ModelPropertySetting>
           <Name>ExchangeCode</Name>
@@ -154,7 +156,7 @@
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
-          <Required>[Required]</Required>
+          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
         </ModelPropertySetting>
       </Properties>
     </BaseEntitySetting>
@@ -169,7 +171,7 @@
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
-          <Required>[Required]</Required>
+          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
         </ModelPropertySetting>
         <ModelPropertySetting>
           <Name>AccountCode</Name>
@@ -185,7 +187,7 @@
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
-          <Required>[Required]</Required>
+          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
         </ModelPropertySetting>
         <ModelPropertySetting>
           <Name>Exchange</Name>
@@ -215,7 +217,7 @@
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
-          <Required>[Required]</Required>
+          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
         </ModelPropertySetting>
         <ModelPropertySetting>
           <Name>Description</Name>
@@ -238,7 +240,7 @@
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
-          <Required>[Required]</Required>
+          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
         </ModelPropertySetting>
         <ModelPropertySetting>
           <Name>TickerFull</Name>
@@ -246,7 +248,7 @@
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
-          <Required>[Required]</Required>
+          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
         </ModelPropertySetting>
         <ModelPropertySetting>
           <Name>BaseCurrency</Name>
@@ -262,7 +264,7 @@
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
-          <Required>[Required]</Required>
+          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
         </ModelPropertySetting>
         <ModelPropertySetting>
           <Name>Description</Name>
@@ -278,7 +280,7 @@
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
-          <Required>[Required]</Required>
+          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
         </ModelPropertySetting>
         <ModelPropertySetting>
           <Name>Exchange</Name>
@@ -293,7 +295,7 @@
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
-          <Required>[Required]</Required>
+          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
         </ModelPropertySetting>
       </Properties>
     </BaseEntitySetting>
@@ -308,7 +310,7 @@
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
-          <Required>[Required]</Required>
+          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
         </ModelPropertySetting>
         <ModelPropertySetting>
           <Name>Trade</Name>
@@ -330,7 +332,7 @@
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
-          <Required>[Required]</Required>
+          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
         </ModelPropertySetting>
         <ModelPropertySetting>
           <Name>Trade</Name>
@@ -352,7 +354,7 @@
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
-          <Required>[Required]</Required>
+          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
         </ModelPropertySetting>
         <ModelPropertySetting>
           <Name>Trade</Name>
@@ -397,7 +399,7 @@
           <DataType>ImageUrl</DataType>
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
-          <Required>[Required]</Required>
+          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
         </ModelPropertySetting>
         <ModelPropertySetting>
           <Name>Notes</Name>
@@ -420,7 +422,7 @@
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
-          <Required>[Required]</Required>
+          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
         </ModelPropertySetting>
         <ModelPropertySetting>
           <Name>TradingAccount</Name>
@@ -435,7 +437,7 @@
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
-          <Required>[Required]</Required>
+          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
         </ModelPropertySetting>
         <ModelPropertySetting>
           <Name>Symbol</Name>
@@ -458,7 +460,7 @@
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
-          <Required>[Required]</Required>
+          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
         </ModelPropertySetting>
         <ModelPropertySetting>
           <Name>TradeDirection</Name>
@@ -466,7 +468,7 @@
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
-          <Required>[Required]</Required>
+          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
         </ModelPropertySetting>
         <ModelPropertySetting>
           <Name>EntryOrders</Name>
@@ -550,7 +552,7 @@
   <RenderAllEntities>false</RenderAllEntities>
   <CustomAttribNamespace>TD.Validation</CustomAttribNamespace>
   <GenerateForDTO>false</GenerateForDTO>
-  <UseResourceFiles>false</UseResourceFiles>
-  <GenAnnotations>false</GenAnnotations>
+  <UseResourceFiles>true</UseResourceFiles>
+  <GenAnnotations>true</GenAnnotations>
   <GenerateXmlDoc>true</GenerateXmlDoc>
 </ModelClassCodeEngine>

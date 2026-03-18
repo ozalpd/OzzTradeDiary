@@ -4,7 +4,7 @@
 
 Early-stage development (pre-release, no public release yet).
 
-Internal tracking versions: `OzzTradeDiary.WPF` `0.0.5`, `OzzTradeDiary.SQLite` `0.0.5`, `OzzTradeDiary.i18n` `1.0.0`.
+Internal tracking versions: `OzzTradeDiary` `0.0.4`, `OzzTradeDiary.WPF` `0.0.5`, `OzzTradeDiary.SQLite` `0.0.5`, `OzzTradeDiary.i18n` `1.0.0`.
 
 - **Changelog discipline**: Any behavior change (repository logic, initialization, seeding, schema generation impact, UI-visible behavior) must be recorded in `CHANGELOG.md` under `## [Unreleased]`.
 
@@ -46,6 +46,7 @@ Internal tracking versions: `OzzTradeDiary.WPF` `0.0.5`, `OzzTradeDiary.SQLite` 
 - Include a `Clone()` method that copies all properties except PKs/navigation properties
 - Navigation properties use `virtual` collections
 - Use XML documentation comments on properties
+- Use localized DataAnnotations backed by `TD.i18n` resources for display names and validation messages where applicable
 - Model names are singular and related table names are plural
 - **Each model must have a corresponding generated DDL script** in `OzzTradeDiary.SQLite/DbScripts/` named `<ModelName>.sql`
 - Some models also have generated seed scripts named `<PluralTableName>-Data.sql`
@@ -90,7 +91,7 @@ Internal tracking versions: `OzzTradeDiary.WPF` `0.0.5`, `OzzTradeDiary.SQLite` 
 - **Singleton pattern** for `AppSettings` (lazy-loaded)
 - **App version**: `AppVersion` static class (`TD.WPF.Models`) reads product name, version, copyright, and description from assembly attributes; use `AppVersion.Version` for display
 - **Validation**: Use `TD.Validation.ModelValidator` for shared DataAnnotations-based model validation logic so WPF, MAUI, and ASP.NET can reuse the same validation rules
-- **Localization**: Use resources from `OzzTradeDiary.i18n` (`ActionStrings`, `CommonStrings`, `ErrorStrings`, `LocalizedStrings`, `MessageStrings`); these resources are generated artifacts
+- **Localization**: Use resources from `OzzTradeDiary.i18n` (`ActionStrings`, `CommonStrings`, `ErrorStrings`, `LocalizedStrings`, `MessageStrings`); model classes consume these resources through DataAnnotations and the resource classes are generated artifacts
 - **Code generation**: OzzCodeGen generates SQLite DDL scripts and localization resources — settings files in `OzzCodeGen/` define mappings
 - **Generation source of truth**:
   - Localization resources are generated via `OzzCodeGen/ResourceGen.settings` + `OzzCodeGen/Vocabulary`

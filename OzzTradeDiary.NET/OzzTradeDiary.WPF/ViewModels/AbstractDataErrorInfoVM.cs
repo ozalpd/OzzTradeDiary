@@ -1,17 +1,41 @@
 ﻿using System.Collections;
 using System.ComponentModel;
+using TD.Validation;
 
 namespace TD.WPF.ViewModels;
 
 internal abstract class AbstractDataErrorInfoVM : AbstractViewModel, INotifyDataErrorInfo
 {
-    protected Dictionary<string, List<string>> _errors = new Dictionary<string, List<string>>();
+    protected readonly Dictionary<string, List<string>> _errors = new Dictionary<string, List<string>>(StringComparer.Ordinal);
 
     public event EventHandler<DataErrorsChangedEventArgs>? ErrorsChanged;
 
-    public bool HasErrors => _errors.Any();
+    public bool HasErrors => _errors.Any(kvp => kvp.Value.Count > 0);
 
+    public IEnumerable GetErrors(string? propertyName)
+    {
+        if (string.IsNullOrWhiteSpace(propertyName))
+            return _errors.Values.SelectMany(x => x).Distinct().ToArray();
 
+        if (!_errors.TryGetValue(propertyName, out var errors))
+            return Enumerable.Empty<string>();
+
+        return errors;
+    }
+
+    protected bool ValidateModel(object model)
+    {
+        var result = ModelValidator.Validate(model);
+        ReplaceErrors(result);
+        return !HasErrors;
+    }
+
+    protected bool ValidateProperty(object model, string propertyName)
+    {
+        var result = ModelValidator.ValidateProperty(model, propertyName);
+        SetErrors(propertyName, result);
+        return !_errors.ContainsKey(propertyName);
+    }
 
     protected void AddError(string propertyName, string error)
     {
@@ -27,24 +51,57 @@ internal abstract class AbstractDataErrorInfoVM : AbstractViewModel, INotifyData
 
     protected void ClearErrors(string propertyName)
     {
-        if (_errors.ContainsKey(propertyName))
-        {
-            _errors.Remove(propertyName);
+        if (_errors.Remove(propertyName))
             OnErrorsChanged(propertyName);
-        }
     }
 
-
-    public IEnumerable GetErrors(string? propertyName)
+    protected void ClearAllErrors()
     {
-        if (string.IsNullOrEmpty(propertyName) || !_errors.ContainsKey(propertyName))
-            return Enumerable.Empty<string>();
+        var keys = _errors.Keys.ToArray();
+        _errors.Clear();
 
-        return _errors[propertyName];
+        foreach (var key in keys)
+            OnErrorsChanged(key);
     }
 
     protected void OnErrorsChanged(string propertyName)
     {
         ErrorsChanged?.Invoke(this, new DataErrorsChangedEventArgs(propertyName));
+    }
+
+    private void ReplaceErrors(IReadOnlyDictionary<string, IReadOnlyList<string>> source)
+    {
+        var currentKeys = _errors.Keys.ToArray();
+
+        foreach (var key in currentKeys)
+        {
+            if (!source.ContainsKey(key))
+            {
+                _errors.Remove(key);
+                OnErrorsChanged(key);
+            }
+        }
+
+        foreach (var pair in source)
+            SetErrors(pair.Key, pair.Value);
+    }
+
+    private void SetErrors(string propertyName, IEnumerable<string> errors)
+    {
+        var newErrors = errors.Where(x => !string.IsNullOrWhiteSpace(x)).Distinct().ToList();
+
+        if (newErrors.Count == 0)
+        {
+            if (_errors.Remove(propertyName))
+                OnErrorsChanged(propertyName);
+
+            return;
+        }
+
+        if (_errors.TryGetValue(propertyName, out var existing) && existing.SequenceEqual(newErrors))
+            return;
+
+        _errors[propertyName] = newErrors;
+        OnErrorsChanged(propertyName);
     }
 }

@@ -70,11 +70,29 @@ namespace TD.i18n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The {0} field must be less than or equal to {1}..
+        /// </summary>
+        public static string MaxValue {
+            get {
+                return ResourceManager.GetString("MaxValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The {0} must be at least {2} characters long..
         /// </summary>
         public static string MinLength {
             get {
                 return ResourceManager.GetString("MinLength", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The {0} field must be greater than or equal to {1}..
+        /// </summary>
+        public static string MinValue {
+            get {
+                return ResourceManager.GetString("MinValue", resourceCulture);
             }
         }
         
@@ -93,6 +111,42 @@ namespace TD.i18n {
         public static string PasswordNotMatch {
             get {
                 return ResourceManager.GetString("PasswordNotMatch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The {0} field must be between {1} and {2}..
+        /// </summary>
+        public static string Range {
+            get {
+                return ResourceManager.GetString("Range", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The {0} field must be between {1} and {2}..
+        /// </summary>
+        public static string RangeDateTime {
+            get {
+                return ResourceManager.GetString("RangeDateTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The {0} field must be between {1} and {2}..
+        /// </summary>
+        public static string RangeDecimal {
+            get {
+                return ResourceManager.GetString("RangeDecimal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The {0} field must be between {1} and {2}..
+        /// </summary>
+        public static string RangeInt {
+            get {
+                return ResourceManager.GetString("RangeInt", resourceCulture);
             }
         }
         
