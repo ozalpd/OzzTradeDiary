@@ -1137,16 +1137,8 @@
     <Translation>The {0} field maximum length is {1}.</Translation>
   </Vocab>
   <Vocab>
-    <Name>MaxValue</Name>
-    <Translation>The {0} field must be less than or equal to {1}.</Translation>
-  </Vocab>
-  <Vocab>
     <Name>MinLength</Name>
     <Translation>The {0} must be at least {2} characters long.</Translation>
-  </Vocab>
-  <Vocab>
-    <Name>MinValue</Name>
-    <Translation>The {0} field must be greater than or equal to {1}.</Translation>
   </Vocab>
   <Vocab>
     <Name>ModifierId</Name>
@@ -1459,6 +1451,10 @@
   <Vocab>
     <Name>Record</Name>
     <Translation>Record</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Refresh</Name>
+    <Translation>Refresh</Translation>
   </Vocab>
   <Vocab>
     <Name>Register</Name>
@@ -1827,6 +1823,22 @@
   <Vocab>
     <Name>UserName</Name>
     <Translation>UserName</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ValueGreaterThan</Name>
+    <Translation>The {0} field must be greater than {1}.</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ValueLessThan</Name>
+    <Translation>The {0} field must be less than {2}.</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ValueMax</Name>
+    <Translation>The {0} field must be less than or equal to {2}.</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ValueMin</Name>
+    <Translation>The {0} field must be greater than or equal to {1}.</Translation>
   </Vocab>
   <Vocab>
     <Name>VAT</Name>

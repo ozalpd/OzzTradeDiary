@@ -61,14 +61,8 @@
     <data name="MaxLength" xml:space="preserve">
         <value>The {0} field maximum length is {1}.</value>
     </data>
-    <data name="MaxValue" xml:space="preserve">
-        <value>The {0} field must be less than or equal to {1}.</value>
-    </data>
     <data name="MinLength" xml:space="preserve">
         <value>The {0} must be at least {2} characters long.</value>
-    </data>
-    <data name="MinValue" xml:space="preserve">
-        <value>The {0} field must be greater than or equal to {1}.</value>
     </data>
     <data name="NewPasswordNotMatch" xml:space="preserve">
         <value>The new password and confirmation password do not match.</value>
@@ -99,5 +93,17 @@
     </data>
     <data name="RequiredPassword" xml:space="preserve">
         <value>Please enter your password to {0} field.</value>
+    </data>
+    <data name="ValueGreaterThan" xml:space="preserve">
+        <value>The {0} field must be greater than {1}.</value>
+    </data>
+    <data name="ValueLessThan" xml:space="preserve">
+        <value>The {0} field must be less than {2}.</value>
+    </data>
+    <data name="ValueMax" xml:space="preserve">
+        <value>The {0} field must be less than or equal to {2}.</value>
+    </data>
+    <data name="ValueMin" xml:space="preserve">
+        <value>The {0} field must be greater than or equal to {1}.</value>
     </data>
 </root>

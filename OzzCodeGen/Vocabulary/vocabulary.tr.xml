@@ -1137,16 +1137,8 @@
     <Translation>{0} sahasına en fazla {1} karakter girebilirsiniz.</Translation>
   </Vocab>
   <Vocab>
-    <Name>MaxValue</Name>
-    <Translation>{0} sahasına en fazla {1} değerini girmelisiniz.</Translation>
-  </Vocab>
-  <Vocab>
     <Name>MinLength</Name>
     <Translation>{0} sahasına en az {2} karakter girmelisiniz.</Translation>
-  </Vocab>
-  <Vocab>
-    <Name>MinValue</Name>
-    <Translation>{0} sahasına en az {1} değerini girmelisiniz.</Translation>
   </Vocab>
   <Vocab>
     <Name>ModifierId</Name>
@@ -1459,6 +1451,10 @@
   <Vocab>
     <Name>Record</Name>
     <Translation>Kayıt</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Refresh</Name>
+    <Translation>Yenile</Translation>
   </Vocab>
   <Vocab>
     <Name>Register</Name>
@@ -1827,6 +1823,22 @@
   <Vocab>
     <Name>UserName</Name>
     <Translation>Kullanıcı Adı</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ValueGreaterThan</Name>
+    <Translation>{0} sahası {1} değerinden büyük olmalı.</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ValueLessThan</Name>
+    <Translation>{0} sahası {2} değerinden küçük olmalı.</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ValueMax</Name>
+    <Translation>{0} sahasına en fazla {2} değerini girmelisiniz.</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ValueMin</Name>
+    <Translation>{0} sahasına en az {1} değerini girmelisiniz.</Translation>
   </Vocab>
   <Vocab>
     <Name>VAT</Name>

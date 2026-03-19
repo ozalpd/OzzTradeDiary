@@ -17,7 +17,7 @@ namespace TD.WPF.Views.Maintenance
         public MaintenanceWindow()
         {
             InitializeComponent();
-            this.SetIconFromGeometryResource("gear-wide-connected", "#93191C");
+            this.SetIconFromGeometryResource("gear-wide-connected", "#0044D7");
             SourceInitialized += Window_SourceInitialized;
             Closing += Window_Closing;
         }

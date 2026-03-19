@@ -70,29 +70,11 @@ namespace TD.i18n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The {0} field must be less than or equal to {1}..
-        /// </summary>
-        public static string MaxValue {
-            get {
-                return ResourceManager.GetString("MaxValue", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to The {0} must be at least {2} characters long..
         /// </summary>
         public static string MinLength {
             get {
                 return ResourceManager.GetString("MinLength", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to The {0} field must be greater than or equal to {1}..
-        /// </summary>
-        public static string MinValue {
-            get {
-                return ResourceManager.GetString("MinValue", resourceCulture);
             }
         }
         
@@ -183,6 +165,42 @@ namespace TD.i18n {
         public static string RequiredPassword {
             get {
                 return ResourceManager.GetString("RequiredPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The {0} field must be greater than {1}..
+        /// </summary>
+        public static string ValueGreaterThan {
+            get {
+                return ResourceManager.GetString("ValueGreaterThan", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The {0} field must be less than {2}..
+        /// </summary>
+        public static string ValueLessThan {
+            get {
+                return ResourceManager.GetString("ValueLessThan", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The {0} field must be less than or equal to {2}..
+        /// </summary>
+        public static string ValueMax {
+            get {
+                return ResourceManager.GetString("ValueMax", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The {0} field must be greater than or equal to {1}..
+        /// </summary>
+        public static string ValueMin {
+            get {
+                return ResourceManager.GetString("ValueMin", resourceCulture);
             }
         }
     }

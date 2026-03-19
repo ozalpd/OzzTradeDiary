@@ -42,7 +42,7 @@ namespace TD.Models
         /// The Id value of exchange record that related to the account.
         /// </summary>
         [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
-        [Range(1, int.MaxValue, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName ="RangeInt")]
+        [Range(1, int.MaxValue, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName ="ValueMin")]
         [Display(ResourceType = typeof(LocalizedStrings), Name = "ExchangeId")]
         public int ExchangeId { get; set; }
 

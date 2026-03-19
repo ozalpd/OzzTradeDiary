@@ -34,6 +34,7 @@ namespace TD.Models
         public int Id { get; set; }
 
         [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
+        [Range(1, int.MaxValue, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName ="ValueMin")]
         [Display(ResourceType = typeof(LocalizedStrings), Name = "TradingAccountId")]
         public int TradingAccountId { get; set; }
 
@@ -41,12 +42,14 @@ namespace TD.Models
         public TradingAccount TradingAccount { get; set; }
 
         [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
+        [Range(1, int.MaxValue, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName ="ValueMin")]
         [Display(ResourceType = typeof(LocalizedStrings), Name = "SymbolId")]
         public int SymbolId { get; set; }
 
         [Display(ResourceType = typeof(LocalizedStrings), Name = "Symbol")]
         public Symbol Symbol { get; set; }
 
+        [Range(typeof(DateTime), "1/1/2000", "12/31/2220", ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName ="RangeDateTime")]
         [Display(ResourceType = typeof(LocalizedStrings), Name = "EntryTime")]
         public DateTime? EntryTime { get; set; }
 

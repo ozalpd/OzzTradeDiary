@@ -61,14 +61,8 @@
     <data name="MaxLength" xml:space="preserve">
         <value>{0} sahasına en fazla {1} karakter girebilirsiniz.</value>
     </data>
-    <data name="MaxValue" xml:space="preserve">
-        <value>{0} sahasına en fazla {1} değerini girmelisiniz.</value>
-    </data>
     <data name="MinLength" xml:space="preserve">
         <value>{0} sahasına en az {2} karakter girmelisiniz.</value>
-    </data>
-    <data name="MinValue" xml:space="preserve">
-        <value>{0} sahasına en az {1} değerini girmelisiniz.</value>
     </data>
     <data name="NewPasswordNotMatch" xml:space="preserve">
         <value>Yeni Parola ve Yeni Parola Doğrulaması aynı değil.</value>
@@ -99,5 +93,17 @@
     </data>
     <data name="RequiredPassword" xml:space="preserve">
         <value>Lütfen {0} sahasına parolanızı giriniz.</value>
+    </data>
+    <data name="ValueGreaterThan" xml:space="preserve">
+        <value>{0} sahası {1} değerinden büyük olmalı.</value>
+    </data>
+    <data name="ValueLessThan" xml:space="preserve">
+        <value>{0} sahası {2} değerinden küçük olmalı.</value>
+    </data>
+    <data name="ValueMax" xml:space="preserve">
+        <value>{0} sahasına en fazla {2} değerini girmelisiniz.</value>
+    </data>
+    <data name="ValueMin" xml:space="preserve">
+        <value>{0} sahasına en az {1} değerini girmelisiniz.</value>
     </data>
 </root>

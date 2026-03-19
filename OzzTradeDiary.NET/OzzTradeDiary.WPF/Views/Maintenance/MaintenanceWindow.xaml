@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:models="clr-namespace:TD.Models;assembly=OzzTradeDiary"
         xmlns:sys="clr-namespace:System;assembly=System.Runtime"
+        xmlns:i18n="clr-namespace:TD.i18n;assembly=OzzTradeDiary.i18n"
         xmlns:local="clr-namespace:TD.WPF.Views.Maintenance"
         mc:Ignorable="d"
         Title="Maintenance Window" Height="700" Width="1200" MinHeight="520" MinWidth="900">
@@ -19,58 +20,30 @@
     </Window.Resources>
     <Grid Margin="10">
         <TabControl>
-            <TabItem Header="Currency">
+            <TabItem Header="{x:Static i18n:LocalizedStrings.TradingAccount}">
                 <DockPanel>
                     <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="0,0,0,8">
-                        <Button Content="Add" Width="90" Margin="0,0,8,0" Click="AddCurrency_Click" />
-                        <Button Content="Save" Width="90" Margin="0,0,8,0" Click="SaveCurrencies_Click" />
-                        <Button Content="Refresh" Width="90" Click="RefreshCurrencies_Click" />
-                    </StackPanel>
-                    <DataGrid ItemsSource="{Binding Currencies}"
-                              AutoGenerateColumns="False"
-                              CanUserAddRows="False"
-                              CanUserDeleteRows="False"
-                              IsReadOnly="False">
-                        <DataGrid.Columns>
-                            <DataGridTextColumn Header="Id" Binding="{Binding Id}" IsReadOnly="True" Width="70" />
-                            <DataGridTextColumn Header="CurrencyTicker" Binding="{Binding CurrencyTicker}" Width="180" />
-                            <DataGridTextColumn Header="Description" Binding="{Binding Description}" Width="*" />
-                            <DataGridTextColumn Header="DisplayOrder" Binding="{Binding DisplayOrder}" Width="130" />
-                            <DataGridCheckBoxColumn Header="IsActive" Binding="{Binding IsActive}" Width="120" />
-                        </DataGrid.Columns>
-                    </DataGrid>
-                </DockPanel>
-            </TabItem>
-
-            <TabItem Header="Exchange">
-                <DockPanel>
-                    <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="0,0,0,8">
-                        <Button Content="Add" Width="90" Margin="0,0,8,0" Click="AddExchange_Click" />
-                        <Button Content="Save" Width="90" Margin="0,0,8,0" Click="SaveExchanges_Click" />
-                        <Button Content="Refresh" Width="90" Click="RefreshExchanges_Click" />
-                    </StackPanel>
-                    <DataGrid ItemsSource="{Binding Exchanges}"
-                              AutoGenerateColumns="False"
-                              CanUserAddRows="False"
-                              CanUserDeleteRows="False"
-                              IsReadOnly="False">
-                        <DataGrid.Columns>
-                            <DataGridTextColumn Header="Id" Binding="{Binding Id}" IsReadOnly="True" Width="70" />
-                            <DataGridTextColumn Header="ExchangeName" Binding="{Binding ExchangeName}" Width="260" />
-                            <DataGridTextColumn Header="ExchangeCode" Binding="{Binding ExchangeCode}" Width="200" />
-                            <DataGridTextColumn Header="DisplayOrder" Binding="{Binding DisplayOrder}" Width="130" />
-                            <DataGridCheckBoxColumn Header="IsActive" Binding="{Binding IsActive}" Width="120" />
-                        </DataGrid.Columns>
-                    </DataGrid>
-                </DockPanel>
-            </TabItem>
-
-            <TabItem Header="TradingAccount">
-                <DockPanel>
-                    <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="0,0,0,8">
-                        <Button Content="Add" Width="90" Margin="0,0,8,0" Click="AddTradingAccount_Click" />
-                        <Button Content="Save" Width="90" Margin="0,0,8,0" Click="SaveTradingAccounts_Click" />
-                        <Button Content="Refresh" Width="90" Click="RefreshTradingAccounts_Click" />
+                        <Button Style="{StaticResource IconButtonStyle-28x24}"
+                                ToolTip="{x:Static i18n:LocalizedStrings.AddTradingAccount}"
+                                Click="AddTradingAccount_Click">
+                            <Viewbox Width="14" Height="14">
+                                <Path Fill="#0044D7" Data="{StaticResource plus-circle}"/>
+                            </Viewbox>
+                        </Button>
+                        <Button Style="{StaticResource IconButtonStyle-28x24}"
+                                ToolTip="{x:Static i18n:ActionStrings.Save}"
+                                Click="SaveTradingAccounts_Click">
+                            <Viewbox Width="14" Height="14">
+                                <Path Fill="#0044D7" Data="{StaticResource floppy-fill}"/>
+                            </Viewbox>
+                        </Button>
+                        <Button Style="{StaticResource IconButtonStyle-28x24}"
+                                ToolTip="{x:Static i18n:ActionStrings.Refresh}"
+                                Click="RefreshTradingAccounts_Click">
+                            <Viewbox Width="14" Height="14">
+                                <Path Fill="#0044D7" Data="{StaticResource arrow-clockwise}"/>
+                            </Viewbox>
+                        </Button>
                     </StackPanel>
                     <DataGrid ItemsSource="{Binding TradingAccounts}"
                               AutoGenerateColumns="False"
@@ -90,12 +63,71 @@
                 </DockPanel>
             </TabItem>
 
-            <TabItem Header="Symbol">
+            <TabItem Header="{x:Static i18n:LocalizedStrings.Exchange}">
                 <DockPanel>
                     <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="0,0,0,8">
-                        <Button Content="Add" Width="90" Margin="0,0,8,0" Click="AddSymbol_Click" />
-                        <Button Content="Save" Width="90" Margin="0,0,8,0" Click="SaveSymbols_Click" />
-                        <Button Content="Refresh" Width="90" Click="RefreshSymbols_Click" />
+                        <Button Style="{StaticResource IconButtonStyle-28x24}"
+                                ToolTip="{x:Static i18n:LocalizedStrings.AddExchange}"
+                                Click="AddExchange_Click">
+                            <Viewbox Width="14" Height="14">
+                                <Path Fill="#0044D7" Data="{StaticResource plus-circle}"/>
+                            </Viewbox>
+                        </Button>
+                        <Button Style="{StaticResource IconButtonStyle-28x24}"
+                                ToolTip="{x:Static i18n:ActionStrings.Save}"
+                                Click="SaveExchanges_Click">
+                            <Viewbox Width="14" Height="14">
+                                <Path Fill="#0044D7" Data="{StaticResource floppy-fill}"/>
+                            </Viewbox>
+                        </Button>
+                        <Button Style="{StaticResource IconButtonStyle-28x24}"
+                                ToolTip="{x:Static i18n:ActionStrings.Refresh}"
+                                Click="RefreshExchanges_Click">
+                            <Viewbox Width="14" Height="14">
+                                <Path Fill="#0044D7" Data="{StaticResource arrow-clockwise}"/>
+                            </Viewbox>
+                        </Button>
+                    </StackPanel>
+                    <DataGrid ItemsSource="{Binding Exchanges}"
+                              AutoGenerateColumns="False"
+                              CanUserAddRows="False"
+                              CanUserDeleteRows="False"
+                              IsReadOnly="False">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Id" Binding="{Binding Id}" IsReadOnly="True" Width="70" />
+                            <DataGridTextColumn Header="ExchangeName" Binding="{Binding ExchangeName}" Width="260" />
+                            <DataGridTextColumn Header="ExchangeCode" Binding="{Binding ExchangeCode}" Width="200" />
+                            <DataGridTextColumn Header="DisplayOrder" Binding="{Binding DisplayOrder}" Width="130" />
+                            <DataGridCheckBoxColumn Header="IsActive" Binding="{Binding IsActive}" Width="120" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </DockPanel>
+            </TabItem>
+
+            <TabItem Header="{x:Static i18n:LocalizedStrings.Symbol}">
+                <DockPanel>
+                    <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="0,0,0,8">
+                        <Button Style="{StaticResource IconButtonStyle-28x24}"
+                                ToolTip="{x:Static i18n:LocalizedStrings.AddSymbol}"
+                                Click="AddSymbol_Click">
+                            <Viewbox Width="14" Height="14">
+                                <Path Fill="#0044D7" Data="{StaticResource plus-circle}"/>
+                            </Viewbox>
+                        </Button>
+                        <Button Style="{StaticResource IconButtonStyle-28x24}"
+                                ToolTip="{x:Static i18n:ActionStrings.Save}"
+                                Click="SaveSymbols_Click">
+                            <Viewbox Width="14" Height="14">
+                                <Path Fill="#0044D7" Data="{StaticResource floppy-fill}"/>
+                            </Viewbox>
+                        </Button>
+                        <Button Style="{StaticResource IconButtonStyle-28x24}"
+                                ToolTip="{x:Static i18n:ActionStrings.Refresh}"
+                                Click="RefreshSymbols_Click">
+                            <Viewbox Width="14" Height="14">
+                                <Path Fill="#0044D7" Data="{StaticResource arrow-clockwise}"/>
+                            </Viewbox>
+                        </Button>
                     </StackPanel>
                     <DataGrid ItemsSource="{Binding Symbols}"
                               AutoGenerateColumns="False"
@@ -114,6 +146,47 @@
                                                     SelectedItemBinding="{Binding MarketType}"
                                                     ItemsSource="{Binding Source={StaticResource MarketTypeValues}}"
                                                     Width="140" />
+                            <DataGridTextColumn Header="DisplayOrder" Binding="{Binding DisplayOrder}" Width="130" />
+                            <DataGridCheckBoxColumn Header="IsActive" Binding="{Binding IsActive}" Width="120" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </DockPanel>
+            </TabItem>
+
+            <TabItem Header="{x:Static i18n:LocalizedStrings.Currency}">
+                <DockPanel>
+                    <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="0,0,0,8">
+                        <Button Style="{StaticResource IconButtonStyle-28x24}"
+                                ToolTip="{x:Static i18n:LocalizedStrings.AddCurrency}"
+                                Click="AddCurrency_Click">
+                            <Viewbox Width="14" Height="14">
+                                <Path Fill="#0044D7" Data="{StaticResource plus-circle}"/>
+                            </Viewbox>
+                        </Button>
+                        <Button Style="{StaticResource IconButtonStyle-28x24}"
+                                ToolTip="{x:Static i18n:ActionStrings.Save}"
+                                Click="SaveCurrencies_Click">
+                            <Viewbox Width="14" Height="14">
+                                <Path Fill="#0044D7" Data="{StaticResource floppy-fill}"/>
+                            </Viewbox>
+                        </Button>
+                        <Button Style="{StaticResource IconButtonStyle-28x24}"
+                                ToolTip="{x:Static i18n:ActionStrings.Refresh}"
+                                Click="RefreshCurrencies_Click">
+                            <Viewbox Width="14" Height="14">
+                                <Path Fill="#0044D7" Data="{StaticResource arrow-clockwise}"/>
+                            </Viewbox>
+                        </Button>
+                    </StackPanel>
+                    <DataGrid ItemsSource="{Binding Currencies}"
+                              AutoGenerateColumns="False"
+                              CanUserAddRows="False"
+                              CanUserDeleteRows="False"
+                              IsReadOnly="False">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Id" Binding="{Binding Id}" IsReadOnly="True" Width="70" />
+                            <DataGridTextColumn Header="CurrencyTicker" Binding="{Binding CurrencyTicker}" Width="180" />
+                            <DataGridTextColumn Header="Description" Binding="{Binding Description}" Width="*" />
                             <DataGridTextColumn Header="DisplayOrder" Binding="{Binding DisplayOrder}" Width="130" />
                             <DataGridCheckBoxColumn Header="IsActive" Binding="{Binding IsActive}" Width="120" />
                         </DataGrid.Columns>

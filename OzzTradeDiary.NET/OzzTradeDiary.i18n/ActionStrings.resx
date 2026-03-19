@@ -118,6 +118,9 @@
     <data name="Print" xml:space="preserve">
         <value>Print</value>
     </data>
+    <data name="Refresh" xml:space="preserve">
+        <value>Refresh</value>
+    </data>
     <data name="Register" xml:space="preserve">
         <value>Register</value>
     </data>

@@ -29,3 +29,17 @@ description: "Use when: editing XAML views, creating new WPF pages, adding contr
 - Use `Grid` with explicit row/column definitions for structured layouts
 - Use `StackPanel` only for simple linear arrangements
 - Icon buttons use `Path` with `Data="{StaticResource icon-key}"` inside a `Viewbox`
+
+## Maintenance Toolbar Buttons
+
+- For maintenance tab action bars (Add, Save, Refresh), use a horizontal `StackPanel` docked to top with `Margin="0,0,0,8"`
+- Use `Button` style `IconButtonStyle-28x24`
+- Set localized `ToolTip` values from `TD.i18n` resource classes (for example `LocalizedStrings.*` and `ActionStrings.*`)
+- Render icons as:
+  - `Viewbox Width="14" Height="14"`
+  - child `Path Fill="#0044D7" Data="{StaticResource <icon-key>}"`
+- Use icon keys consistent with `MaintenanceWindow.xaml` actions:
+  - Add: `plus-circle`
+  - Save: `floppy-fill`
+  - Refresh: `arrow-clockwise`
+- Keep action button click handlers named by feature + action (for example `AddCurrency_Click`, `SaveSymbols_Click`, `RefreshExchanges_Click`)

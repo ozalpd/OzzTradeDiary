@@ -29,6 +29,7 @@ namespace TD.Models
         public int Id { get; set; }
 
         [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
+        [Range(1, int.MaxValue, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName ="ValueMin")]
         [Display(ResourceType = typeof(LocalizedStrings), Name = "TradeId")]
         public int TradeId { get; set; }
 
@@ -47,7 +48,7 @@ namespace TD.Models
         /// Planned Entry Price
         /// </summary>
         [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
-        [Range(0.00000001, double.MaxValue, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName ="RangeDecimal")]
+        [Range(0.00000001, double.MaxValue, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName ="ValueMin")]
         [Display(ResourceType = typeof(LocalizedStrings), Name = "OrderPrice")]
         public decimal OrderPrice { get; set; }
 
