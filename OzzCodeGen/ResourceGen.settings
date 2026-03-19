@@ -34,7 +34,7 @@
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="LocalizationEntitySetting">
       <Name>IDisplayOrder</Name>
-      <Exclude>true</Exclude>
+      <Exclude>false</Exclude>
       <OverwriteExisting>false</OverwriteExisting>
       <LocalizeEntityName>false</LocalizeEntityName>
       <Properties>
@@ -48,7 +48,7 @@
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="LocalizationEntitySetting">
       <Name>IIsActive</Name>
-      <Exclude>true</Exclude>
+      <Exclude>false</Exclude>
       <OverwriteExisting>false</OverwriteExisting>
       <LocalizeEntityName>false</LocalizeEntityName>
       <Properties>
@@ -62,7 +62,7 @@
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="LocalizationEntitySetting">
       <Name>ITradeOrder</Name>
-      <Exclude>true</Exclude>
+      <Exclude>false</Exclude>
       <OverwriteExisting>false</OverwriteExisting>
       <LocalizeEntityName>false</LocalizeEntityName>
       <Properties>
@@ -575,6 +575,12 @@
         </LocalizationPropertySetting>
         <LocalizationPropertySetting>
           <Name>Logout</Name>
+          <Exclude>false</Exclude>
+          <LocalizeRequiredMsg>false</LocalizeRequiredMsg>
+          <LocalizeValidationMsg>false</LocalizeValidationMsg>
+        </LocalizationPropertySetting>
+        <LocalizationPropertySetting>
+          <Name>OK</Name>
           <Exclude>false</Exclude>
           <LocalizeRequiredMsg>false</LocalizeRequiredMsg>
           <LocalizeValidationMsg>false</LocalizeValidationMsg>

@@ -29,6 +29,56 @@
         </Style.Triggers>
     </Style>
 
+    <!-- ComboBox Style: with validation error display -->
+    <Style x:Key="ValidationComboBoxStyle" TargetType="ComboBox">
+        <Setter Property="Validation.ErrorTemplate">
+            <Setter.Value>
+                <ControlTemplate>
+                    <StackPanel>
+                        <AdornedElementPlaceholder x:Name="placeholder" />
+                        <TextBlock Text="{Binding ElementName=placeholder, Path=AdornedElement.(Validation.Errors)[0].ErrorContent}"
+                                   Foreground="#d80000" FontSize="11" Margin="0" />
+                    </StackPanel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="ToolTipService.Placement" Value="Bottom" />
+        <Setter Property="ToolTipService.VerticalOffset" Value="5" />
+        <Setter Property="ToolTipService.ShowDuration" Value="10" />
+        <Style.Triggers>
+            <Trigger Property="Validation.HasError" Value="True">
+                <Setter Property="BorderBrush" Value="#d80000" />
+                <Setter Property="BorderThickness" Value="2" />
+                <Setter Property="ToolTip" Value="{Binding RelativeSource={RelativeSource Self}, Path=(Validation.Errors)[0].ErrorContent}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!-- TextBox Style: validation error display only -->
+    <Style x:Key="ValidationTextBoxStyle" TargetType="TextBox">
+        <Setter Property="Validation.ErrorTemplate">
+            <Setter.Value>
+                <ControlTemplate>
+                    <StackPanel>
+                        <AdornedElementPlaceholder x:Name="placeholder" />
+                        <TextBlock Text="{Binding ElementName=placeholder, Path=AdornedElement.(Validation.Errors)[0].ErrorContent}"
+                                   Foreground="#d80000" FontSize="11" Margin="0" />
+                    </StackPanel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="ToolTipService.Placement" Value="Bottom" />
+        <Setter Property="ToolTipService.VerticalOffset" Value="5" />
+        <Setter Property="ToolTipService.ShowDuration" Value="10" />
+        <Style.Triggers>
+            <Trigger Property="Validation.HasError" Value="True">
+                <Setter Property="BorderBrush" Value="#d80000" />
+                <Setter Property="BorderThickness" Value="2" />
+                <Setter Property="ToolTip" Value="{Binding RelativeSource={RelativeSource Self}, Path=(Validation.Errors)[0].ErrorContent}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
     <Style x:Key="IconButtonStyle-22x18" TargetType="Button">
         <Setter Property="Margin" Value="0,4,0,0" />
         <Setter Property="VerticalAlignment" Value="Top" />

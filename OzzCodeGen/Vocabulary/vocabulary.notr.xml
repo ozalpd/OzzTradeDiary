@@ -953,6 +953,10 @@
     <Translation>Executed TP</Translation>
   </Vocab>
   <Vocab>
+    <Name>ExecuteTime</Name>
+    <Translation>Execute Time</Translation>
+  </Vocab>
+  <Vocab>
     <Name>ExpireDate</Name>
     <Translation>Expire Date</Translation>
   </Vocab>
@@ -967,6 +971,18 @@
   <Vocab>
     <Name>Female</Name>
     <Translation>Female</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>FilledAmount</Name>
+    <Translation>Filled Amount</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>FilledPrice</Name>
+    <Translation>Filled Price</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>FilledQuantity</Name>
+    <Translation>Filled Quantity</Translation>
   </Vocab>
   <Vocab>
     <Name>FirstName</Name>
@@ -1039,6 +1055,10 @@
   <Vocab>
     <Name>IntegerArray</Name>
     <Translation>Integer Array</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>IsActive</Name>
+    <Translation>Is Active</Translation>
   </Vocab>
   <Vocab>
     <Name>IsApproved</Name>
@@ -1185,12 +1205,20 @@
     <Translation>Often</Translation>
   </Vocab>
   <Vocab>
+    <Name>OK</Name>
+    <Translation>OK</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Option</Name>
     <Translation>Option</Translation>
   </Vocab>
   <Vocab>
     <Name>Order</Name>
     <Translation>Order</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>OrderAmount</Name>
+    <Translation>Order Amount</Translation>
   </Vocab>
   <Vocab>
     <Name>OrderDate</Name>
@@ -1211,6 +1239,14 @@
   <Vocab>
     <Name>OrderItemsList</Name>
     <Translation>Order Items List</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>OrderPrice</Name>
+    <Translation>Order Price</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>OrderQuantity</Name>
+    <Translation>Order Quantity</Translation>
   </Vocab>
   <Vocab>
     <Name>Orders</Name>

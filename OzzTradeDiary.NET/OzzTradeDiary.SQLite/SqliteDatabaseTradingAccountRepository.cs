@@ -6,7 +6,7 @@ namespace TD.SQLite;
 /// <summary>
 /// SQLite-based repository for trading account CRUD operations.
 /// </summary>
-public class SqliteDatabaseTradingAccountRepository : IDatabaseTradingAccountRepository
+public class SqliteDatabaseTradingAccountRepository : AbstractDatabaseRepository, IDatabaseTradingAccountRepository
 {
     private readonly string _connectionString;
     private readonly SqliteDatabaseMetadataRepository _metadataRepository;
@@ -99,6 +99,7 @@ public class SqliteDatabaseTradingAccountRepository : IDatabaseTradingAccountRep
     public async Task<int> CreateAsync(TradingAccount tradingAccount)
     {
         ArgumentNullException.ThrowIfNull(tradingAccount);
+        ValidateOrThrow(tradingAccount);
 
         await using var connection = new SqliteConnection(_connectionString);
         await connection.OpenAsync();
@@ -134,6 +135,7 @@ public class SqliteDatabaseTradingAccountRepository : IDatabaseTradingAccountRep
     public async Task<bool> UpdateAsync(TradingAccount tradingAccount)
     {
         ArgumentNullException.ThrowIfNull(tradingAccount);
+        ValidateOrThrow(tradingAccount);
 
         await using var connection = new SqliteConnection(_connectionString);
         await connection.OpenAsync();

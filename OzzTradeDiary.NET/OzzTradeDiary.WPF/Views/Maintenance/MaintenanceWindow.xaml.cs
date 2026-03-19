@@ -72,8 +72,13 @@ namespace TD.WPF.Views.Maintenance
 
         private async void AddTradingAccount_Click(object sender, RoutedEventArgs e)
         {
-            _viewModel.TradingAccounts.Add(new TradingAccount { IsActive = true });
-            await Task.CompletedTask;
+            var dialog = new CreateTradingAccount { Owner = this };
+            if (dialog.ShowDialog() == true)
+            {
+                _viewModel.TradingAccounts.Add(dialog.TradingAccount);
+                await ExecuteUiActionAsync(_viewModel.SaveTradingAccountsAsync, "Save trading accounts");
+                await ExecuteUiActionAsync(_viewModel.LoadTradingAccountsAsync, "Refresh trading accounts");
+            }
         }
 
         private async void SaveTradingAccounts_Click(object sender, RoutedEventArgs e)

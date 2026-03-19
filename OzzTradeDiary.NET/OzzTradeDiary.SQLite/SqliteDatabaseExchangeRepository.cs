@@ -6,7 +6,7 @@ namespace TD.SQLite;
 /// <summary>
 /// SQLite-based repository for exchange CRUD operations.
 /// </summary>
-public class SqliteDatabaseExchangeRepository : IDatabaseExchangeRepository
+public class SqliteDatabaseExchangeRepository : AbstractDatabaseRepository, IDatabaseExchangeRepository
 {
     private readonly string _connectionString;
     private readonly SqliteDatabaseMetadataRepository _metadataRepository;
@@ -100,6 +100,7 @@ public class SqliteDatabaseExchangeRepository : IDatabaseExchangeRepository
     public async Task<int> CreateAsync(Exchange exchange)
     {
         ArgumentNullException.ThrowIfNull(exchange);
+        ValidateOrThrow(exchange);
 
         await using var connection = new SqliteConnection(_connectionString);
         await connection.OpenAsync();
@@ -133,6 +134,7 @@ public class SqliteDatabaseExchangeRepository : IDatabaseExchangeRepository
     public async Task<bool> UpdateAsync(Exchange exchange)
     {
         ArgumentNullException.ThrowIfNull(exchange);
+        ValidateOrThrow(exchange);
 
         await using var connection = new SqliteConnection(_connectionString);
         await connection.OpenAsync();

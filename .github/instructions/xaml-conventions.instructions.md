@@ -8,7 +8,7 @@ description: "Use when: editing XAML views, creating new WPF pages, adding contr
 ## Resource Dictionaries
 
 - **Icons**: Use `BootstrapIcons.xaml` geometry resources — reference via `{StaticResource icon-name}` (Bootstrap Icons v1.13.1 naming)
-- **Styles**: Use `Styles.xaml` for shared styles — `DisabledWhenNullTextBoxStyle`, `IconButtonStyle-22x18`, `IconButtonStyle-28x24`
+- **Styles**: Use `Styles.xaml` for shared styles — `DisabledWhenNullTextBoxStyle`, `ValidationTextBoxStyle`, `ValidationComboBoxStyle`, `IconButtonStyle-22x18`, `IconButtonStyle-28x24`
 - Merge resource dictionaries in `App.xaml`, not in individual views
 
 ## Patterns

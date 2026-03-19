@@ -953,6 +953,10 @@
     <Translation>Gerçekleşen Kar Al</Translation>
   </Vocab>
   <Vocab>
+    <Name>ExecuteTime</Name>
+    <Translation>Gerçekleşme Zamanı</Translation>
+  </Vocab>
+  <Vocab>
     <Name>ExpireDate</Name>
     <Translation>Yayın Sonlama Tarihi</Translation>
   </Vocab>
@@ -967,6 +971,18 @@
   <Vocab>
     <Name>Female</Name>
     <Translation>Kadın</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>FilledAmount</Name>
+    <Translation>Gerçekleşen Tutar</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>FilledPrice</Name>
+    <Translation>Gerçekleşen Fiyat</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>FilledQuantity</Name>
+    <Translation>Gerçekleşen Miktar</Translation>
   </Vocab>
   <Vocab>
     <Name>FirstName</Name>
@@ -1039,6 +1055,10 @@
   <Vocab>
     <Name>IntegerArray</Name>
     <Translation>Tamsayı Dizisi</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>IsActive</Name>
+    <Translation>Aktif</Translation>
   </Vocab>
   <Vocab>
     <Name>IsApproved</Name>
@@ -1185,12 +1205,20 @@
     <Translation>Sık sık</Translation>
   </Vocab>
   <Vocab>
+    <Name>OK</Name>
+    <Translation>Tamam</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Option</Name>
     <Translation>Opsiyon</Translation>
   </Vocab>
   <Vocab>
     <Name>Order</Name>
     <Translation>Sipariş</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>OrderAmount</Name>
+    <Translation>Emir Tutarı</Translation>
   </Vocab>
   <Vocab>
     <Name>OrderDate</Name>
@@ -1211,6 +1239,14 @@
   <Vocab>
     <Name>OrderItemsList</Name>
     <Translation>Sipariş Kalem Listesi</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>OrderPrice</Name>
+    <Translation>Emir Fiyatı</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>OrderQuantity</Name>
+    <Translation>Emir Miktarı</Translation>
   </Vocab>
   <Vocab>
     <Name>Orders</Name>

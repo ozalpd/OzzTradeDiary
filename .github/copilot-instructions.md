@@ -4,7 +4,7 @@
 
 Early-stage development (pre-release, no public release yet).
 
-Internal tracking versions: `OzzTradeDiary` `0.0.4`, `OzzTradeDiary.WPF` `0.0.5`, `OzzTradeDiary.SQLite` `0.0.5`, `OzzTradeDiary.i18n` `1.0.0`.
+Internal tracking versions: `OzzTradeDiary` `0.0.6`, `OzzTradeDiary.WPF` `0.0.6`, `OzzTradeDiary.SQLite` `0.0.6`, `OzzTradeDiary.i18n` `0.0.6`.
 
 - **Changelog discipline**: Any behavior change (repository logic, initialization, seeding, schema generation impact, UI-visible behavior) must be recorded in `CHANGELOG.md` under `## [Unreleased]`.
 
@@ -54,7 +54,7 @@ Internal tracking versions: `OzzTradeDiary` `0.0.4`, `OzzTradeDiary.WPF` `0.0.5`
 ### ViewModels (TD.WPF namespace)
 
 - Inherit from `AbstractViewModel` (provides `INotifyPropertyChanged` via `RaisePropertyChanged()`)
-- Validation: extend `AbstractDataErrorInfoVM` (implements `INotifyDataErrorInfo`)
+- Validation: extend `AbstractDataErrorInfoVM` (implements `INotifyDataErrorInfo`); for dialog ViewModels expose `IsValid => !HasErrors`, subscribe to `ErrorsChanged` to raise it, and call `ValidateModel` in the constructor so the OK button starts disabled
 - Collections: extend `AbstractCollectionVM<T>` (provides `ObservableCollection<T>`, filtering, selection)
 - Data access: extend `AbstractDiaryVM` (provides repository instances and CRUD operations for Currency, Exchange, TradingAccount, Symbol — use as base when a ViewModel needs direct repository access)
 - Commands: extend `AbstractCommand` (implements `ICommand`)
@@ -65,10 +65,12 @@ Internal tracking versions: `OzzTradeDiary` `0.0.4`, `OzzTradeDiary.WPF` `0.0.5`
 - View files: `{EntityName}View.xaml` or `{Feature}Window.xaml`
 - Feature-specific views are grouped in subfolders matching their feature area (e.g., `Views/Maintenance/` → namespace `TD.WPF.Views.Maintenance`)
 - `MainWindow` lives directly under `Views/` (`TD.WPF.Views`)
+- **All property label `TextBlock` elements must bind their `Text` to the matching `LocalizedStrings` key via `{x:Static i18n:LocalizedStrings.PropertyName}` — never use hardcoded strings for property labels.**
 
 ### SQLite (TD.SQLite namespace)
 
 - Repository pattern — one repository per entity (implementation may be incremental while schema/model alignment progresses)
+- All repositories (except `SqliteDatabaseMetadataRepository`) inherit from `AbstractDatabaseRepository`, which provides the `ValidateOrThrow(object model)` helper. Call `ValidateOrThrow` in `CreateAsync` and `UpdateAsync` immediately after the null guard; it runs `ModelValidator.Validate` and throws `ValidationException` with all error messages joined by newlines if validation fails.
 - Implemented repositories: `Currency`, `Exchange`, `TradingAccount`, `Symbol`; remaining repositories will be added
 - **Each model has a matching DDL file** in `OzzTradeDiary.SQLite/DbScripts` named `<ModelName>.sql`; optional seed files are named `<PluralTableName>-Data.sql`
 - DDL scripts in `DbScripts/` folder are **generated** by OzzCodeGen — do not edit manually

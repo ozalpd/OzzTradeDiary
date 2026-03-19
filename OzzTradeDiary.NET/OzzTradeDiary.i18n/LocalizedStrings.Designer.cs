@@ -673,6 +673,15 @@ namespace TD.i18n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Display Order.
+        /// </summary>
+        public static string DisplayOrder {
+            get {
+                return ResourceManager.GetString("DisplayOrder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Edit Currency.
         /// </summary>
         public static string EditCurrency {
@@ -907,6 +916,42 @@ namespace TD.i18n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Execute Time.
+        /// </summary>
+        public static string ExecuteTime {
+            get {
+                return ResourceManager.GetString("ExecuteTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Filled Amount.
+        /// </summary>
+        public static string FilledAmount {
+            get {
+                return ResourceManager.GetString("FilledAmount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Filled Price.
+        /// </summary>
+        public static string FilledPrice {
+            get {
+                return ResourceManager.GetString("FilledPrice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Filled Quantity.
+        /// </summary>
+        public static string FilledQuantity {
+            get {
+                return ResourceManager.GetString("FilledQuantity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Forex.
         /// </summary>
         public static string Forex {
@@ -1006,6 +1051,15 @@ namespace TD.i18n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Is Active.
+        /// </summary>
+        public static string IsActive {
+            get {
+                return ResourceManager.GetString("IsActive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Limit.
         /// </summary>
         public static string Limit {
@@ -1065,6 +1119,33 @@ namespace TD.i18n {
         public static string Option {
             get {
                 return ResourceManager.GetString("Option", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Order Amount.
+        /// </summary>
+        public static string OrderAmount {
+            get {
+                return ResourceManager.GetString("OrderAmount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Order Price.
+        /// </summary>
+        public static string OrderPrice {
+            get {
+                return ResourceManager.GetString("OrderPrice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Order Quantity.
+        /// </summary>
+        public static string OrderQuantity {
+            get {
+                return ResourceManager.GetString("OrderQuantity", resourceCulture);
             }
         }
         

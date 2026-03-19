@@ -112,6 +112,9 @@
     <data name="Logout" xml:space="preserve">
         <value>Logout</value>
     </data>
+    <data name="OK" xml:space="preserve">
+        <value>OK</value>
+    </data>
     <data name="Print" xml:space="preserve">
         <value>Print</value>
     </data>

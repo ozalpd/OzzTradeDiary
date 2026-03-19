@@ -1,0 +1,71 @@
+﻿<Window x:Class="TD.WPF.Views.Maintenance.CreateTradingAccount"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TD.WPF.Views.Maintenance"
+        xmlns:i18n="clr-namespace:TD.i18n;assembly=OzzTradeDiary.i18n"
+        mc:Ignorable="d"
+        Title="Create Trading Account" Height="420" Width="420" MinHeight="420" MinWidth="420"
+        WindowStartupLocation="CenterOwner"
+        FocusManager.FocusedElement="{Binding ElementName=TitleTextBox}">
+    <Grid Margin="12">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="120" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Grid.Row="0" Grid.Column="0" Margin="0,0,8,8" VerticalAlignment="Center" Text="{x:Static i18n:LocalizedStrings.Title}" />
+        <TextBox x:Name="TitleTextBox" Grid.Row="0" Grid.Column="1" Margin="0,0,0,18"
+                 Style="{StaticResource ValidationTextBoxStyle}"
+                 Text="{Binding Title, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}" />
+
+        <TextBlock Grid.Row="1" Grid.Column="0" Margin="0,0,8,8" VerticalAlignment="Center" Text="{x:Static i18n:LocalizedStrings.AccountCode}" />
+        <TextBox Grid.Row="1" Grid.Column="1" Margin="0,0,0,18"
+                 Style="{StaticResource ValidationTextBoxStyle}"
+                 Text="{Binding AccountCode, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}" />
+
+        <TextBlock Grid.Row="2" Grid.Column="0" Margin="0,0,8,8" VerticalAlignment="Center" Text="{x:Static i18n:LocalizedStrings.Exchange}" />
+        <ComboBox Grid.Row="2"
+                  Grid.Column="1"
+                  Margin="0,0,0,18"
+                  Style="{StaticResource ValidationComboBoxStyle}"
+                  ItemsSource="{Binding Exchanges}"
+                  DisplayMemberPath="ExchangeName"
+                  SelectedValuePath="Id"
+                  SelectedValue="{Binding ExchangeId, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}" />
+
+        <TextBlock Grid.Row="3" Grid.Column="0" Margin="0,0,8,8" VerticalAlignment="Center" Text="{x:Static i18n:LocalizedStrings.DisplayOrder}" />
+        <TextBox Grid.Row="3" Grid.Column="1" Margin="0,0,0,18" Text="{Binding DisplayOrder, UpdateSourceTrigger=PropertyChanged}" />
+
+        <TextBlock Grid.Row="4" Grid.Column="0" Margin="0,0,8,8" VerticalAlignment="Center" Text="{x:Static i18n:LocalizedStrings.IsActive}" />
+        <CheckBox Grid.Row="4" Grid.Column="1" Margin="0,0,0,8" IsChecked="{Binding IsActive}" />
+
+        <Grid Grid.Row="5" Grid.ColumnSpan="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="0" Margin="0,0,8,8" VerticalAlignment="Center" Text="{x:Static i18n:LocalizedStrings.Notes}" />
+            <TextBox Grid.Row="1"
+                     AcceptsReturn="True" TextWrapping="Wrap"
+                     VerticalScrollBarVisibility="Auto"
+                     Text="{Binding Notes, UpdateSourceTrigger=PropertyChanged}" />
+        </Grid>
+
+        <StackPanel Grid.Row="6" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,12,0,0">
+            <Button Content="{x:Static i18n:ActionStrings.OK}" Width="90" Margin="0,0,8,0" IsDefault="True" IsEnabled="{Binding IsValid}" Click="OkButton_Click" />
+            <Button Content="{x:Static i18n:ActionStrings.Cancel}" Width="90" IsCancel="True" />
+        </StackPanel>
+    </Grid>
+</Window>

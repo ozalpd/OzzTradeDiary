@@ -4,7 +4,7 @@ A Windows desktop trade journaling application for tracking trades across multip
 
 > **Status**: Pre-release development (no public release yet)
 > 
-> **Internal tracking versions**: `OzzTradeDiary` `0.0.4`, `OzzTradeDiary.WPF` `0.0.5`, `OzzTradeDiary.SQLite` `0.0.5`, `OzzTradeDiary.i18n` `1.0.0`
+> **Internal tracking versions**: `OzzTradeDiary` `0.0.6`, `OzzTradeDiary.WPF` `0.0.6`, `OzzTradeDiary.SQLite` `0.0.6`, `OzzTradeDiary.i18n` `0.0.6`
 
 ## Changelog
 
@@ -25,12 +25,15 @@ See [`CHANGELOG.md`](CHANGELOG.md) for release history.
 - Domain enums wired in models (including `OrderType` and `TradeDirection`)
 - Generated SQLite schema includes `OrderType` for `EntryOrder`, `TakeProfitOrder`, and `StopLossOrder`
 - Repositories implemented: `Currency`, `Exchange`, `TradingAccount`, `Symbol`
+- `AbstractDatabaseRepository` base class provides shared `ValidateOrThrow` helper called in `CreateAsync`/`UpdateAsync` — throws `ValidationException` with all DataAnnotations error messages
 - `AbstractDiaryVM` base ViewModel consolidates repository initialization and CRUD operations shared across ViewModels
 - `ModelValidator` shared utility in `TD.Validation` for DataAnnotations-based model validation reusable by WPF, MAUI, and ASP.NET
 - Dedicated localization project `OzzTradeDiary.i18n` with generated resources: `ActionStrings`, `CommonStrings`, `ErrorStrings`, `LocalizedStrings`, `MessageStrings` (`default` + `tr`)
 - Model classes apply localized DataAnnotations using `TD.i18n` resources for display names and validation messages
 - Maintenance window accessible from menu, with singleton window management (bring-to-front if already open)
 - Maintenance window provides Add, Save, and Refresh CRUD operations for Currency, Exchange, TradingAccount, and Symbol
+- `CreateTradingAccount` dialog with live per-field validation, inline error display, and OK button enabled only when all required fields are valid
+- Shared validation styles `ValidationTextBoxStyle` and `ValidationComboBoxStyle` for consistent inline error display across forms
 - About dialog with auto-close on deactivation, high-resolution icon rendering, and GitHub link
 - Bootstrap Icons rendered as window title bar icons via `WindowExtensions`
 - Application version displayed in `MainWindow` title bar via `AppVersion`

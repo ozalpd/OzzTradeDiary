@@ -262,6 +262,9 @@
     <data name="Description" xml:space="preserve">
         <value>Açıklama</value>
     </data>
+    <data name="DisplayOrder" xml:space="preserve">
+        <value>Gösterim Sırası</value>
+    </data>
     <data name="EditCurrency" xml:space="preserve">
         <value>Dövizi Düzenle</value>
     </data>
@@ -340,6 +343,18 @@
     <data name="ExecutedTP" xml:space="preserve">
         <value>Gerçekleşen Kar Al</value>
     </data>
+    <data name="ExecuteTime" xml:space="preserve">
+        <value>Gerçekleşme Zamanı</value>
+    </data>
+    <data name="FilledAmount" xml:space="preserve">
+        <value>Gerçekleşen Tutar</value>
+    </data>
+    <data name="FilledPrice" xml:space="preserve">
+        <value>Gerçekleşen Fiyat</value>
+    </data>
+    <data name="FilledQuantity" xml:space="preserve">
+        <value>Gerçekleşen Miktar</value>
+    </data>
     <data name="Forex" xml:space="preserve">
         <value>Foreks</value>
     </data>
@@ -373,6 +388,9 @@
     <data name="IntegerArray" xml:space="preserve">
         <value>Tamsayı Dizisi</value>
     </data>
+    <data name="IsActive" xml:space="preserve">
+        <value>Aktif</value>
+    </data>
     <data name="Limit" xml:space="preserve">
         <value>Limit</value>
     </data>
@@ -393,6 +411,15 @@
     </data>
     <data name="Option" xml:space="preserve">
         <value>Opsiyon</value>
+    </data>
+    <data name="OrderAmount" xml:space="preserve">
+        <value>Emir Tutarı</value>
+    </data>
+    <data name="OrderPrice" xml:space="preserve">
+        <value>Emir Fiyatı</value>
+    </data>
+    <data name="OrderQuantity" xml:space="preserve">
+        <value>Emir Miktarı</value>
     </data>
     <data name="OrderType" xml:space="preserve">
         <value>Emir Tipi</value>

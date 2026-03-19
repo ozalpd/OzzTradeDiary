@@ -262,6 +262,9 @@
     <data name="Description" xml:space="preserve">
         <value>Description</value>
     </data>
+    <data name="DisplayOrder" xml:space="preserve">
+        <value>Display Order</value>
+    </data>
     <data name="EditCurrency" xml:space="preserve">
         <value>Edit Currency</value>
     </data>
@@ -340,6 +343,18 @@
     <data name="ExecutedTP" xml:space="preserve">
         <value>Executed TP</value>
     </data>
+    <data name="ExecuteTime" xml:space="preserve">
+        <value>Execute Time</value>
+    </data>
+    <data name="FilledAmount" xml:space="preserve">
+        <value>Filled Amount</value>
+    </data>
+    <data name="FilledPrice" xml:space="preserve">
+        <value>Filled Price</value>
+    </data>
+    <data name="FilledQuantity" xml:space="preserve">
+        <value>Filled Quantity</value>
+    </data>
     <data name="Forex" xml:space="preserve">
         <value>Forex</value>
     </data>
@@ -373,6 +388,9 @@
     <data name="IntegerArray" xml:space="preserve">
         <value>Integer Array</value>
     </data>
+    <data name="IsActive" xml:space="preserve">
+        <value>Is Active</value>
+    </data>
     <data name="Limit" xml:space="preserve">
         <value>Limit</value>
     </data>
@@ -393,6 +411,15 @@
     </data>
     <data name="Option" xml:space="preserve">
         <value>Option</value>
+    </data>
+    <data name="OrderAmount" xml:space="preserve">
+        <value>Order Amount</value>
+    </data>
+    <data name="OrderPrice" xml:space="preserve">
+        <value>Order Price</value>
+    </data>
+    <data name="OrderQuantity" xml:space="preserve">
+        <value>Order Quantity</value>
     </data>
     <data name="OrderType" xml:space="preserve">
         <value>Order Type</value>

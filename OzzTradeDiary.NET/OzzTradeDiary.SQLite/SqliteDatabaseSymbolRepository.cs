@@ -6,7 +6,7 @@ namespace TD.SQLite;
 /// <summary>
 /// SQLite-based repository for symbol CRUD operations.
 /// </summary>
-public class SqliteDatabaseSymbolRepository : IDatabaseSymbolRepository
+public class SqliteDatabaseSymbolRepository : AbstractDatabaseRepository, IDatabaseSymbolRepository
 {
     private readonly string _connectionString;
     private readonly SqliteDatabaseMetadataRepository _metadataRepository;
@@ -100,6 +100,7 @@ public class SqliteDatabaseSymbolRepository : IDatabaseSymbolRepository
     public async Task<int> CreateAsync(Symbol symbol)
     {
         ArgumentNullException.ThrowIfNull(symbol);
+        ValidateOrThrow(symbol);
 
         await using var connection = new SqliteConnection(_connectionString);
         await connection.OpenAsync();
@@ -138,6 +139,7 @@ public class SqliteDatabaseSymbolRepository : IDatabaseSymbolRepository
     public async Task<bool> UpdateAsync(Symbol symbol)
     {
         ArgumentNullException.ThrowIfNull(symbol);
+        ValidateOrThrow(symbol);
 
         await using var connection = new SqliteConnection(_connectionString);
         await connection.OpenAsync();

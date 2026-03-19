@@ -112,6 +112,9 @@
     <data name="Logout" xml:space="preserve">
         <value>Çıkış Yap</value>
     </data>
+    <data name="OK" xml:space="preserve">
+        <value>Tamam</value>
+    </data>
     <data name="Print" xml:space="preserve">
         <value>Yazdır</value>
     </data>

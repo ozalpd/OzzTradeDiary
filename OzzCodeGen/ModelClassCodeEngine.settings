@@ -187,6 +187,7 @@
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
+          <Range>1, int.MaxValue</Range>
           <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
         </ModelPropertySetting>
         <ModelPropertySetting>

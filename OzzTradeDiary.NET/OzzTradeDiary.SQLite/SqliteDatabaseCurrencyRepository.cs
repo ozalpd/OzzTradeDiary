@@ -6,7 +6,7 @@ namespace TD.SQLite;
 /// <summary>
 /// SQLite-based repository for currency CRUD operations.
 /// </summary>
-public class SqliteDatabaseCurrencyRepository : IDatabaseCurrencyRepository
+public class SqliteDatabaseCurrencyRepository : AbstractDatabaseRepository, IDatabaseCurrencyRepository
 {
     private readonly string _connectionString;
     private readonly SqliteDatabaseMetadataRepository _metadataRepository;
@@ -96,6 +96,7 @@ public class SqliteDatabaseCurrencyRepository : IDatabaseCurrencyRepository
     public async Task<int> CreateAsync(Currency currency)
     {
         ArgumentNullException.ThrowIfNull(currency);
+        ValidateOrThrow(currency);
 
         await using var connection = new SqliteConnection(_connectionString);
         await connection.OpenAsync();
@@ -128,6 +129,7 @@ public class SqliteDatabaseCurrencyRepository : IDatabaseCurrencyRepository
     public async Task<bool> UpdateAsync(Currency currency)
     {
         ArgumentNullException.ThrowIfNull(currency);
+        ValidateOrThrow(currency);
 
         await using var connection = new SqliteConnection(_connectionString);
         await connection.OpenAsync();
@@ -139,7 +141,7 @@ public class SqliteDatabaseCurrencyRepository : IDatabaseCurrencyRepository
                       && existingCurrency.Description.Equals(currency.Description)
                       && existingCurrency.DisplayOrder == currency.DisplayOrder
                       && existingCurrency.IsActive == currency.IsActive;
-        
+
         if (noChanges)
             return false;
 
