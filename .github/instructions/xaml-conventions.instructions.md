@@ -17,6 +17,7 @@ description: "Use when: editing XAML views, creating new WPF pages, adding contr
 - Bind to ViewModels using `{Binding}` markup — never set data directly in XAML code-behind
 - Use `DataTrigger` for null-based disable patterns (see `DisabledWhenNullTextBoxStyle`)
 - Validation errors display below controls using `Validation.ErrorTemplate` with `AdornedElementPlaceholder`
+- When a `TextBox` uses `ReadOnlyTextBoxStyle`, set `Text` binding `Mode=OneWay`
 
 ## Naming
 

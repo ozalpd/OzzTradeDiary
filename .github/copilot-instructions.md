@@ -4,7 +4,7 @@
 
 Early-stage development (pre-release, no public release yet).
 
-Internal tracking versions: `OzzTradeDiary` `0.0.9`, `OzzTradeDiary.WPF` `0.0.9`, `OzzTradeDiary.SQLite` `0.0.9`, `OzzTradeDiary.i18n` `0.0.9`.
+Internal tracking versions: `OzzTradeDiary` `0.0.10`, `OzzTradeDiary.WPF` `0.0.10`, `OzzTradeDiary.SQLite` `0.0.10`, `OzzTradeDiary.i18n` `0.0.10`.
 
 - **Changelog discipline**: Any behavior change (repository logic, initialization, seeding, schema generation impact, UI-visible behavior) must be recorded in `CHANGELOG.md` under `## [Unreleased]`.
 
@@ -69,6 +69,7 @@ Internal tracking versions: `OzzTradeDiary` `0.0.9`, `OzzTradeDiary.WPF` `0.0.9`
 - `MainWindow` lives directly under `Views/` (`TD.WPF.Views`)
 - **All property label `TextBlock` elements must bind their `Text` to the matching `LocalizedStrings` key via `{x:Static i18n:LocalizedStrings.PropertyName}` — never use hardcoded strings for property labels.**
 - Follow entity-first naming: `TradingAccountCreate` (not `CreateTradingAccount`).
+- **Read-only text fields must use a dedicated `ReadOnlyTextBoxStyle` (with darker background cue) instead of `ValidationTextBoxStyle`.**
 
 ### SQLite (TD.SQLite namespace)
 

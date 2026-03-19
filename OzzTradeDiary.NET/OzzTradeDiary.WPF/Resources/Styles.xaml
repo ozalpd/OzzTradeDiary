@@ -31,6 +31,7 @@
 
     <!-- ComboBox Style: with validation error display -->
     <Style x:Key="ValidationComboBoxStyle" TargetType="ComboBox">
+        <Setter Property="Margin" Value="0,0,0,18" />
         <Setter Property="Validation.ErrorTemplate">
             <Setter.Value>
                 <ControlTemplate>
@@ -56,6 +57,7 @@
 
     <!-- TextBox Style: validation error display only -->
     <Style x:Key="ValidationTextBoxStyle" TargetType="TextBox">
+        <Setter Property="Margin" Value="0,0,0,18" />
         <Setter Property="Validation.ErrorTemplate">
             <Setter.Value>
                 <ControlTemplate>
@@ -77,6 +79,12 @@
                 <Setter Property="ToolTip" Value="{Binding RelativeSource={RelativeSource Self}, Path=(Validation.Errors)[0].ErrorContent}" />
             </Trigger>
         </Style.Triggers>
+    </Style>
+
+    <Style x:Key="ReadOnlyTextBoxStyle" TargetType="TextBox">
+        <Setter Property="Margin" Value="0,0,0,8" />
+        <Setter Property="IsReadOnly" Value="True" />
+        <Setter Property="Background" Value="#EDEDED" />
     </Style>
 
     <Style x:Key="IconButtonStyle-22x18" TargetType="Button">

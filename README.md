@@ -4,7 +4,7 @@ A Windows desktop trade journaling application for tracking trades across multip
 
 > **Status**: Pre-release development (no public release yet)
 > 
-> **Internal tracking versions**: `OzzTradeDiary` `0.0.9`, `OzzTradeDiary.WPF` `0.0.9`, `OzzTradeDiary.SQLite` `0.0.9`, `OzzTradeDiary.i18n` `0.0.9`
+> **Internal tracking versions**: `OzzTradeDiary` `0.0.10`, `OzzTradeDiary.WPF` `0.0.10`, `OzzTradeDiary.SQLite` `0.0.10`, `OzzTradeDiary.i18n` `0.0.10`
 
 ## Changelog
 
@@ -37,6 +37,8 @@ See [`CHANGELOG.md`](CHANGELOG.md) for release history.
 - `TradingAccountCreate` and maintenance grids display `ExchangeCode` instead of numeric `ExchangeId`
 - `AccountCode` property removed from `TradingAccount` model and generated DDL
 - Shared validation styles `ValidationTextBoxStyle` and `ValidationComboBoxStyle` for consistent inline error display across forms
+- `ReadOnlyTextBoxStyle` for non-editable fields with darker background cue; read-only bindings use `Mode=OneWay`
+- `TradingAccountEdit` dialog for editing mutable fields (`DisplayOrder`, `IsActive`, `Notes`) of existing trading accounts; immutable fields (`Title`, `ExchangeCode`) displayed as read-only
 - About dialog with auto-close on deactivation, high-resolution icon rendering, and GitHub link
 - Bootstrap Icons rendered as window title bar icons via `WindowExtensions`
 - Application version displayed in `MainWindow` title bar via `AppVersion`

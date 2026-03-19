@@ -5,7 +5,7 @@ using TD.WPF.Models;
 
 namespace TD.WPF.ViewModels.Maintenance
 {
-    internal class TradingAccountCreateVM : AbstractDataErrorInfoVM
+    internal class TradingAccountCreateVM : AbstractEditVM
     {
         public SqliteDatabaseMetadataRepository MetadataRepository { get; }
 
@@ -23,7 +23,6 @@ namespace TD.WPF.ViewModels.Maintenance
             _tradingAccount = new TradingAccount();
             IsActive = true;
             DisplayOrder = 1000;
-            ErrorsChanged += (_, _) => RaisePropertyChanged(nameof(IsValid));
             ValidateModel(_tradingAccount);
         }
 
@@ -32,15 +31,13 @@ namespace TD.WPF.ViewModels.Maintenance
 
         public async Task LoadExchangesAsync()
         {
-            var items = await ExchangeRepository.GetAllAsync(isActive:true);
+            var items = await ExchangeRepository.GetAllAsync(isActive: true);
             Exchanges.Clear();
             foreach (var item in items)
             {
                 Exchanges.Add(item);
             }
         }
-
-        public bool IsValid => !HasErrors;
 
         public string Title
         {

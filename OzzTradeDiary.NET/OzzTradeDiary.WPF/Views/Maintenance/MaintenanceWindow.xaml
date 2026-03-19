@@ -44,6 +44,22 @@
                                 <Path Fill="#0044D7" Data="{StaticResource arrow-clockwise}"/>
                             </Viewbox>
                         </Button>
+                        <Button ToolTip="{x:Static i18n:ActionStrings.Edit}"
+                                Click="EditTradingAccounts_Click">
+                            <Button.Style>
+                                <Style TargetType="Button" BasedOn="{StaticResource IconButtonStyle-28x24}">
+                                    <Setter Property="IsEnabled" Value="True" />
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding SelectedTradingAccount}" Value="{x:Null}">
+                                            <Setter Property="IsEnabled" Value="False" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Style>
+                            <Viewbox Width="14" Height="14">
+                                <Path Fill="#0044D7" Data="{StaticResource pencil-square}"/>
+                            </Viewbox>
+                        </Button>
                     </StackPanel>
                     <DataGrid ItemsSource="{Binding TradingAccounts}"
                               SelectedItem="{Binding SelectedTradingAccount}"
@@ -80,6 +96,17 @@
                                 <Path Fill="#0044D7" Data="{StaticResource floppy-fill}"/>
                             </Viewbox>
                         </Button>
+                        <Button Style="{StaticResource IconButtonStyle-28x24}"
+                                ToolTip="{x:Static i18n:ActionStrings.Refresh}"
+                                Click="RefreshExchanges_Click">
+                            <Viewbox Width="14" Height="14">
+                                <Path Fill="#0044D7" Data="{StaticResource arrow-clockwise}"/>
+                            </Viewbox>
+                        </Button>
+                        
+                        <Border Width="32" Background="Transparent" />
+                        <Border Width="32" Background="Transparent" />
+                        
                         <Button Style="{StaticResource IconButtonStyle-28x24}" 
                                 ToolTip="{x:Static i18n:LocalizedStrings.DeleteExchange}"
                                 Background="#C80000"
@@ -101,13 +128,6 @@
                                         </Style>
                                     </Path.Style>
                                 </Path>
-                            </Viewbox>
-                        </Button>
-                        <Button Style="{StaticResource IconButtonStyle-28x24}"
-                                ToolTip="{x:Static i18n:ActionStrings.Refresh}"
-                                Click="RefreshExchanges_Click">
-                            <Viewbox Width="14" Height="14">
-                                <Path Fill="#0044D7" Data="{StaticResource arrow-clockwise}"/>
                             </Viewbox>
                         </Button>
                     </StackPanel>

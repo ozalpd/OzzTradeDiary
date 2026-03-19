@@ -81,6 +81,23 @@ namespace TD.WPF.Views.Maintenance
             }
         }
 
+        private async void EditTradingAccounts_Click(object sender, RoutedEventArgs e)
+        {
+            if (_viewModel.SelectedTradingAccount == null)
+                return;
+
+            var dialog = new TradingAccountEdit(_viewModel.SelectedTradingAccount)
+            {
+                Owner = this
+            };
+
+            if (dialog.ShowDialog() == true)
+            {
+                await ExecuteUiActionAsync(_viewModel.SaveTradingAccountsAsync, "Save trading accounts");
+                await ExecuteUiActionAsync(_viewModel.LoadTradingAccountsAsync, "Refresh trading accounts");
+            }
+        }
+
         private async void SaveTradingAccounts_Click(object sender, RoutedEventArgs e)
         {
             await ExecuteUiActionAsync(_viewModel.SaveTradingAccountsAsync, "Save trading accounts");
