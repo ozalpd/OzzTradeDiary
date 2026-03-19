@@ -4,7 +4,7 @@ A Windows desktop trade journaling application for tracking trades across multip
 
 > **Status**: Pre-release development (no public release yet)
 > 
-> **Internal tracking versions**: `OzzTradeDiary` `0.0.8`, `OzzTradeDiary.WPF` `0.0.8`, `OzzTradeDiary.SQLite` `0.0.8`, `OzzTradeDiary.i18n` `0.0.8`
+> **Internal tracking versions**: `OzzTradeDiary` `0.0.9`, `OzzTradeDiary.WPF` `0.0.9`, `OzzTradeDiary.SQLite` `0.0.9`, `OzzTradeDiary.i18n` `0.0.9`
 
 ## Changelog
 
@@ -33,8 +33,8 @@ See [`CHANGELOG.md`](CHANGELOG.md) for release history.
 - Maintenance window accessible from menu, with singleton window management (bring-to-front if already open)
 - Maintenance window provides Add, Save, Refresh, and Delete (Exchange) CRUD operations for Currency, Exchange, TradingAccount, and Symbol
 - `DeleteExchangeCommand` with `CanExecute` safety checks (disabled when exchange is referenced by Symbols or TradingAccounts) and `Yes/No` confirmation before deletion
-- `CreateTradingAccount` dialog with icon-based action buttons, live per-field validation, inline error display, and OK button enabled only when all required fields are valid
-- `CreateTradingAccount` and maintenance grids display `ExchangeCode` instead of numeric `ExchangeId`
+- `TradingAccountCreate` dialog (renamed from `CreateTradingAccount`) and `TradingAccountCreateVM` (renamed from `CreateTradingAccountVM`) with icon-based action buttons, live per-field validation, inline error display, and OK button enabled only when all required fields are valid
+- `TradingAccountCreate` and maintenance grids display `ExchangeCode` instead of numeric `ExchangeId`
 - `AccountCode` property removed from `TradingAccount` model and generated DDL
 - Shared validation styles `ValidationTextBoxStyle` and `ValidationComboBoxStyle` for consistent inline error display across forms
 - About dialog with auto-close on deactivation, high-resolution icon rendering, and GitHub link
@@ -73,6 +73,8 @@ dotnet run --project OzzTradeDiary.NET/OzzTradeDiary.WPF/OzzTradeDiary.WPF.cspro
 ```
 
 ## Project Structure
+
+View and ViewModel files use **entity-first, verb-last** naming (e.g., `TradingAccountCreate.xaml`, `TradingAccountCreateVM.cs`) so that files for the same entity sort together in Solution Explorer. Method names remain **verb-first** (e.g., `CreateTradingAccount()`, `DeleteExchange()`).
 
 ```
 OzzTradeDiary.slnx

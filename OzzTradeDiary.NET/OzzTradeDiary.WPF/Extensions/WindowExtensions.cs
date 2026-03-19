@@ -13,8 +13,9 @@ internal static class WindowExtensions
     /// <param name="window">The window to set the icon for.</param>
     /// <param name="geometryResourceKey">The resource key of the Geometry.</param>
     /// <param name="fillColor">The fill color in hex format (e.g., "#93191C").</param>
-    /// <param name="size">The icon size in pixels (default: 16).</param>
-    public static void SetIconFromGeometryResource(this Window window, string geometryResourceKey, string fillColor, int size = 16)
+    /// <param name="bgColor">The background color in hex format (e.g., "#E8FFFFFF").</param>
+    /// <param name="size">The icon size in pixels (default: 32).</param>
+    public static void SetIconFromGeometryResource(this Window window, string geometryResourceKey, string fillColor, string? bgColor = null, int size = 32)
     {
         try
         {
@@ -31,6 +32,18 @@ internal static class WindowExtensions
             path.Arrange(new Rect(iconSize));
 
             var bitmap = new RenderTargetBitmap(size, size, 96, 96, PixelFormats.Pbgra32);
+            if (!string.IsNullOrEmpty(bgColor))
+            {
+                var background = new Rectangle
+                {
+                    Width = size,
+                    Height = size,
+                    Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString(bgColor))
+                };
+                background.Measure(iconSize);
+                background.Arrange(new Rect(iconSize));
+                bitmap.Render(background);
+            }
             bitmap.Render(path);
             window.Icon = bitmap;
         }

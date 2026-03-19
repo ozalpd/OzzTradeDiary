@@ -17,7 +17,7 @@ namespace TD.WPF.Views.Maintenance
         public MaintenanceWindow()
         {
             InitializeComponent();
-            this.SetIconFromGeometryResource("gear-wide-connected", "#0044D7");
+            this.SetIconFromGeometryResource("gear-wide-connected", "#0044D7", "#E8FFFFFF", 48);
             SourceInitialized += Window_SourceInitialized;
             Closing += Window_Closing;
         }
@@ -72,7 +72,7 @@ namespace TD.WPF.Views.Maintenance
 
         private async void AddTradingAccount_Click(object sender, RoutedEventArgs e)
         {
-            var dialog = new CreateTradingAccount { Owner = this };
+            var dialog = new TradingAccountCreate { Owner = this };
             if (dialog.ShowDialog() == true)
             {
                 _viewModel.TradingAccounts.Add(dialog.TradingAccount);

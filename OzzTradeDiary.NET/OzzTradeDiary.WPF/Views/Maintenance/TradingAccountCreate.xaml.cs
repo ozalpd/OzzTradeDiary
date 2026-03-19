@@ -8,17 +8,17 @@ namespace TD.WPF.Views.Maintenance
     /// <summary>
     /// Interaction logic for CreateTradingAccount.xaml
     /// </summary>
-    public partial class CreateTradingAccount : Window
+    public partial class TradingAccountCreate : Window
     {
-        private readonly CreateTradingAccountVM _viewModel;
+        private readonly TradingAccountCreateVM _viewModel;
 
         public TradingAccount TradingAccount => _viewModel.TradingAccount;
 
-        public CreateTradingAccount()
+        public TradingAccountCreate()
         {
             InitializeComponent();
 
-            _viewModel = new CreateTradingAccountVM();
+            _viewModel = new TradingAccountCreateVM();
             DataContext = _viewModel;
             SourceInitialized += CreateTradingAccount_SourceInitialized;
         }

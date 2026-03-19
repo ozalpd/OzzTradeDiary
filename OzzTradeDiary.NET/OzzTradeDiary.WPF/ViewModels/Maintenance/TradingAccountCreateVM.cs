@@ -5,13 +5,13 @@ using TD.WPF.Models;
 
 namespace TD.WPF.ViewModels.Maintenance
 {
-    internal class CreateTradingAccountVM : AbstractDataErrorInfoVM
+    internal class TradingAccountCreateVM : AbstractDataErrorInfoVM
     {
         public SqliteDatabaseMetadataRepository MetadataRepository { get; }
 
         private TradingAccount _tradingAccount;
         public TradingAccount TradingAccount => _tradingAccount;
-        public CreateTradingAccountVM()
+        public TradingAccountCreateVM()
         {
             var appSettings = AppSettings.GetAppSettings();
             var databasePath = appSettings.DatabasePath;
