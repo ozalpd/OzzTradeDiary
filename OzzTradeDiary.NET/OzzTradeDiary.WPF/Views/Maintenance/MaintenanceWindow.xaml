@@ -46,6 +46,7 @@
                         </Button>
                     </StackPanel>
                     <DataGrid ItemsSource="{Binding TradingAccounts}"
+                              SelectedItem="{Binding SelectedTradingAccount}"
                               AutoGenerateColumns="False"
                               CanUserAddRows="False"
                               CanUserDeleteRows="False"
@@ -53,11 +54,10 @@
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Id" Binding="{Binding Id}" IsReadOnly="True" Width="70" />
                             <DataGridTextColumn Header="Title" Binding="{Binding Title}" Width="220" />
-                            <DataGridTextColumn Header="AccountCode" Binding="{Binding AccountCode}" Width="200" />
-                            <DataGridTextColumn Header="ExchangeId" Binding="{Binding ExchangeId}" Width="130" />
-                            <DataGridTextColumn Header="Notes" Binding="{Binding Notes}" Width="*" />
-                            <DataGridTextColumn Header="DisplayOrder" Binding="{Binding DisplayOrder}" Width="130" />
                             <DataGridCheckBoxColumn Header="IsActive" Binding="{Binding IsActive}" Width="120" />
+                            <DataGridTextColumn Header="ExchangeCode" Binding="{Binding Exchange.ExchangeCode}" IsReadOnly="True" Width="130" />
+                            <DataGridTextColumn Header="DisplayOrder" Binding="{Binding DisplayOrder}" Width="130" />
+                            <DataGridTextColumn Header="Notes" Binding="{Binding Notes}" Width="*" />
                         </DataGrid.Columns>
                     </DataGrid>
                 </DockPanel>
@@ -80,6 +80,29 @@
                                 <Path Fill="#0044D7" Data="{StaticResource floppy-fill}"/>
                             </Viewbox>
                         </Button>
+                        <Button Style="{StaticResource IconButtonStyle-28x24}" 
+                                ToolTip="{x:Static i18n:LocalizedStrings.DeleteExchange}"
+                                Background="#C80000"
+                                Command="{Binding DeleteExchangeCommand}"
+                                CommandParameter="{Binding}"
+                                AutomationProperties.Name="Sil">
+                            <Viewbox Width="14" Height="14">
+                                <Path>
+                                    <Path.Style>
+                                        <Style TargetType="Path">
+                                            <Setter Property="Fill" Value="#F8F8F8"/>
+                                            <Setter Property="Data" Value="{StaticResource trash3}"/>
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding IsMouseOver, RelativeSource={RelativeSource AncestorType=Button}}" Value="True">
+                                                    <Setter Property="Fill" Value="#C80000"/>
+                                                    <Setter Property="Data" Value="{StaticResource trash3}"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Path.Style>
+                                </Path>
+                            </Viewbox>
+                        </Button>
                         <Button Style="{StaticResource IconButtonStyle-28x24}"
                                 ToolTip="{x:Static i18n:ActionStrings.Refresh}"
                                 Click="RefreshExchanges_Click">
@@ -89,6 +112,7 @@
                         </Button>
                     </StackPanel>
                     <DataGrid ItemsSource="{Binding Exchanges}"
+                              SelectedItem="{Binding SelectedExchange}"
                               AutoGenerateColumns="False"
                               CanUserAddRows="False"
                               CanUserDeleteRows="False"
@@ -130,24 +154,25 @@
                         </Button>
                     </StackPanel>
                     <DataGrid ItemsSource="{Binding Symbols}"
+                              SelectedItem="{Binding SelectedSymbol}"
                               AutoGenerateColumns="False"
                               CanUserAddRows="False"
                               CanUserDeleteRows="False"
                               IsReadOnly="False">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Id" Binding="{Binding Id}" IsReadOnly="True" Width="70" />
-                            <DataGridTextColumn Header="Ticker" Binding="{Binding Ticker}" Width="140" />
                             <DataGridTextColumn Header="TickerFull" Binding="{Binding TickerFull}" Width="220" />
+                            <DataGridTextColumn Header="Ticker" Binding="{Binding Ticker}" Width="140" />
                             <DataGridTextColumn Header="BaseCurrency" Binding="{Binding BaseCurrency}" Width="130" />
                             <DataGridTextColumn Header="PriceCurrency" Binding="{Binding PriceCurrency}" Width="130" />
                             <DataGridTextColumn Header="Description" Binding="{Binding Description}" Width="*" />
-                            <DataGridTextColumn Header="ExchangeId" Binding="{Binding ExchangeId}" Width="110" />
+                            <DataGridTextColumn Header="ExchangeCode" Binding="{Binding Exchange.ExchangeCode}" IsReadOnly="True" Width="130" />
                             <DataGridComboBoxColumn Header="MarketType"
                                                     SelectedItemBinding="{Binding MarketType}"
                                                     ItemsSource="{Binding Source={StaticResource MarketTypeValues}}"
                                                     Width="140" />
-                            <DataGridTextColumn Header="DisplayOrder" Binding="{Binding DisplayOrder}" Width="130" />
                             <DataGridCheckBoxColumn Header="IsActive" Binding="{Binding IsActive}" Width="120" />
+                            <DataGridTextColumn Header="DisplayOrder" Binding="{Binding DisplayOrder}" Width="130" />
                         </DataGrid.Columns>
                     </DataGrid>
                 </DockPanel>
@@ -179,6 +204,7 @@
                         </Button>
                     </StackPanel>
                     <DataGrid ItemsSource="{Binding Currencies}"
+                              SelectedItem="{Binding SelectedCurrency}"
                               AutoGenerateColumns="False"
                               CanUserAddRows="False"
                               CanUserDeleteRows="False"

@@ -43,3 +43,16 @@ description: "Use when: editing XAML views, creating new WPF pages, adding contr
   - Save: `floppy-fill`
   - Refresh: `arrow-clockwise`
 - Keep action button click handlers named by feature + action (for example `AddCurrency_Click`, `SaveSymbols_Click`, `RefreshExchanges_Click`)
+
+## Maintenance Delete Button Standard
+
+- Destructive actions (for example Delete in maintenance toolbars) must use a command binding (`Command="{Binding <DeleteCommand>}"`) instead of click handlers.
+- Command `CanExecute` must control enabled/disabled state based on selection and domain safety checks.
+- Destructive command execution must ask for user confirmation with a `MessageBox` before performing deletion (for example text: `Are you sure to delete?`, with `Yes/No` options).
+- Use `IconButtonStyle-28x24` with red destructive background (`Background="#C80000"`).
+- Use a localized delete tooltip from `LocalizedStrings` (for example `LocalizedStrings.DeleteExchange`).
+- Render the delete icon with `trash3` inside `Viewbox Width="14" Height="14"`.
+- Use hover inversion for icon color via `Path.Style` trigger:
+  - normal: `Fill="#F8F8F8"`
+  - hover: `Fill="#C80000"`.
+- Keep this visual/behavior pattern consistent across all delete buttons in the WPF app.

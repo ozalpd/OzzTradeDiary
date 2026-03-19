@@ -4,7 +4,7 @@
 
 Early-stage development (pre-release, no public release yet).
 
-Internal tracking versions: `OzzTradeDiary` `0.0.7`, `OzzTradeDiary.WPF` `0.0.7`, `OzzTradeDiary.SQLite` `0.0.7`, `OzzTradeDiary.i18n` `0.0.7`.
+Internal tracking versions: `OzzTradeDiary` `0.0.8`, `OzzTradeDiary.WPF` `0.0.8`, `OzzTradeDiary.SQLite` `0.0.8`, `OzzTradeDiary.i18n` `0.0.8`.
 
 - **Changelog discipline**: Any behavior change (repository logic, initialization, seeding, schema generation impact, UI-visible behavior) must be recorded in `CHANGELOG.md` under `## [Unreleased]`.
 
@@ -83,7 +83,7 @@ Internal tracking versions: `OzzTradeDiary` `0.0.7`, `OzzTradeDiary.WPF` `0.0.7`
 - Dates stored as ticks (`INTEGER`), not ISO 8601 text
 - **`Currency.CurrencyTicker` must be treated as a unique immutable key in repositories** (do not update it after creation).
 - **`Exchange.ExchangeCode` must be treated as a unique immutable key in repositories** (do not update it after creation).
-- **`TradingAccount.AccountCode` must be treated as a unique immutable key in repositories** (do not update it after creation).
+- **`TradingAccount.Title` must be treated as a unique immutable key in repositories** (do not update it after creation).
 - **`TradingAccount.ExchangeId` must not be changed in repositories** (do not update it after creation).
 - **`Symbol.TickerFull` must be treated as a unique immutable key in repositories** (do not update it after creation).
 - **`Symbol` repository updates should only modify mutable fields (`Description`, `DisplayOrder`, `IsActive`) after creation.**
@@ -122,3 +122,5 @@ Internal tracking versions: `OzzTradeDiary` `0.0.7`, `OzzTradeDiary.WPF` `0.0.7`
 
 - Prefer a master/detail UI for MainWindow which contains a main data grid list for trades and a detail pane for the selected trade, with tabs for related entities (e.g., trade details, images).
 - Prefer dialog windows for rarely used maintenance screens such as Currency, Exchange, TradingAccount, and Symbol while keeping Trade as the primary workflow.
+- In maintenance and create dialogs, prefer icon-based action buttons (Bootstrap Icons inside `Viewbox`) with localized tooltips instead of plain text buttons.
+- Where exchange references are shown to users (grids, dialogs), display `Exchange.ExchangeCode` instead of the numeric `ExchangeId`.

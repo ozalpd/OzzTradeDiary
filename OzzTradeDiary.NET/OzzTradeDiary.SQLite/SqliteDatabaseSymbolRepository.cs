@@ -10,11 +10,16 @@ public class SqliteDatabaseSymbolRepository : AbstractDatabaseRepository, IDatab
 {
     private readonly string _connectionString;
     private readonly SqliteDatabaseMetadataRepository _metadataRepository;
+    private readonly IDatabaseExchangeRepository _exchangeRepository;
 
-    public SqliteDatabaseSymbolRepository(string databasePath, SqliteDatabaseMetadataRepository? metadataRepository = null)
+    public SqliteDatabaseSymbolRepository(
+        string databasePath,
+        SqliteDatabaseMetadataRepository? metadataRepository = null,
+        IDatabaseExchangeRepository? exchangeRepository = null)
     {
         _connectionString = $"Data Source={databasePath}";
         _metadataRepository = metadataRepository ?? new SqliteDatabaseMetadataRepository(databasePath);
+        _exchangeRepository = exchangeRepository ?? new SqliteDatabaseExchangeRepository(databasePath, _metadataRepository);
         InitializeDatabase();
     }
 
@@ -30,6 +35,7 @@ public class SqliteDatabaseSymbolRepository : AbstractDatabaseRepository, IDatab
     public async Task<IReadOnlyList<Symbol>> GetAllAsync(bool? isActive = null)
     {
         var result = new List<Symbol>();
+        var exchangesById = (await _exchangeRepository.GetAllAsync()).ToDictionary(item => item.Id);
 
         await using var connection = new SqliteConnection(_connectionString);
         await connection.OpenAsync();
@@ -50,7 +56,11 @@ public class SqliteDatabaseSymbolRepository : AbstractDatabaseRepository, IDatab
         await using var reader = await command.ExecuteReaderAsync();
         while (await reader.ReadAsync())
         {
-            result.Add(MapSymbol(reader));
+            var symbol = MapSymbol(reader);
+            if (exchangesById.TryGetValue(symbol.ExchangeId, out var exchange))
+                symbol.Exchange = exchange;
+
+            result.Add(symbol);
         }
 
         return result;
@@ -75,7 +85,10 @@ public class SqliteDatabaseSymbolRepository : AbstractDatabaseRepository, IDatab
         if (!await reader.ReadAsync())
             return null;
 
-        return MapSymbol(reader);
+        var symbol = MapSymbol(reader);
+        await PopulateExchangeAsync(symbol);
+
+        return symbol;
     }
 
     public async Task<Symbol?> GetByIdAsync(int id)
@@ -94,7 +107,10 @@ public class SqliteDatabaseSymbolRepository : AbstractDatabaseRepository, IDatab
         if (!await reader.ReadAsync())
             return null;
 
-        return MapSymbol(reader);
+        var symbol = MapSymbol(reader);
+        await PopulateExchangeAsync(symbol);
+
+        return symbol;
     }
 
     public async Task<int> CreateAsync(Symbol symbol)
@@ -199,6 +215,12 @@ public class SqliteDatabaseSymbolRepository : AbstractDatabaseRepository, IDatab
         return affectedRows > 0;
     }
 
+    private async Task PopulateExchangeAsync(Symbol symbol)
+    {
+        symbol.Exchange = await _exchangeRepository.GetByIdAsync(symbol.ExchangeId)
+                           ?? new Exchange { Id = symbol.ExchangeId };
+    }
+
     private static Symbol MapSymbol(SqliteDataReader reader)
     {
         return new Symbol
@@ -210,6 +232,7 @@ public class SqliteDatabaseSymbolRepository : AbstractDatabaseRepository, IDatab
             PriceCurrency = reader.GetString(4),
             Description = reader.IsDBNull(5) ? string.Empty : reader.GetString(5),
             ExchangeId = reader.GetInt32(6),
+            Exchange = new Exchange { Id = reader.GetInt32(6) },
             MarketType = (MarketType)reader.GetInt32(7),
             DisplayOrder = reader.GetInt32(8),
             IsActive = reader.GetInt64(9) == 1

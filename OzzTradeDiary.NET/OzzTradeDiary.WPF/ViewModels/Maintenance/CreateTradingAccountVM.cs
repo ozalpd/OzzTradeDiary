@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Text;
+﻿using System.Collections.ObjectModel;
 using TD.Models;
 using TD.SQLite;
 using TD.WPF.Models;
@@ -55,20 +52,6 @@ namespace TD.WPF.ViewModels.Maintenance
                     _tradingAccount.Title = value;
                     RaisePropertyChanged(nameof(Title));
                     ValidateProperty(_tradingAccount, nameof(Title));
-                }
-            }
-        }
-
-        public string? AccountCode
-        {
-            get { return _tradingAccount.AccountCode; }
-            set
-            {
-                if (_tradingAccount.AccountCode != value)
-                {
-                    _tradingAccount.AccountCode = value;
-                    RaisePropertyChanged(nameof(AccountCode));
-                    ValidateProperty(_tradingAccount, nameof(AccountCode));
                 }
             }
         }

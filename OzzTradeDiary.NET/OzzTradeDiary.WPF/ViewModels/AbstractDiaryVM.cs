@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Text;
+﻿using System.Collections.ObjectModel;
 using TD.Models;
 using TD.SQLite;
 using TD.WPF.Models;
 
 namespace TD.WPF.ViewModels
 {
-    internal class AbstractDiaryVM
+    internal class AbstractDiaryVM : AbstractDataErrorInfoVM
     {
         public AbstractDiaryVM()
         {
@@ -19,8 +16,8 @@ namespace TD.WPF.ViewModels
             MetadataRepository = new SqliteDatabaseMetadataRepository(databasePath);
             CurrencyRepository = new SqliteDatabaseCurrencyRepository(databasePath, MetadataRepository);
             ExchangeRepository = new SqliteDatabaseExchangeRepository(databasePath, MetadataRepository);
-            SymbolRepository = new SqliteDatabaseSymbolRepository(databasePath, MetadataRepository);
-            TradingAccountRepository = new SqliteDatabaseTradingAccountRepository(databasePath, MetadataRepository);
+            SymbolRepository = new SqliteDatabaseSymbolRepository(databasePath, MetadataRepository, ExchangeRepository);
+            TradingAccountRepository = new SqliteDatabaseTradingAccountRepository(databasePath, MetadataRepository, ExchangeRepository);
 
             Currencies = new ObservableCollection<Currency>();
             Exchanges = new ObservableCollection<Exchange>();
@@ -106,6 +103,60 @@ namespace TD.WPF.ViewModels
                     await SymbolRepository.UpdateAsync(item);
             }
         }
+
+
+        public Currency? SelectedCurrency
+        {
+            get => _selectedCurrency;
+            set
+            {
+                if (_selectedCurrency?.Id == value?.Id)
+                    return;
+                _selectedCurrency = value;
+                RaisePropertyChanged(nameof(SelectedCurrency));
+            }
+        }
+        Currency? _selectedCurrency = null;
+
+        public Exchange? SelectedExchange
+        {
+            get => _selectedExchange;
+            set
+            {
+                if (_selectedExchange?.Id == value?.Id)
+                    return;
+                _selectedExchange = value;
+                RaisePropertyChanged(nameof(SelectedExchange));
+            }
+        }
+        Exchange? _selectedExchange = null;
+
+        public TradingAccount? SelectedTradingAccount
+        {
+            get => _selectedTradingAccount;
+            set
+            {
+                if (_selectedTradingAccount?.Id == value?.Id)
+                    return;
+                _selectedTradingAccount = value;
+                RaisePropertyChanged(nameof(SelectedTradingAccount));
+            }
+        }
+        TradingAccount? _selectedTradingAccount = null;
+
+        public Symbol? SelectedSymbol
+        {
+            get => _selectedSymbol;
+            set
+            {
+                if (_selectedSymbol?.Id == value?.Id)
+                    return;
+                _selectedSymbol = value;
+                RaisePropertyChanged(nameof(SelectedSymbol));
+            }
+        }
+        Symbol? _selectedSymbol = null;
+
 
         private static void ReplaceCollection<T>(ObservableCollection<T> target, IEnumerable<T> source)
         {

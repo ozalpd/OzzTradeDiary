@@ -10,11 +10,16 @@ public class SqliteDatabaseTradingAccountRepository : AbstractDatabaseRepository
 {
     private readonly string _connectionString;
     private readonly SqliteDatabaseMetadataRepository _metadataRepository;
+    private readonly IDatabaseExchangeRepository _exchangeRepository;
 
-    public SqliteDatabaseTradingAccountRepository(string databasePath, SqliteDatabaseMetadataRepository? metadataRepository = null)
+    public SqliteDatabaseTradingAccountRepository(
+        string databasePath,
+        SqliteDatabaseMetadataRepository? metadataRepository = null,
+        IDatabaseExchangeRepository? exchangeRepository = null)
     {
         _connectionString = $"Data Source={databasePath}";
         _metadataRepository = metadataRepository ?? new SqliteDatabaseMetadataRepository(databasePath);
+        _exchangeRepository = exchangeRepository ?? new SqliteDatabaseExchangeRepository(databasePath, _metadataRepository);
         InitializeDatabase();
     }
 
@@ -29,13 +34,14 @@ public class SqliteDatabaseTradingAccountRepository : AbstractDatabaseRepository
     public async Task<IReadOnlyList<TradingAccount>> GetAllAsync(bool? isActive = null)
     {
         var result = new List<TradingAccount>();
+        var exchangesById = (await _exchangeRepository.GetAllAsync()).ToDictionary(item => item.Id);
 
         await using var connection = new SqliteConnection(_connectionString);
         await connection.OpenAsync();
 
         await using var command = connection.CreateCommand();
         command.CommandText = @"
-            SELECT Id, Title, AccountCode, ExchangeId, Notes, DisplayOrder, IsActive
+            SELECT Id, Title, ExchangeId, Notes, DisplayOrder, IsActive
             FROM TradingAccounts";
 
         if (isActive.HasValue)
@@ -49,15 +55,19 @@ public class SqliteDatabaseTradingAccountRepository : AbstractDatabaseRepository
         await using var reader = await command.ExecuteReaderAsync();
         while (await reader.ReadAsync())
         {
-            result.Add(MapTradingAccount(reader));
+            var tradingAccount = MapTradingAccount(reader);
+            if (exchangesById.TryGetValue(tradingAccount.ExchangeId, out var exchange))
+                tradingAccount.Exchange = exchange;
+
+            result.Add(tradingAccount);
         }
 
         return result;
     }
 
-    public async Task<TradingAccount?> GetByAccountCodeAsync(string accountCode)
+    public async Task<TradingAccount?> GetByTitleAsync(string title)
     {
-        if (string.IsNullOrWhiteSpace(accountCode))
+        if (string.IsNullOrWhiteSpace(title))
             return null;
 
         await using var connection = new SqliteConnection(_connectionString);
@@ -65,16 +75,19 @@ public class SqliteDatabaseTradingAccountRepository : AbstractDatabaseRepository
 
         await using var command = connection.CreateCommand();
         command.CommandText = @"
-            SELECT Id, Title, AccountCode, ExchangeId, Notes, DisplayOrder, IsActive
+            SELECT Id, Title, ExchangeId, Notes, DisplayOrder, IsActive
             FROM TradingAccounts
-            WHERE AccountCode = @accountCode";
-        command.Parameters.AddWithValue("@accountCode", accountCode);
+            WHERE Title = @title";
+        command.Parameters.AddWithValue("@title", title);
 
         await using var reader = await command.ExecuteReaderAsync();
         if (!await reader.ReadAsync())
             return null;
 
-        return MapTradingAccount(reader);
+        var tradingAccount = MapTradingAccount(reader);
+        await PopulateExchangeAsync(tradingAccount);
+
+        return tradingAccount;
     }
 
     public async Task<TradingAccount?> GetByIdAsync(int id)
@@ -84,7 +97,7 @@ public class SqliteDatabaseTradingAccountRepository : AbstractDatabaseRepository
 
         await using var command = connection.CreateCommand();
         command.CommandText = @"
-            SELECT Id, Title, AccountCode, ExchangeId, Notes, DisplayOrder, IsActive
+            SELECT Id, Title, ExchangeId, Notes, DisplayOrder, IsActive
             FROM TradingAccounts
             WHERE Id = @id";
         command.Parameters.AddWithValue("@id", id);
@@ -93,7 +106,10 @@ public class SqliteDatabaseTradingAccountRepository : AbstractDatabaseRepository
         if (!await reader.ReadAsync())
             return null;
 
-        return MapTradingAccount(reader);
+        var tradingAccount = MapTradingAccount(reader);
+        await PopulateExchangeAsync(tradingAccount);
+
+        return tradingAccount;
     }
 
     public async Task<int> CreateAsync(TradingAccount tradingAccount)
@@ -104,7 +120,7 @@ public class SqliteDatabaseTradingAccountRepository : AbstractDatabaseRepository
         await using var connection = new SqliteConnection(_connectionString);
         await connection.OpenAsync();
 
-        var existingTradingAccount = await GetByAccountCodeAsync(tradingAccount.AccountCode);
+        var existingTradingAccount = await GetByTitleAsync(tradingAccount.Title);
         if (existingTradingAccount != null)
         {
             tradingAccount.Id = existingTradingAccount.Id;
@@ -114,12 +130,11 @@ public class SqliteDatabaseTradingAccountRepository : AbstractDatabaseRepository
 
         await using var command = connection.CreateCommand();
         command.CommandText = @"
-            INSERT INTO TradingAccounts (Title, AccountCode, ExchangeId, Notes, DisplayOrder, IsActive)
-            VALUES (@title, @accountCode, @exchangeId, @notes, @displayOrder, @isActive);
+            INSERT INTO TradingAccounts (Title, ExchangeId, Notes, DisplayOrder, IsActive)
+            VALUES (@title, @exchangeId, @notes, @displayOrder, @isActive);
             SELECT last_insert_rowid();";
 
         command.Parameters.AddWithValue("@title", tradingAccount.Title);
-        command.Parameters.AddWithValue("@accountCode", (object?)tradingAccount.AccountCode ?? DBNull.Value);
         command.Parameters.AddWithValue("@exchangeId", tradingAccount.ExchangeId);
         command.Parameters.AddWithValue("@notes", (object?)tradingAccount.Notes ?? DBNull.Value);
         command.Parameters.AddWithValue("@displayOrder", tradingAccount.DisplayOrder);
@@ -140,9 +155,9 @@ public class SqliteDatabaseTradingAccountRepository : AbstractDatabaseRepository
         await using var connection = new SqliteConnection(_connectionString);
         await connection.OpenAsync();
 
-        var existingTradingAccount = await GetByAccountCodeAsync(tradingAccount.AccountCode);
+        var existingTradingAccount = await GetByTitleAsync(tradingAccount.Title);
         if (existingTradingAccount != null && existingTradingAccount.Id != tradingAccount.Id)
-            throw new InvalidOperationException($"A different trading account with the same code already exists: {tradingAccount.AccountCode}");
+            throw new InvalidOperationException($"A different trading account with the same title already exists: {tradingAccount.Title}");
 
         bool noChanges = existingTradingAccount != null
                       && existingTradingAccount.Title.Equals(tradingAccount.Title)
@@ -155,18 +170,16 @@ public class SqliteDatabaseTradingAccountRepository : AbstractDatabaseRepository
             return false;
 
         await using var command = connection.CreateCommand();
-        // AccountCode and ExchangeId are not updated to avoid complications with existing references,
-        // so only Title, Notes, DisplayOrder and IsActive are updated
+        // Title and ExchangeId are not updated to avoid complications with existing references,
+        // so only Notes, DisplayOrder and IsActive are updated
         command.CommandText = @"
             UPDATE TradingAccounts
-            SET Title = @title,
-                Notes = @notes,
+            SET Notes = @notes,
                 DisplayOrder = @displayOrder,
                 IsActive = @isActive
             WHERE Id = @id";
 
         command.Parameters.AddWithValue("@id", tradingAccount.Id);
-        command.Parameters.AddWithValue("@title", tradingAccount.Title);
         command.Parameters.AddWithValue("@notes", (object?)tradingAccount.Notes ?? DBNull.Value);
         command.Parameters.AddWithValue("@displayOrder", tradingAccount.DisplayOrder);
         command.Parameters.AddWithValue("@isActive", tradingAccount.IsActive ? 1 : 0);
@@ -194,17 +207,22 @@ public class SqliteDatabaseTradingAccountRepository : AbstractDatabaseRepository
         return affectedRows > 0;
     }
 
+    private async Task PopulateExchangeAsync(TradingAccount tradingAccount)
+    {
+        tradingAccount.Exchange = await _exchangeRepository.GetByIdAsync(tradingAccount.ExchangeId)
+                                ?? new Exchange { Id = tradingAccount.ExchangeId };
+    }
+
     private static TradingAccount MapTradingAccount(SqliteDataReader reader)
     {
         return new TradingAccount
         {
             Id = reader.GetInt32(0),
             Title = reader.GetString(1),
-            AccountCode = reader.IsDBNull(2) ? string.Empty : reader.GetString(2),
-            ExchangeId = reader.GetInt32(3),
-            Notes = reader.IsDBNull(4) ? null : reader.GetString(4),
-            DisplayOrder = reader.GetInt32(5),
-            IsActive = reader.GetInt64(6) == 1
+            ExchangeId = reader.GetInt32(2),
+            Notes = reader.IsDBNull(3) ? null : reader.GetString(3),
+            DisplayOrder = reader.GetInt32(4),
+            IsActive = reader.GetInt64(5) == 1
         };
     }
 }

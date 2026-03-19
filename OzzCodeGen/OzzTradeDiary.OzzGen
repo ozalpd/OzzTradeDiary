@@ -503,27 +503,10 @@
           <IsNullable>false</IsNullable>
           <MaxLength>128</MaxLength>
         </BaseProperty>
-        <BaseProperty xsi:type="StringProperty">
-          <Name>AccountCode</Name>
-          <DisplayOrder>10200</DisplayOrder>
-          <DisplayName>Account Code</DisplayName>
-          <Editable>true</Editable>
-          <TypeName>string</TypeName>
-          <IsClientComputed>false</IsClientComputed>
-          <IsServerComputed>false</IsServerComputed>
-          <IsStoreGenerated>false</IsStoreGenerated>
-          <RestrictedData>false</RestrictedData>
-          <UiVisible>true</UiVisible>
-          <EnumTypeName />
-          <IsKey>false</IsKey>
-          <IsForeignKey>false</IsForeignKey>
-          <IsNullable>true</IsNullable>
-          <MaxLength>20</MaxLength>
-        </BaseProperty>
         <BaseProperty xsi:type="SimpleProperty">
           <Name>ExchangeId</Name>
           <Comment>The Id value of exchange record that related to the account.</Comment>
-          <DisplayOrder>10300</DisplayOrder>
+          <DisplayOrder>10200</DisplayOrder>
           <DisplayName>Exchange Id</DisplayName>
           <Editable>true</Editable>
           <TypeName>int</TypeName>
@@ -540,7 +523,7 @@
         <BaseProperty xsi:type="ComplexProperty">
           <Name>Exchange</Name>
           <Comment>Exchange of the account.</Comment>
-          <DisplayOrder>10400</DisplayOrder>
+          <DisplayOrder>10300</DisplayOrder>
           <DisplayName>Exchange</DisplayName>
           <Editable>true</Editable>
           <TypeName>Exchange</TypeName>
@@ -554,7 +537,7 @@
         </BaseProperty>
         <BaseProperty xsi:type="StringProperty">
           <Name>Notes</Name>
-          <DisplayOrder>10500</DisplayOrder>
+          <DisplayOrder>10400</DisplayOrder>
           <DisplayName>Notes</DisplayName>
           <Editable>true</Editable>
           <TypeName>string</TypeName>
@@ -1271,9 +1254,9 @@
   <StripSourcePrefixes>false</StripSourcePrefixes>
   <SourceClassPrefix />
   <CodeEngineList>
-    <string>Localization_Resource_Generator</string>
     <string>Model_Class_Generator</string>
     <string>Sqlite_Scripts_Generator</string>
+    <string>Localization_Resource_Generator</string>
     <string>T-Sql_Scripts_Generator</string>
   </CodeEngineList>
 </CodeGenProject>

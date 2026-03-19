@@ -34,10 +34,6 @@ namespace TD.Models
         [Display(ResourceType = typeof(LocalizedStrings), Name = "Title")]
         public string Title { get; set; }
 
-        [StringLength(20, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLength")]
-        [Display(ResourceType = typeof(LocalizedStrings), Name = "AccountCode")]
-        public string? AccountCode { get; set; }
-
         /// <summary>
         /// The Id value of exchange record that related to the account.
         /// </summary>
@@ -73,7 +69,6 @@ namespace TD.Models
         {
             var clone = new TradingAccount();
             clone.Title = this.Title;
-            clone.AccountCode = this.AccountCode;
             clone.ExchangeId = this.ExchangeId;
             clone.Notes = this.Notes;
             clone.DisplayOrder = this.DisplayOrder;

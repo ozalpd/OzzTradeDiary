@@ -174,14 +174,6 @@
           <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
         </ModelPropertySetting>
         <ModelPropertySetting>
-          <Name>AccountCode</Name>
-          <Exclude>false</Exclude>
-          <DataType />
-          <DTOExclusion>false</DTOExclusion>
-          <HtmlEncode xsi:nil="true" />
-          <Required />
-        </ModelPropertySetting>
-        <ModelPropertySetting>
           <Name>ExchangeId</Name>
           <Exclude>false</Exclude>
           <DataType />

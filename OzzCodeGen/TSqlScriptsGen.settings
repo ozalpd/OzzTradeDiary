@@ -303,19 +303,6 @@
           <DoNotLog>false</DoNotLog>
         </StorageColumnSetting>
         <StorageColumnSetting>
-          <Name>AccountCode</Name>
-          <Exclude>false</Exclude>
-          <DataType>nVarChar</DataType>
-          <Length>20</Length>
-          <PrimaryKey>false</PrimaryKey>
-          <Indexed>false</Indexed>
-          <Unique>false</Unique>
-          <SortDesc>false</SortDesc>
-          <Nullable>true</Nullable>
-          <CheckIfAltered>false</CheckIfAltered>
-          <DoNotLog>false</DoNotLog>
-        </StorageColumnSetting>
-        <StorageColumnSetting>
           <Name>ExchangeId</Name>
           <Exclude>false</Exclude>
           <DataType>int</DataType>

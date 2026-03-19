@@ -15,7 +15,6 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
@@ -29,13 +28,8 @@
                  Style="{StaticResource ValidationTextBoxStyle}"
                  Text="{Binding Title, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}" />
 
-        <TextBlock Grid.Row="1" Grid.Column="0" Margin="0,0,8,8" VerticalAlignment="Center" Text="{x:Static i18n:LocalizedStrings.AccountCode}" />
-        <TextBox Grid.Row="1" Grid.Column="1" Margin="0,0,0,18"
-                 Style="{StaticResource ValidationTextBoxStyle}"
-                 Text="{Binding AccountCode, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}" />
-
-        <TextBlock Grid.Row="2" Grid.Column="0" Margin="0,0,8,8" VerticalAlignment="Center" Text="{x:Static i18n:LocalizedStrings.Exchange}" />
-        <ComboBox Grid.Row="2"
+        <TextBlock Grid.Row="1" Grid.Column="0" Margin="0,0,8,8" VerticalAlignment="Center" Text="{x:Static i18n:LocalizedStrings.Exchange}" />
+        <ComboBox Grid.Row="1"
                   Grid.Column="1"
                   Margin="0,0,0,18"
                   Style="{StaticResource ValidationComboBoxStyle}"
@@ -44,13 +38,12 @@
                   SelectedValuePath="Id"
                   SelectedValue="{Binding ExchangeId, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}" />
 
-        <TextBlock Grid.Row="3" Grid.Column="0" Margin="0,0,8,8" VerticalAlignment="Center" Text="{x:Static i18n:LocalizedStrings.DisplayOrder}" />
-        <TextBox Grid.Row="3" Grid.Column="1" Margin="0,0,0,18" Text="{Binding DisplayOrder, UpdateSourceTrigger=PropertyChanged}" />
+        <TextBlock Grid.Row="2" Grid.Column="0" Margin="0,0,8,8" VerticalAlignment="Center" Text="{x:Static i18n:LocalizedStrings.DisplayOrder}" />
+        <TextBox Grid.Row="2" Grid.Column="1" Margin="0,0,0,18" Text="{Binding DisplayOrder, UpdateSourceTrigger=PropertyChanged}" />
 
-        <TextBlock Grid.Row="4" Grid.Column="0" Margin="0,0,8,8" VerticalAlignment="Center" Text="{x:Static i18n:LocalizedStrings.IsActive}" />
-        <CheckBox Grid.Row="4" Grid.Column="1" Margin="0,0,0,8" IsChecked="{Binding IsActive}" />
-
-        <Grid Grid.Row="5" Grid.ColumnSpan="2">
+        <TextBlock Grid.Row="3" Grid.Column="0" Margin="0,0,8,8" VerticalAlignment="Center" Text="{x:Static i18n:LocalizedStrings.IsActive}" />
+        <CheckBox Grid.Row="3" Grid.Column="1" Margin="0,0,0,8" IsChecked="{Binding IsActive}" />
+        <Grid Grid.Row="4" Grid.ColumnSpan="2">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
@@ -63,7 +56,7 @@
                      Text="{Binding Notes, UpdateSourceTrigger=PropertyChanged}" />
         </Grid>
 
-        <StackPanel Grid.Row="6" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,12,0,0">
+        <StackPanel Grid.Row="5" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,12,0,0">
             <Button Content="{x:Static i18n:ActionStrings.OK}" Width="90" Margin="0,0,8,0" IsDefault="True" IsEnabled="{Binding IsValid}" Click="OkButton_Click" />
             <Button Content="{x:Static i18n:ActionStrings.Cancel}" Width="90" IsCancel="True" />
         </StackPanel>
