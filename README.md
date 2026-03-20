@@ -4,7 +4,7 @@ A Windows desktop trade journaling application for tracking trades across multip
 
 > **Status**: Pre-release development (no public release yet)
 > 
-> **Internal tracking versions**: `OzzTradeDiary` `0.0.10`, `OzzTradeDiary.WPF` `0.0.10`, `OzzTradeDiary.SQLite` `0.0.10`, `OzzTradeDiary.i18n` `0.0.10`
+> **Internal tracking versions**: `OzzTradeDiary` `0.0.11`, `OzzTradeDiary.WPF` `0.0.11`, `OzzTradeDiary.SQLite` `0.0.11`, `OzzTradeDiary.i18n` `0.0.11`
 
 ## Changelog
 
@@ -31,7 +31,8 @@ See [`CHANGELOG.md`](CHANGELOG.md) for release history.
 - Dedicated localization project `OzzTradeDiary.i18n` with generated resources: `ActionStrings`, `CommonStrings`, `ErrorStrings`, `LocalizedStrings`, `MessageStrings` (`default` + `tr`)
 - Model classes apply localized DataAnnotations using `TD.i18n` resources for display names and validation messages
 - Maintenance window accessible from menu, with singleton window management (bring-to-front if already open)
-- Maintenance window provides Add, Save, Refresh, and Delete (Exchange) CRUD operations for Currency, Exchange, TradingAccount, and Symbol
+- Maintenance window provides Add, Edit, Save, Refresh, and Delete (Exchange) CRUD operations for Currency, Exchange, TradingAccount, and Symbol
+- `CurrencyCreate`/`CurrencyEdit` and `ExchangeCreate`/`ExchangeEdit` dialogs with dedicated view models integrated into maintenance flows
 - `DeleteExchangeCommand` with `CanExecute` safety checks (disabled when exchange is referenced by Symbols or TradingAccounts) and `Yes/No` confirmation before deletion
 - `TradingAccountCreate` dialog (renamed from `CreateTradingAccount`) and `TradingAccountCreateVM` (renamed from `CreateTradingAccountVM`) with icon-based action buttons, live per-field validation, inline error display, and OK button enabled only when all required fields are valid
 - `TradingAccountCreate` and maintenance grids display `ExchangeCode` instead of numeric `ExchangeId`

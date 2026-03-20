@@ -38,8 +38,32 @@ namespace TD.WPF.Views.Maintenance
 
         private async void AddCurrency_Click(object sender, RoutedEventArgs e)
         {
-            _viewModel.Currencies.Add(new Currency { IsActive = true });
-            await Task.CompletedTask;
+            var dialog = new CurrencyCreate { Owner = this };
+            if (dialog.ShowDialog() == true)
+            {
+                _viewModel.Currencies.Add(dialog.Currency);
+                await ExecuteUiActionAsync(_viewModel.SaveCurrenciesAsync, "Save currencies");
+                await ExecuteUiActionAsync(_viewModel.LoadCurrenciesAsync, "Refresh currencies");
+            }
+        }
+
+        private async void EditCurrencys_Click(object sender, RoutedEventArgs e)
+        {
+
+            if (_viewModel.SelectedCurrency == null)
+                return;
+
+            var dialog = new CurrencyEdit(_viewModel.SelectedCurrency)
+            {
+                Owner = this
+            };
+
+            if (dialog.ShowDialog() == true)
+            {
+                _viewModel.Currencies.Add(dialog.Currency);
+                await ExecuteUiActionAsync(_viewModel.SaveCurrenciesAsync, "Save currencies");
+                await ExecuteUiActionAsync(_viewModel.LoadCurrenciesAsync, "Refresh currencies");
+            }
         }
 
         private async void SaveCurrencies_Click(object sender, RoutedEventArgs e)
@@ -55,8 +79,29 @@ namespace TD.WPF.Views.Maintenance
 
         private async void AddExchange_Click(object sender, RoutedEventArgs e)
         {
-            _viewModel.Exchanges.Add(new Exchange { IsActive = true });
-            await Task.CompletedTask;
+            var dialog = new ExchangeCreate { Owner = this };
+            if (dialog.ShowDialog() == true)
+            {
+                _viewModel.Exchanges.Add(dialog.Exchange);
+                await ExecuteUiActionAsync(_viewModel.SaveExchangesAsync, "Save exchanges");
+                await ExecuteUiActionAsync(_viewModel.LoadExchangesAsync, "Refresh exchanges");
+            }
+        }
+
+        private async void EditExchanges_Click(object sender, RoutedEventArgs e)
+        {
+            if (_viewModel.SelectedExchange == null)
+                return;
+            var dialog = new ExchangeEdit(_viewModel.SelectedExchange)
+            {
+                Owner = this
+            };
+            if (dialog.ShowDialog() == true)
+            {
+                _viewModel.Exchanges.Add(dialog.Exchange);
+                await ExecuteUiActionAsync(_viewModel.SaveExchangesAsync, "Save exchanges");
+                await ExecuteUiActionAsync(_viewModel.LoadExchangesAsync, "Refresh exchanges");
+            }
         }
 
         private async void SaveExchanges_Click(object sender, RoutedEventArgs e)

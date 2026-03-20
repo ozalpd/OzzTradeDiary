@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.0.11] - 2026-03-20
+
+### Added
+- `CurrencyCreate` and `CurrencyEdit` views with corresponding `CurrencyCreateVM` and `CurrencyEditVM` for modal create/edit flows in maintenance.
+- `ExchangeCreate` and `ExchangeEdit` views with corresponding `ExchangeCreateVM` and `ExchangeEditVM` for modal create/edit flows in maintenance.
+
+### Changed
+- `MaintenanceWindow` currency and exchange actions now use the new create/edit dialogs and view models, with save + refresh flow after successful dialog completion.
+- Bumped all project versions to `0.0.11` (`OzzTradeDiary`, `OzzTradeDiary.WPF`, `OzzTradeDiary.SQLite`, `OzzTradeDiary.i18n`).
+
 ## [0.0.10] - 2026-03-19
 
 ### Added
@@ -20,7 +30,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 ### Changed
 - Bumped all project versions to `0.0.9` (`OzzTradeDiary`, `OzzTradeDiary.WPF`, `OzzTradeDiary.SQLite`, `OzzTradeDiary.i18n`).
 - Renamed `CreateTradingAccountVM` to `TradingAccountCreateVM` and `CreateTradingAccount` view to `TradingAccountCreate` to follow entity-first, verb-last naming convention.
-- Documented naming convention: View/ViewModel names use entity-first, verb-last order (e.g., `TradingAccountCreate`, `TradingAccountCreateVM`) for Solution Explorer grouping; method names remain verb-first (e.g., `CreateTradingAccount()`).
+- Documented naming convention: View/ViewModel names use entity-first, verb-last order (e.g., `TradingAccountCreate`, `TradingAccountCreateVM`) for Solution Explorer grouping; method names remain verb-first (e.g., `CreateTradingAccount()`, `DeleteExchange()`).
 
 ## [0.0.8] - 2026-03-19
 

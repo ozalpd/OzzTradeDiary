@@ -103,10 +103,25 @@
                                 <Path Fill="#0044D7" Data="{StaticResource arrow-clockwise}"/>
                             </Viewbox>
                         </Button>
-                        
+                        <Button ToolTip="{x:Static i18n:ActionStrings.Edit}"
+                                Click="EditExchanges_Click">
+                            <Button.Style>
+                                <Style TargetType="Button" BasedOn="{StaticResource IconButtonStyle-28x24}">
+                                    <Setter Property="IsEnabled" Value="True" />
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding SelectedExchange}" Value="{x:Null}">
+                                            <Setter Property="IsEnabled" Value="False" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Style>
+                            <Viewbox Width="14" Height="14">
+                                <Path Fill="#0044D7" Data="{StaticResource pencil-square}"/>
+                            </Viewbox>
+                        </Button>
+
                         <Border Width="32" Background="Transparent" />
-                        <Border Width="32" Background="Transparent" />
-                        
+
                         <Button Style="{StaticResource IconButtonStyle-28x24}" 
                                 ToolTip="{x:Static i18n:LocalizedStrings.DeleteExchange}"
                                 Background="#C80000"
@@ -220,6 +235,22 @@
                                 Click="RefreshCurrencies_Click">
                             <Viewbox Width="14" Height="14">
                                 <Path Fill="#0044D7" Data="{StaticResource arrow-clockwise}"/>
+                            </Viewbox>
+                        </Button>
+                        <Button ToolTip="{x:Static i18n:ActionStrings.Edit}"
+                                Click="EditCurrencys_Click">
+                            <Button.Style>
+                                <Style TargetType="Button" BasedOn="{StaticResource IconButtonStyle-28x24}">
+                                    <Setter Property="IsEnabled" Value="True" />
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding SelectedCurrency}" Value="{x:Null}">
+                                            <Setter Property="IsEnabled" Value="False" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Style>
+                            <Viewbox Width="14" Height="14">
+                                <Path Fill="#0044D7" Data="{StaticResource pencil-square}"/>
                             </Viewbox>
                         </Button>
                     </StackPanel>
