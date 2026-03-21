@@ -5,10 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TD.WPF.Views.Maintenance"
         xmlns:i18n="clr-namespace:TD.i18n;assembly=OzzTradeDiary.i18n"
-        mc:Ignorable="d"
-        Title="{x:Static i18n:LocalizedStrings.CreateCurrency}" Height="320" Width="420" MinHeight="320" MinWidth="420"
+        Title="{x:Static i18n:LocalizedStrings.CreateCurrency}"
+        Height="320" Width="420" MinHeight="320" MinWidth="420"
         WindowStartupLocation="CenterOwner"
-        FocusManager.FocusedElement="{Binding ElementName=CurrencyTickerTextBox}">
+        FocusManager.FocusedElement="{Binding ElementName=CurrencyTickerTextBox}"
+        mc:Ignorable="d">
     <Grid Margin="12">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />

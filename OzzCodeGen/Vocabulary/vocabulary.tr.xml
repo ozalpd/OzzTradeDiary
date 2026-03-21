@@ -621,6 +621,10 @@
     <Translation>Ondalık Dizisi</Translation>
   </Vocab>
   <Vocab>
+    <Name>DefaultCurrency</Name>
+    <Translation>Varsayılan Döviz</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Delete</Name>
     <Translation>Sil</Translation>
   </Vocab>

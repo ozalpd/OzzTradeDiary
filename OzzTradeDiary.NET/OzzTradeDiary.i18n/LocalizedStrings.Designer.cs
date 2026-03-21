@@ -565,6 +565,15 @@ namespace TD.i18n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Default Currency.
+        /// </summary>
+        public static string DefaultCurrency {
+            get {
+                return ResourceManager.GetString("DefaultCurrency", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Delete Currency.
         /// </summary>
         public static string DeleteCurrency {

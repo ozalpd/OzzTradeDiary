@@ -26,6 +26,7 @@ public class SqliteDatabaseExchangeRepository : AbstractDatabaseRepository, IDat
         SqliteDbScriptInitializer.ExecuteScript(connection, "Exchange.sql");
         SqliteDbScriptInitializer.SeedIfEmpty(connection, "Exchanges", "Exchanges-Data.sql");
     }
+    private readonly string _selectStatement = "SELECT Id, ExchangeName, ExchangeCode, DefaultCurrency, DisplayOrder, IsActive FROM Exchanges";
 
     public async Task<IReadOnlyList<Exchange>> GetAllAsync(bool? isActive = null)
     {
@@ -35,9 +36,7 @@ public class SqliteDatabaseExchangeRepository : AbstractDatabaseRepository, IDat
         await connection.OpenAsync();
 
         await using var command = connection.CreateCommand();
-        command.CommandText = @"
-            SELECT Id, ExchangeName, ExchangeCode, DisplayOrder, IsActive
-            FROM Exchanges";
+        command.CommandText = _selectStatement;
 
         if (isActive.HasValue)
         {
@@ -65,9 +64,7 @@ public class SqliteDatabaseExchangeRepository : AbstractDatabaseRepository, IDat
         await connection.OpenAsync();
 
         await using var command = connection.CreateCommand();
-        command.CommandText = @"
-            SELECT Id, ExchangeName, ExchangeCode, DisplayOrder, IsActive
-            FROM Exchanges
+        command.CommandText = $@"{_selectStatement}
             WHERE ExchangeCode = @exchangeCode";
         command.Parameters.AddWithValue("@exchangeCode", exchangeCode);
 
@@ -84,9 +81,7 @@ public class SqliteDatabaseExchangeRepository : AbstractDatabaseRepository, IDat
         await connection.OpenAsync();
 
         await using var command = connection.CreateCommand();
-        command.CommandText = @"
-            SELECT Id, ExchangeName, ExchangeCode, DisplayOrder, IsActive
-            FROM Exchanges
+        command.CommandText = $@"{_selectStatement}
             WHERE Id = @id";
         command.Parameters.AddWithValue("@id", id);
 
@@ -115,12 +110,13 @@ public class SqliteDatabaseExchangeRepository : AbstractDatabaseRepository, IDat
 
         await using var command = connection.CreateCommand();
         command.CommandText = @"
-            INSERT INTO Exchanges (ExchangeName, ExchangeCode, DisplayOrder, IsActive)
-            VALUES (@exchangeName, @exchangeCode, @displayOrder, @isActive);
+            INSERT INTO Exchanges (ExchangeName, ExchangeCode, DefaultCurrency, DisplayOrder, IsActive)
+            VALUES (@exchangeName, @exchangeCode, @defaultCurrency, @displayOrder, @isActive);
             SELECT last_insert_rowid();";
 
         command.Parameters.AddWithValue("@exchangeName", exchange.ExchangeName);
         command.Parameters.AddWithValue("@exchangeCode", exchange.ExchangeCode);
+        AddNullableTextParameter(command, "@defaultCurrency", exchange.DefaultCurrency);
         command.Parameters.AddWithValue("@displayOrder", exchange.DisplayOrder);
         command.Parameters.AddWithValue("@isActive", exchange.IsActive ? 1 : 0);
 
@@ -145,6 +141,7 @@ public class SqliteDatabaseExchangeRepository : AbstractDatabaseRepository, IDat
 
         bool noChanges = existingExchange != null
                       && existingExchange.ExchangeName.Equals(exchange.ExchangeName)
+                      && existingExchange.DefaultCurrency == exchange.DefaultCurrency
                       && existingExchange.DisplayOrder == exchange.DisplayOrder
                       && existingExchange.IsActive == exchange.IsActive;
 
@@ -157,12 +154,14 @@ public class SqliteDatabaseExchangeRepository : AbstractDatabaseRepository, IDat
         command.CommandText = @"
             UPDATE Exchanges
             SET ExchangeName = @exchangeName,
+                DefaultCurrency = @defaultCurrency,
                 DisplayOrder = @displayOrder,
                 IsActive = @isActive
             WHERE Id = @id";
 
         command.Parameters.AddWithValue("@id", exchange.Id);
         command.Parameters.AddWithValue("@exchangeName", exchange.ExchangeName);
+        AddNullableTextParameter(command, "@defaultCurrency", exchange.DefaultCurrency);
         command.Parameters.AddWithValue("@displayOrder", exchange.DisplayOrder);
         command.Parameters.AddWithValue("@isActive", exchange.IsActive ? 1 : 0);
 
@@ -189,6 +188,15 @@ public class SqliteDatabaseExchangeRepository : AbstractDatabaseRepository, IDat
         return affectedRows > 0;
     }
 
+    private static void AddNullableTextParameter(SqliteCommand command, string parameterName, string? value)
+    {
+        var parameter = command.CreateParameter();
+        parameter.ParameterName = parameterName;
+        parameter.SqliteType = SqliteType.Text;
+        parameter.Value = value is null ? DBNull.Value : value;
+        command.Parameters.Add(parameter);
+    }
+
     private static Exchange MapExchange(SqliteDataReader reader)
     {
         return new Exchange
@@ -196,8 +204,9 @@ public class SqliteDatabaseExchangeRepository : AbstractDatabaseRepository, IDat
             Id = reader.GetInt32(0),
             ExchangeName = reader.GetString(1),
             ExchangeCode = reader.GetString(2),
-            DisplayOrder = reader.GetInt32(3),
-            IsActive = reader.GetInt64(4) == 1
+            DefaultCurrency = reader.IsDBNull(3) ? null : reader.GetString(3),
+            DisplayOrder = reader.GetInt32(4),
+            IsActive = reader.GetInt64(5) == 1
         };
     }
 }

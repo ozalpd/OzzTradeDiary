@@ -158,6 +158,14 @@
           <HtmlEncode xsi:nil="true" />
           <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
         </ModelPropertySetting>
+        <ModelPropertySetting>
+          <Name>DefaultCurrency</Name>
+          <Exclude>false</Exclude>
+          <DataType />
+          <DTOExclusion>false</DTOExclusion>
+          <HtmlEncode xsi:nil="true" />
+          <Required />
+        </ModelPropertySetting>
       </Properties>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="ModelClassEntitySetting">

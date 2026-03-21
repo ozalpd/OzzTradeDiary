@@ -621,6 +621,10 @@
     <Translation>Decimal Array</Translation>
   </Vocab>
   <Vocab>
+    <Name>DefaultCurrency</Name>
+    <Translation>Default Currency</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Delete</Name>
     <Translation>Delete</Translation>
   </Vocab>

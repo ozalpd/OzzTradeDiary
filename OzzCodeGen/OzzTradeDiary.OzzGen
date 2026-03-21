@@ -458,6 +458,7 @@
         </BaseProperty>
         <BaseProperty xsi:type="StringProperty">
           <Name>ExchangeCode</Name>
+          <Comment />
           <DisplayOrder>10200</DisplayOrder>
           <DisplayName>Exchange Code</DisplayName>
           <Editable>true</Editable>
@@ -471,6 +472,24 @@
           <IsKey>false</IsKey>
           <IsForeignKey>false</IsForeignKey>
           <IsNullable>false</IsNullable>
+          <MaxLength>8</MaxLength>
+        </BaseProperty>
+        <BaseProperty xsi:type="StringProperty">
+          <Name>DefaultCurrency</Name>
+          <Comment>Ticker of default curreny of the exchange.</Comment>
+          <DisplayOrder>10300</DisplayOrder>
+          <DisplayName>Default Currency</DisplayName>
+          <Editable>true</Editable>
+          <TypeName>string</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <IsStoreGenerated>false</IsStoreGenerated>
+          <RestrictedData>false</RestrictedData>
+          <UiVisible>true</UiVisible>
+          <EnumTypeName />
+          <IsKey>false</IsKey>
+          <IsForeignKey>false</IsForeignKey>
+          <IsNullable>true</IsNullable>
           <MaxLength>8</MaxLength>
         </BaseProperty>
       </Properties>
@@ -1254,9 +1273,9 @@
   <StripSourcePrefixes>false</StripSourcePrefixes>
   <SourceClassPrefix />
   <CodeEngineList>
+    <string>Model_Class_Generator</string>
     <string>Localization_Resource_Generator</string>
     <string>Sqlite_Scripts_Generator</string>
-    <string>Model_Class_Generator</string>
     <string>T-Sql_Scripts_Generator</string>
   </CodeEngineList>
 </CodeGenProject>

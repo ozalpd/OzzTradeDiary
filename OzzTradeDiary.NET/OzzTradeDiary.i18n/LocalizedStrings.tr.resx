@@ -226,6 +226,9 @@
     <data name="DecimalArray" xml:space="preserve">
         <value>Ondalık Dizisi</value>
     </data>
+    <data name="DefaultCurrency" xml:space="preserve">
+        <value>Varsayılan Döviz</value>
+    </data>
     <data name="DeleteCurrency" xml:space="preserve">
         <value>Dövizi Sil</value>
     </data>

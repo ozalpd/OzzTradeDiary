@@ -4,7 +4,7 @@ A Windows desktop trade journaling application for tracking trades across multip
 
 > **Status**: Pre-release development (no public release yet)
 > 
-> **Internal tracking versions**: `OzzTradeDiary` `0.0.12`, `OzzTradeDiary.WPF` `0.0.12`, `OzzTradeDiary.SQLite` `0.0.12`, `OzzTradeDiary.i18n` `0.0.12`
+> **Internal tracking versions**: `OzzTradeDiary` `0.0.13`, `OzzTradeDiary.WPF` `0.0.13`, `OzzTradeDiary.SQLite` `0.0.13`, `OzzTradeDiary.i18n` `0.0.13`
 
 ## Changelog
 
@@ -23,16 +23,20 @@ See [`CHANGELOG.md`](CHANGELOG.md) for release history.
 
 - DPI-aware multi-monitor window positioning
 - Domain enums wired in models (including `OrderType` and `TradeDirection`)
+- `TD.Extensions.EnumExtension` shared helper in `OzzTradeDiary` for building enum value collections and reading localized `Display` attribute text for UI bindings across WPF and future platform frontends
 - Generated SQLite schema includes `OrderType` for `EntryOrder`, `TakeProfitOrder`, and `StopLossOrder`
 - Repositories implemented: `Currency`, `Exchange`, `TradingAccount`, `Symbol`
+- `Exchange` includes nullable `DefaultCurrency`, persisted in SQLite as SQL `NULL` when not set
 - `AbstractDatabaseRepository` base class provides shared `ValidateOrThrow` helper called in `CreateAsync`/`UpdateAsync` — throws `ValidationException` with all DataAnnotations error messages
 - `AbstractDiaryVM` base ViewModel consolidates repository initialization and CRUD operations shared across ViewModels
+- `AbstractEditVM` now contains the `IIsDirty` contract, and the standalone `IIsDirty.cs` file has been removed
 - `ModelValidator` shared utility in `TD.Validation` for DataAnnotations-based model validation reusable by WPF, MAUI, and ASP.NET
 - Dedicated localization project `OzzTradeDiary.i18n` with generated resources: `ActionStrings`, `CommonStrings`, `ErrorStrings`, `LocalizedStrings`, `MessageStrings` (`default` + `tr`)
 - Model classes apply localized DataAnnotations using `TD.i18n` resources for display names and validation messages
 - Maintenance window accessible from menu, with singleton window management (bring-to-front if already open)
 - Maintenance window provides Add, Edit, Save, Refresh, and Delete (Exchange) CRUD operations for Currency, Exchange, TradingAccount, and Symbol
-- `CurrencyCreate`/`CurrencyEdit` and `ExchangeCreate`/`ExchangeEdit` dialogs with dedicated view models integrated into maintenance flows
+- `CurrencyCreate`/`CurrencyEdit`, `ExchangeCreate`/`ExchangeEdit`, and `SymbolCreate`/`SymbolEdit` dialogs with dedicated view models integrated into maintenance flows
+- `SymbolCreate` market type ComboBox shows localized display text from enum `Display` attributes instead of blank items
 - `AbstractEditView` base window provides shared unsaved-changes confirmation behavior for edit dialogs
 - `TradingAccountEdit`, `ExchangeEdit`, and `CurrencyEdit` inherit from `AbstractEditView` for consistent `Yes/No/Cancel` close handling when there are pending changes
 - `DeleteExchangeCommand` with `CanExecute` safety checks (disabled when exchange is referenced by Symbols or TradingAccounts) and `Yes/No` confirmation before deletion
@@ -115,13 +119,14 @@ Four-project MVVM architecture layered for platform portability:
 
 | Project | Target | Role |
 |---------|--------|------|
-| **OzzTradeDiary** | `net10.0` | Core data models and shared validation utilities (for example `TD.Validation.ModelValidator`) with no platform dependencies |
+| **OzzTradeDiary** | `net10.0` | Core data models, shared helpers such as `TD.Extensions.EnumExtension`, and shared validation utilities (for example `TD.Validation.ModelValidator`) with no platform dependencies |
 | **OzzTradeDiary.i18n** | `net10.0` | Shared localization resources (`*.resx`/designer classes) generated from OzzCodeGen/OzzGen inputs |
 | **OzzTradeDiary.SQLite** | `net10.0` | Data access layer — raw SQLite via Microsoft.Data.Sqlite, repository pattern |
 | **OzzTradeDiary.WPF** | `net10.0-windows10.0.19041.0` | WPF desktop frontend — views, view models, commands, services |
 
 Core models, localization resources, and data access are platform-independent, enabling future frontends (MAUI, web, etc.) to reuse them.
 Model classes localize display metadata and validation messages through DataAnnotations that reference `TD.i18n` resource types.
+Shared enum helper logic lives in `TD.Extensions` so UI projects such as WPF and future MAUI frontends can reuse the same enum-display behavior.
 
 ## SQLite Repository and Script Conventions
 
@@ -135,6 +140,7 @@ Model classes localize display metadata and validation messages through DataAnno
   - `Currency.CurrencyTicker`
   - `Exchange.ExchangeCode`
   - `Symbol.TickerFull`
+- Nullable text fields such as `Exchange.DefaultCurrency` should be stored as SQL `NULL`, not the literal string `"null"`.
 
 ## Database Initialization and Seed Data
 

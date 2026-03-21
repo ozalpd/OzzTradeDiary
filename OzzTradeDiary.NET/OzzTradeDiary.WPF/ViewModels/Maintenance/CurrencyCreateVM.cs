@@ -24,9 +24,9 @@ namespace TD.WPF.ViewModels.Maintenance
             get { return _currency.CurrencyTicker; }
             set
             {
-                if (_currency.CurrencyTicker != value)
+                if (!string.IsNullOrWhiteSpace(value) && !value.Equals(_currency.CurrencyTicker, StringComparison.OrdinalIgnoreCase))
                 {
-                    _currency.CurrencyTicker = value;
+                    _currency.CurrencyTicker = value.ToUpperInvariant();
                     RaisePropertyChanged(nameof(CurrencyTicker));
                     ValidateProperty(_currency, nameof(CurrencyTicker));
                 }

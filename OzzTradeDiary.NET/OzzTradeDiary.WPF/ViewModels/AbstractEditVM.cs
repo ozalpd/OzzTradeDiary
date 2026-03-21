@@ -1,5 +1,10 @@
 ﻿namespace TD.WPF.ViewModels
 {
+    public interface IIsDirty
+    {
+        bool IsDirty { get; }
+    }
+
     internal class AbstractEditVM : AbstractDataErrorInfoVM, IIsDirty
     {
         public AbstractEditVM()

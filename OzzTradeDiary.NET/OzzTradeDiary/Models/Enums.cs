@@ -1,4 +1,7 @@
-﻿namespace TD.Models
+﻿using System.ComponentModel.DataAnnotations;
+using TD.i18n;
+
+namespace TD.Models
 {
     public enum EntryMethod : int
     {
@@ -8,15 +11,25 @@
 
     public enum MarketType : int
     {
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "Unspecified")]
         Unspecified = 0,
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "Stock")]
         Stock = 20,
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "Fund")]
         Fund = 30,
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "Futures")]
         Futures = 40,
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "Forex")]
         Forex = 50,
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "Option")]
         Option = 60,
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "Commodity")]
         Commodity = 70,
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "Crypto")]
         Crypto = 80,
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "CryptoPerpetual")]
         CryptoPerpetual = 90,
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "Index")]
         Index = 100
     }
 

@@ -7,8 +7,9 @@
         xmlns:sys="clr-namespace:System;assembly=System.Runtime"
         xmlns:i18n="clr-namespace:TD.i18n;assembly=OzzTradeDiary.i18n"
         xmlns:local="clr-namespace:TD.WPF.Views.Maintenance"
-        mc:Ignorable="d"
-        Title="Maintenance Window" Height="700" Width="1200" MinHeight="520" MinWidth="900">
+        Title="Maintenance Window"
+        Height="700" Width="1200" MinHeight="520" MinWidth="900"
+        mc:Ignorable="d">
     <Window.Resources>
         <ObjectDataProvider x:Key="MarketTypeValues"
                             MethodName="GetValues"
@@ -155,7 +156,8 @@
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Id" Binding="{Binding Id}" IsReadOnly="True" Width="70" />
                             <DataGridTextColumn Header="ExchangeName" Binding="{Binding ExchangeName}" Width="260" />
-                            <DataGridTextColumn Header="ExchangeCode" Binding="{Binding ExchangeCode}" Width="200" />
+                            <DataGridTextColumn Header="ExchangeCode" Binding="{Binding ExchangeCode}" Width="180" />
+                            <DataGridTextColumn Header="DefaultCurrency" Binding="{Binding DefaultCurrency}" Width="180" />
                             <DataGridTextColumn Header="DisplayOrder" Binding="{Binding DisplayOrder}" Width="130" />
                             <DataGridCheckBoxColumn Header="IsActive" Binding="{Binding IsActive}" Width="120" />
                         </DataGrid.Columns>
@@ -185,6 +187,22 @@
                                 Click="RefreshSymbols_Click">
                             <Viewbox Width="14" Height="14">
                                 <Path Fill="#0044D7" Data="{StaticResource arrow-clockwise}"/>
+                            </Viewbox>
+                        </Button>
+                        <Button ToolTip="{x:Static i18n:ActionStrings.Edit}"
+                                Click="EditSymbols_Click">
+                            <Button.Style>
+                                <Style TargetType="Button" BasedOn="{StaticResource IconButtonStyle-28x24}">
+                                    <Setter Property="IsEnabled" Value="True" />
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding SelectedSymbol}" Value="{x:Null}">
+                                            <Setter Property="IsEnabled" Value="False" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Style>
+                            <Viewbox Width="14" Height="14">
+                                <Path Fill="#0044D7" Data="{StaticResource pencil-square}"/>
                             </Viewbox>
                         </Button>
                     </StackPanel>

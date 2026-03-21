@@ -8,7 +8,7 @@
    IsActive Indicates if the symbol is active (1) or inactive (0)
 */
 Insert Into Symbols(Id, TickerFull, Ticker, BaseCurrency, PriceCurrency, Description, ExchangeId, MarketType, DisplayOrder, IsActive)
-			values (1, 'NASDAQ:AAPL', 'AAPL', 'USD', 'USD', 'Apple Inc.', 2, 20, 1000, 1);
+			values (1, 'NASDAQ:AAPL', 'AAPL', null, 'USD', 'Apple Inc.', 2, 20, 1000, 1);
 
 Insert Into Symbols(Id, TickerFull, Ticker, BaseCurrency, PriceCurrency, Description, ExchangeId, MarketType, DisplayOrder, IsActive)
 			values (2, 'BYBIT:BTCUSDT', 'BTCUSDT', 'BTC', 'USDT', 'Bitcoin Spot', 6, 80, 1000, 1);

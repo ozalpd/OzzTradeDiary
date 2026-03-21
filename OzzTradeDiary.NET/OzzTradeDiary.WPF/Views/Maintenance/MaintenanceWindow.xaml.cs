@@ -156,8 +156,30 @@ namespace TD.WPF.Views.Maintenance
 
         private async void AddSymbol_Click(object sender, RoutedEventArgs e)
         {
-            _viewModel.Symbols.Add(new Symbol { IsActive = true, MarketType = MarketType.Unspecified });
-            await Task.CompletedTask;
+            var dialog = new SymbolCreate { Owner = this };
+            if (dialog.ShowDialog() == true)
+            {
+                _viewModel.Symbols.Add(dialog.Symbol);
+                await ExecuteUiActionAsync(_viewModel.SaveSymbolsAsync, "Save symbols");
+                await ExecuteUiActionAsync(_viewModel.LoadSymbolsAsync, "Refresh symbols");
+            }
+        }
+
+        private async void EditSymbols_Click(object sender, RoutedEventArgs e)
+        {
+            if (_viewModel.SelectedSymbol == null)
+                return;
+
+            var dialog = new SymbolEdit(_viewModel.SelectedSymbol)
+            {
+                Owner = this
+            };
+
+            if (dialog.ShowDialog() == true && dialog.IsDirty)
+            {
+                await ExecuteUiActionAsync(_viewModel.SaveSymbolsAsync, "Save symbols");
+                await ExecuteUiActionAsync(_viewModel.LoadSymbolsAsync, "Refresh symbols");
+            }
         }
 
         private async void SaveSymbols_Click(object sender, RoutedEventArgs e)

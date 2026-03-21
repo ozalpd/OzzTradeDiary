@@ -39,6 +39,13 @@ namespace TD.Models
         [Display(ResourceType = typeof(LocalizedStrings), Name = "ExchangeCode")]
         public string ExchangeCode { get; set; }
 
+        /// <summary>
+        /// Ticker of default curreny of the exchange.
+        /// </summary>
+        [StringLength(8, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLength")]
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "DefaultCurrency")]
+        public string? DefaultCurrency { get; set; }
+
         [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
         [Display(ResourceType = typeof(LocalizedStrings), Name = "DisplayOrder")]
         public int DisplayOrder { get; set; }
@@ -57,6 +64,7 @@ namespace TD.Models
             var clone = new Exchange();
             clone.ExchangeName = this.ExchangeName;
             clone.ExchangeCode = this.ExchangeCode;
+            clone.DefaultCurrency = this.DefaultCurrency;
             clone.DisplayOrder = this.DisplayOrder;
             clone.IsActive = this.IsActive;
 

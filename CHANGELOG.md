@@ -4,6 +4,20 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.0.13] - 2026-03-21
+
+### Added
+- `SymbolCreate` and `SymbolEdit` views with corresponding `SymbolCreateVM` and `SymbolEditVM` for modal create/edit flows in maintenance.
+- `DefaultCurrency` property on the `Exchange` model and in the generated `Exchange.sql` DDL.
+- `EnumExtension` static helper for working with enum values and localized `Display` attributes.
+
+### Changed
+- `IIsDirty` was moved into `AbstractEditVM.cs` and the standalone `IIsDirty.cs` file was removed.
+- `SymbolCreate` market type ComboBox now shows localized display text from `MarketType` enum `Display` attributes (via `EnumExtension.GetDisplayValue`) instead of blank entries.
+- `SqliteDatabaseExchangeRepository` now stores `Exchange.DefaultCurrency` as SQL `NULL` and no longer throws when creating or updating an exchange with a `null` default currency.
+- Bumped all project versions to `0.0.13` (`OzzTradeDiary`, `OzzTradeDiary.WPF`, `OzzTradeDiary.SQLite`, `OzzTradeDiary.i18n`).
+
+
 ## [0.0.12] - 2026-03-21
 
 ### Added

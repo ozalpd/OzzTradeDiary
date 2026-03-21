@@ -32,6 +32,26 @@ namespace TD.WPF.ViewModels.Maintenance
             get { return _exchange.ExchangeCode; }
         }
 
+        public string? DefaultCurrency
+        {
+            get { return _exchange.DefaultCurrency; }
+            set
+            {
+                if (!string.IsNullOrWhiteSpace(value) && !value.Equals(_exchange.DefaultCurrency, StringComparison.OrdinalIgnoreCase))
+                {
+                    _exchange.DefaultCurrency = value.ToUpperInvariant();
+                    RaisePropertyChanged(nameof(DefaultCurrency));
+                    ValidateProperty(_exchange, nameof(DefaultCurrency));
+                }
+                else if (string.IsNullOrWhiteSpace(value))
+                {
+                    _exchange.DefaultCurrency = null;
+                    RaisePropertyChanged(nameof(DefaultCurrency));
+                    ValidateProperty(_exchange, nameof(DefaultCurrency));
+                }
+            }
+        }
+
         public int DisplayOrder
         {
             get { return _exchange.DisplayOrder; }

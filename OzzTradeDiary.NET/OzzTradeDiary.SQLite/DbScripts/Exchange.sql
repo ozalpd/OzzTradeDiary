@@ -2,6 +2,7 @@ CREATE TABLE IF NOT EXISTS Exchanges(
     Id INTEGER PRIMARY KEY,
 	ExchangeName TEXT Not Null, 
 	ExchangeCode TEXT Not Null, 
+	DefaultCurrency TEXT Null, 
 	DisplayOrder INTEGER Not Null, 
 	IsActive INTEGER Not Null 
 );
