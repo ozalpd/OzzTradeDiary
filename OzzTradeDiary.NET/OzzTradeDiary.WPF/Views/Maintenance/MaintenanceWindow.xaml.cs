@@ -58,7 +58,7 @@ namespace TD.WPF.Views.Maintenance
                 Owner = this
             };
 
-            if (dialog.ShowDialog() == true)
+            if (dialog.ShowDialog() == true && dialog.IsDirty)
             {
                 _viewModel.Currencies.Add(dialog.Currency);
                 await ExecuteUiActionAsync(_viewModel.SaveCurrenciesAsync, "Save currencies");
@@ -96,7 +96,7 @@ namespace TD.WPF.Views.Maintenance
             {
                 Owner = this
             };
-            if (dialog.ShowDialog() == true)
+            if (dialog.ShowDialog() == true && dialog.IsDirty)
             {
                 _viewModel.Exchanges.Add(dialog.Exchange);
                 await ExecuteUiActionAsync(_viewModel.SaveExchangesAsync, "Save exchanges");
@@ -136,7 +136,7 @@ namespace TD.WPF.Views.Maintenance
                 Owner = this
             };
 
-            if (dialog.ShowDialog() == true)
+            if (dialog.ShowDialog() == true && dialog.IsDirty)
             {
                 await ExecuteUiActionAsync(_viewModel.SaveTradingAccountsAsync, "Save trading accounts");
                 await ExecuteUiActionAsync(_viewModel.LoadTradingAccountsAsync, "Refresh trading accounts");

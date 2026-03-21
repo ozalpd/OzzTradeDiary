@@ -1813,6 +1813,14 @@
     <Translation>Birim</Translation>
   </Vocab>
   <Vocab>
+    <Name>UnsavedChangesTitle</Name>
+    <Translation>Kaydedilmemiş Değişiklikler</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>UnsavedChangesWarning</Name>
+    <Translation>Kaydedilmemiş değişiklikler yaptınız. Kapatırken kaydetmek ister misiniz?</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Unspecified</Name>
     <Translation>Belirtilmemiş</Translation>
   </Vocab>

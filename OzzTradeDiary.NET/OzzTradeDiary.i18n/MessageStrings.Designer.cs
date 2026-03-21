@@ -115,6 +115,24 @@ namespace TD.i18n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Unsaved Changes.
+        /// </summary>
+        public static string UnsavedChangesTitle {
+            get {
+                return ResourceManager.GetString("UnsavedChangesTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You have unsaved changes. Do you want to save before closing?.
+        /// </summary>
+        public static string UnsavedChangesWarning {
+            get {
+                return ResourceManager.GetString("UnsavedChangesWarning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to You are about to delete the record.
         /// </summary>
         public static string YouAreAboutToDelete {

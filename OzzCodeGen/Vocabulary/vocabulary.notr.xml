@@ -1813,6 +1813,14 @@
     <Translation>Unit</Translation>
   </Vocab>
   <Vocab>
+    <Name>UnsavedChangesTitle</Name>
+    <Translation>Unsaved Changes</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>UnsavedChangesWarning</Name>
+    <Translation>You have unsaved changes. Do you want to save before closing?</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Unspecified</Name>
     <Translation>Unspecified</Translation>
   </Vocab>

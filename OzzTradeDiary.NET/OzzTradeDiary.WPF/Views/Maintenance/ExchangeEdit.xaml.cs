@@ -7,7 +7,7 @@ namespace TD.WPF.Views.Maintenance
     /// <summary>
     /// Interaction logic for ExchangeEdit.xaml
     /// </summary>
-    public partial class ExchangeEdit : Window
+    public partial class ExchangeEdit
     {
         private ExchangeEditVM _viewModel;
 
@@ -20,11 +20,10 @@ namespace TD.WPF.Views.Maintenance
             DataContext = _viewModel;
         }
 
-        public ExchangeEdit(Exchange exchange)
+        public ExchangeEdit(Exchange exchange):base(new ExchangeEditVM(exchange))
         {
             InitializeComponent();
-            _viewModel = new ExchangeEditVM(exchange);
-            DataContext = _viewModel;
+            _viewModel = (ExchangeEditVM)DataContext;
         }
 
         public Exchange Exchange

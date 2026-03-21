@@ -1,6 +1,6 @@
 ﻿namespace TD.WPF.ViewModels
 {
-    internal class AbstractEditVM : AbstractDataErrorInfoVM
+    internal class AbstractEditVM : AbstractDataErrorInfoVM, IIsDirty
     {
         public AbstractEditVM()
         {
@@ -15,6 +15,7 @@
         {
             base.RaisePropertyChanged(propertyName);
             IsDirty = true;
+            base.RaisePropertyChanged(nameof(IsDirty));
         }
     }
 }

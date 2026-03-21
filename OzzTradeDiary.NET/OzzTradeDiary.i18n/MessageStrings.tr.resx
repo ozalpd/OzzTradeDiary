@@ -76,6 +76,12 @@
     <data name="UnableToDelete" xml:space="preserve">
         <value>Silinemez</value>
     </data>
+    <data name="UnsavedChangesTitle" xml:space="preserve">
+        <value>Kaydedilmemiş Değişiklikler</value>
+    </data>
+    <data name="UnsavedChangesWarning" xml:space="preserve">
+        <value>Kaydedilmemiş değişiklikler yaptınız. Kapatırken kaydetmek ister misiniz?</value>
+    </data>
     <data name="YouAreAboutToDelete" xml:space="preserve">
         <value>Silmek üzeresiniz olduğunuz kayıt</value>
     </data>

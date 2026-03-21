@@ -7,7 +7,7 @@ namespace TD.WPF.Views.Maintenance
     /// <summary>
     /// Interaction logic for TradingAccountEdit.xaml
     /// </summary>
-    public partial class TradingAccountEdit : Window
+    public partial class TradingAccountEdit
     {
         private TradingAccountEditVM _viewModel;
 
@@ -20,11 +20,11 @@ namespace TD.WPF.Views.Maintenance
             DataContext = _viewModel;
         }
 
-        public TradingAccountEdit(TradingAccount tradingAccount)
+        public TradingAccountEdit(TradingAccount tradingAccount) : base(new TradingAccountEditVM(tradingAccount))
         {
             InitializeComponent();
-            _viewModel = new TradingAccountEditVM(tradingAccount);
-            DataContext = _viewModel;
+            //_viewModel = new TradingAccountEditVM(tradingAccount);
+            _viewModel = (TradingAccountEditVM)DataContext;
         }
 
         public TradingAccount TradingAccount

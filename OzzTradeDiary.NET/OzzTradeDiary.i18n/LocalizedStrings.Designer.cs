@@ -61,15 +61,6 @@ namespace TD.i18n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Account Code.
-        /// </summary>
-        public static string AccountCode {
-            get {
-                return ResourceManager.GetString("AccountCode", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Add Currency.
         /// </summary>
         public static string AddCurrency {

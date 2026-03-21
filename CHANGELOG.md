@@ -4,6 +4,15 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.0.12] - 2026-03-21
+
+### Added
+- `AbstractEditView` base window in `TD.WPF.Views` with shared close-guard logic for unsaved dialog changes via `IIsDirty`.
+
+### Changed
+- `TradingAccountEdit`, `ExchangeEdit`, and `CurrencyEdit` now inherit from `AbstractEditView` for consistent unsaved-changes confirmation (`Yes/No/Cancel`) on close.
+- Bumped all project versions to `0.0.12` (`OzzTradeDiary`, `OzzTradeDiary.WPF`, `OzzTradeDiary.SQLite`, `OzzTradeDiary.i18n`).
+
 ## [0.0.11] - 2026-03-20
 
 ### Added

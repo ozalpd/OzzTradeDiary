@@ -7,7 +7,7 @@ namespace TD.WPF.Views.Maintenance
     /// <summary>
     /// Interaction logic for CurrencyEdit.xaml
     /// </summary>
-    public partial class CurrencyEdit : Window
+    public partial class CurrencyEdit
     {
         private CurrencyEditVM _viewModel;
 
@@ -20,11 +20,10 @@ namespace TD.WPF.Views.Maintenance
             DataContext = _viewModel;
         }
 
-        public CurrencyEdit(Currency currency)
+        public CurrencyEdit(Currency currency) : base(new CurrencyEditVM(currency))
         {
             InitializeComponent();
-            _viewModel = new CurrencyEditVM(currency);
-            DataContext = _viewModel;
+            _viewModel = (CurrencyEditVM)DataContext;
         }
 
         public Currency Currency
