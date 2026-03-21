@@ -188,15 +188,6 @@ public class SqliteDatabaseExchangeRepository : AbstractDatabaseRepository, IDat
         return affectedRows > 0;
     }
 
-    private static void AddNullableTextParameter(SqliteCommand command, string parameterName, string? value)
-    {
-        var parameter = command.CreateParameter();
-        parameter.ParameterName = parameterName;
-        parameter.SqliteType = SqliteType.Text;
-        parameter.Value = value is null ? DBNull.Value : value;
-        command.Parameters.Add(parameter);
-    }
-
     private static Exchange MapExchange(SqliteDataReader reader)
     {
         return new Exchange

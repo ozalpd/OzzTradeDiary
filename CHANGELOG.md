@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.0.14] - 2026-03-21
+
+### Changed
+- `TextExtensions` was moved from the WPF project into shared project `OzzTradeDiary` for platform-agnostic reuse.
+- SQLite insert/update handling was fixed in repository code paths to persist `null` values correctly instead of failing or writing incorrect placeholder text.
+- `MaintenanceWindow` edit flows were polished.
+- Bumped all project versions to `0.0.14` (`OzzTradeDiary`, `OzzTradeDiary.WPF`, `OzzTradeDiary.SQLite`, `OzzTradeDiary.i18n`).
+
 ## [0.0.13] - 2026-03-21
 
 ### Added
@@ -12,6 +20,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - `EnumExtension` static helper for working with enum values and localized `Display` attributes.
 
 ### Changed
+- `EnumExtension` was moved from the WPF project into shared project `OzzTradeDiary` and now lives under namespace `TD.Extensions` for platform-agnostic reuse.
 - `IIsDirty` was moved into `AbstractEditVM.cs` and the standalone `IIsDirty.cs` file was removed.
 - `SymbolCreate` market type ComboBox now shows localized display text from `MarketType` enum `Display` attributes (via `EnumExtension.GetDisplayValue`) instead of blank entries.
 - `SqliteDatabaseExchangeRepository` now stores `Exchange.DefaultCurrency` as SQL `NULL` and no longer throws when creating or updating an exchange with a `null` default currency.

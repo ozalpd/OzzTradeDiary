@@ -1,5 +1,4 @@
 ﻿using System.Windows;
-using TD.Models;
 using TD.WPF.Extensions;
 using TD.WPF.Models;
 using TD.WPF.ViewModels.Maintenance;
@@ -58,12 +57,19 @@ namespace TD.WPF.Views.Maintenance
                 Owner = this
             };
 
+            int id = _viewModel.SelectedCurrency.Id;
             if (dialog.ShowDialog() == true && dialog.IsDirty)
             {
                 _viewModel.Currencies.Add(dialog.Currency);
                 await ExecuteUiActionAsync(_viewModel.SaveCurrenciesAsync, "Save currencies");
                 await ExecuteUiActionAsync(_viewModel.LoadCurrenciesAsync, "Refresh currencies");
             }
+            else if (dialog.IsDirty)
+            {
+                await ExecuteUiActionAsync(_viewModel.LoadCurrenciesAsync, "Refresh currencies");
+            }
+
+            _viewModel.SelectedCurrency = _viewModel.Currencies.FirstOrDefault(x => x.Id == id);
         }
 
         private async void SaveCurrencies_Click(object sender, RoutedEventArgs e)
@@ -96,12 +102,20 @@ namespace TD.WPF.Views.Maintenance
             {
                 Owner = this
             };
+
+            int id = _viewModel.SelectedExchange.Id;
             if (dialog.ShowDialog() == true && dialog.IsDirty)
             {
                 _viewModel.Exchanges.Add(dialog.Exchange);
                 await ExecuteUiActionAsync(_viewModel.SaveExchangesAsync, "Save exchanges");
                 await ExecuteUiActionAsync(_viewModel.LoadExchangesAsync, "Refresh exchanges");
             }
+            else if (dialog.IsDirty)
+            {
+                await ExecuteUiActionAsync(_viewModel.LoadExchangesAsync, "Refresh exchanges");
+            }
+
+            _viewModel.SelectedExchange = _viewModel.Exchanges.FirstOrDefault(x => x.Id == id);
         }
 
         private async void SaveExchanges_Click(object sender, RoutedEventArgs e)
@@ -136,11 +150,18 @@ namespace TD.WPF.Views.Maintenance
                 Owner = this
             };
 
+            int id = _viewModel.SelectedTradingAccount.Id;
             if (dialog.ShowDialog() == true && dialog.IsDirty)
             {
                 await ExecuteUiActionAsync(_viewModel.SaveTradingAccountsAsync, "Save trading accounts");
                 await ExecuteUiActionAsync(_viewModel.LoadTradingAccountsAsync, "Refresh trading accounts");
             }
+            else if (dialog.IsDirty)
+            {
+                await ExecuteUiActionAsync(_viewModel.LoadCurrenciesAsync, "Refresh currencies");
+            }
+
+            _viewModel.SelectedTradingAccount = _viewModel.TradingAccounts.FirstOrDefault(x => x.Id == id);
         }
 
         private async void SaveTradingAccounts_Click(object sender, RoutedEventArgs e)
@@ -175,11 +196,18 @@ namespace TD.WPF.Views.Maintenance
                 Owner = this
             };
 
+            int id = _viewModel.SelectedSymbol.Id;
             if (dialog.ShowDialog() == true && dialog.IsDirty)
             {
                 await ExecuteUiActionAsync(_viewModel.SaveSymbolsAsync, "Save symbols");
                 await ExecuteUiActionAsync(_viewModel.LoadSymbolsAsync, "Refresh symbols");
             }
+            else if (dialog.IsDirty)
+            {
+                await ExecuteUiActionAsync(_viewModel.LoadSymbolsAsync, "Refresh symbols");
+            }
+
+            _viewModel.SelectedSymbol = _viewModel.Symbols.FirstOrDefault(x => x.Id == id);
         }
 
         private async void SaveSymbols_Click(object sender, RoutedEventArgs e)

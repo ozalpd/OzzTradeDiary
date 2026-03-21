@@ -4,7 +4,7 @@
 
 Early-stage development (pre-release, no public release yet).
 
-Internal tracking versions: `OzzTradeDiary` `0.0.13`, `OzzTradeDiary.WPF` `0.0.13`, `OzzTradeDiary.SQLite` `0.0.13`, `OzzTradeDiary.i18n` `0.0.13`.
+Internal tracking versions: `OzzTradeDiary` `0.0.14`, `OzzTradeDiary.WPF` `0.0.14`, `OzzTradeDiary.SQLite` `0.0.14`, `OzzTradeDiary.i18n` `0.0.14`.
 
 - **Changelog discipline**: Any behavior change (repository logic, initialization, seeding, schema generation impact, UI-visible behavior) must be recorded in `CHANGELOG.md`.
 
@@ -25,7 +25,7 @@ Internal tracking versions: `OzzTradeDiary` `0.0.13`, `OzzTradeDiary.WPF` `0.0.1
 
 **Platform strategy**: Core models (`TD`), localization (`TD.i18n`), and data access (`TD.SQLite`) target `net10.0` (cross-platform). Only the WPF project targets `net10.0-windows10.0.19041.0`. Keep business logic and data access out of the WPF project so future platform frontends (MAUI, web, etc.) can reuse them.
 
-- Shared enum helper logic such as `EnumExtension` belongs in the platform-agnostic core library under `TD.Extensions`, not in `TD.WPF.Extensions`.
+- Shared helper logic such as `EnumExtension` and `TextExtensions` belongs in the platform-agnostic core library, not in `TD.WPF.Extensions`.
 
 ## Build and Test
 
@@ -90,6 +90,7 @@ Internal tracking versions: `OzzTradeDiary` `0.0.13`, `OzzTradeDiary.WPF` `0.0.1
 - Each CUD operation must call `SaveLastUpdateUtcAsync` via `SqliteDatabaseMetadataRepository`
 - SQLite types: `INTEGER` (ints, dates as ticks, enums), `REAL` (decimals), `TEXT` (strings)
 - Dates stored as ticks (`INTEGER`), not ISO 8601 text
+- Nullable text values must be written as SQL `NULL` when absent; do not persist placeholder strings such as `"null"`.
 - **`Currency.CurrencyTicker` must be treated as a unique immutable key in repositories** (do not update it after creation).
 - **`Exchange.ExchangeCode` must be treated as a unique immutable key in repositories** (do not update it after creation).
 - **`TradingAccount.Title` must be treated as a unique immutable key in repositories** (do not update it after creation).
@@ -104,6 +105,7 @@ Internal tracking versions: `OzzTradeDiary` `0.0.13`, `OzzTradeDiary.WPF` `0.0.1
 - **Validation**: Use `TD.Validation.ModelValidator` for shared DataAnnotations-based model validation logic so WPF, MAUI, and ASP.NET can reuse the same validation rules
 - **Localization**: Use resources from `OzzTradeDiary.i18n` (`ActionStrings`, `CommonStrings`, `ErrorStrings`, `LocalizedStrings`, `MessageStrings`); model classes consume these resources through DataAnnotations and the resource classes are generated artifacts
 - **Enum helpers**: Use `TD.Extensions.EnumExtension` when building collections from enums for UI binding or when reading enum `Display` attribute text.
+- **Text helpers**: Use shared text/string helper extensions from the platform-agnostic core library instead of placing them in WPF-specific projects.
 - **Code generation**: OzzCodeGen generates SQLite DDL scripts and localization resources — settings files in `OzzCodeGen/` define mappings
 - **Generation source of truth**:
   - Localization resources are generated via `OzzCodeGen/ResourceGen.settings` + `OzzCodeGen/Vocabulary`

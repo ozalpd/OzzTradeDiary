@@ -136,7 +136,7 @@ public class SqliteDatabaseTradingAccountRepository : AbstractDatabaseRepository
 
         command.Parameters.AddWithValue("@title", tradingAccount.Title);
         command.Parameters.AddWithValue("@exchangeId", tradingAccount.ExchangeId);
-        command.Parameters.AddWithValue("@notes", (object?)tradingAccount.Notes ?? DBNull.Value);
+        AddNullableTextParameter(command, "@notes", tradingAccount.Notes);
         command.Parameters.AddWithValue("@displayOrder", tradingAccount.DisplayOrder);
         command.Parameters.AddWithValue("@isActive", tradingAccount.IsActive ? 1 : 0);
 
@@ -180,7 +180,7 @@ public class SqliteDatabaseTradingAccountRepository : AbstractDatabaseRepository
             WHERE Id = @id";
 
         command.Parameters.AddWithValue("@id", tradingAccount.Id);
-        command.Parameters.AddWithValue("@notes", (object?)tradingAccount.Notes ?? DBNull.Value);
+        AddNullableTextParameter(command, "@notes", tradingAccount.Notes);
         command.Parameters.AddWithValue("@displayOrder", tradingAccount.DisplayOrder);
         command.Parameters.AddWithValue("@isActive", tradingAccount.IsActive ? 1 : 0);
 

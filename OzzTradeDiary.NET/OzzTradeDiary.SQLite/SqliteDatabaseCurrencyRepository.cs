@@ -115,7 +115,7 @@ public class SqliteDatabaseCurrencyRepository : AbstractDatabaseRepository, IDat
             SELECT last_insert_rowid();";
 
         command.Parameters.AddWithValue("@currencyTicker", currency.CurrencyTicker);
-        command.Parameters.AddWithValue("@description", currency.Description);
+        AddNullableTextParameter(command, "@description", currency.Description);
         command.Parameters.AddWithValue("@displayOrder", currency.DisplayOrder);
         command.Parameters.AddWithValue("@isActive", currency.IsActive ? 1 : 0);
 
@@ -138,7 +138,7 @@ public class SqliteDatabaseCurrencyRepository : AbstractDatabaseRepository, IDat
             throw new InvalidOperationException($"A different currency with the same ticker already exists: {currency.CurrencyTicker}");
 
         bool noChanges = existingCurrency != null
-                      && existingCurrency.Description.Equals(currency.Description)
+                      && (existingCurrency.Description ?? string.Empty).Equals(currency.Description ?? string.Empty)
                       && existingCurrency.DisplayOrder == currency.DisplayOrder
                       && existingCurrency.IsActive == currency.IsActive;
 
@@ -156,7 +156,7 @@ public class SqliteDatabaseCurrencyRepository : AbstractDatabaseRepository, IDat
             WHERE Id = @id";
 
         command.Parameters.AddWithValue("@id", currency.Id);
-        command.Parameters.AddWithValue("@description", currency.Description);
+        AddNullableTextParameter(command, "@description", currency.Description);
         command.Parameters.AddWithValue("@displayOrder", currency.DisplayOrder);
         command.Parameters.AddWithValue("@isActive", currency.IsActive ? 1 : 0);
 

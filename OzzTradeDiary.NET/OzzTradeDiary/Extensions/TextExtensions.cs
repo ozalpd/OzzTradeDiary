@@ -1,6 +1,6 @@
 ﻿using System.Text.RegularExpressions;
 
-namespace TD.WPF.Extensions;
+namespace TD.Extensions;
 
 internal static class TextExtensions
 {

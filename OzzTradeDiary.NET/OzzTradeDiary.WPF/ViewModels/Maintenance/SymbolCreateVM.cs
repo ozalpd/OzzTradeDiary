@@ -1,8 +1,8 @@
 ﻿using System.Collections.ObjectModel;
 using TD.Models;
 using TD.SQLite;
+using TD.Extensions;
 using TD.WPF.Models;
-using TD.WPF.Extensions;
 
 namespace TD.WPF.ViewModels.Maintenance
 {
