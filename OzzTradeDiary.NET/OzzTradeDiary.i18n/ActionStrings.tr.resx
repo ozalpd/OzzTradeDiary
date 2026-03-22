@@ -58,6 +58,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+    <data name="About" xml:space="preserve">
+        <value>Hakkında</value>
+    </data>
     <data name="Action" xml:space="preserve">
         <value>Eylem</value>
     </data>
@@ -72,6 +75,9 @@
     </data>
     <data name="Cancel" xml:space="preserve">
         <value>Vazgeç</value>
+    </data>
+    <data name="Charts" xml:space="preserve">
+        <value>Grafik</value>
     </data>
     <data name="Choose" xml:space="preserve">
         <value>Seç</value>
@@ -100,6 +106,21 @@
     <data name="Edit" xml:space="preserve">
         <value>Düzenle</value>
     </data>
+    <data name="Exit" xml:space="preserve">
+        <value>Kapat</value>
+    </data>
+    <data name="Export" xml:space="preserve">
+        <value>Dışa Al</value>
+    </data>
+    <data name="File" xml:space="preserve">
+        <value>Dosya</value>
+    </data>
+    <data name="Help" xml:space="preserve">
+        <value>Yardım</value>
+    </data>
+    <data name="Import" xml:space="preserve">
+        <value>İçe Al</value>
+    </data>
     <data name="Login" xml:space="preserve">
         <value>Giriş Yap</value>
     </data>
@@ -111,6 +132,12 @@
     </data>
     <data name="Logout" xml:space="preserve">
         <value>Çıkış Yap</value>
+    </data>
+    <data name="Maintenance" xml:space="preserve">
+        <value>Bakım</value>
+    </data>
+    <data name="ManageData" xml:space="preserve">
+        <value>Veriyi Yönet</value>
     </data>
     <data name="OK" xml:space="preserve">
         <value>Tamam</value>
@@ -142,7 +169,13 @@
     <data name="Show" xml:space="preserve">
         <value>Göster</value>
     </data>
+    <data name="Summary" xml:space="preserve">
+        <value>Özet</value>
+    </data>
     <data name="Update" xml:space="preserve">
         <value>Güncelle</value>
+    </data>
+    <data name="View" xml:space="preserve">
+        <value>Görünüm</value>
     </data>
 </root>

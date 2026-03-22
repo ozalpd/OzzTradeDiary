@@ -5,8 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:models="clr-namespace:TD.Models;assembly=OzzTradeDiary"
         xmlns:sys="clr-namespace:System;assembly=System.Runtime"
+        xmlns:i18n="clr-namespace:TD.i18n;assembly=OzzTradeDiary.i18n"
         mc:Ignorable="d"
-        Title="Ozz Trade Diary" Height="700" Width="1200" MinHeight="520" MinWidth="900">
+        Title="Ozz Trade Diary"
+        Height="700" Width="1200" MinHeight="520" MinWidth="900">
     <Window.Resources>
         <ObjectDataProvider x:Key="MarketTypeValues"
                             MethodName="GetValues"
@@ -22,37 +24,37 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <Menu Grid.Row="0">
-            <MenuItem Header="_File">
-                <MenuItem Header="_Import" Command="{Binding ImportCommand}" />
-                <MenuItem Header="_Export" Command="{Binding ExportCommand}" />
+            <MenuItem Header="{x:Static i18n:ActionStrings.File}">
+                <MenuItem Header="{x:Static i18n:ActionStrings.Import}" Command="{Binding ImportCommand}" />
+                <MenuItem Header="{x:Static i18n:ActionStrings.Export}" Command="{Binding ExportCommand}" />
                 <Separator />
-                <MenuItem Header="_Exit" Command="{Binding ExitCommand}" />
+                <MenuItem Header="{x:Static i18n:ActionStrings.Exit}" Command="{Binding ExitCommand}" />
             </MenuItem>
-            <MenuItem Header="_Edit">
-                <MenuItem Header="_Add Trade" Command="{Binding AddTradeCommand}" />
-                <MenuItem Header="_Edit Trade" Command="{Binding EditTradeCommand}" />
-                <MenuItem Header="_Delete Trade" Command="{Binding DeleteTradeCommand}" />
+            <MenuItem Header="{x:Static i18n:ActionStrings.Edit}">
+                <MenuItem Header="{x:Static i18n:LocalizedStrings.AddTrade}" Command="{Binding AddTradeCommand}" />
+                <MenuItem Header="{x:Static i18n:LocalizedStrings.EditTrade}" Command="{Binding EditTradeCommand}" />
+                <MenuItem Header="{x:Static i18n:LocalizedStrings.DeleteTrade}" Command="{Binding DeleteTradeCommand}" />
             </MenuItem>
-            <MenuItem Header="_View">
-                <MenuItem Header="_Summary" Command="{Binding ShowSummaryCommand}" />
-                <MenuItem Header="_Charts" Command="{Binding ShowChartsCommand}" />
+            <MenuItem Header="{x:Static i18n:ActionStrings.View}">
+                <MenuItem Header="{x:Static i18n:ActionStrings.Summary}" Command="{Binding ShowSummaryCommand}" />
+                <MenuItem Header="{x:Static i18n:ActionStrings.Charts}" Command="{Binding ShowChartsCommand}" />
             </MenuItem>
-                <MenuItem Header="_Maintenance">
-                <MenuItem Header="_Manage Data..." Command="{Binding ShowMaintenanceCommand}">
+            <MenuItem Header="{x:Static i18n:ActionStrings.Maintenance}">
+                <MenuItem Header="{x:Static i18n:ActionStrings.ManageData}" Command="{Binding ShowMaintenanceCommand}">
                     <MenuItem.Icon>
                         <Path Fill="#0044D7" Data="{StaticResource gear-wide-connected}"/>
                     </MenuItem.Icon>
                 </MenuItem>
                 <!-- Future items: Database backup, settings, etc. -->
+            </MenuItem>
+            <MenuItem Header="{x:Static i18n:ActionStrings.Help}">
+                <MenuItem Header="{x:Static i18n:ActionStrings.About}" Command="{Binding ShowAboutCommand}">
+                    <MenuItem.Icon>
+                        <Path Fill="#1D9BF0" Data="{StaticResource info-circle-fill}"/>
+                    </MenuItem.Icon>
                 </MenuItem>
-                <MenuItem Header="_Help">
-                    <MenuItem Header="_About" Command="{Binding ShowAboutCommand}">
-                        <MenuItem.Icon>
-                            <Path Fill="#1D9BF0" Data="{StaticResource info-circle-fill}"/>
-                        </MenuItem.Icon>
-                    </MenuItem>
-                </MenuItem>
-            </Menu>
+            </MenuItem>
+        </Menu>
         <!-- Main content area -->
         <Grid Grid.Row="1">
             <!-- Placeholder for trade list, summary, charts, etc. -->

@@ -86,5 +86,23 @@ namespace TD.i18n {
                 return ResourceManager.GetString("Record", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Version:.
+        /// </summary>
+        public static string Version {
+            get {
+                return ResourceManager.GetString("Version", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to View on GitHub.
+        /// </summary>
+        public static string ViewOnGitHub {
+            get {
+                return ResourceManager.GetString("ViewOnGitHub", resourceCulture);
+            }
+        }
     }
 }

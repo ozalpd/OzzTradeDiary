@@ -4,7 +4,7 @@
 
 Early-stage development (pre-release, no public release yet).
 
-Internal tracking versions: `OzzTradeDiary` `0.0.14`, `OzzTradeDiary.WPF` `0.0.14`, `OzzTradeDiary.SQLite` `0.0.14`, `OzzTradeDiary.i18n` `0.0.14`.
+Internal tracking versions: `OzzTradeDiary` `0.0.15`, `OzzTradeDiary.WPF` `0.0.15`, `OzzTradeDiary.SQLite` `0.0.15`, `OzzTradeDiary.i18n` `0.0.15`.
 
 - **Changelog discipline**: Any behavior change (repository logic, initialization, seeding, schema generation impact, UI-visible behavior) must be recorded in `CHANGELOG.md`.
 
@@ -72,6 +72,7 @@ Internal tracking versions: `OzzTradeDiary` `0.0.14`, `OzzTradeDiary.WPF` `0.0.1
 - Feature-specific views are grouped in subfolders matching their feature area (e.g., `Views/Maintenance/` → namespace `TD.WPF.Views.Maintenance`)
 - `MainWindow` lives directly under `Views/` (`TD.WPF.Views`)
 - **All property label `TextBlock` elements must bind their `Text` to the matching `LocalizedStrings` key via `{x:Static i18n:LocalizedStrings.PropertyName}` — never use hardcoded strings for property labels.**
+- **All menu item `Header` values must be bound to `ActionStrings` or `LocalizedStrings` via `{x:Static i18n:ActionStrings.Key}` / `{x:Static i18n:LocalizedStrings.Key}` — only use hardcoded strings when no matching resource key exists.**
 - Follow entity-first naming: `TradingAccountCreate` (not `CreateTradingAccount`).
 - **Read-only text fields must use a dedicated `ReadOnlyTextBoxStyle` (with darker background cue) instead of `ValidationTextBoxStyle`.**
 - **Edit dialogs should inherit from `AbstractEditView` to get consistent unsaved-changes close confirmation based on `IIsDirty`.**
@@ -102,6 +103,7 @@ Internal tracking versions: `OzzTradeDiary` `0.0.14`, `OzzTradeDiary.WPF` `0.0.1
 
 - **Singleton pattern** for `AppSettings` (lazy-loaded)
 - **App version**: `AppVersion` static class (`TD.WPF.Models`) reads product name, version, copyright, and description from assembly attributes; use `AppVersion.Version` for display
+- **UI culture**: `AppSettings.UiCulture` stores the user's preferred BCP-47 culture name (e.g. `"en-US"`, `"tr-TR"`). `App.OnStartup` applies it to `Thread.CurrentThread.CurrentUICulture` and `CurrentCulture` before `MainWindow` is created. When empty, the OS culture is used.
 - **Validation**: Use `TD.Validation.ModelValidator` for shared DataAnnotations-based model validation logic so WPF, MAUI, and ASP.NET can reuse the same validation rules
 - **Localization**: Use resources from `OzzTradeDiary.i18n` (`ActionStrings`, `CommonStrings`, `ErrorStrings`, `LocalizedStrings`, `MessageStrings`); model classes consume these resources through DataAnnotations and the resource classes are generated artifacts
 - **Enum helpers**: Use `TD.Extensions.EnumExtension` when building collections from enums for UI binding or when reading enum `Display` attribute text.

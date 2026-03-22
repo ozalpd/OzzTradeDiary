@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ArrayOfVocab xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Vocab>
+    <Name>About</Name>
+    <Translation>Hakkında</Translation>
+  </Vocab>
+  <Vocab>
     <Name>AccountCode</Name>
     <Translation>Hesap Kodu</Translation>
   </Vocab>
@@ -311,6 +315,10 @@
   <Vocab>
     <Name>CategoryId</Name>
     <Translation>Kategori</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Charts</Name>
+    <Translation>Grafik</Translation>
   </Vocab>
   <Vocab>
     <Name>Choose</Name>
@@ -961,8 +969,16 @@
     <Translation>Gerçekleşme Zamanı</Translation>
   </Vocab>
   <Vocab>
+    <Name>Exit</Name>
+    <Translation>Kapat</Translation>
+  </Vocab>
+  <Vocab>
     <Name>ExpireDate</Name>
     <Translation>Yayın Sonlama Tarihi</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Export</Name>
+    <Translation>Dışa Al</Translation>
   </Vocab>
   <Vocab>
     <Name>Fast</Name>
@@ -975,6 +991,10 @@
   <Vocab>
     <Name>Female</Name>
     <Translation>Kadın</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>File</Name>
+    <Translation>Dosya</Translation>
   </Vocab>
   <Vocab>
     <Name>FilledAmount</Name>
@@ -1007,6 +1027,10 @@
   <Vocab>
     <Name>Height</Name>
     <Translation>Yükseklik</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Help</Name>
+    <Translation>Yardım</Translation>
   </Vocab>
   <Vocab>
     <Name>Home</Name>
@@ -1047,6 +1071,10 @@
   <Vocab>
     <Name>IModifyDatesList</Name>
     <Translation>Değişiklik Tarih Listesi</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Import</Name>
+    <Translation>İçe Al</Translation>
   </Vocab>
   <Vocab>
     <Name>Index</Name>
@@ -1125,8 +1153,16 @@
     <Translation>Boylam</Translation>
   </Vocab>
   <Vocab>
+    <Name>Maintenance</Name>
+    <Translation>Bakım</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Male</Name>
     <Translation>Erkek</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ManageData</Name>
+    <Translation>Veriyi Yönet</Translation>
   </Vocab>
   <Vocab>
     <Name>Market</Name>
@@ -1661,6 +1697,10 @@
     <Translation>KDV'ye Tabi</Translation>
   </Vocab>
   <Vocab>
+    <Name>Summary</Name>
+    <Translation>Özet</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Supplier</Name>
     <Translation>Tedarikçi</Translation>
   </Vocab>
@@ -1855,6 +1895,18 @@
   <Vocab>
     <Name>VAT</Name>
     <Translation>KDV</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Version</Name>
+    <Translation>Sürüm:</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>View</Name>
+    <Translation>Görünüm</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ViewOnGitHub</Name>
+    <Translation>GitHub'da Gör</Translation>
   </Vocab>
   <Vocab>
     <Name>Width</Name>

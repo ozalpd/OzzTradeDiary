@@ -4,6 +4,17 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.0.15] - 2026-03-22
+
+### Added
+- `UiCulture` property (`string`) on `AppSettings` — stores a BCP-47 culture name (e.g. `"en-US"`, `"tr-TR"`); when empty the operating system culture is used.
+
+### Changed
+- `App` startup replaced `StartupUri` with a `Startup` event handler (`OnStartup`); `UiCulture` is applied to `Thread.CurrentThread.CurrentUICulture` and `CurrentCulture` before `MainWindow` is created, so all resource lookups and formatting reflect the chosen culture from the first frame.
+- `MainWindow` menu item headers are now bound to `ActionStrings` and `LocalizedStrings` via `{x:Static i18n:*}` — all top-level menus and most sub-items are localized; `_Exit` and `_Add Trade` remain hardcoded pending dedicated resource keys.
+- Remaining nullable reference warnings in `EnumExtension.cs` resolved: `DisplayAttribute.Name` null-coalesced at both call sites, dead null guard on `descriptionAttributes` removed, `GetValue` cast changed to `ResourceManager?`, and `GetString` return null-coalesced with key as fallback.
+- Bumped all project versions to `0.0.15` (`OzzTradeDiary`, `OzzTradeDiary.WPF`, `OzzTradeDiary.SQLite`, `OzzTradeDiary.i18n`).
+
 ## [0.0.14] - 2026-03-21
 
 ### Changed

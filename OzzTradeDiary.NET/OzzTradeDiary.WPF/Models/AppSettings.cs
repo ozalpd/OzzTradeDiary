@@ -134,6 +134,13 @@ internal class AppSettings
     /// settings.</remarks>
     public bool MuteAudio { get; set; } = false;
 
+    /// <summary>
+    /// Gets or sets the BCP-47 culture name used for the application UI (e.g. <c>"en-US"</c>, <c>"tr-TR"</c>).
+    /// </summary>
+    /// <remarks>When empty, the operating system's current culture is used.</remarks>
+    public string UiCulture { get; set; } = string.Empty;
+
+
     private static string GetDefaultBackupFolderPath() => Path.Combine(
         Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
         "OzzTradeDiary",

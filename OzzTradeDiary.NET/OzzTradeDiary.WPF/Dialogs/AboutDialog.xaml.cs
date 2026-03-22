@@ -22,12 +22,21 @@ namespace TD.WPF.Dialogs
             DataContext = this;
             LoadHighResolutionIcon();
             Deactivated += AboutDialog_Deactivated;
+            Closing += AboutDialog_Closing;
         }
 
         private void AboutDialog_Deactivated(object? sender, EventArgs e)
         {
-            Close();
+            if (!_isClosimg)
+                Close();
         }
+        bool _isClosimg = false;
+
+        private void AboutDialog_Closing(object? sender, System.ComponentModel.CancelEventArgs e)
+        {
+            _isClosimg = true;
+        }
+
 
         private void LoadHighResolutionIcon()
         {

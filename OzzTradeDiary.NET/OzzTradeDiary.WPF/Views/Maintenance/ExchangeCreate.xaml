@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:TD.WPF.Views.Maintenance"
         xmlns:i18n="clr-namespace:TD.i18n;assembly=OzzTradeDiary.i18n"
         Title="{x:Static i18n:LocalizedStrings.CreateExchange}"
-        Height="240" Width="420" MinHeight="240" MinWidth="420"
+        Height="260" Width="420" MinHeight="260" MinWidth="420"
         WindowStartupLocation="CenterOwner"
         FocusManager.FocusedElement="{Binding ElementName=ExchangeNameTextBox}"
         mc:Ignorable="d">

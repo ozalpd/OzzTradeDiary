@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ArrayOfVocab xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Vocab>
+    <Name>About</Name>
+    <Translation>About</Translation>
+  </Vocab>
+  <Vocab>
     <Name>AccountCode</Name>
     <Translation>Account Code</Translation>
   </Vocab>
@@ -311,6 +315,10 @@
   <Vocab>
     <Name>CategoryId</Name>
     <Translation>Category</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Charts</Name>
+    <Translation>Charts</Translation>
   </Vocab>
   <Vocab>
     <Name>Choose</Name>
@@ -961,8 +969,16 @@
     <Translation>Execute Time</Translation>
   </Vocab>
   <Vocab>
+    <Name>Exit</Name>
+    <Translation>Exit</Translation>
+  </Vocab>
+  <Vocab>
     <Name>ExpireDate</Name>
     <Translation>Expire Date</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Export</Name>
+    <Translation>Export</Translation>
   </Vocab>
   <Vocab>
     <Name>Fast</Name>
@@ -975,6 +991,10 @@
   <Vocab>
     <Name>Female</Name>
     <Translation>Female</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>File</Name>
+    <Translation>File</Translation>
   </Vocab>
   <Vocab>
     <Name>FilledAmount</Name>
@@ -1007,6 +1027,10 @@
   <Vocab>
     <Name>Height</Name>
     <Translation>Height</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Help</Name>
+    <Translation>Help</Translation>
   </Vocab>
   <Vocab>
     <Name>Home</Name>
@@ -1047,6 +1071,10 @@
   <Vocab>
     <Name>IModifyDatesList</Name>
     <Translation>IModify Dates List</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Import</Name>
+    <Translation>Import</Translation>
   </Vocab>
   <Vocab>
     <Name>Index</Name>
@@ -1125,8 +1153,16 @@
     <Translation>Longitude</Translation>
   </Vocab>
   <Vocab>
+    <Name>Maintenance</Name>
+    <Translation>Maintenance</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Male</Name>
     <Translation>Male</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ManageData</Name>
+    <Translation>Manage Data</Translation>
   </Vocab>
   <Vocab>
     <Name>Market</Name>
@@ -1661,6 +1697,10 @@
     <Translation>Subject To Vat</Translation>
   </Vocab>
   <Vocab>
+    <Name>Summary</Name>
+    <Translation>Summary</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Supplier</Name>
     <Translation>Supplier</Translation>
   </Vocab>
@@ -1855,6 +1895,18 @@
   <Vocab>
     <Name>VAT</Name>
     <Translation>VAT</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Version</Name>
+    <Translation>Version:</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>View</Name>
+    <Translation>View</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ViewOnGitHub</Name>
+    <Translation>View on GitHub</Translation>
   </Vocab>
   <Vocab>
     <Name>Width</Name>

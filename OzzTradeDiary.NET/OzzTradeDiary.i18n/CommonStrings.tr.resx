@@ -67,4 +67,10 @@
     <data name="Record" xml:space="preserve">
         <value>Kayıt</value>
     </data>
+    <data name="Version" xml:space="preserve">
+        <value>Sürüm:</value>
+    </data>
+    <data name="ViewOnGitHub" xml:space="preserve">
+        <value>GitHub'da Gör</value>
+    </data>
 </root>

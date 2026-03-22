@@ -67,4 +67,10 @@
     <data name="Record" xml:space="preserve">
         <value>Record</value>
     </data>
+    <data name="Version" xml:space="preserve">
+        <value>Version:</value>
+    </data>
+    <data name="ViewOnGitHub" xml:space="preserve">
+        <value>View on GitHub</value>
+    </data>
 </root>

@@ -4,7 +4,7 @@ A Windows desktop trade journaling application for tracking trades across multip
 
 > **Status**: Pre-release development (no public release yet)
 > 
-> **Internal tracking versions**: `OzzTradeDiary` `0.0.14`, `OzzTradeDiary.WPF` `0.0.14`, `OzzTradeDiary.SQLite` `0.0.14`, `OzzTradeDiary.i18n` `0.0.14`
+> **Internal tracking versions**: `OzzTradeDiary` `0.0.15`, `OzzTradeDiary.WPF` `0.0.15`, `OzzTradeDiary.SQLite` `0.0.15`, `OzzTradeDiary.i18n` `0.0.15`
 
 ## Changelog
 
@@ -22,6 +22,8 @@ See [`CHANGELOG.md`](CHANGELOG.md) for release history.
 ## Features
 
 - DPI-aware multi-monitor window positioning
+- `AppSettings.UiCulture` stores the user's preferred BCP-47 culture name (e.g. `"en-US"`, `"tr-TR"`); applied to `CurrentUICulture` and `CurrentCulture` in `App.OnStartup` before `MainWindow` is created — when empty the OS culture is used
+- `MainWindow` menu items are fully localized via `{x:Static i18n:ActionStrings.*}` and `{x:Static i18n:LocalizedStrings.*}`
 - Domain enums wired in models (including `OrderType` and `TradeDirection`)
 - `TD.Extensions.EnumExtension` shared helper in `OzzTradeDiary` for building enum value collections and reading localized `Display` attribute text for UI bindings across WPF and future platform frontends
 - Shared text helpers were moved from the WPF app into `OzzTradeDiary` so they can be reused by platform-agnostic and future UI projects

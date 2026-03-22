@@ -31,10 +31,9 @@ namespace TD.Extensions
                                      ?? Array.Empty<DisplayAttribute>();
 
             if (descriptionAttributes.Length > 0 && descriptionAttributes[0].ResourceType != null)
-                return LookupResource(descriptionAttributes[0].ResourceType, descriptionAttributes[0].Name);
+                return LookupResource(descriptionAttributes[0].ResourceType, descriptionAttributes[0].Name ?? string.Empty);
 
-            if (descriptionAttributes == null) return string.Empty;
-            return (descriptionAttributes.Length > 0) ? descriptionAttributes[0].Name : value.ToString();
+            return (descriptionAttributes.Length > 0) ? descriptionAttributes[0].Name ?? value.ToString() : value.ToString();
         }
 
         public static IEnumerable<T> GetValues<T>()
@@ -48,8 +47,8 @@ namespace TD.Extensions
             {
                 if (staticProperty.PropertyType == typeof(ResourceManager))
                 {
-                    var resourceManager = (ResourceManager)staticProperty.GetValue(null, null);
-                    return resourceManager.GetString(resourceKey);
+                    var resourceManager = (ResourceManager?)staticProperty.GetValue(null, null);
+                    return resourceManager?.GetString(resourceKey) ?? resourceKey;
                 }
             }
 
