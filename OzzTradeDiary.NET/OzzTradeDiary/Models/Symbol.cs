@@ -34,7 +34,7 @@ namespace TD.Models
         /// <summary>
         /// Symbol name without exchange prefix, e.g. 'BTCUSDT'
         /// </summary>
-        [StringLength(48, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLength")]
+        [StringLength(48, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxStringLength")]
         [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
         [Display(ResourceType = typeof(LocalizedStrings), Name = "Ticker")]
         public string Ticker { get; set; }
@@ -42,7 +42,7 @@ namespace TD.Models
         /// <summary>
         /// Symbol name with exchange prefix, e.g. 'BYBIT:BTCUSD.P'
         /// </summary>
-        [StringLength(64, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLength")]
+        [StringLength(64, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxStringLength")]
         [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
         [Display(ResourceType = typeof(LocalizedStrings), Name = "TickerFull")]
         public string TickerFull { get; set; }
@@ -50,14 +50,14 @@ namespace TD.Models
         /// <summary>
         /// Contains a string (CurrencyTicker) that representing the symbol's base currency if the instrument is a Crypto pair or a Forex pair or a derivative based on such a pair. Otherwise, it contains empty string. For example, this property holds "GBP" for "GBPJPY", "BTC" for "BTCUSDT" and "" for "NASDAQ:MSFT".
         /// </summary>
-        [StringLength(8, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLength")]
+        [StringLength(8, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxStringLength")]
         [Display(ResourceType = typeof(LocalizedStrings), Name = "BaseCurrency")]
         public string? BaseCurrency { get; set; }
 
         /// <summary>
         /// Contains a string (CurrencyTicker) that representing currency of the symbol's price. For example, this property holds "JPY" for "GBPJPY", "USDT" for "BTCUSDT" and "USD" for "NASDAQ:MSFT".
         /// </summary>
-        [StringLength(8, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLength")]
+        [StringLength(8, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxStringLength")]
         [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
         [Display(ResourceType = typeof(LocalizedStrings), Name = "PriceCurrency")]
         public string PriceCurrency { get; set; }
@@ -65,7 +65,7 @@ namespace TD.Models
         /// <summary>
         /// Description of the symbol.
         /// </summary>
-        [StringLength(255, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLength")]
+        [StringLength(255, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxStringLength")]
         [DataType(DataType.MultilineText)]
         [Display(ResourceType = typeof(LocalizedStrings), Name = "Description")]
         public string? Description { get; set; }

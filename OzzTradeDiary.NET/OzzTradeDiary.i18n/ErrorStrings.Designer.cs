@@ -63,18 +63,18 @@ namespace TD.i18n {
         /// <summary>
         ///   Looks up a localized string similar to The {0} field maximum length is {1}..
         /// </summary>
-        public static string MaxLength {
+        public static string MaxStringLength {
             get {
-                return ResourceManager.GetString("MaxLength", resourceCulture);
+                return ResourceManager.GetString("MaxStringLength", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to The {0} must be at least {2} characters long..
         /// </summary>
-        public static string MinLength {
+        public static string MinStringLength {
             get {
-                return ResourceManager.GetString("MinLength", resourceCulture);
+                return ResourceManager.GetString("MinStringLength", resourceCulture);
             }
         }
         

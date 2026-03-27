@@ -6,17 +6,14 @@ namespace TD.SQLite;
 /// <summary>
 /// SQLite-based repository for exchange CRUD operations.
 /// </summary>
-public class SqliteDatabaseExchangeRepository : AbstractDatabaseRepository, IDatabaseExchangeRepository
+public class SqliteDatabaseExchangeRepository : AbstractDatabaseRepository<Exchange>, IDatabaseExchangeRepository
 {
-    private readonly string _connectionString;
-    private readonly SqliteDatabaseMetadataRepository _metadataRepository;
-
-    public SqliteDatabaseExchangeRepository(string databasePath, SqliteDatabaseMetadataRepository? metadataRepository = null)
+    public SqliteDatabaseExchangeRepository(string databasePath, SqliteDatabaseMetadataRepository? metadataRepository = null) : base(databasePath, "Exchanges")
     {
-        _connectionString = $"Data Source={databasePath}";
-        _metadataRepository = metadataRepository ?? new SqliteDatabaseMetadataRepository(databasePath);
         InitializeDatabase();
+        _selectStatement = $"SELECT Id, ExchangeName, ExchangeCode, DefaultCurrency, HasAnySymbol, DisplayOrder, IsActive FROM {_tableName}";
     }
+    private readonly string _selectStatement;
 
     private void InitializeDatabase()
     {
@@ -24,9 +21,8 @@ public class SqliteDatabaseExchangeRepository : AbstractDatabaseRepository, IDat
         connection.Open();
 
         SqliteDbScriptInitializer.ExecuteScript(connection, "Exchange.sql");
-        SqliteDbScriptInitializer.SeedIfEmpty(connection, "Exchanges", "Exchanges-Data.sql");
+        SeedIfEmpty("Exchanges-Data.sql");
     }
-    private readonly string _selectStatement = "SELECT Id, ExchangeName, ExchangeCode, DefaultCurrency, DisplayOrder, IsActive FROM Exchanges";
 
     public async Task<IReadOnlyList<Exchange>> GetAllAsync(bool? isActive = null)
     {
@@ -110,13 +106,14 @@ public class SqliteDatabaseExchangeRepository : AbstractDatabaseRepository, IDat
 
         await using var command = connection.CreateCommand();
         command.CommandText = @"
-            INSERT INTO Exchanges (ExchangeName, ExchangeCode, DefaultCurrency, DisplayOrder, IsActive)
+            INSERT INTO Exchanges (ExchangeName, ExchangeCode, DefaultCurrency, HasAnySymbol, DisplayOrder, IsActive)
             VALUES (@exchangeName, @exchangeCode, @defaultCurrency, @displayOrder, @isActive);
             SELECT last_insert_rowid();";
 
         command.Parameters.AddWithValue("@exchangeName", exchange.ExchangeName);
         command.Parameters.AddWithValue("@exchangeCode", exchange.ExchangeCode);
         AddNullableTextParameter(command, "@defaultCurrency", exchange.DefaultCurrency);
+        command.Parameters.AddWithValue("@hasAnySymbol", exchange.HasAnySymbol ? 1 : 0);
         command.Parameters.AddWithValue("@displayOrder", exchange.DisplayOrder);
         command.Parameters.AddWithValue("@isActive", exchange.IsActive ? 1 : 0);
 
@@ -172,6 +169,24 @@ public class SqliteDatabaseExchangeRepository : AbstractDatabaseRepository, IDat
         return affectedRows > 0;
     }
 
+
+    public async Task<bool> SetHasAnySymbol(int exchangeId, bool hasAnySymbol)
+    {
+        await using var connection = new SqliteConnection(_connectionString);
+        await connection.OpenAsync();
+        await using var command = connection.CreateCommand();
+        command.CommandText = @"
+            UPDATE Exchanges
+            SET HasAnySymbol = @hasAnySymbol
+            WHERE Id = @id";
+        command.Parameters.AddWithValue("@id", exchangeId);
+        command.Parameters.AddWithValue("@hasAnySymbol", hasAnySymbol ? 1 : 0);
+        var affectedRows = await command.ExecuteNonQueryAsync();
+        if (affectedRows > 0)
+            await _metadataRepository.SaveLastUpdateUtcAsync(connection);
+        return affectedRows > 0;
+    }
+
     public async Task<bool> DeleteAsync(int id)
     {
         await using var connection = new SqliteConnection(_connectionString);
@@ -196,8 +211,9 @@ public class SqliteDatabaseExchangeRepository : AbstractDatabaseRepository, IDat
             ExchangeName = reader.GetString(1),
             ExchangeCode = reader.GetString(2),
             DefaultCurrency = reader.IsDBNull(3) ? null : reader.GetString(3),
-            DisplayOrder = reader.GetInt32(4),
-            IsActive = reader.GetInt64(5) == 1
+            HasAnySymbol = reader.GetInt64(4) == 1,
+            DisplayOrder = reader.GetInt32(5),
+            IsActive = reader.GetInt64(6) == 1
         };
     }
 }

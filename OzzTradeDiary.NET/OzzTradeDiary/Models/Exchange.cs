@@ -29,12 +29,12 @@ namespace TD.Models
         [Display(ResourceType = typeof(LocalizedStrings), Name = "Id")]
         public int Id { get; set; }
 
-        [StringLength(48, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLength")]
+        [StringLength(48, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxStringLength")]
         [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
         [Display(ResourceType = typeof(LocalizedStrings), Name = "ExchangeName")]
         public string ExchangeName { get; set; }
 
-        [StringLength(8, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLength")]
+        [StringLength(8, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxStringLength")]
         [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
         [Display(ResourceType = typeof(LocalizedStrings), Name = "ExchangeCode")]
         public string ExchangeCode { get; set; }
@@ -42,9 +42,15 @@ namespace TD.Models
         /// <summary>
         /// Ticker of default curreny of the exchange.
         /// </summary>
-        [StringLength(8, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLength")]
+        [StringLength(8, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxStringLength")]
         [Display(ResourceType = typeof(LocalizedStrings), Name = "DefaultCurrency")]
         public string? DefaultCurrency { get; set; }
+
+        /// <summary>
+        /// Determine if the exchange has any symbol.
+        /// </summary>
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "HasAnySymbol")]
+        public bool HasAnySymbol { get; set; }
 
         [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
         [Display(ResourceType = typeof(LocalizedStrings), Name = "DisplayOrder")]
@@ -65,6 +71,7 @@ namespace TD.Models
             clone.ExchangeName = this.ExchangeName;
             clone.ExchangeCode = this.ExchangeCode;
             clone.DefaultCurrency = this.DefaultCurrency;
+            clone.HasAnySymbol = this.HasAnySymbol;
             clone.DisplayOrder = this.DisplayOrder;
             clone.IsActive = this.IsActive;
 

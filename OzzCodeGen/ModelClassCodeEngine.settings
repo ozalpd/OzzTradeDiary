@@ -166,6 +166,14 @@
           <HtmlEncode xsi:nil="true" />
           <Required />
         </ModelPropertySetting>
+        <ModelPropertySetting>
+          <Name>HasAnySymbol</Name>
+          <Exclude>false</Exclude>
+          <DataType />
+          <DTOExclusion>false</DTOExclusion>
+          <HtmlEncode xsi:nil="true" />
+          <Required />
+        </ModelPropertySetting>
       </Properties>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="ModelClassEntitySetting">
@@ -563,5 +571,8 @@
   <GenerateForDTO>false</GenerateForDTO>
   <UseResourceFiles>true</UseResourceFiles>
   <GenAnnotations>true</GenAnnotations>
+  <GenerateValidator>true</GenerateValidator>
   <GenerateXmlDoc>true</GenerateXmlDoc>
+  <ValidatorFolder>..\OzzTradeDiary.NET\OzzTradeDiary\Validation</ValidatorFolder>
+  <ValidatorNamespaceName>TD.Validation</ValidatorNamespaceName>
 </ModelClassCodeEngine>

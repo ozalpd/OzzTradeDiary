@@ -979,6 +979,15 @@ namespace TD.i18n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Has Any Symbol.
+        /// </summary>
+        public static string HasAnySymbol {
+            get {
+                return ResourceManager.GetString("HasAnySymbol", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Record Nr.
         /// </summary>
         public static string Id {

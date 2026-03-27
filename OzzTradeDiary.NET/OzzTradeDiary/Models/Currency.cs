@@ -31,7 +31,7 @@ namespace TD.Models
         /// <summary>
         /// Ticker or short code of the currency
         /// </summary>
-        [StringLength(8, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLength")]
+        [StringLength(8, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxStringLength")]
         [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
         [Display(ResourceType = typeof(LocalizedStrings), Name = "CurrencyTicker")]
         public string CurrencyTicker { get; set; }
@@ -39,7 +39,7 @@ namespace TD.Models
         /// <summary>
         /// Description for the currency.
         /// </summary>
-        [StringLength(255, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLength")]
+        [StringLength(255, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxStringLength")]
         [DataType(DataType.MultilineText)]
         [Display(ResourceType = typeof(LocalizedStrings), Name = "Description")]
         public string? Description { get; set; }

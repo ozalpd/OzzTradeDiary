@@ -6,19 +6,15 @@ namespace TD.SQLite;
 /// <summary>
 /// SQLite-based repository for trading account CRUD operations.
 /// </summary>
-public class SqliteDatabaseTradingAccountRepository : AbstractDatabaseRepository, IDatabaseTradingAccountRepository
+public class SqliteDatabaseTradingAccountRepository : AbstractDatabaseRepository<TradingAccount>, IDatabaseTradingAccountRepository
 {
-    private readonly string _connectionString;
-    private readonly SqliteDatabaseMetadataRepository _metadataRepository;
     private readonly IDatabaseExchangeRepository _exchangeRepository;
 
     public SqliteDatabaseTradingAccountRepository(
         string databasePath,
         SqliteDatabaseMetadataRepository? metadataRepository = null,
-        IDatabaseExchangeRepository? exchangeRepository = null)
+        IDatabaseExchangeRepository? exchangeRepository = null) : base(databasePath, "TradingAccounts", metadataRepository)
     {
-        _connectionString = $"Data Source={databasePath}";
-        _metadataRepository = metadataRepository ?? new SqliteDatabaseMetadataRepository(databasePath);
         _exchangeRepository = exchangeRepository ?? new SqliteDatabaseExchangeRepository(databasePath, _metadataRepository);
         InitializeDatabase();
     }

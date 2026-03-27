@@ -4,7 +4,7 @@ A Windows desktop trade journaling application for tracking trades across multip
 
 > **Status**: Pre-release development (no public release yet)
 > 
-> **Internal tracking versions**: `OzzTradeDiary` `0.0.15`, `OzzTradeDiary.WPF` `0.0.15`, `OzzTradeDiary.SQLite` `0.0.15`, `OzzTradeDiary.i18n` `0.0.15`
+> **Internal tracking versions**: `OzzTradeDiary` `0.0.16`, `OzzTradeDiary.WPF` `0.0.16`, `OzzTradeDiary.SQLite` `0.0.16`, `OzzTradeDiary.i18n` `0.0.16`
 
 ## Changelog
 
@@ -22,13 +22,16 @@ See [`CHANGELOG.md`](CHANGELOG.md) for release history.
 ## Features
 
 - DPI-aware multi-monitor window positioning
+- `Exchange.HasAnySymbol` is carried through the model, schema, repositories, seed data, localization, codegen, and maintenance UI for exchange/symbol linkage
 - `AppSettings.UiCulture` stores the user's preferred BCP-47 culture name (e.g. `"en-US"`, `"tr-TR"`); applied to `CurrentUICulture` and `CurrentCulture` in `App.OnStartup` before `MainWindow` is created — when empty the OS culture is used
 - `MainWindow` menu items are fully localized via `{x:Static i18n:ActionStrings.*}` and `{x:Static i18n:LocalizedStrings.*}`
 - Domain enums wired in models (including `OrderType` and `TradeDirection`)
+- String validation and generated resources now use `MaxStringLength` / `MinStringLength` metadata where applicable
 - `TD.Extensions.EnumExtension` shared helper in `OzzTradeDiary` for building enum value collections and reading localized `Display` attribute text for UI bindings across WPF and future platform frontends
 - Shared text helpers were moved from the WPF app into `OzzTradeDiary` so they can be reused by platform-agnostic and future UI projects
 - Generated SQLite schema includes `OrderType` for `EntryOrder`, `TakeProfitOrder`, and `StopLossOrder`
 - Repositories implemented: `Currency`, `Exchange`, `TradingAccount`, `Symbol`
+- Repository implementations now share a generic base class, with minor `ModelValidator` cleanup and repository refactoring
 - SQLite insert/update repository paths now handle nullable values more reliably, persisting SQL `NULL` where appropriate
 - `Exchange` includes nullable `DefaultCurrency`, persisted in SQLite as SQL `NULL` when not set
 - `AbstractDatabaseRepository` base class provides shared `ValidateOrThrow` helper called in `CreateAsync`/`UpdateAsync` — throws `ValidationException` with all DataAnnotations error messages
@@ -36,9 +39,11 @@ See [`CHANGELOG.md`](CHANGELOG.md) for release history.
 - `AbstractEditVM` now contains the `IIsDirty` contract, and the standalone `IIsDirty.cs` file has been removed
 - `ModelValidator` shared utility in `TD.Validation` for DataAnnotations-based model validation reusable by WPF, MAUI, and ASP.NET
 - Dedicated localization project `OzzTradeDiary.i18n` with generated resources: `ActionStrings`, `CommonStrings`, `ErrorStrings`, `LocalizedStrings`, `MessageStrings` (`default` + `tr`)
+- Turkish translations and localization code generation vocabulary were improved so generated resources stay aligned
 - Model classes apply localized DataAnnotations using `TD.i18n` resources for display names and validation messages
 - Maintenance window accessible from menu, with singleton window management (bring-to-front if already open)
 - Maintenance window provides Add, Edit, Save, Refresh, and Delete (Exchange) CRUD operations for Currency, Exchange, TradingAccount, and Symbol
+- `MaintenanceWindow` now includes `HasAnySymbol` exchange handling and updated symbol grid behavior
 - `MaintenanceWindow` edit flows have been polished for a more consistent maintenance experience
 - `CurrencyCreate`/`CurrencyEdit`, `ExchangeCreate`/`ExchangeEdit`, and `SymbolCreate`/`SymbolEdit` dialogs with dedicated view models integrated into maintenance flows
 - `SymbolCreate` market type ComboBox shows localized display text from enum `Display` attributes instead of blank items

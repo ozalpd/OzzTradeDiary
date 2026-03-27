@@ -58,10 +58,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-    <data name="MaxLength" xml:space="preserve">
+    <data name="MaxStringLength" xml:space="preserve">
         <value>{0} sahasına en fazla {1} karakter girebilirsiniz.</value>
     </data>
-    <data name="MinLength" xml:space="preserve">
+    <data name="MinStringLength" xml:space="preserve">
         <value>{0} sahasına en az {2} karakter girmelisiniz.</value>
     </data>
     <data name="NewPasswordNotMatch" xml:space="preserve">

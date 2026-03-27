@@ -1025,6 +1025,10 @@
     <Translation>Futures</Translation>
   </Vocab>
   <Vocab>
+    <Name>HasAnySymbol</Name>
+    <Translation>Has Any Symbol</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Height</Name>
     <Translation>Height</Translation>
   </Vocab>
@@ -1173,11 +1177,11 @@
     <Translation>Market Type</Translation>
   </Vocab>
   <Vocab>
-    <Name>MaxLength</Name>
+    <Name>MaxStringLength</Name>
     <Translation>The {0} field maximum length is {1}.</Translation>
   </Vocab>
   <Vocab>
-    <Name>MinLength</Name>
+    <Name>MinStringLength</Name>
     <Translation>The {0} must be at least {2} characters long.</Translation>
   </Vocab>
   <Vocab>

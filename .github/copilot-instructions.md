@@ -4,7 +4,7 @@
 
 Early-stage development (pre-release, no public release yet).
 
-Internal tracking versions: `OzzTradeDiary` `0.0.15`, `OzzTradeDiary.WPF` `0.0.15`, `OzzTradeDiary.SQLite` `0.0.15`, `OzzTradeDiary.i18n` `0.0.15`.
+Internal tracking versions: `OzzTradeDiary` `0.0.16`, `OzzTradeDiary.WPF` `0.0.16`, `OzzTradeDiary.SQLite` `0.0.16`, `OzzTradeDiary.i18n` `0.0.16`.
 
 - **Changelog discipline**: Any behavior change (repository logic, initialization, seeding, schema generation impact, UI-visible behavior) must be recorded in `CHANGELOG.md`.
 
@@ -50,6 +50,7 @@ Internal tracking versions: `OzzTradeDiary` `0.0.15`, `OzzTradeDiary.WPF` `0.0.1
 - Navigation properties use `virtual` collections
 - Use XML documentation comments on properties
 - Use localized DataAnnotations backed by `TD.i18n` resources for display names and validation messages where applicable
+- Prefer `MaxStringLength` and `MinStringLength` metadata for bounded string validation so generated validation/resource text stays aligned with the model contract.
 - Model names are singular and related table names are plural
 - **Each model must have a corresponding generated DDL script** in `OzzTradeDiary.SQLite/DbScripts/` named `<ModelName>.sql`
 - Some models also have generated seed scripts named `<PluralTableName>-Data.sql`
@@ -80,7 +81,7 @@ Internal tracking versions: `OzzTradeDiary` `0.0.15`, `OzzTradeDiary.WPF` `0.0.1
 ### SQLite (TD.SQLite namespace)
 
 - Repository pattern — one repository per entity (implementation may be incremental while schema/model alignment progresses)
-- All repositories (except `SqliteDatabaseMetadataRepository`) inherit from `AbstractDatabaseRepository`, which provides the `ValidateOrThrow(object model)` helper. Call `ValidateOrThrow` in `CreateAsync` and `UpdateAsync` immediately after the null guard; it runs `ModelValidator.Validate` and throws `ValidationException` with all error messages joined by newlines if validation fails.
+- All repositories (except `SqliteDatabaseMetadataRepository`) inherit from `AbstractDatabaseRepository` or the shared generic repository base, keeping entity-specific logic minimal. Call `ValidateOrThrow` in `CreateAsync` and `UpdateAsync` immediately after the null guard; it runs `ModelValidator.Validate` and throws `ValidationException` with all error messages joined by newlines if validation fails.
 - Implemented repositories: `Currency`, `Exchange`, `TradingAccount`, `Symbol`; remaining repositories will be added
 - **Each model has a matching DDL file** in `OzzTradeDiary.SQLite/DbScripts` named `<ModelName>.sql`; optional seed files are named `<PluralTableName>-Data.sql`
 - DDL scripts in `DbScripts/` folder are **generated** by OzzCodeGen — do not edit manually
@@ -106,6 +107,7 @@ Internal tracking versions: `OzzTradeDiary` `0.0.15`, `OzzTradeDiary.WPF` `0.0.1
 - **UI culture**: `AppSettings.UiCulture` stores the user's preferred BCP-47 culture name (e.g. `"en-US"`, `"tr-TR"`). `App.OnStartup` applies it to `Thread.CurrentThread.CurrentUICulture` and `CurrentCulture` before `MainWindow` is created. When empty, the OS culture is used.
 - **Validation**: Use `TD.Validation.ModelValidator` for shared DataAnnotations-based model validation logic so WPF, MAUI, and ASP.NET can reuse the same validation rules
 - **Localization**: Use resources from `OzzTradeDiary.i18n` (`ActionStrings`, `CommonStrings`, `ErrorStrings`, `LocalizedStrings`, `MessageStrings`); model classes consume these resources through DataAnnotations and the resource classes are generated artifacts
+- **Localization generation**: Keep `OzzCodeGen/Vocabulary`, Turkish translations, and generated localization resources in sync when adding or renaming UI text.
 - **Enum helpers**: Use `TD.Extensions.EnumExtension` when building collections from enums for UI binding or when reading enum `Display` attribute text.
 - **Text helpers**: Use shared text/string helper extensions from the platform-agnostic core library instead of placing them in WPF-specific projects.
 - **Code generation**: OzzCodeGen generates SQLite DDL scripts and localization resources — settings files in `OzzCodeGen/` define mappings
@@ -119,6 +121,7 @@ Internal tracking versions: `OzzTradeDiary` `0.0.15`, `OzzTradeDiary.WPF` `0.0.1
 - **Window icons**: Use `WindowExtensions.SetIconFromGeometryResource(string geometryResourceKey, string fillColor, int size = 16)` (in `TD.WPF.Extensions`) to render a Bootstrap Icon geometry as a window title bar/taskbar icon. Example: `this.SetIconFromGeometryResource("gear-wide-connected", "#93191C");`
 - **Window state**: DPI-aware multi-monitor positioning via WinAPI (`WindowPosition`)
 - **Database path**: Default is `{AppData}/trades.db`
+- **Exchange symbol flag**: `Exchange.HasAnySymbol` is the canonical persisted flag for whether an exchange has linked symbols; use it in UI/repository logic instead of recalculating the state when the data is already loaded.
 
 ## Key Entities
 

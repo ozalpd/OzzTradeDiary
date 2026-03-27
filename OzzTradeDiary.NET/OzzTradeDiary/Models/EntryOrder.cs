@@ -38,7 +38,7 @@ namespace TD.Models
 
         [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
         [Display(ResourceType = typeof(LocalizedStrings), Name = "OrderType")]
-        public int OrderType { get; set; }
+        public OrderType OrderType { get; set; }
 
         [Range(typeof(DateTime), "1/1/2000", "12/31/2220", ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName ="RangeDateTime")]
         [Display(ResourceType = typeof(LocalizedStrings), Name = "ExecuteTime")]

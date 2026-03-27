@@ -1025,6 +1025,10 @@
     <Translation>Vadeli İşlem</Translation>
   </Vocab>
   <Vocab>
+    <Name>HasAnySymbol</Name>
+    <Translation>Sembole Sahip</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Height</Name>
     <Translation>Yükseklik</Translation>
   </Vocab>
@@ -1173,11 +1177,11 @@
     <Translation>Piyasa Tipi</Translation>
   </Vocab>
   <Vocab>
-    <Name>MaxLength</Name>
+    <Name>MaxStringLength</Name>
     <Translation>{0} sahasına en fazla {1} karakter girebilirsiniz.</Translation>
   </Vocab>
   <Vocab>
-    <Name>MinLength</Name>
+    <Name>MinStringLength</Name>
     <Translation>{0} sahasına en az {2} karakter girmelisiniz.</Translation>
   </Vocab>
   <Vocab>
@@ -1398,7 +1402,7 @@
   </Vocab>
   <Vocab>
     <Name>PositiveDecimal</Name>
-    <Translation>Positive Decimal</Translation>
+    <Translation>Pozitif Ondalık</Translation>
   </Vocab>
   <Vocab>
     <Name>Price</Name>

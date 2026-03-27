@@ -364,6 +364,9 @@
     <data name="Futures" xml:space="preserve">
         <value>Futures</value>
     </data>
+    <data name="HasAnySymbol" xml:space="preserve">
+        <value>Has Any Symbol</value>
+    </data>
     <data name="Id" xml:space="preserve">
         <value>Record Nr</value>
     </data>

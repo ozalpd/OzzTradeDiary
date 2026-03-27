@@ -9,5 +9,6 @@ public interface IDatabaseExchangeRepository
     Task<Exchange?> GetByIdAsync(int id);
     Task<int> CreateAsync(Exchange exchange);
     Task<bool> UpdateAsync(Exchange exchange);
+    Task<bool> SetHasAnySymbol(int exchangeId, bool hasAnySymbol);
     Task<bool> DeleteAsync(int id);
 }

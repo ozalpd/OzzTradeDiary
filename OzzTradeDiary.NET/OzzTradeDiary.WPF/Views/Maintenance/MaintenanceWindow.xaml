@@ -158,6 +158,7 @@
                             <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.ExchangeName}" Binding="{Binding ExchangeName}" Width="260" />
                             <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.ExchangeCode}" Binding="{Binding ExchangeCode}" Width="180" />
                             <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.DefaultCurrency}" Binding="{Binding DefaultCurrency}" Width="180" />
+                            <DataGridCheckBoxColumn Header="{x:Static i18n:LocalizedStrings.HasAnySymbol}" Binding="{Binding HasAnySymbol}" Width="120" />
                             <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.DisplayOrder}" Binding="{Binding DisplayOrder}" Width="130" />
                             <DataGridCheckBoxColumn Header="{x:Static i18n:LocalizedStrings.IsActive}" Binding="{Binding IsActive}" Width="120" />
                         </DataGrid.Columns>
@@ -211,21 +212,18 @@
                               AutoGenerateColumns="False"
                               CanUserAddRows="False"
                               CanUserDeleteRows="False"
-                              IsReadOnly="False">
+                              IsReadOnly="True">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.Id}" Binding="{Binding Id}" IsReadOnly="True" Width="70" />
-                            <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.TickerFull}" Binding="{Binding TickerFull}" Width="220" />
-                            <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.Ticker}" Binding="{Binding Ticker}" Width="140" />
-                            <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.BaseCurrency}" Binding="{Binding BaseCurrency}" Width="130" />
-                            <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.PriceCurrency}" Binding="{Binding PriceCurrency}" Width="130" />
+                            <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.Id}" Binding="{Binding Id}" IsReadOnly="True" Width="48" />
+                            <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.TickerFull}" Binding="{Binding TickerFull}" Width="180" />
+                            <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.Ticker}" Binding="{Binding Ticker}" Width="120" />
                             <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.Description}" Binding="{Binding Description}" Width="*" />
-                            <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.ExchangeCode}" Binding="{Binding Exchange.ExchangeCode}" IsReadOnly="True" Width="130" />
-                            <DataGridComboBoxColumn Header="{x:Static i18n:LocalizedStrings.MarketType}"
-                                                    SelectedItemBinding="{Binding MarketType}"
-                                                    ItemsSource="{Binding Source={StaticResource MarketTypeValues}}"
-                                                    Width="140" />
-                            <DataGridCheckBoxColumn Header="{x:Static i18n:LocalizedStrings.IsActive}" Binding="{Binding IsActive}" Width="120" />
-                            <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.DisplayOrder}" Binding="{Binding DisplayOrder}" Width="130" />
+                            <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.BaseCurrency}" Binding="{Binding BaseCurrency}" Width="64" />
+                            <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.PriceCurrency}" Binding="{Binding PriceCurrency}" Width="64" />
+                            <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.ExchangeCode}" Binding="{Binding Exchange.ExchangeCode}" IsReadOnly="True" Width="64" />
+                            <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.MarketType}" Binding="{Binding MarketType}" Width="112" />
+                            <DataGridCheckBoxColumn Header="{x:Static i18n:LocalizedStrings.IsActive}" Binding="{Binding IsActive}" Width="64" />
+                            <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.DisplayOrder}" Binding="{Binding DisplayOrder}" Width="64" />
                         </DataGrid.Columns>
                     </DataGrid>
                 </DockPanel>

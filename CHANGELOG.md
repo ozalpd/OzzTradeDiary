@@ -4,6 +4,20 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.0.16] - 2026-03-27
+
+### Added
+- `HasAnySymbol` on `Exchange` and the related schema, seed data, repositories, localization, codegen, and maintenance UI.
+- BIST symbols in `Symbols-Data.sql`.
+
+### Changed
+- Order models now use the `OrderType` enum instead of ad hoc order-type handling.
+- String validation and generated resource metadata now use `MaxStringLength` and `MinStringLength` where applicable.
+- Repositories were refactored to use the shared generic base class, with minor repository and `ModelValidator` cleanup.
+- `MaintenanceWindow` was updated for `HasAnySymbol` and symbol grid behavior.
+- Turkish translations and `OzzCodeGen` settings/vocabulary were improved to keep generated localization resources aligned.
+- Bumped all project versions to `0.0.16` (`OzzTradeDiary`, `OzzTradeDiary.WPF`, `OzzTradeDiary.SQLite`, `OzzTradeDiary.i18n`).
+
 ## [0.0.15] - 2026-03-22
 
 ### Added

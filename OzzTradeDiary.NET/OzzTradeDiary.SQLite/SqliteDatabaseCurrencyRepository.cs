@@ -6,15 +6,10 @@ namespace TD.SQLite;
 /// <summary>
 /// SQLite-based repository for currency CRUD operations.
 /// </summary>
-public class SqliteDatabaseCurrencyRepository : AbstractDatabaseRepository, IDatabaseCurrencyRepository
+public class SqliteDatabaseCurrencyRepository : AbstractDatabaseRepository<Currency>, IDatabaseCurrencyRepository
 {
-    private readonly string _connectionString;
-    private readonly SqliteDatabaseMetadataRepository _metadataRepository;
-
-    public SqliteDatabaseCurrencyRepository(string databasePath, SqliteDatabaseMetadataRepository? metadataRepository = null)
+    public SqliteDatabaseCurrencyRepository(string databasePath, SqliteDatabaseMetadataRepository? metadataRepository = null) : base(databasePath, "Currencies", metadataRepository)
     {
-        _connectionString = $"Data Source={databasePath}";
-        _metadataRepository = metadataRepository ?? new SqliteDatabaseMetadataRepository(databasePath);
         InitializeDatabase();
     }
 
