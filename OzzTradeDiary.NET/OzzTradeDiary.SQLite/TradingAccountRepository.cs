@@ -10,12 +10,10 @@ public class TradingAccountRepository : AbstractDatabaseRepository<TradingAccoun
 {
     private readonly IDbExchangeRepository _exchangeRepository;
 
-    public TradingAccountRepository(
-        string databasePath,
-        MetadataRepository? metadataRepository = null,
-        IDbExchangeRepository? exchangeRepository = null) : base(databasePath, "TradingAccounts", metadataRepository)
+    public TradingAccountRepository(string databasePath,
+                                    IDbExchangeRepository? exchangeRepository = null) : base(databasePath, "TradingAccounts")
     {
-        _exchangeRepository = exchangeRepository ?? new ExchangeRepository(databasePath, _metadataRepository);
+        _exchangeRepository = exchangeRepository ?? new ExchangeRepository(databasePath);
         InitializeDatabase();
     }
 

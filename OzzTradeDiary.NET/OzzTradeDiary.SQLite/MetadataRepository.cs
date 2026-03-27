@@ -8,17 +8,33 @@ namespace TD.SQLite;
 /// </summary>
 public class MetadataRepository : IDbMetadataRepository
 {
-    private readonly string _connectionString;
-
     /// <summary>
     /// Initializes a new instance with the specified database path.
     /// </summary>
     /// <param name="databasePath">The full path to the SQLite database file.</param>
-    public MetadataRepository(string databasePath)
+    private MetadataRepository(string databasePath)
     {
         _connectionString = $"Data Source={databasePath}";
         InitializeDatabase();
     }
+
+    /// <summary>
+    /// <see langword="public"/> <see langword="static"/> method to get the singleton instance of MetadataRepository.
+    /// </summary>
+    /// <param name="databasePath">The full path to the SQLite database file.</param>
+    /// <returns>The singleton instance of MetadataRepository.</returns>
+    public static MetadataRepository GetInstance(string databasePath)
+    {
+        if (_instance == null)
+        {
+            _instance = new MetadataRepository(databasePath);
+        }
+        return _instance;
+    }
+    private static MetadataRepository? _instance;
+
+    public string ConnectionString {  get { return _connectionString; } }
+    private readonly string _connectionString;
 
     private void InitializeDatabase()
     {
@@ -60,9 +76,9 @@ public class MetadataRepository : IDbMetadataRepository
 
         var command = connection.CreateCommand();
         command.CommandText = "SELECT LastUpdateUtc FROM DatabaseMetadata WHERE Id = 1";
-        
+
         var result = await command.ExecuteScalarAsync() as string;
-        
+
         if (string.IsNullOrWhiteSpace(result))
         {
             return null;

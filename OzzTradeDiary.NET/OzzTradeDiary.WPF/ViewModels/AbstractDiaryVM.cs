@@ -12,12 +12,10 @@ namespace TD.WPF.ViewModels
             var appSettings = AppSettings.GetAppSettings();
             var databasePath = appSettings.DatabasePath;
 
-
-            MetadataRepository = new MetadataRepository(databasePath);
-            CurrencyRepository = new CurrencyRepository(databasePath, MetadataRepository);
-            ExchangeRepository = new ExchangeRepository(databasePath, MetadataRepository);
-            SymbolRepository = new SymbolRepository(databasePath, MetadataRepository, ExchangeRepository);
-            TradingAccountRepository = new TradingAccountRepository(databasePath, MetadataRepository, ExchangeRepository);
+            CurrencyRepository = new CurrencyRepository(databasePath);
+            ExchangeRepository = new ExchangeRepository(databasePath);
+            SymbolRepository = new SymbolRepository(databasePath, ExchangeRepository);
+            TradingAccountRepository = new TradingAccountRepository(databasePath, ExchangeRepository);
 
             Currencies = new ObservableCollection<Currency>();
             Exchanges = new ObservableCollection<Exchange>();
@@ -25,7 +23,6 @@ namespace TD.WPF.ViewModels
             Symbols = new ObservableCollection<Symbol>();
         }
 
-        public MetadataRepository MetadataRepository { get; }
         public IDbCurrencyRepository CurrencyRepository { get; }
         public IDbExchangeRepository ExchangeRepository { get; }
         public IDbSymbolRepository SymbolRepository { get; }

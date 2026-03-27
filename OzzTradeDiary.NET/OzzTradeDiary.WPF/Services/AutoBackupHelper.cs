@@ -12,7 +12,7 @@ namespace TD.WPF.Services
                 return;
 
             var backupService = new DatabaseBackupService(settings);
-            var metadataRepository = new MetadataRepository(settings.DatabasePath);
+            var metadataRepository = MetadataRepository.GetInstance(settings.DatabasePath);
 
             if (byPassIsBackupDue || backupService.IsBackupDue())
             {

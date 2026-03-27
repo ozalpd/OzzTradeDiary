@@ -8,7 +8,7 @@ namespace TD.SQLite;
 /// </summary>
 public class ExchangeRepository : AbstractDatabaseRepository<Exchange>, IDbExchangeRepository
 {
-    public ExchangeRepository(string databasePath, MetadataRepository? metadataRepository = null) : base(databasePath, "Exchanges")
+    public ExchangeRepository(string databasePath) : base(databasePath, "Exchanges")
     {
         InitializeDatabase();
         _selectStatement = $"SELECT Id, ExchangeName, ExchangeCode, DefaultCurrency, HasAnySymbol, DisplayOrder, IsActive FROM {_tableName}";

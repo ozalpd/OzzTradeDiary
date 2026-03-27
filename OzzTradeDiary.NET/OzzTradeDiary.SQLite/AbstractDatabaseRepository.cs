@@ -6,10 +6,10 @@ namespace TD.SQLite
 {
     public abstract class AbstractDatabaseRepository<T> where T : class
     {
-        protected AbstractDatabaseRepository(string databasePath, string tableName, MetadataRepository? metadataRepository = null)
+        protected AbstractDatabaseRepository(string databasePath, string tableName)
         {
-            _connectionString = $"Data Source={databasePath}";
-            _metadataRepository = metadataRepository ?? new MetadataRepository(databasePath);
+            _metadataRepository = MetadataRepository.GetInstance(databasePath);
+            _connectionString = _metadataRepository.ConnectionString;
             _tableName = tableName;
         }
 

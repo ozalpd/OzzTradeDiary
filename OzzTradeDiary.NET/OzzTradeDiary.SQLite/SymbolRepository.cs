@@ -10,12 +10,10 @@ public class SymbolRepository : AbstractDatabaseRepository<Symbol>, IDbSymbolRep
 {
     private readonly IDbExchangeRepository _exchangeRepository;
 
-    public SymbolRepository(
-        string databasePath,
-        MetadataRepository? metadataRepository = null,
-        IDbExchangeRepository? exchangeRepository = null) : base(databasePath, "Symbols", metadataRepository)
+    public SymbolRepository(string databasePath,
+                            IDbExchangeRepository? exchangeRepository = null) : base(databasePath, "Symbols")
     {
-        _exchangeRepository = exchangeRepository ?? new ExchangeRepository(databasePath, _metadataRepository);
+        _exchangeRepository = exchangeRepository ?? new ExchangeRepository(databasePath);
         InitializeDatabase();
     }
 

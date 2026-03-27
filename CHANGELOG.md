@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.0.18] - 2026-03-28
+
+### Changed
+- `MetadataRepository` now uses a singleton pattern with a private constructor and static `GetInstance()` method so metadata access and the database connection string come from a single source of truth.
+- Repository classes no longer accept an optional `MetadataRepository` parameter and instead use the singleton internally.
+- WPF ViewModels and services no longer instantiate `MetadataRepository` directly.
+- Bumped all project versions to `0.0.18` (`OzzTradeDiary`, `OzzTradeDiary.WPF`, `OzzTradeDiary.SQLite`, `OzzTradeDiary.i18n`).
+
 ## [0.0.17] - 2026-03-27
 
 ### Changed

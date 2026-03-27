@@ -8,7 +8,7 @@ namespace TD.SQLite;
 /// </summary>
 public class CurrencyRepository : AbstractDatabaseRepository<Currency>, IDbCurrencyRepository
 {
-    public CurrencyRepository(string databasePath, MetadataRepository? metadataRepository = null) : base(databasePath, "Currencies", metadataRepository)
+    public CurrencyRepository(string databasePath) : base(databasePath, "Currencies")
     {
         InitializeDatabase();
     }

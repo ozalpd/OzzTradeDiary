@@ -7,8 +7,6 @@ namespace TD.WPF.ViewModels.Maintenance
 {
     internal class TradingAccountCreateVM : AbstractEditVM
     {
-        public MetadataRepository MetadataRepository { get; }
-
         private TradingAccount _tradingAccount;
         public TradingAccount TradingAccount => _tradingAccount;
         public TradingAccountCreateVM()
@@ -16,8 +14,7 @@ namespace TD.WPF.ViewModels.Maintenance
             var appSettings = AppSettings.GetAppSettings();
             var databasePath = appSettings.DatabasePath;
 
-            MetadataRepository = new MetadataRepository(databasePath);
-            ExchangeRepository = new ExchangeRepository(databasePath, MetadataRepository);
+            ExchangeRepository = new ExchangeRepository(databasePath);
 
             Exchanges = new ObservableCollection<Exchange>();
             _tradingAccount = new TradingAccount();

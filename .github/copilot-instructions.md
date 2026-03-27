@@ -4,7 +4,7 @@
 
 Early-stage development (pre-release, no public release yet).
 
-Internal tracking versions: `OzzTradeDiary` `0.0.17`, `OzzTradeDiary.WPF` `0.0.17`, `OzzTradeDiary.SQLite` `0.0.17`, `OzzTradeDiary.i18n` `0.0.17`.
+Internal tracking versions: `OzzTradeDiary` `0.0.18`, `OzzTradeDiary.WPF` `0.0.18`, `OzzTradeDiary.SQLite` `0.0.18`, `OzzTradeDiary.i18n` `0.0.18`.
 
 - **Changelog discipline**: Any behavior change (repository logic, initialization, seeding, schema generation impact, UI-visible behavior) must be recorded in `CHANGELOG.md`.
 
@@ -81,6 +81,8 @@ Internal tracking versions: `OzzTradeDiary` `0.0.17`, `OzzTradeDiary.WPF` `0.0.1
 ### SQLite (TD.SQLite namespace)
 
 - Repository pattern — one repository per entity (implementation may be incremental while schema/model alignment progresses)
+- `MetadataRepository` is a singleton with a private constructor and static `GetInstance()` method; repositories must use that shared instance internally instead of accepting optional metadata repository parameters.
+- WPF ViewModels and services should not instantiate `MetadataRepository` directly.
 - All repositories (except `SqliteDatabaseMetadataRepository`) inherit from `AbstractDatabaseRepository` or the shared generic repository base, keeping entity-specific logic minimal. Call `ValidateOrThrow` in `CreateAsync` and `UpdateAsync` immediately after the null guard; it runs `ModelValidator.Validate` and throws `ValidationException` with all error messages joined by newlines if validation fails.
 - Prefer readable names without redundant prefixes/suffixes: repository classes should be named `SymbolRepository`, `ExchangeRepository`, etc., under the `TD.SQLite` namespace, and repository interfaces should use the `IDb...Repository` pattern such as `IDbTradingAccountRepository` instead of `IDatabaseTradingAccountRepository`.
 - Prefer readable repository names without redundant `SqliteDatabase` prefixes, e.g. `SymbolRepository`, `ExchangeRepository`, `TradingAccountRepository`.
