@@ -2,7 +2,7 @@ using TD.Models;
 
 namespace TD.SQLite;
 
-public interface IDatabaseExchangeRepository
+public interface IDbExchangeRepository
 {
     Task<IReadOnlyList<Exchange>> GetAllAsync(bool? isActive = null);
     Task<Exchange?> GetByExchangeCodeAsync(string exchangeCode);

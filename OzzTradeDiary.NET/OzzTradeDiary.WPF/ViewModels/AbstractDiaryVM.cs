@@ -13,11 +13,11 @@ namespace TD.WPF.ViewModels
             var databasePath = appSettings.DatabasePath;
 
 
-            MetadataRepository = new SqliteDatabaseMetadataRepository(databasePath);
-            CurrencyRepository = new SqliteDatabaseCurrencyRepository(databasePath, MetadataRepository);
-            ExchangeRepository = new SqliteDatabaseExchangeRepository(databasePath, MetadataRepository);
-            SymbolRepository = new SqliteDatabaseSymbolRepository(databasePath, MetadataRepository, ExchangeRepository);
-            TradingAccountRepository = new SqliteDatabaseTradingAccountRepository(databasePath, MetadataRepository, ExchangeRepository);
+            MetadataRepository = new MetadataRepository(databasePath);
+            CurrencyRepository = new CurrencyRepository(databasePath, MetadataRepository);
+            ExchangeRepository = new ExchangeRepository(databasePath, MetadataRepository);
+            SymbolRepository = new SymbolRepository(databasePath, MetadataRepository, ExchangeRepository);
+            TradingAccountRepository = new TradingAccountRepository(databasePath, MetadataRepository, ExchangeRepository);
 
             Currencies = new ObservableCollection<Currency>();
             Exchanges = new ObservableCollection<Exchange>();
@@ -25,11 +25,11 @@ namespace TD.WPF.ViewModels
             Symbols = new ObservableCollection<Symbol>();
         }
 
-        public SqliteDatabaseMetadataRepository MetadataRepository { get; }
-        public IDatabaseCurrencyRepository CurrencyRepository { get; }
-        public IDatabaseExchangeRepository ExchangeRepository { get; }
-        public IDatabaseSymbolRepository SymbolRepository { get; }
-        public IDatabaseTradingAccountRepository TradingAccountRepository { get; }
+        public MetadataRepository MetadataRepository { get; }
+        public IDbCurrencyRepository CurrencyRepository { get; }
+        public IDbExchangeRepository ExchangeRepository { get; }
+        public IDbSymbolRepository SymbolRepository { get; }
+        public IDbTradingAccountRepository TradingAccountRepository { get; }
 
         public ObservableCollection<Currency> Currencies { get; }
         public ObservableCollection<Exchange> Exchanges { get; }

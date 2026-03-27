@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.0.17] - 2026-03-27
+
+### Changed
+- SQLite repository and interface names were simplified for readability, e.g. `SqliteDatabaseSymbolRepository` → `SymbolRepository` and `IDatabaseTradingAccountRepository` → `IDbTradingAccountRepository`.
+- Bumped all project versions to `0.0.17` (`OzzTradeDiary`, `OzzTradeDiary.WPF`, `OzzTradeDiary.SQLite`, `OzzTradeDiary.i18n`).
+
 ## [0.0.16] - 2026-03-27
 
 ### Added

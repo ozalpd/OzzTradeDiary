@@ -5,7 +5,7 @@ namespace TD.SQLite;
 /// <summary>
 /// Repository interface for accessing database metadata.
 /// </summary>
-public interface IDatabaseMetadataRepository
+public interface IDbMetadataRepository
 {
     /// <summary>
     /// Gets the last database update time in UTC.

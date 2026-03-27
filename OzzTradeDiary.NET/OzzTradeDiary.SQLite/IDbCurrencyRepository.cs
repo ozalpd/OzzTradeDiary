@@ -2,7 +2,7 @@ using TD.Models;
 
 namespace TD.SQLite;
 
-public interface IDatabaseCurrencyRepository
+public interface IDbCurrencyRepository
 {
     Task<IReadOnlyList<Currency>> GetAllAsync(bool? isActive = null);
     Task<Currency?> GetByCurrencyTickerAsync(string currencyTicker);

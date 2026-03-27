@@ -4,7 +4,7 @@
 
 Early-stage development (pre-release, no public release yet).
 
-Internal tracking versions: `OzzTradeDiary` `0.0.16`, `OzzTradeDiary.WPF` `0.0.16`, `OzzTradeDiary.SQLite` `0.0.16`, `OzzTradeDiary.i18n` `0.0.16`.
+Internal tracking versions: `OzzTradeDiary` `0.0.17`, `OzzTradeDiary.WPF` `0.0.17`, `OzzTradeDiary.SQLite` `0.0.17`, `OzzTradeDiary.i18n` `0.0.17`.
 
 - **Changelog discipline**: Any behavior change (repository logic, initialization, seeding, schema generation impact, UI-visible behavior) must be recorded in `CHANGELOG.md`.
 
@@ -82,6 +82,9 @@ Internal tracking versions: `OzzTradeDiary` `0.0.16`, `OzzTradeDiary.WPF` `0.0.1
 
 - Repository pattern — one repository per entity (implementation may be incremental while schema/model alignment progresses)
 - All repositories (except `SqliteDatabaseMetadataRepository`) inherit from `AbstractDatabaseRepository` or the shared generic repository base, keeping entity-specific logic minimal. Call `ValidateOrThrow` in `CreateAsync` and `UpdateAsync` immediately after the null guard; it runs `ModelValidator.Validate` and throws `ValidationException` with all error messages joined by newlines if validation fails.
+- Prefer readable names without redundant prefixes/suffixes: repository classes should be named `SymbolRepository`, `ExchangeRepository`, etc., under the `TD.SQLite` namespace, and repository interfaces should use the `IDb...Repository` pattern such as `IDbTradingAccountRepository` instead of `IDatabaseTradingAccountRepository`.
+- Prefer readable repository names without redundant `SqliteDatabase` prefixes, e.g. `SymbolRepository`, `ExchangeRepository`, `TradingAccountRepository`.
+- Prefer `IDb...Repository` interface names for SQLite repositories, e.g. `IDbTradingAccountRepository`, to keep interface names concise but still clearly database-oriented.
 - Implemented repositories: `Currency`, `Exchange`, `TradingAccount`, `Symbol`; remaining repositories will be added
 - **Each model has a matching DDL file** in `OzzTradeDiary.SQLite/DbScripts` named `<ModelName>.sql`; optional seed files are named `<PluralTableName>-Data.sql`
 - DDL scripts in `DbScripts/` folder are **generated** by OzzCodeGen — do not edit manually

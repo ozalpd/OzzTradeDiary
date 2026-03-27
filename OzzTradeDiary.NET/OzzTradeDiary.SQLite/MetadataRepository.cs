@@ -6,7 +6,7 @@ namespace TD.SQLite;
 /// <summary>
 /// SQLite-based implementation of IDatabaseMetadataRepository.
 /// </summary>
-public class SqliteDatabaseMetadataRepository : IDatabaseMetadataRepository
+public class MetadataRepository : IDbMetadataRepository
 {
     private readonly string _connectionString;
 
@@ -14,7 +14,7 @@ public class SqliteDatabaseMetadataRepository : IDatabaseMetadataRepository
     /// Initializes a new instance with the specified database path.
     /// </summary>
     /// <param name="databasePath">The full path to the SQLite database file.</param>
-    public SqliteDatabaseMetadataRepository(string databasePath)
+    public MetadataRepository(string databasePath)
     {
         _connectionString = $"Data Source={databasePath}";
         InitializeDatabase();

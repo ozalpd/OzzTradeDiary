@@ -2,7 +2,7 @@ using Microsoft.Data.Sqlite;
 
 namespace TD.SQLite;
 
-internal static class SqliteDbScriptInitializer
+internal static class DbScriptInitializer
 {
     private static readonly string ScriptsDirectory = Path.Combine(AppContext.BaseDirectory, "DbScripts");
 

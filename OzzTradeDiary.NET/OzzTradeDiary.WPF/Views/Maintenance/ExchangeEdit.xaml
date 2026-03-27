@@ -8,7 +8,7 @@
                     xmlns:i18n="clr-namespace:TD.i18n;assembly=OzzTradeDiary.i18n"
                     Title="{x:Static i18n:LocalizedStrings.EditExchange}"
                     FocusManager.FocusedElement="{Binding ElementName=ExchangeNameTextBox}"
-                    Height="240" Width="420" MinHeight="240" MinWidth="420"
+                    Height="280" Width="420" MinHeight="280" MinWidth="420"
                     WindowStartupLocation="CenterOwner"
                     mc:Ignorable="d">
     <Grid Margin="12">
@@ -17,7 +17,7 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
-            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>

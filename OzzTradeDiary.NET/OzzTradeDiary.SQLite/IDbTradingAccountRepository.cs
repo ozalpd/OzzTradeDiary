@@ -2,7 +2,7 @@ using TD.Models;
 
 namespace TD.SQLite;
 
-public interface IDatabaseTradingAccountRepository
+public interface IDbTradingAccountRepository
 {
     Task<IReadOnlyList<TradingAccount>> GetAllAsync(bool? isActive = null);
     Task<TradingAccount?> GetByTitleAsync(string title);

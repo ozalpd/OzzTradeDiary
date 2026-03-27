@@ -6,9 +6,9 @@ namespace TD.SQLite;
 /// <summary>
 /// SQLite-based repository for currency CRUD operations.
 /// </summary>
-public class SqliteDatabaseCurrencyRepository : AbstractDatabaseRepository<Currency>, IDatabaseCurrencyRepository
+public class CurrencyRepository : AbstractDatabaseRepository<Currency>, IDbCurrencyRepository
 {
-    public SqliteDatabaseCurrencyRepository(string databasePath, SqliteDatabaseMetadataRepository? metadataRepository = null) : base(databasePath, "Currencies", metadataRepository)
+    public CurrencyRepository(string databasePath, MetadataRepository? metadataRepository = null) : base(databasePath, "Currencies", metadataRepository)
     {
         InitializeDatabase();
     }
@@ -18,8 +18,8 @@ public class SqliteDatabaseCurrencyRepository : AbstractDatabaseRepository<Curre
         using var connection = new SqliteConnection(_connectionString);
         connection.Open();
 
-        SqliteDbScriptInitializer.ExecuteScript(connection, "Currency.sql");
-        SqliteDbScriptInitializer.SeedIfEmpty(connection, "Currencies", "Currencies-Data.sql");
+        DbScriptInitializer.ExecuteScript(connection, "Currency.sql");
+        DbScriptInitializer.SeedIfEmpty(connection, "Currencies", "Currencies-Data.sql");
     }
 
     public async Task<IReadOnlyList<Currency>> GetAllAsync(bool? isActive = null)

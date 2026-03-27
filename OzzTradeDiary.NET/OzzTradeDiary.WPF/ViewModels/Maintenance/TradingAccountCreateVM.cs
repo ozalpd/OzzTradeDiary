@@ -7,7 +7,7 @@ namespace TD.WPF.ViewModels.Maintenance
 {
     internal class TradingAccountCreateVM : AbstractEditVM
     {
-        public SqliteDatabaseMetadataRepository MetadataRepository { get; }
+        public MetadataRepository MetadataRepository { get; }
 
         private TradingAccount _tradingAccount;
         public TradingAccount TradingAccount => _tradingAccount;
@@ -16,8 +16,8 @@ namespace TD.WPF.ViewModels.Maintenance
             var appSettings = AppSettings.GetAppSettings();
             var databasePath = appSettings.DatabasePath;
 
-            MetadataRepository = new SqliteDatabaseMetadataRepository(databasePath);
-            ExchangeRepository = new SqliteDatabaseExchangeRepository(databasePath, MetadataRepository);
+            MetadataRepository = new MetadataRepository(databasePath);
+            ExchangeRepository = new ExchangeRepository(databasePath, MetadataRepository);
 
             Exchanges = new ObservableCollection<Exchange>();
             _tradingAccount = new TradingAccount();
@@ -26,7 +26,7 @@ namespace TD.WPF.ViewModels.Maintenance
             ValidateModel(_tradingAccount);
         }
 
-        public IDatabaseExchangeRepository ExchangeRepository { get; }
+        public IDbExchangeRepository ExchangeRepository { get; }
         public ObservableCollection<Exchange> Exchanges { get; }
 
         public async Task LoadExchangesAsync()

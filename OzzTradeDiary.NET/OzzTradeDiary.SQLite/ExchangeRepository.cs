@@ -6,9 +6,9 @@ namespace TD.SQLite;
 /// <summary>
 /// SQLite-based repository for exchange CRUD operations.
 /// </summary>
-public class SqliteDatabaseExchangeRepository : AbstractDatabaseRepository<Exchange>, IDatabaseExchangeRepository
+public class ExchangeRepository : AbstractDatabaseRepository<Exchange>, IDbExchangeRepository
 {
-    public SqliteDatabaseExchangeRepository(string databasePath, SqliteDatabaseMetadataRepository? metadataRepository = null) : base(databasePath, "Exchanges")
+    public ExchangeRepository(string databasePath, MetadataRepository? metadataRepository = null) : base(databasePath, "Exchanges")
     {
         InitializeDatabase();
         _selectStatement = $"SELECT Id, ExchangeName, ExchangeCode, DefaultCurrency, HasAnySymbol, DisplayOrder, IsActive FROM {_tableName}";
@@ -20,7 +20,7 @@ public class SqliteDatabaseExchangeRepository : AbstractDatabaseRepository<Excha
         using var connection = new SqliteConnection(_connectionString);
         connection.Open();
 
-        SqliteDbScriptInitializer.ExecuteScript(connection, "Exchange.sql");
+        DbScriptInitializer.ExecuteScript(connection, "Exchange.sql");
         SeedIfEmpty("Exchanges-Data.sql");
     }
 
@@ -107,7 +107,7 @@ public class SqliteDatabaseExchangeRepository : AbstractDatabaseRepository<Excha
         await using var command = connection.CreateCommand();
         command.CommandText = @"
             INSERT INTO Exchanges (ExchangeName, ExchangeCode, DefaultCurrency, HasAnySymbol, DisplayOrder, IsActive)
-            VALUES (@exchangeName, @exchangeCode, @defaultCurrency, @displayOrder, @isActive);
+            VALUES (@exchangeName, @exchangeCode, @defaultCurrency, @hasAnySymbol, @displayOrder, @isActive);
             SELECT last_insert_rowid();";
 
         command.Parameters.AddWithValue("@exchangeName", exchange.ExchangeName);

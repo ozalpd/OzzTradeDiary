@@ -2,7 +2,7 @@ using TD.Models;
 
 namespace TD.SQLite;
 
-public interface IDatabaseSymbolRepository
+public interface IDbSymbolRepository
 {
     Task<IReadOnlyList<Symbol>> GetAllAsync(bool? isActive = null);
     Task<Symbol?> GetByTickerFullAsync(string tickerFull);

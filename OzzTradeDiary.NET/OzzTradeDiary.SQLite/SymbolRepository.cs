@@ -6,16 +6,16 @@ namespace TD.SQLite;
 /// <summary>
 /// SQLite-based repository for symbol CRUD operations.
 /// </summary>
-public class SqliteDatabaseSymbolRepository : AbstractDatabaseRepository<Symbol>, IDatabaseSymbolRepository
+public class SymbolRepository : AbstractDatabaseRepository<Symbol>, IDbSymbolRepository
 {
-    private readonly IDatabaseExchangeRepository _exchangeRepository;
+    private readonly IDbExchangeRepository _exchangeRepository;
 
-    public SqliteDatabaseSymbolRepository(
+    public SymbolRepository(
         string databasePath,
-        SqliteDatabaseMetadataRepository? metadataRepository = null,
-        IDatabaseExchangeRepository? exchangeRepository = null) : base(databasePath, "Symbols", metadataRepository)
+        MetadataRepository? metadataRepository = null,
+        IDbExchangeRepository? exchangeRepository = null) : base(databasePath, "Symbols", metadataRepository)
     {
-        _exchangeRepository = exchangeRepository ?? new SqliteDatabaseExchangeRepository(databasePath, _metadataRepository);
+        _exchangeRepository = exchangeRepository ?? new ExchangeRepository(databasePath, _metadataRepository);
         InitializeDatabase();
     }
 
@@ -24,7 +24,7 @@ public class SqliteDatabaseSymbolRepository : AbstractDatabaseRepository<Symbol>
         using var connection = new SqliteConnection(_connectionString);
         connection.Open();
 
-        SqliteDbScriptInitializer.ExecuteScript(connection, "Symbol.sql");
+        DbScriptInitializer.ExecuteScript(connection, "Symbol.sql");
         SeedIfEmpty("Symbols-Data.sql");
     }
 

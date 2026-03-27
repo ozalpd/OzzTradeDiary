@@ -8,7 +8,7 @@ namespace TD.WPF.ViewModels.Maintenance
 {
     internal class SymbolCreateVM : AbstractEditVM
     {
-        public SqliteDatabaseMetadataRepository MetadataRepository { get; }
+        public MetadataRepository MetadataRepository { get; }
 
         private const string NoBaseCurrencyDisplayText = "No Base Currency";
         private readonly IReadOnlyList<MarketTypeValueItem> _marketTypeValues;
@@ -21,9 +21,9 @@ namespace TD.WPF.ViewModels.Maintenance
             var appSettings = AppSettings.GetAppSettings();
             var databasePath = appSettings.DatabasePath;
 
-            MetadataRepository = new SqliteDatabaseMetadataRepository(databasePath);
-            CurrencyRepository = new SqliteDatabaseCurrencyRepository(databasePath, MetadataRepository);
-            ExchangeRepository = new SqliteDatabaseExchangeRepository(databasePath, MetadataRepository);
+            MetadataRepository = new MetadataRepository(databasePath);
+            CurrencyRepository = new CurrencyRepository(databasePath, MetadataRepository);
+            ExchangeRepository = new ExchangeRepository(databasePath, MetadataRepository);
             Currencies = new ObservableCollection<Currency>();
             Exchanges = new ObservableCollection<Exchange>();
             _baseCurrencyValues = new ObservableCollection<BaseCurrencyValueItem>
@@ -72,10 +72,10 @@ namespace TD.WPF.ViewModels.Maintenance
             }
         }
 
-        public IDatabaseCurrencyRepository CurrencyRepository { get; }
+        public IDbCurrencyRepository CurrencyRepository { get; }
         public ObservableCollection<Currency> Currencies { get; }
 
-        public IDatabaseExchangeRepository ExchangeRepository { get; }
+        public IDbExchangeRepository ExchangeRepository { get; }
         public ObservableCollection<Exchange> Exchanges { get; }
 
         public Exchange? SelectedExchange

@@ -6,15 +6,15 @@ namespace TD.SQLite
 {
     public abstract class AbstractDatabaseRepository<T> where T : class
     {
-        protected AbstractDatabaseRepository(string databasePath, string tableName, SqliteDatabaseMetadataRepository? metadataRepository = null)
+        protected AbstractDatabaseRepository(string databasePath, string tableName, MetadataRepository? metadataRepository = null)
         {
             _connectionString = $"Data Source={databasePath}";
-            _metadataRepository = metadataRepository ?? new SqliteDatabaseMetadataRepository(databasePath);
+            _metadataRepository = metadataRepository ?? new MetadataRepository(databasePath);
             _tableName = tableName;
         }
 
         protected readonly string _connectionString;
-        protected readonly SqliteDatabaseMetadataRepository? _metadataRepository;
+        protected readonly MetadataRepository? _metadataRepository;
         protected readonly string _tableName;
 
         protected static void AddNullableTextParameter(SqliteCommand command, string parameterName, string? value)
@@ -57,7 +57,7 @@ namespace TD.SQLite
 
             using var connection = new SqliteConnection(_connectionString);
             connection.Open();
-            SqliteDbScriptInitializer.ExecuteScript(connection, seedScriptFileName);
+            DbScriptInitializer.ExecuteScript(connection, seedScriptFileName);
         }
 
         protected static void ValidateOrThrow(object model)
