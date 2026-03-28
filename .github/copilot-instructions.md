@@ -4,7 +4,7 @@
 
 Early-stage development (pre-release, no public release yet).
 
-Internal tracking versions: `OzzTradeDiary` `0.0.18`, `OzzTradeDiary.WPF` `0.0.18`, `OzzTradeDiary.SQLite` `0.0.18`, `OzzTradeDiary.i18n` `0.0.18`.
+Internal tracking versions: `OzzTradeDiary` `0.0.19`, `OzzTradeDiary.WPF` `0.0.19`, `OzzTradeDiary.SQLite` `0.0.19`, `OzzTradeDiary.i18n` `0.0.19`.
 
 - **Changelog discipline**: Any behavior change (repository logic, initialization, seeding, schema generation impact, UI-visible behavior) must be recorded in `CHANGELOG.md`.
 
@@ -84,6 +84,8 @@ Internal tracking versions: `OzzTradeDiary` `0.0.18`, `OzzTradeDiary.WPF` `0.0.1
 - `MetadataRepository` is a singleton with a private constructor and static `GetInstance()` method; repositories must use that shared instance internally instead of accepting optional metadata repository parameters.
 - WPF ViewModels and services should not instantiate `MetadataRepository` directly.
 - All repositories (except `SqliteDatabaseMetadataRepository`) inherit from `AbstractDatabaseRepository` or the shared generic repository base, keeping entity-specific logic minimal. Call `ValidateOrThrow` in `CreateAsync` and `UpdateAsync` immediately after the null guard; it runs `ModelValidator.Validate` and throws `ValidationException` with all error messages joined by newlines if validation fails.
+- Repository base classes should use shared `GetOpenConnection()` / `GetOpenConnectionAsync()` helpers for SQLite connections, and clear record-count caches after create/delete/seed operations via `ClearRecordCountCache()`.
+- Prefer async transaction wrappers in `AbstractDatabaseRepository` for future multi-step repository operations when a repository needs atomic changes.
 - Prefer readable names without redundant prefixes/suffixes: repository classes should be named `SymbolRepository`, `ExchangeRepository`, etc., under the `TD.SQLite` namespace, and repository interfaces should use the `IDb...Repository` pattern such as `IDbTradingAccountRepository` instead of `IDatabaseTradingAccountRepository`.
 - Prefer readable repository names without redundant `SqliteDatabase` prefixes, e.g. `SymbolRepository`, `ExchangeRepository`, `TradingAccountRepository`.
 - Prefer `IDb...Repository` interface names for SQLite repositories, e.g. `IDbTradingAccountRepository`, to keep interface names concise but still clearly database-oriented.
@@ -104,6 +106,8 @@ Internal tracking versions: `OzzTradeDiary` `0.0.18`, `OzzTradeDiary.WPF` `0.0.1
 - **`TradingAccount.ExchangeId` must not be changed in repositories** (do not update it after creation).
 - **`Symbol.TickerFull` must be treated as a unique immutable key in repositories** (do not update it after creation).
 - **`Symbol` repository updates should only modify mutable fields (`Description`, `DisplayOrder`, `IsActive`) after creation.**
+- Use shared `GetOpenConnection()` / `GetOpenConnectionAsync()` helpers for repository connection handling.
+- Prefer `ClearRecordCountCache()` naming in `AbstractDatabaseRepository`.
 
 ## Conventions
 

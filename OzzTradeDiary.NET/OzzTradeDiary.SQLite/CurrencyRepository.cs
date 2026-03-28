@@ -10,29 +10,25 @@ public class CurrencyRepository : AbstractDatabaseRepository<Currency>, IDbCurre
 {
     public CurrencyRepository(string databasePath) : base(databasePath, "Currencies")
     {
+        _selectStatement = $"SELECT Id, CurrencyTicker, Description, DisplayOrder, IsActive FROM {_tableName}";
         InitializeDatabase();
     }
+    private readonly string _selectStatement;
 
     private void InitializeDatabase()
     {
-        using var connection = new SqliteConnection(_connectionString);
-        connection.Open();
-
+        using var connection = GetOpenConnection();
         DbScriptInitializer.ExecuteScript(connection, "Currency.sql");
-        DbScriptInitializer.SeedIfEmpty(connection, "Currencies", "Currencies-Data.sql");
+        SeedIfEmpty("Currencies-Data.sql");
     }
 
     public async Task<IReadOnlyList<Currency>> GetAllAsync(bool? isActive = null)
     {
         var result = new List<Currency>();
 
-        await using var connection = new SqliteConnection(_connectionString);
-        await connection.OpenAsync();
-
+        await using var connection = await GetOpenConnectionAsync();
         await using var command = connection.CreateCommand();
-        command.CommandText = @"
-            SELECT Id, CurrencyTicker, Description, DisplayOrder, IsActive
-            FROM Currencies";
+        command.CommandText = _selectStatement;
 
         if (isActive.HasValue)
         {
@@ -55,13 +51,9 @@ public class CurrencyRepository : AbstractDatabaseRepository<Currency>, IDbCurre
     {
         if (string.IsNullOrWhiteSpace(currencyTicker))
             return null;
-        await using var connection = new SqliteConnection(_connectionString);
-        await connection.OpenAsync();
+        await using var connection = await GetOpenConnectionAsync();
         await using var command = connection.CreateCommand();
-        command.CommandText = @"
-            SELECT Id, CurrencyTicker, Description, DisplayOrder, IsActive
-            FROM Currencies
-            WHERE CurrencyTicker = @currencyTicker";
+        command.CommandText = $"{_selectStatement} WHERE CurrencyTicker = @currencyTicker";
         command.Parameters.AddWithValue("@currencyTicker", currencyTicker);
         await using var reader = await command.ExecuteReaderAsync();
         if (!await reader.ReadAsync())
@@ -71,14 +63,9 @@ public class CurrencyRepository : AbstractDatabaseRepository<Currency>, IDbCurre
 
     public async Task<Currency?> GetByIdAsync(int id)
     {
-        await using var connection = new SqliteConnection(_connectionString);
-        await connection.OpenAsync();
-
+        await using var connection = await GetOpenConnectionAsync();
         await using var command = connection.CreateCommand();
-        command.CommandText = @"
-            SELECT Id, CurrencyTicker, Description, DisplayOrder, IsActive
-            FROM Currencies
-            WHERE Id = @id";
+        command.CommandText = $"{_selectStatement} WHERE Id = @id";
         command.Parameters.AddWithValue("@id", id);
 
         await using var reader = await command.ExecuteReaderAsync();
@@ -93,8 +80,7 @@ public class CurrencyRepository : AbstractDatabaseRepository<Currency>, IDbCurre
         ArgumentNullException.ThrowIfNull(currency);
         ValidateOrThrow(currency);
 
-        await using var connection = new SqliteConnection(_connectionString);
-        await connection.OpenAsync();
+        await using var connection = await GetOpenConnectionAsync();
         var existingCurrency = await GetByCurrencyTickerAsync(currency.CurrencyTicker);
         if (existingCurrency != null)
         {
@@ -117,6 +103,7 @@ public class CurrencyRepository : AbstractDatabaseRepository<Currency>, IDbCurre
         var id = Convert.ToInt32((long)(await command.ExecuteScalarAsync() ?? 0));
 
         await _metadataRepository.SaveLastUpdateUtcAsync(connection);
+        ClearRecordCountCache();
 
         return id;
     }
@@ -126,8 +113,7 @@ public class CurrencyRepository : AbstractDatabaseRepository<Currency>, IDbCurre
         ArgumentNullException.ThrowIfNull(currency);
         ValidateOrThrow(currency);
 
-        await using var connection = new SqliteConnection(_connectionString);
-        await connection.OpenAsync();
+        await using var connection = await GetOpenConnectionAsync();
         var existingCurrency = await GetByCurrencyTickerAsync(currency.CurrencyTicker);
         if (existingCurrency != null && existingCurrency.Id != currency.Id)
             throw new InvalidOperationException($"A different currency with the same ticker already exists: {currency.CurrencyTicker}");
@@ -164,16 +150,17 @@ public class CurrencyRepository : AbstractDatabaseRepository<Currency>, IDbCurre
 
     public async Task<bool> DeleteAsync(int id)
     {
-        await using var connection = new SqliteConnection(_connectionString);
-        await connection.OpenAsync();
-
+        await using var connection = await GetOpenConnectionAsync();
         await using var command = connection.CreateCommand();
         command.CommandText = "DELETE FROM Currencies WHERE Id = @id";
         command.Parameters.AddWithValue("@id", id);
 
         var affectedRows = await command.ExecuteNonQueryAsync();
         if (affectedRows > 0)
+        {
             await _metadataRepository.SaveLastUpdateUtcAsync(connection);
+            ClearRecordCountCache();
+        }
 
         return affectedRows > 0;
     }

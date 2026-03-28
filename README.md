@@ -4,7 +4,7 @@ A Windows desktop trade journaling application for tracking trades across multip
 
 > **Status**: Pre-release development (no public release yet)
 > 
-> **Internal tracking versions**: `OzzTradeDiary` `0.0.18`, `OzzTradeDiary.WPF` `0.0.18`, `OzzTradeDiary.SQLite` `0.0.18`, `OzzTradeDiary.i18n` `0.0.18`
+> **Internal tracking versions**: `OzzTradeDiary` `0.0.19`, `OzzTradeDiary.WPF` `0.0.19`, `OzzTradeDiary.SQLite` `0.0.19`, `OzzTradeDiary.i18n` `0.0.19`
 
 ## Changelog
 
@@ -27,6 +27,7 @@ See [`CHANGELOG.md`](CHANGELOG.md) for release history.
 - `MainWindow` menu items are fully localized via `{x:Static i18n:ActionStrings.*}` and `{x:Static i18n:LocalizedStrings.*}`
 - Repository class names in `TD.SQLite` use concise readable names such as `SymbolRepository` and `ExchangeRepository`, and interfaces use the `IDb...Repository` pattern such as `IDbTradingAccountRepository`
 - `MetadataRepository` uses a singleton `GetInstance()` pattern so all repositories and WPF services share the same metadata access and database connection string source of truth
+- Repository base classes use shared `GetOpenConnection()` / `GetOpenConnectionAsync()` helpers, with `ClearRecordCountCache()` used after create/delete/seed operations
 - Domain enums wired in models (including `OrderType` and `TradeDirection`)
 - String validation and generated resources now use `MaxStringLength` / `MinStringLength` metadata where applicable
 - `TD.Extensions.EnumExtension` shared helper in `OzzTradeDiary` for building enum value collections and reading localized `Display` attribute text for UI bindings across WPF and future platform frontends
@@ -37,6 +38,7 @@ See [`CHANGELOG.md`](CHANGELOG.md) for release history.
 - SQLite insert/update repository paths now handle nullable values more reliably, persisting SQL `NULL` where appropriate
 - `Exchange` includes nullable `DefaultCurrency`, persisted in SQLite as SQL `NULL` when not set
 - `AbstractDatabaseRepository` base class provides shared `ValidateOrThrow` helper called in `CreateAsync`/`UpdateAsync` — throws `ValidationException` with all DataAnnotations error messages
+- `AbstractDatabaseRepository` centralizes SQLite connection handling, record-count cache invalidation, and async transaction helpers for future multi-step repository operations
 - `AbstractDiaryVM` base ViewModel consolidates repository initialization and CRUD operations shared across ViewModels
 - `AbstractEditVM` now contains the `IIsDirty` contract, and the standalone `IIsDirty.cs` file has been removed
 - `ModelValidator` shared utility in `TD.Validation` for DataAnnotations-based model validation reusable by WPF, MAUI, and ASP.NET

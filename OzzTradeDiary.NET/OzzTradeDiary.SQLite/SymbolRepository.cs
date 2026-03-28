@@ -8,20 +8,19 @@ namespace TD.SQLite;
 /// </summary>
 public class SymbolRepository : AbstractDatabaseRepository<Symbol>, IDbSymbolRepository
 {
-    private readonly IDbExchangeRepository _exchangeRepository;
-
     public SymbolRepository(string databasePath,
                             IDbExchangeRepository? exchangeRepository = null) : base(databasePath, "Symbols")
     {
+        _selectStatement = $"SELECT Id, Ticker, TickerFull, BaseCurrency, PriceCurrency, Description, ExchangeId, MarketType, DisplayOrder, IsActive FROM {_tableName}";
         _exchangeRepository = exchangeRepository ?? new ExchangeRepository(databasePath);
         InitializeDatabase();
     }
+    private readonly string _selectStatement;
+    private readonly IDbExchangeRepository _exchangeRepository;
 
     private void InitializeDatabase()
     {
-        using var connection = new SqliteConnection(_connectionString);
-        connection.Open();
-
+        using var connection = GetOpenConnection();
         DbScriptInitializer.ExecuteScript(connection, "Symbol.sql");
         SeedIfEmpty("Symbols-Data.sql");
     }
@@ -31,13 +30,9 @@ public class SymbolRepository : AbstractDatabaseRepository<Symbol>, IDbSymbolRep
         var result = new List<Symbol>();
         var exchangesById = (await _exchangeRepository.GetAllAsync()).ToDictionary(item => item.Id);
 
-        await using var connection = new SqliteConnection(_connectionString);
-        await connection.OpenAsync();
-
+        await using var connection = await GetOpenConnectionAsync();
         await using var command = connection.CreateCommand();
-        command.CommandText = @"
-            SELECT Id, Ticker, TickerFull, BaseCurrency, PriceCurrency, Description, ExchangeId, MarketType, DisplayOrder, IsActive
-            FROM Symbols";
+        command.CommandText = _selectStatement;
 
         if (isActive.HasValue)
         {
@@ -65,14 +60,9 @@ public class SymbolRepository : AbstractDatabaseRepository<Symbol>, IDbSymbolRep
         if (string.IsNullOrWhiteSpace(tickerFull))
             return null;
 
-        await using var connection = new SqliteConnection(_connectionString);
-        await connection.OpenAsync();
-
+        await using var connection = await GetOpenConnectionAsync();
         await using var command = connection.CreateCommand();
-        command.CommandText = @"
-            SELECT Id, Ticker, TickerFull, BaseCurrency, PriceCurrency, Description, ExchangeId, MarketType, DisplayOrder, IsActive
-            FROM Symbols
-            WHERE TickerFull = @tickerFull";
+        command.CommandText = $"{_selectStatement} WHERE TickerFull = @tickerFull";
         command.Parameters.AddWithValue("@tickerFull", tickerFull);
 
         await using var reader = await command.ExecuteReaderAsync();
@@ -87,14 +77,9 @@ public class SymbolRepository : AbstractDatabaseRepository<Symbol>, IDbSymbolRep
 
     public async Task<Symbol?> GetByIdAsync(int id)
     {
-        await using var connection = new SqliteConnection(_connectionString);
-        await connection.OpenAsync();
-
+        await using var connection = await GetOpenConnectionAsync();
         await using var command = connection.CreateCommand();
-        command.CommandText = @"
-            SELECT Id, Ticker, TickerFull, BaseCurrency, PriceCurrency, Description, ExchangeId, MarketType, DisplayOrder, IsActive
-            FROM Symbols
-            WHERE Id = @id";
+        command.CommandText = $"{_selectStatement} WHERE Id = @id";
         command.Parameters.AddWithValue("@id", id);
 
         await using var reader = await command.ExecuteReaderAsync();
@@ -112,9 +97,7 @@ public class SymbolRepository : AbstractDatabaseRepository<Symbol>, IDbSymbolRep
         ArgumentNullException.ThrowIfNull(symbol);
         ValidateOrThrow(symbol);
 
-        await using var connection = new SqliteConnection(_connectionString);
-        await connection.OpenAsync();
-
+        await using var connection = await GetOpenConnectionAsync();
         var existingSymbol = await GetByTickerFullAsync(symbol.TickerFull);
         if (existingSymbol != null)
         {
@@ -142,6 +125,7 @@ public class SymbolRepository : AbstractDatabaseRepository<Symbol>, IDbSymbolRep
         var id = Convert.ToInt32((long)(await command.ExecuteScalarAsync() ?? 0));
 
         await _metadataRepository.SaveLastUpdateUtcAsync(connection);
+        ClearRecordCountCache();
 
         return id;
     }
@@ -151,9 +135,7 @@ public class SymbolRepository : AbstractDatabaseRepository<Symbol>, IDbSymbolRep
         ArgumentNullException.ThrowIfNull(symbol);
         ValidateOrThrow(symbol);
 
-        await using var connection = new SqliteConnection(_connectionString);
-        await connection.OpenAsync();
-
+        await using var connection = await GetOpenConnectionAsync();
         var existingSymbolById = await GetByIdAsync(symbol.Id);
         if (existingSymbolById is null)
             return false;
@@ -195,16 +177,17 @@ public class SymbolRepository : AbstractDatabaseRepository<Symbol>, IDbSymbolRep
 
     public async Task<bool> DeleteAsync(int id)
     {
-        await using var connection = new SqliteConnection(_connectionString);
-        await connection.OpenAsync();
-
+        await using var connection = await GetOpenConnectionAsync();
         await using var command = connection.CreateCommand();
         command.CommandText = "DELETE FROM Symbols WHERE Id = @id";
         command.Parameters.AddWithValue("@id", id);
 
         var affectedRows = await command.ExecuteNonQueryAsync();
         if (affectedRows > 0)
+        {
             await _metadataRepository.SaveLastUpdateUtcAsync(connection);
+            ClearRecordCountCache();
+        }
 
         return affectedRows > 0;
     }

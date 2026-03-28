@@ -8,20 +8,19 @@ namespace TD.SQLite;
 /// </summary>
 public class TradingAccountRepository : AbstractDatabaseRepository<TradingAccount>, IDbTradingAccountRepository
 {
-    private readonly IDbExchangeRepository _exchangeRepository;
-
     public TradingAccountRepository(string databasePath,
                                     IDbExchangeRepository? exchangeRepository = null) : base(databasePath, "TradingAccounts")
     {
+        _selectStatement = $"SELECT Id, Title, ExchangeId, Notes, DisplayOrder, IsActive FROM {_tableName}";
         _exchangeRepository = exchangeRepository ?? new ExchangeRepository(databasePath);
         InitializeDatabase();
     }
+    private readonly string _selectStatement;
+    private readonly IDbExchangeRepository _exchangeRepository;
 
     private void InitializeDatabase()
     {
-        using var connection = new SqliteConnection(_connectionString);
-        connection.Open();
-
+        using var connection = GetOpenConnection();
         DbScriptInitializer.ExecuteScript(connection, "TradingAccount.sql");
     }
 
@@ -30,13 +29,9 @@ public class TradingAccountRepository : AbstractDatabaseRepository<TradingAccoun
         var result = new List<TradingAccount>();
         var exchangesById = (await _exchangeRepository.GetAllAsync()).ToDictionary(item => item.Id);
 
-        await using var connection = new SqliteConnection(_connectionString);
-        await connection.OpenAsync();
-
+        await using var connection = await GetOpenConnectionAsync();
         await using var command = connection.CreateCommand();
-        command.CommandText = @"
-            SELECT Id, Title, ExchangeId, Notes, DisplayOrder, IsActive
-            FROM TradingAccounts";
+        command.CommandText = _selectStatement;
 
         if (isActive.HasValue)
         {
@@ -64,14 +59,9 @@ public class TradingAccountRepository : AbstractDatabaseRepository<TradingAccoun
         if (string.IsNullOrWhiteSpace(title))
             return null;
 
-        await using var connection = new SqliteConnection(_connectionString);
-        await connection.OpenAsync();
-
+        await using var connection = await GetOpenConnectionAsync();
         await using var command = connection.CreateCommand();
-        command.CommandText = @"
-            SELECT Id, Title, ExchangeId, Notes, DisplayOrder, IsActive
-            FROM TradingAccounts
-            WHERE Title = @title";
+        command.CommandText = $"{_selectStatement} WHERE Title = @title";
         command.Parameters.AddWithValue("@title", title);
 
         await using var reader = await command.ExecuteReaderAsync();
@@ -86,14 +76,9 @@ public class TradingAccountRepository : AbstractDatabaseRepository<TradingAccoun
 
     public async Task<TradingAccount?> GetByIdAsync(int id)
     {
-        await using var connection = new SqliteConnection(_connectionString);
-        await connection.OpenAsync();
-
+        await using var connection = await GetOpenConnectionAsync();
         await using var command = connection.CreateCommand();
-        command.CommandText = @"
-            SELECT Id, Title, ExchangeId, Notes, DisplayOrder, IsActive
-            FROM TradingAccounts
-            WHERE Id = @id";
+        command.CommandText = $"{_selectStatement} WHERE Id = @id";
         command.Parameters.AddWithValue("@id", id);
 
         await using var reader = await command.ExecuteReaderAsync();
@@ -111,9 +96,7 @@ public class TradingAccountRepository : AbstractDatabaseRepository<TradingAccoun
         ArgumentNullException.ThrowIfNull(tradingAccount);
         ValidateOrThrow(tradingAccount);
 
-        await using var connection = new SqliteConnection(_connectionString);
-        await connection.OpenAsync();
-
+        await using var connection = await GetOpenConnectionAsync();
         var existingTradingAccount = await GetByTitleAsync(tradingAccount.Title);
         if (existingTradingAccount != null)
         {
@@ -137,6 +120,7 @@ public class TradingAccountRepository : AbstractDatabaseRepository<TradingAccoun
         var id = Convert.ToInt32((long)(await command.ExecuteScalarAsync() ?? 0));
 
         await _metadataRepository.SaveLastUpdateUtcAsync(connection);
+        ClearRecordCountCache();
 
         return id;
     }
@@ -146,9 +130,7 @@ public class TradingAccountRepository : AbstractDatabaseRepository<TradingAccoun
         ArgumentNullException.ThrowIfNull(tradingAccount);
         ValidateOrThrow(tradingAccount);
 
-        await using var connection = new SqliteConnection(_connectionString);
-        await connection.OpenAsync();
-
+        await using var connection = await GetOpenConnectionAsync();
         var existingTradingAccount = await GetByTitleAsync(tradingAccount.Title);
         if (existingTradingAccount != null && existingTradingAccount.Id != tradingAccount.Id)
             throw new InvalidOperationException($"A different trading account with the same title already exists: {tradingAccount.Title}");
@@ -187,16 +169,17 @@ public class TradingAccountRepository : AbstractDatabaseRepository<TradingAccoun
 
     public async Task<bool> DeleteAsync(int id)
     {
-        await using var connection = new SqliteConnection(_connectionString);
-        await connection.OpenAsync();
-
+        await using var connection = await GetOpenConnectionAsync();
         await using var command = connection.CreateCommand();
         command.CommandText = "DELETE FROM TradingAccounts WHERE Id = @id";
         command.Parameters.AddWithValue("@id", id);
 
         var affectedRows = await command.ExecuteNonQueryAsync();
         if (affectedRows > 0)
+        {
             await _metadataRepository.SaveLastUpdateUtcAsync(connection);
+            ClearRecordCountCache();
+        }
 
         return affectedRows > 0;
     }

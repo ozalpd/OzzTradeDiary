@@ -14,7 +14,7 @@ namespace TD.SQLite
         }
 
         protected readonly string _connectionString;
-        protected readonly MetadataRepository? _metadataRepository;
+        protected readonly MetadataRepository _metadataRepository;
         protected readonly string _tableName;
 
         protected static void AddNullableTextParameter(SqliteCommand command, string parameterName, string? value)
@@ -28,13 +28,17 @@ namespace TD.SQLite
 
         protected long GetRecordCount()
         {
-            using var connection = new SqliteConnection(_connectionString);
-            connection.Open();
+            using var connection = GetOpenConnection();
             using var countCommand = connection.CreateCommand();
             countCommand.CommandText = $"SELECT COUNT(1) FROM {_tableName}";
 
             _cachedRecordCount = Convert.ToInt64(countCommand.ExecuteScalar());
             return _cachedRecordCount.Value;
+        }
+
+        protected void ClearRecordCountCache()
+        {
+            _cachedRecordCount = null;
         }
 
         public long RecordCount
@@ -50,14 +54,67 @@ namespace TD.SQLite
         }
         private long? _cachedRecordCount;
 
+        protected SqliteConnection GetOpenConnection()
+        {
+            var connection = new SqliteConnection(_connectionString);
+            connection.Open();
+            return connection;
+        }
+
+        protected async Task<SqliteConnection> GetOpenConnectionAsync()
+        {
+            var connection = new SqliteConnection(_connectionString);
+            await connection.OpenAsync();
+            return connection;
+        }
+
+        protected async Task ExecuteInTransactionAsync(Func<SqliteConnection, SqliteTransaction, Task> operation)
+        {
+            ArgumentNullException.ThrowIfNull(operation);
+
+            await using var connection = await GetOpenConnectionAsync();
+            using var transaction = connection.BeginTransaction();
+
+            try
+            {
+                await operation(connection, transaction);
+                transaction.Commit();
+            }
+            catch
+            {
+                transaction.Rollback();
+                throw;
+            }
+        }
+
+        protected async Task<TResult> ExecuteInTransactionAsync<TResult>(Func<SqliteConnection, SqliteTransaction, Task<TResult>> operation)
+        {
+            ArgumentNullException.ThrowIfNull(operation);
+
+            await using var connection = await GetOpenConnectionAsync();
+            using var transaction = connection.BeginTransaction();
+
+            try
+            {
+                var result = await operation(connection, transaction);
+                transaction.Commit();
+                return result;
+            }
+            catch
+            {
+                transaction.Rollback();
+                throw;
+            }
+        }
+
         protected void SeedIfEmpty(string seedScriptFileName)
         {
             if (RecordCount > 0)
                 return;
 
-            using var connection = new SqliteConnection(_connectionString);
-            connection.Open();
+            using var connection = GetOpenConnection();
             DbScriptInitializer.ExecuteScript(connection, seedScriptFileName);
+            ClearRecordCountCache();
         }
 
         protected static void ValidateOrThrow(object model)

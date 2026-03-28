@@ -10,16 +10,14 @@ public class ExchangeRepository : AbstractDatabaseRepository<Exchange>, IDbExcha
 {
     public ExchangeRepository(string databasePath) : base(databasePath, "Exchanges")
     {
-        InitializeDatabase();
         _selectStatement = $"SELECT Id, ExchangeName, ExchangeCode, DefaultCurrency, HasAnySymbol, DisplayOrder, IsActive FROM {_tableName}";
+        InitializeDatabase();
     }
     private readonly string _selectStatement;
 
     private void InitializeDatabase()
     {
-        using var connection = new SqliteConnection(_connectionString);
-        connection.Open();
-
+        using var connection = GetOpenConnection();
         DbScriptInitializer.ExecuteScript(connection, "Exchange.sql");
         SeedIfEmpty("Exchanges-Data.sql");
     }
@@ -28,9 +26,7 @@ public class ExchangeRepository : AbstractDatabaseRepository<Exchange>, IDbExcha
     {
         var result = new List<Exchange>();
 
-        await using var connection = new SqliteConnection(_connectionString);
-        await connection.OpenAsync();
-
+        await using var connection = await GetOpenConnectionAsync();
         await using var command = connection.CreateCommand();
         command.CommandText = _selectStatement;
 
@@ -56,9 +52,7 @@ public class ExchangeRepository : AbstractDatabaseRepository<Exchange>, IDbExcha
         if (string.IsNullOrWhiteSpace(exchangeCode))
             return null;
 
-        await using var connection = new SqliteConnection(_connectionString);
-        await connection.OpenAsync();
-
+        await using var connection = await GetOpenConnectionAsync();
         await using var command = connection.CreateCommand();
         command.CommandText = $@"{_selectStatement}
             WHERE ExchangeCode = @exchangeCode";
@@ -73,9 +67,7 @@ public class ExchangeRepository : AbstractDatabaseRepository<Exchange>, IDbExcha
 
     public async Task<Exchange?> GetByIdAsync(int id)
     {
-        await using var connection = new SqliteConnection(_connectionString);
-        await connection.OpenAsync();
-
+        await using var connection = await GetOpenConnectionAsync();
         await using var command = connection.CreateCommand();
         command.CommandText = $@"{_selectStatement}
             WHERE Id = @id";
@@ -93,9 +85,7 @@ public class ExchangeRepository : AbstractDatabaseRepository<Exchange>, IDbExcha
         ArgumentNullException.ThrowIfNull(exchange);
         ValidateOrThrow(exchange);
 
-        await using var connection = new SqliteConnection(_connectionString);
-        await connection.OpenAsync();
-
+        await using var connection = await GetOpenConnectionAsync();
         var existingExchange = await GetByExchangeCodeAsync(exchange.ExchangeCode);
         if (existingExchange != null)
         {
@@ -120,6 +110,7 @@ public class ExchangeRepository : AbstractDatabaseRepository<Exchange>, IDbExcha
         var id = Convert.ToInt32((long)(await command.ExecuteScalarAsync() ?? 0));
 
         await _metadataRepository.SaveLastUpdateUtcAsync(connection);
+        ClearRecordCountCache();
 
         return id;
     }
@@ -129,9 +120,7 @@ public class ExchangeRepository : AbstractDatabaseRepository<Exchange>, IDbExcha
         ArgumentNullException.ThrowIfNull(exchange);
         ValidateOrThrow(exchange);
 
-        await using var connection = new SqliteConnection(_connectionString);
-        await connection.OpenAsync();
-
+        await using var connection = await GetOpenConnectionAsync();
         var existingExchange = await GetByExchangeCodeAsync(exchange.ExchangeCode);
         if (existingExchange != null && existingExchange.Id != exchange.Id)
             throw new InvalidOperationException($"A different exchange with the same code already exists: {exchange.ExchangeCode}");
@@ -172,8 +161,7 @@ public class ExchangeRepository : AbstractDatabaseRepository<Exchange>, IDbExcha
 
     public async Task<bool> SetHasAnySymbol(int exchangeId, bool hasAnySymbol)
     {
-        await using var connection = new SqliteConnection(_connectionString);
-        await connection.OpenAsync();
+        await using var connection = await GetOpenConnectionAsync();
         await using var command = connection.CreateCommand();
         command.CommandText = @"
             UPDATE Exchanges
@@ -189,16 +177,17 @@ public class ExchangeRepository : AbstractDatabaseRepository<Exchange>, IDbExcha
 
     public async Task<bool> DeleteAsync(int id)
     {
-        await using var connection = new SqliteConnection(_connectionString);
-        await connection.OpenAsync();
-
+        await using var connection = await GetOpenConnectionAsync();
         await using var command = connection.CreateCommand();
         command.CommandText = "DELETE FROM Exchanges WHERE Id = @id";
         command.Parameters.AddWithValue("@id", id);
 
         var affectedRows = await command.ExecuteNonQueryAsync();
         if (affectedRows > 0)
+        {
             await _metadataRepository.SaveLastUpdateUtcAsync(connection);
+            ClearRecordCountCache();
+        }
 
         return affectedRows > 0;
     }

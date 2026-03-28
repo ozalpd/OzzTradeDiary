@@ -4,6 +4,15 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.0.19] - 2026-03-28
+
+### Changed
+- Repository classes now use the shared `GetOpenConnection()` / `GetOpenConnectionAsync()` helpers from `AbstractDatabaseRepository` to centralize and standardize SQLite connection management.
+- `ClearRecordCountCache()` is now used consistently and the cache is cleared after create, delete, and seed operations.
+- Added async transaction helpers to `AbstractDatabaseRepository` for future multi-step repository operations.
+- `_metadataRepository` was made non-nullable and SQL select statements were moved to readonly fields for clarity.
+- Bumped all project versions to `0.0.19` (`OzzTradeDiary`, `OzzTradeDiary.WPF`, `OzzTradeDiary.SQLite`, `OzzTradeDiary.i18n`).
+
 ## [0.0.18] - 2026-03-28
 
 ### Changed
