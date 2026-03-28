@@ -115,6 +115,12 @@
     <data name="File" xml:space="preserve">
         <value>Dosya</value>
     </data>
+    <data name="Filter" xml:space="preserve">
+        <value>Süz</value>
+    </data>
+    <data name="FilterByExchange" xml:space="preserve">
+        <value>Borsaya Göre Süz</value>
+    </data>
     <data name="Help" xml:space="preserve">
         <value>Yardım</value>
     </data>
@@ -162,6 +168,9 @@
     </data>
     <data name="Select" xml:space="preserve">
         <value>Seç</value>
+    </data>
+    <data name="SelectExchange" xml:space="preserve">
+        <value>Borsa Seçiniz</value>
     </data>
     <data name="SelectPlease" xml:space="preserve">
         <value>Lütfen Seçiniz</value>

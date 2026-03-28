@@ -18,8 +18,8 @@ public class ExchangeRepository : AbstractDatabaseRepository<Exchange>, IDbExcha
     private void InitializeDatabase()
     {
         using var connection = GetOpenConnection();
-        DbScriptInitializer.ExecuteScript(connection, "Exchange.sql");
-        SeedIfEmpty("Exchanges-Data.sql");
+        ExecuteScript(connection, "Exchange.sql");
+        SeedIfEmpty(connection, "Exchanges-Data.sql");
     }
 
     public async Task<IReadOnlyList<Exchange>> GetAllAsync(bool? isActive = null)

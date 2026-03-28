@@ -26,6 +26,23 @@ namespace TD.SQLite
             command.Parameters.Add(parameter);
         }
 
+        protected static void ExecuteScript(SqliteConnection connection, string scriptFileName)
+        {
+            var scriptPath = Path.Combine(ScriptsDirectory, scriptFileName);
+            if (!File.Exists(scriptPath))
+                throw new FileNotFoundException($"SQL script file not found: {scriptPath}", scriptPath);
+
+            var sql = File.ReadAllText(scriptPath);
+            if (string.IsNullOrWhiteSpace(sql))
+                return;
+
+            using var command = connection.CreateCommand();
+            command.CommandText = sql;
+            command.ExecuteNonQuery();
+        }
+        private static readonly string ScriptsDirectory = Path.Combine(AppContext.BaseDirectory, "DbScripts");
+
+
         protected long GetRecordCount()
         {
             using var connection = GetOpenConnection();
@@ -107,13 +124,12 @@ namespace TD.SQLite
             }
         }
 
-        protected void SeedIfEmpty(string seedScriptFileName)
+        protected void SeedIfEmpty(SqliteConnection connection, string seedScriptFileName)
         {
             if (RecordCount > 0)
                 return;
 
-            using var connection = GetOpenConnection();
-            DbScriptInitializer.ExecuteScript(connection, seedScriptFileName);
+            ExecuteScript(connection, seedScriptFileName);
             ClearRecordCountCache();
         }
 

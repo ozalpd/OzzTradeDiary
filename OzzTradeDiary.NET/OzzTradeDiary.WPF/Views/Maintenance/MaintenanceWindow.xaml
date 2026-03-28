@@ -166,7 +166,7 @@
                 </DockPanel>
             </TabItem>
 
-            <TabItem Header="{x:Static i18n:LocalizedStrings.Symbol}">
+            <TabItem Header="{x:Static i18n:LocalizedStrings.Symbol}" Height="20" VerticalAlignment="Top">
                 <DockPanel>
                     <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="0,0,0,8">
                         <Button Style="{StaticResource IconButtonStyle-28x24}"
@@ -206,8 +206,54 @@
                                 <Path Fill="#0044D7" Data="{StaticResource pencil-square}"/>
                             </Viewbox>
                         </Button>
+                        
+                        <Border Width="32" Background="Transparent" />
+                        <Border Width="32" Background="Transparent" /><!-- TODO: Replace with a delete button -->
+                        <Grid Margin="8,1,0,0">
+                            <TextBox x:Name="SymbolSearchTextBox"  Width="120"
+                                     Text="{Binding SymbolSearchString, UpdateSourceTrigger=PropertyChanged}" />
+                            <TextBlock Text="{x:Static i18n:ActionStrings.Filter}" Grid.Column="1" Grid.Row="0" VerticalAlignment="Top" Margin="8,4,8,0"
+                                       Foreground="#989898" IsHitTestVisible="False">
+                                <TextBlock.Style>
+                                    <Style TargetType="TextBlock">
+                                        <Setter Property="Visibility" Value="Collapsed" />
+                                        <Style.Triggers>
+                                            <MultiDataTrigger>
+                                                <MultiDataTrigger.Conditions>
+                                                    <Condition Binding="{Binding IsFocused, ElementName=SymbolSearchTextBox}" Value="False" />
+                                                    <Condition Binding="{Binding Text.Length, ElementName=SymbolSearchTextBox, FallbackValue=0}" Value="0" />
+                                                </MultiDataTrigger.Conditions>
+                                                <Setter Property="Visibility" Value="Visible" />
+                                            </MultiDataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+                        </Grid>
+                        <Grid Margin="8,1,0,0">
+                            <ComboBox x:Name="FilterByExchangeCombo"
+                                      Width="120"
+                                      ItemsSource="{Binding SymbolExchanges}"
+                                      SelectedItem="{Binding SelectedSymbolExchange}"
+                                      Loaded="FilterByExchangeCombo_Loaded"
+                                      DropDownOpened="FilterByExchangeCombo_DropDownOpened"
+                                      DropDownClosed="FilterByExchangeCombo_DropDownClosed"
+                                      SelectionChanged="FilterByExchangeCombo_SelectionChanged">
+                                <ComboBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding ExchangeCode}"/>
+                                    </DataTemplate>
+                                </ComboBox.ItemTemplate>
+                            </ComboBox>
+                            <TextBlock x:Name="FilterByExchangeTextBlock"
+                                       Text="{x:Static i18n:ActionStrings.FilterByExchange}"
+                                       Cursor="Hand"
+                                       MouseLeftButtonDown="FilterByExchangeTextBlock_MouseLeftButtonDown"
+                                       VerticalAlignment="Center"
+                                       Margin="6,0,0,0" />
+                        </Grid>
                     </StackPanel>
-                    <DataGrid ItemsSource="{Binding Symbols}"
+                    <DataGrid ItemsSource="{Binding FilteredSymbols}"
                               SelectedItem="{Binding SelectedSymbol}"
                               AutoGenerateColumns="False"
                               CanUserAddRows="False"

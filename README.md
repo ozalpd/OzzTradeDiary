@@ -4,7 +4,7 @@ A Windows desktop trade journaling application for tracking trades across multip
 
 > **Status**: Pre-release development (no public release yet)
 > 
-> **Internal tracking versions**: `OzzTradeDiary` `0.0.19`, `OzzTradeDiary.WPF` `0.0.19`, `OzzTradeDiary.SQLite` `0.0.19`, `OzzTradeDiary.i18n` `0.0.19`
+> **Internal tracking versions**: `OzzTradeDiary` `0.0.20`, `OzzTradeDiary.WPF` `0.0.20`, `OzzTradeDiary.SQLite` `0.0.20`, `OzzTradeDiary.i18n` `0.0.20`
 
 ## Changelog
 
@@ -38,7 +38,7 @@ See [`CHANGELOG.md`](CHANGELOG.md) for release history.
 - SQLite insert/update repository paths now handle nullable values more reliably, persisting SQL `NULL` where appropriate
 - `Exchange` includes nullable `DefaultCurrency`, persisted in SQLite as SQL `NULL` when not set
 - `AbstractDatabaseRepository` base class provides shared `ValidateOrThrow` helper called in `CreateAsync`/`UpdateAsync` — throws `ValidationException` with all DataAnnotations error messages
-- `AbstractDatabaseRepository` centralizes SQLite connection handling, record-count cache invalidation, and async transaction helpers for future multi-step repository operations
+- `AbstractDatabaseRepository` centralizes SQLite connection handling, record-count cache invalidation, SQL script execution, and async transaction helpers for future multi-step repository operations
 - `AbstractDiaryVM` base ViewModel consolidates repository initialization and CRUD operations shared across ViewModels
 - `AbstractEditVM` now contains the `IIsDirty` contract, and the standalone `IIsDirty.cs` file has been removed
 - `ModelValidator` shared utility in `TD.Validation` for DataAnnotations-based model validation reusable by WPF, MAUI, and ASP.NET
@@ -48,6 +48,7 @@ See [`CHANGELOG.md`](CHANGELOG.md) for release history.
 - Maintenance window accessible from menu, with singleton window management (bring-to-front if already open)
 - Maintenance window provides Add, Edit, Save, Refresh, and Delete (Exchange) CRUD operations for Currency, Exchange, TradingAccount, and Symbol
 - `MaintenanceWindow` now includes `HasAnySymbol` exchange handling and updated symbol grid behavior
+- `MaintenanceWindow` Symbols tab supports search and exchange-based filtering with localized placeholder text
 - `MaintenanceWindow` edit flows have been polished for a more consistent maintenance experience
 - `CurrencyCreate`/`CurrencyEdit`, `ExchangeCreate`/`ExchangeEdit`, and `SymbolCreate`/`SymbolEdit` dialogs with dedicated view models integrated into maintenance flows
 - `SymbolCreate` market type ComboBox shows localized display text from enum `Display` attributes instead of blank items

@@ -1009,6 +1009,14 @@
     <Translation>Gerçekleşen Miktar</Translation>
   </Vocab>
   <Vocab>
+    <Name>Filter</Name>
+    <Translation>Süz</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>FilterByExchange</Name>
+    <Translation>Borsaya Göre Süz</Translation>
+  </Vocab>
+  <Vocab>
     <Name>FirstName</Name>
     <Translation>Ad</Translation>
   </Vocab>
@@ -1599,6 +1607,10 @@
   <Vocab>
     <Name>Select</Name>
     <Translation>Seç</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>SelectExchange</Name>
+    <Translation>Borsa Seçiniz</Translation>
   </Vocab>
   <Vocab>
     <Name>SelectPlease</Name>

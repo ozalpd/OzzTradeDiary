@@ -1009,6 +1009,14 @@
     <Translation>Filled Quantity</Translation>
   </Vocab>
   <Vocab>
+    <Name>Filter</Name>
+    <Translation>Filter</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>FilterByExchange</Name>
+    <Translation>Filter by Exchange</Translation>
+  </Vocab>
+  <Vocab>
     <Name>FirstName</Name>
     <Translation>First Name</Translation>
   </Vocab>
@@ -1599,6 +1607,10 @@
   <Vocab>
     <Name>Select</Name>
     <Translation>Select</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>SelectExchange</Name>
+    <Translation>Select Exchange</Translation>
   </Vocab>
   <Vocab>
     <Name>SelectPlease</Name>

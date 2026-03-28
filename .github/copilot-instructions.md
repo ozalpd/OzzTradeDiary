@@ -4,7 +4,7 @@
 
 Early-stage development (pre-release, no public release yet).
 
-Internal tracking versions: `OzzTradeDiary` `0.0.19`, `OzzTradeDiary.WPF` `0.0.19`, `OzzTradeDiary.SQLite` `0.0.19`, `OzzTradeDiary.i18n` `0.0.19`.
+Internal tracking versions: `OzzTradeDiary` `0.0.20`, `OzzTradeDiary.WPF` `0.0.20`, `OzzTradeDiary.SQLite` `0.0.20`, `OzzTradeDiary.i18n` `0.0.20`.
 
 - **Changelog discipline**: Any behavior change (repository logic, initialization, seeding, schema generation impact, UI-visible behavior) must be recorded in `CHANGELOG.md`.
 
@@ -95,7 +95,7 @@ Internal tracking versions: `OzzTradeDiary` `0.0.19`, `OzzTradeDiary.WPF` `0.0.1
 - Seed scripts in `DbScripts/` (for example `<PluralTableName>-Data.sql`) are also generated artifacts — do not edit manually
 - Schema changes must be done via `OzzCodeGen/SqliteScriptsGen.settings`, then regenerate scripts
 - DDL generation uses idempotent table creation (`CREATE TABLE IF NOT EXISTS`)
-- When adding a generated seed file `<PluralTableName>-Data.sql`, the corresponding repository `InitializeDatabase()` should call `SqliteDbScriptInitializer.SeedIfEmpty(connection, "<PluralTableName>", "<PluralTableName>-Data.sql")`
+- When adding a generated seed file `<PluralTableName>-Data.sql`, the corresponding repository `InitializeDatabase()` should call the `SeedIfEmpty` helper inherited from `AbstractDatabaseRepository`
 - Each CUD operation must call `SaveLastUpdateUtcAsync` via `SqliteDatabaseMetadataRepository`
 - SQLite types: `INTEGER` (ints, dates as ticks, enums), `REAL` (decimals), `TEXT` (strings)
 - Dates stored as ticks (`INTEGER`), not ISO 8601 text

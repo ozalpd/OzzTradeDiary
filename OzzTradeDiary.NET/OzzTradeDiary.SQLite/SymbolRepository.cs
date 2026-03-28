@@ -21,8 +21,8 @@ public class SymbolRepository : AbstractDatabaseRepository<Symbol>, IDbSymbolRep
     private void InitializeDatabase()
     {
         using var connection = GetOpenConnection();
-        DbScriptInitializer.ExecuteScript(connection, "Symbol.sql");
-        SeedIfEmpty("Symbols-Data.sql");
+        ExecuteScript(connection, "Symbol.sql");
+        SeedIfEmpty(connection, "Symbols-Data.sql");
     }
 
     public async Task<IReadOnlyList<Symbol>> GetAllAsync(bool? isActive = null)

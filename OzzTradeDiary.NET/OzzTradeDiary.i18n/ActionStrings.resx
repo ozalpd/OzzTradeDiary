@@ -115,6 +115,12 @@
     <data name="File" xml:space="preserve">
         <value>File</value>
     </data>
+    <data name="Filter" xml:space="preserve">
+        <value>Filter</value>
+    </data>
+    <data name="FilterByExchange" xml:space="preserve">
+        <value>Filter by Exchange</value>
+    </data>
     <data name="Help" xml:space="preserve">
         <value>Help</value>
     </data>
@@ -162,6 +168,9 @@
     </data>
     <data name="Select" xml:space="preserve">
         <value>Select</value>
+    </data>
+    <data name="SelectExchange" xml:space="preserve">
+        <value>Select Exchange</value>
     </data>
     <data name="SelectPlease" xml:space="preserve">
         <value>Please Select</value>

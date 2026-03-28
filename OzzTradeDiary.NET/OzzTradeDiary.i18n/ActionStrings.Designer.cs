@@ -232,6 +232,24 @@ namespace TD.i18n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Filter.
+        /// </summary>
+        public static string Filter {
+            get {
+                return ResourceManager.GetString("Filter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Filter by Exchange.
+        /// </summary>
+        public static string FilterByExchange {
+            get {
+                return ResourceManager.GetString("FilterByExchange", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Help.
         /// </summary>
         public static string Help {
@@ -372,6 +390,15 @@ namespace TD.i18n {
         public static string Select {
             get {
                 return ResourceManager.GetString("Select", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select Exchange.
+        /// </summary>
+        public static string SelectExchange {
+            get {
+                return ResourceManager.GetString("SelectExchange", resourceCulture);
             }
         }
         

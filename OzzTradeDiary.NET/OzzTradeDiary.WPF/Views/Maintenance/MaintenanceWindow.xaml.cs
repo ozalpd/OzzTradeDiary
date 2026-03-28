@@ -1,4 +1,6 @@
 ﻿using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Input;
 using TD.WPF.Extensions;
 using TD.WPF.Models;
 using TD.WPF.ViewModels.Maintenance;
@@ -33,6 +35,40 @@ namespace TD.WPF.Views.Maintenance
         private void Window_Closing(object? sender, System.ComponentModel.CancelEventArgs e)
         {
             _appSettings.MaintenanceWindowPosition.GetWindowPositions(this);
+        }
+
+        private void FilterByExchangeCombo_Loaded(object sender, RoutedEventArgs e)
+        {
+            UpdateFilterByExchangePlaceholderVisibility();
+        }
+
+        private void FilterByExchangeCombo_DropDownOpened(object sender, EventArgs e)
+        {
+            FilterByExchangeTextBlock.Visibility = Visibility.Collapsed;
+        }
+
+        private void FilterByExchangeCombo_DropDownClosed(object sender, EventArgs e)
+        {
+            UpdateFilterByExchangePlaceholderVisibility();
+        }
+
+        private void FilterByExchangeCombo_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            UpdateFilterByExchangePlaceholderVisibility();
+        }
+
+        private void FilterByExchangeTextBlock_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            FilterByExchangeTextBlock.Visibility = Visibility.Collapsed;
+            FilterByExchangeCombo.IsDropDownOpen = true;
+            e.Handled = true;
+        }
+
+        private void UpdateFilterByExchangePlaceholderVisibility()
+        {
+            FilterByExchangeTextBlock.Visibility = FilterByExchangeCombo.SelectedItem is null
+                ? Visibility.Visible
+                : Visibility.Collapsed;
         }
 
         private async void AddCurrency_Click(object sender, RoutedEventArgs e)

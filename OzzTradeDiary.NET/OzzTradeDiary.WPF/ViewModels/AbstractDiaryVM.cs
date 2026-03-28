@@ -33,25 +33,25 @@ namespace TD.WPF.ViewModels
         public ObservableCollection<TradingAccount> TradingAccounts { get; }
         public ObservableCollection<Symbol> Symbols { get; }
 
-        public async Task LoadCurrenciesAsync()
+        public virtual async Task LoadCurrenciesAsync()
         {
             var items = await CurrencyRepository.GetAllAsync();
             ReplaceCollection(Currencies, items);
         }
 
-        public async Task LoadExchangesAsync()
+        public virtual async Task LoadExchangesAsync()
         {
             var items = await ExchangeRepository.GetAllAsync();
             ReplaceCollection(Exchanges, items);
         }
 
-        public async Task LoadTradingAccountsAsync()
+        public virtual async Task LoadTradingAccountsAsync()
         {
             var items = await TradingAccountRepository.GetAllAsync();
             ReplaceCollection(TradingAccounts, items);
         }
 
-        public async Task LoadSymbolsAsync()
+        public virtual async Task LoadSymbolsAsync()
         {
             var items = await SymbolRepository.GetAllAsync();
             ReplaceCollection(Symbols, items);
@@ -155,7 +155,7 @@ namespace TD.WPF.ViewModels
         Symbol? _selectedSymbol = null;
 
 
-        private static void ReplaceCollection<T>(ObservableCollection<T> target, IEnumerable<T> source)
+        protected static void ReplaceCollection<T>(ObservableCollection<T> target, IEnumerable<T> source)
         {
             target.Clear();
             foreach (var item in source)

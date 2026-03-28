@@ -21,7 +21,7 @@ public class TradingAccountRepository : AbstractDatabaseRepository<TradingAccoun
     private void InitializeDatabase()
     {
         using var connection = GetOpenConnection();
-        DbScriptInitializer.ExecuteScript(connection, "TradingAccount.sql");
+        ExecuteScript(connection, "TradingAccount.sql");
     }
 
     public async Task<IReadOnlyList<TradingAccount>> GetAllAsync(bool? isActive = null)

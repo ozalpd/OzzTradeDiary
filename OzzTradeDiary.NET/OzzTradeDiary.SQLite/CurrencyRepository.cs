@@ -18,8 +18,8 @@ public class CurrencyRepository : AbstractDatabaseRepository<Currency>, IDbCurre
     private void InitializeDatabase()
     {
         using var connection = GetOpenConnection();
-        DbScriptInitializer.ExecuteScript(connection, "Currency.sql");
-        SeedIfEmpty("Currencies-Data.sql");
+        ExecuteScript(connection, "Currency.sql");
+        SeedIfEmpty(connection, "Currencies-Data.sql");
     }
 
     public async Task<IReadOnlyList<Currency>> GetAllAsync(bool? isActive = null)
