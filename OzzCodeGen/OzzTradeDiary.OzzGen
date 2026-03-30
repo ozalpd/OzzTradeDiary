@@ -1208,7 +1208,7 @@
   <StripSourcePrefixes>false</StripSourcePrefixes>
   <SourceClassPrefix />
   <CodeEngineList>
-    <string>Model_Class_Generator</string>
+    <string>CS_Model_Class_Generator</string>
     <string>Sqlite_Scripts_Generator</string>
     <string>Localization_Resource_Generator</string>
     <string>T-Sql_Scripts_Generator</string>

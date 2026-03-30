@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ModelClassCodeEngine xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<CSharpModelClassCodeEngine xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Language>CSharp</Language>
   <NamespaceName>TD.Models</NamespaceName>
   <TargetFolder>..\OzzTradeDiary.NET\OzzTradeDiary\Models</TargetFolder>
@@ -575,4 +575,4 @@
   <GenerateXmlDoc>true</GenerateXmlDoc>
   <ValidatorFolder>..\OzzTradeDiary.NET\OzzTradeDiary\Validation</ValidatorFolder>
   <ValidatorNamespaceName>TD.Validation</ValidatorNamespaceName>
-</ModelClassCodeEngine>
+</CSharpModelClassCodeEngine>

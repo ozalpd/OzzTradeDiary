@@ -4,7 +4,7 @@
 
 Early-stage development (pre-release, no public release yet).
 
-Internal tracking versions: `OzzTradeDiary` `0.0.20`, `OzzTradeDiary.WPF` `0.0.20`, `OzzTradeDiary.SQLite` `0.0.20`, `OzzTradeDiary.i18n` `0.0.20`.
+Internal tracking versions: `OzzTradeDiary` `0.0.21`, `OzzTradeDiary.WPF` `0.0.21`, `OzzTradeDiary.SQLite` `0.0.21`, `OzzTradeDiary.i18n` `0.0.21`.
 
 - **Changelog discipline**: Any behavior change (repository logic, initialization, seeding, schema generation impact, UI-visible behavior) must be recorded in `CHANGELOG.md`.
 
@@ -119,11 +119,11 @@ Internal tracking versions: `OzzTradeDiary` `0.0.20`, `OzzTradeDiary.WPF` `0.0.2
 - **Localization generation**: Keep `OzzCodeGen/Vocabulary`, Turkish translations, and generated localization resources in sync when adding or renaming UI text.
 - **Enum helpers**: Use `TD.Extensions.EnumExtension` when building collections from enums for UI binding or when reading enum `Display` attribute text.
 - **Text helpers**: Use shared text/string helper extensions from the platform-agnostic core library instead of placing them in WPF-specific projects.
-- **Code generation**: OzzCodeGen generates SQLite DDL scripts and localization resources — settings files in `OzzCodeGen/` define mappings
+- **Code generation**: OzzCodeGen generates SQLite DDL scripts and localization resources — settings files in `OzzCodeGen/` define mappings. `CsModelClassCodeEngine.settings` uses `CSharpModelClassCodeEngine` as the root element, and `OzzTradeDiary.OzzGen` uses `CS_Model_Class_Generator`.
 - **Generation source of truth**:
   - Localization resources are generated via `OzzCodeGen/ResourceGen.settings` + `OzzCodeGen/Vocabulary`
   - `LocalizedStrings.resx` is sourced from `OzzTradeDiary.OzzGen`
-  - Model classes and database schema are sourced from `OzzTradeDiary.OzzGen`
+  - Model classes and database schema are sourced from `OzzTradeDiary.OzzGen` using `CS_Model_Class_Generator`
 - **Do not edit generated artifacts manually** (`*.resx`, designer files, generated models, generated schema scripts)
 - **Backup**: SQLite backup via `BackupDatabase` API → ZIP archives with timestamps
 - **Icons**: Bootstrap Icons v1.13.1 (MIT) — icon paths stored as `StreamGeometry` resources in `OzzTradeDiary.WPF/Resources/BootstrapIcons.xaml`; reference via `{StaticResource <IconKey>}` in XAML

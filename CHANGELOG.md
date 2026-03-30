@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.0.21] - 2026-03-30
+
+### Changed
+- OzzCodeGen code generation naming was updated: `CsModelClassCodeEngine.settings` now uses `CSharpModelClassCodeEngine` as the root element, and `OzzTradeDiary.OzzGen` now uses `CS_Model_Class_Generator` instead of `Model_Class_Generator`.
+- Bumped all project versions to `0.0.21` (`OzzTradeDiary`, `OzzTradeDiary.WPF`, `OzzTradeDiary.SQLite`, `OzzTradeDiary.i18n`).
+
 ## [0.0.20] - 2026-03-28
 
 ### Changed
