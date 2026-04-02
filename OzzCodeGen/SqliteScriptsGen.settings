@@ -248,7 +248,7 @@
           <Length>0</Length>
           <PrimaryKey>false</PrimaryKey>
           <Indexed>true</Indexed>
-          <Unique>true</Unique>
+          <Unique>false</Unique>
           <SortDesc>false</SortDesc>
           <Nullable>false</Nullable>
           <CheckIfAltered>false</CheckIfAltered>

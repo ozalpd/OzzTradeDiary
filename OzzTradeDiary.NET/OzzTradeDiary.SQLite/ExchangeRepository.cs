@@ -56,6 +56,21 @@ namespace TD.SQLite
             return result;
         }
 
+        public async Task<Exchange?> GetByIdAsync(int id)
+        {
+            await using var connection = await GetOpenConnectionAsync();
+            await using var command = connection.CreateCommand();
+            command.CommandText = $@"{_selectStatement}
+            WHERE Id = @id";
+            command.Parameters.AddWithValue("@id", id);
+
+            await using var reader = await command.ExecuteReaderAsync();
+            if (!await reader.ReadAsync())
+                return null;
+
+            return MapExchange(reader);
+        }
+
         public async Task<Exchange?> GetByExchangeCodeAsync(string exchangeCode)
         {
             if (string.IsNullOrWhiteSpace(exchangeCode))
@@ -66,21 +81,6 @@ namespace TD.SQLite
             command.CommandText = $@"{_selectStatement}
             WHERE ExchangeCode = @exchangeCode";
             command.Parameters.AddWithValue("@exchangeCode", exchangeCode);
-
-            await using var reader = await command.ExecuteReaderAsync();
-            if (!await reader.ReadAsync())
-                return null;
-
-            return MapExchange(reader);
-        }
-
-        public async Task<Exchange?> GetByIdAsync(int id)
-        {
-            await using var connection = await GetOpenConnectionAsync();
-            await using var command = connection.CreateCommand();
-            command.CommandText = $@"{_selectStatement}
-            WHERE Id = @id";
-            command.Parameters.AddWithValue("@id", id);
 
             await using var reader = await command.ExecuteReaderAsync();
             if (!await reader.ReadAsync())

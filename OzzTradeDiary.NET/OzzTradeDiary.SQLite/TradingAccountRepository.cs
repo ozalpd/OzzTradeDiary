@@ -54,15 +54,12 @@ public class TradingAccountRepository : AbstractDatabaseRepository<TradingAccoun
         return result;
     }
 
-    public async Task<TradingAccount?> GetByTitleAsync(string title)
+    public async Task<TradingAccount?> GetByIdAsync(int id)
     {
-        if (string.IsNullOrWhiteSpace(title))
-            return null;
-
         await using var connection = await GetOpenConnectionAsync();
         await using var command = connection.CreateCommand();
-        command.CommandText = $"{_selectStatement} WHERE Title = @title";
-        command.Parameters.AddWithValue("@title", title);
+        command.CommandText = $"{_selectStatement} WHERE Id = @id";
+        command.Parameters.AddWithValue("@id", id);
 
         await using var reader = await command.ExecuteReaderAsync();
         if (!await reader.ReadAsync())
@@ -74,12 +71,15 @@ public class TradingAccountRepository : AbstractDatabaseRepository<TradingAccoun
         return tradingAccount;
     }
 
-    public async Task<TradingAccount?> GetByIdAsync(int id)
+    public async Task<TradingAccount?> GetByTitleAsync(string title)
     {
+        if (string.IsNullOrWhiteSpace(title))
+            return null;
+
         await using var connection = await GetOpenConnectionAsync();
         await using var command = connection.CreateCommand();
-        command.CommandText = $"{_selectStatement} WHERE Id = @id";
-        command.Parameters.AddWithValue("@id", id);
+        command.CommandText = $"{_selectStatement} WHERE Title = @title";
+        command.Parameters.AddWithValue("@title", title);
 
         await using var reader = await command.ExecuteReaderAsync();
         if (!await reader.ReadAsync())

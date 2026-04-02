@@ -15,7 +15,7 @@ namespace TD.SQLite
     /// <summary>
     /// SQLite-based repository for TradeImage CRUD operations.
     /// </summary>
-    public partial class TradeImageRepository : AbstractDatabaseRepository<TradeImage>
+    public partial class TradeImageRepository : AbstractDatabaseRepository<TradeImage>, ITradeImageRepository
     {
         public TradeImageRepository(string databasePath) : base(databasePath, "TradeImages")
         {
@@ -49,7 +49,20 @@ namespace TD.SQLite
             return result;
         }
 
-        
+        public async Task<TradeImage?> GetByIdAsync(int id)
+        {
+            await using var connection = await GetOpenConnectionAsync();
+            await using var command = connection.CreateCommand();
+            command.CommandText = $@"{_selectStatement}
+            WHERE Id = @id";
+            command.Parameters.AddWithValue("@id", id);
+
+            await using var reader = await command.ExecuteReaderAsync();
+            if (!await reader.ReadAsync())
+                return null;
+
+            return MapTradeImage(reader);
+        }
 
         private static TradeImage MapTradeImage(SqliteDataReader reader)
         {
@@ -65,6 +78,7 @@ namespace TD.SQLite
 
             return tradeImage;
         }
+        
 
         public readonly struct ColNrs
         {
@@ -82,5 +96,11 @@ namespace TD.SQLite
             "Notes", 
             "ModifyDate" 
         };
+    }
+
+    public interface ITradeImageRepository
+    {
+        Task<IReadOnlyList<TradeImage>> GetAllAsync();
+        Task<TradeImage?> GetByIdAsync(int id);
     }
 }

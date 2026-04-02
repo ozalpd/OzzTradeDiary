@@ -47,20 +47,6 @@ public class CurrencyRepository : AbstractDatabaseRepository<Currency>, IDbCurre
         return result;
     }
 
-    public async Task<Currency?> GetByCurrencyTickerAsync(string currencyTicker)
-    {
-        if (string.IsNullOrWhiteSpace(currencyTicker))
-            return null;
-        await using var connection = await GetOpenConnectionAsync();
-        await using var command = connection.CreateCommand();
-        command.CommandText = $"{_selectStatement} WHERE CurrencyTicker = @currencyTicker";
-        command.Parameters.AddWithValue("@currencyTicker", currencyTicker);
-        await using var reader = await command.ExecuteReaderAsync();
-        if (!await reader.ReadAsync())
-            return null;
-        return MapCurrency(reader);
-    }
-
     public async Task<Currency?> GetByIdAsync(int id)
     {
         await using var connection = await GetOpenConnectionAsync();
@@ -72,6 +58,20 @@ public class CurrencyRepository : AbstractDatabaseRepository<Currency>, IDbCurre
         if (!await reader.ReadAsync())
             return null;
 
+        return MapCurrency(reader);
+    }
+
+    public async Task<Currency?> GetByCurrencyTickerAsync(string currencyTicker)
+    {
+        if (string.IsNullOrWhiteSpace(currencyTicker))
+            return null;
+        await using var connection = await GetOpenConnectionAsync();
+        await using var command = connection.CreateCommand();
+        command.CommandText = $"{_selectStatement} WHERE CurrencyTicker = @currencyTicker";
+        command.Parameters.AddWithValue("@currencyTicker", currencyTicker);
+        await using var reader = await command.ExecuteReaderAsync();
+        if (!await reader.ReadAsync())
+            return null;
         return MapCurrency(reader);
     }
 

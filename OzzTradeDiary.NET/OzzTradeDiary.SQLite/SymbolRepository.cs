@@ -55,15 +55,12 @@ public class SymbolRepository : AbstractDatabaseRepository<Symbol>, IDbSymbolRep
         return result;
     }
 
-    public async Task<Symbol?> GetByTickerFullAsync(string tickerFull)
+    public async Task<Symbol?> GetByIdAsync(int id)
     {
-        if (string.IsNullOrWhiteSpace(tickerFull))
-            return null;
-
         await using var connection = await GetOpenConnectionAsync();
         await using var command = connection.CreateCommand();
-        command.CommandText = $"{_selectStatement} WHERE TickerFull = @tickerFull";
-        command.Parameters.AddWithValue("@tickerFull", tickerFull);
+        command.CommandText = $"{_selectStatement} WHERE Id = @id";
+        command.Parameters.AddWithValue("@id", id);
 
         await using var reader = await command.ExecuteReaderAsync();
         if (!await reader.ReadAsync())
@@ -75,12 +72,15 @@ public class SymbolRepository : AbstractDatabaseRepository<Symbol>, IDbSymbolRep
         return symbol;
     }
 
-    public async Task<Symbol?> GetByIdAsync(int id)
+    public async Task<Symbol?> GetByTickerFullAsync(string tickerFull)
     {
+        if (string.IsNullOrWhiteSpace(tickerFull))
+            return null;
+
         await using var connection = await GetOpenConnectionAsync();
         await using var command = connection.CreateCommand();
-        command.CommandText = $"{_selectStatement} WHERE Id = @id";
-        command.Parameters.AddWithValue("@id", id);
+        command.CommandText = $"{_selectStatement} WHERE TickerFull = @tickerFull";
+        command.Parameters.AddWithValue("@tickerFull", tickerFull);
 
         await using var reader = await command.ExecuteReaderAsync();
         if (!await reader.ReadAsync())
