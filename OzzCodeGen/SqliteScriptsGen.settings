@@ -45,7 +45,7 @@
         <StorageColumnSetting>
           <Name>ModifyDate</Name>
           <Exclude>false</Exclude>
-          <DataType>INTEGER</DataType>
+          <DataType>TEXT</DataType>
           <Length>0</Length>
           <PrimaryKey>false</PrimaryKey>
           <Indexed>true</Indexed>
@@ -649,7 +649,7 @@
     <BaseEntitySetting xsi:type="StorageEntitySetting">
       <Name>Trade</Name>
       <Exclude>false</Exclude>
-      <OverwriteExisting>false</OverwriteExisting>
+      <OverwriteExisting>true</OverwriteExisting>
       <InheritedEntity>IModifyDate</InheritedEntity>
       <UseInheritance>false</UseInheritance>
       <SchemaName>dbo</SchemaName>

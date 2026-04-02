@@ -424,7 +424,7 @@
       <Abstract>false</Abstract>
       <LetDownloadAll>false</LetDownloadAll>
       <DisplayName>Exchange</DisplayName>
-      <DisplayMember>ExchangeCode</DisplayMember>
+      <DisplayMember>ExchangeName</DisplayMember>
       <BaseTypeName>IIsActive</BaseTypeName>
       <Properties>
         <BaseProperty xsi:type="StringProperty">
@@ -576,7 +576,7 @@
       <Abstract>false</Abstract>
       <LetDownloadAll>false</LetDownloadAll>
       <DisplayName>Currency</DisplayName>
-      <DisplayMember>Ticker</DisplayMember>
+      <DisplayMember>CurrencyTicker</DisplayMember>
       <BaseTypeName>IIsActive</BaseTypeName>
       <Properties>
         <BaseProperty xsi:type="StringProperty">
@@ -623,7 +623,7 @@
       <Abstract>false</Abstract>
       <LetDownloadAll>false</LetDownloadAll>
       <DisplayName>Symbol</DisplayName>
-      <DisplayMember>Ticker</DisplayMember>
+      <DisplayMember>TickerFull</DisplayMember>
       <BaseTypeName>IIsActive</BaseTypeName>
       <Properties>
         <BaseProperty xsi:type="StringProperty">
@@ -897,7 +897,7 @@
       <Abstract>false</Abstract>
       <LetDownloadAll>false</LetDownloadAll>
       <DisplayName>Trade Image</DisplayName>
-      <DisplayMember>Id</DisplayMember>
+      <DisplayMember>TradeId</DisplayMember>
       <BaseTypeName>IModifyDate</BaseTypeName>
       <Properties>
         <BaseProperty xsi:type="SimpleProperty">
@@ -1208,8 +1208,9 @@
   <StripSourcePrefixes>false</StripSourcePrefixes>
   <SourceClassPrefix />
   <CodeEngineList>
-    <string>CS_Model_Class_Generator</string>
+    <string>CS_Sqlite_Repository_Generator</string>
     <string>Sqlite_Scripts_Generator</string>
+    <string>CS_Model_Class_Generator</string>
     <string>Localization_Resource_Generator</string>
     <string>T-Sql_Scripts_Generator</string>
   </CodeEngineList>

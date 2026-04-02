@@ -4,7 +4,7 @@
 
 Early-stage development (pre-release, no public release yet).
 
-Internal tracking versions: `OzzTradeDiary` `0.0.21`, `OzzTradeDiary.WPF` `0.0.21`, `OzzTradeDiary.SQLite` `0.0.21`, `OzzTradeDiary.i18n` `0.0.21`.
+Internal tracking versions: `OzzTradeDiary` `0.0.22`, `OzzTradeDiary.WPF` `0.0.22`, `OzzTradeDiary.SQLite` `0.0.22`, `OzzTradeDiary.i18n` `0.0.22`.
 
 - **Changelog discipline**: Any behavior change (repository logic, initialization, seeding, schema generation impact, UI-visible behavior) must be recorded in `CHANGELOG.md`.
 
@@ -89,6 +89,8 @@ Internal tracking versions: `OzzTradeDiary` `0.0.21`, `OzzTradeDiary.WPF` `0.0.2
 - Prefer readable names without redundant prefixes/suffixes: repository classes should be named `SymbolRepository`, `ExchangeRepository`, etc., under the `TD.SQLite` namespace, and repository interfaces should use the `IDb...Repository` pattern such as `IDbTradingAccountRepository` instead of `IDatabaseTradingAccountRepository`.
 - Prefer readable repository names without redundant `SqliteDatabase` prefixes, e.g. `SymbolRepository`, `ExchangeRepository`, `TradingAccountRepository`.
 - Prefer `IDb...Repository` interface names for SQLite repositories, e.g. `IDbTradingAccountRepository`, to keep interface names concise but still clearly database-oriented.
+- SQLite date/time columns should use `TEXT` when the data is intended to preserve readable ISO-style values, and `ModifyDate` columns should follow that convention in generated scripts.
+- SQLite repository code generation has its own settings file; keep repository regeneration aligned with `SqliteRepositoryGen.settings`.
 - Implemented repositories: `Currency`, `Exchange`, `TradingAccount`, `Symbol`; remaining repositories will be added
 - **Each model has a matching DDL file** in `OzzTradeDiary.SQLite/DbScripts` named `<ModelName>.sql`; optional seed files are named `<PluralTableName>-Data.sql`
 - DDL scripts in `DbScripts/` folder are **generated** by OzzCodeGen — do not edit manually

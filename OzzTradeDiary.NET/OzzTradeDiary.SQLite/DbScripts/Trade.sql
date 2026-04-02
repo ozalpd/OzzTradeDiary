@@ -11,7 +11,7 @@ CREATE TABLE IF NOT EXISTS Trades(
 	ExecutedTP REAL, 
 	PlannedSL REAL, 
 	ExecutedSL REAL, 
-	ModifyDate INTEGER Not Null 
+	ModifyDate TEXT Not Null 
 );
 Create Index If Not Exists idx_Trades_TradingAccountId on Trades(TradingAccountId );
 Create Index If Not Exists idx_Trades_SymbolId on Trades(SymbolId );

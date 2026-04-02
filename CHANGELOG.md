@@ -4,6 +4,20 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.0.22] - 2026-04-02
+
+### Added
+- `TradeImageRepository` with improved structure and documentation.
+- SQLite repository code generation settings for the regenerated repository layer.
+
+### Changed
+- `ExchangeRepository` was regenerated with improved structure and documentation.
+- `MetadataRepository` and its interface were refactored, and date columns now use `TEXT` instead of numeric ticks in SQLite scripts.
+- `.OzzGen` and generator settings were updated for display members, code generation, and schema alignment.
+- `ModifyDate` columns in SQL scripts now use `TEXT`.
+- Date and time handling were improved throughout the repository and model layers.
+- Bumped all project versions to `0.0.22` (`OzzTradeDiary`, `OzzTradeDiary.WPF`, `OzzTradeDiary.SQLite`, `OzzTradeDiary.i18n`).
+
 ## [0.0.21] - 2026-03-30
 
 ### Changed
