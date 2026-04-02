@@ -11,7 +11,7 @@ public class TradingAccountRepository : AbstractDatabaseRepository<TradingAccoun
     public TradingAccountRepository(string databasePath,
                                     IDbExchangeRepository? exchangeRepository = null) : base(databasePath, "TradingAccounts")
     {
-        _selectStatement = $"SELECT Id, Title, ExchangeId, Notes, DisplayOrder, IsActive FROM {_tableName}";
+        _selectStatement = $"SELECT {string.Join(", ", ColumnNames)} FROM {_tableName}";
         _exchangeRepository = exchangeRepository ?? new ExchangeRepository(databasePath);
         InitializeDatabase();
     }
@@ -106,8 +106,7 @@ public class TradingAccountRepository : AbstractDatabaseRepository<TradingAccoun
         }
 
         await using var command = connection.CreateCommand();
-        command.CommandText = @"
-            INSERT INTO TradingAccounts (Title, ExchangeId, Notes, DisplayOrder, IsActive)
+        command.CommandText = $@"INSERT INTO {_tableName} ({string.Join(", ", ColumnNames[1..])})
             VALUES (@title, @exchangeId, @notes, @displayOrder, @isActive);
             SELECT last_insert_rowid();";
 
@@ -190,16 +189,39 @@ public class TradingAccountRepository : AbstractDatabaseRepository<TradingAccoun
                                 ?? new Exchange { Id = tradingAccount.ExchangeId };
     }
 
+
     private static TradingAccount MapTradingAccount(SqliteDataReader reader)
     {
-        return new TradingAccount
+        var tradingAccount = new TradingAccount
         {
-            Id = reader.GetInt32(0),
-            Title = reader.GetString(1),
-            ExchangeId = reader.GetInt32(2),
-            Notes = reader.IsDBNull(3) ? null : reader.GetString(3),
-            DisplayOrder = reader.GetInt32(4),
-            IsActive = reader.GetInt64(5) == 1
+            Id = reader.GetInt32(ColNrs.Id),
+            Title = reader.GetString(ColNrs.Title),
+            ExchangeId = reader.GetInt32(ColNrs.ExchangeId),
+            Notes = reader.IsDBNull(ColNrs.Notes) ? null : reader.GetString(ColNrs.Notes),
+            DisplayOrder = reader.GetInt32(ColNrs.DisplayOrder),
+            IsActive = reader.GetInt64(ColNrs.IsActive) == 1
+
         };
+
+        return tradingAccount;
     }
+
+    public readonly struct ColNrs
+    {
+        public readonly static int Id = 0;
+        public readonly static int Title = 1;
+        public readonly static int ExchangeId = 2;
+        public readonly static int Notes = 3;
+        public readonly static int DisplayOrder = 4;
+        public readonly static int IsActive = 5;
+    }
+
+    public readonly string[] ColumnNames = new[] {
+            "Id",
+            "Title",
+            "ExchangeId",
+            "Notes",
+            "DisplayOrder",
+            "IsActive"
+        };
 }

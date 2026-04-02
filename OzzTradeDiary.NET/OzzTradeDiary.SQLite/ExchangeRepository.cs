@@ -104,8 +104,7 @@ namespace TD.SQLite
             }
 
             await using var command = connection.CreateCommand();
-            command.CommandText = @"
-            INSERT INTO Exchanges (ExchangeName, ExchangeCode, DefaultCurrency, HasAnySymbol, DisplayOrder, IsActive)
+            command.CommandText = @$"INSERT INTO {_tableName} ({string.Join(", ", ColumnNames[1..])})
             VALUES (@exchangeName, @exchangeCode, @defaultCurrency, @hasAnySymbol, @displayOrder, @isActive);
             SELECT last_insert_rowid();";
 

@@ -10,7 +10,7 @@ public class CurrencyRepository : AbstractDatabaseRepository<Currency>, IDbCurre
 {
     public CurrencyRepository(string databasePath) : base(databasePath, "Currencies")
     {
-        _selectStatement = $"SELECT Id, CurrencyTicker, Description, DisplayOrder, IsActive FROM {_tableName}";
+        _selectStatement = $"SELECT {string.Join(", ", ColumnNames)} FROM {_tableName}";
         InitializeDatabase();
     }
     private readonly string _selectStatement;
@@ -90,8 +90,7 @@ public class CurrencyRepository : AbstractDatabaseRepository<Currency>, IDbCurre
         }
 
         await using var command = connection.CreateCommand();
-        command.CommandText = @"
-            INSERT INTO Currencies (CurrencyTicker, Description, DisplayOrder, IsActive)
+        command.CommandText = $@"INSERT INTO {_tableName} ({string.Join(", ", ColumnNames[1..])})
             VALUES (@currencyTicker, @description, @displayOrder, @isActive);
             SELECT last_insert_rowid();";
 
@@ -165,15 +164,36 @@ public class CurrencyRepository : AbstractDatabaseRepository<Currency>, IDbCurre
         return affectedRows > 0;
     }
 
+
     private static Currency MapCurrency(SqliteDataReader reader)
     {
-        return new Currency
+        var currency = new Currency
         {
-            Id = reader.GetInt32(0),
-            CurrencyTicker = reader.GetString(1),
-            Description = reader.IsDBNull(2) ? string.Empty : reader.GetString(2),
-            DisplayOrder = reader.GetInt32(3),
-            IsActive = reader.GetInt64(4) == 1
+            Id = reader.GetInt32(ColNrs.Id),
+            CurrencyTicker = reader.GetString(ColNrs.CurrencyTicker),
+            Description = reader.IsDBNull(ColNrs.Description) ? null : reader.GetString(ColNrs.Description),
+            DisplayOrder = reader.GetInt32(ColNrs.DisplayOrder),
+            IsActive = reader.GetInt64(ColNrs.IsActive) == 1
+
         };
+
+        return currency;
     }
+
+    public readonly struct ColNrs
+    {
+        public readonly static int Id = 0;
+        public readonly static int CurrencyTicker = 1;
+        public readonly static int Description = 2;
+        public readonly static int DisplayOrder = 3;
+        public readonly static int IsActive = 4;
+    }
+
+    public readonly string[] ColumnNames = new[] {
+            "Id",
+            "CurrencyTicker",
+            "Description",
+            "DisplayOrder",
+            "IsActive"
+        };
 }

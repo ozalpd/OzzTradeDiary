@@ -11,7 +11,7 @@ public class SymbolRepository : AbstractDatabaseRepository<Symbol>, IDbSymbolRep
     public SymbolRepository(string databasePath,
                             IDbExchangeRepository? exchangeRepository = null) : base(databasePath, "Symbols")
     {
-        _selectStatement = $"SELECT Id, Ticker, TickerFull, BaseCurrency, PriceCurrency, Description, ExchangeId, MarketType, DisplayOrder, IsActive FROM {_tableName}";
+        _selectStatement = $"SELECT {string.Join(", ", ColumnNames)} FROM {_tableName}";
         _exchangeRepository = exchangeRepository ?? new ExchangeRepository(databasePath);
         InitializeDatabase();
     }
@@ -107,8 +107,7 @@ public class SymbolRepository : AbstractDatabaseRepository<Symbol>, IDbSymbolRep
         }
 
         await using var command = connection.CreateCommand();
-        command.CommandText = @"
-            INSERT INTO Symbols (Ticker, TickerFull, BaseCurrency, PriceCurrency, Description, ExchangeId, MarketType, DisplayOrder, IsActive)
+        command.CommandText = @$"INSERT INTO {_tableName} ({string.Join(", ", ColumnNames[1..])})
             VALUES (@ticker, @tickerFull, @baseCurrency, @priceCurrency, @description, @exchangeId, @marketType, @displayOrder, @isActive);
             SELECT last_insert_rowid();";
 
@@ -198,21 +197,51 @@ public class SymbolRepository : AbstractDatabaseRepository<Symbol>, IDbSymbolRep
                            ?? new Exchange { Id = symbol.ExchangeId };
     }
 
+
     private static Symbol MapSymbol(SqliteDataReader reader)
     {
-        return new Symbol
+        var symbol = new Symbol
         {
-            Id = reader.GetInt32(0),
-            Ticker = reader.GetString(1),
-            TickerFull = reader.GetString(2),
-            BaseCurrency = reader.IsDBNull(3) ? string.Empty : reader.GetString(3),
-            PriceCurrency = reader.GetString(4),
-            Description = reader.IsDBNull(5) ? string.Empty : reader.GetString(5),
-            ExchangeId = reader.GetInt32(6),
-            Exchange = new Exchange { Id = reader.GetInt32(6) },
-            MarketType = (MarketType)reader.GetInt32(7),
-            DisplayOrder = reader.GetInt32(8),
-            IsActive = reader.GetInt64(9) == 1
+            Id = reader.GetInt32(ColNrs.Id),
+            Ticker = reader.GetString(ColNrs.Ticker),
+            TickerFull = reader.GetString(ColNrs.TickerFull),
+            BaseCurrency = reader.IsDBNull(ColNrs.BaseCurrency) ? null : reader.GetString(ColNrs.BaseCurrency),
+            PriceCurrency = reader.GetString(ColNrs.PriceCurrency),
+            Description = reader.IsDBNull(ColNrs.Description) ? null : reader.GetString(ColNrs.Description),
+            ExchangeId = reader.GetInt32(ColNrs.ExchangeId),
+            MarketType = (MarketType)reader.GetInt32(ColNrs.MarketType),
+            DisplayOrder = reader.GetInt32(ColNrs.DisplayOrder),
+            IsActive = reader.GetInt64(ColNrs.IsActive) == 1
+
         };
+
+        return symbol;
     }
+
+    public readonly struct ColNrs
+    {
+        public readonly static int Id = 0;
+        public readonly static int Ticker = 1;
+        public readonly static int TickerFull = 2;
+        public readonly static int BaseCurrency = 3;
+        public readonly static int PriceCurrency = 4;
+        public readonly static int Description = 5;
+        public readonly static int ExchangeId = 6;
+        public readonly static int MarketType = 7;
+        public readonly static int DisplayOrder = 8;
+        public readonly static int IsActive = 9;
+    }
+
+    public readonly string[] ColumnNames = new[] {
+            "Id",
+            "Ticker",
+            "TickerFull",
+            "BaseCurrency",
+            "PriceCurrency",
+            "Description",
+            "ExchangeId",
+            "MarketType",
+            "DisplayOrder",
+            "IsActive"
+        };
 }
