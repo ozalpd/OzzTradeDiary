@@ -23,7 +23,7 @@ namespace TD.WPF.ViewModels
             Symbols = new ObservableCollection<Symbol>();
         }
 
-        public IDbCurrencyRepository CurrencyRepository { get; }
+        public ICurrencyRepository CurrencyRepository { get; }
         public IExchangeRepository ExchangeRepository { get; }
         public IDbSymbolRepository SymbolRepository { get; }
         public IDbTradingAccountRepository TradingAccountRepository { get; }

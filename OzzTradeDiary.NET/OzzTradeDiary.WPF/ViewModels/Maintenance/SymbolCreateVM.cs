@@ -69,7 +69,7 @@ namespace TD.WPF.ViewModels.Maintenance
             }
         }
 
-        public IDbCurrencyRepository CurrencyRepository { get; }
+        public ICurrencyRepository CurrencyRepository { get; }
         public ObservableCollection<Currency> Currencies { get; }
 
         public IExchangeRepository ExchangeRepository { get; }

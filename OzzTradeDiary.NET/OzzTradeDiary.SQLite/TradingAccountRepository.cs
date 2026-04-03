@@ -124,6 +124,23 @@ public class TradingAccountRepository : AbstractDatabaseRepository<TradingAccoun
         return id;
     }
 
+    public async Task<bool> DeleteAsync(int id)
+    {
+        await using var connection = await GetOpenConnectionAsync();
+        await using var command = connection.CreateCommand();
+        command.CommandText = "DELETE FROM TradingAccounts WHERE Id = @id";
+        command.Parameters.AddWithValue("@id", id);
+
+        var affectedRows = await command.ExecuteNonQueryAsync();
+        if (affectedRows > 0)
+        {
+            await _metadataRepository.SaveLastUpdateUtcAsync(connection);
+            ClearRecordCountCache();
+        }
+
+        return affectedRows > 0;
+    }
+
     public async Task<bool> UpdateAsync(TradingAccount tradingAccount)
     {
         ArgumentNullException.ThrowIfNull(tradingAccount);
@@ -162,23 +179,6 @@ public class TradingAccountRepository : AbstractDatabaseRepository<TradingAccoun
         var affectedRows = await command.ExecuteNonQueryAsync();
         if (affectedRows > 0)
             await _metadataRepository.SaveLastUpdateUtcAsync(connection);
-
-        return affectedRows > 0;
-    }
-
-    public async Task<bool> DeleteAsync(int id)
-    {
-        await using var connection = await GetOpenConnectionAsync();
-        await using var command = connection.CreateCommand();
-        command.CommandText = "DELETE FROM TradingAccounts WHERE Id = @id";
-        command.Parameters.AddWithValue("@id", id);
-
-        var affectedRows = await command.ExecuteNonQueryAsync();
-        if (affectedRows > 0)
-        {
-            await _metadataRepository.SaveLastUpdateUtcAsync(connection);
-            ClearRecordCountCache();
-        }
 
         return affectedRows > 0;
     }

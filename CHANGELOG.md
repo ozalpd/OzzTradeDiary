@@ -4,6 +4,15 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.0.25] - 2026-04-03
+
+### Changed
+- `IDbCurrencyRepository` was replaced by the co-located `ICurrencyRepository` interface defined within `CurrencyRepository.cs`; the old `IDbCurrencyRepository` file was removed and all references were updated.
+- `CurrencyRepository` was marked as `partial` and refactored with extensibility hooks (`OnCreated`, `OnUpdated`) for consistency with the generated repository pattern.
+- Related ViewModel property types adjusted to use `ICurrencyRepository`.
+- Code reformatted and reorganized for clarity; core CRUD logic is unchanged.
+- Bumped all project versions to `0.0.25` (`OzzTradeDiary`, `OzzTradeDiary.WPF`, `OzzTradeDiary.SQLite`, `OzzTradeDiary.i18n`).
+
 ## [0.0.24] - 2026-04-03
 
 ### Added
