@@ -194,38 +194,10 @@
       </Properties>
     </EntityDefinition>
     <EntityDefinition>
-      <Name>IModifyDate</Name>
-      <EntitySource />
-      <NamespaceName>TD</NamespaceName>
-      <DisplayOrder>2</DisplayOrder>
-      <Abstract>true</Abstract>
-      <LetDownloadAll>false</LetDownloadAll>
-      <DisplayName>IModify Date</DisplayName>
-      <DisplayMember>Id</DisplayMember>
-      <BaseTypeName>IPrimaryKey</BaseTypeName>
-      <Properties>
-        <BaseProperty xsi:type="SimpleProperty">
-          <Name>ModifyDate</Name>
-          <DisplayOrder>200100</DisplayOrder>
-          <DisplayName>Modify Date</DisplayName>
-          <TypeName>DateTime</TypeName>
-          <IsClientComputed>false</IsClientComputed>
-          <IsServerComputed>false</IsServerComputed>
-          <RestrictedData>false</RestrictedData>
-          <EnumTypeName />
-          <IsKey>false</IsKey>
-          <IsForeignKey>false</IsForeignKey>
-          <IsImmutable>false</IsImmutable>
-          <IsNullable>false</IsNullable>
-          <IsStoreGenerated>false</IsStoreGenerated>
-        </BaseProperty>
-      </Properties>
-    </EntityDefinition>
-    <EntityDefinition>
       <Name>IDisplayOrder</Name>
       <EntitySource />
       <NamespaceName>TD</NamespaceName>
-      <DisplayOrder>3</DisplayOrder>
+      <DisplayOrder>2</DisplayOrder>
       <Abstract>true</Abstract>
       <LetDownloadAll>false</LetDownloadAll>
       <DisplayName>IDisplay Order</DisplayName>
@@ -253,7 +225,7 @@
       <Name>IIsActive</Name>
       <EntitySource />
       <NamespaceName>TD</NamespaceName>
-      <DisplayOrder>4</DisplayOrder>
+      <DisplayOrder>3</DisplayOrder>
       <Abstract>true</Abstract>
       <LetDownloadAll>false</LetDownloadAll>
       <DisplayName>IIs Active</DisplayName>
@@ -265,6 +237,62 @@
           <DisplayOrder>100200</DisplayOrder>
           <DisplayName>Is Active</DisplayName>
           <TypeName>bool</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <RestrictedData>false</RestrictedData>
+          <EnumTypeName />
+          <IsKey>false</IsKey>
+          <IsForeignKey>false</IsForeignKey>
+          <IsImmutable>false</IsImmutable>
+          <IsNullable>false</IsNullable>
+          <IsStoreGenerated>false</IsStoreGenerated>
+        </BaseProperty>
+      </Properties>
+    </EntityDefinition>
+    <EntityDefinition>
+      <Name>ICreatedAt</Name>
+      <EntitySource />
+      <NamespaceName>TD</NamespaceName>
+      <DisplayOrder>4</DisplayOrder>
+      <Abstract>true</Abstract>
+      <LetDownloadAll>false</LetDownloadAll>
+      <DisplayName>ICreated At</DisplayName>
+      <DisplayMember>Id</DisplayMember>
+      <BaseTypeName>IPrimaryKey</BaseTypeName>
+      <Properties>
+        <BaseProperty xsi:type="SimpleProperty">
+          <Name>CreatedAt</Name>
+          <DisplayOrder>2001000</DisplayOrder>
+          <DisplayName>Created At</DisplayName>
+          <TypeName>DateTime</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <RestrictedData>false</RestrictedData>
+          <EnumTypeName />
+          <IsKey>false</IsKey>
+          <IsForeignKey>false</IsForeignKey>
+          <IsImmutable>false</IsImmutable>
+          <IsNullable>false</IsNullable>
+          <IsStoreGenerated>false</IsStoreGenerated>
+        </BaseProperty>
+      </Properties>
+    </EntityDefinition>
+    <EntityDefinition>
+      <Name>IUpdatedAt</Name>
+      <EntitySource />
+      <NamespaceName>TD</NamespaceName>
+      <DisplayOrder>4</DisplayOrder>
+      <Abstract>true</Abstract>
+      <LetDownloadAll>false</LetDownloadAll>
+      <DisplayName>IUpdated At</DisplayName>
+      <DisplayMember>Id</DisplayMember>
+      <BaseTypeName>IPrimaryKey</BaseTypeName>
+      <Properties>
+        <BaseProperty xsi:type="SimpleProperty">
+          <Name>UpdatedAt</Name>
+          <DisplayOrder>2002000</DisplayOrder>
+          <DisplayName>Updated At</DisplayName>
+          <TypeName>DateTime</TypeName>
           <IsClientComputed>false</IsClientComputed>
           <IsServerComputed>false</IsServerComputed>
           <RestrictedData>false</RestrictedData>
@@ -420,7 +448,7 @@
       <Name>Exchange</Name>
       <EntitySource />
       <NamespaceName>TD</NamespaceName>
-      <DisplayOrder>7</DisplayOrder>
+      <DisplayOrder>6</DisplayOrder>
       <Abstract>false</Abstract>
       <LetDownloadAll>false</LetDownloadAll>
       <DisplayName>Exchange</DisplayName>
@@ -499,7 +527,7 @@
       <Name>TradingAccount</Name>
       <EntitySource />
       <NamespaceName>TD</NamespaceName>
-      <DisplayOrder>8</DisplayOrder>
+      <DisplayOrder>7</DisplayOrder>
       <Abstract>false</Abstract>
       <LetDownloadAll>false</LetDownloadAll>
       <DisplayName>Trading Account</DisplayName>
@@ -572,7 +600,7 @@
       <Name>Currency</Name>
       <EntitySource />
       <NamespaceName>TD</NamespaceName>
-      <DisplayOrder>9</DisplayOrder>
+      <DisplayOrder>8</DisplayOrder>
       <Abstract>false</Abstract>
       <LetDownloadAll>false</LetDownloadAll>
       <DisplayName>Currency</DisplayName>
@@ -619,7 +647,7 @@
       <Name>Symbol</Name>
       <EntitySource />
       <NamespaceName>TD</NamespaceName>
-      <DisplayOrder>10</DisplayOrder>
+      <DisplayOrder>9</DisplayOrder>
       <Abstract>false</Abstract>
       <LetDownloadAll>false</LetDownloadAll>
       <DisplayName>Symbol</DisplayName>
@@ -655,7 +683,7 @@
           <EnumTypeName />
           <IsKey>false</IsKey>
           <IsForeignKey>false</IsForeignKey>
-          <IsImmutable>false</IsImmutable>
+          <IsImmutable>true</IsImmutable>
           <IsNullable>false</IsNullable>
           <IsStoreGenerated>false</IsStoreGenerated>
           <MaxLength>64</MaxLength>
@@ -760,7 +788,7 @@
       <Name>EntryOrder</Name>
       <EntitySource />
       <NamespaceName>TD</NamespaceName>
-      <DisplayOrder>11</DisplayOrder>
+      <DisplayOrder>10</DisplayOrder>
       <Abstract>false</Abstract>
       <LetDownloadAll>false</LetDownloadAll>
       <DisplayName>Entry Order</DisplayName>
@@ -799,7 +827,7 @@
       <Name>TakeProfitOrder</Name>
       <EntitySource />
       <NamespaceName>TD</NamespaceName>
-      <DisplayOrder>12</DisplayOrder>
+      <DisplayOrder>11</DisplayOrder>
       <Abstract>false</Abstract>
       <LetDownloadAll>false</LetDownloadAll>
       <DisplayName>Entry Order</DisplayName>
@@ -838,7 +866,7 @@
       <Name>StopLossOrder</Name>
       <EntitySource />
       <NamespaceName>TD</NamespaceName>
-      <DisplayOrder>13</DisplayOrder>
+      <DisplayOrder>12</DisplayOrder>
       <Abstract>false</Abstract>
       <LetDownloadAll>false</LetDownloadAll>
       <DisplayName>Entry Order</DisplayName>
@@ -893,12 +921,12 @@
       <Name>TradeImage</Name>
       <EntitySource />
       <NamespaceName>TD</NamespaceName>
-      <DisplayOrder>14</DisplayOrder>
+      <DisplayOrder>13</DisplayOrder>
       <Abstract>false</Abstract>
       <LetDownloadAll>false</LetDownloadAll>
       <DisplayName>Trade Image</DisplayName>
       <DisplayMember>TradeId</DisplayMember>
-      <BaseTypeName>IModifyDate</BaseTypeName>
+      <BaseTypeName>IUpdatedAt</BaseTypeName>
       <Properties>
         <BaseProperty xsi:type="SimpleProperty">
           <Name>TradeId</Name>
@@ -965,12 +993,12 @@
       <Name>Trade</Name>
       <EntitySource />
       <NamespaceName>TD</NamespaceName>
-      <DisplayOrder>15</DisplayOrder>
+      <DisplayOrder>14</DisplayOrder>
       <Abstract>false</Abstract>
       <LetDownloadAll>false</LetDownloadAll>
       <DisplayName>Trade</DisplayName>
       <DisplayMember>Id</DisplayMember>
-      <BaseTypeName>IModifyDate</BaseTypeName>
+      <BaseTypeName>IUpdatedAt</BaseTypeName>
       <Properties>
         <BaseProperty xsi:type="SimpleProperty">
           <Name>TradingAccountId</Name>

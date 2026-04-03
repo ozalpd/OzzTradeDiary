@@ -45,7 +45,7 @@
     <Translation>Borsa Ekle</Translation>
   </Vocab>
   <Vocab>
-    <Name>AddIModifyDate</Name>
+    <Name>AddIUpdatedAt</Name>
     <Translation>Değişiklik Tarihi Ekle</Translation>
   </Vocab>
   <Vocab>
@@ -85,7 +85,7 @@
     <Translation>Yeni Borsa Ekle</Translation>
   </Vocab>
   <Vocab>
-    <Name>AddNewIModifyDate</Name>
+    <Name>AddNewIUpdatedAt</Name>
     <Translation>Yeni Değişiklik Tarihi Ekle</Translation>
   </Vocab>
   <Vocab>
@@ -177,7 +177,7 @@
     <Translation>Borsa Ekle/Çıkart</Translation>
   </Vocab>
   <Vocab>
-    <Name>AddRemoveIModifyDate</Name>
+    <Name>AddRemoveIUpdatedAt</Name>
     <Translation>Değişiklik Tarihi Ekle/Çıkar</Translation>
   </Vocab>
   <Vocab>
@@ -469,7 +469,7 @@
     <Translation>Borsa Oluştur</Translation>
   </Vocab>
   <Vocab>
-    <Name>CreateIModifyDate</Name>
+    <Name>CreateIUpdatedAt</Name>
     <Translation>Değişiklik Tarihi Oluştur</Translation>
   </Vocab>
   <Vocab>
@@ -673,7 +673,7 @@
     <Translation>Borsayı Sil</Translation>
   </Vocab>
   <Vocab>
-    <Name>DeleteIModifyDate</Name>
+    <Name>DeleteIUpdatedAt</Name>
     <Translation>Değişiklik Tarihini Sil</Translation>
   </Vocab>
   <Vocab>
@@ -821,7 +821,7 @@
     <Translation>Borsayı Düzenle</Translation>
   </Vocab>
   <Vocab>
-    <Name>EditIModifyDate</Name>
+    <Name>EditIUpdatedAt</Name>
     <Translation>Değişiklik Tarihini Düzenle</Translation>
   </Vocab>
   <Vocab>
@@ -1073,15 +1073,15 @@
     <Translation>Resim Yolu</Translation>
   </Vocab>
   <Vocab>
-    <Name>IModifyDate</Name>
+    <Name>IUpdatedAt</Name>
     <Translation>Değişiklik Tarihi</Translation>
   </Vocab>
   <Vocab>
-    <Name>IModifyDates</Name>
+    <Name>IUpdatedAts</Name>
     <Translation>Değişiklik Tarihleri</Translation>
   </Vocab>
   <Vocab>
-    <Name>IModifyDatesList</Name>
+    <Name>IUpdatedAtsList</Name>
     <Translation>Değişiklik Tarih Listesi</Translation>
   </Vocab>
   <Vocab>
@@ -1201,7 +1201,7 @@
     <Translation>Değiştiren IP</Translation>
   </Vocab>
   <Vocab>
-    <Name>ModifyDate</Name>
+    <Name>UpdatedAt</Name>
     <Translation>Değişiklik Tarihi</Translation>
   </Vocab>
   <Vocab>
@@ -1533,7 +1533,7 @@
     <Translation>Borsayı Çıkart</Translation>
   </Vocab>
   <Vocab>
-    <Name>RemoveIModifyDate</Name>
+    <Name>RemoveIUpdatedAt</Name>
     <Translation>Değişiklik Tarihini Çıkar</Translation>
   </Vocab>
   <Vocab>

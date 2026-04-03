@@ -88,11 +88,11 @@ namespace TD.i18n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Add IModify Date.
+        ///   Looks up a localized string similar to Add IUpdated At.
         /// </summary>
-        public static string AddIModifyDate {
+        public static string AddIUpdatedAt {
             get {
-                return ResourceManager.GetString("AddIModifyDate", resourceCulture);
+                return ResourceManager.GetString("AddIUpdatedAt", resourceCulture);
             }
         }
         
@@ -124,11 +124,11 @@ namespace TD.i18n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Add New IModify Date.
+        ///   Looks up a localized string similar to Add New IUpdated At.
         /// </summary>
-        public static string AddNewIModifyDate {
+        public static string AddNewIUpdatedAt {
             get {
-                return ResourceManager.GetString("AddNewIModifyDate", resourceCulture);
+                return ResourceManager.GetString("AddNewIUpdatedAt", resourceCulture);
             }
         }
         
@@ -214,11 +214,11 @@ namespace TD.i18n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Add Remove IModify Date.
+        ///   Looks up a localized string similar to Add Remove IUpdated At.
         /// </summary>
-        public static string AddRemoveIModifyDate {
+        public static string AddRemoveIUpdatedAt {
             get {
-                return ResourceManager.GetString("AddRemoveIModifyDate", resourceCulture);
+                return ResourceManager.GetString("AddRemoveIUpdatedAt", resourceCulture);
             }
         }
         
@@ -394,11 +394,11 @@ namespace TD.i18n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Create IModify Date.
+        ///   Looks up a localized string similar to Create IUpdated At.
         /// </summary>
-        public static string CreateIModifyDate {
+        public static string CreateIUpdatedAt {
             get {
-                return ResourceManager.GetString("CreateIModifyDate", resourceCulture);
+                return ResourceManager.GetString("CreateIUpdatedAt", resourceCulture);
             }
         }
         
@@ -601,11 +601,11 @@ namespace TD.i18n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Delete IModify Date.
+        ///   Looks up a localized string similar to Delete IUpdated At.
         /// </summary>
-        public static string DeleteIModifyDate {
+        public static string DeleteIUpdatedAt {
             get {
-                return ResourceManager.GetString("DeleteIModifyDate", resourceCulture);
+                return ResourceManager.GetString("DeleteIUpdatedAt", resourceCulture);
             }
         }
         
@@ -709,11 +709,11 @@ namespace TD.i18n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Edit IModify Date.
+        ///   Looks up a localized string similar to Edit IUpdated At.
         /// </summary>
-        public static string EditIModifyDate {
+        public static string EditIUpdatedAt {
             get {
-                return ResourceManager.GetString("EditIModifyDate", resourceCulture);
+                return ResourceManager.GetString("EditIUpdatedAt", resourceCulture);
             }
         }
         
@@ -1006,33 +1006,6 @@ namespace TD.i18n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to IModify Date.
-        /// </summary>
-        public static string IModifyDate {
-            get {
-                return ResourceManager.GetString("IModifyDate", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to IModify Dates.
-        /// </summary>
-        public static string IModifyDates {
-            get {
-                return ResourceManager.GetString("IModifyDates", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to IModify Dates List.
-        /// </summary>
-        public static string IModifyDatesList {
-            get {
-                return ResourceManager.GetString("IModifyDatesList", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Index.
         /// </summary>
         public static string Index {
@@ -1069,6 +1042,33 @@ namespace TD.i18n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to IUpdated At.
+        /// </summary>
+        public static string IUpdatedAt {
+            get {
+                return ResourceManager.GetString("IUpdatedAt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to IUpdated Ats.
+        /// </summary>
+        public static string IUpdatedAts {
+            get {
+                return ResourceManager.GetString("IUpdatedAts", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to IUpdated Ats List.
+        /// </summary>
+        public static string IUpdatedAtsList {
+            get {
+                return ResourceManager.GetString("IUpdatedAtsList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Limit.
         /// </summary>
         public static string Limit {
@@ -1092,15 +1092,6 @@ namespace TD.i18n {
         public static string MarketType {
             get {
                 return ResourceManager.GetString("MarketType", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Modify Date.
-        /// </summary>
-        public static string ModifyDate {
-            get {
-                return ResourceManager.GetString("ModifyDate", resourceCulture);
             }
         }
         
@@ -1240,11 +1231,11 @@ namespace TD.i18n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Remove IModify Date.
+        ///   Looks up a localized string similar to Remove IUpdated At.
         /// </summary>
-        public static string RemoveIModifyDate {
+        public static string RemoveIUpdatedAt {
             get {
-                return ResourceManager.GetString("RemoveIModifyDate", resourceCulture);
+                return ResourceManager.GetString("RemoveIUpdatedAt", resourceCulture);
             }
         }
         
@@ -1614,6 +1605,15 @@ namespace TD.i18n {
         public static string Unspecified {
             get {
                 return ResourceManager.GetString("Unspecified", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Updated At.
+        /// </summary>
+        public static string UpdatedAt {
+            get {
+                return ResourceManager.GetString("UpdatedAt", resourceCulture);
             }
         }
     }

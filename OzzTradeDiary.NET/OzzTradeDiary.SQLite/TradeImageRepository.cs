@@ -64,6 +64,69 @@ namespace TD.SQLite
             return MapTradeImage(reader);
         }
 
+        public async Task<int> CreateAsync(TradeImage tradeImage)
+        {
+            ArgumentNullException.ThrowIfNull(tradeImage);
+            ValidateOrThrow(tradeImage);
+
+            await using var connection = await GetOpenConnectionAsync();
+
+            await using var command = connection.CreateCommand();
+            command.CommandText = @$"INSERT INTO {_tableName} ({string.Join(", ", ColumnNames[1..])})
+            VALUES (@tradeId, @imageURL, @notes, @updatedAt);
+            SELECT last_insert_rowid();";
+            
+            var nowUtc = DateTime.UtcNow;
+            command.Parameters.AddWithValue("@tradeId", tradeImage.TradeId);
+            command.Parameters.AddWithValue("@imageURL", tradeImage.ImageURL);
+            AddNullableTextParameter(command, "@notes", tradeImage.Notes);
+            command.Parameters.AddWithValue("@updatedAt", nowUtc.ToString("O"));
+
+            var id = Convert.ToInt32((long)(await command.ExecuteScalarAsync() ?? 0));
+            
+            await _metadataRepository.SaveLastUpdateUtcAsync(connection);
+            ClearRecordCountCache();
+
+            return id;
+        }
+
+        public async Task<bool> UpdateAsync(TradeImage tradeImage)
+        {
+            ArgumentNullException.ThrowIfNull(tradeImage);
+            ValidateOrThrow(tradeImage);
+
+            await using var connection = await GetOpenConnectionAsync();
+            var existingTradeImage = await GetByIdAsync(tradeImage.Id);
+            bool noChanges = existingTradeImage != null
+                          && existingTradeImage.ImageURL == tradeImage.ImageURL 
+                          && existingTradeImage.Notes == tradeImage.Notes 
+                          && existingTradeImage.UpdatedAt == tradeImage.UpdatedAt; 
+
+            if (noChanges)
+                return false;
+
+            await using var command = connection.CreateCommand();
+            // TradeId is not updated to avoid complications with existing references,
+            // so only ImageURL, Notes, UpdatedAt are updated
+            command.CommandText = @$"UPDATE {_tableName} SET
+                ImageURL = @imageURL, 
+                Notes = @notes, 
+                UpdatedAt = @updatedAt 
+            WHERE Id = @id";
+
+            var nowUtc = DateTime.UtcNow;
+            command.Parameters.AddWithValue("@id", tradeImage.Id);
+            command.Parameters.AddWithValue("@imageURL", tradeImage.ImageURL);
+            AddNullableTextParameter(command, "@notes", tradeImage.Notes);
+            command.Parameters.AddWithValue("@updatedAt", nowUtc.ToString("O"));
+
+            var affectedRows = await command.ExecuteNonQueryAsync();
+            if (affectedRows > 0)
+                await _metadataRepository.SaveLastUpdateUtcAsync(connection);
+
+            return affectedRows > 0;
+        }
+
         private static TradeImage MapTradeImage(SqliteDataReader reader)
         {
             var tradeImage = new TradeImage
@@ -72,13 +135,12 @@ namespace TD.SQLite
                 TradeId = reader.IsDBNull(ColNrs.TradeId) ? null : reader.GetInt32(ColNrs.TradeId), 
                 ImageURL = reader.GetString(ColNrs.ImageURL), 
                 Notes = reader.IsDBNull(ColNrs.Notes) ? null : reader.GetString(ColNrs.Notes), 
-                ModifyDate = ToLocalDateTime(reader.GetString(ColNrs.ModifyDate)) ?? DateTime.MinValue 
+                UpdatedAt = ToLocalDateTime(reader.GetString(ColNrs.UpdatedAt)) ?? DateTime.MinValue 
 
             };
 
             return tradeImage;
         }
-        
 
         public readonly struct ColNrs
         {
@@ -86,7 +148,7 @@ namespace TD.SQLite
             public readonly static int TradeId = 1;
             public readonly static int ImageURL = 2;
             public readonly static int Notes = 3;
-            public readonly static int ModifyDate = 4;
+            public readonly static int UpdatedAt = 4;
         }
 
         public readonly string[] ColumnNames = new[] {
@@ -94,7 +156,7 @@ namespace TD.SQLite
             "TradeId", 
             "ImageURL", 
             "Notes", 
-            "ModifyDate" 
+            "UpdatedAt" 
         };
     }
 
@@ -102,5 +164,7 @@ namespace TD.SQLite
     {
         Task<IReadOnlyList<TradeImage>> GetAllAsync();
         Task<TradeImage?> GetByIdAsync(int id);
+        Task<int> CreateAsync(TradeImage tradeImage);
+        Task<bool> UpdateAsync(TradeImage tradeImage);
     }
 }

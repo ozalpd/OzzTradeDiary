@@ -20,21 +20,6 @@
       </Properties>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="ModelClassEntitySetting">
-      <Name>IModifyDate</Name>
-      <Exclude>true</Exclude>
-      <OverwriteExisting>false</OverwriteExisting>
-      <Properties>
-        <ModelPropertySetting>
-          <Name>ModifyDate</Name>
-          <Exclude>false</Exclude>
-          <DataType>Date</DataType>
-          <DTOExclusion>false</DTOExclusion>
-          <HtmlEncode xsi:nil="true" />
-          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
-        </ModelPropertySetting>
-      </Properties>
-    </BaseEntitySetting>
-    <BaseEntitySetting xsi:type="ModelClassEntitySetting">
       <Name>IDisplayOrder</Name>
       <Exclude>true</Exclude>
       <OverwriteExisting>false</OverwriteExisting>
@@ -61,6 +46,38 @@
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required />
+        </ModelPropertySetting>
+      </Properties>
+    </BaseEntitySetting>
+    <BaseEntitySetting xsi:type="ModelClassEntitySetting">
+      <Name>IUpdatedAt</Name>
+      <Exclude>true</Exclude>
+      <OverwriteExisting>false</OverwriteExisting>
+      <UpdatedAtName>UpdatedAt</UpdatedAtName>
+      <Properties>
+        <ModelPropertySetting>
+          <Name>UpdatedAt</Name>
+          <Exclude>false</Exclude>
+          <DataType>Date</DataType>
+          <DTOExclusion>false</DTOExclusion>
+          <HtmlEncode xsi:nil="true" />
+          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
+        </ModelPropertySetting>
+      </Properties>
+    </BaseEntitySetting>
+    <BaseEntitySetting xsi:type="ModelClassEntitySetting">
+      <Name>ICreatedAt</Name>
+      <Exclude>true</Exclude>
+      <OverwriteExisting>false</OverwriteExisting>
+      <CreatedAtName>CreatedAt</CreatedAtName>
+      <Properties>
+        <ModelPropertySetting>
+          <Name>CreatedAt</Name>
+          <Exclude>false</Exclude>
+          <DataType />
+          <DTOExclusion>false</DTOExclusion>
+          <HtmlEncode xsi:nil="true" />
+          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
         </ModelPropertySetting>
       </Properties>
     </BaseEntitySetting>
@@ -390,6 +407,7 @@
       <Name>TradeImage</Name>
       <Exclude>false</Exclude>
       <OverwriteExisting>true</OverwriteExisting>
+      <UpdatedAtName>UpdatedAt</UpdatedAtName>
       <Properties>
         <ModelPropertySetting>
           <Name>TradeId</Name>
@@ -429,6 +447,7 @@
       <Name>Trade</Name>
       <Exclude>false</Exclude>
       <OverwriteExisting>true</OverwriteExisting>
+      <UpdatedAtName>UpdatedAt</UpdatedAtName>
       <Properties>
         <ModelPropertySetting>
           <Name>TradingAccountId</Name>

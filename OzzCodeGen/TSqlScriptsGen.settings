@@ -31,35 +31,6 @@
       </Properties>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="StorageEntitySetting">
-      <Name>IModifyDate</Name>
-      <Exclude>true</Exclude>
-      <OverwriteExisting>false</OverwriteExisting>
-      <InheritedEntity>IPrimaryKey</InheritedEntity>
-      <UseInheritance>false</UseInheritance>
-      <SchemaName>dbo</SchemaName>
-      <TableName>IModifyDates</TableName>
-      <HasLogTable>false</HasLogTable>
-      <StoredProcGeneration>NoStoredProcedure</StoredProcGeneration>
-      <CustomStoredProcs>false</CustomStoredProcs>
-      <Properties>
-        <StorageColumnSetting>
-          <Name>ModifyDate</Name>
-          <Exclude>false</Exclude>
-          <DataType>DateTime</DataType>
-          <Length>0</Length>
-          <PrimaryKey>false</PrimaryKey>
-          <Indexed>true</Indexed>
-          <Unique>false</Unique>
-          <SortDesc>true</SortDesc>
-          <Nullable>false</Nullable>
-          <CheckIfAltered>false</CheckIfAltered>
-          <DoNotLog>false</DoNotLog>
-          <InsertDefault>GetDate()</InsertDefault>
-          <UpdateDefault>NeverUpdate</UpdateDefault>
-        </StorageColumnSetting>
-      </Properties>
-    </BaseEntitySetting>
-    <BaseEntitySetting xsi:type="StorageEntitySetting">
       <Name>IDisplayOrder</Name>
       <Exclude>true</Exclude>
       <OverwriteExisting>false</OverwriteExisting>
@@ -114,6 +85,62 @@
           <DoNotLog>false</DoNotLog>
           <InsertDefault>1</InsertDefault>
           <UpdateDefault>NeverUpdate</UpdateDefault>
+        </StorageColumnSetting>
+      </Properties>
+    </BaseEntitySetting>
+    <BaseEntitySetting xsi:type="StorageEntitySetting">
+      <Name>IUpdatedAt</Name>
+      <Exclude>true</Exclude>
+      <OverwriteExisting>false</OverwriteExisting>
+      <InheritedEntity>IPrimaryKey</InheritedEntity>
+      <UseInheritance>false</UseInheritance>
+      <SchemaName>dbo</SchemaName>
+      <TableName>IUpdatedAts</TableName>
+      <HasLogTable>false</HasLogTable>
+      <StoredProcGeneration>NoStoredProcedure</StoredProcGeneration>
+      <CustomStoredProcs>false</CustomStoredProcs>
+      <Properties>
+        <StorageColumnSetting>
+          <Name>UpdatedAt</Name>
+          <Exclude>false</Exclude>
+          <DataType>DateTime</DataType>
+          <Length>0</Length>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>true</Indexed>
+          <Unique>false</Unique>
+          <SortDesc>true</SortDesc>
+          <Nullable>false</Nullable>
+          <CheckIfAltered>false</CheckIfAltered>
+          <DoNotLog>false</DoNotLog>
+          <InsertDefault>GetDate()</InsertDefault>
+          <UpdateDefault>NeverUpdate</UpdateDefault>
+        </StorageColumnSetting>
+      </Properties>
+    </BaseEntitySetting>
+    <BaseEntitySetting xsi:type="StorageEntitySetting">
+      <Name>ICreatedAt</Name>
+      <Exclude>true</Exclude>
+      <OverwriteExisting>false</OverwriteExisting>
+      <InheritedEntity>IPrimaryKey</InheritedEntity>
+      <UseInheritance>false</UseInheritance>
+      <SchemaName>dbo</SchemaName>
+      <TableName>ICreatedAts</TableName>
+      <HasLogTable>false</HasLogTable>
+      <StoredProcGeneration>NoStoredProcedure</StoredProcGeneration>
+      <CustomStoredProcs>false</CustomStoredProcs>
+      <Properties>
+        <StorageColumnSetting>
+          <Name>CreatedAt</Name>
+          <Exclude>false</Exclude>
+          <DataType>DateTime</DataType>
+          <Length>0</Length>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <Unique>false</Unique>
+          <SortDesc>false</SortDesc>
+          <Nullable>false</Nullable>
+          <CheckIfAltered>false</CheckIfAltered>
+          <DoNotLog>false</DoNotLog>
         </StorageColumnSetting>
       </Properties>
     </BaseEntitySetting>
@@ -614,7 +641,7 @@
       <Name>TradeImage</Name>
       <Exclude>false</Exclude>
       <OverwriteExisting>false</OverwriteExisting>
-      <InheritedEntity>IModifyDate</InheritedEntity>
+      <InheritedEntity>IUpdatedAt</InheritedEntity>
       <UseInheritance>false</UseInheritance>
       <SchemaName>dbo</SchemaName>
       <TableName>TradeImages</TableName>
@@ -668,7 +695,7 @@
       <Name>Trade</Name>
       <Exclude>false</Exclude>
       <OverwriteExisting>true</OverwriteExisting>
-      <InheritedEntity>IModifyDate</InheritedEntity>
+      <InheritedEntity>IUpdatedAt</InheritedEntity>
       <UseInheritance>false</UseInheritance>
       <SchemaName>dbo</SchemaName>
       <TableName>Trades</TableName>

@@ -67,8 +67,8 @@
     <data name="AddExchange" xml:space="preserve">
         <value>Add Exchange</value>
     </data>
-    <data name="AddIModifyDate" xml:space="preserve">
-        <value>Add IModify Date</value>
+    <data name="AddIUpdatedAt" xml:space="preserve">
+        <value>Add IUpdated At</value>
     </data>
     <data name="AddNewCurrency" xml:space="preserve">
         <value>Add New Currency</value>
@@ -79,8 +79,8 @@
     <data name="AddNewExchange" xml:space="preserve">
         <value>Add New Exchange</value>
     </data>
-    <data name="AddNewIModifyDate" xml:space="preserve">
-        <value>Add New IModify Date</value>
+    <data name="AddNewIUpdatedAt" xml:space="preserve">
+        <value>Add New IUpdated At</value>
     </data>
     <data name="AddNewStopLossOrder" xml:space="preserve">
         <value>Add New Stop Loss Order</value>
@@ -109,8 +109,8 @@
     <data name="AddRemoveExchange" xml:space="preserve">
         <value>Add Remove Exchange</value>
     </data>
-    <data name="AddRemoveIModifyDate" xml:space="preserve">
-        <value>Add Remove IModify Date</value>
+    <data name="AddRemoveIUpdatedAt" xml:space="preserve">
+        <value>Add Remove IUpdated At</value>
     </data>
     <data name="AddRemoveStopLossOrder" xml:space="preserve">
         <value>Add Remove Stop Loss Order</value>
@@ -169,8 +169,8 @@
     <data name="CreateExchange" xml:space="preserve">
         <value>Create Exchange</value>
     </data>
-    <data name="CreateIModifyDate" xml:space="preserve">
-        <value>Create IModify Date</value>
+    <data name="CreateIUpdatedAt" xml:space="preserve">
+        <value>Create IUpdated At</value>
     </data>
     <data name="CreateStopLossOrder" xml:space="preserve">
         <value>Create Stop Loss Order</value>
@@ -238,8 +238,8 @@
     <data name="DeleteExchange" xml:space="preserve">
         <value>Delete Exchange</value>
     </data>
-    <data name="DeleteIModifyDate" xml:space="preserve">
-        <value>Delete IModify Date</value>
+    <data name="DeleteIUpdatedAt" xml:space="preserve">
+        <value>Delete IUpdated At</value>
     </data>
     <data name="DeleteStopLossOrder" xml:space="preserve">
         <value>Delete Stop Loss Order</value>
@@ -274,8 +274,8 @@
     <data name="EditExchange" xml:space="preserve">
         <value>Edit Exchange</value>
     </data>
-    <data name="EditIModifyDate" xml:space="preserve">
-        <value>Edit IModify Date</value>
+    <data name="EditIUpdatedAt" xml:space="preserve">
+        <value>Edit IUpdated At</value>
     </data>
     <data name="EditStopLossOrder" xml:space="preserve">
         <value>Edit Stop Loss Order</value>
@@ -373,15 +373,6 @@
     <data name="ImageURL" xml:space="preserve">
         <value>Image URL</value>
     </data>
-    <data name="IModifyDate" xml:space="preserve">
-        <value>IModify Date</value>
-    </data>
-    <data name="IModifyDates" xml:space="preserve">
-        <value>IModify Dates</value>
-    </data>
-    <data name="IModifyDatesList" xml:space="preserve">
-        <value>IModify Dates List</value>
-    </data>
     <data name="Index" xml:space="preserve">
         <value>Index</value>
     </data>
@@ -394,6 +385,15 @@
     <data name="IsActive" xml:space="preserve">
         <value>Is Active</value>
     </data>
+    <data name="IUpdatedAt" xml:space="preserve">
+        <value>IUpdated At</value>
+    </data>
+    <data name="IUpdatedAts" xml:space="preserve">
+        <value>IUpdated Ats</value>
+    </data>
+    <data name="IUpdatedAtsList" xml:space="preserve">
+        <value>IUpdated Ats List</value>
+    </data>
     <data name="Limit" xml:space="preserve">
         <value>Limit</value>
     </data>
@@ -402,9 +402,6 @@
     </data>
     <data name="MarketType" xml:space="preserve">
         <value>Market Type</value>
-    </data>
-    <data name="ModifyDate" xml:space="preserve">
-        <value>Modify Date</value>
     </data>
     <data name="NetResult" xml:space="preserve">
         <value>Net Result</value>
@@ -451,8 +448,8 @@
     <data name="RemoveExchange" xml:space="preserve">
         <value>Remove Exchange</value>
     </data>
-    <data name="RemoveIModifyDate" xml:space="preserve">
-        <value>Remove IModify Date</value>
+    <data name="RemoveIUpdatedAt" xml:space="preserve">
+        <value>Remove IUpdated At</value>
     </data>
     <data name="RemoveStopLossOrder" xml:space="preserve">
         <value>Remove Stop Loss Order</value>
@@ -576,5 +573,8 @@
     </data>
     <data name="Unspecified" xml:space="preserve">
         <value>Unspecified</value>
+    </data>
+    <data name="UpdatedAt" xml:space="preserve">
+        <value>Updated At</value>
     </data>
 </root>

@@ -45,8 +45,8 @@
     <Translation>Add Exchange</Translation>
   </Vocab>
   <Vocab>
-    <Name>AddIModifyDate</Name>
-    <Translation>Add IModify Date</Translation>
+    <Name>AddIUpdatedAt</Name>
+    <Translation>Add IUpdated At</Translation>
   </Vocab>
   <Vocab>
     <Name>AddNew</Name>
@@ -85,8 +85,8 @@
     <Translation>Add New Exchange</Translation>
   </Vocab>
   <Vocab>
-    <Name>AddNewIModifyDate</Name>
-    <Translation>Add New IModify Date</Translation>
+    <Name>AddNewIUpdatedAt</Name>
+    <Translation>Add New IUpdated At</Translation>
   </Vocab>
   <Vocab>
     <Name>AddNewOrderItem</Name>
@@ -177,8 +177,8 @@
     <Translation>Add Remove Exchange</Translation>
   </Vocab>
   <Vocab>
-    <Name>AddRemoveIModifyDate</Name>
-    <Translation>Add Remove IModify Date</Translation>
+    <Name>AddRemoveIUpdatedAt</Name>
+    <Translation>Add Remove IUpdated At</Translation>
   </Vocab>
   <Vocab>
     <Name>AddRemoveStopLossOrder</Name>
@@ -469,8 +469,8 @@
     <Translation>Create Exchange</Translation>
   </Vocab>
   <Vocab>
-    <Name>CreateIModifyDate</Name>
-    <Translation>Create IModify Date</Translation>
+    <Name>CreateIUpdatedAt</Name>
+    <Translation>Create IUpdated At</Translation>
   </Vocab>
   <Vocab>
     <Name>CreateNew</Name>
@@ -673,8 +673,8 @@
     <Translation>Delete Exchange</Translation>
   </Vocab>
   <Vocab>
-    <Name>DeleteIModifyDate</Name>
-    <Translation>Delete IModify Date</Translation>
+    <Name>DeleteIUpdatedAt</Name>
+    <Translation>Delete IUpdated At</Translation>
   </Vocab>
   <Vocab>
     <Name>DeleteOrder</Name>
@@ -821,8 +821,8 @@
     <Translation>Edit Exchange</Translation>
   </Vocab>
   <Vocab>
-    <Name>EditIModifyDate</Name>
-    <Translation>Edit IModify Date</Translation>
+    <Name>EditIUpdatedAt</Name>
+    <Translation>Edit IUpdated At</Translation>
   </Vocab>
   <Vocab>
     <Name>EditOrder</Name>
@@ -1073,16 +1073,16 @@
     <Translation>Image URL</Translation>
   </Vocab>
   <Vocab>
-    <Name>IModifyDate</Name>
-    <Translation>IModify Date</Translation>
+    <Name>IUpdatedAt</Name>
+    <Translation>IUpdated At</Translation>
   </Vocab>
   <Vocab>
-    <Name>IModifyDates</Name>
-    <Translation>IModify Dates</Translation>
+    <Name>IUpdatedAts</Name>
+    <Translation>IUpdated Ats</Translation>
   </Vocab>
   <Vocab>
-    <Name>IModifyDatesList</Name>
-    <Translation>IModify Dates List</Translation>
+    <Name>IUpdatedAtsList</Name>
+    <Translation>IUpdated Ats List</Translation>
   </Vocab>
   <Vocab>
     <Name>Import</Name>
@@ -1201,8 +1201,8 @@
     <Translation>Modifier Ip</Translation>
   </Vocab>
   <Vocab>
-    <Name>ModifyDate</Name>
-    <Translation>Modify Date</Translation>
+    <Name>UpdatedAt</Name>
+    <Translation>Updated At</Translation>
   </Vocab>
   <Vocab>
     <Name>ModifyNr</Name>
@@ -1533,8 +1533,8 @@
     <Translation>Remove Exchange</Translation>
   </Vocab>
   <Vocab>
-    <Name>RemoveIModifyDate</Name>
-    <Translation>Remove IModify Date</Translation>
+    <Name>RemoveIUpdatedAt</Name>
+    <Translation>Remove IUpdated At</Translation>
   </Vocab>
   <Vocab>
     <Name>RemoveStopLossOrder</Name>

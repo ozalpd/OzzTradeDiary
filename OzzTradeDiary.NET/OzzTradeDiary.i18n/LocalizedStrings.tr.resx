@@ -67,7 +67,7 @@
     <data name="AddExchange" xml:space="preserve">
         <value>Borsa Ekle</value>
     </data>
-    <data name="AddIModifyDate" xml:space="preserve">
+    <data name="AddIUpdatedAt" xml:space="preserve">
         <value>Değişiklik Tarihi Ekle</value>
     </data>
     <data name="AddNewCurrency" xml:space="preserve">
@@ -79,7 +79,7 @@
     <data name="AddNewExchange" xml:space="preserve">
         <value>Yeni Borsa Ekle</value>
     </data>
-    <data name="AddNewIModifyDate" xml:space="preserve">
+    <data name="AddNewIUpdatedAt" xml:space="preserve">
         <value>Yeni Değişiklik Tarihi Ekle</value>
     </data>
     <data name="AddNewStopLossOrder" xml:space="preserve">
@@ -109,7 +109,7 @@
     <data name="AddRemoveExchange" xml:space="preserve">
         <value>Borsa Ekle/Çıkart</value>
     </data>
-    <data name="AddRemoveIModifyDate" xml:space="preserve">
+    <data name="AddRemoveIUpdatedAt" xml:space="preserve">
         <value>Değişiklik Tarihi Ekle/Çıkar</value>
     </data>
     <data name="AddRemoveStopLossOrder" xml:space="preserve">
@@ -169,7 +169,7 @@
     <data name="CreateExchange" xml:space="preserve">
         <value>Borsa Oluştur</value>
     </data>
-    <data name="CreateIModifyDate" xml:space="preserve">
+    <data name="CreateIUpdatedAt" xml:space="preserve">
         <value>Değişiklik Tarihi Oluştur</value>
     </data>
     <data name="CreateStopLossOrder" xml:space="preserve">
@@ -238,7 +238,7 @@
     <data name="DeleteExchange" xml:space="preserve">
         <value>Borsayı Sil</value>
     </data>
-    <data name="DeleteIModifyDate" xml:space="preserve">
+    <data name="DeleteIUpdatedAt" xml:space="preserve">
         <value>Değişiklik Tarihini Sil</value>
     </data>
     <data name="DeleteStopLossOrder" xml:space="preserve">
@@ -274,7 +274,7 @@
     <data name="EditExchange" xml:space="preserve">
         <value>Borsayı Düzenle</value>
     </data>
-    <data name="EditIModifyDate" xml:space="preserve">
+    <data name="EditIUpdatedAt" xml:space="preserve">
         <value>Değişiklik Tarihini Düzenle</value>
     </data>
     <data name="EditStopLossOrder" xml:space="preserve">
@@ -373,15 +373,6 @@
     <data name="ImageURL" xml:space="preserve">
         <value>Resim Yolu</value>
     </data>
-    <data name="IModifyDate" xml:space="preserve">
-        <value>Değişiklik Tarihi</value>
-    </data>
-    <data name="IModifyDates" xml:space="preserve">
-        <value>Değişiklik Tarihleri</value>
-    </data>
-    <data name="IModifyDatesList" xml:space="preserve">
-        <value>Değişiklik Tarih Listesi</value>
-    </data>
     <data name="Index" xml:space="preserve">
         <value>Indeks</value>
     </data>
@@ -394,6 +385,15 @@
     <data name="IsActive" xml:space="preserve">
         <value>Aktif</value>
     </data>
+    <data name="IUpdatedAt" xml:space="preserve">
+        <value>Değişiklik Tarihi</value>
+    </data>
+    <data name="IUpdatedAts" xml:space="preserve">
+        <value>Değişiklik Tarihleri</value>
+    </data>
+    <data name="IUpdatedAtsList" xml:space="preserve">
+        <value>Değişiklik Tarih Listesi</value>
+    </data>
     <data name="Limit" xml:space="preserve">
         <value>Limit</value>
     </data>
@@ -402,9 +402,6 @@
     </data>
     <data name="MarketType" xml:space="preserve">
         <value>Piyasa Tipi</value>
-    </data>
-    <data name="ModifyDate" xml:space="preserve">
-        <value>Değişiklik Tarihi</value>
     </data>
     <data name="NetResult" xml:space="preserve">
         <value>Net Sonuç</value>
@@ -451,7 +448,7 @@
     <data name="RemoveExchange" xml:space="preserve">
         <value>Borsayı Çıkart</value>
     </data>
-    <data name="RemoveIModifyDate" xml:space="preserve">
+    <data name="RemoveIUpdatedAt" xml:space="preserve">
         <value>Değişiklik Tarihini Çıkar</value>
     </data>
     <data name="RemoveStopLossOrder" xml:space="preserve">
@@ -576,5 +573,8 @@
     </data>
     <data name="Unspecified" xml:space="preserve">
         <value>Belirtilmemiş</value>
+    </data>
+    <data name="UpdatedAt" xml:space="preserve">
+        <value>Değişiklik Tarihi</value>
     </data>
 </root>

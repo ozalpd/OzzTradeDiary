@@ -4,6 +4,18 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.0.23] - 2026-04-03
+
+### Added
+- Added `ICreatedAt` and `IUpdatedAt` base entity interfaces for improved inheritance and timestamp tracking.
+
+### Changed
+- `IModifyDate` interface was renamed to `IUpdatedAt`, and the `ModifyDate` property was renamed to `UpdatedAt` across all models, repositories, SQL scripts, generator settings, and localization files for consistency.
+- `TradeImageRepository` was updated with async `CreateAsync` and `UpdateAsync` methods using the `UpdatedAt` property.
+- SQL scripts and codegen settings were updated to use `UpdatedAt` instead of `ModifyDate`.
+- Standardized naming and improved consistency for modification timestamp tracking throughout the project.
+- Bumped all project versions to `0.0.23` (`OzzTradeDiary`, `OzzTradeDiary.WPF`, `OzzTradeDiary.SQLite`, `OzzTradeDiary.i18n`).
+
 ## [0.0.22] - 2026-04-02
 
 ### Added
