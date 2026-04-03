@@ -9,14 +9,14 @@ namespace TD.SQLite;
 public class SymbolRepository : AbstractDatabaseRepository<Symbol>, IDbSymbolRepository
 {
     public SymbolRepository(string databasePath,
-                            IDbExchangeRepository? exchangeRepository = null) : base(databasePath, "Symbols")
+                            IExchangeRepository? exchangeRepository = null) : base(databasePath, "Symbols")
     {
         _selectStatement = $"SELECT {string.Join(", ", ColumnNames)} FROM {_tableName}";
         _exchangeRepository = exchangeRepository ?? new ExchangeRepository(databasePath);
         InitializeDatabase();
     }
     private readonly string _selectStatement;
-    private readonly IDbExchangeRepository _exchangeRepository;
+    private readonly IExchangeRepository _exchangeRepository;
 
     private void InitializeDatabase()
     {

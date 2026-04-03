@@ -4,7 +4,7 @@
 
 Early-stage development (pre-release, no public release yet).
 
-Internal tracking versions: `OzzTradeDiary` `0.0.23`, `OzzTradeDiary.WPF` `0.0.23`, `OzzTradeDiary.SQLite` `0.0.23`, `OzzTradeDiary.i18n` `0.0.23`.
+Internal tracking versions: `OzzTradeDiary` `0.0.24`, `OzzTradeDiary.WPF` `0.0.24`, `OzzTradeDiary.SQLite` `0.0.24`, `OzzTradeDiary.i18n` `0.0.24`.
 
 - **Changelog discipline**: Any behavior change (repository logic, initialization, seeding, schema generation impact, UI-visible behavior) must be recorded in `CHANGELOG.md`.
 
@@ -86,11 +86,14 @@ Internal tracking versions: `OzzTradeDiary` `0.0.23`, `OzzTradeDiary.WPF` `0.0.2
 - All repositories (except `SqliteDatabaseMetadataRepository`) inherit from `AbstractDatabaseRepository` or the shared generic repository base, keeping entity-specific logic minimal. Call `ValidateOrThrow` in `CreateAsync` and `UpdateAsync` immediately after the null guard; it runs `ModelValidator.Validate` and throws `ValidationException` with all error messages joined by newlines if validation fails.
 - Repository base classes should use shared `GetOpenConnection()` / `GetOpenConnectionAsync()` helpers for SQLite connections, and clear record-count caches after create/delete/seed operations via `ClearRecordCountCache()`.
 - Prefer async transaction wrappers in `AbstractDatabaseRepository` for future multi-step repository operations when a repository needs atomic changes.
-- Prefer readable names without redundant prefixes/suffixes: repository classes should be named `SymbolRepository`, `ExchangeRepository`, etc., under the `TD.SQLite` namespace, and repository interfaces should use the `IDb...Repository` pattern such as `IDbTradingAccountRepository` instead of `IDatabaseTradingAccountRepository`.
+- Prefer readable names without redundant prefixes/suffixes: repository classes should be named `SymbolRepository`, `ExchangeRepository`, etc. under the `TD.SQLite` namespace.
 - Prefer readable repository names without redundant `SqliteDatabase` prefixes, e.g. `SymbolRepository`, `ExchangeRepository`, `TradingAccountRepository`.
-- Prefer `IDb...Repository` interface names for SQLite repositories, e.g. `IDbTradingAccountRepository`, to keep interface names concise but still clearly database-oriented.
+- Generated repository interfaces are co-located in the same file as the repository class and use the `I<Entity>Repository` name (e.g. `IExchangeRepository`). Manually written interfaces that are not co-located may use the `IDb...Repository` pattern (e.g. `IDbTradingAccountRepository`) to keep them clearly database-oriented.
+- Generated repositories expose `partial void OnCreated(T entity)` and `partial void OnUpdated(T entity)` / `partial void OnUpdated(int id)` hooks for extensibility without modifying generated code.
+- Use the `SingleColumnUpdate` property in `SqliteRepositoryGen.settings` to generate targeted single-column update methods (e.g. `UpdateHasAnySymbolAsync`).
 - SQLite date/time columns should use `TEXT` when the data is intended to preserve readable ISO-style values, and `UpdatedAt` columns should follow that convention in generated scripts.
 - SQLite repository code generation has its own settings file; keep repository regeneration aligned with `SqliteRepositoryGen.settings`.
+- Implemented repositories: `Currency`, `Exchange`, `TradingAccount`, `Symbol`, `TradeImage`; remaining repositories will be added
 - Implemented repositories: `Currency`, `Exchange`, `TradingAccount`, `Symbol`; remaining repositories will be added
 - **Each model has a matching DDL file** in `OzzTradeDiary.SQLite/DbScripts` named `<ModelName>.sql`; optional seed files are named `<PluralTableName>-Data.sql`
 - DDL scripts in `DbScripts/` folder are **generated** by OzzCodeGen — do not edit manually
@@ -152,3 +155,4 @@ Internal tracking versions: `OzzTradeDiary` `0.0.23`, `OzzTradeDiary.WPF` `0.0.2
 - Prefer dialog windows for rarely used maintenance screens such as Currency, Exchange, TradingAccount, and Symbol while keeping Trade as the primary workflow.
 - In maintenance and create dialogs, prefer icon-based action buttons (Bootstrap Icons inside `Viewbox`) instead of plain text buttons.
 - Where exchange references are shown to users (grids, dialogs), display `Exchange.ExchangeCode` instead of the numeric `ExchangeId`.
+

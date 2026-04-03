@@ -4,6 +4,21 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.0.24] - 2026-04-03
+
+### Added
+- `SingleColumnUpdate` property added to codegen settings for all entities; set to `true` for `HasAnySymbol` in Exchanges to support targeted single-column update generation.
+- `partial` extension hooks `OnCreated` and `OnUpdated` added to `ExchangeRepository` and `TradeImageRepository` for extensibility without modifying generated code.
+- `DeleteAsync` added to `TradeImageRepository`.
+- `UpdateHasAnySymbolAsync` method added to `ExchangeRepository`.
+
+### Changed
+- `IDbExchangeRepository` was replaced by the co-located `IExchangeRepository` interface; all usages in `SymbolRepository`, `TradingAccountRepository`, and related ViewModels were updated.
+- `ExchangeRepository` was refactored: added `DeleteAsync`, partial `OnCreated`/`OnUpdated` methods, and `UpdateHasAnySymbolAsync`.
+- `SymbolRepository` and `TradingAccountRepository` updated to use `IExchangeRepository`.
+- `ExchangeRepository` property type updated in relevant ViewModels.
+- Bumped all project versions to `0.0.24` (`OzzTradeDiary`, `OzzTradeDiary.WPF`, `OzzTradeDiary.SQLite`, `OzzTradeDiary.i18n`).
+
 ## [0.0.23] - 2026-04-03
 
 ### Added

@@ -15,7 +15,7 @@ namespace TD.SQLite
     /// <summary>
     /// SQLite-based repository for Exchange CRUD operations.
     /// </summary>
-    public partial class ExchangeRepository : AbstractDatabaseRepository<Exchange>, IDbExchangeRepository
+    public partial class ExchangeRepository : AbstractDatabaseRepository<Exchange>, IExchangeRepository
     {
         public ExchangeRepository(string databasePath) : base(databasePath, "Exchanges")
         {
@@ -107,7 +107,7 @@ namespace TD.SQLite
             command.CommandText = @$"INSERT INTO {_tableName} ({string.Join(", ", ColumnNames[1..])})
             VALUES (@exchangeName, @exchangeCode, @defaultCurrency, @hasAnySymbol, @displayOrder, @isActive);
             SELECT last_insert_rowid();";
-
+            
             command.Parameters.AddWithValue("@exchangeName", exchange.ExchangeName);
             command.Parameters.AddWithValue("@exchangeCode", exchange.ExchangeCode);
             AddNullableTextParameter(command, "@defaultCurrency", exchange.DefaultCurrency);
@@ -116,78 +116,21 @@ namespace TD.SQLite
             command.Parameters.AddWithValue("@isActive", exchange.IsActive ? 1 : 0);
 
             var id = Convert.ToInt32((long)(await command.ExecuteScalarAsync() ?? 0));
-
+            
             await _metadataRepository.SaveLastUpdateUtcAsync(connection);
+            exchange.Id = id;
+            OnCreated(exchange);
             ClearRecordCountCache();
 
             return id;
         }
-
-        public async Task<bool> UpdateAsync(Exchange exchange)
-        {
-            ArgumentNullException.ThrowIfNull(exchange);
-            ValidateOrThrow(exchange);
-
-            await using var connection = await GetOpenConnectionAsync();
-            var existingExchange = await GetByExchangeCodeAsync(exchange.ExchangeCode);
-            if (existingExchange != null && existingExchange.Id != exchange.Id)
-                throw new InvalidOperationException($"A different exchange with the same code already exists: {exchange.ExchangeCode}");
-
-            bool noChanges = existingExchange != null
-                          && existingExchange.ExchangeName.Equals(exchange.ExchangeName)
-                          && existingExchange.DefaultCurrency == exchange.DefaultCurrency
-                          && existingExchange.DisplayOrder == exchange.DisplayOrder
-                          && existingExchange.IsActive == exchange.IsActive;
-
-            if (noChanges)
-                return false;
-
-            await using var command = connection.CreateCommand();
-            // ExchangeCode is not updated to avoid complications with existing references,
-            // so only ExchangeName, DisplayOrder and IsActive are updated
-            command.CommandText = @"
-            UPDATE Exchanges
-            SET ExchangeName = @exchangeName,
-                DefaultCurrency = @defaultCurrency,
-                DisplayOrder = @displayOrder,
-                IsActive = @isActive
-            WHERE Id = @id";
-
-            command.Parameters.AddWithValue("@id", exchange.Id);
-            command.Parameters.AddWithValue("@exchangeName", exchange.ExchangeName);
-            AddNullableTextParameter(command, "@defaultCurrency", exchange.DefaultCurrency);
-            command.Parameters.AddWithValue("@displayOrder", exchange.DisplayOrder);
-            command.Parameters.AddWithValue("@isActive", exchange.IsActive ? 1 : 0);
-
-            var affectedRows = await command.ExecuteNonQueryAsync();
-            if (affectedRows > 0)
-                await _metadataRepository.SaveLastUpdateUtcAsync(connection);
-
-            return affectedRows > 0;
-        }
-
-
-        public async Task<bool> SetHasAnySymbol(int exchangeId, bool hasAnySymbol)
-        {
-            await using var connection = await GetOpenConnectionAsync();
-            await using var command = connection.CreateCommand();
-            command.CommandText = @"
-            UPDATE Exchanges
-            SET HasAnySymbol = @hasAnySymbol
-            WHERE Id = @id";
-            command.Parameters.AddWithValue("@id", exchangeId);
-            command.Parameters.AddWithValue("@hasAnySymbol", hasAnySymbol ? 1 : 0);
-            var affectedRows = await command.ExecuteNonQueryAsync();
-            if (affectedRows > 0)
-                await _metadataRepository.SaveLastUpdateUtcAsync(connection);
-            return affectedRows > 0;
-        }
+        partial void OnCreated(Exchange exchange);
 
         public async Task<bool> DeleteAsync(int id)
         {
             await using var connection = await GetOpenConnectionAsync();
             await using var command = connection.CreateCommand();
-            command.CommandText = "DELETE FROM Exchanges WHERE Id = @id";
+            command.CommandText = $"DELETE FROM {_tableName} WHERE Id = @id";
             command.Parameters.AddWithValue("@id", id);
 
             var affectedRows = await command.ExecuteNonQueryAsync();
@@ -200,17 +143,86 @@ namespace TD.SQLite
             return affectedRows > 0;
         }
 
+        public async Task<bool> UpdateAsync(Exchange exchange)
+        {
+            ArgumentNullException.ThrowIfNull(exchange);
+            ValidateOrThrow(exchange);
+
+            await using var connection = await GetOpenConnectionAsync();
+            var existingExchange = await GetByExchangeCodeAsync(exchange.ExchangeCode);
+            if (existingExchange != null && existingExchange.Id != exchange.Id)
+            {
+                throw new InvalidOperationException($"A different exchange with the same code already exists: {exchange.ExchangeCode}");
+            }
+            bool noChanges = existingExchange != null
+                          && existingExchange.ExchangeName == exchange.ExchangeName 
+                          && existingExchange.DefaultCurrency == exchange.DefaultCurrency 
+                          && existingExchange.DisplayOrder == exchange.DisplayOrder 
+                          && existingExchange.IsActive == exchange.IsActive; 
+
+            if (noChanges)
+                return false;
+
+            await using var command = connection.CreateCommand();
+            // ExchangeCode, HasAnySymbol are not updated to avoid complications with existing references,
+            // so only ExchangeName, DefaultCurrency, DisplayOrder, IsActive are updated
+            command.CommandText = @$"UPDATE {_tableName} SET
+                ExchangeName = @exchangeName, 
+                DefaultCurrency = @defaultCurrency, 
+                DisplayOrder = @displayOrder, 
+                IsActive = @isActive 
+            WHERE Id = @id";
+
+            command.Parameters.AddWithValue("@id", exchange.Id);
+            command.Parameters.AddWithValue("@exchangeName", exchange.ExchangeName);
+            AddNullableTextParameter(command, "@defaultCurrency", exchange.DefaultCurrency);
+            command.Parameters.AddWithValue("@displayOrder", exchange.DisplayOrder);
+            command.Parameters.AddWithValue("@isActive", exchange.IsActive ? 1 : 0);
+
+            var affectedRows = await command.ExecuteNonQueryAsync();
+            if (affectedRows > 0)
+            {
+                await _metadataRepository.SaveLastUpdateUtcAsync(connection);
+                OnUpdated(exchange);
+            }
+            
+            return affectedRows > 0;
+        }
+        partial void OnUpdated(Exchange exchange);
+        partial void OnUpdated(int exchangeId);
+
+        public async Task<bool> UpdateHasAnySymbolAsync(int id, bool hasAnySymbol)
+        {
+            await using var connection = await GetOpenConnectionAsync();
+            await using var command = connection.CreateCommand();
+            command.CommandText = @"UPDATE {_tableName} SET
+                HasAnySymbol = @hasAnySymbol 
+            WHERE Id = @id";
+            
+            command.Parameters.AddWithValue("@id", id);
+            command.Parameters.AddWithValue("@hasAnySymbol", hasAnySymbol ? 1 : 0);
+
+            var affectedRows = await command.ExecuteNonQueryAsync();
+            if (affectedRows > 0)
+            {
+                await _metadataRepository.SaveLastUpdateUtcAsync(connection);
+                OnUpdated(id);
+            }
+
+            return affectedRows > 0;
+        }
+
         private static Exchange MapExchange(SqliteDataReader reader)
         {
             var exchange = new Exchange
             {
-                Id = reader.GetInt32(ColNrs.Id),
-                ExchangeName = reader.GetString(ColNrs.ExchangeName),
-                ExchangeCode = reader.GetString(ColNrs.ExchangeCode),
-                DefaultCurrency = reader.IsDBNull(ColNrs.DefaultCurrency) ? null : reader.GetString(ColNrs.DefaultCurrency),
-                HasAnySymbol = reader.GetInt64(ColNrs.HasAnySymbol) == 1,
-                DisplayOrder = reader.GetInt32(ColNrs.DisplayOrder),
-                IsActive = reader.GetInt64(ColNrs.IsActive) == 1
+                Id = reader.GetInt32(ColNrs.Id), 
+                ExchangeName = reader.GetString(ColNrs.ExchangeName), 
+                ExchangeCode = reader.GetString(ColNrs.ExchangeCode), 
+                DefaultCurrency = reader.IsDBNull(ColNrs.DefaultCurrency) ? null : reader.GetString(ColNrs.DefaultCurrency), 
+                HasAnySymbol = reader.GetInt64(ColNrs.HasAnySymbol) == 1, 
+                DisplayOrder = reader.GetInt32(ColNrs.DisplayOrder), 
+                IsActive = reader.GetInt64(ColNrs.IsActive) == 1 
 
             };
 
@@ -229,13 +241,24 @@ namespace TD.SQLite
         }
 
         public readonly string[] ColumnNames = new[] {
-            "Id",
-            "ExchangeName",
-            "ExchangeCode",
-            "DefaultCurrency",
-            "HasAnySymbol",
-            "DisplayOrder",
-            "IsActive"
+            "Id", 
+            "ExchangeName", 
+            "ExchangeCode", 
+            "DefaultCurrency", 
+            "HasAnySymbol", 
+            "DisplayOrder", 
+            "IsActive" 
         };
+    }
+
+    public interface IExchangeRepository
+    {
+        Task<IReadOnlyList<Exchange>> GetAllAsync(bool? isActive = null);
+        Task<Exchange?> GetByIdAsync(int id);
+        Task<Exchange?> GetByExchangeCodeAsync(string exchangeCode);
+        Task<int> CreateAsync(Exchange exchange);
+        Task<bool> DeleteAsync(int id);
+        Task<bool> UpdateAsync(Exchange exchange);
+        Task<bool> UpdateHasAnySymbolAsync(int id, bool hasAnySymbol);
     }
 }

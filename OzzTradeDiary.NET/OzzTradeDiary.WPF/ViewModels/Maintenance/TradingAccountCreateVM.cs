@@ -23,7 +23,7 @@ namespace TD.WPF.ViewModels.Maintenance
             ValidateModel(_tradingAccount);
         }
 
-        public IDbExchangeRepository ExchangeRepository { get; }
+        public IExchangeRepository ExchangeRepository { get; }
         public ObservableCollection<Exchange> Exchanges { get; }
 
         public async Task LoadExchangesAsync()

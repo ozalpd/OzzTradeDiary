@@ -85,9 +85,29 @@ namespace TD.SQLite
             var id = Convert.ToInt32((long)(await command.ExecuteScalarAsync() ?? 0));
             
             await _metadataRepository.SaveLastUpdateUtcAsync(connection);
+            tradeImage.Id = id;
+            OnCreated(tradeImage);
             ClearRecordCountCache();
 
             return id;
+        }
+        partial void OnCreated(TradeImage tradeImage);
+
+        public async Task<bool> DeleteAsync(int id)
+        {
+            await using var connection = await GetOpenConnectionAsync();
+            await using var command = connection.CreateCommand();
+            command.CommandText = $"DELETE FROM {_tableName} WHERE Id = @id";
+            command.Parameters.AddWithValue("@id", id);
+
+            var affectedRows = await command.ExecuteNonQueryAsync();
+            if (affectedRows > 0)
+            {
+                await _metadataRepository.SaveLastUpdateUtcAsync(connection);
+                ClearRecordCountCache();
+            }
+
+            return affectedRows > 0;
         }
 
         public async Task<bool> UpdateAsync(TradeImage tradeImage)
@@ -122,10 +142,14 @@ namespace TD.SQLite
 
             var affectedRows = await command.ExecuteNonQueryAsync();
             if (affectedRows > 0)
+            {
                 await _metadataRepository.SaveLastUpdateUtcAsync(connection);
-
+                OnUpdated(tradeImage);
+            }
+            
             return affectedRows > 0;
         }
+        partial void OnUpdated(TradeImage tradeImage);
 
         private static TradeImage MapTradeImage(SqliteDataReader reader)
         {
@@ -165,6 +189,7 @@ namespace TD.SQLite
         Task<IReadOnlyList<TradeImage>> GetAllAsync();
         Task<TradeImage?> GetByIdAsync(int id);
         Task<int> CreateAsync(TradeImage tradeImage);
+        Task<bool> DeleteAsync(int id);
         Task<bool> UpdateAsync(TradeImage tradeImage);
     }
 }

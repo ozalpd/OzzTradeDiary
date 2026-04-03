@@ -24,7 +24,7 @@ namespace TD.WPF.ViewModels
         }
 
         public IDbCurrencyRepository CurrencyRepository { get; }
-        public IDbExchangeRepository ExchangeRepository { get; }
+        public IExchangeRepository ExchangeRepository { get; }
         public IDbSymbolRepository SymbolRepository { get; }
         public IDbTradingAccountRepository TradingAccountRepository { get; }
 
