@@ -12,8 +12,9 @@
         <SqliteRepositoryPropertySetting>
           <Name>Id</Name>
           <Exclude>false</Exclude>
-          <ColumnName>Id</ColumnName>
+          <AutoLoad>false</AutoLoad>
           <CheckIfAltered>false</CheckIfAltered>
+          <ColumnName>Id</ColumnName>
           <SingleColumnUpdate>false</SingleColumnUpdate>
         </SqliteRepositoryPropertySetting>
       </Properties>
@@ -29,8 +30,9 @@
         <SqliteRepositoryPropertySetting>
           <Name>DisplayOrder</Name>
           <Exclude>false</Exclude>
-          <ColumnName>DisplayOrder</ColumnName>
+          <AutoLoad>false</AutoLoad>
           <CheckIfAltered>true</CheckIfAltered>
+          <ColumnName>DisplayOrder</ColumnName>
           <SingleColumnUpdate>false</SingleColumnUpdate>
         </SqliteRepositoryPropertySetting>
       </Properties>
@@ -46,8 +48,9 @@
         <SqliteRepositoryPropertySetting>
           <Name>IsActive</Name>
           <Exclude>false</Exclude>
-          <ColumnName>IsActive</ColumnName>
+          <AutoLoad>false</AutoLoad>
           <CheckIfAltered>true</CheckIfAltered>
+          <ColumnName>IsActive</ColumnName>
           <SingleColumnUpdate>false</SingleColumnUpdate>
         </SqliteRepositoryPropertySetting>
       </Properties>
@@ -64,8 +67,9 @@
         <SqliteRepositoryPropertySetting>
           <Name>UpdatedAt</Name>
           <Exclude>false</Exclude>
-          <ColumnName>UpdatedAt</ColumnName>
+          <AutoLoad>false</AutoLoad>
           <CheckIfAltered>false</CheckIfAltered>
+          <ColumnName>UpdatedAt</ColumnName>
           <SingleColumnUpdate>false</SingleColumnUpdate>
         </SqliteRepositoryPropertySetting>
       </Properties>
@@ -82,8 +86,9 @@
         <SqliteRepositoryPropertySetting>
           <Name>CreatedAt</Name>
           <Exclude>false</Exclude>
-          <ColumnName>CreatedAt</ColumnName>
+          <AutoLoad>false</AutoLoad>
           <CheckIfAltered>false</CheckIfAltered>
+          <ColumnName>CreatedAt</ColumnName>
           <SingleColumnUpdate>false</SingleColumnUpdate>
         </SqliteRepositoryPropertySetting>
       </Properties>
@@ -99,57 +104,65 @@
         <SqliteRepositoryPropertySetting>
           <Name>OrderType</Name>
           <Exclude>false</Exclude>
-          <ColumnName>OrderType</ColumnName>
+          <AutoLoad>false</AutoLoad>
           <CheckIfAltered>true</CheckIfAltered>
+          <ColumnName>OrderType</ColumnName>
           <SingleColumnUpdate>false</SingleColumnUpdate>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
           <Name>ExecuteTime</Name>
           <Exclude>false</Exclude>
-          <ColumnName>ExecuteTime</ColumnName>
+          <AutoLoad>false</AutoLoad>
           <CheckIfAltered>true</CheckIfAltered>
+          <ColumnName>ExecuteTime</ColumnName>
           <SingleColumnUpdate>false</SingleColumnUpdate>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
           <Name>OrderPrice</Name>
           <Exclude>false</Exclude>
-          <ColumnName>OrderPrice</ColumnName>
+          <AutoLoad>false</AutoLoad>
           <CheckIfAltered>true</CheckIfAltered>
+          <ColumnName>OrderPrice</ColumnName>
           <SingleColumnUpdate>false</SingleColumnUpdate>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
           <Name>FilledPrice</Name>
           <Exclude>false</Exclude>
-          <ColumnName>FilledPrice</ColumnName>
+          <AutoLoad>false</AutoLoad>
           <CheckIfAltered>true</CheckIfAltered>
+          <ColumnName>FilledPrice</ColumnName>
           <SingleColumnUpdate>false</SingleColumnUpdate>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
           <Name>OrderQuantity</Name>
           <Exclude>false</Exclude>
-          <ColumnName>OrderQuantity</ColumnName>
+          <AutoLoad>false</AutoLoad>
           <CheckIfAltered>true</CheckIfAltered>
+          <ColumnName>OrderQuantity</ColumnName>
           <SingleColumnUpdate>false</SingleColumnUpdate>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
           <Name>FilledQuantity</Name>
           <Exclude>false</Exclude>
-          <ColumnName>FilledQuantity</ColumnName>
+          <AutoLoad>false</AutoLoad>
           <CheckIfAltered>true</CheckIfAltered>
+          <ColumnName>FilledQuantity</ColumnName>
           <SingleColumnUpdate>false</SingleColumnUpdate>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
           <Name>OrderAmount</Name>
           <Exclude>false</Exclude>
-          <ColumnName>OrderAmount</ColumnName>
+          <AutoLoad>false</AutoLoad>
           <CheckIfAltered>true</CheckIfAltered>
+          <ColumnName>OrderAmount</ColumnName>
           <SingleColumnUpdate>false</SingleColumnUpdate>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
           <Name>FilledAmount</Name>
           <Exclude>false</Exclude>
-          <ColumnName>FilledAmount</ColumnName>
+          <AutoLoad>false</AutoLoad>
           <CheckIfAltered>true</CheckIfAltered>
+          <ColumnName>FilledAmount</ColumnName>
           <SingleColumnUpdate>false</SingleColumnUpdate>
         </SqliteRepositoryPropertySetting>
       </Properties>
@@ -165,29 +178,33 @@
         <SqliteRepositoryPropertySetting>
           <Name>ExchangeName</Name>
           <Exclude>false</Exclude>
-          <ColumnName>ExchangeName</ColumnName>
+          <AutoLoad>false</AutoLoad>
           <CheckIfAltered>true</CheckIfAltered>
+          <ColumnName>ExchangeName</ColumnName>
           <SingleColumnUpdate>false</SingleColumnUpdate>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
           <Name>ExchangeCode</Name>
           <Exclude>false</Exclude>
-          <ColumnName>ExchangeCode</ColumnName>
+          <AutoLoad>false</AutoLoad>
           <CheckIfAltered>false</CheckIfAltered>
+          <ColumnName>ExchangeCode</ColumnName>
           <SingleColumnUpdate>false</SingleColumnUpdate>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
           <Name>DefaultCurrency</Name>
           <Exclude>false</Exclude>
-          <ColumnName>DefaultCurrency</ColumnName>
+          <AutoLoad>false</AutoLoad>
           <CheckIfAltered>true</CheckIfAltered>
+          <ColumnName>DefaultCurrency</ColumnName>
           <SingleColumnUpdate>false</SingleColumnUpdate>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
           <Name>HasAnySymbol</Name>
           <Exclude>false</Exclude>
-          <ColumnName>HasAnySymbol</ColumnName>
+          <AutoLoad>false</AutoLoad>
           <CheckIfAltered>false</CheckIfAltered>
+          <ColumnName>HasAnySymbol</ColumnName>
           <SingleColumnUpdate>true</SingleColumnUpdate>
         </SqliteRepositoryPropertySetting>
       </Properties>
@@ -204,29 +221,33 @@
         <SqliteRepositoryPropertySetting>
           <Name>Title</Name>
           <Exclude>false</Exclude>
-          <ColumnName>Title</ColumnName>
+          <AutoLoad>false</AutoLoad>
           <CheckIfAltered>true</CheckIfAltered>
+          <ColumnName>Title</ColumnName>
           <SingleColumnUpdate>false</SingleColumnUpdate>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
           <Name>ExchangeId</Name>
           <Exclude>false</Exclude>
-          <ColumnName>ExchangeId</ColumnName>
+          <AutoLoad>false</AutoLoad>
           <CheckIfAltered>false</CheckIfAltered>
+          <ColumnName>ExchangeId</ColumnName>
           <SingleColumnUpdate>false</SingleColumnUpdate>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
           <Name>Exchange</Name>
           <Exclude>true</Exclude>
-          <ColumnName>Exchange</ColumnName>
+          <AutoLoad>false</AutoLoad>
           <CheckIfAltered>false</CheckIfAltered>
+          <ColumnName>Exchange</ColumnName>
           <SingleColumnUpdate>false</SingleColumnUpdate>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
           <Name>Notes</Name>
           <Exclude>false</Exclude>
-          <ColumnName>Notes</ColumnName>
+          <AutoLoad>false</AutoLoad>
           <CheckIfAltered>true</CheckIfAltered>
+          <ColumnName>Notes</ColumnName>
           <SingleColumnUpdate>false</SingleColumnUpdate>
         </SqliteRepositoryPropertySetting>
       </Properties>
@@ -242,15 +263,17 @@
         <SqliteRepositoryPropertySetting>
           <Name>CurrencyTicker</Name>
           <Exclude>false</Exclude>
-          <ColumnName>CurrencyTicker</ColumnName>
+          <AutoLoad>false</AutoLoad>
           <CheckIfAltered>false</CheckIfAltered>
+          <ColumnName>CurrencyTicker</ColumnName>
           <SingleColumnUpdate>false</SingleColumnUpdate>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
           <Name>Description</Name>
           <Exclude>false</Exclude>
-          <ColumnName>Description</ColumnName>
+          <AutoLoad>false</AutoLoad>
           <CheckIfAltered>true</CheckIfAltered>
+          <ColumnName>Description</ColumnName>
           <SingleColumnUpdate>false</SingleColumnUpdate>
         </SqliteRepositoryPropertySetting>
       </Properties>
@@ -267,57 +290,65 @@
         <SqliteRepositoryPropertySetting>
           <Name>Ticker</Name>
           <Exclude>false</Exclude>
-          <ColumnName>Ticker</ColumnName>
+          <AutoLoad>false</AutoLoad>
           <CheckIfAltered>false</CheckIfAltered>
+          <ColumnName>Ticker</ColumnName>
           <SingleColumnUpdate>false</SingleColumnUpdate>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
           <Name>TickerFull</Name>
           <Exclude>false</Exclude>
-          <ColumnName>TickerFull</ColumnName>
+          <AutoLoad>false</AutoLoad>
           <CheckIfAltered>false</CheckIfAltered>
+          <ColumnName>TickerFull</ColumnName>
           <SingleColumnUpdate>false</SingleColumnUpdate>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
           <Name>BaseCurrency</Name>
           <Exclude>false</Exclude>
-          <ColumnName>BaseCurrency</ColumnName>
+          <AutoLoad>false</AutoLoad>
           <CheckIfAltered>false</CheckIfAltered>
+          <ColumnName>BaseCurrency</ColumnName>
           <SingleColumnUpdate>false</SingleColumnUpdate>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
           <Name>PriceCurrency</Name>
           <Exclude>false</Exclude>
-          <ColumnName>PriceCurrency</ColumnName>
+          <AutoLoad>false</AutoLoad>
           <CheckIfAltered>false</CheckIfAltered>
+          <ColumnName>PriceCurrency</ColumnName>
           <SingleColumnUpdate>false</SingleColumnUpdate>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
           <Name>Description</Name>
           <Exclude>false</Exclude>
-          <ColumnName>Description</ColumnName>
+          <AutoLoad>false</AutoLoad>
           <CheckIfAltered>true</CheckIfAltered>
+          <ColumnName>Description</ColumnName>
           <SingleColumnUpdate>false</SingleColumnUpdate>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
           <Name>ExchangeId</Name>
           <Exclude>false</Exclude>
-          <ColumnName>ExchangeId</ColumnName>
+          <AutoLoad>false</AutoLoad>
           <CheckIfAltered>false</CheckIfAltered>
+          <ColumnName>ExchangeId</ColumnName>
           <SingleColumnUpdate>false</SingleColumnUpdate>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
           <Name>Exchange</Name>
           <Exclude>true</Exclude>
-          <ColumnName>Exchange</ColumnName>
+          <AutoLoad>true</AutoLoad>
           <CheckIfAltered>false</CheckIfAltered>
+          <ColumnName>Exchange</ColumnName>
           <SingleColumnUpdate>false</SingleColumnUpdate>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
           <Name>MarketType</Name>
           <Exclude>false</Exclude>
-          <ColumnName>MarketType</ColumnName>
+          <AutoLoad>false</AutoLoad>
           <CheckIfAltered>true</CheckIfAltered>
+          <ColumnName>MarketType</ColumnName>
           <SingleColumnUpdate>false</SingleColumnUpdate>
         </SqliteRepositoryPropertySetting>
       </Properties>
@@ -334,15 +365,17 @@
         <SqliteRepositoryPropertySetting>
           <Name>TradeId</Name>
           <Exclude>false</Exclude>
-          <ColumnName>TradeId</ColumnName>
+          <AutoLoad>false</AutoLoad>
           <CheckIfAltered>false</CheckIfAltered>
+          <ColumnName>TradeId</ColumnName>
           <SingleColumnUpdate>false</SingleColumnUpdate>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
           <Name>Trade</Name>
           <Exclude>true</Exclude>
-          <ColumnName>Trade</ColumnName>
+          <AutoLoad>false</AutoLoad>
           <CheckIfAltered>false</CheckIfAltered>
+          <ColumnName>Trade</ColumnName>
           <SingleColumnUpdate>false</SingleColumnUpdate>
         </SqliteRepositoryPropertySetting>
       </Properties>
@@ -358,15 +391,17 @@
         <SqliteRepositoryPropertySetting>
           <Name>TradeId</Name>
           <Exclude>false</Exclude>
-          <ColumnName>TradeId</ColumnName>
+          <AutoLoad>false</AutoLoad>
           <CheckIfAltered>false</CheckIfAltered>
+          <ColumnName>TradeId</ColumnName>
           <SingleColumnUpdate>false</SingleColumnUpdate>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
           <Name>Trade</Name>
           <Exclude>true</Exclude>
-          <ColumnName>Trade</ColumnName>
+          <AutoLoad>false</AutoLoad>
           <CheckIfAltered>false</CheckIfAltered>
+          <ColumnName>Trade</ColumnName>
           <SingleColumnUpdate>false</SingleColumnUpdate>
         </SqliteRepositoryPropertySetting>
       </Properties>
@@ -382,22 +417,25 @@
         <SqliteRepositoryPropertySetting>
           <Name>TradeId</Name>
           <Exclude>false</Exclude>
-          <ColumnName>TradeId</ColumnName>
+          <AutoLoad>false</AutoLoad>
           <CheckIfAltered>false</CheckIfAltered>
+          <ColumnName>TradeId</ColumnName>
           <SingleColumnUpdate>false</SingleColumnUpdate>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
           <Name>Trade</Name>
           <Exclude>true</Exclude>
-          <ColumnName>Trade</ColumnName>
+          <AutoLoad>false</AutoLoad>
           <CheckIfAltered>false</CheckIfAltered>
+          <ColumnName>Trade</ColumnName>
           <SingleColumnUpdate>false</SingleColumnUpdate>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
           <Name>StopAll</Name>
           <Exclude>false</Exclude>
-          <ColumnName>StopAll</ColumnName>
+          <AutoLoad>false</AutoLoad>
           <CheckIfAltered>true</CheckIfAltered>
+          <ColumnName>StopAll</ColumnName>
           <SingleColumnUpdate>false</SingleColumnUpdate>
         </SqliteRepositoryPropertySetting>
       </Properties>
@@ -414,29 +452,33 @@
         <SqliteRepositoryPropertySetting>
           <Name>TradeId</Name>
           <Exclude>false</Exclude>
-          <ColumnName>TradeId</ColumnName>
+          <AutoLoad>false</AutoLoad>
           <CheckIfAltered>false</CheckIfAltered>
+          <ColumnName>TradeId</ColumnName>
           <SingleColumnUpdate>false</SingleColumnUpdate>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
           <Name>Trade</Name>
           <Exclude>true</Exclude>
-          <ColumnName>Trade</ColumnName>
+          <AutoLoad>false</AutoLoad>
           <CheckIfAltered>false</CheckIfAltered>
+          <ColumnName>Trade</ColumnName>
           <SingleColumnUpdate>false</SingleColumnUpdate>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
           <Name>ImageURL</Name>
           <Exclude>false</Exclude>
-          <ColumnName>ImageURL</ColumnName>
+          <AutoLoad>false</AutoLoad>
           <CheckIfAltered>true</CheckIfAltered>
+          <ColumnName>ImageURL</ColumnName>
           <SingleColumnUpdate>false</SingleColumnUpdate>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
           <Name>Notes</Name>
           <Exclude>false</Exclude>
-          <ColumnName>Notes</ColumnName>
+          <AutoLoad>false</AutoLoad>
           <CheckIfAltered>true</CheckIfAltered>
+          <ColumnName>Notes</ColumnName>
           <SingleColumnUpdate>false</SingleColumnUpdate>
         </SqliteRepositoryPropertySetting>
       </Properties>
@@ -453,120 +495,137 @@
         <SqliteRepositoryPropertySetting>
           <Name>TradingAccountId</Name>
           <Exclude>false</Exclude>
-          <ColumnName>TradingAccountId</ColumnName>
+          <AutoLoad>false</AutoLoad>
           <CheckIfAltered>false</CheckIfAltered>
+          <ColumnName>TradingAccountId</ColumnName>
           <SingleColumnUpdate>false</SingleColumnUpdate>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
           <Name>TradingAccount</Name>
           <Exclude>true</Exclude>
-          <ColumnName>TradingAccount</ColumnName>
+          <AutoLoad>true</AutoLoad>
           <CheckIfAltered>false</CheckIfAltered>
+          <ColumnName>TradingAccount</ColumnName>
           <SingleColumnUpdate>false</SingleColumnUpdate>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
           <Name>SymbolId</Name>
           <Exclude>false</Exclude>
-          <ColumnName>SymbolId</ColumnName>
+          <AutoLoad>false</AutoLoad>
           <CheckIfAltered>false</CheckIfAltered>
+          <ColumnName>SymbolId</ColumnName>
           <SingleColumnUpdate>false</SingleColumnUpdate>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
           <Name>Symbol</Name>
           <Exclude>true</Exclude>
-          <ColumnName>Symbol</ColumnName>
+          <AutoLoad>true</AutoLoad>
           <CheckIfAltered>false</CheckIfAltered>
+          <ColumnName>Symbol</ColumnName>
           <SingleColumnUpdate>false</SingleColumnUpdate>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
           <Name>EntryTime</Name>
           <Exclude>false</Exclude>
-          <ColumnName>EntryTime</ColumnName>
+          <AutoLoad>false</AutoLoad>
           <CheckIfAltered>true</CheckIfAltered>
+          <ColumnName>EntryTime</ColumnName>
           <SingleColumnUpdate>false</SingleColumnUpdate>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
           <Name>EntryMethod</Name>
           <Exclude>false</Exclude>
-          <ColumnName>EntryMethod</ColumnName>
+          <AutoLoad>false</AutoLoad>
           <CheckIfAltered>true</CheckIfAltered>
+          <ColumnName>EntryMethod</ColumnName>
           <SingleColumnUpdate>false</SingleColumnUpdate>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
           <Name>TradeDirection</Name>
           <Exclude>false</Exclude>
-          <ColumnName>TradeDirection</ColumnName>
+          <AutoLoad>false</AutoLoad>
           <CheckIfAltered>true</CheckIfAltered>
+          <ColumnName>TradeDirection</ColumnName>
           <SingleColumnUpdate>false</SingleColumnUpdate>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
           <Name>EntryOrders</Name>
           <Exclude>false</Exclude>
-          <ColumnName>EntryOrders</ColumnName>
+          <AutoLoad>false</AutoLoad>
           <CheckIfAltered>false</CheckIfAltered>
+          <ColumnName>EntryOrders</ColumnName>
           <SingleColumnUpdate>false</SingleColumnUpdate>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
           <Name>PlannedEntry</Name>
           <Exclude>false</Exclude>
-          <ColumnName>PlannedEntry</ColumnName>
+          <AutoLoad>false</AutoLoad>
           <CheckIfAltered>true</CheckIfAltered>
+          <ColumnName>PlannedEntry</ColumnName>
           <SingleColumnUpdate>false</SingleColumnUpdate>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
           <Name>ExecutedEntry</Name>
           <Exclude>false</Exclude>
-          <ColumnName>ExecutedEntry</ColumnName>
+          <AutoLoad>false</AutoLoad>
           <CheckIfAltered>true</CheckIfAltered>
+          <ColumnName>ExecutedEntry</ColumnName>
           <SingleColumnUpdate>false</SingleColumnUpdate>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
           <Name>TakeProfitOrders</Name>
           <Exclude>false</Exclude>
-          <ColumnName>TakeProfitOrders</ColumnName>
+          <AutoLoad>false</AutoLoad>
           <CheckIfAltered>false</CheckIfAltered>
+          <ColumnName>TakeProfitOrders</ColumnName>
           <SingleColumnUpdate>false</SingleColumnUpdate>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
           <Name>PlannedTP</Name>
           <Exclude>false</Exclude>
-          <ColumnName>PlannedTP</ColumnName>
+          <AutoLoad>false</AutoLoad>
           <CheckIfAltered>true</CheckIfAltered>
+          <ColumnName>PlannedTP</ColumnName>
           <SingleColumnUpdate>false</SingleColumnUpdate>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
           <Name>ExecutedTP</Name>
           <Exclude>false</Exclude>
-          <ColumnName>ExecutedTP</ColumnName>
+          <AutoLoad>false</AutoLoad>
           <CheckIfAltered>true</CheckIfAltered>
+          <ColumnName>ExecutedTP</ColumnName>
           <SingleColumnUpdate>false</SingleColumnUpdate>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
           <Name>StopLossOrders</Name>
           <Exclude>false</Exclude>
-          <ColumnName>StopLossOrders</ColumnName>
+          <AutoLoad>false</AutoLoad>
           <CheckIfAltered>false</CheckIfAltered>
+          <ColumnName>StopLossOrders</ColumnName>
           <SingleColumnUpdate>false</SingleColumnUpdate>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
           <Name>PlannedSL</Name>
           <Exclude>false</Exclude>
-          <ColumnName>PlannedSL</ColumnName>
+          <AutoLoad>false</AutoLoad>
           <CheckIfAltered>true</CheckIfAltered>
+          <ColumnName>PlannedSL</ColumnName>
           <SingleColumnUpdate>false</SingleColumnUpdate>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
           <Name>ExecutedSL</Name>
           <Exclude>false</Exclude>
-          <ColumnName>ExecutedSL</ColumnName>
+          <AutoLoad>false</AutoLoad>
           <CheckIfAltered>true</CheckIfAltered>
+          <ColumnName>ExecutedSL</ColumnName>
           <SingleColumnUpdate>false</SingleColumnUpdate>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
           <Name>TradeImages</Name>
           <Exclude>false</Exclude>
-          <ColumnName>TradeImages</ColumnName>
+          <AutoLoad>false</AutoLoad>
           <CheckIfAltered>false</CheckIfAltered>
+          <ColumnName>TradeImages</ColumnName>
           <SingleColumnUpdate>false</SingleColumnUpdate>
         </SqliteRepositoryPropertySetting>
       </Properties>

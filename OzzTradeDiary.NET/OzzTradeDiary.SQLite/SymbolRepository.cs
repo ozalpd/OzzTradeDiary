@@ -67,7 +67,7 @@ public class SymbolRepository : AbstractDatabaseRepository<Symbol>, IDbSymbolRep
             return null;
 
         var symbol = MapSymbol(reader);
-        await PopulateExchangeAsync(symbol);
+        await LoadExchangeAsync(symbol);
 
         return symbol;
     }
@@ -87,7 +87,7 @@ public class SymbolRepository : AbstractDatabaseRepository<Symbol>, IDbSymbolRep
             return null;
 
         var symbol = MapSymbol(reader);
-        await PopulateExchangeAsync(symbol);
+        await LoadExchangeAsync(symbol);
 
         return symbol;
     }
@@ -191,7 +191,7 @@ public class SymbolRepository : AbstractDatabaseRepository<Symbol>, IDbSymbolRep
         return affectedRows > 0;
     }
 
-    private async Task PopulateExchangeAsync(Symbol symbol)
+    private async Task LoadExchangeAsync(Symbol symbol)
     {
         symbol.Exchange = await _exchangeRepository.GetByIdAsync(symbol.ExchangeId)
                            ?? new Exchange { Id = symbol.ExchangeId };
