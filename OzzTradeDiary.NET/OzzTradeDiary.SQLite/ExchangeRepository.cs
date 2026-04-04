@@ -50,14 +50,18 @@ namespace TD.SQLite
             await using var reader = await command.ExecuteReaderAsync();
             while (await reader.ReadAsync())
             {
-                result.Add(MapExchange(reader));
+                var exchange = MapExchange(reader);
+                result.Add(exchange);
             }
 
             return result;
         }
 
-        public async Task<Exchange?> GetByIdAsync(int id)
+        public async Task<Exchange?> GetByIdAsync(int? id)
         {
+            if (!id.HasValue)
+                return null;
+
             await using var connection = await GetOpenConnectionAsync();
             await using var command = connection.CreateCommand();
             command.CommandText = $@"{_selectStatement}
@@ -68,10 +72,11 @@ namespace TD.SQLite
             if (!await reader.ReadAsync())
                 return null;
 
-            return MapExchange(reader);
+            var exchange = MapExchange(reader);
+            return exchange;
         }
 
-        public async Task<Exchange?> GetByExchangeCodeAsync(string exchangeCode)
+        public async Task<Exchange?> GetByExchangeCodeAsync(string? exchangeCode)
         {
             if (string.IsNullOrWhiteSpace(exchangeCode))
                 return null;
@@ -86,7 +91,8 @@ namespace TD.SQLite
             if (!await reader.ReadAsync())
                 return null;
 
-            return MapExchange(reader);
+            var exchange = MapExchange(reader);
+            return exchange;
         }
 
         public async Task<int> CreateAsync(Exchange exchange)
@@ -118,9 +124,9 @@ namespace TD.SQLite
             var id = Convert.ToInt32((long)(await command.ExecuteScalarAsync() ?? 0));
             
             await _metadataRepository.SaveLastUpdateUtcAsync(connection);
+            ClearRecordCountCache();
             exchange.Id = id;
             OnCreated(exchange);
-            ClearRecordCountCache();
 
             return id;
         }
@@ -152,8 +158,10 @@ namespace TD.SQLite
             var existingExchange = await GetByExchangeCodeAsync(exchange.ExchangeCode);
             if (existingExchange != null && existingExchange.Id != exchange.Id)
             {
-                throw new InvalidOperationException($"A different exchange with the same code already exists: {exchange.ExchangeCode}");
+                throw new InvalidOperationException($"A different Exchange with the same ExchangeCode already exists: {exchange.ExchangeCode}");
             }
+
+            existingExchange = await GetByIdAsync(exchange.Id);
             bool noChanges = existingExchange != null
                           && existingExchange.ExchangeName == exchange.ExchangeName 
                           && existingExchange.DefaultCurrency == exchange.DefaultCurrency 
@@ -195,7 +203,7 @@ namespace TD.SQLite
         {
             await using var connection = await GetOpenConnectionAsync();
             await using var command = connection.CreateCommand();
-            command.CommandText = @"UPDATE {_tableName} SET
+            command.CommandText = @$"UPDATE {_tableName} SET
                 HasAnySymbol = @hasAnySymbol 
             WHERE Id = @id";
             
@@ -254,8 +262,8 @@ namespace TD.SQLite
     public interface IExchangeRepository
     {
         Task<IReadOnlyList<Exchange>> GetAllAsync(bool? isActive = null);
-        Task<Exchange?> GetByIdAsync(int id);
-        Task<Exchange?> GetByExchangeCodeAsync(string exchangeCode);
+        Task<Exchange?> GetByIdAsync(int? id);
+        Task<Exchange?> GetByExchangeCodeAsync(string? exchangeCode);
         Task<int> CreateAsync(Exchange exchange);
         Task<bool> DeleteAsync(int id);
         Task<bool> UpdateAsync(Exchange exchange);

@@ -26,7 +26,7 @@ namespace TD.WPF.ViewModels
         public ICurrencyRepository CurrencyRepository { get; }
         public IExchangeRepository ExchangeRepository { get; }
         public ISymbolRepository SymbolRepository { get; }
-        public IDbTradingAccountRepository TradingAccountRepository { get; }
+        public ITradingAccountRepository TradingAccountRepository { get; }
 
         public ObservableCollection<Currency> Currencies { get; }
         public ObservableCollection<Exchange> Exchanges { get; }

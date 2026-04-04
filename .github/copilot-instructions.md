@@ -4,7 +4,7 @@
 
 Early-stage development (pre-release, no public release yet).
 
-Internal tracking versions: `OzzTradeDiary` `0.0.26`, `OzzTradeDiary.WPF` `0.0.26`, `OzzTradeDiary.SQLite` `0.0.26`, `OzzTradeDiary.i18n` `0.0.26`.
+Internal tracking versions: `OzzTradeDiary` `0.0.27`, `OzzTradeDiary.WPF` `0.0.27`, `OzzTradeDiary.SQLite` `0.0.27`, `OzzTradeDiary.i18n` `0.0.27`.
 
 - **Changelog discipline**: Any behavior change (repository logic, initialization, seeding, schema generation impact, UI-visible behavior) must be recorded in `CHANGELOG.md`.
 
@@ -88,13 +88,14 @@ Internal tracking versions: `OzzTradeDiary` `0.0.26`, `OzzTradeDiary.WPF` `0.0.2
 - Prefer async transaction wrappers in `AbstractDatabaseRepository` for future multi-step repository operations when a repository needs atomic changes.
 - Prefer readable names without redundant prefixes/suffixes: repository classes should be named `SymbolRepository`, `ExchangeRepository`, etc. under the `TD.SQLite` namespace.
 - Prefer readable repository names without redundant `SqliteDatabase` prefixes, e.g. `SymbolRepository`, `ExchangeRepository`, `TradingAccountRepository`.
-- Generated repository interfaces are co-located in the same file as the repository class and use the `I<Entity>Repository` name (e.g. `IExchangeRepository`). Manually written interfaces that are not co-located may use the `IDb...Repository` pattern (e.g. `IDbTradingAccountRepository`) to keep them clearly database-oriented.
+- Generated repository interfaces are co-located in the same file as the repository class and use the `I<Entity>Repository` name (e.g. `IExchangeRepository`, `ITradingAccountRepository`, `ISymbolRepository`).
+- Lookup APIs should accept nullable inputs (`int?`, `string?`) for `GetByIdAsync` / `GetBy*Async` and return `null` for `null` inputs.
 - Generated repositories expose `partial void OnCreated(T entity)` and `partial void OnUpdated(T entity)` / `partial void OnUpdated(int id)` hooks for extensibility without modifying generated code.
+- Generated repository files should not be edited manually; custom behavior should be implemented in companion partial files (for example `SymbolRepository.part.cs`).
 - Use the `SingleColumnUpdate` property in `SqliteRepositoryGen.settings` to generate targeted single-column update methods (e.g. `UpdateHasAnySymbolAsync`).
 - SQLite date/time columns should use `TEXT` when the data is intended to preserve readable ISO-style values, and `UpdatedAt` columns should follow that convention in generated scripts.
 - SQLite repository code generation has its own settings file; keep repository regeneration aligned with `SqliteRepositoryGen.settings`.
 - Implemented repositories: `Currency`, `Exchange`, `TradingAccount`, `Symbol`, `TradeImage`; remaining repositories will be added
-- Implemented repositories: `Currency`, `Exchange`, `TradingAccount`, `Symbol`; remaining repositories will be added
 - **Each model has a matching DDL file** in `OzzTradeDiary.SQLite/DbScripts` named `<ModelName>.sql`; optional seed files are named `<PluralTableName>-Data.sql`
 - DDL scripts in `DbScripts/` folder are **generated** by OzzCodeGen — do not edit manually
 - Seed scripts in `DbScripts/` (for example `<PluralTableName>-Data.sql`) are also generated artifacts — do not edit manually
@@ -102,8 +103,7 @@ Internal tracking versions: `OzzTradeDiary` `0.0.26`, `OzzTradeDiary.WPF` `0.0.2
 - DDL generation uses idempotent table creation (`CREATE TABLE IF NOT EXISTS`)
 - When adding a generated seed file `<PluralTableName>-Data.sql`, the corresponding repository `InitializeDatabase()` should call the `SeedIfEmpty` helper inherited from `AbstractDatabaseRepository`
 - Each CUD operation must call `SaveLastUpdateUtcAsync` via `SqliteDatabaseMetadataRepository`
-- SQLite types: `INTEGER` (ints, dates as ticks, enums), `REAL` (decimals), `TEXT` (strings)
-- Dates stored as ticks (`INTEGER`), not ISO 8601 text
+- SQLite types: `INTEGER` (ints, enums), `REAL` (decimals), `TEXT` (strings and date/time values)
 - Nullable text values must be written as SQL `NULL` when absent; do not persist placeholder strings such as `"null"`.
 - **`Currency.CurrencyTicker` must be treated as a unique immutable key in repositories** (do not update it after creation).
 - **`Exchange.ExchangeCode` must be treated as a unique immutable key in repositories** (do not update it after creation).

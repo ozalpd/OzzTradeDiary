@@ -4,6 +4,20 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.0.27] - 2026-04-08
+
+### Changed
+- Repository lookup methods now accept nullable arguments (`int?`, `string?`) for `GetByIdAsync` / `GetBy*Async` and return `null` when arguments are `null`.
+- `TradingAccountRepository` was regenerated and refactored; `IDbTradingAccountRepository` was replaced by the co-located `ITradingAccountRepository` interface and all usages were updated.
+- `AbstractDiaryVM` updated to use `ITradingAccountRepository`.
+- `TradingAccountRepository` duplicate handling and change detection were improved with descriptive exceptions and no-op update avoidance when data is unchanged.
+- `SymbolRepository` and `TradingAccountRepository` now use partial extensibility hooks (`OnCreated`, `OnUpdated`) consistently.
+- Added `SymbolRepository.part.cs` to update `Exchange.HasAnySymbol` when a new `Symbol` is created.
+- `ClearRecordCountCache()` now runs before event hooks in `CreateAsync` methods.
+- Repository interfaces were moved into repository class files (`I<Entity>Repository`), and generated repositories are now intended to be extended only via partial files.
+- General repository cleanup for consistency and null-safety across generated implementations.
+- Bumped all project versions to `0.0.27` (`OzzTradeDiary`, `OzzTradeDiary.WPF`, `OzzTradeDiary.SQLite`, `OzzTradeDiary.i18n`).
+
 ## [0.0.26] - 2026-04-04
 
 ### Changed

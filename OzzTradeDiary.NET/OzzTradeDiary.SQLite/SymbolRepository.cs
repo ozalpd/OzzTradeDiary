@@ -56,7 +56,7 @@ namespace TD.SQLite
             {
                 var symbol = MapSymbol(reader);
                 if (exchangesById.TryGetValue(symbol.ExchangeId, out var exchange))
-                symbol.Exchange = exchange;
+                    symbol.Exchange = exchange;
 
                 result.Add(symbol);
             }
@@ -64,8 +64,11 @@ namespace TD.SQLite
             return result;
         }
 
-        public async Task<Symbol?> GetByIdAsync(int id)
+        public async Task<Symbol?> GetByIdAsync(int? id)
         {
+            if (!id.HasValue)
+                return null;
+
             await using var connection = await GetOpenConnectionAsync();
             await using var command = connection.CreateCommand();
             command.CommandText = $@"{_selectStatement}
@@ -81,7 +84,7 @@ namespace TD.SQLite
             return symbol;
         }
 
-        public async Task<Symbol?> GetByTickerFullAsync(string tickerFull)
+        public async Task<Symbol?> GetByTickerFullAsync(string? tickerFull)
         {
             if (string.IsNullOrWhiteSpace(tickerFull))
                 return null;
@@ -206,11 +209,12 @@ namespace TD.SQLite
             return affectedRows > 0;
         }
         partial void OnUpdated(Symbol symbol);
-            private async Task LoadExchangeAsync(Symbol symbol)
-            {
-                symbol.Exchange = await _exchangeRepository.GetByIdAsync(symbol.ExchangeId)
+
+        private async Task LoadExchangeAsync(Symbol symbol)
+        {
+            symbol.Exchange = await _exchangeRepository.GetByIdAsync(symbol.ExchangeId)
                             ?? new Exchange { Id = symbol.ExchangeId };
-            }
+        }
 
 
         private static Symbol MapSymbol(SqliteDataReader reader)
@@ -264,8 +268,8 @@ namespace TD.SQLite
     public interface ISymbolRepository
     {
         Task<IReadOnlyList<Symbol>> GetAllAsync(bool? isActive = null);
-        Task<Symbol?> GetByIdAsync(int id);
-        Task<Symbol?> GetByTickerFullAsync(string tickerFull);
+        Task<Symbol?> GetByIdAsync(int? id);
+        Task<Symbol?> GetByTickerFullAsync(string? tickerFull);
         Task<int> CreateAsync(Symbol symbol);
         Task<bool> DeleteAsync(int id);
         Task<bool> UpdateAsync(Symbol symbol);

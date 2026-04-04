@@ -50,14 +50,18 @@ namespace TD.SQLite
             await using var reader = await command.ExecuteReaderAsync();
             while (await reader.ReadAsync())
             {
-                result.Add(MapCurrency(reader));
+                var currency = MapCurrency(reader);
+                result.Add(currency);
             }
 
             return result;
         }
 
-        public async Task<Currency?> GetByIdAsync(int id)
+        public async Task<Currency?> GetByIdAsync(int? id)
         {
+            if (!id.HasValue)
+                return null;
+
             await using var connection = await GetOpenConnectionAsync();
             await using var command = connection.CreateCommand();
             command.CommandText = $@"{_selectStatement}
@@ -68,10 +72,11 @@ namespace TD.SQLite
             if (!await reader.ReadAsync())
                 return null;
 
-            return MapCurrency(reader);
+            var currency = MapCurrency(reader);
+            return currency;
         }
 
-        public async Task<Currency?> GetByCurrencyTickerAsync(string currencyTicker)
+        public async Task<Currency?> GetByCurrencyTickerAsync(string? currencyTicker)
         {
             if (string.IsNullOrWhiteSpace(currencyTicker))
                 return null;
@@ -86,7 +91,8 @@ namespace TD.SQLite
             if (!await reader.ReadAsync())
                 return null;
 
-            return MapCurrency(reader);
+            var currency = MapCurrency(reader);
+            return currency;
         }
 
         public async Task<int> CreateAsync(Currency currency)
@@ -116,9 +122,9 @@ namespace TD.SQLite
             var id = Convert.ToInt32((long)(await command.ExecuteScalarAsync() ?? 0));
             
             await _metadataRepository.SaveLastUpdateUtcAsync(connection);
+            ClearRecordCountCache();
             currency.Id = id;
             OnCreated(currency);
-            ClearRecordCountCache();
 
             return id;
         }
@@ -152,6 +158,8 @@ namespace TD.SQLite
             {
                 throw new InvalidOperationException($"A different Currency with the same CurrencyTicker already exists: {currency.CurrencyTicker}");
             }
+
+            existingCurrency = await GetByIdAsync(currency.Id);
             bool noChanges = existingCurrency != null
                           && existingCurrency.Description == currency.Description 
                           && existingCurrency.DisplayOrder == currency.DisplayOrder 
@@ -221,8 +229,8 @@ namespace TD.SQLite
     public interface ICurrencyRepository
     {
         Task<IReadOnlyList<Currency>> GetAllAsync(bool? isActive = null);
-        Task<Currency?> GetByIdAsync(int id);
-        Task<Currency?> GetByCurrencyTickerAsync(string currencyTicker);
+        Task<Currency?> GetByIdAsync(int? id);
+        Task<Currency?> GetByCurrencyTickerAsync(string? currencyTicker);
         Task<int> CreateAsync(Currency currency);
         Task<bool> DeleteAsync(int id);
         Task<bool> UpdateAsync(Currency currency);
