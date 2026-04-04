@@ -236,8 +236,8 @@
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
           <Name>Exchange</Name>
-          <Exclude>true</Exclude>
-          <AutoLoad>false</AutoLoad>
+          <Exclude>false</Exclude>
+          <AutoLoad>true</AutoLoad>
           <CheckIfAltered>false</CheckIfAltered>
           <ColumnName>Exchange</ColumnName>
           <SingleColumnUpdate>false</SingleColumnUpdate>
@@ -337,7 +337,7 @@
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
           <Name>Exchange</Name>
-          <Exclude>true</Exclude>
+          <Exclude>false</Exclude>
           <AutoLoad>true</AutoLoad>
           <CheckIfAltered>false</CheckIfAltered>
           <ColumnName>Exchange</ColumnName>
@@ -372,7 +372,7 @@
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
           <Name>Trade</Name>
-          <Exclude>true</Exclude>
+          <Exclude>false</Exclude>
           <AutoLoad>false</AutoLoad>
           <CheckIfAltered>false</CheckIfAltered>
           <ColumnName>Trade</ColumnName>
@@ -398,7 +398,7 @@
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
           <Name>Trade</Name>
-          <Exclude>true</Exclude>
+          <Exclude>false</Exclude>
           <AutoLoad>false</AutoLoad>
           <CheckIfAltered>false</CheckIfAltered>
           <ColumnName>Trade</ColumnName>
@@ -424,7 +424,7 @@
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
           <Name>Trade</Name>
-          <Exclude>true</Exclude>
+          <Exclude>false</Exclude>
           <AutoLoad>false</AutoLoad>
           <CheckIfAltered>false</CheckIfAltered>
           <ColumnName>Trade</ColumnName>
@@ -459,7 +459,7 @@
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
           <Name>Trade</Name>
-          <Exclude>true</Exclude>
+          <Exclude>false</Exclude>
           <AutoLoad>false</AutoLoad>
           <CheckIfAltered>false</CheckIfAltered>
           <ColumnName>Trade</ColumnName>
@@ -502,7 +502,7 @@
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
           <Name>TradingAccount</Name>
-          <Exclude>true</Exclude>
+          <Exclude>false</Exclude>
           <AutoLoad>true</AutoLoad>
           <CheckIfAltered>false</CheckIfAltered>
           <ColumnName>TradingAccount</ColumnName>
@@ -518,7 +518,7 @@
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
           <Name>Symbol</Name>
-          <Exclude>true</Exclude>
+          <Exclude>false</Exclude>
           <AutoLoad>true</AutoLoad>
           <CheckIfAltered>false</CheckIfAltered>
           <ColumnName>Symbol</ColumnName>
