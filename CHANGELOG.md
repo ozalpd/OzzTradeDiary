@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
-## [0.0.27] - 2026-04-08
+## [0.0.27] - 2026-04-04
 
 ### Changed
 - Repository lookup methods now accept nullable arguments (`int?`, `string?`) for `GetByIdAsync` / `GetBy*Async` and return `null` when arguments are `null`.
