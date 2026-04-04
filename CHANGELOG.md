@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.0.26] - 2026-04-04
+
+### Changed
+- `IDbSymbolRepository` was replaced by the co-located `ISymbolRepository` interface defined within `SymbolRepository.cs`; the old `IDbSymbolRepository` file was removed and all references were updated.
+- `SymbolRepository` was regenerated with improved CRUD logic, code clarity, null handling, and parameterization.
+- `AbstractDiaryVM` updated to use `ISymbolRepository`.
+- New property settings for Symbol entity relationships added to `CsSqliteRepositoryEngine.settings`.
+- Microsoft.Data.Sqlite upgraded to `10.0.5` in `OzzTradeDiary.SQLite` and `OzzTradeDiary.WPF` projects.
+- Bumped all project versions to `0.0.26` (`OzzTradeDiary`, `OzzTradeDiary.WPF`, `OzzTradeDiary.SQLite`, `OzzTradeDiary.i18n`).
+
 ## [0.0.25] - 2026-04-03
 
 ### Changed

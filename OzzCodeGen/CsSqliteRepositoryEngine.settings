@@ -351,6 +351,38 @@
           <ColumnName>MarketType</ColumnName>
           <SingleColumnUpdate>false</SingleColumnUpdate>
         </SqliteRepositoryPropertySetting>
+        <SqliteRepositoryPropertySetting>
+          <Name>CurrencyBaseId</Name>
+          <Exclude>false</Exclude>
+          <AutoLoad>false</AutoLoad>
+          <CheckIfAltered>false</CheckIfAltered>
+          <ColumnName>CurrencyBaseId</ColumnName>
+          <SingleColumnUpdate>false</SingleColumnUpdate>
+        </SqliteRepositoryPropertySetting>
+        <SqliteRepositoryPropertySetting>
+          <Name>CurrencyBase</Name>
+          <Exclude>false</Exclude>
+          <AutoLoad>true</AutoLoad>
+          <CheckIfAltered>false</CheckIfAltered>
+          <ColumnName>CurrencyBase</ColumnName>
+          <SingleColumnUpdate>false</SingleColumnUpdate>
+        </SqliteRepositoryPropertySetting>
+        <SqliteRepositoryPropertySetting>
+          <Name>ExchangeSecndId</Name>
+          <Exclude>false</Exclude>
+          <AutoLoad>false</AutoLoad>
+          <CheckIfAltered>false</CheckIfAltered>
+          <ColumnName>ExchangeSecndId</ColumnName>
+          <SingleColumnUpdate>false</SingleColumnUpdate>
+        </SqliteRepositoryPropertySetting>
+        <SqliteRepositoryPropertySetting>
+          <Name>ExchangeSecnd</Name>
+          <Exclude>false</Exclude>
+          <AutoLoad>true</AutoLoad>
+          <CheckIfAltered>false</CheckIfAltered>
+          <ColumnName>ExchangeSecnd</ColumnName>
+          <SingleColumnUpdate>false</SingleColumnUpdate>
+        </SqliteRepositoryPropertySetting>
       </Properties>
       <TableName>Symbols</TableName>
       <FileNameDDL>Symbol.sql</FileNameDDL>
