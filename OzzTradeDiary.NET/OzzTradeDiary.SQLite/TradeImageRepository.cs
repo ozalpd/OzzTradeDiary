@@ -37,20 +37,45 @@ namespace TD.SQLite
             await using var connection = await GetOpenConnectionAsync();
             await using var command = connection.CreateCommand();
             command.CommandText = _selectStatement;
-
             command.CommandText += " ORDER BY TradeId DESC, Id DESC";
 
             await using var reader = await command.ExecuteReaderAsync();
             while (await reader.ReadAsync())
             {
-                result.Add(MapTradeImage(reader));
+                var tradeImage = MapTradeImage(reader);
+                result.Add(tradeImage);
             }
 
             return result;
         }
 
-        public async Task<TradeImage?> GetByIdAsync(int id)
+        public async Task<IReadOnlyList<TradeImage>> GetByTradeIdAsync(int? tradeId)
         {
+            var result = new List<TradeImage>();
+
+            await using var connection = await GetOpenConnectionAsync();
+            await using var command = connection.CreateCommand();
+            command.CommandText = _selectStatement;
+            command.CommandText += " WHERE TradeId = @tradeId";
+            command.Parameters.AddWithValue("@tradeId", tradeId);
+            command.CommandText += " ORDER BY TradeId DESC, Id DESC";
+
+            await using var reader = await command.ExecuteReaderAsync();
+            while (await reader.ReadAsync())
+            {
+                var tradeImage = MapTradeImage(reader);
+                result.Add(tradeImage);
+            }
+
+            return result;
+        }
+
+        
+        public async Task<TradeImage?> GetByIdAsync(int? id)
+        {
+            if (!id.HasValue || id.Value < 1)
+                return null;
+
             await using var connection = await GetOpenConnectionAsync();
             await using var command = connection.CreateCommand();
             command.CommandText = $@"{_selectStatement}
@@ -61,7 +86,8 @@ namespace TD.SQLite
             if (!await reader.ReadAsync())
                 return null;
 
-            return MapTradeImage(reader);
+            var tradeImage = MapTradeImage(reader);
+            return tradeImage;
         }
 
         public async Task<int> CreateAsync(TradeImage tradeImage)
@@ -85,9 +111,9 @@ namespace TD.SQLite
             var id = Convert.ToInt32((long)(await command.ExecuteScalarAsync() ?? 0));
             
             await _metadataRepository.SaveLastUpdateUtcAsync(connection);
+            ClearRecordCountCache();
             tradeImage.Id = id;
             OnCreated(tradeImage);
-            ClearRecordCountCache();
 
             return id;
         }
@@ -187,7 +213,8 @@ namespace TD.SQLite
     public interface ITradeImageRepository
     {
         Task<IReadOnlyList<TradeImage>> GetAllAsync();
-        Task<TradeImage?> GetByIdAsync(int id);
+        Task<IReadOnlyList<TradeImage>> GetByTradeIdAsync(int? tradeId);
+        Task<TradeImage?> GetByIdAsync(int? id);
         Task<int> CreateAsync(TradeImage tradeImage);
         Task<bool> DeleteAsync(int id);
         Task<bool> UpdateAsync(TradeImage tradeImage);

@@ -41,7 +41,6 @@ namespace TD.SQLite
             await using var connection = await GetOpenConnectionAsync();
             await using var command = connection.CreateCommand();
             command.CommandText = _selectStatement;
-
             if (isActive.HasValue)
             {
                 command.CommandText += " WHERE IsActive = @isActive";
@@ -63,9 +62,41 @@ namespace TD.SQLite
             return result;
         }
 
+        public async Task<IReadOnlyList<TradingAccount>> GetByExchangeIdAsync(int exchangeId, bool? isActive = null)
+        {
+            var result = new List<TradingAccount>();
+            var exchangesById = (await _exchangeRepository.GetAllAsync()).ToDictionary(item => item.Id);
+
+            await using var connection = await GetOpenConnectionAsync();
+            await using var command = connection.CreateCommand();
+            command.CommandText = _selectStatement;
+            command.CommandText += " WHERE ExchangeId = @exchangeId";
+            command.Parameters.AddWithValue("@exchangeId", exchangeId);
+            if (isActive.HasValue)
+            {
+                command.CommandText += " AND IsActive = @isActive";
+                command.Parameters.AddWithValue("@isActive", isActive.Value ? 1 : 0);
+            }
+
+            command.CommandText += " ORDER BY DisplayOrder, Title";
+
+            await using var reader = await command.ExecuteReaderAsync();
+            while (await reader.ReadAsync())
+            {
+                var tradingAccount = MapTradingAccount(reader);
+                if (exchangesById.TryGetValue(tradingAccount.ExchangeId, out var exchange))
+                    tradingAccount.Exchange = exchange;
+
+                result.Add(tradingAccount);
+            }
+
+            return result;
+        }
+
+        
         public async Task<TradingAccount?> GetByIdAsync(int? id)
         {
-            if (!id.HasValue)
+            if (!id.HasValue || id.Value < 1)
                 return null;
 
             await using var connection = await GetOpenConnectionAsync();
@@ -251,6 +282,7 @@ namespace TD.SQLite
     public interface ITradingAccountRepository
     {
         Task<IReadOnlyList<TradingAccount>> GetAllAsync(bool? isActive = null);
+        Task<IReadOnlyList<TradingAccount>> GetByExchangeIdAsync(int exchangeId, bool? isActive = null);
         Task<TradingAccount?> GetByIdAsync(int? id);
         Task<TradingAccount?> GetByTitleAsync(string? title);
         Task<int> CreateAsync(TradingAccount tradingAccount);

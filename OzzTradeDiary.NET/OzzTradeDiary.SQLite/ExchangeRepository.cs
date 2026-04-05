@@ -38,7 +38,6 @@ namespace TD.SQLite
             await using var connection = await GetOpenConnectionAsync();
             await using var command = connection.CreateCommand();
             command.CommandText = _selectStatement;
-
             if (isActive.HasValue)
             {
                 command.CommandText += " WHERE IsActive = @isActive";
@@ -59,7 +58,7 @@ namespace TD.SQLite
 
         public async Task<Exchange?> GetByIdAsync(int? id)
         {
-            if (!id.HasValue)
+            if (!id.HasValue || id.Value < 1)
                 return null;
 
             await using var connection = await GetOpenConnectionAsync();

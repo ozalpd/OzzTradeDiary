@@ -42,7 +42,6 @@ namespace TD.SQLite
             await using var connection = await GetOpenConnectionAsync();
             await using var command = connection.CreateCommand();
             command.CommandText = _selectStatement;
-
             if (isActive.HasValue)
             {
                 command.CommandText += " WHERE IsActive = @isActive";
@@ -64,9 +63,41 @@ namespace TD.SQLite
             return result;
         }
 
+        public async Task<IReadOnlyList<Symbol>> GetByExchangeIdAsync(int exchangeId, bool? isActive = null)
+        {
+            var result = new List<Symbol>();
+            var exchangesById = (await _exchangeRepository.GetAllAsync()).ToDictionary(item => item.Id);
+
+            await using var connection = await GetOpenConnectionAsync();
+            await using var command = connection.CreateCommand();
+            command.CommandText = _selectStatement;
+            command.CommandText += " WHERE ExchangeId = @exchangeId";
+            command.Parameters.AddWithValue("@exchangeId", exchangeId);
+            if (isActive.HasValue)
+            {
+                command.CommandText += " AND IsActive = @isActive";
+                command.Parameters.AddWithValue("@isActive", isActive.Value ? 1 : 0);
+            }
+
+            command.CommandText += " ORDER BY DisplayOrder, TickerFull";
+
+            await using var reader = await command.ExecuteReaderAsync();
+            while (await reader.ReadAsync())
+            {
+                var symbol = MapSymbol(reader);
+                if (exchangesById.TryGetValue(symbol.ExchangeId, out var exchange))
+                    symbol.Exchange = exchange;
+
+                result.Add(symbol);
+            }
+
+            return result;
+        }
+
+        
         public async Task<Symbol?> GetByIdAsync(int? id)
         {
-            if (!id.HasValue)
+            if (!id.HasValue || id.Value < 1)
                 return null;
 
             await using var connection = await GetOpenConnectionAsync();
@@ -268,6 +299,7 @@ namespace TD.SQLite
     public interface ISymbolRepository
     {
         Task<IReadOnlyList<Symbol>> GetAllAsync(bool? isActive = null);
+        Task<IReadOnlyList<Symbol>> GetByExchangeIdAsync(int exchangeId, bool? isActive = null);
         Task<Symbol?> GetByIdAsync(int? id);
         Task<Symbol?> GetByTickerFullAsync(string? tickerFull);
         Task<int> CreateAsync(Symbol symbol);

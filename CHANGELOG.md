@@ -4,6 +4,17 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.0.28] - 2026-04-05
+
+### Changed
+- Repository classes were refactored with improved input validation: `GetByIdAsync` methods now guard against invalid (non-positive) IDs and return `null` early.
+- Added new query methods for filtering by exchange and active status across relevant repositories.
+- `TradeImageRepository` now supports querying by `TradeId` and orders all results consistently.
+- `TradingAccountRepository` and `SymbolRepository` now support querying by `ExchangeId` and orders all results consistently.
+- Repository interfaces were updated to reflect the new query methods.
+- Redundant code removed and validation logic cleaned up across repository implementations.
+- Bumped all project versions to `0.0.28` (`OzzTradeDiary`, `OzzTradeDiary.WPF`, `OzzTradeDiary.SQLite`, `OzzTradeDiary.i18n`).
+
 ## [0.0.27] - 2026-04-04
 
 ### Changed

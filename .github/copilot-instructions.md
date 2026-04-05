@@ -4,7 +4,7 @@
 
 Early-stage development (pre-release, no public release yet).
 
-Internal tracking versions: `OzzTradeDiary` `0.0.27`, `OzzTradeDiary.WPF` `0.0.27`, `OzzTradeDiary.SQLite` `0.0.27`, `OzzTradeDiary.i18n` `0.0.27`.
+Internal tracking versions: `OzzTradeDiary` `0.0.28`, `OzzTradeDiary.WPF` `0.0.28`, `OzzTradeDiary.SQLite` `0.0.28`, `OzzTradeDiary.i18n` `0.0.28`.
 
 - **Changelog discipline**: Any behavior change (repository logic, initialization, seeding, schema generation impact, UI-visible behavior) must be recorded in `CHANGELOG.md`.
 
