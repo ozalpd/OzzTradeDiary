@@ -1,0 +1,56 @@
+{
+  "folders": [
+    {
+      "path": "OzzTradeDiary.NET/OzzTradeDiary"
+    },
+    {
+      "path": "OzzTradeDiary.NET/OzzTradeDiary.i18n"
+    },
+    {
+      "path": "OzzTradeDiary.NET/OzzTradeDiary.SQLite"
+    },
+    {
+      "path": "OzzTradeDiary.NET/OzzTradeDiary.WPF"
+    },
+    {
+      "path": "OzzCodeGen"
+    }
+  ],
+  "settings": {
+    "files.exclude": {
+      "**/bin": true,
+      "**/obj": true,
+      "**/.vs": true
+    },
+    "editor.tabSize": 4,
+    "editor.formatOnSave": true,
+    "editor.inlineSuggest.enabled": true,
+    "github.copilot.enable": {
+      "*": true,
+      "plaintext": false,
+      "markdown": true,
+      "csharp": true,
+      "json": true
+    },
+    "github.copilot.editor.enableAutoCompletions": true,
+    "github.copilot.chat.editorContext": "smart",
+    "dotnet.defaultSolution": "OzzTradeDiary.slnx",
+    "dotnet.server.useOmnisharp": false,
+    "dotnet.codeLens.enableReferencesCodeLens": true,
+    "dotnet.codeLens.enableTestsCodeLens": false,
+    "csharp.suppressDotnetRestoreNotification": true,
+    "terminal.integrated.defaultProfile.windows": "PowerShell",
+    "sqliteExplorer.maxQueryExecutionTime": 5000
+  },
+  "extensions": {
+    "recommendations": [
+      "ms-dotnettools.csdevkit",
+      "github.copilot",
+      "github.copilot-chat",
+      "qwtel.sqlite-viewer",
+      "usernamehw.errorlens",
+      "bierner.markdown-preview-github-styles",
+      "pkief.material-icon-theme"
+    ]
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "recommendations": [
+    "ms-dotnettools.csdevkit",
+    "github.copilot",
+    "github.copilot-chat",
+    "qwtel.sqlite-viewer",
+    "usernamehw.errorlens",
+    "bierner.markdown-preview-github-styles",
+    "pkief.material-icon-theme"
+  ]
+}

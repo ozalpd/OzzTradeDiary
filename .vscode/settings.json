@@ -1,0 +1,26 @@
+{
+  "editor.tabSize": 4,
+  "editor.formatOnSave": true,
+  "editor.inlineSuggest.enabled": true,
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": false,
+    "markdown": true,
+    "csharp": true,
+    "json": true
+  },
+  "github.copilot.editor.enableAutoCompletions": true,
+  "github.copilot.chat.editorContext": "smart",
+  "dotnet.defaultSolution": "OzzTradeDiary.slnx",
+  "dotnet.server.useOmnisharp": false,
+  "files.exclude": {
+    "**/bin": true,
+    "**/obj": true,
+    "**/.vs": true
+  },
+  "csharp.suppressDotnetRestoreNotification": true,
+  "terminal.integrated.defaultProfile.windows": "PowerShell",
+  "sqliteExplorer.maxQueryExecutionTime": 5000,
+  "dotnet.codeLens.enableReferencesCodeLens": true,
+  "dotnet.codeLens.enableTestsCodeLens": false
+}
