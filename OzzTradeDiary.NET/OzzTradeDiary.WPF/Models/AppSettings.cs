@@ -146,9 +146,40 @@ internal class AppSettings
         "OzzTradeDiary",
         "BackUp");
 
-    private static string GetDefaultDatabaseFolderPath() => Path.Combine(
-        Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
-        "OzzTradeDiary");
+    private static string GetDefaultDatabaseFolderPath()
+    {
+#if DEBUG
+        var sampleDataPath = TryGetDebugSampleDataFolderPath();
+        if (!string.IsNullOrWhiteSpace(sampleDataPath))
+        {
+            return sampleDataPath;
+        }
+#endif
+
+        string dbFolderPath = Path.Combine(
+            Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
+            "OzzTradeDiary");
+        return dbFolderPath;
+    }
+
+    private static string? TryGetDebugSampleDataFolderPath()
+    {
+        var current = new DirectoryInfo(AppContext.BaseDirectory);
+        while (current is not null)
+        {
+            var hasGitFolder = Directory.Exists(Path.Combine(current.FullName, ".git"));
+            var hasSolution = File.Exists(Path.Combine(current.FullName, "OzzTradeDiary.slnx"));
+
+            if (hasGitFolder || hasSolution)
+            {
+                return Path.Combine(current.FullName, "SampleData");
+            }
+
+            current = current.Parent;
+        }
+
+        return null;
+    }
 
     public string GetDatabaseFolderPath() => Path.GetDirectoryName(DatabasePath) ?? string.Empty;
 
@@ -192,13 +223,24 @@ internal class AppSettings
 
     private static string GetSettingsFilePath()
     {
+
+#if DEBUG
+        var sampleDataPath = TryGetDebugSampleDataFolderPath();
+        if (!string.IsNullOrWhiteSpace(sampleDataPath))
+        {
+            Directory.CreateDirectory(sampleDataPath);
+            return Path.Combine(sampleDataPath, settingsFileName);
+        }
+#endif
         var settingsFolder = Path.Combine(
-            Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
+        Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
             "OzzTradeDiary");
         Directory.CreateDirectory(settingsFolder);
 
-        return Path.Combine(settingsFolder, "tdsettings.json");
+        return Path.Combine(settingsFolder, settingsFileName);
     }
+    private static string settingsFileName= "tdsettings.json";
+
 
     public void Save()
     {

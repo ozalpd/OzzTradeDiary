@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.0.29] - 2026-04-05
+
+### Changed
+- In `DEBUG` builds, default data paths now resolve under the repository `SampleData` folder (git-ignored) instead of user profile app-data folders, so development/testing no longer touches end-user database and settings files.
+- In non-debug builds, data paths continue to use user profile app-data folders.
+- Bumped all project versions to `0.0.29` (`OzzTradeDiary`, `OzzTradeDiary.WPF`, `OzzTradeDiary.SQLite`, `OzzTradeDiary.i18n`).
+
 ## [0.0.28] - 2026-04-05
 
 ### Changed

@@ -4,7 +4,7 @@ A Windows desktop trade journaling application for tracking trades across multip
 
 > **Status**: Pre-release development (no public release yet)
 > 
-> **Internal tracking versions**: `OzzTradeDiary` `0.0.28`, `OzzTradeDiary.WPF` `0.0.28`, `OzzTradeDiary.SQLite` `0.0.28`, `OzzTradeDiary.i18n` `0.0.28`
+> **Internal tracking versions**: `OzzTradeDiary` `0.0.29`, `OzzTradeDiary.WPF` `0.0.29`, `OzzTradeDiary.SQLite` `0.0.29`, `OzzTradeDiary.i18n` `0.0.29`
 
 ## Changelog
 
@@ -22,6 +22,7 @@ See [`CHANGELOG.md`](CHANGELOG.md) for release history.
 ## Features
 
 - DPI-aware multi-monitor window positioning
+- `AppSettings` uses a debug-safe default data location: in `DEBUG` builds database and related app data resolve under repo-root `SampleData` (git-ignored), while release builds continue to use user app-data folders
 - `Exchange.HasAnySymbol` is carried through the model, schema, repositories, seed data, localization, codegen, and maintenance UI for exchange/symbol linkage
 - `AppSettings.UiCulture` stores the user's preferred BCP-47 culture name (e.g. `"en-US"`, `"tr-TR"`); applied to `CurrentUICulture` and `CurrentCulture` in `App.OnStartup` before `MainWindow` is created — when empty the OS culture is used
 - `MainWindow` menu items are fully localized via `{x:Static i18n:ActionStrings.*}` and `{x:Static i18n:LocalizedStrings.*}`

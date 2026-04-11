@@ -4,7 +4,7 @@
 
 Early-stage development (pre-release, no public release yet).
 
-Internal tracking versions: `OzzTradeDiary` `0.0.28`, `OzzTradeDiary.WPF` `0.0.28`, `OzzTradeDiary.SQLite` `0.0.28`, `OzzTradeDiary.i18n` `0.0.28`.
+Internal tracking versions: `OzzTradeDiary` `0.0.29`, `OzzTradeDiary.WPF` `0.0.29`, `OzzTradeDiary.SQLite` `0.0.29`, `OzzTradeDiary.i18n` `0.0.29`.
 
 - **Changelog discipline**: Any behavior change (repository logic, initialization, seeding, schema generation impact, UI-visible behavior) must be recorded in `CHANGELOG.md`.
 
@@ -134,7 +134,7 @@ Internal tracking versions: `OzzTradeDiary` `0.0.28`, `OzzTradeDiary.WPF` `0.0.2
 - **Icons**: Bootstrap Icons v1.13.1 (MIT) — icon paths stored as `StreamGeometry` resources in `OzzTradeDiary.WPF/Resources/BootstrapIcons.xaml`; reference via `{StaticResource <IconKey>}` in XAML
 - **Window icons**: Use `WindowExtensions.SetIconFromGeometryResource(string geometryResourceKey, string fillColor, int size = 16)` (in `TD.WPF.Extensions`) to render a Bootstrap Icon geometry as a window title bar/taskbar icon. Example: `this.SetIconFromGeometryResource("gear-wide-connected", "#93191C");`
 - **Window state**: DPI-aware multi-monitor positioning via WinAPI (`WindowPosition`)
-- **Database path**: Default is `{AppData}/trades.db`
+- **Database path**: In `DEBUG` builds, default data paths should resolve under repo-root `SampleData` (git-ignored) to avoid touching user profile data; in non-debug builds the default remains user app-data (`{LocalApplicationData}/OzzTradeDiary`).
 - **Exchange symbol flag**: `Exchange.HasAnySymbol` is the canonical persisted flag for whether an exchange has linked symbols; use it in UI/repository logic instead of recalculating the state when the data is already loaded.
 
 ## Key Entities
