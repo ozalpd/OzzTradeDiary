@@ -69,8 +69,8 @@ namespace TD.SQLite
 
             return result;
         }
-
         
+
         public async Task<TradeImage?> GetByIdAsync(int? id)
         {
             if (!id.HasValue || id.Value < 1)
@@ -87,8 +87,11 @@ namespace TD.SQLite
                 return null;
 
             var tradeImage = MapTradeImage(reader);
+            
+            OnLoaded(tradeImage);
             return tradeImage;
         }
+        partial void OnLoaded(TradeImage tradeImage);
 
         public async Task<int> CreateAsync(TradeImage tradeImage)
         {

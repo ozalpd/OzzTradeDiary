@@ -93,8 +93,8 @@ namespace TD.SQLite
 
             return result;
         }
-
         
+
         public async Task<Symbol?> GetByIdAsync(int? id)
         {
             if (!id.HasValue || id.Value < 1)
@@ -112,6 +112,8 @@ namespace TD.SQLite
 
             var symbol = MapSymbol(reader);
             await LoadExchangeAsync(symbol);
+            
+            OnLoaded(symbol);
             return symbol;
         }
 
@@ -132,8 +134,11 @@ namespace TD.SQLite
 
             var symbol = MapSymbol(reader);
             await LoadExchangeAsync(symbol);
+            
+            OnLoaded(symbol);
             return symbol;
         }
+        partial void OnLoaded(Symbol symbol);
 
         public async Task<int> CreateAsync(Symbol symbol)
         {

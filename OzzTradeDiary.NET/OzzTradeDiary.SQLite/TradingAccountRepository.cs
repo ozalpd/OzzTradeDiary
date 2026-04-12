@@ -92,8 +92,8 @@ namespace TD.SQLite
 
             return result;
         }
-
         
+
         public async Task<TradingAccount?> GetByIdAsync(int? id)
         {
             if (!id.HasValue || id.Value < 1)
@@ -111,6 +111,8 @@ namespace TD.SQLite
 
             var tradingAccount = MapTradingAccount(reader);
             await LoadExchangeAsync(tradingAccount);
+            
+            OnLoaded(tradingAccount);
             return tradingAccount;
         }
 
@@ -131,8 +133,11 @@ namespace TD.SQLite
 
             var tradingAccount = MapTradingAccount(reader);
             await LoadExchangeAsync(tradingAccount);
+            
+            OnLoaded(tradingAccount);
             return tradingAccount;
         }
+        partial void OnLoaded(TradingAccount tradingAccount);
 
         public async Task<int> CreateAsync(TradingAccount tradingAccount)
         {

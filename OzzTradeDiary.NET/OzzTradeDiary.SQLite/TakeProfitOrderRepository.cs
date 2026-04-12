@@ -69,8 +69,8 @@ namespace TD.SQLite
 
             return result;
         }
-
         
+
         public async Task<TakeProfitOrder?> GetByIdAsync(int? id)
         {
             if (!id.HasValue || id.Value < 1)
@@ -87,8 +87,11 @@ namespace TD.SQLite
                 return null;
 
             var takeProfitOrder = MapTakeProfitOrder(reader);
+            
+            OnLoaded(takeProfitOrder);
             return takeProfitOrder;
         }
+        partial void OnLoaded(TakeProfitOrder takeProfitOrder);
 
         public async Task<int> CreateAsync(TakeProfitOrder takeProfitOrder)
         {

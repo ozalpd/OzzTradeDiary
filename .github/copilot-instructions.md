@@ -4,7 +4,7 @@
 
 Early-stage development (pre-release, no public release yet).
 
-Internal tracking versions: `OzzTradeDiary` `0.0.30`, `OzzTradeDiary.WPF` `0.0.30`, `OzzTradeDiary.SQLite` `0.0.30`, `OzzTradeDiary.i18n` `0.0.30`.
+Internal tracking versions: `OzzTradeDiary` `0.0.31`, `OzzTradeDiary.WPF` `0.0.31`, `OzzTradeDiary.SQLite` `0.0.31`, `OzzTradeDiary.i18n` `0.0.31`.
 
 - **Changelog discipline**: Any behavior change (repository logic, initialization, seeding, schema generation impact, UI-visible behavior) must be recorded in `CHANGELOG.md`.
 
@@ -54,6 +54,7 @@ Internal tracking versions: `OzzTradeDiary` `0.0.30`, `OzzTradeDiary.WPF` `0.0.3
 - Model names are singular and related table names are plural
 - **Each model must have a corresponding generated DDL script** in `OzzTradeDiary.SQLite/DbScripts/` named `<ModelName>.sql`
 - Some models also have generated seed scripts named `<PluralTableName>-Data.sql`
+- Where generator settings support it, navigation properties may use `AutoLoad=true` so generated repositories invoke post-load hooks for related data population.
 
 ### ViewModels (TD.WPF namespace)
 
@@ -90,11 +91,12 @@ Internal tracking versions: `OzzTradeDiary` `0.0.30`, `OzzTradeDiary.WPF` `0.0.3
 - Prefer readable repository names without redundant `SqliteDatabase` prefixes, e.g. `SymbolRepository`, `ExchangeRepository`, `TradingAccountRepository`.
 - Generated repository interfaces are co-located in the same file as the repository class and use the `I<Entity>Repository` name (e.g. `IExchangeRepository`, `ITradingAccountRepository`, `ISymbolRepository`).
 - Lookup APIs should accept nullable inputs (`int?`, `string?`) for `GetByIdAsync` / `GetBy*Async` and return `null` for `null` inputs.
-- Generated repositories expose `partial void OnCreated(T entity)` and `partial void OnUpdated(T entity)` / `partial void OnUpdated(int id)` hooks for extensibility without modifying generated code.
-- Generated repository files should not be edited manually; custom behavior should be implemented in companion partial files (for example `SymbolRepository.part.cs`).
+- Generated repositories expose `partial void OnLoaded(T entity)`, `partial void OnCreated(T entity)`, and `partial void OnUpdated(T entity)` / `partial void OnUpdated(int id)` hooks for extensibility without modifying generated code.
+- Generated repository files should not be edited manually; custom behavior should be implemented in companion partial files (for example `SymbolRepository.part.cs` or `TradeRepository.part.cs`).
 - Use the `SingleColumnUpdate` property in `SqliteRepositoryGen.settings` to generate targeted single-column update methods (e.g. `UpdateHasAnySymbolAsync`).
 - SQLite date/time columns should use `TEXT` when the data is intended to preserve readable ISO-style values, and `UpdatedAt` columns should follow that convention in generated scripts.
 - SQLite repository code generation has its own settings file; keep repository regeneration aligned with `SqliteRepositoryGen.settings`.
+- `Trade` navigation properties may be generated with `AutoLoad=true`; in that case `TradeRepository.OnLoaded` is responsible for populating related collections through injected repositories.
 - Implemented repositories: `Currency`, `Exchange`, `TradingAccount`, `Symbol`, `Trade`, `TradeImage`, `EntryOrder`, `StopLossOrder`, `TakeProfitOrder`; remaining repositories will be added
 - **Each model has a matching DDL file** in `OzzTradeDiary.SQLite/DbScripts` named `<ModelName>.sql`; optional seed files are named `<PluralTableName>-Data.sql`
 - DDL scripts in `DbScripts/` folder are **generated** by OzzCodeGen — do not edit manually
@@ -129,6 +131,7 @@ Internal tracking versions: `OzzTradeDiary` `0.0.30`, `OzzTradeDiary.WPF` `0.0.3
   - Localization resources are generated via `OzzCodeGen/ResourceGen.settings` + `OzzCodeGen/Vocabulary`
   - `LocalizedStrings.resx` is sourced from `OzzTradeDiary.OzzGen`
   - Model classes and database schema are sourced from `OzzTradeDiary.OzzGen` using `CS_Model_Class_Generator`
+  - Keep generator execution order in `OzzTradeDiary.OzzGen` aligned with repository and schema dependencies when introducing new generated repository hooks or navigation auto-loading behavior
 - **Do not edit generated artifacts manually** (`*.resx`, designer files, generated models, generated schema scripts)
 - **Backup**: SQLite backup via `BackupDatabase` API → ZIP archives with timestamps
 - **Icons**: Bootstrap Icons v1.13.1 (MIT) — icon paths stored as `StreamGeometry` resources in `OzzTradeDiary.WPF/Resources/BootstrapIcons.xaml`; reference via `{StaticResource <IconKey>}` in XAML

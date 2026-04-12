@@ -551,7 +551,7 @@
         <SqliteRepositoryPropertySetting>
           <Name>EntryOrders</Name>
           <Exclude>false</Exclude>
-          <AutoLoad>false</AutoLoad>
+          <AutoLoad>true</AutoLoad>
           <CheckIfAltered>false</CheckIfAltered>
           <ColumnName>EntryOrders</ColumnName>
           <SingleColumnUpdate>false</SingleColumnUpdate>
@@ -575,7 +575,7 @@
         <SqliteRepositoryPropertySetting>
           <Name>TakeProfitOrders</Name>
           <Exclude>false</Exclude>
-          <AutoLoad>false</AutoLoad>
+          <AutoLoad>true</AutoLoad>
           <CheckIfAltered>false</CheckIfAltered>
           <ColumnName>TakeProfitOrders</ColumnName>
           <SingleColumnUpdate>false</SingleColumnUpdate>
@@ -599,7 +599,7 @@
         <SqliteRepositoryPropertySetting>
           <Name>StopLossOrders</Name>
           <Exclude>false</Exclude>
-          <AutoLoad>false</AutoLoad>
+          <AutoLoad>true</AutoLoad>
           <CheckIfAltered>false</CheckIfAltered>
           <ColumnName>StopLossOrders</ColumnName>
           <SingleColumnUpdate>false</SingleColumnUpdate>
@@ -623,7 +623,7 @@
         <SqliteRepositoryPropertySetting>
           <Name>TradeImages</Name>
           <Exclude>false</Exclude>
-          <AutoLoad>false</AutoLoad>
+          <AutoLoad>true</AutoLoad>
           <CheckIfAltered>false</CheckIfAltered>
           <ColumnName>TradeImages</ColumnName>
           <SingleColumnUpdate>false</SingleColumnUpdate>

@@ -19,16 +19,28 @@ namespace TD.SQLite
     {
         public TradeRepository(string databasePath
                                ,ITradingAccountRepository? tradingAccountRepository = null 
-                               ,ISymbolRepository? symbolRepository = null) : base(databasePath, "Trades") 
+                               ,ISymbolRepository? symbolRepository = null 
+                               ,IEntryOrderRepository? entryOrderRepository = null 
+                               ,ITakeProfitOrderRepository? takeProfitOrderRepository = null 
+                               ,IStopLossOrderRepository? stopLossOrderRepository = null 
+                               ,ITradeImageRepository? tradeImageRepository = null) : base(databasePath, "Trades") 
         {
             _selectStatement = $"SELECT {string.Join(", ", ColumnNames)} FROM {_tableName}";
             _tradingAccountRepository = tradingAccountRepository ?? new TradingAccountRepository(databasePath);
             _symbolRepository = symbolRepository ?? new SymbolRepository(databasePath);
+            _entryOrderRepository = entryOrderRepository ?? new EntryOrderRepository(databasePath);
+            _takeProfitOrderRepository = takeProfitOrderRepository ?? new TakeProfitOrderRepository(databasePath);
+            _stopLossOrderRepository = stopLossOrderRepository ?? new StopLossOrderRepository(databasePath);
+            _tradeImageRepository = tradeImageRepository ?? new TradeImageRepository(databasePath);
             InitializeDatabase();
         }
         private readonly string _selectStatement;
         private readonly ITradingAccountRepository _tradingAccountRepository;
         private readonly ISymbolRepository _symbolRepository;
+        private readonly IEntryOrderRepository _entryOrderRepository;
+        private readonly ITakeProfitOrderRepository _takeProfitOrderRepository;
+        private readonly IStopLossOrderRepository _stopLossOrderRepository;
+        private readonly ITradeImageRepository _tradeImageRepository;
 
         private void InitializeDatabase()
         {
@@ -91,8 +103,8 @@ namespace TD.SQLite
 
             return result;
         }
-
         
+
         public async Task<IReadOnlyList<Trade>> GetBySymbolIdAsync(int symbolId)
         {
             var result = new List<Trade>();
@@ -121,8 +133,8 @@ namespace TD.SQLite
 
             return result;
         }
-
         
+
         public async Task<Trade?> GetByIdAsync(int? id)
         {
             if (!id.HasValue || id.Value < 1)
@@ -141,8 +153,11 @@ namespace TD.SQLite
             var trade = MapTrade(reader);
             await LoadTradingAccountAsync(trade);
             await LoadSymbolAsync(trade);
+            
+            OnLoaded(trade);
             return trade;
         }
+        partial void OnLoaded(Trade trade);
 
         public async Task<int> CreateAsync(Trade trade)
         {

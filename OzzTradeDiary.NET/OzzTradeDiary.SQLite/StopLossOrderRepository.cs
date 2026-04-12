@@ -69,8 +69,8 @@ namespace TD.SQLite
 
             return result;
         }
-
         
+
         public async Task<StopLossOrder?> GetByIdAsync(int? id)
         {
             if (!id.HasValue || id.Value < 1)
@@ -87,8 +87,11 @@ namespace TD.SQLite
                 return null;
 
             var stopLossOrder = MapStopLossOrder(reader);
+            
+            OnLoaded(stopLossOrder);
             return stopLossOrder;
         }
+        partial void OnLoaded(StopLossOrder stopLossOrder);
 
         public async Task<int> CreateAsync(StopLossOrder stopLossOrder)
         {

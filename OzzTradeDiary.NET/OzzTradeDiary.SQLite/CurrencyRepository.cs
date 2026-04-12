@@ -72,6 +72,8 @@ namespace TD.SQLite
                 return null;
 
             var currency = MapCurrency(reader);
+            
+            OnLoaded(currency);
             return currency;
         }
 
@@ -91,8 +93,11 @@ namespace TD.SQLite
                 return null;
 
             var currency = MapCurrency(reader);
+            
+            OnLoaded(currency);
             return currency;
         }
+        partial void OnLoaded(Currency currency);
 
         public async Task<int> CreateAsync(Currency currency)
         {

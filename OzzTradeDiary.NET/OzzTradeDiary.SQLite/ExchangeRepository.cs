@@ -72,6 +72,8 @@ namespace TD.SQLite
                 return null;
 
             var exchange = MapExchange(reader);
+            
+            OnLoaded(exchange);
             return exchange;
         }
 
@@ -91,8 +93,11 @@ namespace TD.SQLite
                 return null;
 
             var exchange = MapExchange(reader);
+            
+            OnLoaded(exchange);
             return exchange;
         }
+        partial void OnLoaded(Exchange exchange);
 
         public async Task<int> CreateAsync(Exchange exchange)
         {
