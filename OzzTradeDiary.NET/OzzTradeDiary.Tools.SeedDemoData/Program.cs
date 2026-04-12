@@ -1,4 +1,4 @@
-using TD.Models;
+﻿using TD.Models;
 using TD.SQLite;
 using TD.WPF.Models;
 
@@ -34,10 +34,21 @@ static async Task SeedDemoDataAsync(string databasePath)
     var tradeRepository = new TradeRepository(databasePath, tradingAccountRepository, symbolRepository, tradeImageRepository: tradeImageRepository);
 
     var exchange = await EnsureDemoExchangeAsync(exchangeRepository);
-    var symbol = await EnsureDemoSymbolAsync(symbolRepository, exchange.Id);
     var tradingAccount = await EnsureDemoTradingAccountAsync(tradingAccountRepository, exchange.Id);
-    var trade = await EnsureDemoTradeAsync(tradeRepository, tradingAccount.Id, symbol.Id);
-    await EnsureDemoTradeImageAsync(tradeImageRepository, trade.Id);
+    var tickers = new[] { "BTCUSD", "ETHUSD", "SOLUSD", "AVAXUSD", "XRPUSD", "ETCUSD", "DOGEUSD", "BNBUSD", "SUIUSD", "ZROUSD", //← Top 10 popular cryptos
+                          "APTUSD", "ENAUSD", "ONDOUSD", "EIGENUSD", "SWELLUSD", "PENGUUSD", "POPCATUSD", "LUNAUSD" };
+    for (int i = 0; i < tickers.Length; i++)
+    {
+        var ticker = tickers[i];
+        var symbol = await EnsureDemoSymbolAsync(symbolRepository, exchange, ticker);
+        int tradesCount = 88 - i * 5; // Deccreasing number of trades for each symbol
+        tradesCount = tradesCount < 3 ? 3 : tradesCount; // Minimum 3 trades per symbol
+        for (int j = 0; j < tradesCount; j++)
+        {
+            var daysAgo = (3 + tradesCount) - j;
+            var trade = await EnsureDemoTradeAsync(tradeRepository, tradeImageRepository, tradingAccount.Id, symbol.Id, daysAgo);
+        }
+    }
 }
 
 static async Task<Exchange> EnsureDemoExchangeAsync(IExchangeRepository exchangeRepository)
@@ -65,24 +76,24 @@ static async Task<Exchange> EnsureDemoExchangeAsync(IExchangeRepository exchange
     return exchange;
 }
 
-static async Task<Symbol> EnsureDemoSymbolAsync(ISymbolRepository symbolRepository, int exchangeId)
+static async Task<Symbol> EnsureDemoSymbolAsync(ISymbolRepository symbolRepository, Exchange exchange, string ticker)
 {
-    const string tickerFull = "DEMO:BTCUSD";
+    string tickerFull = $"{exchange.ExchangeCode}:{ticker}";
     var existing = await symbolRepository.GetByTickerFullAsync(tickerFull);
     if (existing is not null)
     {
         Console.WriteLine($"Symbol already exists: {existing.TickerFull}");
         return existing;
     }
-
+    int tickerLength = ticker.Length;
     var symbol = new Symbol
     {
-        Ticker = "BTCUSD",
+        Ticker = ticker,
         TickerFull = tickerFull,
-        BaseCurrency = "BTC",
-        PriceCurrency = "USD",
-        Description = "Demo Bitcoin symbol for local debugging",
-        ExchangeId = exchangeId,
+        BaseCurrency = ticker.Substring(0, ticker.Length - 3),
+        PriceCurrency = ticker.Substring(ticker.Length - 3, 3),
+        Description = $"Demo {ticker} symbol for local debugging",
+        ExchangeId = exchange.Id,
         MarketType = MarketType.Crypto,
         DisplayOrder = 9990,
         IsActive = true
@@ -117,59 +128,47 @@ static async Task<TradingAccount> EnsureDemoTradingAccountAsync(ITradingAccountR
     return tradingAccount;
 }
 
-static async Task<Trade> EnsureDemoTradeAsync(ITradeRepository tradeRepository, int tradingAccountId, int symbolId)
+static async Task<Trade> EnsureDemoTradeAsync(ITradeRepository tradeRepository, TradeImageRepository tradeImageRepository, int tradingAccountId, int symbolId, int daysAgo)
 {
-    var existing = (await tradeRepository.GetByTradingAccountIdAsync(tradingAccountId))
-        .FirstOrDefault(x => x.SymbolId == symbolId);
-
-    if (existing is not null)
-    {
-        Console.WriteLine($"Trade already exists: {existing.Id}");
-        return existing;
-    }
-
+    var random = new Random();
+    decimal entryPrice = 60000m + random.Next(-5000, 5000);
     var trade = new Trade
     {
         TradingAccountId = tradingAccountId,
         SymbolId = symbolId,
-        EntryTime = DateTime.UtcNow.AddDays(-7),
+        EntryTime = DateTime.UtcNow.AddDays(-daysAgo).AddHours(random.Next(0, 12)).AddMinutes(random.Next(0, 60)),
         EntryMethod = EntryMethod.Market,
         TradeDirection = TradeDirection.Long,
-        PlannedEntry = 62000m,
-        ExecutedEntry = 61850m,
-        PlannedTP = 66000m,
+        PlannedEntry = entryPrice,
+        ExecutedEntry = entryPrice,
+        PlannedTP = entryPrice * 1.04m,
         ExecutedTP = 0m,
-        PlannedSL = 60000m,
+        PlannedSL = entryPrice * 0.98m,
         ExecutedSL = 0m,
         UpdatedAt = DateTime.UtcNow
     };
 
     trade.Id = await tradeRepository.CreateAsync(trade);
     Console.WriteLine($"Created trade: {trade.Id}");
-    return trade;
-}
 
-static async Task EnsureDemoTradeImageAsync(ITradeImageRepository tradeImageRepository, int tradeId)
-{
-    var existing = (await tradeImageRepository.GetByTradeIdAsync(tradeId))
-        .FirstOrDefault(x => string.Equals(x.ImageURL, "https://example.com/demo-trade.png", StringComparison.OrdinalIgnoreCase));
-
-    if (existing is not null)
+    var randomInt = random.Next(1, 5);
+    for (int i = 0; i < randomInt; i++)
     {
-        Console.WriteLine($"Trade image already exists: {existing.Id}");
-        return;
+        var image = new TradeImage
+        {
+            TradeId = trade.Id,
+            ImageURL = $"https://example.com/demo-trade-{i + 1}.png",
+            Notes = $"Demo trade screenshot placeholder {i + 1}",
+            UpdatedAt = DateTime.UtcNow
+        };
+
+        image.Id = await tradeImageRepository.CreateAsync(image);
+        Console.WriteLine($"Created trade image: {image.Id}");
     }
 
-    var tradeImage = new TradeImage
-    {
-        TradeId = tradeId,
-        ImageURL = "https://example.com/demo-trade.png",
-        Notes = "Demo trade screenshot placeholder",
-        UpdatedAt = DateTime.UtcNow
-    };
+    //await EnsureDemoTradeImageAsync(tradeImageRepository, trade.Id);
 
-    tradeImage.Id = await tradeImageRepository.CreateAsync(tradeImage);
-    Console.WriteLine($"Created trade image: {tradeImage.Id}");
+    return trade;
 }
 
 static string GetDefaultDebugDatabasePath()

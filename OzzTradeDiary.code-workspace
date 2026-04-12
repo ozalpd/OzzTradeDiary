@@ -14,6 +14,9 @@
       "path": "OzzTradeDiary.NET/OzzTradeDiary.SQLite"
     },
     {
+      "path": "OzzTradeDiary.NET/OzzTradeDiary.Tools.SeedDemoData"
+    },
+    {
       "path": "OzzTradeDiary.NET/OzzTradeDiary.WPF"
     },
     {

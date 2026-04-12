@@ -25,6 +25,9 @@ See [`CHANGELOG.md`](CHANGELOG.md) for release history.
 - `AppSettings` uses a debug-safe default data location: in `DEBUG` builds database and related app data resolve under repo-root `SampleData` (git-ignored), while release builds continue to use user app-data folders
 - Shared debug `SampleData` path resolution now lives in `AppSettings.part.cs` and is linked into `OzzTradeDiary.Tools.SeedDemoData` so the WPF app and seeding tool use the same default debug database path
 - `Scripts/SeedDemoData.bat` provides a convenient launcher for the demo-data seeding tool
+- `SeedDemoData` now generates a richer demo dataset across multiple popular crypto symbols with randomized trade values and multiple images per trade
+- Symbol creation in the seeder is dynamic based on ticker input (for example `DEMO:BTCUSD`, `DEMO:ETHUSD`)
+- Seeder workflow is reset-first for repeatable local debugging datasets
 - `Exchange.HasAnySymbol` is carried through the model, schema, repositories, seed data, localization, codegen, and maintenance UI for exchange/symbol linkage
 - `AppSettings.UiCulture` stores the user's preferred BCP-47 culture name (e.g. `"en-US"`, `"tr-TR"`); applied to `CurrentUICulture` and `CurrentCulture` in `App.OnStartup` before `MainWindow` is created — when empty the OS culture is used
 - `MainWindow` menu items are fully localized via `{x:Static i18n:ActionStrings.*}` and `{x:Static i18n:LocalizedStrings.*}`
@@ -180,6 +183,8 @@ At repository startup, initialization executes generated DDL scripts and applies
 
 - Seeding is idempotent and uses the inherited `SeedIfEmpty(...)` helper from `AbstractDatabaseRepository`.
 - Demo data for local debugging can be seeded with `OzzTradeDiary.Tools.SeedDemoData` or the convenience launcher `Scripts/SeedDemoData.bat`.
+- `SeedDemoData` generates demo symbols/trades/images for multiple crypto tickers with randomized values.
+- `Scripts/SeedDemoData.bat` is intended to reset the debug database before seeding so local demo runs are deterministic and clean.
 - Current generated seed scripts include:
   - `OzzTradeDiary.SQLite/DbScripts/Currencies-Data.sql`
   - `OzzTradeDiary.SQLite/DbScripts/Exchanges-Data.sql`

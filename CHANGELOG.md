@@ -12,6 +12,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - Added `AppSettings.part.cs` to hold shared debug `SampleData` path resolution logic.
 
 ### Changed
+- Demo seeding was expanded to generate data for a list of popular crypto symbols instead of a single hardcoded symbol.
+- `SeedDemoData` now creates symbols dynamically from ticker strings and generates randomized trade values and multiple images per trade.
+- Existing-demo checks were removed from the seeding flow so demo datasets are reseeded from scratch when run with reset.
+- Workspace/script flow was updated so `Scripts/SeedDemoData.bat` resets the debug database before seeding.
 - Bumped all project versions to `0.0.32` (`OzzTradeDiary`, `OzzTradeDiary.WPF`, `OzzTradeDiary.SQLite`, `OzzTradeDiary.i18n`).
 
 ## [0.0.31] - 2026-04-12
