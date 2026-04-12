@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.0.30] - 2026-04-12
+
+### Added
+- Added full CRUD SQLite repositories for `Trade`, `EntryOrder`, `StopLossOrder`, and `TakeProfitOrder`, including entity mapping support.
+
+### Changed
+- Updated generated SQL index definitions to improve query performance, with focus on `Trades` and `TradeImages` access patterns.
+- Data access structure in `TD.SQLite` was expanded and aligned for improved maintainability and efficiency.
+- Bumped all project versions to `0.0.30` (`OzzTradeDiary`, `OzzTradeDiary.WPF`, `OzzTradeDiary.SQLite`, `OzzTradeDiary.i18n`).
+
 ## [0.0.29] - 2026-04-05
 
 ### Changed

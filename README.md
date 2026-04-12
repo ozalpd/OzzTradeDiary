@@ -4,7 +4,7 @@ A Windows desktop trade journaling application for tracking trades across multip
 
 > **Status**: Pre-release development (no public release yet)
 > 
-> **Internal tracking versions**: `OzzTradeDiary` `0.0.29`, `OzzTradeDiary.WPF` `0.0.29`, `OzzTradeDiary.SQLite` `0.0.29`, `OzzTradeDiary.i18n` `0.0.29`
+> **Internal tracking versions**: `OzzTradeDiary` `0.0.30`, `OzzTradeDiary.WPF` `0.0.30`, `OzzTradeDiary.SQLite` `0.0.30`, `OzzTradeDiary.i18n` `0.0.30`
 
 ## Changelog
 
@@ -36,7 +36,9 @@ See [`CHANGELOG.md`](CHANGELOG.md) for release history.
 - `TD.Extensions.EnumExtension` shared helper in `OzzTradeDiary` for building enum value collections and reading localized `Display` attribute text for UI bindings across WPF and future platform frontends
 - Shared text helpers were moved from the WPF app into `OzzTradeDiary` so they can be reused by platform-agnostic and future UI projects
 - Generated SQLite schema includes `OrderType` for `EntryOrder`, `TakeProfitOrder`, and `StopLossOrder`
-- Repositories implemented: `Currency`, `Exchange`, `TradingAccount`, `Symbol`, `TradeImage`
+- Repositories implemented: `Currency`, `Exchange`, `TradingAccount`, `Symbol`, `Trade`, `TradeImage`, `EntryOrder`, `StopLossOrder`, `TakeProfitOrder`
+- Added full CRUD repository support and entity mapping for `Trade`, `EntryOrder`, `StopLossOrder`, and `TakeProfitOrder`
+- Generated SQL index definitions were updated for better query performance, especially in `Trades` and `TradeImages`
 - Repository implementations now share a generic base class, with minor `ModelValidator` cleanup and repository refactoring
 - SQLite insert/update repository paths now handle nullable values more reliably, persisting SQL `NULL` where appropriate
 - `Exchange` includes nullable `DefaultCurrency`, persisted in SQLite as SQL `NULL` when not set

@@ -1073,18 +1073,6 @@
     <Translation>Resim Yolu</Translation>
   </Vocab>
   <Vocab>
-    <Name>IUpdatedAt</Name>
-    <Translation>Değişiklik Tarihi</Translation>
-  </Vocab>
-  <Vocab>
-    <Name>IUpdatedAts</Name>
-    <Translation>Değişiklik Tarihleri</Translation>
-  </Vocab>
-  <Vocab>
-    <Name>IUpdatedAtsList</Name>
-    <Translation>Değişiklik Tarih Listesi</Translation>
-  </Vocab>
-  <Vocab>
     <Name>Import</Name>
     <Translation>İçe Al</Translation>
   </Vocab>
@@ -1111,6 +1099,18 @@
   <Vocab>
     <Name>IsPublished</Name>
     <Translation>Yayında</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>IUpdatedAt</Name>
+    <Translation>Değişiklik Tarihi</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>IUpdatedAts</Name>
+    <Translation>Değişiklik Tarihleri</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>IUpdatedAtsList</Name>
+    <Translation>Değişiklik Tarih Listesi</Translation>
   </Vocab>
   <Vocab>
     <Name>Lastname</Name>
@@ -1199,10 +1199,6 @@
   <Vocab>
     <Name>ModifierIp</Name>
     <Translation>Değiştiren IP</Translation>
-  </Vocab>
-  <Vocab>
-    <Name>UpdatedAt</Name>
-    <Translation>Değişiklik Tarihi</Translation>
   </Vocab>
   <Vocab>
     <Name>ModifyNr</Name>
@@ -1887,6 +1883,10 @@
   <Vocab>
     <Name>Update</Name>
     <Translation>Güncelle</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>UpdatedAt</Name>
+    <Translation>Değişiklik Tarihi</Translation>
   </Vocab>
   <Vocab>
     <Name>UserName</Name>

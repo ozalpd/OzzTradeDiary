@@ -1073,18 +1073,6 @@
     <Translation>Image URL</Translation>
   </Vocab>
   <Vocab>
-    <Name>IUpdatedAt</Name>
-    <Translation>IUpdated At</Translation>
-  </Vocab>
-  <Vocab>
-    <Name>IUpdatedAts</Name>
-    <Translation>IUpdated Ats</Translation>
-  </Vocab>
-  <Vocab>
-    <Name>IUpdatedAtsList</Name>
-    <Translation>IUpdated Ats List</Translation>
-  </Vocab>
-  <Vocab>
     <Name>Import</Name>
     <Translation>Import</Translation>
   </Vocab>
@@ -1111,6 +1099,18 @@
   <Vocab>
     <Name>IsPublished</Name>
     <Translation>Is Published</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>IUpdatedAt</Name>
+    <Translation>IUpdated At</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>IUpdatedAts</Name>
+    <Translation>IUpdated Ats</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>IUpdatedAtsList</Name>
+    <Translation>IUpdated Ats List</Translation>
   </Vocab>
   <Vocab>
     <Name>Lastname</Name>
@@ -1199,10 +1199,6 @@
   <Vocab>
     <Name>ModifierIp</Name>
     <Translation>Modifier Ip</Translation>
-  </Vocab>
-  <Vocab>
-    <Name>UpdatedAt</Name>
-    <Translation>Updated At</Translation>
   </Vocab>
   <Vocab>
     <Name>ModifyNr</Name>
@@ -1887,6 +1883,10 @@
   <Vocab>
     <Name>Update</Name>
     <Translation>Update</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>UpdatedAt</Name>
+    <Translation>Updated At</Translation>
   </Vocab>
   <Vocab>
     <Name>UserName</Name>

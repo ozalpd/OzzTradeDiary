@@ -4,7 +4,7 @@
 
 Early-stage development (pre-release, no public release yet).
 
-Internal tracking versions: `OzzTradeDiary` `0.0.29`, `OzzTradeDiary.WPF` `0.0.29`, `OzzTradeDiary.SQLite` `0.0.29`, `OzzTradeDiary.i18n` `0.0.29`.
+Internal tracking versions: `OzzTradeDiary` `0.0.30`, `OzzTradeDiary.WPF` `0.0.30`, `OzzTradeDiary.SQLite` `0.0.30`, `OzzTradeDiary.i18n` `0.0.30`.
 
 - **Changelog discipline**: Any behavior change (repository logic, initialization, seeding, schema generation impact, UI-visible behavior) must be recorded in `CHANGELOG.md`.
 
@@ -95,7 +95,7 @@ Internal tracking versions: `OzzTradeDiary` `0.0.29`, `OzzTradeDiary.WPF` `0.0.2
 - Use the `SingleColumnUpdate` property in `SqliteRepositoryGen.settings` to generate targeted single-column update methods (e.g. `UpdateHasAnySymbolAsync`).
 - SQLite date/time columns should use `TEXT` when the data is intended to preserve readable ISO-style values, and `UpdatedAt` columns should follow that convention in generated scripts.
 - SQLite repository code generation has its own settings file; keep repository regeneration aligned with `SqliteRepositoryGen.settings`.
-- Implemented repositories: `Currency`, `Exchange`, `TradingAccount`, `Symbol`, `TradeImage`; remaining repositories will be added
+- Implemented repositories: `Currency`, `Exchange`, `TradingAccount`, `Symbol`, `Trade`, `TradeImage`, `EntryOrder`, `StopLossOrder`, `TakeProfitOrder`; remaining repositories will be added
 - **Each model has a matching DDL file** in `OzzTradeDiary.SQLite/DbScripts` named `<ModelName>.sql`; optional seed files are named `<PluralTableName>-Data.sql`
 - DDL scripts in `DbScripts/` folder are **generated** by OzzCodeGen — do not edit manually
 - Seed scripts in `DbScripts/` (for example `<PluralTableName>-Data.sql`) are also generated artifacts — do not edit manually

@@ -8,12 +8,6 @@
       <Name>IPrimaryKey</Name>
       <Exclude>true</Exclude>
       <OverwriteExisting>false</OverwriteExisting>
-      <UseInheritance>false</UseInheritance>
-      <SchemaName>dbo</SchemaName>
-      <TableName>IPrimaryKeys</TableName>
-      <HasLogTable>false</HasLogTable>
-      <StoredProcGeneration>NoStoredProcedure</StoredProcGeneration>
-      <CustomStoredProcs>false</CustomStoredProcs>
       <Properties>
         <StorageColumnSetting>
           <Name>Id</Name>
@@ -29,18 +23,17 @@
           <DoNotLog>false</DoNotLog>
         </StorageColumnSetting>
       </Properties>
+      <UseInheritance>false</UseInheritance>
+      <SchemaName>dbo</SchemaName>
+      <TableName>IPrimaryKeys</TableName>
+      <HasLogTable>false</HasLogTable>
+      <StoredProcGeneration>NoStoredProcedure</StoredProcGeneration>
+      <CustomStoredProcs>false</CustomStoredProcs>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="StorageEntitySetting">
       <Name>IDisplayOrder</Name>
       <Exclude>true</Exclude>
       <OverwriteExisting>false</OverwriteExisting>
-      <InheritedEntity>IPrimaryKey</InheritedEntity>
-      <UseInheritance>false</UseInheritance>
-      <SchemaName>dbo</SchemaName>
-      <TableName>IDisplayOrders</TableName>
-      <HasLogTable>false</HasLogTable>
-      <StoredProcGeneration>NoStoredProcedure</StoredProcGeneration>
-      <CustomStoredProcs>false</CustomStoredProcs>
       <Properties>
         <StorageColumnSetting>
           <Name>DisplayOrder</Name>
@@ -56,18 +49,18 @@
           <DoNotLog>false</DoNotLog>
         </StorageColumnSetting>
       </Properties>
+      <InheritedEntity>IPrimaryKey</InheritedEntity>
+      <UseInheritance>false</UseInheritance>
+      <SchemaName>dbo</SchemaName>
+      <TableName>IDisplayOrders</TableName>
+      <HasLogTable>false</HasLogTable>
+      <StoredProcGeneration>NoStoredProcedure</StoredProcGeneration>
+      <CustomStoredProcs>false</CustomStoredProcs>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="StorageEntitySetting">
       <Name>IIsActive</Name>
       <Exclude>true</Exclude>
       <OverwriteExisting>false</OverwriteExisting>
-      <InheritedEntity>IDisplayOrder</InheritedEntity>
-      <UseInheritance>false</UseInheritance>
-      <SchemaName>dbo</SchemaName>
-      <TableName>IIsActives</TableName>
-      <HasLogTable>false</HasLogTable>
-      <StoredProcGeneration>NoStoredProcedure</StoredProcGeneration>
-      <CustomStoredProcs>false</CustomStoredProcs>
       <Properties>
         <StorageColumnSetting>
           <Name>IsActive</Name>
@@ -83,18 +76,19 @@
           <DoNotLog>false</DoNotLog>
         </StorageColumnSetting>
       </Properties>
+      <InheritedEntity>IDisplayOrder</InheritedEntity>
+      <UseInheritance>false</UseInheritance>
+      <SchemaName>dbo</SchemaName>
+      <TableName>IIsActives</TableName>
+      <HasLogTable>false</HasLogTable>
+      <StoredProcGeneration>NoStoredProcedure</StoredProcGeneration>
+      <CustomStoredProcs>false</CustomStoredProcs>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="StorageEntitySetting">
       <Name>IUpdatedAt</Name>
       <Exclude>true</Exclude>
       <OverwriteExisting>false</OverwriteExisting>
-      <InheritedEntity>IPrimaryKey</InheritedEntity>
-      <UseInheritance>false</UseInheritance>
-      <SchemaName>dbo</SchemaName>
-      <TableName>IUpdatedAts</TableName>
-      <HasLogTable>false</HasLogTable>
-      <StoredProcGeneration>NoStoredProcedure</StoredProcGeneration>
-      <CustomStoredProcs>false</CustomStoredProcs>
+      <UpdatedAtName>UpdatedAt</UpdatedAtName>
       <Properties>
         <StorageColumnSetting>
           <Name>UpdatedAt</Name>
@@ -105,23 +99,25 @@
           <Indexed>true</Indexed>
           <Unique>false</Unique>
           <SortDesc>true</SortDesc>
+          <CompositeIndexColumns>Id</CompositeIndexColumns>
           <Nullable>false</Nullable>
           <CheckIfAltered>false</CheckIfAltered>
           <DoNotLog>false</DoNotLog>
         </StorageColumnSetting>
       </Properties>
+      <InheritedEntity>IPrimaryKey</InheritedEntity>
+      <UseInheritance>false</UseInheritance>
+      <SchemaName>dbo</SchemaName>
+      <TableName>IUpdatedAts</TableName>
+      <HasLogTable>false</HasLogTable>
+      <StoredProcGeneration>NoStoredProcedure</StoredProcGeneration>
+      <CustomStoredProcs>false</CustomStoredProcs>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="StorageEntitySetting">
       <Name>ICreatedAt</Name>
       <Exclude>true</Exclude>
       <OverwriteExisting>false</OverwriteExisting>
-      <InheritedEntity>IPrimaryKey</InheritedEntity>
-      <UseInheritance>false</UseInheritance>
-      <SchemaName>dbo</SchemaName>
-      <TableName>ICreatedAts</TableName>
-      <HasLogTable>false</HasLogTable>
-      <StoredProcGeneration>NoStoredProcedure</StoredProcGeneration>
-      <CustomStoredProcs>false</CustomStoredProcs>
+      <CreatedAtName>CreatedAt</CreatedAtName>
       <Properties>
         <StorageColumnSetting>
           <Name>CreatedAt</Name>
@@ -137,18 +133,18 @@
           <DoNotLog>false</DoNotLog>
         </StorageColumnSetting>
       </Properties>
+      <InheritedEntity>IPrimaryKey</InheritedEntity>
+      <UseInheritance>false</UseInheritance>
+      <SchemaName>dbo</SchemaName>
+      <TableName>ICreatedAts</TableName>
+      <HasLogTable>false</HasLogTable>
+      <StoredProcGeneration>NoStoredProcedure</StoredProcGeneration>
+      <CustomStoredProcs>false</CustomStoredProcs>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="StorageEntitySetting">
       <Name>ITradeOrder</Name>
       <Exclude>true</Exclude>
       <OverwriteExisting>false</OverwriteExisting>
-      <InheritedEntity>IDisplayOrder</InheritedEntity>
-      <UseInheritance>false</UseInheritance>
-      <SchemaName>dbo</SchemaName>
-      <TableName>ITradeOrders</TableName>
-      <HasLogTable>false</HasLogTable>
-      <StoredProcGeneration>NoStoredProcedure</StoredProcGeneration>
-      <CustomStoredProcs>false</CustomStoredProcs>
       <Properties>
         <StorageColumnSetting>
           <Name>OrderType</Name>
@@ -255,18 +251,18 @@
           <DoNotLog>false</DoNotLog>
         </StorageColumnSetting>
       </Properties>
+      <InheritedEntity>IDisplayOrder</InheritedEntity>
+      <UseInheritance>false</UseInheritance>
+      <SchemaName>dbo</SchemaName>
+      <TableName>ITradeOrders</TableName>
+      <HasLogTable>false</HasLogTable>
+      <StoredProcGeneration>NoStoredProcedure</StoredProcGeneration>
+      <CustomStoredProcs>false</CustomStoredProcs>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="StorageEntitySetting">
       <Name>Exchange</Name>
       <Exclude>false</Exclude>
       <OverwriteExisting>true</OverwriteExisting>
-      <InheritedEntity>IIsActive</InheritedEntity>
-      <UseInheritance>false</UseInheritance>
-      <SchemaName>dbo</SchemaName>
-      <TableName>Exchanges</TableName>
-      <HasLogTable>false</HasLogTable>
-      <StoredProcGeneration>NoStoredProcedure</StoredProcGeneration>
-      <CustomStoredProcs>false</CustomStoredProcs>
       <Properties>
         <StorageColumnSetting>
           <Name>ExchangeName</Name>
@@ -321,18 +317,18 @@
           <DoNotLog>false</DoNotLog>
         </StorageColumnSetting>
       </Properties>
+      <InheritedEntity>IIsActive</InheritedEntity>
+      <UseInheritance>false</UseInheritance>
+      <SchemaName>dbo</SchemaName>
+      <TableName>Exchanges</TableName>
+      <HasLogTable>false</HasLogTable>
+      <StoredProcGeneration>NoStoredProcedure</StoredProcGeneration>
+      <CustomStoredProcs>false</CustomStoredProcs>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="StorageEntitySetting">
       <Name>TradingAccount</Name>
       <Exclude>false</Exclude>
       <OverwriteExisting>true</OverwriteExisting>
-      <InheritedEntity>IIsActive</InheritedEntity>
-      <UseInheritance>false</UseInheritance>
-      <SchemaName>dbo</SchemaName>
-      <TableName>TradingAccounts</TableName>
-      <HasLogTable>false</HasLogTable>
-      <StoredProcGeneration>NoStoredProcedure</StoredProcGeneration>
-      <CustomStoredProcs>false</CustomStoredProcs>
       <Properties>
         <StorageColumnSetting>
           <Name>Title</Name>
@@ -375,18 +371,18 @@
           <DoNotLog>false</DoNotLog>
         </StorageColumnSetting>
       </Properties>
+      <InheritedEntity>IIsActive</InheritedEntity>
+      <UseInheritance>false</UseInheritance>
+      <SchemaName>dbo</SchemaName>
+      <TableName>TradingAccounts</TableName>
+      <HasLogTable>false</HasLogTable>
+      <StoredProcGeneration>NoStoredProcedure</StoredProcGeneration>
+      <CustomStoredProcs>false</CustomStoredProcs>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="StorageEntitySetting">
       <Name>Currency</Name>
       <Exclude>false</Exclude>
       <OverwriteExisting>true</OverwriteExisting>
-      <InheritedEntity>IIsActive</InheritedEntity>
-      <UseInheritance>false</UseInheritance>
-      <SchemaName>dbo</SchemaName>
-      <TableName>Currencies</TableName>
-      <HasLogTable>false</HasLogTable>
-      <StoredProcGeneration>NoStoredProcedure</StoredProcGeneration>
-      <CustomStoredProcs>false</CustomStoredProcs>
       <Properties>
         <StorageColumnSetting>
           <Name>CurrencyTicker</Name>
@@ -415,18 +411,18 @@
           <DoNotLog>false</DoNotLog>
         </StorageColumnSetting>
       </Properties>
+      <InheritedEntity>IIsActive</InheritedEntity>
+      <UseInheritance>false</UseInheritance>
+      <SchemaName>dbo</SchemaName>
+      <TableName>Currencies</TableName>
+      <HasLogTable>false</HasLogTable>
+      <StoredProcGeneration>NoStoredProcedure</StoredProcGeneration>
+      <CustomStoredProcs>false</CustomStoredProcs>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="StorageEntitySetting">
       <Name>Symbol</Name>
       <Exclude>false</Exclude>
       <OverwriteExisting>false</OverwriteExisting>
-      <InheritedEntity>IIsActive</InheritedEntity>
-      <UseInheritance>false</UseInheritance>
-      <SchemaName>dbo</SchemaName>
-      <TableName>Symbols</TableName>
-      <HasLogTable>false</HasLogTable>
-      <StoredProcGeneration>NoStoredProcedure</StoredProcGeneration>
-      <CustomStoredProcs>false</CustomStoredProcs>
       <Properties>
         <StorageColumnSetting>
           <Name>Ticker</Name>
@@ -521,11 +517,34 @@
           <DoNotLog>false</DoNotLog>
         </StorageColumnSetting>
       </Properties>
+      <InheritedEntity>IIsActive</InheritedEntity>
+      <UseInheritance>false</UseInheritance>
+      <SchemaName>dbo</SchemaName>
+      <TableName>Symbols</TableName>
+      <HasLogTable>false</HasLogTable>
+      <StoredProcGeneration>NoStoredProcedure</StoredProcGeneration>
+      <CustomStoredProcs>false</CustomStoredProcs>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="StorageEntitySetting">
       <Name>EntryOrder</Name>
       <Exclude>false</Exclude>
       <OverwriteExisting>false</OverwriteExisting>
+      <Properties>
+        <StorageColumnSetting>
+          <Name>TradeId</Name>
+          <Exclude>false</Exclude>
+          <DataType>INTEGER</DataType>
+          <Length>0</Length>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>true</Indexed>
+          <Unique>false</Unique>
+          <SortDesc>false</SortDesc>
+          <Nullable>false</Nullable>
+          <CheckIfAltered>false</CheckIfAltered>
+          <DoNotLog>false</DoNotLog>
+          <ForeignKeyTable>Trades</ForeignKeyTable>
+        </StorageColumnSetting>
+      </Properties>
       <InheritedEntity>ITradeOrder</InheritedEntity>
       <UseInheritance>false</UseInheritance>
       <SchemaName>dbo</SchemaName>
@@ -533,6 +552,11 @@
       <HasLogTable>false</HasLogTable>
       <StoredProcGeneration>NoStoredProcedure</StoredProcGeneration>
       <CustomStoredProcs>false</CustomStoredProcs>
+    </BaseEntitySetting>
+    <BaseEntitySetting xsi:type="StorageEntitySetting">
+      <Name>TakeProfitOrder</Name>
+      <Exclude>false</Exclude>
+      <OverwriteExisting>false</OverwriteExisting>
       <Properties>
         <StorageColumnSetting>
           <Name>TradeId</Name>
@@ -549,11 +573,6 @@
           <ForeignKeyTable>Trades</ForeignKeyTable>
         </StorageColumnSetting>
       </Properties>
-    </BaseEntitySetting>
-    <BaseEntitySetting xsi:type="StorageEntitySetting">
-      <Name>TakeProfitOrder</Name>
-      <Exclude>false</Exclude>
-      <OverwriteExisting>false</OverwriteExisting>
       <InheritedEntity>ITradeOrder</InheritedEntity>
       <UseInheritance>false</UseInheritance>
       <SchemaName>dbo</SchemaName>
@@ -561,34 +580,11 @@
       <HasLogTable>false</HasLogTable>
       <StoredProcGeneration>NoStoredProcedure</StoredProcGeneration>
       <CustomStoredProcs>false</CustomStoredProcs>
-      <Properties>
-        <StorageColumnSetting>
-          <Name>TradeId</Name>
-          <Exclude>false</Exclude>
-          <DataType>INTEGER</DataType>
-          <Length>0</Length>
-          <PrimaryKey>false</PrimaryKey>
-          <Indexed>true</Indexed>
-          <Unique>false</Unique>
-          <SortDesc>false</SortDesc>
-          <Nullable>false</Nullable>
-          <CheckIfAltered>false</CheckIfAltered>
-          <DoNotLog>false</DoNotLog>
-          <ForeignKeyTable>Trades</ForeignKeyTable>
-        </StorageColumnSetting>
-      </Properties>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="StorageEntitySetting">
       <Name>StopLossOrder</Name>
       <Exclude>false</Exclude>
       <OverwriteExisting>false</OverwriteExisting>
-      <InheritedEntity>ITradeOrder</InheritedEntity>
-      <UseInheritance>false</UseInheritance>
-      <SchemaName>dbo</SchemaName>
-      <TableName>StopLossOrders</TableName>
-      <HasLogTable>false</HasLogTable>
-      <StoredProcGeneration>NoStoredProcedure</StoredProcGeneration>
-      <CustomStoredProcs>false</CustomStoredProcs>
       <Properties>
         <StorageColumnSetting>
           <Name>TradeId</Name>
@@ -599,6 +595,7 @@
           <Indexed>true</Indexed>
           <Unique>false</Unique>
           <SortDesc>false</SortDesc>
+          <CompositeIndexColumns />
           <Nullable>false</Nullable>
           <CheckIfAltered>false</CheckIfAltered>
           <DoNotLog>false</DoNotLog>
@@ -618,18 +615,19 @@
           <DoNotLog>false</DoNotLog>
         </StorageColumnSetting>
       </Properties>
+      <InheritedEntity>ITradeOrder</InheritedEntity>
+      <UseInheritance>false</UseInheritance>
+      <SchemaName>dbo</SchemaName>
+      <TableName>StopLossOrders</TableName>
+      <HasLogTable>false</HasLogTable>
+      <StoredProcGeneration>NoStoredProcedure</StoredProcGeneration>
+      <CustomStoredProcs>false</CustomStoredProcs>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="StorageEntitySetting">
       <Name>TradeImage</Name>
       <Exclude>false</Exclude>
       <OverwriteExisting>true</OverwriteExisting>
-      <InheritedEntity>IUpdatedAt</InheritedEntity>
-      <UseInheritance>false</UseInheritance>
-      <SchemaName>dbo</SchemaName>
-      <TableName>TradeImages</TableName>
-      <HasLogTable>false</HasLogTable>
-      <StoredProcGeneration>NoStoredProcedure</StoredProcGeneration>
-      <CustomStoredProcs>false</CustomStoredProcs>
+      <UpdatedAtName>UpdatedAt</UpdatedAtName>
       <Properties>
         <StorageColumnSetting>
           <Name>TradeId</Name>
@@ -640,6 +638,7 @@
           <Indexed>true</Indexed>
           <Unique>false</Unique>
           <SortDesc>false</SortDesc>
+          <CompositeIndexColumns>UpdatedAt DESC</CompositeIndexColumns>
           <Nullable>true</Nullable>
           <CheckIfAltered>false</CheckIfAltered>
           <DoNotLog>false</DoNotLog>
@@ -672,18 +671,19 @@
           <DoNotLog>false</DoNotLog>
         </StorageColumnSetting>
       </Properties>
+      <InheritedEntity>IUpdatedAt</InheritedEntity>
+      <UseInheritance>false</UseInheritance>
+      <SchemaName>dbo</SchemaName>
+      <TableName>TradeImages</TableName>
+      <HasLogTable>false</HasLogTable>
+      <StoredProcGeneration>NoStoredProcedure</StoredProcGeneration>
+      <CustomStoredProcs>false</CustomStoredProcs>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="StorageEntitySetting">
       <Name>Trade</Name>
       <Exclude>false</Exclude>
       <OverwriteExisting>true</OverwriteExisting>
-      <InheritedEntity>IUpdatedAt</InheritedEntity>
-      <UseInheritance>false</UseInheritance>
-      <SchemaName>dbo</SchemaName>
-      <TableName>Trades</TableName>
-      <HasLogTable>false</HasLogTable>
-      <StoredProcGeneration>NoStoredProcedure</StoredProcGeneration>
-      <CustomStoredProcs>false</CustomStoredProcs>
+      <UpdatedAtName>UpdatedAt</UpdatedAtName>
       <Properties>
         <StorageColumnSetting>
           <Name>TradingAccountId</Name>
@@ -694,6 +694,7 @@
           <Indexed>true</Indexed>
           <Unique>false</Unique>
           <SortDesc>false</SortDesc>
+          <CompositeIndexColumns>UpdatedAt DESC</CompositeIndexColumns>
           <Nullable>false</Nullable>
           <CheckIfAltered>false</CheckIfAltered>
           <DoNotLog>false</DoNotLog>
@@ -708,6 +709,7 @@
           <Indexed>true</Indexed>
           <Unique>false</Unique>
           <SortDesc>false</SortDesc>
+          <CompositeIndexColumns>UpdatedAt DESC</CompositeIndexColumns>
           <Nullable>false</Nullable>
           <CheckIfAltered>false</CheckIfAltered>
           <DoNotLog>false</DoNotLog>
@@ -831,6 +833,13 @@
           <DoNotLog>false</DoNotLog>
         </StorageColumnSetting>
       </Properties>
+      <InheritedEntity>IUpdatedAt</InheritedEntity>
+      <UseInheritance>false</UseInheritance>
+      <SchemaName>dbo</SchemaName>
+      <TableName>Trades</TableName>
+      <HasLogTable>false</HasLogTable>
+      <StoredProcGeneration>NoStoredProcedure</StoredProcGeneration>
+      <CustomStoredProcs>false</CustomStoredProcs>
     </BaseEntitySetting>
   </EntitySettings>
   <RenderAllEntities>false</RenderAllEntities>
