@@ -3,12 +3,10 @@ using System.Text.Json;
 
 namespace TD.WPF.Models;
 
-internal class AppSettings
+public partial class AppSettings
 {
     public AppSettings() { }
 
-    private static AppSettings? _instance;
-    private static readonly object _syncRoot = new();
 
     /// <summary>
     /// Gets or sets a value indicating whether automatic backups are enabled.
@@ -64,33 +62,11 @@ internal class AppSettings
     }
     string _backupDir = string.Empty;
 
-    /// <summary>
-    /// Gets or sets the file path to the database used by the application. If the path is not set, a default path
-    /// is generated.
-    /// </summary>
-    /// <remarks>The database path is automatically created if it does not exist when accessed. The
-    /// default path is located in the application's default database folder and is named 'trades.db'.</remarks>
-    public string DatabasePath
-    {
-        get
-        {
-            if (string.IsNullOrWhiteSpace(_dbPath))
-            {
-                _dbPath = Path.Combine(GetDefaultDatabaseFolderPath(), "trades.db");
-            }
+    private static string GetDefaultBackupFolderPath() => Path.Combine(
+        Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
+        "OzzTradeDiary",
+        "BackUp");
 
-            var dbDirPath = Path.GetDirectoryName(_dbPath);
-            if (!string.IsNullOrWhiteSpace(dbDirPath) && !Directory.Exists(dbDirPath))
-            {
-                Directory.CreateDirectory(dbDirPath);
-            }
-
-            return _dbPath;
-        }
-
-        set => _dbPath = value;
-    }
-    string _dbPath = string.Empty;
 
     /// <summary>
     /// Gets or sets the time of the last backup in Coordinated Universal Time (UTC).
@@ -139,107 +115,6 @@ internal class AppSettings
     /// </summary>
     /// <remarks>When empty, the operating system's current culture is used.</remarks>
     public string UiCulture { get; set; } = string.Empty;
-
-
-    private static string GetDefaultBackupFolderPath() => Path.Combine(
-        Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
-        "OzzTradeDiary",
-        "BackUp");
-
-    private static string GetDefaultDatabaseFolderPath()
-    {
-#if DEBUG
-        var sampleDataPath = TryGetDebugSampleDataFolderPath();
-        if (!string.IsNullOrWhiteSpace(sampleDataPath))
-        {
-            return sampleDataPath;
-        }
-#endif
-
-        string dbFolderPath = Path.Combine(
-            Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
-            "OzzTradeDiary");
-        return dbFolderPath;
-    }
-
-    private static string? TryGetDebugSampleDataFolderPath()
-    {
-        var current = new DirectoryInfo(AppContext.BaseDirectory);
-        while (current is not null)
-        {
-            var hasGitFolder = Directory.Exists(Path.Combine(current.FullName, ".git"));
-            var hasSolution = File.Exists(Path.Combine(current.FullName, "OzzTradeDiary.slnx"));
-
-            if (hasGitFolder || hasSolution)
-            {
-                return Path.Combine(current.FullName, "SampleData");
-            }
-
-            current = current.Parent;
-        }
-
-        return null;
-    }
-
-    public string GetDatabaseFolderPath() => Path.GetDirectoryName(DatabasePath) ?? string.Empty;
-
-    public static AppSettings GetAppSettings()
-    {
-        if (_instance is not null)
-        {
-            return _instance;
-        }
-
-        lock (_syncRoot)
-        {
-            if (_instance is not null)
-            {
-                return _instance;
-            }
-
-            var settingsFilePath = GetSettingsFilePath();
-            if (File.Exists(settingsFilePath))
-            {
-                var settingsJson = File.ReadAllText(settingsFilePath);
-                if (!string.IsNullOrWhiteSpace(settingsJson))
-                {
-                    try
-                    {
-                        _instance = JsonSerializer.Deserialize<AppSettings>(settingsJson);
-                    }
-                    catch (JsonException)
-                    {
-                    }
-                    catch (NotSupportedException)
-                    {
-                    }
-                }
-            }
-
-            _instance ??= new AppSettings();
-            return _instance;
-        }
-    }
-
-    private static string GetSettingsFilePath()
-    {
-
-#if DEBUG
-        var sampleDataPath = TryGetDebugSampleDataFolderPath();
-        if (!string.IsNullOrWhiteSpace(sampleDataPath))
-        {
-            Directory.CreateDirectory(sampleDataPath);
-            return Path.Combine(sampleDataPath, settingsFileName);
-        }
-#endif
-        var settingsFolder = Path.Combine(
-        Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
-            "OzzTradeDiary");
-        Directory.CreateDirectory(settingsFolder);
-
-        return Path.Combine(settingsFolder, settingsFileName);
-    }
-    private static string settingsFileName= "tdsettings.json";
 
 
     public void Save()

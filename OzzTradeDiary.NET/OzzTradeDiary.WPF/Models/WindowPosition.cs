@@ -7,7 +7,7 @@ using System.Xml.Serialization;
 namespace TD.WPF.Models;
 
 [SupportedOSPlatform("windows")]
-internal class WindowPosition
+public class WindowPosition
 {
     public double Top { get; set; }
     public double Left { get; set; }

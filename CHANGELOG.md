@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.0.32] - 2026-04-12
+
+### Added
+- Added `OzzTradeDiary.Tools.SeedDemoData`, a small console tool for seeding demo data into the debug `SampleData\trades.db` SQLite database. Supports `--reset`, `--db <path>`, and defaults to the repo-root `SampleData` path.
+- Added `Scripts/SeedDemoData.bat` as a convenience launcher for the demo-data seeding tool.
+- Added `AppSettings.part.cs` to hold shared debug `SampleData` path resolution logic.
+
+### Changed
+- Bumped all project versions to `0.0.32` (`OzzTradeDiary`, `OzzTradeDiary.WPF`, `OzzTradeDiary.SQLite`, `OzzTradeDiary.i18n`).
+
 ## [0.0.31] - 2026-04-12
 
 ### Changed

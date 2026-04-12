@@ -4,7 +4,7 @@
 
 Early-stage development (pre-release, no public release yet).
 
-Internal tracking versions: `OzzTradeDiary` `0.0.31`, `OzzTradeDiary.WPF` `0.0.31`, `OzzTradeDiary.SQLite` `0.0.31`, `OzzTradeDiary.i18n` `0.0.31`.
+Internal tracking versions: `OzzTradeDiary` `0.0.32`, `OzzTradeDiary.WPF` `0.0.32`, `OzzTradeDiary.SQLite` `0.0.32`, `OzzTradeDiary.i18n` `0.0.32`.
 
 - **Changelog discipline**: Any behavior change (repository logic, initialization, seeding, schema generation impact, UI-visible behavior) must be recorded in `CHANGELOG.md`.
 
@@ -138,6 +138,8 @@ Internal tracking versions: `OzzTradeDiary` `0.0.31`, `OzzTradeDiary.WPF` `0.0.3
 - **Window icons**: Use `WindowExtensions.SetIconFromGeometryResource(string geometryResourceKey, string fillColor, int size = 16)` (in `TD.WPF.Extensions`) to render a Bootstrap Icon geometry as a window title bar/taskbar icon. Example: `this.SetIconFromGeometryResource("gear-wide-connected", "#93191C");`
 - **Window state**: DPI-aware multi-monitor positioning via WinAPI (`WindowPosition`)
 - **Database path**: In `DEBUG` builds, default data paths should resolve under repo-root `SampleData` (git-ignored) to avoid touching user profile data; in non-debug builds the default remains user app-data (`{LocalApplicationData}/OzzTradeDiary`).
+- **Shared partial reuse**: When multiple projects need the same non-generated implementation detail (for example debug `SampleData` path discovery), prefer extracting it into a partial file such as `AppSettings.part.cs` and linking that file into the consuming projects.
+- **Developer scripts**: Put developer convenience launchers in the repo-root `Scripts/` folder (for example `Scripts/SeedDemoData.bat`) instead of scattering them at the solution root.
 - **Exchange symbol flag**: `Exchange.HasAnySymbol` is the canonical persisted flag for whether an exchange has linked symbols; use it in UI/repository logic instead of recalculating the state when the data is already loaded.
 
 ## Key Entities
