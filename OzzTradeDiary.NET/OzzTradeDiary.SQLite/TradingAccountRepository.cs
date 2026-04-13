@@ -18,10 +18,10 @@ namespace TD.SQLite
     public partial class TradingAccountRepository : AbstractDatabaseRepository<TradingAccount>, ITradingAccountRepository
     {
         public TradingAccountRepository(string databasePath
-                               , IExchangeRepository? exchangeRepository = null) : base(databasePath, "TradingAccounts")
+                               , IExchangeRepository? exchangeRepository = null) : base(databasePath, "TradingAccounts") 
         {
             _selectStatement = $"SELECT {string.Join(", ", ColumnNames)} FROM {_tableName}";
-            _exchangeRepository = exchangeRepository ?? new ExchangeRepository(databasePath, tradingAccountRepository: this);
+            _exchangeRepository = exchangeRepository ?? new ExchangeRepository(databasePath);
             InitializeDatabase();
         }
         private readonly string _selectStatement;
@@ -92,7 +92,7 @@ namespace TD.SQLite
 
             return result;
         }
-
+        
 
         public async Task<TradingAccount?> GetByIdAsync(int? id)
         {
@@ -111,7 +111,7 @@ namespace TD.SQLite
 
             var tradingAccount = MapTradingAccount(reader);
             await LoadExchangeAsync(tradingAccount);
-
+            
             OnLoaded(tradingAccount);
             return tradingAccount;
         }
@@ -133,7 +133,7 @@ namespace TD.SQLite
 
             var tradingAccount = MapTradingAccount(reader);
             await LoadExchangeAsync(tradingAccount);
-
+            
             OnLoaded(tradingAccount);
             return tradingAccount;
         }
@@ -157,7 +157,7 @@ namespace TD.SQLite
             command.CommandText = @$"INSERT INTO {_tableName} ({string.Join(", ", ColumnNames[1..])})
             VALUES (@title, @exchangeId, @notes, @displayOrder, @isActive);
             SELECT last_insert_rowid();";
-
+            
             command.Parameters.AddWithValue("@title", tradingAccount.Title);
             command.Parameters.AddWithValue("@exchangeId", tradingAccount.ExchangeId);
             AddNullableTextParameter(command, "@notes", tradingAccount.Notes);
@@ -165,7 +165,7 @@ namespace TD.SQLite
             command.Parameters.AddWithValue("@isActive", tradingAccount.IsActive ? 1 : 0);
 
             var id = Convert.ToInt32((long)(await command.ExecuteScalarAsync() ?? 0));
-
+            
             await _metadataRepository.SaveLastUpdateUtcAsync(connection);
             ClearRecordCountCache();
             tradingAccount.Id = id;
@@ -206,10 +206,10 @@ namespace TD.SQLite
 
             existingTradingAccount = await GetByIdAsync(tradingAccount.Id);
             bool noChanges = existingTradingAccount != null
-                          && existingTradingAccount.Title == tradingAccount.Title
-                          && existingTradingAccount.Notes == tradingAccount.Notes
-                          && existingTradingAccount.DisplayOrder == tradingAccount.DisplayOrder
-                          && existingTradingAccount.IsActive == tradingAccount.IsActive;
+                          && existingTradingAccount.Title == tradingAccount.Title 
+                          && existingTradingAccount.Notes == tradingAccount.Notes 
+                          && existingTradingAccount.DisplayOrder == tradingAccount.DisplayOrder 
+                          && existingTradingAccount.IsActive == tradingAccount.IsActive; 
 
             if (noChanges)
                 return false;
@@ -236,7 +236,7 @@ namespace TD.SQLite
                 await _metadataRepository.SaveLastUpdateUtcAsync(connection);
                 OnUpdated(tradingAccount);
             }
-
+            
             return affectedRows > 0;
         }
         partial void OnUpdated(TradingAccount tradingAccount);
@@ -252,12 +252,12 @@ namespace TD.SQLite
         {
             var tradingAccount = new TradingAccount
             {
-                Id = reader.GetInt32(ColNrs.Id),
-                Title = reader.GetString(ColNrs.Title),
-                ExchangeId = reader.GetInt32(ColNrs.ExchangeId),
-                Notes = reader.IsDBNull(ColNrs.Notes) ? null : reader.GetString(ColNrs.Notes),
-                DisplayOrder = reader.GetInt32(ColNrs.DisplayOrder),
-                IsActive = reader.GetInt64(ColNrs.IsActive) == 1
+                Id = reader.GetInt32(ColNrs.Id), 
+                Title = reader.GetString(ColNrs.Title), 
+                ExchangeId = reader.GetInt32(ColNrs.ExchangeId), 
+                Notes = reader.IsDBNull(ColNrs.Notes) ? null : reader.GetString(ColNrs.Notes), 
+                DisplayOrder = reader.GetInt32(ColNrs.DisplayOrder), 
+                IsActive = reader.GetInt64(ColNrs.IsActive) == 1 
 
             };
 
@@ -275,12 +275,12 @@ namespace TD.SQLite
         }
 
         public readonly string[] ColumnNames = new[] {
-            "Id",
-            "Title",
-            "ExchangeId",
-            "Notes",
-            "DisplayOrder",
-            "IsActive"
+            "Id", 
+            "Title", 
+            "ExchangeId", 
+            "Notes", 
+            "DisplayOrder", 
+            "IsActive" 
         };
     }
 

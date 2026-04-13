@@ -18,12 +18,12 @@ namespace TD.SQLite
     public partial class TradeRepository : AbstractDatabaseRepository<Trade>, ITradeRepository
     {
         public TradeRepository(string databasePath
-                               ,ITradingAccountRepository? tradingAccountRepository = null 
-                               ,ISymbolRepository? symbolRepository = null 
-                               ,IEntryOrderRepository? entryOrderRepository = null 
-                               ,ITakeProfitOrderRepository? takeProfitOrderRepository = null 
-                               ,IStopLossOrderRepository? stopLossOrderRepository = null 
-                               ,ITradeImageRepository? tradeImageRepository = null) : base(databasePath, "Trades") 
+                               , ITradingAccountRepository? tradingAccountRepository = null 
+                               , ISymbolRepository? symbolRepository = null 
+                               , IEntryOrderRepository? entryOrderRepository = null 
+                               , ITakeProfitOrderRepository? takeProfitOrderRepository = null 
+                               , IStopLossOrderRepository? stopLossOrderRepository = null 
+                               , ITradeImageRepository? tradeImageRepository = null) : base(databasePath, "Trades") 
         {
             _selectStatement = $"SELECT {string.Join(", ", ColumnNames)} FROM {_tableName}";
             _tradingAccountRepository = tradingAccountRepository ?? new TradingAccountRepository(databasePath);

@@ -4,7 +4,7 @@
 
 Early-stage development (pre-release, no public release yet).
 
-Internal tracking versions: `OzzTradeDiary` `0.0.33`, `OzzTradeDiary.WPF` `0.0.33`, `OzzTradeDiary.SQLite` `0.0.33`, `OzzTradeDiary.i18n` `0.0.33`.
+Internal tracking versions: `OzzTradeDiary` `0.0.34`, `OzzTradeDiary.WPF` `0.0.34`, `OzzTradeDiary.SQLite` `0.0.34`, `OzzTradeDiary.i18n` `0.0.34`.
 
 - **Changelog discipline**: Any behavior change (repository logic, initialization, seeding, schema generation impact, UI-visible behavior) must be recorded in `CHANGELOG.md`.
 
@@ -100,6 +100,8 @@ Internal tracking versions: `OzzTradeDiary` `0.0.33`, `OzzTradeDiary.WPF` `0.0.3
 - SQLite repository code generation has its own settings file; keep repository regeneration aligned with `SqliteRepositoryGen.settings`.
 - `Trade` navigation properties may be generated with `AutoLoad=true`; in that case `TradeRepository.OnLoaded` is responsible for populating related collections through injected repositories.
 - `Exchange` navigation collections may be generated with `AutoLoad=true`; in that case `ExchangeRepository` should asynchronously populate `Symbols` and `TradingAccounts` through injected repositories.
+- `ExchangeRepository` should receive dependent repositories (such as `SymbolRepository` and `TradingAccountRepository`) via constructor injection instead of creating/managing those dependencies internally.
+- Keep initialization ownership explicit: avoid re-initializing `TradingAccountRepository` inside `ExchangeRepository`; construct and pass dependencies from the caller/composition root.
 - Keep `Trade.OrderQuantity` and `Trade.FilledQuantity` aligned across repository mapping, validation, and SQL schema generation.
 - Implemented repositories: `Currency`, `Exchange`, `TradingAccount`, `Symbol`, `Trade`, `TradeImage`, `EntryOrder`, `StopLossOrder`, `TakeProfitOrder`; remaining repositories will be added
 - **Each model has a matching DDL file** in `OzzTradeDiary.SQLite/DbScripts` named `<ModelName>.sql`; optional seed files are named `<PluralTableName>-Data.sql`

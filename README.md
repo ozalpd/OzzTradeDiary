@@ -4,7 +4,7 @@ A Windows desktop trade journaling application for tracking trades across multip
 
 > **Status**: Pre-release development (no public release yet)
 > 
-> **Internal tracking versions**: `OzzTradeDiary` `0.0.33`, `OzzTradeDiary.WPF` `0.0.33`, `OzzTradeDiary.SQLite` `0.0.33`, `OzzTradeDiary.i18n` `0.0.33`
+> **Internal tracking versions**: `OzzTradeDiary` `0.0.34`, `OzzTradeDiary.WPF` `0.0.34`, `OzzTradeDiary.SQLite` `0.0.34`, `OzzTradeDiary.i18n` `0.0.34`
 
 ## Changelog
 
@@ -24,7 +24,9 @@ See [`CHANGELOG.md`](CHANGELOG.md) for release history.
 - DPI-aware multi-monitor window positioning
 - `AppSettings` uses a debug-safe default data location: in `DEBUG` builds database and related app data resolve under repo-root `SampleData` (git-ignored), while release builds continue to use user app-data folders
 - Shared debug `SampleData` path resolution now lives in `AppSettings.part.cs` and is linked into `OzzTradeDiary.Tools.SeedDemoData` so the WPF app and seeding tool use the same default debug database path
-- `Scripts/SeedDemoData.bat` and `Scripts/Reset-and-SeedDemoData.bat` provide a convenient launcher for the demo-data seeding tool
+- `Scripts/SeedDemoData.bat` provides a convenient launcher for the demo-data seeding tool
+- `ExchangeRepository` now receives `SymbolRepository` and `TradingAccountRepository` through constructor injection to support explicit navigation-loading dependencies
+- `TradingAccountRepository` initialization is no longer owned by `ExchangeRepository` and is managed by the composition root/caller
 - `Exchange` now exposes navigation collections (`Symbols`, `TradingAccounts`) and `ExchangeRepository` can async-load them for richer repository-driven data composition
 - `Trade` now includes `OrderQuantity` and `FilledQuantity` fields, with matching repository mapping and schema support
 - `SeedDemoData` now generates richer crypto demo trades using weighted direction and more realistic quantity values

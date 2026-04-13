@@ -37,7 +37,7 @@ static async Task SeedDemoDataAsync(string databasePath)
     var tickers = new[] { "BTCUSD", "ETHUSD", "SOLUSD", "AVAXUSD", "XRPUSD", "ETCUSD", "DOGEUSD", "BNBUSD", "SUIUSD", "ZROUSD", //← Top 10 popular cryptos
                           "APTUSD", "ENAUSD", "ONDOUSD", "EIGENUSD", "SWELLUSD", "PENGUUSD", "POPCATUSD", "LUNAUSD" };
 
-    var tradingAccount = await EnsureDemoTradingAccountAsync(tradingAccountRepository, exchange.Id);
+    var tradingAccount = await EnsureDemoTradingAccountAsync(tradingAccountRepository, exchange);
     for (int i = 0; i < tickers.Length; i++)
     {
         var symbol = await EnsureDemoSymbolAsync(symbolRepository, exchange, tickers[i]);
@@ -65,7 +65,10 @@ static async Task SeedDemoDataAsync(string databasePath)
         if (symbolSet == null || symbolSet.Count == 0)
             return false;
 
-        var tradingAccount = exchange.TradingAccounts?.FirstOrDefault() ?? await EnsureDemoTradingAccountAsync(tradingAccountRepository, exchange.Id);
+        var tradingAccount = exchange.TradingAccounts?.FirstOrDefault();
+        if (tradingAccount == null)
+            tradingAccount = await EnsureDemoTradingAccountAsync(tradingAccountRepository, exchange);
+
         int tradesCount = 15; // max 15 trades per symbol
         foreach (var symbol in symbolSet)
         {
@@ -79,6 +82,7 @@ static async Task SeedDemoDataAsync(string databasePath)
             tradesCount = tradesCount < 3 ? 3 : tradesCount;
         }
 
+        Console.WriteLine($"Seeded trades for exchange: {exchange.ExchangeCode}, trading account: {tradingAccount.Title}");
         return true;
     }
 }
@@ -136,9 +140,9 @@ static async Task<Symbol> EnsureDemoSymbolAsync(ISymbolRepository symbolReposito
     return symbol;
 }
 
-static async Task<TradingAccount> EnsureDemoTradingAccountAsync(ITradingAccountRepository tradingAccountRepository, int exchangeId)
+static async Task<TradingAccount> EnsureDemoTradingAccountAsync(ITradingAccountRepository tradingAccountRepository, Exchange exchange)
 {
-    const string title = "Demo Trading Account";
+    string title = $"Demo {exchange.ExchangeCode} Trading Account";
     var existing = await tradingAccountRepository.GetByTitleAsync(title);
     if (existing is not null)
     {
@@ -149,7 +153,7 @@ static async Task<TradingAccount> EnsureDemoTradingAccountAsync(ITradingAccountR
     var tradingAccount = new TradingAccount
     {
         Title = title,
-        ExchangeId = exchangeId,
+        ExchangeId = exchange.Id,
         Notes = "Local debug/demo account",
         DisplayOrder = 9990,
         IsActive = true

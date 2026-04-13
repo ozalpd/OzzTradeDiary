@@ -4,13 +4,24 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
-## [0.0.33] - 2026-04-12
+## [0.0.34] - 2026-04-13
+
+### Changed
+- `ExchangeRepository` now requires `SymbolRepository` and `TradingAccountRepository` via constructor injection and no longer initializes those dependencies internally.
+- `TradingAccountRepository` ownership/lifetime is now managed at the composition root.
+- `OzzTradeDiary.Tools.SeedDemoData` and project documentation were updated to align with the new dependency-injection pattern.
+- Minor formatting and changelog cleanup updates.
+- Bumped all project versions to `0.0.34` (`OzzTradeDiary`, `OzzTradeDiary.WPF`, `OzzTradeDiary.SQLite`, `OzzTradeDiary.i18n`).
+
+## [0.0.33] - 2026-04-13
 
 ### Added
 - Added `Exchange.Symbols` and `Exchange.TradingAccounts` navigation collections and async loading support in `ExchangeRepository`.
 - Added `OrderQuantity` and `FilledQuantity` fields to `Trade`, including repository mapping and schema updates.
 
 ### Changed
+- `ExchangeRepository` constructor now accepts `SymbolRepository` and `TradingAccountRepository` dependencies explicitly to support navigation loading with clearer dependency wiring.
+- `TradingAccountRepository` initialization responsibility was removed from `ExchangeRepository` initialization flow and is now managed externally through constructor dependency injection.
 - Demo data seeding was improved with navigation-collection usage, realistic quantity generation, and weighted trade direction.
 - Updated generator/resource/repository settings to include the new exchange navigation collections and trade quantity fields.
 - Minor repository cleanup and seeding batch script improvements.
@@ -151,7 +162,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 ## [0.0.20] - 2026-03-28
 
 ### Changed
-- Refactored SQL script execution (`ExecuteScript`) into `AbstractDatabaseRepository` and removed `DbScriptInitializer`; all DDL and seed script execution now lives in the repository base class.
+- Refactored SQL script execution (`ExecuteScript`) into `AbstractDatabaseRepository` and removed `DbScriptInitializer`; all Ddl and seed script execution now lives in the repository base class.
 - Added search and exchange-based filtering to the Symbols tab in `MaintenanceWindow`, including UI placeholders and filtered collections.
 - Updated English and Turkish localization for new filter terms.
 - Bumped all project versions to `0.0.20` (`OzzTradeDiary`, `OzzTradeDiary.WPF`, `OzzTradeDiary.SQLite`, `OzzTradeDiary.i18n`).
