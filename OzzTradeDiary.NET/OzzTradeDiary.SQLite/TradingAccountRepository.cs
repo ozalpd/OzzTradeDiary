@@ -23,6 +23,7 @@ namespace TD.SQLite
             _selectStatement = $"SELECT {string.Join(", ", ColumnNames)} FROM {_tableName}";
             _exchangeRepository = exchangeRepository ?? new ExchangeRepository(databasePath);
             InitializeDatabase();
+            OnInitialized(exchangeRepository == null);
         }
         private readonly string _selectStatement;
         private readonly IExchangeRepository _exchangeRepository;
@@ -32,6 +33,13 @@ namespace TD.SQLite
             using var connection = GetOpenConnection();
             ExecuteScript(connection, "TradingAccount.sql");
         }
+
+        /// <summary>
+        /// Initialization hook for additional setup after the repository is constructed.
+        /// The parameters indicate whether the corresponding repository was created by this repository (true) or provided externally (false),
+        /// which can be useful to determine if any additional initialization or event wiring is needed.
+        /// </summary>
+        partial void OnInitialized(bool isExchangeRepositoryNull);
 
         public async Task<IReadOnlyList<TradingAccount>> GetAllAsync(bool? isActive = null)
         {

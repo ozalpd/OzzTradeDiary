@@ -4,6 +4,18 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.0.36] - 2026-04-13
+
+### Added
+- Introduced `QueryParameters` in `TD.Validation` to support shared pagination/search query input patterns.
+- Added `OnInitialized` partial method hooks to generated repository constructors for extensibility.
+
+### Changed
+- Updated generated code headers in model and validator files for improved clarity.
+- Enabled query parameter class generation in codegen settings.
+- Reordered generators in `OzzTradeDiary.OzzGen` to keep generated outputs aligned.
+- Bumped all project versions to `0.0.36` (`OzzTradeDiary`, `OzzTradeDiary.WPF`, `OzzTradeDiary.SQLite`, `OzzTradeDiary.i18n`).
+
 ## [0.0.35] - 2026-04-13
 
 ### Changed

@@ -21,6 +21,7 @@ namespace TD.SQLite
         {
             _selectStatement = $"SELECT {string.Join(", ", ColumnNames)} FROM {_tableName}";
             InitializeDatabase();
+            OnInitialized();
         }
         private readonly string _selectStatement;
 
@@ -29,6 +30,8 @@ namespace TD.SQLite
             using var connection = GetOpenConnection();
             ExecuteScript(connection, "StopLossOrder.sql");
         }
+
+        partial void OnInitialized();
 
         public async Task<IReadOnlyList<StopLossOrder>> GetAllAsync()
         {

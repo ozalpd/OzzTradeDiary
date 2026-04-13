@@ -25,6 +25,8 @@ namespace TD.SQLite
             _symbolRepository = symbolRepository ?? new SymbolRepository(databasePath, exchangeRepository: this);
             _tradingAccountRepository = tradingAccountRepository ?? new TradingAccountRepository(databasePath, exchangeRepository: this);
             InitializeDatabase();
+            OnInitialized(symbolRepository == null
+                        , tradingAccountRepository == null); 
         }
         private readonly string _selectStatement;
         private readonly ISymbolRepository _symbolRepository;
@@ -36,6 +38,14 @@ namespace TD.SQLite
             ExecuteScript(connection, "Exchange.sql");
             SeedIfEmpty(connection, "Exchanges-Data.sql");
         }
+
+        /// <summary>
+        /// Initialization hook for additional setup after the repository is constructed.
+        /// The parameters indicate whether the corresponding repository was created by this repository (true) or provided externally (false),
+        /// which can be useful to determine if any additional initialization or event wiring is needed.
+        /// </summary>
+        partial void OnInitialized(bool isSymbolRepositoryNull
+                                 , bool isTradingAccountRepositoryNull); 
 
         public async Task<IReadOnlyList<Exchange>> GetAllAsync(bool? isActive = null)
         {

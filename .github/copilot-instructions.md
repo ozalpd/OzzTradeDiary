@@ -4,7 +4,7 @@
 
 Early-stage development (pre-release, no public release yet).
 
-Internal tracking versions: `OzzTradeDiary` `0.0.34`, `OzzTradeDiary.WPF` `0.0.34`, `OzzTradeDiary.SQLite` `0.0.34`, `OzzTradeDiary.i18n` `0.0.34`.
+Internal tracking versions: `OzzTradeDiary` `0.0.36`, `OzzTradeDiary.WPF` `0.0.36`, `OzzTradeDiary.SQLite` `0.0.36`, `OzzTradeDiary.i18n` `0.0.36`.
 
 - **Changelog discipline**: Any behavior change (repository logic, initialization, seeding, schema generation impact, UI-visible behavior) must be recorded in `CHANGELOG.md`.
 
@@ -93,7 +93,7 @@ Internal tracking versions: `OzzTradeDiary` `0.0.34`, `OzzTradeDiary.WPF` `0.0.3
 - Prefer readable repository names without redundant `SqliteDatabase` prefixes, e.g. `SymbolRepository`, `ExchangeRepository`, `TradingAccountRepository`.
 - Generated repository interfaces are co-located in the same file as the repository class and use the `I<Entity>Repository` name (e.g. `IExchangeRepository`, `ITradingAccountRepository`, `ISymbolRepository`).
 - Lookup APIs should accept nullable inputs (`int?`, `string?`) for `GetByIdAsync` / `GetBy*Async` and return `null` for `null` inputs.
-- Generated repositories expose `partial void OnLoaded(T entity)`, `partial void OnCreated(T entity)`, and `partial void OnUpdated(T entity)` / `partial void OnUpdated(int id)` hooks for extensibility without modifying generated code.
+- Generated repositories expose constructor-level `OnInitialized(...)` partial hooks (with dependency-ownership flags) and operation hooks such as `OnLoaded(T entity)`, `OnCreated(T entity)`, and `OnUpdated(T entity)` / `OnUpdated(int id)` for extensibility without modifying generated code.
 - Generated repository files should not be edited manually; custom behavior should be implemented in companion partial files (for example `SymbolRepository.part.cs` or `TradeRepository.part.cs`).
 - Use the `SingleColumnUpdate` property in `SqliteRepositoryGen.settings` to generate targeted single-column update methods (e.g. `UpdateHasAnySymbolAsync`).
 - SQLite date/time columns should use `TEXT` when the data is intended to preserve readable ISO-style values, and `UpdatedAt` columns should follow that convention in generated scripts.
@@ -128,15 +128,18 @@ Internal tracking versions: `OzzTradeDiary` `0.0.34`, `OzzTradeDiary.WPF` `0.0.3
 - **App version**: `AppVersion` static class (`TD.WPF.Models`) reads product name, version, copyright, and description from assembly attributes; use `AppVersion.Version` for display
 - **UI culture**: `AppSettings.UiCulture` stores the user's preferred BCP-47 culture name (e.g. `"en-US"`, `"tr-TR"`). `App.OnStartup` applies it to `Thread.CurrentThread.CurrentUICulture` and `CurrentCulture` before `MainWindow` is created. When empty, the OS culture is used.
 - **Validation**: Use `TD.Validation.ModelValidator` for shared DataAnnotations-based model validation logic so WPF, MAUI, and ASP.NET can reuse the same validation rules
+- **Query contract**: Use `TD.Validation.QueryParameters` for shared pagination/search query payloads instead of duplicating per-feature query DTOs.
 - **Localization**: Use resources from `OzzTradeDiary.i18n` (`ActionStrings`, `CommonStrings`, `ErrorStrings`, `LocalizedStrings`, `MessageStrings`); model classes consume these resources through DataAnnotations and the resource classes are generated artifacts
 - **Localization generation**: Keep `OzzCodeGen/Vocabulary`, Turkish translations, and generated localization resources in sync when adding or renaming UI text.
 - **Enum helpers**: Use `TD.Extensions.EnumExtension` when building collections from enums for UI binding or when reading enum `Display` attribute text.
 - **Text helpers**: Use shared text/string helper extensions from the platform-agnostic core library instead of placing them in WPF-specific projects.
 - **Code generation**: OzzCodeGen generates SQLite DDL scripts and localization resources — settings files in `OzzCodeGen/` define mappings. `CsModelClassCodeEngine.settings` uses `CSharpModelClassCodeEngine` as the root element, and `OzzTradeDiary.OzzGen` uses `CS_Model_Class_Generator`.
+- **Generated file headers**: Keep standardized codegen header text in generated model and validator outputs for clear "generated file" context.
 - **Generation source of truth**:
   - Localization resources are generated via `OzzCodeGen/ResourceGen.settings` + `OzzCodeGen/Vocabulary`
   - `LocalizedStrings.resx` is sourced from `OzzTradeDiary.OzzGen`
   - Model classes and database schema are sourced from `OzzTradeDiary.OzzGen` using `CS_Model_Class_Generator`
+  - Query parameter class generation should stay enabled in codegen settings so `TD.Validation.QueryParameters` remains consistent across regenerations
   - Keep generator execution order in `OzzTradeDiary.OzzGen` aligned with repository and schema dependencies when introducing new generated repository hooks or navigation auto-loading behavior
 - **Do not edit generated artifacts manually** (`*.resx`, designer files, generated models, generated schema scripts)
 - **Backup**: SQLite backup via `BackupDatabase` API → ZIP archives with timestamps

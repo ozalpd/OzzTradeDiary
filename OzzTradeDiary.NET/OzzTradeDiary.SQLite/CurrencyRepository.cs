@@ -21,6 +21,7 @@ namespace TD.SQLite
         {
             _selectStatement = $"SELECT {string.Join(", ", ColumnNames)} FROM {_tableName}";
             InitializeDatabase();
+            OnInitialized();
         }
         private readonly string _selectStatement;
 
@@ -30,6 +31,8 @@ namespace TD.SQLite
             ExecuteScript(connection, "Currency.sql");
             SeedIfEmpty(connection, "Currencies-Data.sql");
         }
+
+        partial void OnInitialized();
 
         public async Task<IReadOnlyList<Currency>> GetAllAsync(bool? isActive = null)
         {

@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using TD.i18n;
 //----------------------------------------------------------------------------------
@@ -11,7 +8,6 @@ using TD.i18n;
 //     so manual changes should be made in another partial class file.
 //
 //----------------------------------------------------------------------------------
-
 namespace TD.Models
 {
     public partial class Trade

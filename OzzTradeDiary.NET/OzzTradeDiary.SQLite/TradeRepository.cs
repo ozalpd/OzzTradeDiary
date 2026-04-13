@@ -33,6 +33,12 @@ namespace TD.SQLite
             _stopLossOrderRepository = stopLossOrderRepository ?? new StopLossOrderRepository(databasePath);
             _tradeImageRepository = tradeImageRepository ?? new TradeImageRepository(databasePath);
             InitializeDatabase();
+            OnInitialized(tradingAccountRepository == null
+                        , symbolRepository == null 
+                        , entryOrderRepository == null 
+                        , takeProfitOrderRepository == null 
+                        , stopLossOrderRepository == null 
+                        , tradeImageRepository == null); 
         }
         private readonly string _selectStatement;
         private readonly ITradingAccountRepository _tradingAccountRepository;
@@ -47,6 +53,18 @@ namespace TD.SQLite
             using var connection = GetOpenConnection();
             ExecuteScript(connection, "Trade.sql");
         }
+
+        /// <summary>
+        /// Initialization hook for additional setup after the repository is constructed.
+        /// The parameters indicate whether the corresponding repository was created by this repository (true) or provided externally (false),
+        /// which can be useful to determine if any additional initialization or event wiring is needed.
+        /// </summary>
+        partial void OnInitialized(bool isTradingAccountRepositoryNull
+                                 , bool isSymbolRepositoryNull 
+                                 , bool isEntryOrderRepositoryNull 
+                                 , bool isTakeProfitOrderRepositoryNull 
+                                 , bool isStopLossOrderRepositoryNull 
+                                 , bool isTradeImageRepositoryNull); 
 
         public async Task<IReadOnlyList<Trade>> GetAllAsync()
         {

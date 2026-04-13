@@ -621,7 +621,10 @@
   <UseResourceFiles>true</UseResourceFiles>
   <GenAnnotations>true</GenAnnotations>
   <GenerateValidator>true</GenerateValidator>
+  <GenerateQueryParam>true</GenerateQueryParam>
   <GenerateXmlDoc>true</GenerateXmlDoc>
+  <QueryParamFolder>..\OzzTradeDiary.NET\OzzTradeDiary\Helpers</QueryParamFolder>
+  <QueryParamNamespaceName>TD.Helpers</QueryParamNamespaceName>
   <ValidatorFolder>..\OzzTradeDiary.NET\OzzTradeDiary\Validation</ValidatorFolder>
   <ValidatorNamespaceName>TD.Validation</ValidatorNamespaceName>
 </CSharpModelClassCodeEngine>
