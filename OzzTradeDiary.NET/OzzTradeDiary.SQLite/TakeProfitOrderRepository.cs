@@ -253,7 +253,7 @@ namespace TD.SQLite
         };
     }
 
-    public interface ITakeProfitOrderRepository
+    public partial interface ITakeProfitOrderRepository
     {
         Task<IReadOnlyList<TakeProfitOrder>> GetAllAsync();
         Task<IReadOnlyList<TakeProfitOrder>> GetByTradeIdAsync(int tradeId);

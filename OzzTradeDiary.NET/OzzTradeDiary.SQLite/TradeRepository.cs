@@ -360,7 +360,7 @@ namespace TD.SQLite
         };
     }
 
-    public interface ITradeRepository
+    public partial interface ITradeRepository
     {
         Task<IReadOnlyList<Trade>> GetAllAsync();
         Task<IReadOnlyList<Trade>> GetByTradingAccountIdAsync(int tradingAccountId);

@@ -230,7 +230,7 @@ namespace TD.SQLite
         };
     }
 
-    public interface ICurrencyRepository
+    public partial interface ICurrencyRepository
     {
         Task<IReadOnlyList<Currency>> GetAllAsync(bool? isActive = null);
         Task<Currency?> GetByIdAsync(int? id);

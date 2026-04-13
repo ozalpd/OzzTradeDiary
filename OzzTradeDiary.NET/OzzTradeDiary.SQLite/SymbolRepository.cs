@@ -301,7 +301,7 @@ namespace TD.SQLite
         };
     }
 
-    public interface ISymbolRepository
+    public partial interface ISymbolRepository
     {
         Task<IReadOnlyList<Symbol>> GetAllAsync(bool? isActive = null);
         Task<IReadOnlyList<Symbol>> GetByExchangeIdAsync(int exchangeId, bool? isActive = null);

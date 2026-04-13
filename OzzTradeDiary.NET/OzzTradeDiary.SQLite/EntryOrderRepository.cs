@@ -253,7 +253,7 @@ namespace TD.SQLite
         };
     }
 
-    public interface IEntryOrderRepository
+    public partial interface IEntryOrderRepository
     {
         Task<IReadOnlyList<EntryOrder>> GetAllAsync();
         Task<IReadOnlyList<EntryOrder>> GetByTradeIdAsync(int tradeId);

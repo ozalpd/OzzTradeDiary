@@ -260,7 +260,7 @@ namespace TD.SQLite
         };
     }
 
-    public interface IStopLossOrderRepository
+    public partial interface IStopLossOrderRepository
     {
         Task<IReadOnlyList<StopLossOrder>> GetAllAsync();
         Task<IReadOnlyList<StopLossOrder>> GetByTradeIdAsync(int tradeId);

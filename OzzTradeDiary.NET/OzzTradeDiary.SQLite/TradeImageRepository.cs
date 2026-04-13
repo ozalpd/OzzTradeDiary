@@ -213,7 +213,7 @@ namespace TD.SQLite
         };
     }
 
-    public interface ITradeImageRepository
+    public partial interface ITradeImageRepository
     {
         Task<IReadOnlyList<TradeImage>> GetAllAsync();
         Task<IReadOnlyList<TradeImage>> GetByTradeIdAsync(int? tradeId);

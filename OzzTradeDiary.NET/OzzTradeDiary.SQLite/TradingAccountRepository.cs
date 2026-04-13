@@ -284,7 +284,7 @@ namespace TD.SQLite
         };
     }
 
-    public interface ITradingAccountRepository
+    public partial interface ITradingAccountRepository
     {
         Task<IReadOnlyList<TradingAccount>> GetAllAsync(bool? isActive = null);
         Task<IReadOnlyList<TradingAccount>> GetByExchangeIdAsync(int exchangeId, bool? isActive = null);

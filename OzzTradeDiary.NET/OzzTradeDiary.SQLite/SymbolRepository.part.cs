@@ -21,4 +21,9 @@ namespace TD.SQLite
             }
         }
     }
+
+    public partial interface ISymbolRepository
+    {
+        Task UpdateExchangeHasAnySymbolAsync(int exchangeId);
+    }
 }
