@@ -191,6 +191,20 @@
           <HtmlEncode xsi:nil="true" />
           <Required />
         </ModelPropertySetting>
+        <ModelPropertySetting>
+          <Name>Symbols</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <HtmlEncode xsi:nil="true" />
+          <Required />
+        </ModelPropertySetting>
+        <ModelPropertySetting>
+          <Name>TradingAccounts</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <HtmlEncode xsi:nil="true" />
+          <Required />
+        </ModelPropertySetting>
       </Properties>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="ModelClassEntitySetting">
@@ -523,6 +537,22 @@
         </ModelPropertySetting>
         <ModelPropertySetting>
           <Name>ExecutedEntry</Name>
+          <Exclude>false</Exclude>
+          <DataType />
+          <DTOExclusion>false</DTOExclusion>
+          <HtmlEncode xsi:nil="true" />
+          <Required />
+        </ModelPropertySetting>
+        <ModelPropertySetting>
+          <Name>OrderQuantity</Name>
+          <Exclude>false</Exclude>
+          <DataType />
+          <DTOExclusion>false</DTOExclusion>
+          <HtmlEncode xsi:nil="true" />
+          <Required />
+        </ModelPropertySetting>
+        <ModelPropertySetting>
+          <Name>FilledQuantity</Name>
           <Exclude>false</Exclude>
           <DataType />
           <DTOExclusion>false</DTOExclusion>

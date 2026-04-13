@@ -18,10 +18,10 @@ namespace TD.SQLite
     public partial class SymbolRepository : AbstractDatabaseRepository<Symbol>, ISymbolRepository
     {
         public SymbolRepository(string databasePath
-                               ,IExchangeRepository? exchangeRepository = null) : base(databasePath, "Symbols") 
+                               , IExchangeRepository? exchangeRepository = null) : base(databasePath, "Symbols")
         {
             _selectStatement = $"SELECT {string.Join(", ", ColumnNames)} FROM {_tableName}";
-            _exchangeRepository = exchangeRepository ?? new ExchangeRepository(databasePath);
+            _exchangeRepository = exchangeRepository ?? new ExchangeRepository(databasePath, symbolRepository: this);
             InitializeDatabase();
         }
         private readonly string _selectStatement;
@@ -93,7 +93,7 @@ namespace TD.SQLite
 
             return result;
         }
-        
+
 
         public async Task<Symbol?> GetByIdAsync(int? id)
         {
@@ -112,7 +112,7 @@ namespace TD.SQLite
 
             var symbol = MapSymbol(reader);
             await LoadExchangeAsync(symbol);
-            
+
             OnLoaded(symbol);
             return symbol;
         }
@@ -134,7 +134,7 @@ namespace TD.SQLite
 
             var symbol = MapSymbol(reader);
             await LoadExchangeAsync(symbol);
-            
+
             OnLoaded(symbol);
             return symbol;
         }
@@ -158,7 +158,7 @@ namespace TD.SQLite
             command.CommandText = @$"INSERT INTO {_tableName} ({string.Join(", ", ColumnNames[1..])})
             VALUES (@ticker, @tickerFull, @baseCurrency, @priceCurrency, @description, @exchangeId, @marketType, @displayOrder, @isActive);
             SELECT last_insert_rowid();";
-            
+
             command.Parameters.AddWithValue("@ticker", symbol.Ticker);
             command.Parameters.AddWithValue("@tickerFull", symbol.TickerFull);
             AddNullableTextParameter(command, "@baseCurrency", symbol.BaseCurrency);
@@ -170,7 +170,7 @@ namespace TD.SQLite
             command.Parameters.AddWithValue("@isActive", symbol.IsActive ? 1 : 0);
 
             var id = Convert.ToInt32((long)(await command.ExecuteScalarAsync() ?? 0));
-            
+
             await _metadataRepository.SaveLastUpdateUtcAsync(connection);
             ClearRecordCountCache();
             symbol.Id = id;
@@ -211,10 +211,10 @@ namespace TD.SQLite
 
             existingSymbol = await GetByIdAsync(symbol.Id);
             bool noChanges = existingSymbol != null
-                          && existingSymbol.Description == symbol.Description 
-                          && existingSymbol.MarketType == symbol.MarketType 
-                          && existingSymbol.DisplayOrder == symbol.DisplayOrder 
-                          && existingSymbol.IsActive == symbol.IsActive; 
+                          && existingSymbol.Description == symbol.Description
+                          && existingSymbol.MarketType == symbol.MarketType
+                          && existingSymbol.DisplayOrder == symbol.DisplayOrder
+                          && existingSymbol.IsActive == symbol.IsActive;
 
             if (noChanges)
                 return false;
@@ -241,7 +241,7 @@ namespace TD.SQLite
                 await _metadataRepository.SaveLastUpdateUtcAsync(connection);
                 OnUpdated(symbol);
             }
-            
+
             return affectedRows > 0;
         }
         partial void OnUpdated(Symbol symbol);
@@ -257,16 +257,16 @@ namespace TD.SQLite
         {
             var symbol = new Symbol
             {
-                Id = reader.GetInt32(ColNrs.Id), 
-                Ticker = reader.GetString(ColNrs.Ticker), 
-                TickerFull = reader.GetString(ColNrs.TickerFull), 
-                BaseCurrency = reader.IsDBNull(ColNrs.BaseCurrency) ? null : reader.GetString(ColNrs.BaseCurrency), 
-                PriceCurrency = reader.GetString(ColNrs.PriceCurrency), 
-                Description = reader.IsDBNull(ColNrs.Description) ? null : reader.GetString(ColNrs.Description), 
-                ExchangeId = reader.GetInt32(ColNrs.ExchangeId), 
-                MarketType = (MarketType)reader.GetInt32(ColNrs.MarketType), 
-                DisplayOrder = reader.GetInt32(ColNrs.DisplayOrder), 
-                IsActive = reader.GetInt64(ColNrs.IsActive) == 1 
+                Id = reader.GetInt32(ColNrs.Id),
+                Ticker = reader.GetString(ColNrs.Ticker),
+                TickerFull = reader.GetString(ColNrs.TickerFull),
+                BaseCurrency = reader.IsDBNull(ColNrs.BaseCurrency) ? null : reader.GetString(ColNrs.BaseCurrency),
+                PriceCurrency = reader.GetString(ColNrs.PriceCurrency),
+                Description = reader.IsDBNull(ColNrs.Description) ? null : reader.GetString(ColNrs.Description),
+                ExchangeId = reader.GetInt32(ColNrs.ExchangeId),
+                MarketType = (MarketType)reader.GetInt32(ColNrs.MarketType),
+                DisplayOrder = reader.GetInt32(ColNrs.DisplayOrder),
+                IsActive = reader.GetInt64(ColNrs.IsActive) == 1
 
             };
 
@@ -288,16 +288,16 @@ namespace TD.SQLite
         }
 
         public readonly string[] ColumnNames = new[] {
-            "Id", 
-            "Ticker", 
-            "TickerFull", 
-            "BaseCurrency", 
-            "PriceCurrency", 
-            "Description", 
-            "ExchangeId", 
-            "MarketType", 
-            "DisplayOrder", 
-            "IsActive" 
+            "Id",
+            "Ticker",
+            "TickerFull",
+            "BaseCurrency",
+            "PriceCurrency",
+            "Description",
+            "ExchangeId",
+            "MarketType",
+            "DisplayOrder",
+            "IsActive"
         };
     }
 

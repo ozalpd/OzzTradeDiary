@@ -7,6 +7,8 @@ CREATE TABLE IF NOT EXISTS Trades(
 	TradeDirection INTEGER Not Null, 
 	PlannedEntry REAL, 
 	ExecutedEntry REAL, 
+	OrderQuantity REAL, 
+	FilledQuantity REAL, 
 	PlannedTP REAL, 
 	ExecutedTP REAL, 
 	PlannedSL REAL, 

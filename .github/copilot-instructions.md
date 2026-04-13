@@ -4,7 +4,7 @@
 
 Early-stage development (pre-release, no public release yet).
 
-Internal tracking versions: `OzzTradeDiary` `0.0.32`, `OzzTradeDiary.WPF` `0.0.32`, `OzzTradeDiary.SQLite` `0.0.32`, `OzzTradeDiary.i18n` `0.0.32`.
+Internal tracking versions: `OzzTradeDiary` `0.0.33`, `OzzTradeDiary.WPF` `0.0.33`, `OzzTradeDiary.SQLite` `0.0.33`, `OzzTradeDiary.i18n` `0.0.33`.
 
 - **Changelog discipline**: Any behavior change (repository logic, initialization, seeding, schema generation impact, UI-visible behavior) must be recorded in `CHANGELOG.md`.
 
@@ -55,6 +55,8 @@ Internal tracking versions: `OzzTradeDiary` `0.0.32`, `OzzTradeDiary.WPF` `0.0.3
 - **Each model must have a corresponding generated DDL script** in `OzzTradeDiary.SQLite/DbScripts/` named `<ModelName>.sql`
 - Some models also have generated seed scripts named `<PluralTableName>-Data.sql`
 - Where generator settings support it, navigation properties may use `AutoLoad=true` so generated repositories invoke post-load hooks for related data population.
+- `Exchange` navigation collections (`Symbols`, `TradingAccounts`) should be treated as repository-loadable relationship data and kept aligned with repository auto-load settings.
+- `Trade` quantity fields (`OrderQuantity`, `FilledQuantity`) are part of the persisted domain contract and should be kept aligned across model, repository mapping, and generated schema.
 
 ### ViewModels (TD.WPF namespace)
 
@@ -97,6 +99,8 @@ Internal tracking versions: `OzzTradeDiary` `0.0.32`, `OzzTradeDiary.WPF` `0.0.3
 - SQLite date/time columns should use `TEXT` when the data is intended to preserve readable ISO-style values, and `UpdatedAt` columns should follow that convention in generated scripts.
 - SQLite repository code generation has its own settings file; keep repository regeneration aligned with `SqliteRepositoryGen.settings`.
 - `Trade` navigation properties may be generated with `AutoLoad=true`; in that case `TradeRepository.OnLoaded` is responsible for populating related collections through injected repositories.
+- `Exchange` navigation collections may be generated with `AutoLoad=true`; in that case `ExchangeRepository` should asynchronously populate `Symbols` and `TradingAccounts` through injected repositories.
+- Keep `Trade.OrderQuantity` and `Trade.FilledQuantity` aligned across repository mapping, validation, and SQL schema generation.
 - Implemented repositories: `Currency`, `Exchange`, `TradingAccount`, `Symbol`, `Trade`, `TradeImage`, `EntryOrder`, `StopLossOrder`, `TakeProfitOrder`; remaining repositories will be added
 - **Each model has a matching DDL file** in `OzzTradeDiary.SQLite/DbScripts` named `<ModelName>.sql`; optional seed files are named `<PluralTableName>-Data.sql`
 - DDL scripts in `DbScripts/` folder are **generated** by OzzCodeGen — do not edit manually
@@ -140,8 +144,7 @@ Internal tracking versions: `OzzTradeDiary` `0.0.32`, `OzzTradeDiary.WPF` `0.0.3
 - **Database path**: In `DEBUG` builds, default data paths should resolve under repo-root `SampleData` (git-ignored) to avoid touching user profile data; in non-debug builds the default remains user app-data (`{LocalApplicationData}/OzzTradeDiary`).
 - **Shared partial reuse**: When multiple projects need the same non-generated implementation detail (for example debug `SampleData` path discovery), prefer extracting it into a partial file such as `AppSettings.part.cs` and linking that file into the consuming projects.
 - **Developer scripts**: Put developer convenience launchers in the repo-root `Scripts/` folder (for example `Scripts/SeedDemoData.bat`) instead of scattering them at the solution root.
-- **Demo seeding**: `OzzTradeDiary.Tools.SeedDemoData` should favor richer debug datasets (multiple symbols, randomized trade values, and multiple images per trade) while remaining easy to rerun.
-- **Reset-first seeding flow**: `Scripts/SeedDemoData.bat` should reset the debug database before seeding so local debugging starts from a known clean state.
+- **Demo seeding**: `OzzTradeDiary.Tools.SeedDemoData` should favor richer debug datasets (multiple symbols, randomized trade values, weighted trade direction, realistic quantity generation, and multiple images per trade) while remaining easy to rerun.
 - **Exchange symbol flag**: `Exchange.HasAnySymbol` is the canonical persisted flag for whether an exchange has linked symbols; use it in UI/repository logic instead of recalculating the state when the data is already loaded.
 
 ## Key Entities

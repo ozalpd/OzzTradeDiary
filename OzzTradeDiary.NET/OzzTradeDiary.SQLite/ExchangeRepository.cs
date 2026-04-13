@@ -17,12 +17,18 @@ namespace TD.SQLite
     /// </summary>
     public partial class ExchangeRepository : AbstractDatabaseRepository<Exchange>, IExchangeRepository
     {
-        public ExchangeRepository(string databasePath) : base(databasePath, "Exchanges")
+        public ExchangeRepository(string databasePath
+                               ,ISymbolRepository? symbolRepository = null 
+                               ,ITradingAccountRepository? tradingAccountRepository = null) : base(databasePath, "Exchanges") 
         {
             _selectStatement = $"SELECT {string.Join(", ", ColumnNames)} FROM {_tableName}";
+            _symbolRepository = symbolRepository ?? new SymbolRepository(databasePath, exchangeRepository: this);
+            _tradingAccountRepository = tradingAccountRepository ?? new TradingAccountRepository(databasePath, exchangeRepository: this);
             InitializeDatabase();
         }
         private readonly string _selectStatement;
+        private readonly ISymbolRepository _symbolRepository;
+        private readonly ITradingAccountRepository _tradingAccountRepository;
 
         private void InitializeDatabase()
         {

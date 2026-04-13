@@ -77,6 +77,18 @@ namespace TD.Models
         [Display(ResourceType = typeof(LocalizedStrings), Name = "ExecutedEntry")]
         public decimal? ExecutedEntry { get; set; }
 
+        /// <summary>
+        /// Planned contract quantity of order
+        /// </summary>
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "OrderQuantity")]
+        public decimal? OrderQuantity { get; set; }
+
+        /// <summary>
+        /// Realized contract quantity of order
+        /// </summary>
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "FilledQuantity")]
+        public decimal? FilledQuantity { get; set; }
+
         [Display(ResourceType = typeof(LocalizedStrings), Name = "TakeProfitOrders")]
         public ICollection<TakeProfitOrder> TakeProfitOrders { get; set; }
 
@@ -134,6 +146,8 @@ namespace TD.Models
             clone.TradeDirection = this.TradeDirection;
             clone.PlannedEntry = this.PlannedEntry;
             clone.ExecutedEntry = this.ExecutedEntry;
+            clone.OrderQuantity = this.OrderQuantity;
+            clone.FilledQuantity = this.FilledQuantity;
             clone.PlannedTP = this.PlannedTP;
             clone.ExecutedTP = this.ExecutedTP;
             clone.PlannedSL = this.PlannedSL;

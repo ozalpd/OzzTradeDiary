@@ -34,20 +34,52 @@ static async Task SeedDemoDataAsync(string databasePath)
     var tradeRepository = new TradeRepository(databasePath, tradingAccountRepository, symbolRepository, tradeImageRepository: tradeImageRepository);
 
     var exchange = await EnsureDemoExchangeAsync(exchangeRepository);
-    var tradingAccount = await EnsureDemoTradingAccountAsync(tradingAccountRepository, exchange.Id);
     var tickers = new[] { "BTCUSD", "ETHUSD", "SOLUSD", "AVAXUSD", "XRPUSD", "ETCUSD", "DOGEUSD", "BNBUSD", "SUIUSD", "ZROUSD", //← Top 10 popular cryptos
                           "APTUSD", "ENAUSD", "ONDOUSD", "EIGENUSD", "SWELLUSD", "PENGUUSD", "POPCATUSD", "LUNAUSD" };
+
+    var tradingAccount = await EnsureDemoTradingAccountAsync(tradingAccountRepository, exchange.Id);
     for (int i = 0; i < tickers.Length; i++)
     {
-        var ticker = tickers[i];
-        var symbol = await EnsureDemoSymbolAsync(symbolRepository, exchange, ticker);
+        var symbol = await EnsureDemoSymbolAsync(symbolRepository, exchange, tickers[i]);
         int tradesCount = 88 - i * 5; // Deccreasing number of trades for each symbol
         tradesCount = tradesCount < 3 ? 3 : tradesCount; // Minimum 3 trades per symbol
         for (int j = 0; j < tradesCount; j++)
         {
-            var daysAgo = (3 + tradesCount) - j;
-            var trade = await EnsureDemoTradeAsync(tradeRepository, tradeImageRepository, tradingAccount.Id, symbol.Id, daysAgo);
+            int daysAgo = (3 + tradesCount) - j;
+            var trade = await EnsureDemoTradeAsync(tradeRepository, tradeImageRepository, tradingAccount.Id, symbol, daysAgo);
         }
+    }
+    bool flowControl = true;
+
+
+    exchange = await exchangeRepository.GetByExchangeCodeAsync("BYBIT");
+    flowControl = flowControl && await seedTrades(tradingAccountRepository, tradeRepository, tradeImageRepository, exchange);
+
+
+    static async Task<bool> seedTrades(TradingAccountRepository tradingAccountRepository, ITradeRepository tradeRepository, TradeImageRepository tradeImageRepository, Exchange? exchange)
+    {
+        if (exchange == null)
+            return false;
+
+        var symbolSet = exchange.Symbols;
+        if (symbolSet == null || symbolSet.Count == 0)
+            return false;
+
+        var tradingAccount = exchange.TradingAccounts?.FirstOrDefault() ?? await EnsureDemoTradingAccountAsync(tradingAccountRepository, exchange.Id);
+        int tradesCount = 15; // max 15 trades per symbol
+        foreach (var symbol in symbolSet)
+        {
+            for (int j = 0; j < tradesCount; j++)
+            {
+                int daysAgo = (3 + tradesCount) - j;
+                var trade = await EnsureDemoTradeAsync(tradeRepository, tradeImageRepository, tradingAccount.Id, symbol, daysAgo);
+            }
+
+            tradesCount = tradesCount - 2; // Decrease the number of trades for each subsequent symbol to create variety, starting from 15 for the first symbol.
+            tradesCount = tradesCount < 3 ? 3 : tradesCount;
+        }
+
+        return true;
     }
 }
 
@@ -128,24 +160,31 @@ static async Task<TradingAccount> EnsureDemoTradingAccountAsync(ITradingAccountR
     return tradingAccount;
 }
 
-static async Task<Trade> EnsureDemoTradeAsync(ITradeRepository tradeRepository, TradeImageRepository tradeImageRepository, int tradingAccountId, int symbolId, int daysAgo)
+static async Task<Trade> EnsureDemoTradeAsync(ITradeRepository tradeRepository, TradeImageRepository tradeImageRepository, int tradingAccountId, Symbol symbol, int daysAgo)
 {
     var random = new Random();
-    decimal entryPrice = 60000m + random.Next(-5000, 5000);
+    var direction = random.Next(0, 3) == 0 ? TradeDirection.Short : TradeDirection.Long; //In real world, long trades are more common than short,
+                                                                                         //so we can weight it a bit. 1/3 chance for short, 2/3 for long.
+    decimal entryPrice = 70000m + random.Next(-5000, 5000); // Random entry price around 70k for demo purposes, may be we feed it with real historical data later. +/- 5k range to create some variety in the trades.
+    decimal tpMultiplier = direction == TradeDirection.Long ? 1.04m : 0.96m; // Take profit multiplier based on trade direction
+    decimal slMultiplier = direction == TradeDirection.Long ? 0.98m : 1.02m; // Stop loss multiplier based on trade direction
+    decimal quantity = 100m / entryPrice; // Fixed $100 position size for demo purposes, so the quantity will vary based on entry price.
     var trade = new Trade
     {
         TradingAccountId = tradingAccountId,
-        SymbolId = symbolId,
+        SymbolId = symbol.Id,
         EntryTime = DateTime.UtcNow.AddDays(-daysAgo).AddHours(random.Next(0, 12)).AddMinutes(random.Next(0, 60)),
         EntryMethod = EntryMethod.Market,
-        TradeDirection = TradeDirection.Long,
+        TradeDirection = direction,
         PlannedEntry = entryPrice,
         ExecutedEntry = entryPrice,
-        PlannedTP = entryPrice * 1.04m,
+        PlannedTP = entryPrice * tpMultiplier,
         ExecutedTP = 0m,
-        PlannedSL = entryPrice * 0.98m,
+        PlannedSL = entryPrice * slMultiplier,
         ExecutedSL = 0m,
-        UpdatedAt = DateTime.UtcNow
+        OrderQuantity = quantity,
+        FilledQuantity = quantity,
+        UpdatedAt = DateTime.UtcNow,
     };
 
     trade.Id = await tradeRepository.CreateAsync(trade);

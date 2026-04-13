@@ -168,7 +168,7 @@ namespace TD.SQLite
 
             await using var command = connection.CreateCommand();
             command.CommandText = @$"INSERT INTO {_tableName} ({string.Join(", ", ColumnNames[1..])})
-            VALUES (@tradingAccountId, @symbolId, @entryTime, @entryMethod, @tradeDirection, @plannedEntry, @executedEntry, @plannedTP, @executedTP, @plannedSL, @executedSL, @updatedAt);
+            VALUES (@tradingAccountId, @symbolId, @entryTime, @entryMethod, @tradeDirection, @plannedEntry, @executedEntry, @orderQuantity, @filledQuantity, @plannedTP, @executedTP, @plannedSL, @executedSL, @updatedAt);
             SELECT last_insert_rowid();";
             
             var nowUtc = DateTime.UtcNow;
@@ -179,6 +179,8 @@ namespace TD.SQLite
             command.Parameters.AddWithValue("@tradeDirection", (int)trade.TradeDirection);
             command.Parameters.AddWithValue("@plannedEntry", trade.PlannedEntry);
             command.Parameters.AddWithValue("@executedEntry", trade.ExecutedEntry);
+            command.Parameters.AddWithValue("@orderQuantity", trade.OrderQuantity);
+            command.Parameters.AddWithValue("@filledQuantity", trade.FilledQuantity);
             command.Parameters.AddWithValue("@plannedTP", trade.PlannedTP);
             command.Parameters.AddWithValue("@executedTP", trade.ExecutedTP);
             command.Parameters.AddWithValue("@plannedSL", trade.PlannedSL);
@@ -226,6 +228,8 @@ namespace TD.SQLite
                           && existingTrade.TradeDirection == trade.TradeDirection 
                           && existingTrade.PlannedEntry == trade.PlannedEntry 
                           && existingTrade.ExecutedEntry == trade.ExecutedEntry 
+                          && existingTrade.OrderQuantity == trade.OrderQuantity 
+                          && existingTrade.FilledQuantity == trade.FilledQuantity 
                           && existingTrade.PlannedTP == trade.PlannedTP 
                           && existingTrade.ExecutedTP == trade.ExecutedTP 
                           && existingTrade.PlannedSL == trade.PlannedSL 
@@ -237,13 +241,15 @@ namespace TD.SQLite
 
             await using var command = connection.CreateCommand();
             // TradingAccountId, SymbolId are not updated to avoid complications with existing references,
-            // so only EntryTime, EntryMethod, TradeDirection, PlannedEntry, ExecutedEntry, PlannedTP, ExecutedTP, PlannedSL, ExecutedSL, UpdatedAt are updated
+            // so only EntryTime, EntryMethod, TradeDirection, PlannedEntry, ExecutedEntry, OrderQuantity, FilledQuantity, PlannedTP, ExecutedTP, PlannedSL, ExecutedSL, UpdatedAt are updated
             command.CommandText = @$"UPDATE {_tableName} SET
                 EntryTime = @entryTime, 
                 EntryMethod = @entryMethod, 
                 TradeDirection = @tradeDirection, 
                 PlannedEntry = @plannedEntry, 
                 ExecutedEntry = @executedEntry, 
+                OrderQuantity = @orderQuantity, 
+                FilledQuantity = @filledQuantity, 
                 PlannedTP = @plannedTP, 
                 ExecutedTP = @executedTP, 
                 PlannedSL = @plannedSL, 
@@ -258,6 +264,8 @@ namespace TD.SQLite
             command.Parameters.AddWithValue("@tradeDirection", (int)trade.TradeDirection);
             command.Parameters.AddWithValue("@plannedEntry", trade.PlannedEntry);
             command.Parameters.AddWithValue("@executedEntry", trade.ExecutedEntry);
+            command.Parameters.AddWithValue("@orderQuantity", trade.OrderQuantity);
+            command.Parameters.AddWithValue("@filledQuantity", trade.FilledQuantity);
             command.Parameters.AddWithValue("@plannedTP", trade.PlannedTP);
             command.Parameters.AddWithValue("@executedTP", trade.ExecutedTP);
             command.Parameters.AddWithValue("@plannedSL", trade.PlannedSL);
@@ -301,6 +309,8 @@ namespace TD.SQLite
                 TradeDirection = (TradeDirection)reader.GetInt32(ColNrs.TradeDirection), 
                 PlannedEntry = reader.IsDBNull(ColNrs.PlannedEntry) ? null : reader.GetDecimal(ColNrs.PlannedEntry), 
                 ExecutedEntry = reader.IsDBNull(ColNrs.ExecutedEntry) ? null : reader.GetDecimal(ColNrs.ExecutedEntry), 
+                OrderQuantity = reader.IsDBNull(ColNrs.OrderQuantity) ? null : reader.GetDecimal(ColNrs.OrderQuantity), 
+                FilledQuantity = reader.IsDBNull(ColNrs.FilledQuantity) ? null : reader.GetDecimal(ColNrs.FilledQuantity), 
                 PlannedTP = reader.IsDBNull(ColNrs.PlannedTP) ? null : reader.GetDecimal(ColNrs.PlannedTP), 
                 ExecutedTP = reader.IsDBNull(ColNrs.ExecutedTP) ? null : reader.GetDecimal(ColNrs.ExecutedTP), 
                 PlannedSL = reader.IsDBNull(ColNrs.PlannedSL) ? null : reader.GetDecimal(ColNrs.PlannedSL), 
@@ -322,11 +332,13 @@ namespace TD.SQLite
             public readonly static int TradeDirection = 5;
             public readonly static int PlannedEntry = 6;
             public readonly static int ExecutedEntry = 7;
-            public readonly static int PlannedTP = 8;
-            public readonly static int ExecutedTP = 9;
-            public readonly static int PlannedSL = 10;
-            public readonly static int ExecutedSL = 11;
-            public readonly static int UpdatedAt = 12;
+            public readonly static int OrderQuantity = 8;
+            public readonly static int FilledQuantity = 9;
+            public readonly static int PlannedTP = 10;
+            public readonly static int ExecutedTP = 11;
+            public readonly static int PlannedSL = 12;
+            public readonly static int ExecutedSL = 13;
+            public readonly static int UpdatedAt = 14;
         }
 
         public readonly string[] ColumnNames = new[] {
@@ -338,6 +350,8 @@ namespace TD.SQLite
             "TradeDirection", 
             "PlannedEntry", 
             "ExecutedEntry", 
+            "OrderQuantity", 
+            "FilledQuantity", 
             "PlannedTP", 
             "ExecutedTP", 
             "PlannedSL", 

@@ -4,7 +4,7 @@ A Windows desktop trade journaling application for tracking trades across multip
 
 > **Status**: Pre-release development (no public release yet)
 > 
-> **Internal tracking versions**: `OzzTradeDiary` `0.0.32`, `OzzTradeDiary.WPF` `0.0.32`, `OzzTradeDiary.SQLite` `0.0.32`, `OzzTradeDiary.i18n` `0.0.32`
+> **Internal tracking versions**: `OzzTradeDiary` `0.0.33`, `OzzTradeDiary.WPF` `0.0.33`, `OzzTradeDiary.SQLite` `0.0.33`, `OzzTradeDiary.i18n` `0.0.33`
 
 ## Changelog
 
@@ -24,8 +24,10 @@ See [`CHANGELOG.md`](CHANGELOG.md) for release history.
 - DPI-aware multi-monitor window positioning
 - `AppSettings` uses a debug-safe default data location: in `DEBUG` builds database and related app data resolve under repo-root `SampleData` (git-ignored), while release builds continue to use user app-data folders
 - Shared debug `SampleData` path resolution now lives in `AppSettings.part.cs` and is linked into `OzzTradeDiary.Tools.SeedDemoData` so the WPF app and seeding tool use the same default debug database path
-- `Scripts/SeedDemoData.bat` provides a convenient launcher for the demo-data seeding tool
-- `SeedDemoData` now generates a richer demo dataset across multiple popular crypto symbols with randomized trade values and multiple images per trade
+- `Scripts/SeedDemoData.bat` and `Scripts/Reset-and-SeedDemoData.bat` provide a convenient launcher for the demo-data seeding tool
+- `Exchange` now exposes navigation collections (`Symbols`, `TradingAccounts`) and `ExchangeRepository` can async-load them for richer repository-driven data composition
+- `Trade` now includes `OrderQuantity` and `FilledQuantity` fields, with matching repository mapping and schema support
+- `SeedDemoData` now generates richer crypto demo trades using weighted direction and more realistic quantity values
 - Symbol creation in the seeder is dynamic based on ticker input (for example `DEMO:BTCUSD`, `DEMO:ETHUSD`)
 - Seeder workflow is reset-first for repeatable local debugging datasets
 - `Exchange.HasAnySymbol` is carried through the model, schema, repositories, seed data, localization, codegen, and maintenance UI for exchange/symbol linkage
@@ -159,6 +161,7 @@ Four-project MVVM architecture layered for platform portability:
 Core models, localization resources, and data access are platform-independent, enabling future frontends (MAUI, web, etc.) to reuse them.
 Model classes localize display metadata and validation messages through DataAnnotations that reference `TD.i18n` resource types.
 Shared enum and text helper logic lives in `TD.Extensions` so UI projects such as WPF and future MAUI frontends can reuse the same behavior.
+`Exchange` now includes navigation collections (`Symbols`, `TradingAccounts`) and `Trade` includes quantity fields (`OrderQuantity`, `FilledQuantity`) reflected across model, repository, and schema generation.
 
 ## SQLite Repository and Script Conventions
 

@@ -207,6 +207,22 @@
           <ColumnName>HasAnySymbol</ColumnName>
           <SingleColumnUpdate>true</SingleColumnUpdate>
         </SqliteRepositoryPropertySetting>
+        <SqliteRepositoryPropertySetting>
+          <Name>Symbols</Name>
+          <Exclude>false</Exclude>
+          <AutoLoad>true</AutoLoad>
+          <CheckIfAltered>false</CheckIfAltered>
+          <ColumnName>Symbols</ColumnName>
+          <SingleColumnUpdate>false</SingleColumnUpdate>
+        </SqliteRepositoryPropertySetting>
+        <SqliteRepositoryPropertySetting>
+          <Name>TradingAccounts</Name>
+          <Exclude>false</Exclude>
+          <AutoLoad>true</AutoLoad>
+          <CheckIfAltered>false</CheckIfAltered>
+          <ColumnName>TradingAccounts</ColumnName>
+          <SingleColumnUpdate>false</SingleColumnUpdate>
+        </SqliteRepositoryPropertySetting>
       </Properties>
       <TableName>Exchanges</TableName>
       <FileNameDDL>Exchange.sql</FileNameDDL>
@@ -570,6 +586,22 @@
           <AutoLoad>false</AutoLoad>
           <CheckIfAltered>true</CheckIfAltered>
           <ColumnName>ExecutedEntry</ColumnName>
+          <SingleColumnUpdate>false</SingleColumnUpdate>
+        </SqliteRepositoryPropertySetting>
+        <SqliteRepositoryPropertySetting>
+          <Name>OrderQuantity</Name>
+          <Exclude>false</Exclude>
+          <AutoLoad>false</AutoLoad>
+          <CheckIfAltered>false</CheckIfAltered>
+          <ColumnName>OrderQuantity</ColumnName>
+          <SingleColumnUpdate>false</SingleColumnUpdate>
+        </SqliteRepositoryPropertySetting>
+        <SqliteRepositoryPropertySetting>
+          <Name>FilledQuantity</Name>
+          <Exclude>false</Exclude>
+          <AutoLoad>false</AutoLoad>
+          <CheckIfAltered>false</CheckIfAltered>
+          <ColumnName>FilledQuantity</ColumnName>
           <SingleColumnUpdate>false</SingleColumnUpdate>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>

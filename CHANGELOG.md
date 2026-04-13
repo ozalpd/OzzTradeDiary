@@ -4,6 +4,18 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.0.33] - 2026-04-12
+
+### Added
+- Added `Exchange.Symbols` and `Exchange.TradingAccounts` navigation collections and async loading support in `ExchangeRepository`.
+- Added `OrderQuantity` and `FilledQuantity` fields to `Trade`, including repository mapping and schema updates.
+
+### Changed
+- Demo data seeding was improved with navigation-collection usage, realistic quantity generation, and weighted trade direction.
+- Updated generator/resource/repository settings to include the new exchange navigation collections and trade quantity fields.
+- Minor repository cleanup and seeding batch script improvements.
+- Bumped all project versions to `0.0.33` (`OzzTradeDiary`, `OzzTradeDiary.WPF`, `OzzTradeDiary.SQLite`, `OzzTradeDiary.i18n`).
+
 ## [0.0.32] - 2026-04-12
 
 ### Added
