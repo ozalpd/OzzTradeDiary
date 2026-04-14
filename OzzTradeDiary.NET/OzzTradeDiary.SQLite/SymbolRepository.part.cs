@@ -9,7 +9,7 @@ namespace TD.SQLite
             _ = UpdateExchangeHasAnySymbolAsync(symbol.ExchangeId);
         }
 
-        private async Task UpdateExchangeHasAnySymbolAsync(int exchangeId)
+        public async Task UpdateExchangeHasAnySymbolAsync(int exchangeId)
         {
             try
             {

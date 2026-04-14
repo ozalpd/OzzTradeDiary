@@ -4,6 +4,15 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.0.38] - 2026-04-14
+
+### Changed
+- `TradeRepository.GetPagedAsync` now applies `TradeQueryParameters` range filters for `EntryTime`, `PlannedEntry`, `ExecutedEntry`, and `UpdatedAt` in addition to existing account/symbol/direction filtering.
+- Added calculated range filters for position value in `TradeRepository.GetPagedAsync`:
+  - planned position value: `(PlannedEntry * OrderQuantity)` via `PlannedPositionValueMin` / `PlannedPositionValueMax`
+  - executed position value: `(ExecutedEntry * FilledQuantity)` via `ExecutedPositionValueMin` / `ExecutedPositionValueMax`
+- `TradeRepository.GetPagedAsync` continues to support range filters for `EntryTime` and `UpdatedAt`, plus account/symbol/direction filtering.
+
 ## [0.0.37] - 2026-04-14
 
 ### Added

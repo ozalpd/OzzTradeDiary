@@ -42,5 +42,27 @@ namespace TD.Helpers
         public DateTime? EntryTimeMax { get; set; }
         public DateTime? UpdatedAtMin { get; set; }
         public DateTime? UpdatedAtMax { get; set; }
+
+        public override bool HasAnySearchCriteria()
+        {
+            _hasAnySearchCriteria = base.HasAnySearchCriteria();        
+            if (_hasAnySearchCriteria) return true;
+
+            _hasAnySearchCriteria = _hasAnySearchCriteria || TradingAccountId.HasValue;
+            _hasAnySearchCriteria = _hasAnySearchCriteria || SymbolId.HasValue;
+            _hasAnySearchCriteria = _hasAnySearchCriteria || TradeDirection.HasValue;
+            _hasAnySearchCriteria = _hasAnySearchCriteria || EntryTimeMin.HasValue || EntryTimeMax.HasValue;
+            _hasAnySearchCriteria = _hasAnySearchCriteria || UpdatedAtMin.HasValue || UpdatedAtMax.HasValue;
+
+            OnHasAnySearchCriteria();
+            return _hasAnySearchCriteria;
+        }
+
+        /// <summary>
+        /// Called when determining if there are any search criteria, can be used in a partial class to extend the logic.
+        /// Setting _hasAnySearchCriteria to true in this method will indicate that there are search criteria.
+        /// </summary>
+        partial void OnHasAnySearchCriteria();
+        bool _hasAnySearchCriteria;
     }
 }

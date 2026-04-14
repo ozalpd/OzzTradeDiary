@@ -4,7 +4,7 @@ A Windows desktop trade journaling application for tracking trades across multip
 
 > **Status**: Pre-release development (no public release yet)
 > 
-> **Internal tracking versions**: `OzzTradeDiary` `0.0.37`, `OzzTradeDiary.WPF` `0.0.37`, `OzzTradeDiary.SQLite` `0.0.37`, `OzzTradeDiary.i18n` `0.0.37`
+> **Internal tracking versions**: `OzzTradeDiary` `0.0.38`, `OzzTradeDiary.WPF` `0.0.38`, `OzzTradeDiary.SQLite` `0.0.38`, `OzzTradeDiary.i18n` `0.0.38`
 
 ## Changelog
 
@@ -28,6 +28,12 @@ See [`CHANGELOG.md`](CHANGELOG.md) for release history.
 - Repository interfaces are now `partial`, allowing extension across files while keeping generated files untouched
 - Repository constructors now expose `OnInitialized` partial hooks so generated repositories can be extended without modifying generated source
 - Repository contracts and implementations now expose richer partial hooks/methods for navigation loading and update flows (`OnLoaded`, `OnCreated`, `OnUpdated`) to support extensibility
+- `TradeRepository.GetPagedAsync` now supports advanced filtering with paging (`ORDER BY Id LIMIT/OFFSET`) and combined typed filters from `TradeQueryParameters`
+- `TradeRepository.GetPagedAsync` supports range filters for `EntryTime`, and `UpdatedAt`
+- `TradeRepository.GetPagedAsync` supports calculated position-value range filters for planned/executed position values
+- `TD.Helpers.TradeQueryParameters` now includes extended filter properties and improved extensibility for search-criteria logic via partial methods
+- `Trade` model now includes calculated position-value properties to align domain and query scenarios
+- `UpdateExchangeHasAnySymbolAsync` is now public so it can correctly satisfy repository interface contracts
 - `TD.Helpers` now includes generated query contracts for reusable pagination/search inputs (`QueryParameters`) and typed trade filtering (`TradeQueryParameters`)
 - `QueryParameters` was moved out of `TD.Validation` and now includes XML documentation plus a copy constructor for reuse and extension scenarios
 - `CsModelClassCodeEngine.settings` now supports per-entity query parameter generation and explicit search-parameter marking

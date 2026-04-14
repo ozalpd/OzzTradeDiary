@@ -4,7 +4,7 @@
 
 Early-stage development (pre-release, no public release yet).
 
-Internal tracking versions: `OzzTradeDiary` `0.0.37`, `OzzTradeDiary.WPF` `0.0.37`, `OzzTradeDiary.SQLite` `0.0.37`, `OzzTradeDiary.i18n` `0.0.37`.
+Internal tracking versions: `OzzTradeDiary` `0.0.38`, `OzzTradeDiary.WPF` `0.0.38`, `OzzTradeDiary.SQLite` `0.0.38`, `OzzTradeDiary.i18n` `0.0.38`.
 
 - **Changelog discipline**: Any behavior change (repository logic, initialization, seeding, schema generation impact, UI-visible behavior) must be recorded in `CHANGELOG.md`.
 
@@ -57,6 +57,7 @@ Internal tracking versions: `OzzTradeDiary` `0.0.37`, `OzzTradeDiary.WPF` `0.0.3
 - Where generator settings support it, navigation properties may use `AutoLoad=true` so generated repositories invoke post-load hooks for related data population.
 - `Exchange` navigation collections (`Symbols`, `TradingAccounts`) should be treated as repository-loadable relationship data and kept aligned with repository auto-load settings.
 - `Trade` quantity fields (`OrderQuantity`, `FilledQuantity`) are part of the persisted domain contract and should be kept aligned across model, repository mapping, and generated schema.
+- `Trade` calculated position-value properties should be maintained as derived domain values aligned with `PlannedEntry`/`OrderQuantity` and `ExecutedEntry`/`FilledQuantity`.
 
 ### ViewModels (TD.WPF namespace)
 
@@ -96,6 +97,8 @@ Internal tracking versions: `OzzTradeDiary` `0.0.37`, `OzzTradeDiary.WPF` `0.0.3
 - Generated repositories expose constructor-level `OnInitialized(...)` partial hooks (with dependency-ownership flags) and operation hooks such as `OnLoaded(T entity)`, `OnCreated(T entity)`, and `OnUpdated(T entity)` / `OnUpdated(int id)` for extensibility without modifying generated code.
 - Generated repository files should not be edited manually; custom behavior should be implemented in companion partial files (for example `SymbolRepository.part.cs` or `TradeRepository.part.cs`).
 - Use the `SingleColumnUpdate` property in `SqliteRepositoryGen.settings` to generate targeted single-column update methods (e.g. `UpdateHasAnySymbolAsync`).
+- Ensure generated single-column update methods that implement repository interfaces (for example `UpdateExchangeHasAnySymbolAsync`) are `public`.
+- `TradeRepository.GetPagedAsync` should support paging (`ORDER BY` + `LIMIT/OFFSET`) with combined typed filtering from `TradeQueryParameters`, including range filters (`EntryTime`, `PlannedEntry`, `ExecutedEntry`, `UpdatedAt`) and calculated position-value filters.
 - SQLite date/time columns should use `TEXT` when the data is intended to preserve readable ISO-style values, and `UpdatedAt` columns should follow that convention in generated scripts.
 - SQLite repository code generation has its own settings file; keep repository regeneration aligned with `SqliteRepositoryGen.settings`.
 - `Trade` navigation properties may be generated with `AutoLoad=true`; in that case `TradeRepository.OnLoaded` is responsible for populating related collections through injected repositories.
@@ -129,6 +132,7 @@ Internal tracking versions: `OzzTradeDiary` `0.0.37`, `OzzTradeDiary.WPF` `0.0.3
 - **UI culture**: `AppSettings.UiCulture` stores the user's preferred BCP-47 culture name (e.g. `"en-US"`, `"tr-TR"`). `App.OnStartup` applies it to `Thread.CurrentThread.CurrentUICulture` and `CurrentCulture` before `MainWindow` is created. When empty, the OS culture is used.
 - **Validation**: Use `TD.Validation.ModelValidator` for shared DataAnnotations-based model validation logic so WPF, MAUI, and ASP.NET can reuse the same validation rules
 - **Query contract**: Use `TD.Helpers.QueryParameters` for shared pagination/search query payloads, and `TD.Helpers.TradeQueryParameters` for typed trade filtering instead of duplicating per-feature query DTOs.
+- **Trade query extensibility**: keep `TradeQueryParameters` search-criteria checks extensible through partial methods so companion partial files can extend filter detection without editing generated files.
 - **Localization**: Use resources from `OzzTradeDiary.i18n` (`ActionStrings`, `CommonStrings`, `ErrorStrings`, `LocalizedStrings`, `MessageStrings`); model classes consume these resources through DataAnnotations and the resource classes are generated artifacts
 - **Localization generation**: Keep `OzzCodeGen/Vocabulary`, Turkish translations, and generated localization resources in sync when adding or renaming UI text.
 - **Enum helpers**: Use `TD.Extensions.EnumExtension` when building collections from enums for UI binding or when reading enum `Display` attribute text.

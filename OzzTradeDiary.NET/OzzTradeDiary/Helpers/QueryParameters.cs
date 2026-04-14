@@ -82,5 +82,20 @@ namespace TD.Helpers
             }
         }
         int _totalCount;
+
+        public virtual bool HasAnySearchCriteria()
+        {
+            _hasAnySearchCriteria = !string.IsNullOrEmpty(SearchString);
+
+            OnHasAnySearchCriteria();
+            return _hasAnySearchCriteria;
+        }
+
+        /// <summary>
+        /// Called when determining if there are any search criteria, can be used in a partial class to extend the logic.
+        /// Setting _hasAnySearchCriteria to true in this method will indicate that there are search criteria.
+        /// </summary>
+        partial void OnHasAnySearchCriteria();
+        bool _hasAnySearchCriteria;
     }
 }
