@@ -6,44 +6,81 @@
 //     so manual changes should be made in another partial class file.
 //
 //----------------------------------------------------------------------------------
-namespace TD.Validation
+namespace TD.Helpers
 {
-	public partial class QueryParameters
-	{
-		public QueryParameters()
-		{
-			Page = 1;
-			PageSize = 20;
-		}
+    /// <summary>
+    /// Represents the query parameters for pagination and searching.
+    /// </summary>
+    public partial class QueryParameters
+    {
+        public QueryParameters()
+        {
+            Page = 1;
+            PageSize = 20;
+        }
 
-		public int Page { get; set; }
-		public int PageSize { get; set; }
-		public string? SearchString { get; set; }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="QueryParameters"/> class based on the specified query parameters.
+        /// </summary>
+        /// <param name="queryParameters">The query parameters to copy values from.</param>
+        public QueryParameters(QueryParameters queryParameters)
+        {
+            if (queryParameters != null)
+            {
+                Page = queryParameters.Page;
+                PageSize = queryParameters.PageSize;
+                SearchString = queryParameters.SearchString;
+            }
+        }
 
-		public int PageCount
-		{
-			get
-			{
-				return TotalCount > 0 ? (int)Math.Ceiling(TotalCount / (double)PageSize) : 0;
-			}
-		}
+        /// <summary>
+        /// Gets or sets the current page number.
+        /// </summary>
+        public int Page { get; set; }
+        
+        /// <summary>
+        /// Gets or sets the number of items per page.
+        /// </summary>
+        public int PageSize { get; set; }
+        
+        /// <summary>
+        /// Gets or sets the general purpose search string.
+        /// </summary>
+        public string? SearchString { get; set; }
 
-		public int Skip
-		{
-			get { return (Page - 1) * PageSize; }
-		}
+        /// <summary>
+        /// Gets the total number of pages based on the total count and page size.
+        /// </summary>
+        public int PageCount
+        {
+            get
+            {
+                return TotalCount > 0 ? (int)Math.Ceiling(TotalCount / (double)PageSize) : 0;
+            }
+        }
 
-		public int TotalCount
-		{
-			get { return _totalCount; }
-			set
-			{
-				_totalCount = value;
-				if (Page < 1) Page = 1;
-				if (Page > PageCount) Page = PageCount;
-				int skip = (Page - 1) * PageSize;
-			}
-		}
-		int _totalCount;
-	}
+        /// <summary>
+        /// Gets the number of items to skip based on the current page and page size.
+        /// </summary>
+        public int Skip
+        {
+            get { return (Page - 1) * PageSize; }
+        }
+
+        /// <summary>
+        /// Gets or sets the total number of items.
+        /// </summary>
+        public int TotalCount
+        {
+            get { return _totalCount; }
+            set
+            {
+                _totalCount = value;
+                if (Page < 1) Page = 1;
+                if (Page > PageCount) Page = PageCount;
+                int skip = (Page - 1) * PageSize;
+            }
+        }
+        int _totalCount;
+    }
 }

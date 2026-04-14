@@ -16,8 +16,10 @@
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required />
+          <IsSearchParameter>false</IsSearchParameter>
         </ModelPropertySetting>
       </Properties>
+      <GenerateQueryParam>false</GenerateQueryParam>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="ModelClassEntitySetting">
       <Name>IDisplayOrder</Name>
@@ -31,8 +33,10 @@
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
+          <IsSearchParameter>false</IsSearchParameter>
         </ModelPropertySetting>
       </Properties>
+      <GenerateQueryParam>false</GenerateQueryParam>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="ModelClassEntitySetting">
       <Name>IIsActive</Name>
@@ -46,8 +50,10 @@
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required />
+          <IsSearchParameter>false</IsSearchParameter>
         </ModelPropertySetting>
       </Properties>
+      <GenerateQueryParam>false</GenerateQueryParam>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="ModelClassEntitySetting">
       <Name>IUpdatedAt</Name>
@@ -62,8 +68,10 @@
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
+          <IsSearchParameter>true</IsSearchParameter>
         </ModelPropertySetting>
       </Properties>
+      <GenerateQueryParam>false</GenerateQueryParam>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="ModelClassEntitySetting">
       <Name>ICreatedAt</Name>
@@ -78,8 +86,10 @@
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
+          <IsSearchParameter>false</IsSearchParameter>
         </ModelPropertySetting>
       </Properties>
+      <GenerateQueryParam>false</GenerateQueryParam>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="ModelClassEntitySetting">
       <Name>ITradeOrder</Name>
@@ -93,6 +103,7 @@
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
+          <IsSearchParameter>false</IsSearchParameter>
         </ModelPropertySetting>
         <ModelPropertySetting>
           <Name>ExecuteTime</Name>
@@ -102,6 +113,7 @@
           <HtmlEncode xsi:nil="true" />
           <Range>typeof(DateTime), "1/1/2000", "12/31/2220"</Range>
           <Required />
+          <IsSearchParameter>false</IsSearchParameter>
         </ModelPropertySetting>
         <ModelPropertySetting>
           <Name>OrderPrice</Name>
@@ -111,6 +123,7 @@
           <HtmlEncode xsi:nil="true" />
           <Range>0.00000001, double.MaxValue</Range>
           <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
+          <IsSearchParameter>false</IsSearchParameter>
         </ModelPropertySetting>
         <ModelPropertySetting>
           <Name>FilledPrice</Name>
@@ -119,6 +132,7 @@
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required />
+          <IsSearchParameter>false</IsSearchParameter>
         </ModelPropertySetting>
         <ModelPropertySetting>
           <Name>OrderQuantity</Name>
@@ -127,6 +141,7 @@
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required />
+          <IsSearchParameter>false</IsSearchParameter>
         </ModelPropertySetting>
         <ModelPropertySetting>
           <Name>FilledQuantity</Name>
@@ -135,6 +150,7 @@
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required />
+          <IsSearchParameter>false</IsSearchParameter>
         </ModelPropertySetting>
         <ModelPropertySetting>
           <Name>OrderAmount</Name>
@@ -143,6 +159,7 @@
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required />
+          <IsSearchParameter>false</IsSearchParameter>
         </ModelPropertySetting>
         <ModelPropertySetting>
           <Name>FilledAmount</Name>
@@ -151,8 +168,10 @@
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required />
+          <IsSearchParameter>false</IsSearchParameter>
         </ModelPropertySetting>
       </Properties>
+      <GenerateQueryParam>false</GenerateQueryParam>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="ModelClassEntitySetting">
       <Name>Exchange</Name>
@@ -166,6 +185,7 @@
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
+          <IsSearchParameter>true</IsSearchParameter>
         </ModelPropertySetting>
         <ModelPropertySetting>
           <Name>ExchangeCode</Name>
@@ -174,6 +194,7 @@
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
+          <IsSearchParameter>true</IsSearchParameter>
         </ModelPropertySetting>
         <ModelPropertySetting>
           <Name>DefaultCurrency</Name>
@@ -182,6 +203,7 @@
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required />
+          <IsSearchParameter>true</IsSearchParameter>
         </ModelPropertySetting>
         <ModelPropertySetting>
           <Name>HasAnySymbol</Name>
@@ -190,6 +212,7 @@
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required />
+          <IsSearchParameter>false</IsSearchParameter>
         </ModelPropertySetting>
         <ModelPropertySetting>
           <Name>Symbols</Name>
@@ -197,6 +220,7 @@
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required />
+          <IsSearchParameter>false</IsSearchParameter>
         </ModelPropertySetting>
         <ModelPropertySetting>
           <Name>TradingAccounts</Name>
@@ -204,8 +228,10 @@
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required />
+          <IsSearchParameter>false</IsSearchParameter>
         </ModelPropertySetting>
       </Properties>
+      <GenerateQueryParam>false</GenerateQueryParam>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="ModelClassEntitySetting">
       <Name>TradingAccount</Name>
@@ -219,6 +245,7 @@
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
+          <IsSearchParameter>true</IsSearchParameter>
         </ModelPropertySetting>
         <ModelPropertySetting>
           <Name>ExchangeId</Name>
@@ -228,6 +255,7 @@
           <HtmlEncode xsi:nil="true" />
           <Range>1, int.MaxValue</Range>
           <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
+          <IsSearchParameter>true</IsSearchParameter>
         </ModelPropertySetting>
         <ModelPropertySetting>
           <Name>Exchange</Name>
@@ -235,6 +263,7 @@
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required />
+          <IsSearchParameter>false</IsSearchParameter>
         </ModelPropertySetting>
         <ModelPropertySetting>
           <Name>Notes</Name>
@@ -243,8 +272,10 @@
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required />
+          <IsSearchParameter>true</IsSearchParameter>
         </ModelPropertySetting>
       </Properties>
+      <GenerateQueryParam>false</GenerateQueryParam>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="ModelClassEntitySetting">
       <Name>Currency</Name>
@@ -258,6 +289,7 @@
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
+          <IsSearchParameter>true</IsSearchParameter>
         </ModelPropertySetting>
         <ModelPropertySetting>
           <Name>Description</Name>
@@ -266,8 +298,10 @@
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required />
+          <IsSearchParameter>true</IsSearchParameter>
         </ModelPropertySetting>
       </Properties>
+      <GenerateQueryParam>false</GenerateQueryParam>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="ModelClassEntitySetting">
       <Name>Symbol</Name>
@@ -281,6 +315,7 @@
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
+          <IsSearchParameter>true</IsSearchParameter>
         </ModelPropertySetting>
         <ModelPropertySetting>
           <Name>TickerFull</Name>
@@ -289,6 +324,7 @@
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
+          <IsSearchParameter>true</IsSearchParameter>
         </ModelPropertySetting>
         <ModelPropertySetting>
           <Name>BaseCurrency</Name>
@@ -297,6 +333,7 @@
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required />
+          <IsSearchParameter>true</IsSearchParameter>
         </ModelPropertySetting>
         <ModelPropertySetting>
           <Name>PriceCurrency</Name>
@@ -305,6 +342,7 @@
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
+          <IsSearchParameter>true</IsSearchParameter>
         </ModelPropertySetting>
         <ModelPropertySetting>
           <Name>Description</Name>
@@ -313,6 +351,7 @@
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required />
+          <IsSearchParameter>true</IsSearchParameter>
         </ModelPropertySetting>
         <ModelPropertySetting>
           <Name>ExchangeId</Name>
@@ -322,6 +361,7 @@
           <HtmlEncode xsi:nil="true" />
           <Range>1, int.MaxValue</Range>
           <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
+          <IsSearchParameter>true</IsSearchParameter>
         </ModelPropertySetting>
         <ModelPropertySetting>
           <Name>Exchange</Name>
@@ -329,6 +369,7 @@
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required />
+          <IsSearchParameter>false</IsSearchParameter>
         </ModelPropertySetting>
         <ModelPropertySetting>
           <Name>MarketType</Name>
@@ -337,8 +378,10 @@
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
+          <IsSearchParameter>false</IsSearchParameter>
         </ModelPropertySetting>
       </Properties>
+      <GenerateQueryParam>false</GenerateQueryParam>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="ModelClassEntitySetting">
       <Name>EntryOrder</Name>
@@ -353,6 +396,7 @@
           <HtmlEncode xsi:nil="true" />
           <Range>1, int.MaxValue</Range>
           <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
+          <IsSearchParameter>true</IsSearchParameter>
         </ModelPropertySetting>
         <ModelPropertySetting>
           <Name>Trade</Name>
@@ -360,8 +404,10 @@
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required />
+          <IsSearchParameter>false</IsSearchParameter>
         </ModelPropertySetting>
       </Properties>
+      <GenerateQueryParam>false</GenerateQueryParam>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="ModelClassEntitySetting">
       <Name>TakeProfitOrder</Name>
@@ -376,6 +422,7 @@
           <HtmlEncode xsi:nil="true" />
           <Range>1, int.MaxValue</Range>
           <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
+          <IsSearchParameter>true</IsSearchParameter>
         </ModelPropertySetting>
         <ModelPropertySetting>
           <Name>Trade</Name>
@@ -383,8 +430,10 @@
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required />
+          <IsSearchParameter>false</IsSearchParameter>
         </ModelPropertySetting>
       </Properties>
+      <GenerateQueryParam>false</GenerateQueryParam>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="ModelClassEntitySetting">
       <Name>StopLossOrder</Name>
@@ -399,6 +448,7 @@
           <HtmlEncode xsi:nil="true" />
           <Range>1, int.MaxValue</Range>
           <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
+          <IsSearchParameter>true</IsSearchParameter>
         </ModelPropertySetting>
         <ModelPropertySetting>
           <Name>Trade</Name>
@@ -406,6 +456,7 @@
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required />
+          <IsSearchParameter>false</IsSearchParameter>
         </ModelPropertySetting>
         <ModelPropertySetting>
           <Name>StopAll</Name>
@@ -414,8 +465,10 @@
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required />
+          <IsSearchParameter>false</IsSearchParameter>
         </ModelPropertySetting>
       </Properties>
+      <GenerateQueryParam>false</GenerateQueryParam>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="ModelClassEntitySetting">
       <Name>TradeImage</Name>
@@ -431,6 +484,7 @@
           <HtmlEncode xsi:nil="true" />
           <Range>1, int.MaxValue</Range>
           <Required />
+          <IsSearchParameter>true</IsSearchParameter>
         </ModelPropertySetting>
         <ModelPropertySetting>
           <Name>Trade</Name>
@@ -438,6 +492,7 @@
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required />
+          <IsSearchParameter>false</IsSearchParameter>
         </ModelPropertySetting>
         <ModelPropertySetting>
           <Name>ImageURL</Name>
@@ -446,6 +501,7 @@
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
+          <IsSearchParameter>true</IsSearchParameter>
         </ModelPropertySetting>
         <ModelPropertySetting>
           <Name>Notes</Name>
@@ -454,8 +510,10 @@
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required />
+          <IsSearchParameter>true</IsSearchParameter>
         </ModelPropertySetting>
       </Properties>
+      <GenerateQueryParam>false</GenerateQueryParam>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="ModelClassEntitySetting">
       <Name>Trade</Name>
@@ -471,6 +529,7 @@
           <HtmlEncode xsi:nil="true" />
           <Range>1, int.MaxValue</Range>
           <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
+          <IsSearchParameter>true</IsSearchParameter>
         </ModelPropertySetting>
         <ModelPropertySetting>
           <Name>TradingAccount</Name>
@@ -478,6 +537,7 @@
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required />
+          <IsSearchParameter>false</IsSearchParameter>
         </ModelPropertySetting>
         <ModelPropertySetting>
           <Name>SymbolId</Name>
@@ -487,6 +547,7 @@
           <HtmlEncode xsi:nil="true" />
           <Range>1, int.MaxValue</Range>
           <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
+          <IsSearchParameter>true</IsSearchParameter>
         </ModelPropertySetting>
         <ModelPropertySetting>
           <Name>Symbol</Name>
@@ -494,6 +555,7 @@
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required />
+          <IsSearchParameter>false</IsSearchParameter>
         </ModelPropertySetting>
         <ModelPropertySetting>
           <Name>EntryTime</Name>
@@ -503,6 +565,7 @@
           <HtmlEncode xsi:nil="true" />
           <Range>typeof(DateTime), "1/1/2000", "12/31/2220"</Range>
           <Required />
+          <IsSearchParameter>true</IsSearchParameter>
         </ModelPropertySetting>
         <ModelPropertySetting>
           <Name>EntryMethod</Name>
@@ -511,6 +574,7 @@
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
+          <IsSearchParameter>false</IsSearchParameter>
         </ModelPropertySetting>
         <ModelPropertySetting>
           <Name>TradeDirection</Name>
@@ -519,6 +583,7 @@
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
+          <IsSearchParameter>true</IsSearchParameter>
         </ModelPropertySetting>
         <ModelPropertySetting>
           <Name>EntryOrders</Name>
@@ -526,6 +591,7 @@
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required />
+          <IsSearchParameter>false</IsSearchParameter>
         </ModelPropertySetting>
         <ModelPropertySetting>
           <Name>PlannedEntry</Name>
@@ -534,6 +600,7 @@
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required />
+          <IsSearchParameter>false</IsSearchParameter>
         </ModelPropertySetting>
         <ModelPropertySetting>
           <Name>ExecutedEntry</Name>
@@ -542,6 +609,7 @@
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required />
+          <IsSearchParameter>false</IsSearchParameter>
         </ModelPropertySetting>
         <ModelPropertySetting>
           <Name>OrderQuantity</Name>
@@ -550,6 +618,7 @@
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required />
+          <IsSearchParameter>false</IsSearchParameter>
         </ModelPropertySetting>
         <ModelPropertySetting>
           <Name>FilledQuantity</Name>
@@ -558,6 +627,7 @@
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required />
+          <IsSearchParameter>false</IsSearchParameter>
         </ModelPropertySetting>
         <ModelPropertySetting>
           <Name>TakeProfitOrders</Name>
@@ -565,6 +635,7 @@
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required />
+          <IsSearchParameter>false</IsSearchParameter>
         </ModelPropertySetting>
         <ModelPropertySetting>
           <Name>PlannedTP</Name>
@@ -573,6 +644,7 @@
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required />
+          <IsSearchParameter>false</IsSearchParameter>
         </ModelPropertySetting>
         <ModelPropertySetting>
           <Name>ExecutedTP</Name>
@@ -581,6 +653,7 @@
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required />
+          <IsSearchParameter>false</IsSearchParameter>
         </ModelPropertySetting>
         <ModelPropertySetting>
           <Name>StopLossOrders</Name>
@@ -588,6 +661,7 @@
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required />
+          <IsSearchParameter>false</IsSearchParameter>
         </ModelPropertySetting>
         <ModelPropertySetting>
           <Name>PlannedSL</Name>
@@ -596,6 +670,7 @@
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required />
+          <IsSearchParameter>false</IsSearchParameter>
         </ModelPropertySetting>
         <ModelPropertySetting>
           <Name>ExecutedSL</Name>
@@ -604,6 +679,7 @@
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required />
+          <IsSearchParameter>false</IsSearchParameter>
         </ModelPropertySetting>
         <ModelPropertySetting>
           <Name>TradeImages</Name>
@@ -611,8 +687,10 @@
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required />
+          <IsSearchParameter>false</IsSearchParameter>
         </ModelPropertySetting>
       </Properties>
+      <GenerateQueryParam>true</GenerateQueryParam>
     </BaseEntitySetting>
   </EntitySettings>
   <RenderAllEntities>false</RenderAllEntities>
@@ -621,7 +699,6 @@
   <UseResourceFiles>true</UseResourceFiles>
   <GenAnnotations>true</GenAnnotations>
   <GenerateValidator>true</GenerateValidator>
-  <GenerateQueryParam>true</GenerateQueryParam>
   <GenerateXmlDoc>true</GenerateXmlDoc>
   <QueryParamFolder>..\OzzTradeDiary.NET\OzzTradeDiary\Helpers</QueryParamFolder>
   <QueryParamNamespaceName>TD.Helpers</QueryParamNamespaceName>

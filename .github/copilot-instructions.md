@@ -4,7 +4,7 @@
 
 Early-stage development (pre-release, no public release yet).
 
-Internal tracking versions: `OzzTradeDiary` `0.0.36`, `OzzTradeDiary.WPF` `0.0.36`, `OzzTradeDiary.SQLite` `0.0.36`, `OzzTradeDiary.i18n` `0.0.36`.
+Internal tracking versions: `OzzTradeDiary` `0.0.37`, `OzzTradeDiary.WPF` `0.0.37`, `OzzTradeDiary.SQLite` `0.0.37`, `OzzTradeDiary.i18n` `0.0.37`.
 
 - **Changelog discipline**: Any behavior change (repository logic, initialization, seeding, schema generation impact, UI-visible behavior) must be recorded in `CHANGELOG.md`.
 
@@ -14,7 +14,7 @@ Internal tracking versions: `OzzTradeDiary` `0.0.36`, `OzzTradeDiary.WPF` `0.0.3
 
 | Project | Namespace | Role | Platform |
 |---------|-----------|------|----------|
-| `OzzTradeDiary` | `TD` | Core data models and shared validation utilities (`TD.Validation`) | Platform-independent |
+| `OzzTradeDiary` | `TD` | Core data models, shared helpers (`TD.Helpers`), and shared validation utilities (`TD.Validation`) | Platform-independent |
 | `OzzTradeDiary.i18n` | `TD.i18n` | Localization resources (`ActionStrings`, `CommonStrings`, `ErrorStrings`, `LocalizedStrings`, `MessageStrings`) | Platform-independent |
 | `OzzTradeDiary.SQLite` | `TD.SQLite` | Data access — raw SQLite via Microsoft.Data.Sqlite | Platform-independent |
 | `OzzTradeDiary.WPF` | `TD.WPF` | Desktop UI — views, view models, commands, services | Windows only |
@@ -128,7 +128,7 @@ Internal tracking versions: `OzzTradeDiary` `0.0.36`, `OzzTradeDiary.WPF` `0.0.3
 - **App version**: `AppVersion` static class (`TD.WPF.Models`) reads product name, version, copyright, and description from assembly attributes; use `AppVersion.Version` for display
 - **UI culture**: `AppSettings.UiCulture` stores the user's preferred BCP-47 culture name (e.g. `"en-US"`, `"tr-TR"`). `App.OnStartup` applies it to `Thread.CurrentThread.CurrentUICulture` and `CurrentCulture` before `MainWindow` is created. When empty, the OS culture is used.
 - **Validation**: Use `TD.Validation.ModelValidator` for shared DataAnnotations-based model validation logic so WPF, MAUI, and ASP.NET can reuse the same validation rules
-- **Query contract**: Use `TD.Validation.QueryParameters` for shared pagination/search query payloads instead of duplicating per-feature query DTOs.
+- **Query contract**: Use `TD.Helpers.QueryParameters` for shared pagination/search query payloads, and `TD.Helpers.TradeQueryParameters` for typed trade filtering instead of duplicating per-feature query DTOs.
 - **Localization**: Use resources from `OzzTradeDiary.i18n` (`ActionStrings`, `CommonStrings`, `ErrorStrings`, `LocalizedStrings`, `MessageStrings`); model classes consume these resources through DataAnnotations and the resource classes are generated artifacts
 - **Localization generation**: Keep `OzzCodeGen/Vocabulary`, Turkish translations, and generated localization resources in sync when adding or renaming UI text.
 - **Enum helpers**: Use `TD.Extensions.EnumExtension` when building collections from enums for UI binding or when reading enum `Display` attribute text.
@@ -139,7 +139,8 @@ Internal tracking versions: `OzzTradeDiary` `0.0.36`, `OzzTradeDiary.WPF` `0.0.3
   - Localization resources are generated via `OzzCodeGen/ResourceGen.settings` + `OzzCodeGen/Vocabulary`
   - `LocalizedStrings.resx` is sourced from `OzzTradeDiary.OzzGen`
   - Model classes and database schema are sourced from `OzzTradeDiary.OzzGen` using `CS_Model_Class_Generator`
-  - Query parameter class generation should stay enabled in codegen settings so `TD.Validation.QueryParameters` remains consistent across regenerations
+  - Query parameter class generation should stay enabled in codegen settings so `TD.Helpers.QueryParameters` and entity-specific query contracts remain consistent across regenerations
+  - `CsModelClassCodeEngine.settings` should be kept aligned for per-entity query parameter generation and search-parameter marking
   - Keep generator execution order in `OzzTradeDiary.OzzGen` aligned with repository and schema dependencies when introducing new generated repository hooks or navigation auto-loading behavior
 - **Do not edit generated artifacts manually** (`*.resx`, designer files, generated models, generated schema scripts)
 - **Backup**: SQLite backup via `BackupDatabase` API → ZIP archives with timestamps

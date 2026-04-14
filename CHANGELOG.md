@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.0.37] - 2026-04-14
+
+### Added
+- Introduced `TradeQueryParameters` in `TD.Helpers` for typed trade filtering.
+
+### Changed
+- Refactored `QueryParameters`: moved from `TD.Validation` to `TD.Helpers`, and added XML documentation plus a copy constructor.
+- Enhanced `CsModelClassCodeEngine.settings` to support per-entity query parameter generation and search-parameter marking.
+- Bumped all project versions to `0.0.37` (`OzzTradeDiary`, `OzzTradeDiary.WPF`, `OzzTradeDiary.SQLite`, `OzzTradeDiary.i18n`).
+
 ## [0.0.36] - 2026-04-13
 
 ### Added
