@@ -4,7 +4,7 @@
 
 Early-stage development (pre-release, no public release yet).
 
-Internal tracking versions: `OzzTradeDiary` `0.0.38`, `OzzTradeDiary.WPF` `0.0.38`, `OzzTradeDiary.SQLite` `0.0.38`, `OzzTradeDiary.i18n` `0.0.38`.
+Internal tracking versions: `OzzTradeDiary` `0.0.39`, `OzzTradeDiary.WPF` `0.0.39`, `OzzTradeDiary.SQLite` `0.0.39`, `OzzTradeDiary.i18n` `0.0.39`.
 
 - **Changelog discipline**: Any behavior change (repository logic, initialization, seeding, schema generation impact, UI-visible behavior) must be recorded in `CHANGELOG.md`.
 
@@ -101,6 +101,7 @@ Internal tracking versions: `OzzTradeDiary` `0.0.38`, `OzzTradeDiary.WPF` `0.0.3
 - `TradeRepository.GetPagedAsync` should support paging (`ORDER BY` + `LIMIT/OFFSET`) with combined typed filtering from `TradeQueryParameters`, including range filters (`EntryTime`, `PlannedEntry`, `ExecutedEntry`, `UpdatedAt`) and calculated position-value filters.
 - SQLite date/time columns should use `TEXT` when the data is intended to preserve readable ISO-style values, and `UpdatedAt` columns should follow that convention in generated scripts.
 - SQLite repository code generation has its own settings file; keep repository regeneration aligned with `SqliteRepositoryGen.settings`.
+- Prefer `TD.SQLite.Extensions.SqliteExtensions.AddNullableParameter(...)` for nullable SQLite parameter handling; do not use `AddNullableTextParameter`.
 - `Trade` navigation properties may be generated with `AutoLoad=true`; in that case `TradeRepository.OnLoaded` is responsible for populating related collections through injected repositories.
 - `Exchange` navigation collections may be generated with `AutoLoad=true`; in that case `ExchangeRepository` should asynchronously populate `Symbols` and `TradingAccounts` through injected repositories.
 - `ExchangeRepository` should receive dependent repositories (such as `SymbolRepository` and `TradingAccountRepository`) via constructor injection instead of creating/managing those dependencies internally.

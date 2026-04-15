@@ -4,7 +4,7 @@ A Windows desktop trade journaling application for tracking trades across multip
 
 > **Status**: Pre-release development (no public release yet)
 > 
-> **Internal tracking versions**: `OzzTradeDiary` `0.0.38`, `OzzTradeDiary.WPF` `0.0.38`, `OzzTradeDiary.SQLite` `0.0.38`, `OzzTradeDiary.i18n` `0.0.38`
+> **Internal tracking versions**: `OzzTradeDiary` `0.0.39`, `OzzTradeDiary.WPF` `0.0.39`, `OzzTradeDiary.SQLite` `0.0.39`, `OzzTradeDiary.i18n` `0.0.39`
 
 ## Changelog
 
@@ -28,6 +28,8 @@ See [`CHANGELOG.md`](CHANGELOG.md) for release history.
 - Repository interfaces are now `partial`, allowing extension across files while keeping generated files untouched
 - Repository constructors now expose `OnInitialized` partial hooks so generated repositories can be extended without modifying generated source
 - Repository contracts and implementations now expose richer partial hooks/methods for navigation loading and update flows (`OnLoaded`, `OnCreated`, `OnUpdated`) to support extensibility
+- `TD.SQLite.Extensions.SqliteExtensions` now provides type-safe `AddNullableParameter` helpers for nullable SQLite parameter handling
+- Repository nullable SQLite parameter usage was refactored from `AddNullableTextParameter` to `AddNullableParameter`
 - `TradeRepository.GetPagedAsync` now supports advanced filtering with paging (`ORDER BY Id LIMIT/OFFSET`) and combined typed filters from `TradeQueryParameters`
 - `TradeRepository.GetPagedAsync` supports range filters for `EntryTime`, and `UpdatedAt`
 - `TradeRepository.GetPagedAsync` supports calculated position-value range filters for planned/executed position values
@@ -146,6 +148,7 @@ OzzTradeDiary.slnx
 │   │   └── *Strings.tr.resx      # Turkish resources
 │   ├── OzzTradeDiary.SQLite/     # Data access (TD.SQLite namespace) — platform-independent
 │   │   ├── DbScripts/            # Generated SQL DDL scripts (one per model in OzzTradeDiary/Models)
+│   │   ├── Extensions/           # SQLite-specific extension methods
 │   │   └── Repositories/         # Data access repositories (one per entity)
 │   └── OzzTradeDiary.WPF/        # Desktop UI (TD.WPF namespace) — Windows only
 │       ├── Commands/             # ICommand implementations
@@ -195,6 +198,7 @@ Shared enum and text helper logic lives in `TD.Extensions` so UI projects such a
   - `Exchange.ExchangeCode`
   - `Symbol.TickerFull`
 - Nullable text fields such as `Exchange.DefaultCurrency` should be stored as SQL `NULL`, not the literal string `"null"`.
+- Prefer `TD.SQLite.Extensions.SqliteExtensions.AddNullableParameter(...)` for nullable SQLite parameters; avoid `AddNullableTextParameter`.
 
 ## Database Initialization and Seed Data
 

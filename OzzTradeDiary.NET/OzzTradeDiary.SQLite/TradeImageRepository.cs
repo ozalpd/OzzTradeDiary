@@ -6,9 +6,8 @@
 //
 //----------------------------------------------------------------------------------
 using Microsoft.Data.Sqlite;
-using System;
-using System.Collections.Generic;
 using TD.Models;
+using TD.SQLite.Extensions;
 
 namespace TD.SQLite
 {
@@ -111,7 +110,7 @@ namespace TD.SQLite
             var nowUtc = DateTime.UtcNow;
             command.Parameters.AddWithValue("@tradeId", tradeImage.TradeId);
             command.Parameters.AddWithValue("@imageURL", tradeImage.ImageURL);
-            AddNullableTextParameter(command, "@notes", tradeImage.Notes);
+            command.AddNullableParameter("@notes", tradeImage.Notes);
             command.Parameters.AddWithValue("@updatedAt", nowUtc.ToString("O"));
 
             var id = Convert.ToInt32((long)(await command.ExecuteScalarAsync() ?? 0));
@@ -169,7 +168,7 @@ namespace TD.SQLite
             var nowUtc = DateTime.UtcNow;
             command.Parameters.AddWithValue("@id", tradeImage.Id);
             command.Parameters.AddWithValue("@imageURL", tradeImage.ImageURL);
-            AddNullableTextParameter(command, "@notes", tradeImage.Notes);
+            command.AddNullableParameter("@notes", tradeImage.Notes);
             command.Parameters.AddWithValue("@updatedAt", nowUtc.ToString("O"));
 
             var affectedRows = await command.ExecuteNonQueryAsync();

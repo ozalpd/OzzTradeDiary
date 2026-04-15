@@ -9,6 +9,7 @@ using Microsoft.Data.Sqlite;
 using System;
 using System.Collections.Generic;
 using TD.Models;
+using TD.SQLite.Extensions;
 
 namespace TD.SQLite
 {
@@ -136,7 +137,7 @@ namespace TD.SQLite
             
             command.Parameters.AddWithValue("@exchangeName", exchange.ExchangeName);
             command.Parameters.AddWithValue("@exchangeCode", exchange.ExchangeCode);
-            AddNullableTextParameter(command, "@defaultCurrency", exchange.DefaultCurrency);
+            command.AddNullableParameter("@defaultCurrency", exchange.DefaultCurrency);
             command.Parameters.AddWithValue("@hasAnySymbol", exchange.HasAnySymbol ? 1 : 0);
             command.Parameters.AddWithValue("@displayOrder", exchange.DisplayOrder);
             command.Parameters.AddWithValue("@isActive", exchange.IsActive ? 1 : 0);
@@ -203,7 +204,7 @@ namespace TD.SQLite
 
             command.Parameters.AddWithValue("@id", exchange.Id);
             command.Parameters.AddWithValue("@exchangeName", exchange.ExchangeName);
-            AddNullableTextParameter(command, "@defaultCurrency", exchange.DefaultCurrency);
+            command.AddNullableParameter("@defaultCurrency", exchange.DefaultCurrency);
             command.Parameters.AddWithValue("@displayOrder", exchange.DisplayOrder);
             command.Parameters.AddWithValue("@isActive", exchange.IsActive ? 1 : 0);
 

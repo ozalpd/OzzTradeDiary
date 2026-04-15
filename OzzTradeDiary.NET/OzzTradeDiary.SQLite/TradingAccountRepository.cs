@@ -6,9 +6,8 @@
 //
 //----------------------------------------------------------------------------------
 using Microsoft.Data.Sqlite;
-using System;
-using System.Collections.Generic;
 using TD.Models;
+using TD.SQLite.Extensions;
 
 namespace TD.SQLite
 {
@@ -168,7 +167,7 @@ namespace TD.SQLite
             
             command.Parameters.AddWithValue("@title", tradingAccount.Title);
             command.Parameters.AddWithValue("@exchangeId", tradingAccount.ExchangeId);
-            AddNullableTextParameter(command, "@notes", tradingAccount.Notes);
+            command.AddNullableParameter("@notes", tradingAccount.Notes);
             command.Parameters.AddWithValue("@displayOrder", tradingAccount.DisplayOrder);
             command.Parameters.AddWithValue("@isActive", tradingAccount.IsActive ? 1 : 0);
 
@@ -234,7 +233,7 @@ namespace TD.SQLite
 
             command.Parameters.AddWithValue("@id", tradingAccount.Id);
             command.Parameters.AddWithValue("@title", tradingAccount.Title);
-            AddNullableTextParameter(command, "@notes", tradingAccount.Notes);
+            command.AddNullableParameter("@notes", tradingAccount.Notes);
             command.Parameters.AddWithValue("@displayOrder", tradingAccount.DisplayOrder);
             command.Parameters.AddWithValue("@isActive", tradingAccount.IsActive ? 1 : 0);
 

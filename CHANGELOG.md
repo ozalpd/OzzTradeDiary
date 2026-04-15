@@ -4,6 +4,17 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.0.39] - 2026-04-15
+
+### Added
+- Introduced `SqliteExtensions` in `TD.SQLite.Extensions` to provide type-safe nullable parameter handling for SQLite commands, replacing the previous `AddNullableTextParameter` method with more flexible `AddNullableParameter` extension methods that support various data types.
+
+### Changed
+- Refactored nullable SQLite parameter handling by replacing `AddNullableTextParameter` with `AddNullableParameter` extension methods in `TD.SQLite.Extensions`.
+- Expanded `SqliteExtensions` with type-safe nullable parameter support for repository insert/update command parameterization.
+- Updated all repository usages to the new nullable parameter extensions.
+- Bumped all project versions to `0.0.39` (`OzzTradeDiary`, `OzzTradeDiary.WPF`, `OzzTradeDiary.SQLite`, `OzzTradeDiary.i18n`).
+
 ## [0.0.38] - 2026-04-14
 
 ### Changed

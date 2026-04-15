@@ -6,9 +6,8 @@
 //
 //----------------------------------------------------------------------------------
 using Microsoft.Data.Sqlite;
-using System;
-using System.Collections.Generic;
 using TD.Models;
+using TD.SQLite.Extensions;
 
 namespace TD.SQLite
 {
@@ -122,7 +121,7 @@ namespace TD.SQLite
             SELECT last_insert_rowid();";
             
             command.Parameters.AddWithValue("@currencyTicker", currency.CurrencyTicker);
-            AddNullableTextParameter(command, "@description", currency.Description);
+            command.AddNullableParameter("@description", currency.Description);
             command.Parameters.AddWithValue("@displayOrder", currency.DisplayOrder);
             command.Parameters.AddWithValue("@isActive", currency.IsActive ? 1 : 0);
 
@@ -185,7 +184,7 @@ namespace TD.SQLite
             WHERE Id = @id";
 
             command.Parameters.AddWithValue("@id", currency.Id);
-            AddNullableTextParameter(command, "@description", currency.Description);
+            command.AddNullableParameter("@description", currency.Description);
             command.Parameters.AddWithValue("@displayOrder", currency.DisplayOrder);
             command.Parameters.AddWithValue("@isActive", currency.IsActive ? 1 : 0);
 
