@@ -231,7 +231,7 @@
           <DoNotLog>false</DoNotLog>
         </StorageColumnSetting>
         <StorageColumnSetting>
-          <Name>OrderAmount</Name>
+          <Name>OrderValue</Name>
           <Exclude>false</Exclude>
           <DataType>[decimal](18, 4)</DataType>
           <Length>0</Length>
@@ -244,7 +244,7 @@
           <DoNotLog>false</DoNotLog>
         </StorageColumnSetting>
         <StorageColumnSetting>
-          <Name>FilledAmount</Name>
+          <Name>FilledValue</Name>
           <Exclude>false</Exclude>
           <DataType>[decimal](18, 4)</DataType>
           <Length>0</Length>

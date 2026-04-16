@@ -997,7 +997,7 @@
     <Translation>Dosya</Translation>
   </Vocab>
   <Vocab>
-    <Name>FilledAmount</Name>
+    <Name>FilledValue</Name>
     <Translation>Gerçekleşen Tutar</Translation>
   </Vocab>
   <Vocab>
@@ -1257,7 +1257,7 @@
     <Translation>Sipariş</Translation>
   </Vocab>
   <Vocab>
-    <Name>OrderAmount</Name>
+    <Name>OrderValue</Name>
     <Translation>Emir Tutarı</Translation>
   </Vocab>
   <Vocab>

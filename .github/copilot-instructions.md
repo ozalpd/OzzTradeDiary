@@ -4,7 +4,7 @@
 
 Early-stage development (pre-release, no public release yet).
 
-Internal tracking versions: `OzzTradeDiary` `0.0.39`, `OzzTradeDiary.WPF` `0.0.39`, `OzzTradeDiary.SQLite` `0.0.39`, `OzzTradeDiary.i18n` `0.0.39`.
+Internal tracking versions: `OzzTradeDiary` `0.0.40`, `OzzTradeDiary.WPF` `0.0.40`, `OzzTradeDiary.SQLite` `0.0.40`, `OzzTradeDiary.i18n` `0.0.40`.
 
 - **Changelog discipline**: Any behavior change (repository logic, initialization, seeding, schema generation impact, UI-visible behavior) must be recorded in `CHANGELOG.md`.
 
@@ -57,7 +57,8 @@ Internal tracking versions: `OzzTradeDiary` `0.0.39`, `OzzTradeDiary.WPF` `0.0.3
 - Where generator settings support it, navigation properties may use `AutoLoad=true` so generated repositories invoke post-load hooks for related data population.
 - `Exchange` navigation collections (`Symbols`, `TradingAccounts`) should be treated as repository-loadable relationship data and kept aligned with repository auto-load settings.
 - `Trade` quantity fields (`OrderQuantity`, `FilledQuantity`) are part of the persisted domain contract and should be kept aligned across model, repository mapping, and generated schema.
-- `Trade` calculated position-value properties should be maintained as derived domain values aligned with `PlannedEntry`/`OrderQuantity` and `ExecutedEntry`/`FilledQuantity`.
+- `Trade` value fields should use `OrderValue` and `FilledValue` naming consistently across models, repositories, resources, and generated artifacts.
+- `Trade` calculated position-value properties should be maintained as derived domain values aligned with price/quantity/value fields.
 
 ### ViewModels (TD.WPF namespace)
 
@@ -102,6 +103,9 @@ Internal tracking versions: `OzzTradeDiary` `0.0.39`, `OzzTradeDiary.WPF` `0.0.3
 - SQLite date/time columns should use `TEXT` when the data is intended to preserve readable ISO-style values, and `UpdatedAt` columns should follow that convention in generated scripts.
 - SQLite repository code generation has its own settings file; keep repository regeneration aligned with `SqliteRepositoryGen.settings`.
 - Prefer `TD.SQLite.Extensions.SqliteExtensions.AddNullableParameter(...)` for nullable SQLite parameter handling; do not use `AddNullableTextParameter`.
+- Use `TD.SQLite.Extensions.SqliteExtensions` scaling helpers for decimal-to-integer persistence where value columns are stored as scaled integers.
+- Store `OrderValue` and `FilledValue` as scaled `INTEGER` values (scale 4) in SQLite.
+- Store price and quantity fields as `TEXT` in SQLite when precision preservation is required.
 - `Trade` navigation properties may be generated with `AutoLoad=true`; in that case `TradeRepository.OnLoaded` is responsible for populating related collections through injected repositories.
 - `Exchange` navigation collections may be generated with `AutoLoad=true`; in that case `ExchangeRepository` should asynchronously populate `Symbols` and `TradingAccounts` through injected repositories.
 - `ExchangeRepository` should receive dependent repositories (such as `SymbolRepository` and `TradingAccountRepository`) via constructor injection instead of creating/managing those dependencies internally.
@@ -115,7 +119,7 @@ Internal tracking versions: `OzzTradeDiary` `0.0.39`, `OzzTradeDiary.WPF` `0.0.3
 - DDL generation uses idempotent table creation (`CREATE TABLE IF NOT EXISTS`)
 - When adding a generated seed file `<PluralTableName>-Data.sql`, the corresponding repository `InitializeDatabase()` should call the `SeedIfEmpty` helper inherited from `AbstractDatabaseRepository`
 - Each CUD operation must call `SaveLastUpdateUtcAsync` via `SqliteDatabaseMetadataRepository`
-- SQLite types: `INTEGER` (ints, enums), `REAL` (decimals), `TEXT` (strings and date/time values)
+- SQLite types: `INTEGER` (ints, enums, scaled value columns), `TEXT` (strings, date/time values, and precision-sensitive decimal text columns)
 - Nullable text values must be written as SQL `NULL` when absent; do not persist placeholder strings such as `"null"`.
 - **`Currency.CurrencyTicker` must be treated as a unique immutable key in repositories** (do not update it after creation).
 - **`Exchange.ExchangeCode` must be treated as a unique immutable key in repositories** (do not update it after creation).
@@ -146,6 +150,7 @@ Internal tracking versions: `OzzTradeDiary` `0.0.39`, `OzzTradeDiary.WPF` `0.0.3
   - Model classes and database schema are sourced from `OzzTradeDiary.OzzGen` using `CS_Model_Class_Generator`
   - Query parameter class generation should stay enabled in codegen settings so `TD.Helpers.QueryParameters` and entity-specific query contracts remain consistent across regenerations
   - `CsModelClassCodeEngine.settings` should be kept aligned for per-entity query parameter generation and search-parameter marking
+  - Keep code generation metadata for SQLite column names and decimal scales aligned with repository mapping and schema generation
   - Keep generator execution order in `OzzTradeDiary.OzzGen` aligned with repository and schema dependencies when introducing new generated repository hooks or navigation auto-loading behavior
 - **Do not edit generated artifacts manually** (`*.resx`, designer files, generated models, generated schema scripts)
 - **Backup**: SQLite backup via `BackupDatabase` API → ZIP archives with timestamps

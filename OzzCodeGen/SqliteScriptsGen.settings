@@ -175,7 +175,7 @@
         <StorageColumnSetting>
           <Name>OrderPrice</Name>
           <Exclude>false</Exclude>
-          <DataType>REAL</DataType>
+          <DataType>TEXT</DataType>
           <Length>0</Length>
           <PrimaryKey>false</PrimaryKey>
           <Indexed>false</Indexed>
@@ -188,7 +188,7 @@
         <StorageColumnSetting>
           <Name>FilledPrice</Name>
           <Exclude>false</Exclude>
-          <DataType>REAL</DataType>
+          <DataType>TEXT</DataType>
           <Length>0</Length>
           <PrimaryKey>false</PrimaryKey>
           <Indexed>false</Indexed>
@@ -201,7 +201,7 @@
         <StorageColumnSetting>
           <Name>OrderQuantity</Name>
           <Exclude>false</Exclude>
-          <DataType>REAL</DataType>
+          <DataType>TEXT</DataType>
           <Length>0</Length>
           <PrimaryKey>false</PrimaryKey>
           <Indexed>false</Indexed>
@@ -214,7 +214,7 @@
         <StorageColumnSetting>
           <Name>FilledQuantity</Name>
           <Exclude>false</Exclude>
-          <DataType>REAL</DataType>
+          <DataType>TEXT</DataType>
           <Length>0</Length>
           <PrimaryKey>false</PrimaryKey>
           <Indexed>false</Indexed>
@@ -225,9 +225,9 @@
           <DoNotLog>false</DoNotLog>
         </StorageColumnSetting>
         <StorageColumnSetting>
-          <Name>OrderAmount</Name>
+          <Name>OrderValue</Name>
           <Exclude>false</Exclude>
-          <DataType>REAL</DataType>
+          <DataType>INTEGER</DataType>
           <Length>0</Length>
           <PrimaryKey>false</PrimaryKey>
           <Indexed>false</Indexed>
@@ -238,9 +238,9 @@
           <DoNotLog>false</DoNotLog>
         </StorageColumnSetting>
         <StorageColumnSetting>
-          <Name>FilledAmount</Name>
+          <Name>FilledValue</Name>
           <Exclude>false</Exclude>
-          <DataType>REAL</DataType>
+          <DataType>INTEGER</DataType>
           <Length>0</Length>
           <PrimaryKey>false</PrimaryKey>
           <Indexed>false</Indexed>
@@ -528,7 +528,7 @@
     <BaseEntitySetting xsi:type="StorageEntitySetting">
       <Name>EntryOrder</Name>
       <Exclude>false</Exclude>
-      <OverwriteExisting>false</OverwriteExisting>
+      <OverwriteExisting>true</OverwriteExisting>
       <Properties>
         <StorageColumnSetting>
           <Name>TradeId</Name>
@@ -556,7 +556,7 @@
     <BaseEntitySetting xsi:type="StorageEntitySetting">
       <Name>TakeProfitOrder</Name>
       <Exclude>false</Exclude>
-      <OverwriteExisting>false</OverwriteExisting>
+      <OverwriteExisting>true</OverwriteExisting>
       <Properties>
         <StorageColumnSetting>
           <Name>TradeId</Name>
@@ -584,7 +584,7 @@
     <BaseEntitySetting xsi:type="StorageEntitySetting">
       <Name>StopLossOrder</Name>
       <Exclude>false</Exclude>
-      <OverwriteExisting>false</OverwriteExisting>
+      <OverwriteExisting>true</OverwriteExisting>
       <Properties>
         <StorageColumnSetting>
           <Name>TradeId</Name>
@@ -757,7 +757,7 @@
         <StorageColumnSetting>
           <Name>PlannedEntry</Name>
           <Exclude>false</Exclude>
-          <DataType>REAL</DataType>
+          <DataType>TEXT</DataType>
           <Length>0</Length>
           <PrimaryKey>false</PrimaryKey>
           <Indexed>false</Indexed>
@@ -770,7 +770,7 @@
         <StorageColumnSetting>
           <Name>ExecutedEntry</Name>
           <Exclude>false</Exclude>
-          <DataType>REAL</DataType>
+          <DataType>TEXT</DataType>
           <Length>0</Length>
           <PrimaryKey>false</PrimaryKey>
           <Indexed>false</Indexed>
@@ -783,7 +783,7 @@
         <StorageColumnSetting>
           <Name>OrderQuantity</Name>
           <Exclude>false</Exclude>
-          <DataType>REAL</DataType>
+          <DataType>TEXT</DataType>
           <Length>0</Length>
           <PrimaryKey>false</PrimaryKey>
           <Indexed>false</Indexed>
@@ -796,7 +796,7 @@
         <StorageColumnSetting>
           <Name>FilledQuantity</Name>
           <Exclude>false</Exclude>
-          <DataType>REAL</DataType>
+          <DataType>TEXT</DataType>
           <Length>0</Length>
           <PrimaryKey>false</PrimaryKey>
           <Indexed>false</Indexed>
@@ -809,7 +809,7 @@
         <StorageColumnSetting>
           <Name>PlannedTP</Name>
           <Exclude>false</Exclude>
-          <DataType>REAL</DataType>
+          <DataType>TEXT</DataType>
           <Length>0</Length>
           <PrimaryKey>false</PrimaryKey>
           <Indexed>false</Indexed>
@@ -822,7 +822,7 @@
         <StorageColumnSetting>
           <Name>ExecutedTP</Name>
           <Exclude>false</Exclude>
-          <DataType>REAL</DataType>
+          <DataType>TEXT</DataType>
           <Length>0</Length>
           <PrimaryKey>false</PrimaryKey>
           <Indexed>false</Indexed>
@@ -835,7 +835,7 @@
         <StorageColumnSetting>
           <Name>PlannedSL</Name>
           <Exclude>false</Exclude>
-          <DataType>REAL</DataType>
+          <DataType>TEXT</DataType>
           <Length>0</Length>
           <PrimaryKey>false</PrimaryKey>
           <Indexed>false</Indexed>
@@ -848,7 +848,7 @@
         <StorageColumnSetting>
           <Name>ExecutedSL</Name>
           <Exclude>false</Exclude>
-          <DataType>REAL</DataType>
+          <DataType>TEXT</DataType>
           <Length>0</Length>
           <PrimaryKey>false</PrimaryKey>
           <Indexed>false</Indexed>

@@ -6,9 +6,8 @@
 //
 //----------------------------------------------------------------------------------
 using Microsoft.Data.Sqlite;
-using System;
-using System.Collections.Generic;
 using TD.Models;
+using TD.SQLite.Extensions;
 
 namespace TD.SQLite
 {
@@ -105,7 +104,7 @@ namespace TD.SQLite
 
             await using var command = connection.CreateCommand();
             command.CommandText = @$"INSERT INTO {_tableName} ({string.Join(", ", ColumnNames[1..])})
-            VALUES (@tradeId, @orderType, @executeTime, @orderPrice, @filledPrice, @orderQuantity, @filledQuantity, @orderAmount, @filledAmount, @displayOrder);
+            VALUES (@tradeId, @orderType, @executeTime, @orderPrice, @filledPrice, @orderQuantity, @filledQuantity, @orderValue, @filledValue, @displayOrder);
             SELECT last_insert_rowid();";
             
             command.Parameters.AddWithValue("@tradeId", entryOrder.TradeId);
@@ -115,8 +114,8 @@ namespace TD.SQLite
             command.Parameters.AddWithValue("@filledPrice", entryOrder.FilledPrice);
             command.Parameters.AddWithValue("@orderQuantity", entryOrder.OrderQuantity);
             command.Parameters.AddWithValue("@filledQuantity", entryOrder.FilledQuantity);
-            command.Parameters.AddWithValue("@orderAmount", entryOrder.OrderAmount);
-            command.Parameters.AddWithValue("@filledAmount", entryOrder.FilledAmount);
+            command.Parameters.AddWithValue("@orderValue", entryOrder.OrderValue);
+            command.Parameters.AddWithValue("@filledValue", entryOrder.FilledValue);
             command.Parameters.AddWithValue("@displayOrder", entryOrder.DisplayOrder);
 
             var id = Convert.ToInt32((long)(await command.ExecuteScalarAsync() ?? 0));
@@ -161,8 +160,8 @@ namespace TD.SQLite
                           && existingEntryOrder.FilledPrice == entryOrder.FilledPrice 
                           && existingEntryOrder.OrderQuantity == entryOrder.OrderQuantity 
                           && existingEntryOrder.FilledQuantity == entryOrder.FilledQuantity 
-                          && existingEntryOrder.OrderAmount == entryOrder.OrderAmount 
-                          && existingEntryOrder.FilledAmount == entryOrder.FilledAmount 
+                          && existingEntryOrder.OrderValue == entryOrder.OrderValue 
+                          && existingEntryOrder.FilledValue == entryOrder.FilledValue 
                           && existingEntryOrder.DisplayOrder == entryOrder.DisplayOrder; 
 
             if (noChanges)
@@ -170,7 +169,7 @@ namespace TD.SQLite
 
             await using var command = connection.CreateCommand();
             // TradeId is not updated to avoid complications with existing references,
-            // so only OrderType, ExecuteTime, OrderPrice, FilledPrice, OrderQuantity, FilledQuantity, OrderAmount, FilledAmount, DisplayOrder are updated
+            // so only OrderType, ExecuteTime, OrderPrice, FilledPrice, OrderQuantity, FilledQuantity, OrderValue, FilledValue, DisplayOrder are updated
             command.CommandText = @$"UPDATE {_tableName} SET
                 OrderType = @orderType, 
                 ExecuteTime = @executeTime, 
@@ -178,8 +177,8 @@ namespace TD.SQLite
                 FilledPrice = @filledPrice, 
                 OrderQuantity = @orderQuantity, 
                 FilledQuantity = @filledQuantity, 
-                OrderAmount = @orderAmount, 
-                FilledAmount = @filledAmount, 
+                OrderValue = @orderValue, 
+                FilledValue = @filledValue, 
                 DisplayOrder = @displayOrder 
             WHERE Id = @id";
 
@@ -190,8 +189,8 @@ namespace TD.SQLite
             command.Parameters.AddWithValue("@filledPrice", entryOrder.FilledPrice);
             command.Parameters.AddWithValue("@orderQuantity", entryOrder.OrderQuantity);
             command.Parameters.AddWithValue("@filledQuantity", entryOrder.FilledQuantity);
-            command.Parameters.AddWithValue("@orderAmount", entryOrder.OrderAmount);
-            command.Parameters.AddWithValue("@filledAmount", entryOrder.FilledAmount);
+            command.Parameters.AddWithValue("@orderValue", entryOrder.OrderValue);
+            command.Parameters.AddWithValue("@filledValue", entryOrder.FilledValue);
             command.Parameters.AddWithValue("@displayOrder", entryOrder.DisplayOrder);
 
             var affectedRows = await command.ExecuteNonQueryAsync();
@@ -217,8 +216,8 @@ namespace TD.SQLite
                 FilledPrice = reader.IsDBNull(ColNrs.FilledPrice) ? null : reader.GetDecimal(ColNrs.FilledPrice), 
                 OrderQuantity = reader.IsDBNull(ColNrs.OrderQuantity) ? null : reader.GetDecimal(ColNrs.OrderQuantity), 
                 FilledQuantity = reader.IsDBNull(ColNrs.FilledQuantity) ? null : reader.GetDecimal(ColNrs.FilledQuantity), 
-                OrderAmount = reader.IsDBNull(ColNrs.OrderAmount) ? null : reader.GetDecimal(ColNrs.OrderAmount), 
-                FilledAmount = reader.IsDBNull(ColNrs.FilledAmount) ? null : reader.GetDecimal(ColNrs.FilledAmount), 
+                OrderValue = reader.IsDBNull(ColNrs.OrderValue) ? null : reader.GetDecimal(ColNrs.OrderValue), 
+                FilledValue = reader.IsDBNull(ColNrs.FilledValue) ? null : reader.GetDecimal(ColNrs.FilledValue), 
                 DisplayOrder = reader.GetInt32(ColNrs.DisplayOrder) 
 
             };
@@ -226,6 +225,9 @@ namespace TD.SQLite
             return entryOrder;
         }
 
+        /// <summary>
+        /// Contains the column numbers for each property in the SQLiteDataReader.
+        /// </summary>
         public readonly struct ColNrs
         {
             public readonly static int Id = 0;
@@ -236,11 +238,14 @@ namespace TD.SQLite
             public readonly static int FilledPrice = 5;
             public readonly static int OrderQuantity = 6;
             public readonly static int FilledQuantity = 7;
-            public readonly static int OrderAmount = 8;
-            public readonly static int FilledAmount = 9;
+            public readonly static int OrderValue = 8;
+            public readonly static int FilledValue = 9;
             public readonly static int DisplayOrder = 10;
         }
 
+        /// <summary>
+        /// Contains the names of all columns in the SQLiteDataReader.
+        /// </summary>
         public readonly string[] ColumnNames = new[] {
             "Id", 
             "TradeId", 
@@ -250,10 +255,23 @@ namespace TD.SQLite
             "FilledPrice", 
             "OrderQuantity", 
             "FilledQuantity", 
-            "OrderAmount", 
-            "FilledAmount", 
+            "OrderValue", 
+            "FilledValue", 
             "DisplayOrder" 
         };
+
+        /// <summary>
+        /// Contains the scale values used for converting decimal properties to integer storage.
+        /// </summary>
+        public readonly struct DecimalToIntegerScale
+        {
+            public readonly static int OrderPrice = 0;
+            public readonly static int FilledPrice = 0;
+            public readonly static int OrderQuantity = 0;
+            public readonly static int FilledQuantity = 0;
+            public readonly static int OrderValue = 4;
+            public readonly static int FilledValue = 4;
+        }
     }
 
     public partial interface IEntryOrderRepository

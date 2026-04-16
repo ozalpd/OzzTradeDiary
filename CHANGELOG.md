@@ -4,6 +4,19 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.0.40] - 2026-04-16
+
+### Added
+- Added code generation metadata for SQLite column names and decimal scales so generated schema and repository mappings can stay aligned.
+- Expanded `TD.SQLite.Extensions.SqliteExtensions` with decimal-to-integer scaling helpers and nullable parameter support for precision-safe SQLite persistence.
+
+### Changed
+- Renamed `OrderAmount` and `FilledAmount` to `OrderValue` and `FilledValue` across models, repositories, localization resources, vocabulary files, and code generation settings.
+- Updated SQLite schema so `OrderValue` and `FilledValue` are stored as scaled `INTEGER` values (scale 4), while price and quantity fields are stored as `TEXT` for improved precision.
+- Refactored repository implementations and code generation to use the new column names, storage types, and decimal scaling behavior.
+- Updated localization resources and vocabulary inputs to reflect the new value-based naming.
+- Bumped all project versions to `0.0.40` (`OzzTradeDiary`, `OzzTradeDiary.WPF`, `OzzTradeDiary.SQLite`, `OzzTradeDiary.i18n`).
+
 ## [0.0.39] - 2026-04-15
 
 ### Added

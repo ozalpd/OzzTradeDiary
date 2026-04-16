@@ -4,7 +4,7 @@ A Windows desktop trade journaling application for tracking trades across multip
 
 > **Status**: Pre-release development (no public release yet)
 > 
-> **Internal tracking versions**: `OzzTradeDiary` `0.0.39`, `OzzTradeDiary.WPF` `0.0.39`, `OzzTradeDiary.SQLite` `0.0.39`, `OzzTradeDiary.i18n` `0.0.39`
+> **Internal tracking versions**: `OzzTradeDiary` `0.0.40`, `OzzTradeDiary.WPF` `0.0.40`, `OzzTradeDiary.SQLite` `0.0.40`, `OzzTradeDiary.i18n` `0.0.40`
 
 ## Changelog
 
@@ -28,8 +28,13 @@ See [`CHANGELOG.md`](CHANGELOG.md) for release history.
 - Repository interfaces are now `partial`, allowing extension across files while keeping generated files untouched
 - Repository constructors now expose `OnInitialized` partial hooks so generated repositories can be extended without modifying generated source
 - Repository contracts and implementations now expose richer partial hooks/methods for navigation loading and update flows (`OnLoaded`, `OnCreated`, `OnUpdated`) to support extensibility
-- `TD.SQLite.Extensions.SqliteExtensions` now provides type-safe `AddNullableParameter` helpers for nullable SQLite parameter handling
+- `TD.SQLite.Extensions.SqliteExtensions` now provides type-safe nullable parameter helpers together with decimal-to-integer scaling helpers for SQLite persistence
 - Repository nullable SQLite parameter usage was refactored from `AddNullableTextParameter` to `AddNullableParameter`
+- `OrderAmount` and `FilledAmount` were renamed to `OrderValue` and `FilledValue` across models, repositories, localization resources, vocabulary files, and code generation settings
+- SQLite schema now stores `OrderValue` and `FilledValue` as scaled `INTEGER` values (scale 4) and stores price/quantity fields as `TEXT` to preserve decimal precision
+- Repository and code generation logic were refactored for the new column names, storage types, and decimal scaling behavior
+- Code generation now includes metadata for SQLite column names and decimal scales so generated schema and repositories stay aligned
+- Localization resources and vocabulary inputs were updated for the new value-based terminology
 - `TradeRepository.GetPagedAsync` now supports advanced filtering with paging (`ORDER BY Id LIMIT/OFFSET`) and combined typed filters from `TradeQueryParameters`
 - `TradeRepository.GetPagedAsync` supports range filters for `EntryTime`, and `UpdatedAt`
 - `TradeRepository.GetPagedAsync` supports calculated position-value range filters for planned/executed position values
@@ -149,7 +154,14 @@ OzzTradeDiary.slnx
 │   ├── OzzTradeDiary.SQLite/     # Data access (TD.SQLite namespace) — platform-independent
 │   │   ├── DbScripts/            # Generated SQL DDL scripts (one per model in OzzTradeDiary/Models)
 │   │   ├── Extensions/           # SQLite-specific extension methods
-│   │   └── Repositories/         # Data access repositories (one per entity)
+│   │   ├── AbstractDatabaseRepository.cs
+│   │   ├── MetadataRepository.cs
+│   │   ├── CurrencyRepository.cs
+│   │   ├── ExchangeRepository.cs
+│   │   ├── TradingAccountRepository.cs
+│   │   ├── SymbolRepository.cs
+│   │   ├── TradeRepository.cs
+│   │   └── ...                   # Repository classes live at the project root
 │   └── OzzTradeDiary.WPF/        # Desktop UI (TD.WPF namespace) — Windows only
 │       ├── Commands/             # ICommand implementations
 │       ├── Extensions/           # WPF-specific helpers
@@ -199,6 +211,7 @@ Shared enum and text helper logic lives in `TD.Extensions` so UI projects such a
   - `Symbol.TickerFull`
 - Nullable text fields such as `Exchange.DefaultCurrency` should be stored as SQL `NULL`, not the literal string `"null"`.
 - Prefer `TD.SQLite.Extensions.SqliteExtensions.AddNullableParameter(...)` for nullable SQLite parameters; avoid `AddNullableTextParameter`.
+- Use scaled `INTEGER` storage for value columns such as `OrderValue` and `FilledValue`, and use `TEXT` storage for precision-sensitive price/quantity decimals.
 
 ## Database Initialization and Seed Data
 

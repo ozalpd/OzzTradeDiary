@@ -271,6 +271,9 @@ namespace TD.SQLite
             return tradingAccount;
         }
 
+        /// <summary>
+        /// Contains the column numbers for each property in the SQLiteDataReader.
+        /// </summary>
         public readonly struct ColNrs
         {
             public readonly static int Id = 0;
@@ -281,6 +284,9 @@ namespace TD.SQLite
             public readonly static int IsActive = 5;
         }
 
+        /// <summary>
+        /// Contains the names of all columns in the SQLiteDataReader.
+        /// </summary>
         public readonly string[] ColumnNames = new[] {
             "Id", 
             "Title", 

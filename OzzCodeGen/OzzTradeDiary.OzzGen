@@ -411,10 +411,10 @@
           <IsStoreGenerated>false</IsStoreGenerated>
         </BaseProperty>
         <BaseProperty xsi:type="SimpleProperty">
-          <Name>OrderAmount</Name>
-          <Comment>Planned amount in currency, like $100</Comment>
+          <Name>OrderValue</Name>
+          <Comment>Planned position value in currency, like $100</Comment>
           <DisplayOrder>20700</DisplayOrder>
-          <DisplayName>Order Amount</DisplayName>
+          <DisplayName>Order Value</DisplayName>
           <TypeName>decimal</TypeName>
           <IsClientComputed>false</IsClientComputed>
           <IsServerComputed>false</IsServerComputed>
@@ -427,10 +427,10 @@
           <IsStoreGenerated>false</IsStoreGenerated>
         </BaseProperty>
         <BaseProperty xsi:type="SimpleProperty">
-          <Name>FilledAmount</Name>
-          <Comment>Filled contract amount in currency, like $100</Comment>
+          <Name>FilledValue</Name>
+          <Comment>Filled position value in currency, like $100</Comment>
           <DisplayOrder>20800</DisplayOrder>
-          <DisplayName>Filled Amount</DisplayName>
+          <DisplayName>Filled Value</DisplayName>
           <TypeName>decimal</TypeName>
           <IsClientComputed>false</IsClientComputed>
           <IsServerComputed>false</IsServerComputed>
@@ -1286,9 +1286,9 @@
   <StripSourcePrefixes>false</StripSourcePrefixes>
   <SourceClassPrefix />
   <CodeEngineList>
-    <string>CS_Model_Class_Generator</string>
     <string>CS_Sqlite_Repository_Generator</string>
     <string>Sqlite_Scripts_Generator</string>
+    <string>CS_Model_Class_Generator</string>
     <string>Localization_Resource_Generator</string>
     <string>T-Sql_Scripts_Generator</string>
   </CodeEngineList>

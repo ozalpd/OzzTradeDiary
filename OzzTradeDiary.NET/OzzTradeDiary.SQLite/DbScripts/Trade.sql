@@ -5,14 +5,14 @@ CREATE TABLE IF NOT EXISTS Trades(
 	EntryTime INTEGER, 
 	EntryMethod INTEGER Not Null, 
 	TradeDirection INTEGER Not Null, 
-	PlannedEntry REAL, 
-	ExecutedEntry REAL, 
-	OrderQuantity REAL, 
-	FilledQuantity REAL, 
-	PlannedTP REAL, 
-	ExecutedTP REAL, 
-	PlannedSL REAL, 
-	ExecutedSL REAL, 
+	PlannedEntry TEXT, 
+	ExecutedEntry TEXT, 
+	OrderQuantity TEXT, 
+	FilledQuantity TEXT, 
+	PlannedTP TEXT, 
+	ExecutedTP TEXT, 
+	PlannedSL TEXT, 
+	ExecutedSL TEXT, 
 	UpdatedAt TEXT Not Null 
 );
 Create Index If Not Exists idx_Trades_TradingAccountId on Trades(TradingAccountId, UpdatedAt DESC);

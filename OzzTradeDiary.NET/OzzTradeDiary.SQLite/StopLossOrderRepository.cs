@@ -6,9 +6,8 @@
 //
 //----------------------------------------------------------------------------------
 using Microsoft.Data.Sqlite;
-using System;
-using System.Collections.Generic;
 using TD.Models;
+using TD.SQLite.Extensions;
 
 namespace TD.SQLite
 {
@@ -105,7 +104,7 @@ namespace TD.SQLite
 
             await using var command = connection.CreateCommand();
             command.CommandText = @$"INSERT INTO {_tableName} ({string.Join(", ", ColumnNames[1..])})
-            VALUES (@tradeId, @stopAll, @orderType, @executeTime, @orderPrice, @filledPrice, @orderQuantity, @filledQuantity, @orderAmount, @filledAmount, @displayOrder);
+            VALUES (@tradeId, @stopAll, @orderType, @executeTime, @orderPrice, @filledPrice, @orderQuantity, @filledQuantity, @orderValue, @filledValue, @displayOrder);
             SELECT last_insert_rowid();";
             
             command.Parameters.AddWithValue("@tradeId", stopLossOrder.TradeId);
@@ -116,8 +115,8 @@ namespace TD.SQLite
             command.Parameters.AddWithValue("@filledPrice", stopLossOrder.FilledPrice);
             command.Parameters.AddWithValue("@orderQuantity", stopLossOrder.OrderQuantity);
             command.Parameters.AddWithValue("@filledQuantity", stopLossOrder.FilledQuantity);
-            command.Parameters.AddWithValue("@orderAmount", stopLossOrder.OrderAmount);
-            command.Parameters.AddWithValue("@filledAmount", stopLossOrder.FilledAmount);
+            command.Parameters.AddWithValue("@orderValue", stopLossOrder.OrderValue);
+            command.Parameters.AddWithValue("@filledValue", stopLossOrder.FilledValue);
             command.Parameters.AddWithValue("@displayOrder", stopLossOrder.DisplayOrder);
 
             var id = Convert.ToInt32((long)(await command.ExecuteScalarAsync() ?? 0));
@@ -163,8 +162,8 @@ namespace TD.SQLite
                           && existingStopLossOrder.FilledPrice == stopLossOrder.FilledPrice 
                           && existingStopLossOrder.OrderQuantity == stopLossOrder.OrderQuantity 
                           && existingStopLossOrder.FilledQuantity == stopLossOrder.FilledQuantity 
-                          && existingStopLossOrder.OrderAmount == stopLossOrder.OrderAmount 
-                          && existingStopLossOrder.FilledAmount == stopLossOrder.FilledAmount 
+                          && existingStopLossOrder.OrderValue == stopLossOrder.OrderValue 
+                          && existingStopLossOrder.FilledValue == stopLossOrder.FilledValue 
                           && existingStopLossOrder.DisplayOrder == stopLossOrder.DisplayOrder; 
 
             if (noChanges)
@@ -172,7 +171,7 @@ namespace TD.SQLite
 
             await using var command = connection.CreateCommand();
             // TradeId is not updated to avoid complications with existing references,
-            // so only StopAll, OrderType, ExecuteTime, OrderPrice, FilledPrice, OrderQuantity, FilledQuantity, OrderAmount, FilledAmount, DisplayOrder are updated
+            // so only StopAll, OrderType, ExecuteTime, OrderPrice, FilledPrice, OrderQuantity, FilledQuantity, OrderValue, FilledValue, DisplayOrder are updated
             command.CommandText = @$"UPDATE {_tableName} SET
                 StopAll = @stopAll, 
                 OrderType = @orderType, 
@@ -181,8 +180,8 @@ namespace TD.SQLite
                 FilledPrice = @filledPrice, 
                 OrderQuantity = @orderQuantity, 
                 FilledQuantity = @filledQuantity, 
-                OrderAmount = @orderAmount, 
-                FilledAmount = @filledAmount, 
+                OrderValue = @orderValue, 
+                FilledValue = @filledValue, 
                 DisplayOrder = @displayOrder 
             WHERE Id = @id";
 
@@ -194,8 +193,8 @@ namespace TD.SQLite
             command.Parameters.AddWithValue("@filledPrice", stopLossOrder.FilledPrice);
             command.Parameters.AddWithValue("@orderQuantity", stopLossOrder.OrderQuantity);
             command.Parameters.AddWithValue("@filledQuantity", stopLossOrder.FilledQuantity);
-            command.Parameters.AddWithValue("@orderAmount", stopLossOrder.OrderAmount);
-            command.Parameters.AddWithValue("@filledAmount", stopLossOrder.FilledAmount);
+            command.Parameters.AddWithValue("@orderValue", stopLossOrder.OrderValue);
+            command.Parameters.AddWithValue("@filledValue", stopLossOrder.FilledValue);
             command.Parameters.AddWithValue("@displayOrder", stopLossOrder.DisplayOrder);
 
             var affectedRows = await command.ExecuteNonQueryAsync();
@@ -222,8 +221,8 @@ namespace TD.SQLite
                 FilledPrice = reader.IsDBNull(ColNrs.FilledPrice) ? null : reader.GetDecimal(ColNrs.FilledPrice), 
                 OrderQuantity = reader.IsDBNull(ColNrs.OrderQuantity) ? null : reader.GetDecimal(ColNrs.OrderQuantity), 
                 FilledQuantity = reader.IsDBNull(ColNrs.FilledQuantity) ? null : reader.GetDecimal(ColNrs.FilledQuantity), 
-                OrderAmount = reader.IsDBNull(ColNrs.OrderAmount) ? null : reader.GetDecimal(ColNrs.OrderAmount), 
-                FilledAmount = reader.IsDBNull(ColNrs.FilledAmount) ? null : reader.GetDecimal(ColNrs.FilledAmount), 
+                OrderValue = reader.IsDBNull(ColNrs.OrderValue) ? null : reader.GetDecimal(ColNrs.OrderValue), 
+                FilledValue = reader.IsDBNull(ColNrs.FilledValue) ? null : reader.GetDecimal(ColNrs.FilledValue), 
                 DisplayOrder = reader.GetInt32(ColNrs.DisplayOrder) 
 
             };
@@ -231,6 +230,9 @@ namespace TD.SQLite
             return stopLossOrder;
         }
 
+        /// <summary>
+        /// Contains the column numbers for each property in the SQLiteDataReader.
+        /// </summary>
         public readonly struct ColNrs
         {
             public readonly static int Id = 0;
@@ -242,11 +244,14 @@ namespace TD.SQLite
             public readonly static int FilledPrice = 6;
             public readonly static int OrderQuantity = 7;
             public readonly static int FilledQuantity = 8;
-            public readonly static int OrderAmount = 9;
-            public readonly static int FilledAmount = 10;
+            public readonly static int OrderValue = 9;
+            public readonly static int FilledValue = 10;
             public readonly static int DisplayOrder = 11;
         }
 
+        /// <summary>
+        /// Contains the names of all columns in the SQLiteDataReader.
+        /// </summary>
         public readonly string[] ColumnNames = new[] {
             "Id", 
             "TradeId", 
@@ -257,10 +262,23 @@ namespace TD.SQLite
             "FilledPrice", 
             "OrderQuantity", 
             "FilledQuantity", 
-            "OrderAmount", 
-            "FilledAmount", 
+            "OrderValue", 
+            "FilledValue", 
             "DisplayOrder" 
         };
+
+        /// <summary>
+        /// Contains the scale values used for converting decimal properties to integer storage.
+        /// </summary>
+        public readonly struct DecimalToIntegerScale
+        {
+            public readonly static int OrderPrice = 0;
+            public readonly static int FilledPrice = 0;
+            public readonly static int OrderQuantity = 0;
+            public readonly static int FilledQuantity = 0;
+            public readonly static int OrderValue = 4;
+            public readonly static int FilledValue = 4;
+        }
     }
 
     public partial interface IStopLossOrderRepository

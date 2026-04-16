@@ -997,8 +997,8 @@
     <Translation>File</Translation>
   </Vocab>
   <Vocab>
-    <Name>FilledAmount</Name>
-    <Translation>Filled Amount</Translation>
+    <Name>FilledValue</Name>
+    <Translation>Filled Value</Translation>
   </Vocab>
   <Vocab>
     <Name>FilledPrice</Name>
@@ -1257,8 +1257,8 @@
     <Translation>Order</Translation>
   </Vocab>
   <Vocab>
-    <Name>OrderAmount</Name>
-    <Translation>Order Amount</Translation>
+    <Name>OrderValue</Name>
+    <Translation>Order Value</Translation>
   </Vocab>
   <Vocab>
     <Name>OrderDate</Name>

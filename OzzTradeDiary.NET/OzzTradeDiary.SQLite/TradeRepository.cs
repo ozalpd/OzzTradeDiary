@@ -6,9 +6,8 @@
 //
 //----------------------------------------------------------------------------------
 using Microsoft.Data.Sqlite;
-using System;
-using System.Collections.Generic;
 using TD.Models;
+using TD.SQLite.Extensions;
 
 namespace TD.SQLite
 {
@@ -340,6 +339,9 @@ namespace TD.SQLite
             return trade;
         }
 
+        /// <summary>
+        /// Contains the column numbers for each property in the SQLiteDataReader.
+        /// </summary>
         public readonly struct ColNrs
         {
             public readonly static int Id = 0;
@@ -359,6 +361,9 @@ namespace TD.SQLite
             public readonly static int UpdatedAt = 14;
         }
 
+        /// <summary>
+        /// Contains the names of all columns in the SQLiteDataReader.
+        /// </summary>
         public readonly string[] ColumnNames = new[] {
             "Id", 
             "TradingAccountId", 
@@ -376,6 +381,21 @@ namespace TD.SQLite
             "ExecutedSL", 
             "UpdatedAt" 
         };
+
+        /// <summary>
+        /// Contains the scale values used for converting decimal properties to integer storage.
+        /// </summary>
+        public readonly struct DecimalToIntegerScale
+        {
+            public readonly static int PlannedEntry = 0;
+            public readonly static int ExecutedEntry = 0;
+            public readonly static int OrderQuantity = 0;
+            public readonly static int FilledQuantity = 0;
+            public readonly static int PlannedTP = 0;
+            public readonly static int ExecutedTP = 0;
+            public readonly static int PlannedSL = 0;
+            public readonly static int ExecutedSL = 0;
+        }
     }
 
     public partial interface ITradeRepository
