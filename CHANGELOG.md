@@ -4,6 +4,19 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.0.41] - 2026-04-16
+
+### Added
+- Added calculated partial `OrderValue` / `FilledValue` properties for `EntryOrder`, `StopLossOrder`, and `TakeProfitOrder` so order value fields are derived instead of persisted.
+- Added explicit SQLite decimal parameter helpers in `TD.SQLite.Extensions.SqliteExtensions`: `AddDecimalToIntegerParameter` and `AddDecimalToTextParameter`.
+
+### Changed
+- Removed persisted `OrderAmount` / `FilledAmount` fields from models and replaced them with calculated `OrderValue` / `FilledValue` partials for order entities.
+- Excluded `OrderValue` / `FilledValue` from code-generated persisted fields so schema and repository generation no longer treat them as stored columns.
+- Replaced `AddNullableParameter(decimal?)` usage with explicit decimal storage helpers to make integer-scaled and text-based decimal persistence intentional.
+- Updated code generation engine order to preserve the correct dependency flow during regeneration.
+- Bumped all project versions to `0.0.41` (`OzzTradeDiary`, `OzzTradeDiary.WPF`, `OzzTradeDiary.SQLite`, `OzzTradeDiary.i18n`).
+
 ## [0.0.40] - 2026-04-16
 
 ### Added

@@ -154,7 +154,7 @@
         </ModelPropertySetting>
         <ModelPropertySetting>
           <Name>OrderValue</Name>
-          <Exclude>false</Exclude>
+          <Exclude>true</Exclude>
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
@@ -163,7 +163,7 @@
         </ModelPropertySetting>
         <ModelPropertySetting>
           <Name>FilledValue</Name>
-          <Exclude>false</Exclude>
+          <Exclude>true</Exclude>
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />

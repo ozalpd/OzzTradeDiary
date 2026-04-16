@@ -73,18 +73,6 @@ namespace TD.Models
         [Display(ResourceType = typeof(LocalizedStrings), Name = "FilledQuantity")]
         public decimal? FilledQuantity { get; set; }
 
-        /// <summary>
-        /// Planned amount in currency, like $100
-        /// </summary>
-        [Display(ResourceType = typeof(LocalizedStrings), Name = "OrderAmount")]
-        public decimal? OrderAmount { get; set; }
-
-        /// <summary>
-        /// Filled contract amount in currency, like $100
-        /// </summary>
-        [Display(ResourceType = typeof(LocalizedStrings), Name = "FilledAmount")]
-        public decimal? FilledAmount { get; set; }
-
         [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
         [Display(ResourceType = typeof(LocalizedStrings), Name = "DisplayOrder")]
         public int DisplayOrder { get; set; }
@@ -106,8 +94,6 @@ namespace TD.Models
             clone.FilledPrice = this.FilledPrice;
             clone.OrderQuantity = this.OrderQuantity;
             clone.FilledQuantity = this.FilledQuantity;
-            clone.OrderAmount = this.OrderAmount;
-            clone.FilledAmount = this.FilledAmount;
             clone.DisplayOrder = this.DisplayOrder;
 
             Cloning(clone);

@@ -4,7 +4,7 @@
 
 Early-stage development (pre-release, no public release yet).
 
-Internal tracking versions: `OzzTradeDiary` `0.0.40`, `OzzTradeDiary.WPF` `0.0.40`, `OzzTradeDiary.SQLite` `0.0.40`, `OzzTradeDiary.i18n` `0.0.40`.
+Internal tracking versions: `OzzTradeDiary` `0.0.41`, `OzzTradeDiary.WPF` `0.0.41`, `OzzTradeDiary.SQLite` `0.0.41`, `OzzTradeDiary.i18n` `0.0.41`.
 
 - **Changelog discipline**: Any behavior change (repository logic, initialization, seeding, schema generation impact, UI-visible behavior) must be recorded in `CHANGELOG.md`.
 
@@ -57,7 +57,8 @@ Internal tracking versions: `OzzTradeDiary` `0.0.40`, `OzzTradeDiary.WPF` `0.0.4
 - Where generator settings support it, navigation properties may use `AutoLoad=true` so generated repositories invoke post-load hooks for related data population.
 - `Exchange` navigation collections (`Symbols`, `TradingAccounts`) should be treated as repository-loadable relationship data and kept aligned with repository auto-load settings.
 - `Trade` quantity fields (`OrderQuantity`, `FilledQuantity`) are part of the persisted domain contract and should be kept aligned across model, repository mapping, and generated schema.
-- `Trade` value fields should use `OrderValue` and `FilledValue` naming consistently across models, repositories, resources, and generated artifacts.
+- Order entities should expose calculated `OrderValue` and `FilledValue` partial properties instead of persisted `OrderAmount` / `FilledAmount` fields.
+- Calculated order value properties for `EntryOrder`, `StopLossOrder`, and `TakeProfitOrder` should stay aligned with their related price/quantity fields.
 - `Trade` calculated position-value properties should be maintained as derived domain values aligned with price/quantity/value fields.
 
 ### ViewModels (TD.WPF namespace)
@@ -102,9 +103,13 @@ Internal tracking versions: `OzzTradeDiary` `0.0.40`, `OzzTradeDiary.WPF` `0.0.4
 - `TradeRepository.GetPagedAsync` should support paging (`ORDER BY` + `LIMIT/OFFSET`) with combined typed filtering from `TradeQueryParameters`, including range filters (`EntryTime`, `PlannedEntry`, `ExecutedEntry`, `UpdatedAt`) and calculated position-value filters.
 - SQLite date/time columns should use `TEXT` when the data is intended to preserve readable ISO-style values, and `UpdatedAt` columns should follow that convention in generated scripts.
 - SQLite repository code generation has its own settings file; keep repository regeneration aligned with `SqliteRepositoryGen.settings`.
-- Prefer `TD.SQLite.Extensions.SqliteExtensions.AddNullableParameter(...)` for nullable SQLite parameter handling; do not use `AddNullableTextParameter`.
+- Prefer explicit decimal storage helpers from `TD.SQLite.Extensions.SqliteExtensions` for repository parameterization.
+- Use `AddDecimalToIntegerParameter(...)` when persisting scaled integer decimal values.
+- Use `AddDecimalToTextParameter(...)` when persisting precision-sensitive decimal values as `TEXT`.
+- Do not use `AddNullableParameter(decimal?)` for decimal persistence.
+- Exclude calculated `OrderValue` / `FilledValue` properties from code-generated persisted fields.
 - Use `TD.SQLite.Extensions.SqliteExtensions` scaling helpers for decimal-to-integer persistence where value columns are stored as scaled integers.
-- Store `OrderValue` and `FilledValue` as scaled `INTEGER` values (scale 4) in SQLite.
+- Store `OrderValue` and `FilledValue` as calculated/non-persisted values for order entities, while persisted decimal storage should continue to respect configured SQLite column types and scales.
 - Store price and quantity fields as `TEXT` in SQLite when precision preservation is required.
 - `Trade` navigation properties may be generated with `AutoLoad=true`; in that case `TradeRepository.OnLoaded` is responsible for populating related collections through injected repositories.
 - `Exchange` navigation collections may be generated with `AutoLoad=true`; in that case `ExchangeRepository` should asynchronously populate `Symbols` and `TradingAccounts` through injected repositories.
@@ -151,7 +156,7 @@ Internal tracking versions: `OzzTradeDiary` `0.0.40`, `OzzTradeDiary.WPF` `0.0.4
   - Query parameter class generation should stay enabled in codegen settings so `TD.Helpers.QueryParameters` and entity-specific query contracts remain consistent across regenerations
   - `CsModelClassCodeEngine.settings` should be kept aligned for per-entity query parameter generation and search-parameter marking
   - Keep code generation metadata for SQLite column names and decimal scales aligned with repository mapping and schema generation
-  - Keep generator execution order in `OzzTradeDiary.OzzGen` aligned with repository and schema dependencies when introducing new generated repository hooks or navigation auto-loading behavior
+  - Keep generator execution order in `OzzTradeDiary.OzzGen` aligned with repository and schema dependencies when introducing new generated repository hooks, calculated partial dependencies, or navigation auto-loading behavior
 - **Do not edit generated artifacts manually** (`*.resx`, designer files, generated models, generated schema scripts)
 - **Backup**: SQLite backup via `BackupDatabase` API → ZIP archives with timestamps
 - **Icons**: Bootstrap Icons v1.13.1 (MIT) — icon paths stored as `StreamGeometry` resources in `OzzTradeDiary.WPF/Resources/BootstrapIcons.xaml`; reference via `{StaticResource <IconKey>}` in XAML
