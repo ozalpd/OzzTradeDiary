@@ -79,7 +79,7 @@ namespace TD.SQLite
             await using var command = connection.CreateCommand();
             command.CommandText = _selectStatement;
             command.CommandText += " WHERE ExchangeId = @exchangeId";
-            command.Parameters.AddWithValue("@exchangeId", exchangeId);
+            command.AddParameter("@exchangeId", exchangeId);
             if (isActive.HasValue)
             {
                 command.CommandText += " AND IsActive = @isActive";
@@ -166,15 +166,15 @@ namespace TD.SQLite
             VALUES (@ticker, @tickerFull, @baseCurrency, @priceCurrency, @description, @exchangeId, @marketType, @displayOrder, @isActive);
             SELECT last_insert_rowid();";
             
-            command.Parameters.AddWithValue("@ticker", symbol.Ticker);
-            command.Parameters.AddWithValue("@tickerFull", symbol.TickerFull);
+            command.AddParameter("@ticker", symbol.Ticker);
+            command.AddParameter("@tickerFull", symbol.TickerFull);
             command.AddNullableParameter("@baseCurrency", symbol.BaseCurrency);
-            command.Parameters.AddWithValue("@priceCurrency", symbol.PriceCurrency);
+            command.AddParameter("@priceCurrency", symbol.PriceCurrency);
             command.AddNullableParameter("@description", symbol.Description);
-            command.Parameters.AddWithValue("@exchangeId", symbol.ExchangeId);
-            command.Parameters.AddWithValue("@marketType", (int)symbol.MarketType);
-            command.Parameters.AddWithValue("@displayOrder", symbol.DisplayOrder);
-            command.Parameters.AddWithValue("@isActive", symbol.IsActive ? 1 : 0);
+            command.AddParameter("@exchangeId", symbol.ExchangeId);
+            command.AddParameter("@marketType", (int)symbol.MarketType);
+            command.AddParameter("@displayOrder", symbol.DisplayOrder);
+            command.AddParameter("@isActive", symbol.IsActive);
 
             var id = Convert.ToInt32((long)(await command.ExecuteScalarAsync() ?? 0));
             
@@ -236,11 +236,11 @@ namespace TD.SQLite
                 IsActive = @isActive 
             WHERE Id = @id";
 
-            command.Parameters.AddWithValue("@id", symbol.Id);
+            command.AddParameter("@id", symbol.Id);
             command.AddNullableParameter("@description", symbol.Description);
-            command.Parameters.AddWithValue("@marketType", (int)symbol.MarketType);
-            command.Parameters.AddWithValue("@displayOrder", symbol.DisplayOrder);
-            command.Parameters.AddWithValue("@isActive", symbol.IsActive ? 1 : 0);
+            command.AddParameter("@marketType", (int)symbol.MarketType);
+            command.AddParameter("@displayOrder", symbol.DisplayOrder);
+            command.AddParameter("@isActive", symbol.IsActive);
 
             var affectedRows = await command.ExecuteNonQueryAsync();
             if (affectedRows > 0)

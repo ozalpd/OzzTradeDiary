@@ -120,10 +120,10 @@ namespace TD.SQLite
             VALUES (@currencyTicker, @description, @displayOrder, @isActive);
             SELECT last_insert_rowid();";
             
-            command.Parameters.AddWithValue("@currencyTicker", currency.CurrencyTicker);
+            command.AddParameter("@currencyTicker", currency.CurrencyTicker);
             command.AddNullableParameter("@description", currency.Description);
-            command.Parameters.AddWithValue("@displayOrder", currency.DisplayOrder);
-            command.Parameters.AddWithValue("@isActive", currency.IsActive ? 1 : 0);
+            command.AddParameter("@displayOrder", currency.DisplayOrder);
+            command.AddParameter("@isActive", currency.IsActive);
 
             var id = Convert.ToInt32((long)(await command.ExecuteScalarAsync() ?? 0));
             
@@ -183,10 +183,10 @@ namespace TD.SQLite
                 IsActive = @isActive 
             WHERE Id = @id";
 
-            command.Parameters.AddWithValue("@id", currency.Id);
+            command.AddParameter("@id", currency.Id);
             command.AddNullableParameter("@description", currency.Description);
-            command.Parameters.AddWithValue("@displayOrder", currency.DisplayOrder);
-            command.Parameters.AddWithValue("@isActive", currency.IsActive ? 1 : 0);
+            command.AddParameter("@displayOrder", currency.DisplayOrder);
+            command.AddParameter("@isActive", currency.IsActive);
 
             var affectedRows = await command.ExecuteNonQueryAsync();
             if (affectedRows > 0)

@@ -59,7 +59,7 @@ namespace TD.SQLite
             await using var command = connection.CreateCommand();
             command.CommandText = _selectStatement;
             command.CommandText += " WHERE TradeId = @tradeId";
-            command.Parameters.AddWithValue("@tradeId", tradeId);
+            command.AddParameter("@tradeId", tradeId);
             command.CommandText += " ORDER BY DisplayOrder, Id";
 
             await using var reader = await command.ExecuteReaderAsync();
@@ -107,16 +107,16 @@ namespace TD.SQLite
             VALUES (@tradeId, @orderType, @executeTime, @orderPrice, @filledPrice, @orderQuantity, @filledQuantity, @orderValue, @filledValue, @displayOrder);
             SELECT last_insert_rowid();";
             
-            command.Parameters.AddWithValue("@tradeId", entryOrder.TradeId);
-            command.Parameters.AddWithValue("@orderType", (int)entryOrder.OrderType);
-            command.Parameters.AddWithValue("@executeTime", entryOrder.ExecuteTime);
-            command.Parameters.AddWithValue("@orderPrice", entryOrder.OrderPrice);
-            command.Parameters.AddWithValue("@filledPrice", entryOrder.FilledPrice);
-            command.Parameters.AddWithValue("@orderQuantity", entryOrder.OrderQuantity);
-            command.Parameters.AddWithValue("@filledQuantity", entryOrder.FilledQuantity);
-            command.Parameters.AddWithValue("@orderValue", entryOrder.OrderValue);
-            command.Parameters.AddWithValue("@filledValue", entryOrder.FilledValue);
-            command.Parameters.AddWithValue("@displayOrder", entryOrder.DisplayOrder);
+            command.AddParameter("@tradeId", entryOrder.TradeId);
+            command.AddParameter("@orderType", (int)entryOrder.OrderType);
+            command.AddDateTimeToTextParameter("@executeTime", entryOrder.ExecuteTime);
+            command.AddDecimalToTextParameter("@orderPrice", entryOrder.OrderPrice);
+            command.AddDecimalToTextParameter("@filledPrice", entryOrder.FilledPrice);
+            command.AddDecimalToTextParameter("@orderQuantity", entryOrder.OrderQuantity);
+            command.AddDecimalToTextParameter("@filledQuantity", entryOrder.FilledQuantity);
+            command.AddDecimalToIntegerParameter("@orderValue", entryOrder.OrderValue, DecimalToIntegerScale.OrderValue);
+            command.AddDecimalToIntegerParameter("@filledValue", entryOrder.FilledValue, DecimalToIntegerScale.FilledValue);
+            command.AddParameter("@displayOrder", entryOrder.DisplayOrder);
 
             var id = Convert.ToInt32((long)(await command.ExecuteScalarAsync() ?? 0));
             
@@ -182,16 +182,16 @@ namespace TD.SQLite
                 DisplayOrder = @displayOrder 
             WHERE Id = @id";
 
-            command.Parameters.AddWithValue("@id", entryOrder.Id);
-            command.Parameters.AddWithValue("@orderType", (int)entryOrder.OrderType);
-            command.Parameters.AddWithValue("@executeTime", entryOrder.ExecuteTime);
-            command.Parameters.AddWithValue("@orderPrice", entryOrder.OrderPrice);
-            command.Parameters.AddWithValue("@filledPrice", entryOrder.FilledPrice);
-            command.Parameters.AddWithValue("@orderQuantity", entryOrder.OrderQuantity);
-            command.Parameters.AddWithValue("@filledQuantity", entryOrder.FilledQuantity);
-            command.Parameters.AddWithValue("@orderValue", entryOrder.OrderValue);
-            command.Parameters.AddWithValue("@filledValue", entryOrder.FilledValue);
-            command.Parameters.AddWithValue("@displayOrder", entryOrder.DisplayOrder);
+            command.AddParameter("@id", entryOrder.Id);
+            command.AddParameter("@orderType", (int)entryOrder.OrderType);
+            command.AddDateTimeToTextParameter("@executeTime", entryOrder.ExecuteTime);
+            command.AddDecimalToTextParameter("@orderPrice", entryOrder.OrderPrice);
+            command.AddDecimalToTextParameter("@filledPrice", entryOrder.FilledPrice);
+            command.AddDecimalToTextParameter("@orderQuantity", entryOrder.OrderQuantity);
+            command.AddDecimalToTextParameter("@filledQuantity", entryOrder.FilledQuantity);
+            command.AddDecimalToIntegerParameter("@orderValue", entryOrder.OrderValue, DecimalToIntegerScale.OrderValue);
+            command.AddDecimalToIntegerParameter("@filledValue", entryOrder.FilledValue, DecimalToIntegerScale.FilledValue);
+            command.AddParameter("@displayOrder", entryOrder.DisplayOrder);
 
             var affectedRows = await command.ExecuteNonQueryAsync();
             if (affectedRows > 0)

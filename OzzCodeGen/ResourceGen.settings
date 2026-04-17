@@ -435,7 +435,25 @@
           <LocalizeValidationMsg>false</LocalizeValidationMsg>
         </LocalizationPropertySetting>
         <LocalizationPropertySetting>
+          <Name>OrderQuantity</Name>
+          <Exclude>false</Exclude>
+          <LocalizeRequiredMsg>false</LocalizeRequiredMsg>
+          <LocalizeValidationMsg>false</LocalizeValidationMsg>
+        </LocalizationPropertySetting>
+        <LocalizationPropertySetting>
           <Name>PlannedEntry</Name>
+          <Exclude>false</Exclude>
+          <LocalizeRequiredMsg>false</LocalizeRequiredMsg>
+          <LocalizeValidationMsg>false</LocalizeValidationMsg>
+        </LocalizationPropertySetting>
+        <LocalizationPropertySetting>
+          <Name>PlannedPositionValue</Name>
+          <Exclude>false</Exclude>
+          <LocalizeRequiredMsg>false</LocalizeRequiredMsg>
+          <LocalizeValidationMsg>false</LocalizeValidationMsg>
+        </LocalizationPropertySetting>
+        <LocalizationPropertySetting>
+          <Name>FilledQuantity</Name>
           <Exclude>false</Exclude>
           <LocalizeRequiredMsg>false</LocalizeRequiredMsg>
           <LocalizeValidationMsg>false</LocalizeValidationMsg>
@@ -447,13 +465,7 @@
           <LocalizeValidationMsg>false</LocalizeValidationMsg>
         </LocalizationPropertySetting>
         <LocalizationPropertySetting>
-          <Name>OrderQuantity</Name>
-          <Exclude>false</Exclude>
-          <LocalizeRequiredMsg>false</LocalizeRequiredMsg>
-          <LocalizeValidationMsg>false</LocalizeValidationMsg>
-        </LocalizationPropertySetting>
-        <LocalizationPropertySetting>
-          <Name>FilledQuantity</Name>
+          <Name>ExecutedPositionValue</Name>
           <Exclude>false</Exclude>
           <LocalizeRequiredMsg>false</LocalizeRequiredMsg>
           <LocalizeValidationMsg>false</LocalizeValidationMsg>

@@ -59,7 +59,7 @@ namespace TD.SQLite
             await using var command = connection.CreateCommand();
             command.CommandText = _selectStatement;
             command.CommandText += " WHERE TradeId = @tradeId";
-            command.Parameters.AddWithValue("@tradeId", tradeId);
+            command.AddParameter("@tradeId", tradeId);
             command.CommandText += " ORDER BY DisplayOrder, Id";
 
             await using var reader = await command.ExecuteReaderAsync();
@@ -107,16 +107,16 @@ namespace TD.SQLite
             VALUES (@tradeId, @orderType, @executeTime, @orderPrice, @filledPrice, @orderQuantity, @filledQuantity, @orderValue, @filledValue, @displayOrder);
             SELECT last_insert_rowid();";
             
-            command.Parameters.AddWithValue("@tradeId", takeProfitOrder.TradeId);
-            command.Parameters.AddWithValue("@orderType", (int)takeProfitOrder.OrderType);
-            command.Parameters.AddWithValue("@executeTime", takeProfitOrder.ExecuteTime);
-            command.Parameters.AddWithValue("@orderPrice", takeProfitOrder.OrderPrice);
-            command.Parameters.AddWithValue("@filledPrice", takeProfitOrder.FilledPrice);
-            command.Parameters.AddWithValue("@orderQuantity", takeProfitOrder.OrderQuantity);
-            command.Parameters.AddWithValue("@filledQuantity", takeProfitOrder.FilledQuantity);
-            command.Parameters.AddWithValue("@orderValue", takeProfitOrder.OrderValue);
-            command.Parameters.AddWithValue("@filledValue", takeProfitOrder.FilledValue);
-            command.Parameters.AddWithValue("@displayOrder", takeProfitOrder.DisplayOrder);
+            command.AddParameter("@tradeId", takeProfitOrder.TradeId);
+            command.AddParameter("@orderType", (int)takeProfitOrder.OrderType);
+            command.AddDateTimeToTextParameter("@executeTime", takeProfitOrder.ExecuteTime);
+            command.AddDecimalToTextParameter("@orderPrice", takeProfitOrder.OrderPrice);
+            command.AddDecimalToTextParameter("@filledPrice", takeProfitOrder.FilledPrice);
+            command.AddDecimalToTextParameter("@orderQuantity", takeProfitOrder.OrderQuantity);
+            command.AddDecimalToTextParameter("@filledQuantity", takeProfitOrder.FilledQuantity);
+            command.AddDecimalToIntegerParameter("@orderValue", takeProfitOrder.OrderValue, DecimalToIntegerScale.OrderValue);
+            command.AddDecimalToIntegerParameter("@filledValue", takeProfitOrder.FilledValue, DecimalToIntegerScale.FilledValue);
+            command.AddParameter("@displayOrder", takeProfitOrder.DisplayOrder);
 
             var id = Convert.ToInt32((long)(await command.ExecuteScalarAsync() ?? 0));
             
@@ -182,16 +182,16 @@ namespace TD.SQLite
                 DisplayOrder = @displayOrder 
             WHERE Id = @id";
 
-            command.Parameters.AddWithValue("@id", takeProfitOrder.Id);
-            command.Parameters.AddWithValue("@orderType", (int)takeProfitOrder.OrderType);
-            command.Parameters.AddWithValue("@executeTime", takeProfitOrder.ExecuteTime);
-            command.Parameters.AddWithValue("@orderPrice", takeProfitOrder.OrderPrice);
-            command.Parameters.AddWithValue("@filledPrice", takeProfitOrder.FilledPrice);
-            command.Parameters.AddWithValue("@orderQuantity", takeProfitOrder.OrderQuantity);
-            command.Parameters.AddWithValue("@filledQuantity", takeProfitOrder.FilledQuantity);
-            command.Parameters.AddWithValue("@orderValue", takeProfitOrder.OrderValue);
-            command.Parameters.AddWithValue("@filledValue", takeProfitOrder.FilledValue);
-            command.Parameters.AddWithValue("@displayOrder", takeProfitOrder.DisplayOrder);
+            command.AddParameter("@id", takeProfitOrder.Id);
+            command.AddParameter("@orderType", (int)takeProfitOrder.OrderType);
+            command.AddDateTimeToTextParameter("@executeTime", takeProfitOrder.ExecuteTime);
+            command.AddDecimalToTextParameter("@orderPrice", takeProfitOrder.OrderPrice);
+            command.AddDecimalToTextParameter("@filledPrice", takeProfitOrder.FilledPrice);
+            command.AddDecimalToTextParameter("@orderQuantity", takeProfitOrder.OrderQuantity);
+            command.AddDecimalToTextParameter("@filledQuantity", takeProfitOrder.FilledQuantity);
+            command.AddDecimalToIntegerParameter("@orderValue", takeProfitOrder.OrderValue, DecimalToIntegerScale.OrderValue);
+            command.AddDecimalToIntegerParameter("@filledValue", takeProfitOrder.FilledValue, DecimalToIntegerScale.FilledValue);
+            command.AddParameter("@displayOrder", takeProfitOrder.DisplayOrder);
 
             var affectedRows = await command.ExecuteNonQueryAsync();
             if (affectedRows > 0)

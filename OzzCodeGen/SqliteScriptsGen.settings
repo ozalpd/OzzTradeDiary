@@ -755,6 +755,19 @@
           <DoNotLog>false</DoNotLog>
         </StorageColumnSetting>
         <StorageColumnSetting>
+          <Name>OrderQuantity</Name>
+          <Exclude>false</Exclude>
+          <DataType>TEXT</DataType>
+          <Length>0</Length>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <Unique>false</Unique>
+          <SortDesc>false</SortDesc>
+          <Nullable>true</Nullable>
+          <CheckIfAltered>false</CheckIfAltered>
+          <DoNotLog>false</DoNotLog>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
           <Name>PlannedEntry</Name>
           <Exclude>false</Exclude>
           <DataType>TEXT</DataType>
@@ -765,6 +778,33 @@
           <SortDesc>false</SortDesc>
           <Nullable>true</Nullable>
           <CheckIfAltered>true</CheckIfAltered>
+          <DoNotLog>false</DoNotLog>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>PlannedPositionValue</Name>
+          <Exclude>false</Exclude>
+          <DataType>INTEGER</DataType>
+          <Length>0</Length>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>true</Indexed>
+          <Unique>false</Unique>
+          <SortDesc>false</SortDesc>
+          <CompositeIndexColumns>UpdatedAt DESC</CompositeIndexColumns>
+          <Nullable>true</Nullable>
+          <CheckIfAltered>false</CheckIfAltered>
+          <DoNotLog>false</DoNotLog>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>FilledQuantity</Name>
+          <Exclude>false</Exclude>
+          <DataType>TEXT</DataType>
+          <Length>0</Length>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <Unique>false</Unique>
+          <SortDesc>false</SortDesc>
+          <Nullable>true</Nullable>
+          <CheckIfAltered>false</CheckIfAltered>
           <DoNotLog>false</DoNotLog>
         </StorageColumnSetting>
         <StorageColumnSetting>
@@ -781,27 +821,15 @@
           <DoNotLog>false</DoNotLog>
         </StorageColumnSetting>
         <StorageColumnSetting>
-          <Name>OrderQuantity</Name>
+          <Name>ExecutedPositionValue</Name>
           <Exclude>false</Exclude>
-          <DataType>TEXT</DataType>
+          <DataType>INTEGER</DataType>
           <Length>0</Length>
           <PrimaryKey>false</PrimaryKey>
-          <Indexed>false</Indexed>
+          <Indexed>true</Indexed>
           <Unique>false</Unique>
           <SortDesc>false</SortDesc>
-          <Nullable>true</Nullable>
-          <CheckIfAltered>false</CheckIfAltered>
-          <DoNotLog>false</DoNotLog>
-        </StorageColumnSetting>
-        <StorageColumnSetting>
-          <Name>FilledQuantity</Name>
-          <Exclude>false</Exclude>
-          <DataType>TEXT</DataType>
-          <Length>0</Length>
-          <PrimaryKey>false</PrimaryKey>
-          <Indexed>false</Indexed>
-          <Unique>false</Unique>
-          <SortDesc>false</SortDesc>
+          <CompositeIndexColumns>EntryTime DESC</CompositeIndexColumns>
           <Nullable>true</Nullable>
           <CheckIfAltered>false</CheckIfAltered>
           <DoNotLog>false</DoNotLog>

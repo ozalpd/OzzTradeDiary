@@ -4,7 +4,7 @@
 
 Early-stage development (pre-release, no public release yet).
 
-Internal tracking versions: `OzzTradeDiary` `0.0.41`, `OzzTradeDiary.WPF` `0.0.41`, `OzzTradeDiary.SQLite` `0.0.41`, `OzzTradeDiary.i18n` `0.0.41`.
+Internal tracking versions: `OzzTradeDiary` `0.0.42`, `OzzTradeDiary.WPF` `0.0.42`, `OzzTradeDiary.SQLite` `0.0.42`, `OzzTradeDiary.i18n` `0.0.42`.
 
 - **Changelog discipline**: Any behavior change (repository logic, initialization, seeding, schema generation impact, UI-visible behavior) must be recorded in `CHANGELOG.md`.
 
@@ -57,9 +57,9 @@ Internal tracking versions: `OzzTradeDiary` `0.0.41`, `OzzTradeDiary.WPF` `0.0.4
 - Where generator settings support it, navigation properties may use `AutoLoad=true` so generated repositories invoke post-load hooks for related data population.
 - `Exchange` navigation collections (`Symbols`, `TradingAccounts`) should be treated as repository-loadable relationship data and kept aligned with repository auto-load settings.
 - `Trade` quantity fields (`OrderQuantity`, `FilledQuantity`) are part of the persisted domain contract and should be kept aligned across model, repository mapping, and generated schema.
+- `Trade` position-value fields (`PlannedPositionValue`, `ExecutedPositionValue`) are persisted domain fields and should be kept aligned across model, repository mapping, and generated schema/indexes.
 - Order entities should expose calculated `OrderValue` and `FilledValue` partial properties instead of persisted `OrderAmount` / `FilledAmount` fields.
 - Calculated order value properties for `EntryOrder`, `StopLossOrder`, and `TakeProfitOrder` should stay aligned with their related price/quantity fields.
-- `Trade` calculated position-value properties should be maintained as derived domain values aligned with price/quantity/value fields.
 
 ### ViewModels (TD.WPF namespace)
 
@@ -100,7 +100,8 @@ Internal tracking versions: `OzzTradeDiary` `0.0.41`, `OzzTradeDiary.WPF` `0.0.4
 - Generated repository files should not be edited manually; custom behavior should be implemented in companion partial files (for example `SymbolRepository.part.cs` or `TradeRepository.part.cs`).
 - Use the `SingleColumnUpdate` property in `SqliteRepositoryGen.settings` to generate targeted single-column update methods (e.g. `UpdateHasAnySymbolAsync`).
 - Ensure generated single-column update methods that implement repository interfaces (for example `UpdateExchangeHasAnySymbolAsync`) are `public`.
-- `TradeRepository.GetPagedAsync` should support paging (`ORDER BY` + `LIMIT/OFFSET`) with combined typed filtering from `TradeQueryParameters`, including range filters (`EntryTime`, `PlannedEntry`, `ExecutedEntry`, `UpdatedAt`) and calculated position-value filters.
+- `TradeRepository.GetPagedAsync` should support paging (`ORDER BY` + `LIMIT/OFFSET`) with combined typed filtering from `TradeQueryParameters`, including range filters (`EntryTime`, `UpdatedAt`) and planned/executed position-value filters.
+- `Trade` persisted position-value fields should be included in repository create/update/select mappings and keep generated column ordering aligned.
 - SQLite date/time columns should use `TEXT` when the data is intended to preserve readable ISO-style values, and `UpdatedAt` columns should follow that convention in generated scripts.
 - SQLite repository code generation has its own settings file; keep repository regeneration aligned with `SqliteRepositoryGen.settings`.
 - Prefer explicit decimal storage helpers from `TD.SQLite.Extensions.SqliteExtensions` for repository parameterization.

@@ -4,7 +4,7 @@ A Windows desktop trade journaling application for tracking trades across multip
 
 > **Status**: Pre-release development (no public release yet)
 > 
-> **Internal tracking versions**: `OzzTradeDiary` `0.0.41`, `OzzTradeDiary.WPF` `0.0.41`, `OzzTradeDiary.SQLite` `0.0.41`, `OzzTradeDiary.i18n` `0.0.41`
+> **Internal tracking versions**: `OzzTradeDiary` `0.0.42`, `OzzTradeDiary.WPF` `0.0.42`, `OzzTradeDiary.SQLite` `0.0.42`, `OzzTradeDiary.i18n` `0.0.42`
 
 ## Changelog
 
@@ -36,11 +36,14 @@ See [`CHANGELOG.md`](CHANGELOG.md) for release history.
 - `TD.SQLite.Extensions.SqliteExtensions` now provides type-safe nullable parameter helpers together with decimal scaling helpers for SQLite persistence
 - Price and quantity fields are stored as `TEXT` where precision must be preserved, with code generation metadata keeping SQLite column names and decimal scales aligned
 - Localization resources and vocabulary inputs were updated for the value-field refactor
+- `Trade` now persists `PlannedPositionValue` and `ExecutedPositionValue` in the model and SQLite schema with aligned repository mapping and column ordering
+- Generated SQLite schema now includes index coverage for planned/executed trade position-value querying
+- Repository parameterization has been refactored to use `SqliteCommand` extension methods from `TD.SQLite.Extensions.SqliteExtensions` for safer typed command parameters
+- Demo data seeding now populates planned/executed trade position-value fields
 - `TradeRepository.GetPagedAsync` now supports advanced filtering with paging (`ORDER BY Id LIMIT/OFFSET`) and combined typed filters from `TradeQueryParameters`
 - `TradeRepository.GetPagedAsync` supports range filters for `EntryTime`, and `UpdatedAt`
 - `TradeRepository.GetPagedAsync` supports calculated position-value range filters for planned/executed position values
 - `TD.Helpers.TradeQueryParameters` now includes extended filter properties and improved extensibility for search-criteria logic via partial methods
-- `Trade` model now includes calculated position-value properties to align domain and query scenarios
 - `UpdateExchangeHasAnySymbolAsync` is now public so it can correctly satisfy repository interface contracts
 - `TD.Helpers` now includes generated query contracts for reusable pagination/search inputs (`QueryParameters`) and typed trade filtering (`TradeQueryParameters`)
 - `QueryParameters` was moved out of `TD.Validation` and now includes XML documentation plus a copy constructor for reuse and extension scenarios
@@ -194,6 +197,7 @@ Core models, localization resources, and data access are platform-independent, e
 Model classes localize display metadata and validation messages through DataAnnotations that reference `TD.i18n` resource types.
 Shared enum and text helper logic lives in `TD.Extensions` so UI projects such as WPF and future MAUI frontends can reuse the same behavior.
 `Exchange` now includes navigation collections (`Symbols`, `TradingAccounts`) and `Trade` includes quantity fields (`OrderQuantity`, `FilledQuantity`) reflected across model, repository, and schema generation.
+`Trade` also persists `PlannedPositionValue` and `ExecutedPositionValue` across model, repository mapping, and generated schema/indexes.
 
 ## SQLite Repository and Script Conventions
 

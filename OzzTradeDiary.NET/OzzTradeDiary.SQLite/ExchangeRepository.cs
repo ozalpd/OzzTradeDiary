@@ -133,12 +133,12 @@ namespace TD.SQLite
             VALUES (@exchangeName, @exchangeCode, @defaultCurrency, @hasAnySymbol, @displayOrder, @isActive);
             SELECT last_insert_rowid();";
             
-            command.Parameters.AddWithValue("@exchangeName", exchange.ExchangeName);
-            command.Parameters.AddWithValue("@exchangeCode", exchange.ExchangeCode);
+            command.AddParameter("@exchangeName", exchange.ExchangeName);
+            command.AddParameter("@exchangeCode", exchange.ExchangeCode);
             command.AddNullableParameter("@defaultCurrency", exchange.DefaultCurrency);
-            command.Parameters.AddWithValue("@hasAnySymbol", exchange.HasAnySymbol ? 1 : 0);
-            command.Parameters.AddWithValue("@displayOrder", exchange.DisplayOrder);
-            command.Parameters.AddWithValue("@isActive", exchange.IsActive ? 1 : 0);
+            command.AddParameter("@hasAnySymbol", exchange.HasAnySymbol);
+            command.AddParameter("@displayOrder", exchange.DisplayOrder);
+            command.AddParameter("@isActive", exchange.IsActive);
 
             var id = Convert.ToInt32((long)(await command.ExecuteScalarAsync() ?? 0));
             
@@ -200,11 +200,11 @@ namespace TD.SQLite
                 IsActive = @isActive 
             WHERE Id = @id";
 
-            command.Parameters.AddWithValue("@id", exchange.Id);
-            command.Parameters.AddWithValue("@exchangeName", exchange.ExchangeName);
+            command.AddParameter("@id", exchange.Id);
+            command.AddParameter("@exchangeName", exchange.ExchangeName);
             command.AddNullableParameter("@defaultCurrency", exchange.DefaultCurrency);
-            command.Parameters.AddWithValue("@displayOrder", exchange.DisplayOrder);
-            command.Parameters.AddWithValue("@isActive", exchange.IsActive ? 1 : 0);
+            command.AddParameter("@displayOrder", exchange.DisplayOrder);
+            command.AddParameter("@isActive", exchange.IsActive);
 
             var affectedRows = await command.ExecuteNonQueryAsync();
             if (affectedRows > 0)
@@ -226,8 +226,8 @@ namespace TD.SQLite
                 HasAnySymbol = @hasAnySymbol 
             WHERE Id = @id";
             
-            command.Parameters.AddWithValue("@id", id);
-            command.Parameters.AddWithValue("@hasAnySymbol", hasAnySymbol ? 1 : 0);
+            command.AddParameter("@id", id);
+            command.AddParameter("@hasAnySymbol", hasAnySymbol);
 
             var affectedRows = await command.ExecuteNonQueryAsync();
             if (affectedRows > 0)

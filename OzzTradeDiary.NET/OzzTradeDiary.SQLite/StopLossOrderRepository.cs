@@ -59,7 +59,7 @@ namespace TD.SQLite
             await using var command = connection.CreateCommand();
             command.CommandText = _selectStatement;
             command.CommandText += " WHERE TradeId = @tradeId";
-            command.Parameters.AddWithValue("@tradeId", tradeId);
+            command.AddParameter("@tradeId", tradeId);
             command.CommandText += " ORDER BY DisplayOrder, Id";
 
             await using var reader = await command.ExecuteReaderAsync();
@@ -107,17 +107,17 @@ namespace TD.SQLite
             VALUES (@tradeId, @stopAll, @orderType, @executeTime, @orderPrice, @filledPrice, @orderQuantity, @filledQuantity, @orderValue, @filledValue, @displayOrder);
             SELECT last_insert_rowid();";
             
-            command.Parameters.AddWithValue("@tradeId", stopLossOrder.TradeId);
-            command.Parameters.AddWithValue("@stopAll", stopLossOrder.StopAll ? 1 : 0);
-            command.Parameters.AddWithValue("@orderType", (int)stopLossOrder.OrderType);
-            command.Parameters.AddWithValue("@executeTime", stopLossOrder.ExecuteTime);
-            command.Parameters.AddWithValue("@orderPrice", stopLossOrder.OrderPrice);
-            command.Parameters.AddWithValue("@filledPrice", stopLossOrder.FilledPrice);
-            command.Parameters.AddWithValue("@orderQuantity", stopLossOrder.OrderQuantity);
-            command.Parameters.AddWithValue("@filledQuantity", stopLossOrder.FilledQuantity);
-            command.Parameters.AddWithValue("@orderValue", stopLossOrder.OrderValue);
-            command.Parameters.AddWithValue("@filledValue", stopLossOrder.FilledValue);
-            command.Parameters.AddWithValue("@displayOrder", stopLossOrder.DisplayOrder);
+            command.AddParameter("@tradeId", stopLossOrder.TradeId);
+            command.AddParameter("@stopAll", stopLossOrder.StopAll);
+            command.AddParameter("@orderType", (int)stopLossOrder.OrderType);
+            command.AddDateTimeToTextParameter("@executeTime", stopLossOrder.ExecuteTime);
+            command.AddDecimalToTextParameter("@orderPrice", stopLossOrder.OrderPrice);
+            command.AddDecimalToTextParameter("@filledPrice", stopLossOrder.FilledPrice);
+            command.AddDecimalToTextParameter("@orderQuantity", stopLossOrder.OrderQuantity);
+            command.AddDecimalToTextParameter("@filledQuantity", stopLossOrder.FilledQuantity);
+            command.AddDecimalToIntegerParameter("@orderValue", stopLossOrder.OrderValue, DecimalToIntegerScale.OrderValue);
+            command.AddDecimalToIntegerParameter("@filledValue", stopLossOrder.FilledValue, DecimalToIntegerScale.FilledValue);
+            command.AddParameter("@displayOrder", stopLossOrder.DisplayOrder);
 
             var id = Convert.ToInt32((long)(await command.ExecuteScalarAsync() ?? 0));
             
@@ -185,17 +185,17 @@ namespace TD.SQLite
                 DisplayOrder = @displayOrder 
             WHERE Id = @id";
 
-            command.Parameters.AddWithValue("@id", stopLossOrder.Id);
-            command.Parameters.AddWithValue("@stopAll", stopLossOrder.StopAll ? 1 : 0);
-            command.Parameters.AddWithValue("@orderType", (int)stopLossOrder.OrderType);
-            command.Parameters.AddWithValue("@executeTime", stopLossOrder.ExecuteTime);
-            command.Parameters.AddWithValue("@orderPrice", stopLossOrder.OrderPrice);
-            command.Parameters.AddWithValue("@filledPrice", stopLossOrder.FilledPrice);
-            command.Parameters.AddWithValue("@orderQuantity", stopLossOrder.OrderQuantity);
-            command.Parameters.AddWithValue("@filledQuantity", stopLossOrder.FilledQuantity);
-            command.Parameters.AddWithValue("@orderValue", stopLossOrder.OrderValue);
-            command.Parameters.AddWithValue("@filledValue", stopLossOrder.FilledValue);
-            command.Parameters.AddWithValue("@displayOrder", stopLossOrder.DisplayOrder);
+            command.AddParameter("@id", stopLossOrder.Id);
+            command.AddParameter("@stopAll", stopLossOrder.StopAll);
+            command.AddParameter("@orderType", (int)stopLossOrder.OrderType);
+            command.AddDateTimeToTextParameter("@executeTime", stopLossOrder.ExecuteTime);
+            command.AddDecimalToTextParameter("@orderPrice", stopLossOrder.OrderPrice);
+            command.AddDecimalToTextParameter("@filledPrice", stopLossOrder.FilledPrice);
+            command.AddDecimalToTextParameter("@orderQuantity", stopLossOrder.OrderQuantity);
+            command.AddDecimalToTextParameter("@filledQuantity", stopLossOrder.FilledQuantity);
+            command.AddDecimalToIntegerParameter("@orderValue", stopLossOrder.OrderValue, DecimalToIntegerScale.OrderValue);
+            command.AddDecimalToIntegerParameter("@filledValue", stopLossOrder.FilledValue, DecimalToIntegerScale.FilledValue);
+            command.AddParameter("@displayOrder", stopLossOrder.DisplayOrder);
 
             var affectedRows = await command.ExecuteNonQueryAsync();
             if (affectedRows > 0)

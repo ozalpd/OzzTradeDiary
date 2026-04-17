@@ -59,7 +59,7 @@ namespace TD.SQLite
             await using var command = connection.CreateCommand();
             command.CommandText = _selectStatement;
             command.CommandText += " WHERE TradeId = @tradeId";
-            command.Parameters.AddWithValue("@tradeId", tradeId);
+            command.AddParameter("@tradeId", tradeId);
             command.CommandText += " ORDER BY TradeId DESC, Id DESC";
 
             await using var reader = await command.ExecuteReaderAsync();
@@ -107,11 +107,10 @@ namespace TD.SQLite
             VALUES (@tradeId, @imageURL, @notes, @updatedAt);
             SELECT last_insert_rowid();";
             
-            var nowUtc = DateTime.UtcNow;
-            command.Parameters.AddWithValue("@tradeId", tradeImage.TradeId);
-            command.Parameters.AddWithValue("@imageURL", tradeImage.ImageURL);
+            command.AddParameter("@tradeId", tradeImage.TradeId);
+            command.AddParameter("@imageURL", tradeImage.ImageURL);
             command.AddNullableParameter("@notes", tradeImage.Notes);
-            command.Parameters.AddWithValue("@updatedAt", nowUtc.ToString("O"));
+            command.AddDateTimeToTextParameter("@updatedAt", DateTime.Now);
 
             var id = Convert.ToInt32((long)(await command.ExecuteScalarAsync() ?? 0));
             
@@ -165,11 +164,10 @@ namespace TD.SQLite
                 UpdatedAt = @updatedAt 
             WHERE Id = @id";
 
-            var nowUtc = DateTime.UtcNow;
-            command.Parameters.AddWithValue("@id", tradeImage.Id);
-            command.Parameters.AddWithValue("@imageURL", tradeImage.ImageURL);
+            command.AddParameter("@id", tradeImage.Id);
+            command.AddParameter("@imageURL", tradeImage.ImageURL);
             command.AddNullableParameter("@notes", tradeImage.Notes);
-            command.Parameters.AddWithValue("@updatedAt", nowUtc.ToString("O"));
+            command.AddDateTimeToTextParameter("@updatedAt", DateTime.Now);
 
             var affectedRows = await command.ExecuteNonQueryAsync();
             if (affectedRows > 0)

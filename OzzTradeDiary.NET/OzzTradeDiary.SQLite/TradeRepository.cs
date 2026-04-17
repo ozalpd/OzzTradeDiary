@@ -102,7 +102,7 @@ namespace TD.SQLite
             await using var command = connection.CreateCommand();
             command.CommandText = _selectStatement;
             command.CommandText += " WHERE TradingAccountId = @tradingAccountId";
-            command.Parameters.AddWithValue("@tradingAccountId", tradingAccountId);
+            command.AddParameter("@tradingAccountId", tradingAccountId);
             command.CommandText += " ORDER BY Id";
 
             await using var reader = await command.ExecuteReaderAsync();
@@ -132,7 +132,7 @@ namespace TD.SQLite
             await using var command = connection.CreateCommand();
             command.CommandText = _selectStatement;
             command.CommandText += " WHERE SymbolId = @symbolId";
-            command.Parameters.AddWithValue("@symbolId", symbolId);
+            command.AddParameter("@symbolId", symbolId);
             command.CommandText += " ORDER BY Id";
 
             await using var reader = await command.ExecuteReaderAsync();
@@ -185,24 +185,29 @@ namespace TD.SQLite
 
             await using var command = connection.CreateCommand();
             command.CommandText = @$"INSERT INTO {_tableName} ({string.Join(", ", ColumnNames[1..])})
-            VALUES (@tradingAccountId, @symbolId, @entryTime, @entryMethod, @tradeDirection, @plannedEntry, @executedEntry, @orderQuantity, @filledQuantity, @plannedTP, @executedTP, @plannedSL, @executedSL, @updatedAt);
+            VALUES (@tradingAccountId, @symbolId, @entryTime, @entryMethod, @tradeDirection, @orderQuantity, @plannedEntry, @plannedPositionValue, @filledQuantity, @executedEntry, @executedPositionValue, @plannedTP, @executedTP, @plannedSL, @executedSL, @updatedAt);
             SELECT last_insert_rowid();";
             
-            var nowUtc = DateTime.UtcNow;
-            command.Parameters.AddWithValue("@tradingAccountId", trade.TradingAccountId);
-            command.Parameters.AddWithValue("@symbolId", trade.SymbolId);
-            command.Parameters.AddWithValue("@entryTime", trade.EntryTime);
-            command.Parameters.AddWithValue("@entryMethod", (int)trade.EntryMethod);
-            command.Parameters.AddWithValue("@tradeDirection", (int)trade.TradeDirection);
-            command.Parameters.AddWithValue("@plannedEntry", trade.PlannedEntry);
-            command.Parameters.AddWithValue("@executedEntry", trade.ExecutedEntry);
-            command.Parameters.AddWithValue("@orderQuantity", trade.OrderQuantity);
-            command.Parameters.AddWithValue("@filledQuantity", trade.FilledQuantity);
-            command.Parameters.AddWithValue("@plannedTP", trade.PlannedTP);
-            command.Parameters.AddWithValue("@executedTP", trade.ExecutedTP);
-            command.Parameters.AddWithValue("@plannedSL", trade.PlannedSL);
-            command.Parameters.AddWithValue("@executedSL", trade.ExecutedSL);
-            command.Parameters.AddWithValue("@updatedAt", nowUtc.ToString("O"));
+            command.AddParameter("@tradingAccountId", trade.TradingAccountId);
+            command.AddParameter("@symbolId", trade.SymbolId);
+            command.AddDateTimeToTextParameter("@entryTime", trade.EntryTime);
+            command.AddParameter("@entryMethod", (int)trade.EntryMethod);
+            command.AddParameter("@tradeDirection", (int)trade.TradeDirection);
+            command.AddDecimalToTextParameter("@orderQuantity", trade.OrderQuantity);
+            command.AddDecimalToTextParameter("@plannedEntry", trade.PlannedEntry);
+            command.AddDecimalToIntegerParameter("@plannedPositionValue",
+                                                trade.PlannedPositionValue,
+                                                DecimalToIntegerScale.PlannedPositionValue);
+            command.AddDecimalToTextParameter("@filledQuantity", trade.FilledQuantity);
+            command.AddDecimalToTextParameter("@executedEntry", trade.ExecutedEntry);
+            command.AddDecimalToIntegerParameter("@executedPositionValue",
+                                                trade.ExecutedPositionValue,
+                                                DecimalToIntegerScale.ExecutedPositionValue);
+            command.AddDecimalToTextParameter("@plannedTP", trade.PlannedTP);
+            command.AddDecimalToTextParameter("@executedTP", trade.ExecutedTP);
+            command.AddDecimalToTextParameter("@plannedSL", trade.PlannedSL);
+            command.AddDecimalToTextParameter("@executedSL", trade.ExecutedSL);
+            command.AddDateTimeToTextParameter("@updatedAt", DateTime.Now);
 
             var id = Convert.ToInt32((long)(await command.ExecuteScalarAsync() ?? 0));
             
@@ -243,10 +248,12 @@ namespace TD.SQLite
                           && existingTrade.EntryTime == trade.EntryTime 
                           && existingTrade.EntryMethod == trade.EntryMethod 
                           && existingTrade.TradeDirection == trade.TradeDirection 
-                          && existingTrade.PlannedEntry == trade.PlannedEntry 
-                          && existingTrade.ExecutedEntry == trade.ExecutedEntry 
                           && existingTrade.OrderQuantity == trade.OrderQuantity 
+                          && existingTrade.PlannedEntry == trade.PlannedEntry 
+                          && existingTrade.PlannedPositionValue == trade.PlannedPositionValue 
                           && existingTrade.FilledQuantity == trade.FilledQuantity 
+                          && existingTrade.ExecutedEntry == trade.ExecutedEntry 
+                          && existingTrade.ExecutedPositionValue == trade.ExecutedPositionValue 
                           && existingTrade.PlannedTP == trade.PlannedTP 
                           && existingTrade.ExecutedTP == trade.ExecutedTP 
                           && existingTrade.PlannedSL == trade.PlannedSL 
@@ -258,15 +265,17 @@ namespace TD.SQLite
 
             await using var command = connection.CreateCommand();
             // TradingAccountId, SymbolId are not updated to avoid complications with existing references,
-            // so only EntryTime, EntryMethod, TradeDirection, PlannedEntry, ExecutedEntry, OrderQuantity, FilledQuantity, PlannedTP, ExecutedTP, PlannedSL, ExecutedSL, UpdatedAt are updated
+            // so only EntryTime, EntryMethod, TradeDirection, OrderQuantity, PlannedEntry, PlannedPositionValue, FilledQuantity, ExecutedEntry, ExecutedPositionValue, PlannedTP, ExecutedTP, PlannedSL, ExecutedSL, UpdatedAt are updated
             command.CommandText = @$"UPDATE {_tableName} SET
                 EntryTime = @entryTime, 
                 EntryMethod = @entryMethod, 
                 TradeDirection = @tradeDirection, 
-                PlannedEntry = @plannedEntry, 
-                ExecutedEntry = @executedEntry, 
                 OrderQuantity = @orderQuantity, 
+                PlannedEntry = @plannedEntry, 
+                PlannedPositionValue = @plannedPositionValue, 
                 FilledQuantity = @filledQuantity, 
+                ExecutedEntry = @executedEntry, 
+                ExecutedPositionValue = @executedPositionValue, 
                 PlannedTP = @plannedTP, 
                 ExecutedTP = @executedTP, 
                 PlannedSL = @plannedSL, 
@@ -274,20 +283,25 @@ namespace TD.SQLite
                 UpdatedAt = @updatedAt 
             WHERE Id = @id";
 
-            var nowUtc = DateTime.UtcNow;
-            command.Parameters.AddWithValue("@id", trade.Id);
-            command.Parameters.AddWithValue("@entryTime", trade.EntryTime);
-            command.Parameters.AddWithValue("@entryMethod", (int)trade.EntryMethod);
-            command.Parameters.AddWithValue("@tradeDirection", (int)trade.TradeDirection);
-            command.Parameters.AddWithValue("@plannedEntry", trade.PlannedEntry);
-            command.Parameters.AddWithValue("@executedEntry", trade.ExecutedEntry);
-            command.Parameters.AddWithValue("@orderQuantity", trade.OrderQuantity);
-            command.Parameters.AddWithValue("@filledQuantity", trade.FilledQuantity);
-            command.Parameters.AddWithValue("@plannedTP", trade.PlannedTP);
-            command.Parameters.AddWithValue("@executedTP", trade.ExecutedTP);
-            command.Parameters.AddWithValue("@plannedSL", trade.PlannedSL);
-            command.Parameters.AddWithValue("@executedSL", trade.ExecutedSL);
-            command.Parameters.AddWithValue("@updatedAt", nowUtc.ToString("O"));
+            command.AddParameter("@id", trade.Id);
+            command.AddDateTimeToTextParameter("@entryTime", trade.EntryTime);
+            command.AddParameter("@entryMethod", (int)trade.EntryMethod);
+            command.AddParameter("@tradeDirection", (int)trade.TradeDirection);
+            command.AddDecimalToTextParameter("@orderQuantity", trade.OrderQuantity);
+            command.AddDecimalToTextParameter("@plannedEntry", trade.PlannedEntry);
+            command.AddDecimalToIntegerParameter("@plannedPositionValue",
+                                                trade.PlannedPositionValue,
+                                                DecimalToIntegerScale.PlannedPositionValue);
+            command.AddDecimalToTextParameter("@filledQuantity", trade.FilledQuantity);
+            command.AddDecimalToTextParameter("@executedEntry", trade.ExecutedEntry);
+            command.AddDecimalToIntegerParameter("@executedPositionValue",
+                                                trade.ExecutedPositionValue,
+                                                DecimalToIntegerScale.ExecutedPositionValue);
+            command.AddDecimalToTextParameter("@plannedTP", trade.PlannedTP);
+            command.AddDecimalToTextParameter("@executedTP", trade.ExecutedTP);
+            command.AddDecimalToTextParameter("@plannedSL", trade.PlannedSL);
+            command.AddDecimalToTextParameter("@executedSL", trade.ExecutedSL);
+            command.AddDateTimeToTextParameter("@updatedAt", DateTime.Now);
 
             var affectedRows = await command.ExecuteNonQueryAsync();
             if (affectedRows > 0)
@@ -324,10 +338,12 @@ namespace TD.SQLite
                 EntryTime = reader.IsDBNull(ColNrs.EntryTime) ? null : ToLocalDateTime(reader.GetString(ColNrs.EntryTime)), 
                 EntryMethod = (EntryMethod)reader.GetInt32(ColNrs.EntryMethod), 
                 TradeDirection = (TradeDirection)reader.GetInt32(ColNrs.TradeDirection), 
-                PlannedEntry = reader.IsDBNull(ColNrs.PlannedEntry) ? null : reader.GetDecimal(ColNrs.PlannedEntry), 
-                ExecutedEntry = reader.IsDBNull(ColNrs.ExecutedEntry) ? null : reader.GetDecimal(ColNrs.ExecutedEntry), 
                 OrderQuantity = reader.IsDBNull(ColNrs.OrderQuantity) ? null : reader.GetDecimal(ColNrs.OrderQuantity), 
+                PlannedEntry = reader.IsDBNull(ColNrs.PlannedEntry) ? null : reader.GetDecimal(ColNrs.PlannedEntry), 
+                PlannedPositionValue = reader.IsDBNull(ColNrs.PlannedPositionValue) ? null : reader.GetDecimal(ColNrs.PlannedPositionValue), 
                 FilledQuantity = reader.IsDBNull(ColNrs.FilledQuantity) ? null : reader.GetDecimal(ColNrs.FilledQuantity), 
+                ExecutedEntry = reader.IsDBNull(ColNrs.ExecutedEntry) ? null : reader.GetDecimal(ColNrs.ExecutedEntry), 
+                ExecutedPositionValue = reader.IsDBNull(ColNrs.ExecutedPositionValue) ? null : reader.GetDecimal(ColNrs.ExecutedPositionValue), 
                 PlannedTP = reader.IsDBNull(ColNrs.PlannedTP) ? null : reader.GetDecimal(ColNrs.PlannedTP), 
                 ExecutedTP = reader.IsDBNull(ColNrs.ExecutedTP) ? null : reader.GetDecimal(ColNrs.ExecutedTP), 
                 PlannedSL = reader.IsDBNull(ColNrs.PlannedSL) ? null : reader.GetDecimal(ColNrs.PlannedSL), 
@@ -350,15 +366,17 @@ namespace TD.SQLite
             public readonly static int EntryTime = 3;
             public readonly static int EntryMethod = 4;
             public readonly static int TradeDirection = 5;
-            public readonly static int PlannedEntry = 6;
-            public readonly static int ExecutedEntry = 7;
-            public readonly static int OrderQuantity = 8;
+            public readonly static int OrderQuantity = 6;
+            public readonly static int PlannedEntry = 7;
+            public readonly static int PlannedPositionValue = 8;
             public readonly static int FilledQuantity = 9;
-            public readonly static int PlannedTP = 10;
-            public readonly static int ExecutedTP = 11;
-            public readonly static int PlannedSL = 12;
-            public readonly static int ExecutedSL = 13;
-            public readonly static int UpdatedAt = 14;
+            public readonly static int ExecutedEntry = 10;
+            public readonly static int ExecutedPositionValue = 11;
+            public readonly static int PlannedTP = 12;
+            public readonly static int ExecutedTP = 13;
+            public readonly static int PlannedSL = 14;
+            public readonly static int ExecutedSL = 15;
+            public readonly static int UpdatedAt = 16;
         }
 
         /// <summary>
@@ -371,10 +389,12 @@ namespace TD.SQLite
             "EntryTime", 
             "EntryMethod", 
             "TradeDirection", 
-            "PlannedEntry", 
-            "ExecutedEntry", 
             "OrderQuantity", 
+            "PlannedEntry", 
+            "PlannedPositionValue", 
             "FilledQuantity", 
+            "ExecutedEntry", 
+            "ExecutedPositionValue", 
             "PlannedTP", 
             "ExecutedTP", 
             "PlannedSL", 
@@ -387,10 +407,12 @@ namespace TD.SQLite
         /// </summary>
         public readonly struct DecimalToIntegerScale
         {
-            public readonly static int PlannedEntry = 0;
-            public readonly static int ExecutedEntry = 0;
             public readonly static int OrderQuantity = 0;
+            public readonly static int PlannedEntry = 0;
+            public readonly static int PlannedPositionValue = 4;
             public readonly static int FilledQuantity = 0;
+            public readonly static int ExecutedEntry = 0;
+            public readonly static int ExecutedPositionValue = 4;
             public readonly static int PlannedTP = 0;
             public readonly static int ExecutedTP = 0;
             public readonly static int PlannedSL = 0;

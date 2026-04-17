@@ -4,6 +4,19 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.0.42] - 2026-04-17
+
+### Added
+- Added persisted `PlannedPositionValue` and `ExecutedPositionValue` fields to the `Trade` domain/model contract.
+- Added generated SQLite schema support for `Trade.PlannedPositionValue` and `Trade.ExecutedPositionValue`, including index coverage for position-value querying.
+
+### Changed
+- Updated code generation settings and outputs so `Trade` model, schema, and repository mappings stay aligned for explicit position-value storage.
+- Updated `TradeRepository` insert/update/select mapping and column ordering to include persisted planned/executed position value fields.
+- Refactored repository parameterization to use `TD.SQLite.Extensions.SqliteExtensions` `SqliteCommand` extension helpers for safer typed parameter handling.
+- Updated demo data seeding to populate `PlannedPositionValue` and `ExecutedPositionValue`.
+- Bumped all project versions to `0.0.42` (`OzzTradeDiary`, `OzzTradeDiary.WPF`, `OzzTradeDiary.SQLite`, `OzzTradeDiary.i18n`).
+
 ## [0.0.41] - 2026-04-16
 
 ### Added

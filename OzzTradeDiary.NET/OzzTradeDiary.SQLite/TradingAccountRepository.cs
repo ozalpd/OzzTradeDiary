@@ -78,7 +78,7 @@ namespace TD.SQLite
             await using var command = connection.CreateCommand();
             command.CommandText = _selectStatement;
             command.CommandText += " WHERE ExchangeId = @exchangeId";
-            command.Parameters.AddWithValue("@exchangeId", exchangeId);
+            command.AddParameter("@exchangeId", exchangeId);
             if (isActive.HasValue)
             {
                 command.CommandText += " AND IsActive = @isActive";
@@ -165,11 +165,11 @@ namespace TD.SQLite
             VALUES (@title, @exchangeId, @notes, @displayOrder, @isActive);
             SELECT last_insert_rowid();";
             
-            command.Parameters.AddWithValue("@title", tradingAccount.Title);
-            command.Parameters.AddWithValue("@exchangeId", tradingAccount.ExchangeId);
+            command.AddParameter("@title", tradingAccount.Title);
+            command.AddParameter("@exchangeId", tradingAccount.ExchangeId);
             command.AddNullableParameter("@notes", tradingAccount.Notes);
-            command.Parameters.AddWithValue("@displayOrder", tradingAccount.DisplayOrder);
-            command.Parameters.AddWithValue("@isActive", tradingAccount.IsActive ? 1 : 0);
+            command.AddParameter("@displayOrder", tradingAccount.DisplayOrder);
+            command.AddParameter("@isActive", tradingAccount.IsActive);
 
             var id = Convert.ToInt32((long)(await command.ExecuteScalarAsync() ?? 0));
             
@@ -231,11 +231,11 @@ namespace TD.SQLite
                 IsActive = @isActive 
             WHERE Id = @id";
 
-            command.Parameters.AddWithValue("@id", tradingAccount.Id);
-            command.Parameters.AddWithValue("@title", tradingAccount.Title);
+            command.AddParameter("@id", tradingAccount.Id);
+            command.AddParameter("@title", tradingAccount.Title);
             command.AddNullableParameter("@notes", tradingAccount.Notes);
-            command.Parameters.AddWithValue("@displayOrder", tradingAccount.DisplayOrder);
-            command.Parameters.AddWithValue("@isActive", tradingAccount.IsActive ? 1 : 0);
+            command.AddParameter("@displayOrder", tradingAccount.DisplayOrder);
+            command.AddParameter("@isActive", tradingAccount.IsActive);
 
             var affectedRows = await command.ExecuteNonQueryAsync();
             if (affectedRows > 0)

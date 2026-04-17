@@ -594,7 +594,34 @@
           <IsSearchParameter>false</IsSearchParameter>
         </ModelPropertySetting>
         <ModelPropertySetting>
+          <Name>OrderQuantity</Name>
+          <Exclude>false</Exclude>
+          <DataType />
+          <DTOExclusion>false</DTOExclusion>
+          <HtmlEncode xsi:nil="true" />
+          <Required />
+          <IsSearchParameter>false</IsSearchParameter>
+        </ModelPropertySetting>
+        <ModelPropertySetting>
           <Name>PlannedEntry</Name>
+          <Exclude>false</Exclude>
+          <DataType />
+          <DTOExclusion>false</DTOExclusion>
+          <HtmlEncode xsi:nil="true" />
+          <Required />
+          <IsSearchParameter>false</IsSearchParameter>
+        </ModelPropertySetting>
+        <ModelPropertySetting>
+          <Name>PlannedPositionValue</Name>
+          <Exclude>true</Exclude>
+          <DataType />
+          <DTOExclusion>false</DTOExclusion>
+          <HtmlEncode xsi:nil="true" />
+          <Required />
+          <IsSearchParameter>false</IsSearchParameter>
+        </ModelPropertySetting>
+        <ModelPropertySetting>
+          <Name>FilledQuantity</Name>
           <Exclude>false</Exclude>
           <DataType />
           <DTOExclusion>false</DTOExclusion>
@@ -612,17 +639,8 @@
           <IsSearchParameter>false</IsSearchParameter>
         </ModelPropertySetting>
         <ModelPropertySetting>
-          <Name>OrderQuantity</Name>
-          <Exclude>false</Exclude>
-          <DataType />
-          <DTOExclusion>false</DTOExclusion>
-          <HtmlEncode xsi:nil="true" />
-          <Required />
-          <IsSearchParameter>false</IsSearchParameter>
-        </ModelPropertySetting>
-        <ModelPropertySetting>
-          <Name>FilledQuantity</Name>
-          <Exclude>false</Exclude>
+          <Name>ExecutedPositionValue</Name>
+          <Exclude>true</Exclude>
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
