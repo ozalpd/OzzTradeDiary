@@ -889,11 +889,20 @@ namespace TD.i18n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Executed Entry.
+        ///   Looks up a localized string similar to Executed Entry Price.
         /// </summary>
-        public static string ExecutedEntry {
+        public static string ExecutedEntryPrice {
             get {
-                return ResourceManager.GetString("ExecutedEntry", resourceCulture);
+                return ResourceManager.GetString("ExecutedEntryPrice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Executed Position Value.
+        /// </summary>
+        public static string ExecutedPositionValue {
+            get {
+                return ResourceManager.GetString("ExecutedPositionValue", resourceCulture);
             }
         }
         
@@ -925,15 +934,6 @@ namespace TD.i18n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Filled Amount.
-        /// </summary>
-        public static string FilledAmount {
-            get {
-                return ResourceManager.GetString("FilledAmount", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Filled Price.
         /// </summary>
         public static string FilledPrice {
@@ -948,6 +948,15 @@ namespace TD.i18n {
         public static string FilledQuantity {
             get {
                 return ResourceManager.GetString("FilledQuantity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Filled Value.
+        /// </summary>
+        public static string FilledValue {
+            get {
+                return ResourceManager.GetString("FilledValue", resourceCulture);
             }
         }
         
@@ -1042,6 +1051,15 @@ namespace TD.i18n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Is Fully Closed.
+        /// </summary>
+        public static string IsFullyClosed {
+            get {
+                return ResourceManager.GetString("IsFullyClosed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to IUpdated At.
         /// </summary>
         public static string IUpdatedAt {
@@ -1123,15 +1141,6 @@ namespace TD.i18n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Order Amount.
-        /// </summary>
-        public static string OrderAmount {
-            get {
-                return ResourceManager.GetString("OrderAmount", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Order Price.
         /// </summary>
         public static string OrderPrice {
@@ -1159,6 +1168,15 @@ namespace TD.i18n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Order Value.
+        /// </summary>
+        public static string OrderValue {
+            get {
+                return ResourceManager.GetString("OrderValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Performance.
         /// </summary>
         public static string Performance {
@@ -1168,11 +1186,38 @@ namespace TD.i18n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Planned Entry.
+        ///   Looks up a localized string similar to Planned Entry Price.
         /// </summary>
-        public static string PlannedEntry {
+        public static string PlannedEntryPrice {
             get {
-                return ResourceManager.GetString("PlannedEntry", resourceCulture);
+                return ResourceManager.GetString("PlannedEntryPrice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Planned Position Value.
+        /// </summary>
+        public static string PlannedPositionValue {
+            get {
+                return ResourceManager.GetString("PlannedPositionValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Planned Profit Loss.
+        /// </summary>
+        public static string PlannedProfitLoss {
+            get {
+                return ResourceManager.GetString("PlannedProfitLoss", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Planned Risk Amount.
+        /// </summary>
+        public static string PlannedRiskAmount {
+            get {
+                return ResourceManager.GetString("PlannedRiskAmount", resourceCulture);
             }
         }
         
@@ -1200,6 +1245,15 @@ namespace TD.i18n {
         public static string PriceCurrency {
             get {
                 return ResourceManager.GetString("PriceCurrency", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Realized Profit Loss.
+        /// </summary>
+        public static string RealizedProfitLoss {
+            get {
+                return ResourceManager.GetString("RealizedProfitLoss", resourceCulture);
             }
         }
         

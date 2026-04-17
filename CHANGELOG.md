@@ -4,6 +4,21 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.0.43] - 2026-04-17
+
+### Added
+- Added `IsFullyClosed`, `PlannedProfitLoss`, `RealizedProfitLoss`, and `PlannedRiskAmount` fields to the `Trade` model as persisted domain fields.
+- Renamed `PlannedEntry` → `PlannedEntryPrice` and `ExecutedEntry` → `ExecutedEntryPrice` in the `Trade` model for clearer domain intent.
+
+### Changed
+- Updated code generation settings, schema DDL, and indexes so the new and renamed `Trade` fields are aligned across model, repository mapping, and generated schema.
+- Updated `TradeRepository` insert/update/select mappings and column ordering to reflect the renamed entry-price fields and new P/L, risk, and closed fields.
+- Updated calculated position-value properties and any derived logic that referenced the old `PlannedEntry`/`ExecutedEntry` names.
+- Updated localization resources and vocabulary inputs for `IsFullyClosed`, `PlannedEntryPrice`, `ExecutedEntryPrice`, `PlannedProfitLoss`, `RealizedProfitLoss`, and `PlannedRiskAmount`.
+- Updated demo data seeding to populate the new and renamed trade fields.
+- Updated default trade ordering in the repository to align with the new domain contract.
+- Bumped all project versions to `0.0.43` (`OzzTradeDiary`, `OzzTradeDiary.WPF`, `OzzTradeDiary.SQLite`, `OzzTradeDiary.i18n`).
+
 ## [0.0.42] - 2026-04-17
 
 ### Added

@@ -334,8 +334,11 @@
     <data name="ExchangesList" xml:space="preserve">
         <value>Borsa Listesi</value>
     </data>
-    <data name="ExecutedEntry" xml:space="preserve">
-        <value>Gerçekleşen İşlem</value>
+    <data name="ExecutedEntryPrice" xml:space="preserve">
+        <value>Gerçekleşen İşlem Fiyatı</value>
+    </data>
+    <data name="ExecutedPositionValue" xml:space="preserve">
+        <value>Gerçekleşen Pozisyon Büyüklüğü</value>
     </data>
     <data name="ExecutedSL" xml:space="preserve">
         <value>Gerçekleşen Zarar Kes</value>
@@ -346,14 +349,14 @@
     <data name="ExecuteTime" xml:space="preserve">
         <value>Gerçekleşme Zamanı</value>
     </data>
-    <data name="FilledAmount" xml:space="preserve">
-        <value>Gerçekleşen Tutar</value>
-    </data>
     <data name="FilledPrice" xml:space="preserve">
         <value>Gerçekleşen Fiyat</value>
     </data>
     <data name="FilledQuantity" xml:space="preserve">
         <value>Gerçekleşen Miktar</value>
+    </data>
+    <data name="FilledValue" xml:space="preserve">
+        <value>Gerçekleşen Tutar</value>
     </data>
     <data name="Forex" xml:space="preserve">
         <value>Foreks</value>
@@ -385,6 +388,9 @@
     <data name="IsActive" xml:space="preserve">
         <value>Aktif</value>
     </data>
+    <data name="IsFullyClosed" xml:space="preserve">
+        <value>Tamamen Kapandı</value>
+    </data>
     <data name="IUpdatedAt" xml:space="preserve">
         <value>Değişiklik Tarihi</value>
     </data>
@@ -412,9 +418,6 @@
     <data name="Option" xml:space="preserve">
         <value>Opsiyon</value>
     </data>
-    <data name="OrderAmount" xml:space="preserve">
-        <value>Emir Tutarı</value>
-    </data>
     <data name="OrderPrice" xml:space="preserve">
         <value>Emir Fiyatı</value>
     </data>
@@ -424,11 +427,23 @@
     <data name="OrderType" xml:space="preserve">
         <value>Emir Tipi</value>
     </data>
+    <data name="OrderValue" xml:space="preserve">
+        <value>Emir Tutarı</value>
+    </data>
     <data name="Performance" xml:space="preserve">
         <value>Performans</value>
     </data>
-    <data name="PlannedEntry" xml:space="preserve">
-        <value>Planlanan İşlem</value>
+    <data name="PlannedEntryPrice" xml:space="preserve">
+        <value>Planlanan İşlem Fiyatı</value>
+    </data>
+    <data name="PlannedPositionValue" xml:space="preserve">
+        <value>Planlanan Pozisyon Büyüklüğü</value>
+    </data>
+    <data name="PlannedProfitLoss" xml:space="preserve">
+        <value>Planlanan Kazanç/Kayıp</value>
+    </data>
+    <data name="PlannedRiskAmount" xml:space="preserve">
+        <value>Planlanan Risk Miktarı</value>
     </data>
     <data name="PlannedSL" xml:space="preserve">
         <value>Planlanan Zarar Kes</value>
@@ -438,6 +453,9 @@
     </data>
     <data name="PriceCurrency" xml:space="preserve">
         <value>Karşı Döviz</value>
+    </data>
+    <data name="RealizedProfitLoss" xml:space="preserve">
+        <value>Gerçekleşen Kazanç/Kayıp</value>
     </data>
     <data name="RemoveCurrency" xml:space="preserve">
         <value>Dövizi Çıkart</value>

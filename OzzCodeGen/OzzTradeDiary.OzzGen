@@ -1115,9 +1115,24 @@
           <IsNullable>false</IsNullable>
           <IsStoreGenerated>false</IsStoreGenerated>
         </BaseProperty>
+        <BaseProperty xsi:type="SimpleProperty">
+          <Name>IsFullyClosed</Name>
+          <DisplayOrder>10800</DisplayOrder>
+          <DisplayName>Is Fully Closed</DisplayName>
+          <TypeName>bool</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <RestrictedData>false</RestrictedData>
+          <EnumTypeName />
+          <IsKey>false</IsKey>
+          <IsForeignKey>false</IsForeignKey>
+          <IsImmutable>false</IsImmutable>
+          <IsNullable>false</IsNullable>
+          <IsStoreGenerated>false</IsStoreGenerated>
+        </BaseProperty>
         <BaseProperty xsi:type="CollectionProperty">
           <Name>EntryOrders</Name>
-          <DisplayOrder>10800</DisplayOrder>
+          <DisplayOrder>10900</DisplayOrder>
           <DisplayName>Entry Orders</DisplayName>
           <TypeName>ICollection&lt;EntryOrder&gt;</TypeName>
           <IsClientComputed>false</IsClientComputed>
@@ -1127,39 +1142,8 @@
         <BaseProperty xsi:type="SimpleProperty">
           <Name>OrderQuantity</Name>
           <Comment>Planned contract quantity of order</Comment>
-          <DisplayOrder>10900</DisplayOrder>
-          <DisplayName>Order Quantity</DisplayName>
-          <TypeName>decimal</TypeName>
-          <IsClientComputed>false</IsClientComputed>
-          <IsServerComputed>false</IsServerComputed>
-          <RestrictedData>false</RestrictedData>
-          <EnumTypeName />
-          <IsKey>false</IsKey>
-          <IsForeignKey>false</IsForeignKey>
-          <IsImmutable>false</IsImmutable>
-          <IsNullable>true</IsNullable>
-          <IsStoreGenerated>false</IsStoreGenerated>
-        </BaseProperty>
-        <BaseProperty xsi:type="SimpleProperty">
-          <Name>PlannedEntry</Name>
-          <Comment>Planned Entry Price, calculated from EntryOrders</Comment>
           <DisplayOrder>11000</DisplayOrder>
-          <DisplayName>Planned Entry Price</DisplayName>
-          <TypeName>decimal</TypeName>
-          <IsClientComputed>false</IsClientComputed>
-          <IsServerComputed>false</IsServerComputed>
-          <RestrictedData>false</RestrictedData>
-          <EnumTypeName />
-          <IsKey>false</IsKey>
-          <IsForeignKey>false</IsForeignKey>
-          <IsImmutable>false</IsImmutable>
-          <IsNullable>true</IsNullable>
-          <IsStoreGenerated>false</IsStoreGenerated>
-        </BaseProperty>
-        <BaseProperty xsi:type="SimpleProperty">
-          <Name>PlannedPositionValue</Name>
-          <DisplayOrder>11100</DisplayOrder>
-          <DisplayName>Planned Position Value</DisplayName>
+          <DisplayName>Order Quantity</DisplayName>
           <TypeName>decimal</TypeName>
           <IsClientComputed>false</IsClientComputed>
           <IsServerComputed>false</IsServerComputed>
@@ -1174,7 +1158,7 @@
         <BaseProperty xsi:type="SimpleProperty">
           <Name>FilledQuantity</Name>
           <Comment>Realized contract quantity of order</Comment>
-          <DisplayOrder>11200</DisplayOrder>
+          <DisplayOrder>11100</DisplayOrder>
           <DisplayName>Filled Quantity</DisplayName>
           <TypeName>decimal</TypeName>
           <IsClientComputed>false</IsClientComputed>
@@ -1188,10 +1172,41 @@
           <IsStoreGenerated>false</IsStoreGenerated>
         </BaseProperty>
         <BaseProperty xsi:type="SimpleProperty">
-          <Name>ExecutedEntry</Name>
+          <Name>PlannedEntryPrice</Name>
+          <Comment>Planned Entry Price, calculated from EntryOrders</Comment>
+          <DisplayOrder>11200</DisplayOrder>
+          <DisplayName>Planned Entry Price</DisplayName>
+          <TypeName>decimal</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <RestrictedData>false</RestrictedData>
+          <EnumTypeName />
+          <IsKey>false</IsKey>
+          <IsForeignKey>false</IsForeignKey>
+          <IsImmutable>false</IsImmutable>
+          <IsNullable>true</IsNullable>
+          <IsStoreGenerated>false</IsStoreGenerated>
+        </BaseProperty>
+        <BaseProperty xsi:type="SimpleProperty">
+          <Name>ExecutedEntryPrice</Name>
           <Comment>Executed Entry Price, calculated from EntryOrders</Comment>
           <DisplayOrder>11300</DisplayOrder>
-          <DisplayName>Exec. Entry Price</DisplayName>
+          <DisplayName>Executed Entry Price</DisplayName>
+          <TypeName>decimal</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <RestrictedData>false</RestrictedData>
+          <EnumTypeName />
+          <IsKey>false</IsKey>
+          <IsForeignKey>false</IsForeignKey>
+          <IsImmutable>false</IsImmutable>
+          <IsNullable>true</IsNullable>
+          <IsStoreGenerated>false</IsStoreGenerated>
+        </BaseProperty>
+        <BaseProperty xsi:type="SimpleProperty">
+          <Name>PlannedPositionValue</Name>
+          <DisplayOrder>11400</DisplayOrder>
+          <DisplayName>Planned Position Value</DisplayName>
           <TypeName>decimal</TypeName>
           <IsClientComputed>false</IsClientComputed>
           <IsServerComputed>false</IsServerComputed>
@@ -1205,7 +1220,7 @@
         </BaseProperty>
         <BaseProperty xsi:type="SimpleProperty">
           <Name>ExecutedPositionValue</Name>
-          <DisplayOrder>11400</DisplayOrder>
+          <DisplayOrder>11500</DisplayOrder>
           <DisplayName>Executed Position Value</DisplayName>
           <TypeName>decimal</TypeName>
           <IsClientComputed>false</IsClientComputed>
@@ -1220,7 +1235,7 @@
         </BaseProperty>
         <BaseProperty xsi:type="CollectionProperty">
           <Name>TakeProfitOrders</Name>
-          <DisplayOrder>11500</DisplayOrder>
+          <DisplayOrder>11600</DisplayOrder>
           <DisplayName>Take Profit Orders</DisplayName>
           <TypeName>ICollection&lt;TakeProfitOrder&gt;</TypeName>
           <IsClientComputed>false</IsClientComputed>
@@ -1228,9 +1243,39 @@
           <RestrictedData>false</RestrictedData>
         </BaseProperty>
         <BaseProperty xsi:type="SimpleProperty">
+          <Name>PlannedProfitLoss</Name>
+          <DisplayOrder>11700</DisplayOrder>
+          <DisplayName>Planned P/L</DisplayName>
+          <TypeName>decimal</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <RestrictedData>false</RestrictedData>
+          <EnumTypeName />
+          <IsKey>false</IsKey>
+          <IsForeignKey>false</IsForeignKey>
+          <IsImmutable>false</IsImmutable>
+          <IsNullable>true</IsNullable>
+          <IsStoreGenerated>false</IsStoreGenerated>
+        </BaseProperty>
+        <BaseProperty xsi:type="SimpleProperty">
+          <Name>RealizedProfitLoss</Name>
+          <DisplayOrder>11800</DisplayOrder>
+          <DisplayName>Realized P/L</DisplayName>
+          <TypeName>decimal</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <RestrictedData>false</RestrictedData>
+          <EnumTypeName />
+          <IsKey>false</IsKey>
+          <IsForeignKey>false</IsForeignKey>
+          <IsImmutable>false</IsImmutable>
+          <IsNullable>true</IsNullable>
+          <IsStoreGenerated>false</IsStoreGenerated>
+        </BaseProperty>
+        <BaseProperty xsi:type="SimpleProperty">
           <Name>PlannedTP</Name>
           <Comment>Planned Take Profit Price, calculated from TakeProfitOrders</Comment>
-          <DisplayOrder>11600</DisplayOrder>
+          <DisplayOrder>11900</DisplayOrder>
           <DisplayName>Planned Take Profit</DisplayName>
           <TypeName>decimal</TypeName>
           <IsClientComputed>false</IsClientComputed>
@@ -1246,8 +1291,8 @@
         <BaseProperty xsi:type="SimpleProperty">
           <Name>ExecutedTP</Name>
           <Comment>Executed Take Profit Price, calculated from TakeProfitOrders</Comment>
-          <DisplayOrder>11700</DisplayOrder>
-          <DisplayName>Exec. Take Profit</DisplayName>
+          <DisplayOrder>12000</DisplayOrder>
+          <DisplayName>Executed Take Profit</DisplayName>
           <TypeName>decimal</TypeName>
           <IsClientComputed>false</IsClientComputed>
           <IsServerComputed>false</IsServerComputed>
@@ -1261,7 +1306,7 @@
         </BaseProperty>
         <BaseProperty xsi:type="CollectionProperty">
           <Name>StopLossOrders</Name>
-          <DisplayOrder>11800</DisplayOrder>
+          <DisplayOrder>12100</DisplayOrder>
           <DisplayName>Stop Loss Orders</DisplayName>
           <TypeName>ICollection&lt;StopLossOrder&gt;</TypeName>
           <IsClientComputed>false</IsClientComputed>
@@ -1269,9 +1314,24 @@
           <RestrictedData>false</RestrictedData>
         </BaseProperty>
         <BaseProperty xsi:type="SimpleProperty">
+          <Name>PlannedRiskAmount</Name>
+          <DisplayOrder>12200</DisplayOrder>
+          <DisplayName>Planned Risk Amount</DisplayName>
+          <TypeName>decimal</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <RestrictedData>false</RestrictedData>
+          <EnumTypeName />
+          <IsKey>false</IsKey>
+          <IsForeignKey>false</IsForeignKey>
+          <IsImmutable>false</IsImmutable>
+          <IsNullable>true</IsNullable>
+          <IsStoreGenerated>false</IsStoreGenerated>
+        </BaseProperty>
+        <BaseProperty xsi:type="SimpleProperty">
           <Name>PlannedSL</Name>
           <Comment>Planned Stop Loss Price, calculated from StopLossOrders</Comment>
-          <DisplayOrder>11900</DisplayOrder>
+          <DisplayOrder>12300</DisplayOrder>
           <DisplayName>Planned Stop Loss</DisplayName>
           <TypeName>decimal</TypeName>
           <IsClientComputed>false</IsClientComputed>
@@ -1287,8 +1347,8 @@
         <BaseProperty xsi:type="SimpleProperty">
           <Name>ExecutedSL</Name>
           <Comment>Executed Stop Loss Price, calculated from StopLossOrders</Comment>
-          <DisplayOrder>12000</DisplayOrder>
-          <DisplayName>Exec. Stop Loss</DisplayName>
+          <DisplayOrder>12400</DisplayOrder>
+          <DisplayName>Executed Stop Loss</DisplayName>
           <TypeName>decimal</TypeName>
           <IsClientComputed>false</IsClientComputed>
           <IsServerComputed>false</IsServerComputed>
@@ -1303,7 +1363,7 @@
         <BaseProperty xsi:type="CollectionProperty">
           <Name>TradeImages</Name>
           <Comment>Keeps Web URL or local file path of the images associated with the trade, along with optional notes. This collection allows for multiple images to be linked to a single trade, providing visual documentation or evidence of the trade setup, execution, or outcome. Each TradeImage instance contains details about the image and its relation to the trade, facilitating better organization and reference within the trading diary.</Comment>
-          <DisplayOrder>12100</DisplayOrder>
+          <DisplayOrder>12500</DisplayOrder>
           <DisplayName>Trade Images</DisplayName>
           <TypeName>ICollection&lt;TradeImage&gt;</TypeName>
           <IsClientComputed>false</IsClientComputed>
@@ -1318,8 +1378,8 @@
   <CodeEngineList>
     <string>CS_Sqlite_Repository_Generator</string>
     <string>Sqlite_Scripts_Generator</string>
-    <string>CS_Model_Class_Generator</string>
     <string>Localization_Resource_Generator</string>
+    <string>CS_Model_Class_Generator</string>
     <string>T-Sql_Scripts_Generator</string>
   </CodeEngineList>
 </CodeGenProject>

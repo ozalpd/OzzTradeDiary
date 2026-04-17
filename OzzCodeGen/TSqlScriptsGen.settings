@@ -773,33 +773,20 @@
           <UpdateDefault>NeverUpdate</UpdateDefault>
         </StorageColumnSetting>
         <StorageColumnSetting>
+          <Name>IsFullyClosed</Name>
+          <Exclude>false</Exclude>
+          <DataType>bit</DataType>
+          <Length>0</Length>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <Unique>false</Unique>
+          <SortDesc>false</SortDesc>
+          <Nullable>false</Nullable>
+          <CheckIfAltered>false</CheckIfAltered>
+          <DoNotLog>false</DoNotLog>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
           <Name>OrderQuantity</Name>
-          <Exclude>false</Exclude>
-          <DataType>[decimal](18, 4)</DataType>
-          <Length>0</Length>
-          <PrimaryKey>false</PrimaryKey>
-          <Indexed>false</Indexed>
-          <Unique>false</Unique>
-          <SortDesc>false</SortDesc>
-          <Nullable>true</Nullable>
-          <CheckIfAltered>false</CheckIfAltered>
-          <DoNotLog>false</DoNotLog>
-        </StorageColumnSetting>
-        <StorageColumnSetting>
-          <Name>PlannedEntry</Name>
-          <Exclude>false</Exclude>
-          <DataType>[decimal](18, 4)</DataType>
-          <Length>0</Length>
-          <PrimaryKey>false</PrimaryKey>
-          <Indexed>false</Indexed>
-          <Unique>false</Unique>
-          <SortDesc>false</SortDesc>
-          <Nullable>true</Nullable>
-          <CheckIfAltered>false</CheckIfAltered>
-          <DoNotLog>false</DoNotLog>
-        </StorageColumnSetting>
-        <StorageColumnSetting>
-          <Name>PlannedPositionValue</Name>
           <Exclude>false</Exclude>
           <DataType>[decimal](18, 4)</DataType>
           <Length>0</Length>
@@ -825,7 +812,33 @@
           <DoNotLog>false</DoNotLog>
         </StorageColumnSetting>
         <StorageColumnSetting>
-          <Name>ExecutedEntry</Name>
+          <Name>PlannedEntryPrice</Name>
+          <Exclude>false</Exclude>
+          <DataType>[decimal](18, 4)</DataType>
+          <Length>0</Length>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <Unique>false</Unique>
+          <SortDesc>false</SortDesc>
+          <Nullable>true</Nullable>
+          <CheckIfAltered>false</CheckIfAltered>
+          <DoNotLog>false</DoNotLog>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>ExecutedEntryPrice</Name>
+          <Exclude>false</Exclude>
+          <DataType>[decimal](18, 4)</DataType>
+          <Length>0</Length>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <Unique>false</Unique>
+          <SortDesc>false</SortDesc>
+          <Nullable>true</Nullable>
+          <CheckIfAltered>false</CheckIfAltered>
+          <DoNotLog>false</DoNotLog>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>PlannedPositionValue</Name>
           <Exclude>false</Exclude>
           <DataType>[decimal](18, 4)</DataType>
           <Length>0</Length>
@@ -839,6 +852,32 @@
         </StorageColumnSetting>
         <StorageColumnSetting>
           <Name>ExecutedPositionValue</Name>
+          <Exclude>false</Exclude>
+          <DataType>[decimal](18, 4)</DataType>
+          <Length>0</Length>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <Unique>false</Unique>
+          <SortDesc>false</SortDesc>
+          <Nullable>true</Nullable>
+          <CheckIfAltered>false</CheckIfAltered>
+          <DoNotLog>false</DoNotLog>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>PlannedProfitLoss</Name>
+          <Exclude>false</Exclude>
+          <DataType>[decimal](18, 4)</DataType>
+          <Length>0</Length>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <Unique>false</Unique>
+          <SortDesc>false</SortDesc>
+          <Nullable>true</Nullable>
+          <CheckIfAltered>false</CheckIfAltered>
+          <DoNotLog>false</DoNotLog>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>RealizedProfitLoss</Name>
           <Exclude>false</Exclude>
           <DataType>[decimal](18, 4)</DataType>
           <Length>0</Length>
@@ -865,6 +904,19 @@
         </StorageColumnSetting>
         <StorageColumnSetting>
           <Name>ExecutedTP</Name>
+          <Exclude>false</Exclude>
+          <DataType>[decimal](18, 4)</DataType>
+          <Length>0</Length>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <Unique>false</Unique>
+          <SortDesc>false</SortDesc>
+          <Nullable>true</Nullable>
+          <CheckIfAltered>false</CheckIfAltered>
+          <DoNotLog>false</DoNotLog>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>PlannedRiskAmount</Name>
           <Exclude>false</Exclude>
           <DataType>[decimal](18, 4)</DataType>
           <Length>0</Length>

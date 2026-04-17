@@ -616,6 +616,15 @@
           <SingleColumnUpdate>false</SingleColumnUpdate>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
+          <Name>IsFullyClosed</Name>
+          <Exclude>false</Exclude>
+          <AutoLoad>false</AutoLoad>
+          <CheckIfAltered>false</CheckIfAltered>
+          <ColumnName>IsFullyClosed</ColumnName>
+          <DecimalToIntegerScale>0</DecimalToIntegerScale>
+          <SingleColumnUpdate>false</SingleColumnUpdate>
+        </SqliteRepositoryPropertySetting>
+        <SqliteRepositoryPropertySetting>
           <Name>EntryOrders</Name>
           <Exclude>false</Exclude>
           <AutoLoad>true</AutoLoad>
@@ -634,11 +643,29 @@
           <SingleColumnUpdate>false</SingleColumnUpdate>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
-          <Name>PlannedEntry</Name>
+          <Name>FilledQuantity</Name>
+          <Exclude>false</Exclude>
+          <AutoLoad>false</AutoLoad>
+          <CheckIfAltered>false</CheckIfAltered>
+          <ColumnName>FilledQuantity</ColumnName>
+          <DecimalToIntegerScale>0</DecimalToIntegerScale>
+          <SingleColumnUpdate>false</SingleColumnUpdate>
+        </SqliteRepositoryPropertySetting>
+        <SqliteRepositoryPropertySetting>
+          <Name>PlannedEntryPrice</Name>
           <Exclude>false</Exclude>
           <AutoLoad>false</AutoLoad>
           <CheckIfAltered>true</CheckIfAltered>
-          <ColumnName>PlannedEntry</ColumnName>
+          <ColumnName>PlannedEntryPrice</ColumnName>
+          <DecimalToIntegerScale>0</DecimalToIntegerScale>
+          <SingleColumnUpdate>false</SingleColumnUpdate>
+        </SqliteRepositoryPropertySetting>
+        <SqliteRepositoryPropertySetting>
+          <Name>ExecutedEntryPrice</Name>
+          <Exclude>false</Exclude>
+          <AutoLoad>false</AutoLoad>
+          <CheckIfAltered>true</CheckIfAltered>
+          <ColumnName>ExecutedEntryPrice</ColumnName>
           <DecimalToIntegerScale>0</DecimalToIntegerScale>
           <SingleColumnUpdate>false</SingleColumnUpdate>
         </SqliteRepositoryPropertySetting>
@@ -649,24 +676,6 @@
           <CheckIfAltered>false</CheckIfAltered>
           <ColumnName>PlannedPositionValue</ColumnName>
           <DecimalToIntegerScale>4</DecimalToIntegerScale>
-          <SingleColumnUpdate>false</SingleColumnUpdate>
-        </SqliteRepositoryPropertySetting>
-        <SqliteRepositoryPropertySetting>
-          <Name>FilledQuantity</Name>
-          <Exclude>false</Exclude>
-          <AutoLoad>false</AutoLoad>
-          <CheckIfAltered>false</CheckIfAltered>
-          <ColumnName>FilledQuantity</ColumnName>
-          <DecimalToIntegerScale>0</DecimalToIntegerScale>
-          <SingleColumnUpdate>false</SingleColumnUpdate>
-        </SqliteRepositoryPropertySetting>
-        <SqliteRepositoryPropertySetting>
-          <Name>ExecutedEntry</Name>
-          <Exclude>false</Exclude>
-          <AutoLoad>false</AutoLoad>
-          <CheckIfAltered>true</CheckIfAltered>
-          <ColumnName>ExecutedEntry</ColumnName>
-          <DecimalToIntegerScale>0</DecimalToIntegerScale>
           <SingleColumnUpdate>false</SingleColumnUpdate>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
@@ -685,6 +694,24 @@
           <CheckIfAltered>false</CheckIfAltered>
           <ColumnName>TakeProfitOrders</ColumnName>
           <DecimalToIntegerScale>0</DecimalToIntegerScale>
+          <SingleColumnUpdate>false</SingleColumnUpdate>
+        </SqliteRepositoryPropertySetting>
+        <SqliteRepositoryPropertySetting>
+          <Name>PlannedProfitLoss</Name>
+          <Exclude>false</Exclude>
+          <AutoLoad>false</AutoLoad>
+          <CheckIfAltered>false</CheckIfAltered>
+          <ColumnName>PlannedProfitLoss</ColumnName>
+          <DecimalToIntegerScale>4</DecimalToIntegerScale>
+          <SingleColumnUpdate>false</SingleColumnUpdate>
+        </SqliteRepositoryPropertySetting>
+        <SqliteRepositoryPropertySetting>
+          <Name>RealizedProfitLoss</Name>
+          <Exclude>false</Exclude>
+          <AutoLoad>false</AutoLoad>
+          <CheckIfAltered>false</CheckIfAltered>
+          <ColumnName>RealizedProfitLoss</ColumnName>
+          <DecimalToIntegerScale>4</DecimalToIntegerScale>
           <SingleColumnUpdate>false</SingleColumnUpdate>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
@@ -712,6 +739,15 @@
           <CheckIfAltered>false</CheckIfAltered>
           <ColumnName>StopLossOrders</ColumnName>
           <DecimalToIntegerScale>0</DecimalToIntegerScale>
+          <SingleColumnUpdate>false</SingleColumnUpdate>
+        </SqliteRepositoryPropertySetting>
+        <SqliteRepositoryPropertySetting>
+          <Name>PlannedRiskAmount</Name>
+          <Exclude>false</Exclude>
+          <AutoLoad>false</AutoLoad>
+          <CheckIfAltered>false</CheckIfAltered>
+          <ColumnName>PlannedRiskAmount</ColumnName>
+          <DecimalToIntegerScale>4</DecimalToIntegerScale>
           <SingleColumnUpdate>false</SingleColumnUpdate>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
@@ -744,7 +780,7 @@
       </Properties>
       <TableName>Trades</TableName>
       <FileNameDDL>Trade.sql</FileNameDDL>
-      <OrderByClause>ORDER BY Id</OrderByClause>
+      <OrderByClause>ORDER BY UpdatedAt DESC, EntryTime DESC</OrderByClause>
     </BaseEntitySetting>
   </EntitySettings>
   <RenderAllEntities>false</RenderAllEntities>

@@ -58,20 +58,11 @@ namespace TD.Models
         [Display(ResourceType = typeof(LocalizedStrings), Name = "TradeDirection")]
         public TradeDirection TradeDirection { get; set; }
 
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "IsFullyClosed")]
+        public bool IsFullyClosed { get; set; }
+
         [Display(ResourceType = typeof(LocalizedStrings), Name = "EntryOrders")]
         public ICollection<EntryOrder> EntryOrders { get; set; }
-
-        /// <summary>
-        /// Planned Entry Price, calculated from EntryOrders
-        /// </summary>
-        [Display(ResourceType = typeof(LocalizedStrings), Name = "PlannedEntry")]
-        public decimal? PlannedEntry { get; set; }
-
-        /// <summary>
-        /// Executed Entry Price, calculated from EntryOrders
-        /// </summary>
-        [Display(ResourceType = typeof(LocalizedStrings), Name = "ExecutedEntry")]
-        public decimal? ExecutedEntry { get; set; }
 
         /// <summary>
         /// Planned contract quantity of order
@@ -84,6 +75,18 @@ namespace TD.Models
         /// </summary>
         [Display(ResourceType = typeof(LocalizedStrings), Name = "FilledQuantity")]
         public decimal? FilledQuantity { get; set; }
+
+        /// <summary>
+        /// Planned Entry Price, calculated from EntryOrders
+        /// </summary>
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "PlannedEntryPrice")]
+        public decimal? PlannedEntryPrice { get; set; }
+
+        /// <summary>
+        /// Executed Entry Price, calculated from EntryOrders
+        /// </summary>
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "ExecutedEntryPrice")]
+        public decimal? ExecutedEntryPrice { get; set; }
 
         [Display(ResourceType = typeof(LocalizedStrings), Name = "TakeProfitOrders")]
         public ICollection<TakeProfitOrder> TakeProfitOrders { get; set; }
@@ -140,10 +143,11 @@ namespace TD.Models
             clone.EntryTime = this.EntryTime;
             clone.EntryMethod = this.EntryMethod;
             clone.TradeDirection = this.TradeDirection;
-            clone.PlannedEntry = this.PlannedEntry;
-            clone.ExecutedEntry = this.ExecutedEntry;
+            clone.IsFullyClosed = this.IsFullyClosed;
             clone.OrderQuantity = this.OrderQuantity;
             clone.FilledQuantity = this.FilledQuantity;
+            clone.PlannedEntryPrice = this.PlannedEntryPrice;
+            clone.ExecutedEntryPrice = this.ExecutedEntryPrice;
             clone.PlannedTP = this.PlannedTP;
             clone.ExecutedTP = this.ExecutedTP;
             clone.PlannedSL = this.PlannedSL;

@@ -4,7 +4,7 @@
 
 Early-stage development (pre-release, no public release yet).
 
-Internal tracking versions: `OzzTradeDiary` `0.0.42`, `OzzTradeDiary.WPF` `0.0.42`, `OzzTradeDiary.SQLite` `0.0.42`, `OzzTradeDiary.i18n` `0.0.42`.
+Internal tracking versions: `OzzTradeDiary` `0.0.43`, `OzzTradeDiary.WPF` `0.0.43`, `OzzTradeDiary.SQLite` `0.0.43`, `OzzTradeDiary.i18n` `0.0.43`.
 
 - **Changelog discipline**: Any behavior change (repository logic, initialization, seeding, schema generation impact, UI-visible behavior) must be recorded in `CHANGELOG.md`.
 
@@ -58,6 +58,8 @@ Internal tracking versions: `OzzTradeDiary` `0.0.42`, `OzzTradeDiary.WPF` `0.0.4
 - `Exchange` navigation collections (`Symbols`, `TradingAccounts`) should be treated as repository-loadable relationship data and kept aligned with repository auto-load settings.
 - `Trade` quantity fields (`OrderQuantity`, `FilledQuantity`) are part of the persisted domain contract and should be kept aligned across model, repository mapping, and generated schema.
 - `Trade` position-value fields (`PlannedPositionValue`, `ExecutedPositionValue`) are persisted domain fields and should be kept aligned across model, repository mapping, and generated schema/indexes.
+- `Trade` entry-price fields use `PlannedEntryPrice` and `ExecutedEntryPrice` (not `PlannedEntry`/`ExecutedEntry`) and must be kept aligned across model, repository mapping, and generated schema.
+- `Trade` P/L and risk fields (`PlannedProfitLoss`, `RealizedProfitLoss`, `PlannedRiskAmount`) and the closed flag (`IsFullyClosed`) are persisted domain fields and must be kept aligned across model, repository mapping, and generated schema/indexes.
 - Order entities should expose calculated `OrderValue` and `FilledValue` partial properties instead of persisted `OrderAmount` / `FilledAmount` fields.
 - Calculated order value properties for `EntryOrder`, `StopLossOrder`, and `TakeProfitOrder` should stay aligned with their related price/quantity fields.
 

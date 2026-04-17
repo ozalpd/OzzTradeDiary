@@ -334,8 +334,11 @@
     <data name="ExchangesList" xml:space="preserve">
         <value>Exchanges List</value>
     </data>
-    <data name="ExecutedEntry" xml:space="preserve">
-        <value>Executed Entry</value>
+    <data name="ExecutedEntryPrice" xml:space="preserve">
+        <value>Executed Entry Price</value>
+    </data>
+    <data name="ExecutedPositionValue" xml:space="preserve">
+        <value>Executed Position Value</value>
     </data>
     <data name="ExecutedSL" xml:space="preserve">
         <value>Executed SL</value>
@@ -346,14 +349,14 @@
     <data name="ExecuteTime" xml:space="preserve">
         <value>Execute Time</value>
     </data>
-    <data name="FilledAmount" xml:space="preserve">
-        <value>Filled Amount</value>
-    </data>
     <data name="FilledPrice" xml:space="preserve">
         <value>Filled Price</value>
     </data>
     <data name="FilledQuantity" xml:space="preserve">
         <value>Filled Quantity</value>
+    </data>
+    <data name="FilledValue" xml:space="preserve">
+        <value>Filled Value</value>
     </data>
     <data name="Forex" xml:space="preserve">
         <value>Forex</value>
@@ -385,6 +388,9 @@
     <data name="IsActive" xml:space="preserve">
         <value>Is Active</value>
     </data>
+    <data name="IsFullyClosed" xml:space="preserve">
+        <value>Is Fully Closed</value>
+    </data>
     <data name="IUpdatedAt" xml:space="preserve">
         <value>IUpdated At</value>
     </data>
@@ -412,9 +418,6 @@
     <data name="Option" xml:space="preserve">
         <value>Option</value>
     </data>
-    <data name="OrderAmount" xml:space="preserve">
-        <value>Order Amount</value>
-    </data>
     <data name="OrderPrice" xml:space="preserve">
         <value>Order Price</value>
     </data>
@@ -424,11 +427,23 @@
     <data name="OrderType" xml:space="preserve">
         <value>Order Type</value>
     </data>
+    <data name="OrderValue" xml:space="preserve">
+        <value>Order Value</value>
+    </data>
     <data name="Performance" xml:space="preserve">
         <value>Performance</value>
     </data>
-    <data name="PlannedEntry" xml:space="preserve">
-        <value>Planned Entry</value>
+    <data name="PlannedEntryPrice" xml:space="preserve">
+        <value>Planned Entry Price</value>
+    </data>
+    <data name="PlannedPositionValue" xml:space="preserve">
+        <value>Planned Position Value</value>
+    </data>
+    <data name="PlannedProfitLoss" xml:space="preserve">
+        <value>Planned Profit Loss</value>
+    </data>
+    <data name="PlannedRiskAmount" xml:space="preserve">
+        <value>Planned Risk Amount</value>
     </data>
     <data name="PlannedSL" xml:space="preserve">
         <value>Planned SL</value>
@@ -438,6 +453,9 @@
     </data>
     <data name="PriceCurrency" xml:space="preserve">
         <value>Price Currency</value>
+    </data>
+    <data name="RealizedProfitLoss" xml:space="preserve">
+        <value>Realized Profit Loss</value>
     </data>
     <data name="RemoveCurrency" xml:space="preserve">
         <value>Remove Currency</value>

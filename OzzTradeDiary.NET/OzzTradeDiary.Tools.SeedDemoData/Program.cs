@@ -179,24 +179,25 @@ static async Task<Trade> EnsureDemoTradeAsync(ITradeRepository tradeRepository, 
         SymbolId = symbol.Id,
         EntryMethod = EntryMethod.Market,
         TradeDirection = direction,
-        PlannedEntry = entryPrice,
+        PlannedEntryPrice = entryPrice,
         PlannedTP = entryPrice * tpMultiplier,
         PlannedSL = entryPrice * slMultiplier,
         OrderQuantity = quantity,
         UpdatedAt = DateTime.UtcNow,
     };
-    
+
     bool isExecuted = random.Next(0, 4) != 0; // 75% chance the trade is executed
     if (isExecuted)
     {
         trade.EntryTime = DateTime.UtcNow.AddDays(-daysAgo).AddHours(random.Next(0, 12)).AddMinutes(random.Next(0, 60));
-        trade.ExecutedEntry = entryPrice;
-        trade.FilledQuantity= quantity;
+        trade.ExecutedEntryPrice = entryPrice;
+        trade.FilledQuantity = quantity;
     }
 
     bool isClosed = isExecuted && random.Next(0, 4) == 0; // 25% chance the trade is closed
     if (isClosed)
     {
+        trade.IsFullyClosed = true;
         bool isWin = random.Next(0, 2) == 0; // 50% chance of winning trade if it's closed
         if (isWin)
         {

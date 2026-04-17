@@ -953,8 +953,12 @@
     <Translation>Borsa Listesi</Translation>
   </Vocab>
   <Vocab>
-    <Name>ExecutedEntry</Name>
-    <Translation>Gerçekleşen İşlem</Translation>
+    <Name>ExecutedEntryPrice</Name>
+    <Translation>Gerçekleşen İşlem Fiyatı</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ExecutedPositionValue</Name>
+    <Translation>Gerçekleşen Pozisyon Büyüklüğü</Translation>
   </Vocab>
   <Vocab>
     <Name>ExecutedSL</Name>
@@ -997,16 +1001,16 @@
     <Translation>Dosya</Translation>
   </Vocab>
   <Vocab>
-    <Name>FilledValue</Name>
-    <Translation>Gerçekleşen Tutar</Translation>
-  </Vocab>
-  <Vocab>
     <Name>FilledPrice</Name>
     <Translation>Gerçekleşen Fiyat</Translation>
   </Vocab>
   <Vocab>
     <Name>FilledQuantity</Name>
     <Translation>Gerçekleşen Miktar</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>FilledValue</Name>
+    <Translation>Gerçekleşen Tutar</Translation>
   </Vocab>
   <Vocab>
     <Name>Filter</Name>
@@ -1095,6 +1099,10 @@
   <Vocab>
     <Name>IsApproved</Name>
     <Translation>Onaylandı</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>IsFullyClosed</Name>
+    <Translation>Tamamen Kapandı</Translation>
   </Vocab>
   <Vocab>
     <Name>IsPublished</Name>
@@ -1257,10 +1265,6 @@
     <Translation>Sipariş</Translation>
   </Vocab>
   <Vocab>
-    <Name>OrderValue</Name>
-    <Translation>Emir Tutarı</Translation>
-  </Vocab>
-  <Vocab>
     <Name>OrderDate</Name>
     <Translation>Sipariş Tarihi</Translation>
   </Vocab>
@@ -1299,6 +1303,10 @@
   <Vocab>
     <Name>OrderType</Name>
     <Translation>Emir Tipi</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>OrderValue</Name>
+    <Translation>Emir Tutarı</Translation>
   </Vocab>
   <Vocab>
     <Name>ParentCategories</Name>
@@ -1377,8 +1385,20 @@
     <Translation>İş Telefonu 2</Translation>
   </Vocab>
   <Vocab>
-    <Name>PlannedEntry</Name>
-    <Translation>Planlanan İşlem</Translation>
+    <Name>PlannedEntryPrice</Name>
+    <Translation>Planlanan İşlem Fiyatı</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>PlannedPositionValue</Name>
+    <Translation>Planlanan Pozisyon Büyüklüğü</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>PlannedProfitLoss</Name>
+    <Translation>Planlanan Kazanç/Kayıp</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>PlannedRiskAmount</Name>
+    <Translation>Planlanan Risk Miktarı</Translation>
   </Vocab>
   <Vocab>
     <Name>PlannedSL</Name>
@@ -1495,6 +1515,10 @@
   <Vocab>
     <Name>Rarely</Name>
     <Translation>Nadiren</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>RealizedProfitLoss</Name>
+    <Translation>Gerçekleşen Kazanç/Kayıp</Translation>
   </Vocab>
   <Vocab>
     <Name>Record</Name>
