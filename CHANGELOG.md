@@ -4,6 +4,15 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.0.44] - 2026-04-18
+
+### Changed
+- Lowered crypto symbol `DisplayOrder` values in generated `Symbols-Data.sql` to improve UI grouping in symbol/account views.
+- Refactored `OzzTradeDiary.Tools.SeedDemoData` seeding flow to generate more realistic crypto demo data.
+- Enhanced demo symbol setup with `ADAUSD`, unique per-symbol display ordering, and realistic price generation backed by a crypto price dictionary.
+- Demo seeding now creates two exchanges and two trading accounts, then distributes trades across a wider date range.
+- Refactored `SeedTrades` to support flexible account/exchange/day-range/suffix targeting for richer reusable seeding scenarios.
+
 ## [0.0.43] - 2026-04-17
 
 ### Added

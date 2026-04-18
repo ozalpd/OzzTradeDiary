@@ -33,60 +33,59 @@ static async Task SeedDemoDataAsync(string databasePath)
     var tradeImageRepository = new TradeImageRepository(databasePath);
     var tradeRepository = new TradeRepository(databasePath, tradingAccountRepository, symbolRepository, tradeImageRepository: tradeImageRepository);
 
-    var exchange = await EnsureDemoExchangeAsync(exchangeRepository);
+    var exchange1 = await EnsureDemoExchangeAsync(exchangeRepository);
     var tickers = new[] { "BTCUSD", "ETHUSD", "SOLUSD", "AVAXUSD", "XRPUSD", "ETCUSD", "DOGEUSD", "BNBUSD", "SUIUSD", "ZROUSD", //← Top 10 popular cryptos
-                          "APTUSD", "ENAUSD", "ONDOUSD", "EIGENUSD", "SWELLUSD", "PENGUUSD", "POPCATUSD", "LUNAUSD" };
+                          "APTUSD", "ENAUSD", "ONDOUSD", "EIGENUSD", "SWELLUSD", "PENGUUSD", "ADAUSD", "POPCATUSD", "LUNAUSD" };
 
-    var tradingAccount = await EnsureDemoTradingAccountAsync(tradingAccountRepository, exchange);
     for (int i = 0; i < tickers.Length; i++)
     {
-        var symbol = await EnsureDemoSymbolAsync(symbolRepository, exchange, tickers[i]);
-        int tradesCount = 88 - i * 5; // Deccreasing number of trades for each symbol
-        tradesCount = tradesCount < 3 ? 3 : tradesCount; // Minimum 3 trades per symbol
-        for (int j = 0; j < tradesCount; j++)
-        {
-            int daysAgo = (3 + tradesCount) - j;
-            var trade = await EnsureDemoTradeAsync(tradeRepository, tradeImageRepository, tradingAccount.Id, symbol, daysAgo);
-        }
+        var symbol = await EnsureDemoSymbolAsync(symbolRepository, exchange1, tickers[i], 100 * (i + 1));
     }
-    bool flowControl = true;
 
+    var tradingAccount1 = await EnsureDemoTradingAccountAsync(tradingAccountRepository, exchange1);
+    await exchangeRepository.LoadNavigationCollections(exchange1);
 
-    exchange = await exchangeRepository.GetByExchangeCodeAsync("BYBIT");
-    flowControl = flowControl && await seedTrades(tradingAccountRepository, tradeRepository, tradeImageRepository, exchange);
+    var exchange2 = await exchangeRepository.GetByExchangeCodeAsync("BYBIT");
+    TradingAccount? tradingAccount2 = null;
+    if (exchange2 != null)
+        tradingAccount2 = await EnsureDemoTradingAccountAsync(tradingAccountRepository, exchange2);
 
+    for (int i = 30; i > 0; i--)
+    {
+        int daysAgo = i * 3;
+        await seedTrades(tradingAccount1, tradeRepository, tradeImageRepository, exchange1, daysAgo);
+        if (tradingAccount2 != null)
+            await seedTrades(tradingAccount2, tradeRepository, tradeImageRepository, exchange2, daysAgo, "USDT.P");
+        Console.WriteLine($"{daysAgo} days ago trades seeded for both exchanges.");
+    }
 
-    static async Task<bool> seedTrades(TradingAccountRepository tradingAccountRepository, ITradeRepository tradeRepository, TradeImageRepository tradeImageRepository, Exchange? exchange)
+    static async Task<bool> seedTrades(TradingAccount tradingAccount, ITradeRepository tradeRepository, TradeImageRepository tradeImageRepository, Exchange? exchange, int daysAgo, string suffix = "")
     {
         if (exchange == null)
             return false;
 
-        var symbolSet = exchange.Symbols;
+        var symbolSet = string.IsNullOrEmpty(suffix)
+                      ? exchange.Symbols
+                      : exchange.Symbols.Where(s => s.TickerFull.EndsWith(suffix)).ToList();
         if (symbolSet == null || symbolSet.Count == 0)
             return false;
 
-        var tradingAccount = exchange.TradingAccounts?.FirstOrDefault();
-        if (tradingAccount == null)
-            tradingAccount = await EnsureDemoTradingAccountAsync(tradingAccountRepository, exchange);
-
-        int tradesCount = 15; // max 15 trades per symbol
+        int tradesCount = 5; // max 5 trades per symbol
         foreach (var symbol in symbolSet)
         {
             for (int j = 0; j < tradesCount; j++)
             {
-                int daysAgo = (3 + tradesCount) - j;
-                var trade = await EnsureDemoTradeAsync(tradeRepository, tradeImageRepository, tradingAccount.Id, symbol, daysAgo);
+                var trade = await EnsureDemoTradeAsync(tradeRepository, tradeImageRepository, tradingAccount.Id, symbol, daysAgo + (3 + tradesCount) - j);
             }
 
-            tradesCount = tradesCount - 2; // Decrease the number of trades for each subsequent symbol to create variety, starting from 15 for the first symbol.
-            tradesCount = tradesCount < 3 ? 3 : tradesCount;
+            tradesCount = tradesCount - 1; // Decrease the number of trades for each subsequent symbol to create variety, starting from 15 for the first symbol.
+            tradesCount = tradesCount < 1 ? 1 : tradesCount;
         }
 
         Console.WriteLine($"Seeded trades for exchange: {exchange.ExchangeCode}, trading account: {tradingAccount.Title}");
         return true;
     }
 }
-
 static async Task<Exchange> EnsureDemoExchangeAsync(IExchangeRepository exchangeRepository)
 {
     const string exchangeCode = "DEMO";
@@ -112,7 +111,7 @@ static async Task<Exchange> EnsureDemoExchangeAsync(IExchangeRepository exchange
     return exchange;
 }
 
-static async Task<Symbol> EnsureDemoSymbolAsync(ISymbolRepository symbolRepository, Exchange exchange, string ticker)
+static async Task<Symbol> EnsureDemoSymbolAsync(ISymbolRepository symbolRepository, Exchange exchange, string ticker, int displayOrder)
 {
     string tickerFull = $"{exchange.ExchangeCode}:{ticker}";
     var existing = await symbolRepository.GetByTickerFullAsync(tickerFull);
@@ -131,7 +130,7 @@ static async Task<Symbol> EnsureDemoSymbolAsync(ISymbolRepository symbolReposito
         Description = $"Demo {ticker} symbol for local debugging",
         ExchangeId = exchange.Id,
         MarketType = MarketType.Crypto,
-        DisplayOrder = 9990,
+        DisplayOrder = displayOrder,
         IsActive = true
     };
 
@@ -167,9 +166,21 @@ static async Task<TradingAccount> EnsureDemoTradingAccountAsync(ITradingAccountR
 static async Task<Trade> EnsureDemoTradeAsync(ITradeRepository tradeRepository, TradeImageRepository tradeImageRepository, int tradingAccountId, Symbol symbol, int daysAgo)
 {
     var random = new Random();
-    var direction = random.Next(0, 3) == 0 ? TradeDirection.Short : TradeDirection.Long; //In real world, long trades are more common than short,
-                                                                                         //so we can weight it a bit. 1/3 chance for short, 2/3 for long.
-    decimal entryPrice = 70000m + random.Next(-5000, 5000); // Random entry price around 70k for demo purposes, may be we feed it with real historical data later. +/- 5k range to create some variety in the trades.
+    var priceDict = GetCryptoPriceDict();
+    var direction = random.Next(0, 3) == 0 //In real world, long trades are more common than short,
+                  ? TradeDirection.Short   //so we can weight it a bit. 1/3 chance for short, 2/3 for long.
+                  : TradeDirection.Long;
+    string priceKey = symbol.BaseCurrency ?? symbol.Ticker.Replace("USDT.P", "").Replace("USDT", "").Replace("USDC", "").Replace("USD", "");
+    decimal entryPrice;
+    if (priceDict.ContainsKey(priceKey))
+    {
+        entryPrice = priceDict[priceKey] * (decimal)(1 + (random.NextDouble() * 0.6 - 0.3)); // Random variation between -0.3 and 0.3
+    }
+    else
+    {
+        entryPrice = 100m * (decimal)(1 + (random.NextDouble() * 0.9 - 0.45)); // Default price with random variation if not found in the dictionary
+    }
+
     decimal tpMultiplier = direction == TradeDirection.Long ? 1.04m : 0.96m; // Take profit multiplier based on trade direction
     decimal slMultiplier = direction == TradeDirection.Long ? 0.98m : 1.02m; // Stop loss multiplier based on trade direction
     decimal quantity = 100m / entryPrice; // Fixed $100 position size for demo purposes, so the quantity will vary based on entry price.
@@ -210,7 +221,7 @@ static async Task<Trade> EnsureDemoTradeAsync(ITradeRepository tradeRepository, 
     }
 
     trade.Id = await tradeRepository.CreateAsync(trade);
-    Console.WriteLine($"Created trade: {trade.Id}");
+    Console.WriteLine($"Created trade: {trade.Id} for {symbol.TickerFull} at {trade.EntryTime}");
 
     var randomInt = random.Next(1, 5);
     for (int i = 0; i < randomInt; i++)
@@ -224,12 +235,35 @@ static async Task<Trade> EnsureDemoTradeAsync(ITradeRepository tradeRepository, 
         };
 
         image.Id = await tradeImageRepository.CreateAsync(image);
-        Console.WriteLine($"Created trade image: {image.Id}");
     }
 
-    //await EnsureDemoTradeImageAsync(tradeImageRepository, trade.Id);
-
     return trade;
+}
+
+static Dictionary<string, decimal> GetCryptoPriceDict()
+{
+    return new Dictionary<string, decimal>
+    {
+        ["BTC"] = 75000m,
+        ["ETH"] = 2500m,
+        ["SOL"] = 100m,
+        ["AVAX"] = 10m,
+        ["XRP"] = 2,
+        ["ADA"] = 1.44m,
+        ["ETC"] = 8.54m,
+        ["DOGE"] = 0.095m,
+        ["BNB"] = 500m,
+        ["SUI"] = 1m,
+        ["ZRO"] = 2.10m,
+        ["APT"] = 3m,
+        ["ENA"] = 0.0907m,
+        ["ONDO"] = 0.25449m,
+        ["EIGEN"] = 0.174m,
+        ["SWELL"] = 0.001256m,
+        ["PENGU"] = 0.007557m,
+        ["POPCAT"] = 0.058m,
+        ["LUNA"] = 0.0663m
+    };
 }
 
 static string GetDefaultDebugDatabasePath()

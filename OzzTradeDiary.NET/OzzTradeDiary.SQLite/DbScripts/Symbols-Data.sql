@@ -11,38 +11,38 @@ Insert Into Symbols(Id, TickerFull, Ticker, BaseCurrency, PriceCurrency, Descrip
 			values (1, 'NASDAQ:AAPL', 'AAPL', null, 'USD', 'Apple Inc.', 2, 20, 1000, 1);
 
 Insert Into Symbols(Id, TickerFull, Ticker, BaseCurrency, PriceCurrency, Description, ExchangeId, MarketType, DisplayOrder, IsActive)
-			values (2, 'BYBIT:BTCUSDT', 'BTCUSDT', 'BTC', 'USDT', 'Bitcoin Spot', 6, 80, 1000, 1);
+			values (2, 'BYBIT:BTCUSDT', 'BTCUSDT', 'BTC', 'USDT', 'Bitcoin Spot', 6, 80, 100, 1);
 Insert Into Symbols(Id, TickerFull, Ticker, BaseCurrency, PriceCurrency, Description, ExchangeId, MarketType, DisplayOrder, IsActive)
-			values (3, 'BYBIT:BTCUSDC', 'BTCUSDC', 'BTC', 'USDC', 'Bitcoin Spot', 6, 80, 1000, 1);
+			values (3, 'BYBIT:BTCUSDC', 'BTCUSDC', 'BTC', 'USDC', 'Bitcoin Spot', 6, 80, 100, 1);
 Insert Into Symbols(Id, TickerFull, Ticker, BaseCurrency, PriceCurrency, Description, ExchangeId, MarketType, DisplayOrder, IsActive)
-			values (4, 'BYBIT:BTCUSDT.P', 'BTCUSDT.P', 'BTC', 'USDT', 'Bitcoin Perpetual Contract', 6, 90, 1000, 1);
+			values (4, 'BYBIT:BTCUSDT.P', 'BTCUSDT.P', 'BTC', 'USDT', 'Bitcoin Perpetual Contract', 6, 90, 100, 1);
 Insert Into Symbols(Id, TickerFull, Ticker, BaseCurrency, PriceCurrency, Description, ExchangeId, MarketType, DisplayOrder, IsActive)
-			values (5, 'BYBIT:BTCUSDC.P', 'BTCUSDC.P', 'BTC', 'USDC', 'Bitcoin Perpetual Contract', 6, 90, 1000, 1);
+			values (5, 'BYBIT:BTCUSDC.P', 'BTCUSDC.P', 'BTC', 'USDC', 'Bitcoin Perpetual Contract', 6, 90, 100, 1);
 Insert Into Symbols(Id, TickerFull, Ticker, BaseCurrency, PriceCurrency, Description, ExchangeId, MarketType, DisplayOrder, IsActive)
-			values (6, 'BYBIT:ETHUSDT', 'ETHUSDT', 'ETH', 'USDT', 'Ethereum Spot', 6, 80, 1000, 1);
+			values (6, 'BYBIT:ETHUSDT', 'ETHUSDT', 'ETH', 'USDT', 'Ethereum Spot', 6, 80, 200, 1);
 Insert Into Symbols(Id, TickerFull, Ticker, BaseCurrency, PriceCurrency, Description, ExchangeId, MarketType, DisplayOrder, IsActive)
-			values (7, 'BYBIT:ETHUSDC', 'ETHUSDC', 'ETH', 'USDC', 'Ethereum Spot', 6, 80, 1000, 1);
+			values (7, 'BYBIT:ETHUSDC', 'ETHUSDC', 'ETH', 'USDC', 'Ethereum Spot', 6, 80, 200, 1);
 Insert Into Symbols(Id, TickerFull, Ticker, BaseCurrency, PriceCurrency, Description, ExchangeId, MarketType, DisplayOrder, IsActive)
-			values (8, 'BYBIT:ETHUSDT.P', 'ETHUSDT.P', 'ETH', 'USDT', 'Ethereum Perpetual Contract', 6, 90, 1000, 1);
+			values (8, 'BYBIT:ETHUSDT.P', 'ETHUSDT.P', 'ETH', 'USDT', 'Ethereum Perpetual Contract', 6, 90, 200, 1);
 Insert Into Symbols(Id, TickerFull, Ticker, BaseCurrency, PriceCurrency, Description, ExchangeId, MarketType, DisplayOrder, IsActive)
-			values (9, 'BYBIT:ETHUSDC.P', 'ETHUSDC.P', 'ETH', 'USDC', 'Ethereum Perpetual Contract', 6, 90, 1000, 1);
+			values (9, 'BYBIT:ETHUSDC.P', 'ETHUSDC.P', 'ETH', 'USDC', 'Ethereum Perpetual Contract', 6, 90, 200, 1);
 
 Insert Into Symbols(Id, TickerFull, Ticker, BaseCurrency, PriceCurrency, Description, ExchangeId, MarketType, DisplayOrder, IsActive)
-			values (10, 'BINGX:BTCUSDT', 'BTCUSDT', 'BTC', 'USDT', 'Bitcoin Spot', 5, 80, 1000, 1);
+			values (10, 'BINGX:BTCUSDT', 'BTCUSDT', 'BTC', 'USDT', 'Bitcoin Spot', 5, 80, 100, 1);
 Insert Into Symbols(Id, TickerFull, Ticker, BaseCurrency, PriceCurrency, Description, ExchangeId, MarketType, DisplayOrder, IsActive)
-			values (11, 'BINGX:BTCUSDC', 'BTCUSDC', 'BTC', 'USDC', 'Bitcoin Spot', 5, 80, 1000, 1);
+			values (11, 'BINGX:BTCUSDC', 'BTCUSDC', 'BTC', 'USDC', 'Bitcoin Spot', 5, 80, 100, 1);
 Insert Into Symbols(Id, TickerFull, Ticker, BaseCurrency, PriceCurrency, Description, ExchangeId, MarketType, DisplayOrder, IsActive)
-			values (12, 'BINGX:BTCUSDT.P', 'BTCUSDT.P', 'BTC', 'USDT', 'Bitcoin Perpetual Contract', 5, 90, 1000, 1);
+			values (12, 'BINGX:BTCUSDT.P', 'BTCUSDT.P', 'BTC', 'USDT', 'Bitcoin Perpetual Contract', 5, 90, 100, 1);
 Insert Into Symbols(Id, TickerFull, Ticker, BaseCurrency, PriceCurrency, Description, ExchangeId, MarketType, DisplayOrder, IsActive)
-			values (13, 'BINGX:BTCUSDC.P', 'BTCUSDC.P', 'BTC', 'USDC', 'Bitcoin Perpetual Contract', 5, 90, 1000, 1);
+			values (13, 'BINGX:BTCUSDC.P', 'BTCUSDC.P', 'BTC', 'USDC', 'Bitcoin Perpetual Contract', 5, 90, 100, 1);
 Insert Into Symbols(Id, TickerFull, Ticker, BaseCurrency, PriceCurrency, Description, ExchangeId, MarketType, DisplayOrder, IsActive)
-			values (14, 'BINGX:ETHUSDT', 'ETHUSDT', 'ETH', 'USDT', 'Ethereum Spot', 5, 80, 1000, 1);
+			values (14, 'BINGX:ETHUSDT', 'ETHUSDT', 'ETH', 'USDT', 'Ethereum Spot', 5, 80, 200, 1);
 Insert Into Symbols(Id, TickerFull, Ticker, BaseCurrency, PriceCurrency, Description, ExchangeId, MarketType, DisplayOrder, IsActive)
-			values (15, 'BINGX:ETHUSDC', 'ETHUSDC', 'ETH', 'USDC', 'Ethereum Spot', 5, 80, 1000, 1);
+			values (15, 'BINGX:ETHUSDC', 'ETHUSDC', 'ETH', 'USDC', 'Ethereum Spot', 5, 80, 200, 1);
 Insert Into Symbols(Id, TickerFull, Ticker, BaseCurrency, PriceCurrency, Description, ExchangeId, MarketType, DisplayOrder, IsActive)
-			values (16, 'BINGX:ETHUSDT.P', 'ETHUSDT.P', 'ETH', 'USDT', 'Ethereum Perpetual Contract', 5, 90, 1000, 1);
+			values (16, 'BINGX:ETHUSDT.P', 'ETHUSDT.P', 'ETH', 'USDT', 'Ethereum Perpetual Contract', 5, 90, 200, 1);
 Insert Into Symbols(Id, TickerFull, Ticker, BaseCurrency, PriceCurrency, Description, ExchangeId, MarketType, DisplayOrder, IsActive)
-			values (17, 'BINGX:ETHUSDC.P', 'ETHUSDC.P', 'ETH', 'USDC', 'Ethereum Perpetual Contract', 5, 90, 1000, 1);
+			values (17, 'BINGX:ETHUSDC.P', 'ETHUSDC.P', 'ETH', 'USDC', 'Ethereum Perpetual Contract', 5, 90, 200, 1);
 
 Insert Into Symbols(Id, TickerFull, Ticker, BaseCurrency, PriceCurrency, Description, ExchangeId, MarketType, DisplayOrder, IsActive)
 			values (18, 'BYBIT:AVAXUSDT', 'AVAXUSDT', 'AVAX', 'USDT', 'Avalanche Spot', 6, 80, 1000, 1);

@@ -4,7 +4,7 @@ A Windows desktop trade journaling application for tracking trades across multip
 
 > **Status**: Pre-release development (no public release yet)
 > 
-> **Internal tracking versions**: `OzzTradeDiary` `0.0.43`, `OzzTradeDiary.WPF` `0.0.43`, `OzzTradeDiary.SQLite` `0.0.43`, `OzzTradeDiary.i18n` `0.0.43`
+> **Internal tracking versions**: `OzzTradeDiary` `0.0.44`, `OzzTradeDiary.WPF` `0.0.44`, `OzzTradeDiary.SQLite` `0.0.44`, `OzzTradeDiary.i18n` `0.0.44`
 
 ## Changelog
 
@@ -25,6 +25,7 @@ See [`CHANGELOG.md`](CHANGELOG.md) for release history.
 - `AppSettings` uses a debug-safe default data location: in `DEBUG` builds database and related app data resolve under repo-root `SampleData` (git-ignored), while release builds continue to use user app-data folders
 - Shared debug `SampleData` path resolution now lives in `AppSettings.part.cs` and is linked into `OzzTradeDiary.Tools.SeedDemoData` so the WPF app and seeding tool use the same default debug database path
 - `Scripts/SeedDemoData.bat` provides a convenient launcher for the demo-data seeding tool
+- Generated `Symbols-Data.sql` lowers crypto `DisplayOrder` values so crypto symbols group more naturally in UI lists
 - Repository interfaces are now `partial`, allowing extension across files while keeping generated files untouched
 - Repository constructors now expose `OnInitialized` partial hooks so generated repositories can be extended without modifying generated source
 - Repository contracts and implementations now expose richer partial hooks/methods for navigation loading and update flows (`OnLoaded`, `OnCreated`, `OnUpdated`) to support extensibility
@@ -43,6 +44,9 @@ See [`CHANGELOG.md`](CHANGELOG.md) for release history.
 - `Trade` entry-price fields were renamed from `PlannedEntry`/`ExecutedEntry` to `PlannedEntryPrice`/`ExecutedEntryPrice` for clearer domain intent; all model, repository, schema, and localization references were updated accordingly
 - `Trade` now persists `IsFullyClosed`, `PlannedProfitLoss`, `RealizedProfitLoss`, and `PlannedRiskAmount` as domain fields, with aligned schema, indexes, repository mapping, and localization
 - Demo data seeding now populates the P/L, risk, and closed fields alongside existing trade fields
+- Demo seeding now includes `ADAUSD`, uses a crypto base-price dictionary for more realistic price generation, and assigns unique symbol `DisplayOrder` values
+- Demo seeding now creates two demo exchanges and two trading accounts, then spreads generated trades over a wider date range
+- `SeedTrades` was refactored to support flexible account/exchange/day-range/suffix targeting for reusable seeding scenarios
 - Default trade ordering in the repository was updated to align with the new domain contract
 - `TD.Helpers.TradeQueryParameters` now includes extended filter properties and improved extensibility for search-criteria logic via partial methods
 - `UpdateExchangeHasAnySymbolAsync` is now public so it can correctly satisfy repository interface contracts
@@ -225,7 +229,9 @@ At repository startup, initialization executes generated DDL scripts and applies
 
 - Seeding is idempotent and uses the inherited `SeedIfEmpty(...)` helper from `AbstractDatabaseRepository`.
 - Demo data for local debugging can be seeded with `OzzTradeDiary.Tools.SeedDemoData` or the convenience launcher `Scripts/SeedDemoData.bat`.
-- `SeedDemoData` generates demo symbols/trades/images for multiple crypto tickers with randomized values.
+- `SeedDemoData` generates demo symbols/trades/images for multiple crypto tickers with a crypto base-price dictionary for more realistic price generation.
+- Demo seeding creates two exchanges and two trading accounts, then distributes generated trades over a wider date range.
+- `SeedTrades` supports flexible account/exchange/day-range/suffix targeting for reusable seeding scenarios.
 - `Scripts/SeedDemoData.bat` is intended to reset the debug database before seeding so local demo runs are deterministic and clean.
 - Current generated seed scripts include:
   - `OzzTradeDiary.SQLite/DbScripts/Currencies-Data.sql`
