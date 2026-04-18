@@ -4,6 +4,18 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.0.46] - 2026-04-18
+
+### Added
+- Added `GetDecimalFromText(ordinal)` to `TD.SQLite.Extensions.SqliteExtensions` for reading `TEXT`-stored decimals, replacing the obsolete `GetNullableDecimal`.
+- Added `GetDecimalFromInteger(ordinal, scale)` to `TD.SQLite.Extensions.SqliteExtensions` for reading scaled-integer decimals; pairs with `AddDecimalToIntegerParameter` using the same scale.
+
+### Changed
+- Renamed `GetNullableDecimal` → `GetDecimalFromText` across all repository decimal field mappings for consistency with the write-side naming convention (`AddDecimalToTextParameter` / `AddDecimalToIntegerParameter`).
+- Updated all repository decimal read mappings to use `GetDecimalFromText` or `GetDecimalFromInteger` as appropriate.
+- Minor formatting improvements across repository files.
+- Bumped all project versions to `0.0.46` (`OzzTradeDiary`, `OzzTradeDiary.WPF`, `OzzTradeDiary.SQLite`, `OzzTradeDiary.i18n`).
+
 ## [0.0.45] - 2026-04-18
 
 ### Added
@@ -484,10 +496,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - Some models have generated seed files named `<PluralTableName>-Data.sql` in `OzzTradeDiary.SQLite/DbScripts`.
 - Each CUD function updates metadata timestamp via `SaveLastUpdateUtcAsync` in `SqliteDatabaseMetadataRepository`.
 - Confirmed `DbScripts` SQL files are generated via `OzzCodeGen` (not manually edited).
-
-### Documentation
-- Updated `README.md` and `.github/copilot-instructions.md` for unreleased status guidance.
-- Documented SQLite model/table/script conventions and repository coverage status.
 
 ## [0.0.2] - 2026-03-08
 

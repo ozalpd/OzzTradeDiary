@@ -4,7 +4,7 @@ A Windows desktop trade journaling application for tracking trades across multip
 
 > **Status**: Pre-release development (no public release yet)
 > 
-> **Internal tracking versions**: `OzzTradeDiary` `0.0.45`, `OzzTradeDiary.WPF` `0.0.45`, `OzzTradeDiary.SQLite` `0.0.45`, `OzzTradeDiary.i18n` `0.0.45`
+> **Internal tracking versions**: `OzzTradeDiary` `0.0.46`, `OzzTradeDiary.WPF` `0.0.46`, `OzzTradeDiary.SQLite` `0.0.46`, `OzzTradeDiary.i18n` `0.0.46`
 
 ## Changelog
 
@@ -27,6 +27,7 @@ See [`CHANGELOG.md`](CHANGELOG.md) for release history.
 - Trade filtering via `TradeQueryParameters` in `TD.Helpers` with support for pagination, date ranges, position values, P/L, and risk ranges
 - `TradeRepository.GetPagedAsync` and `SymbolRepository.GetPagedAsync` provide comprehensive paging and filtering using type-safe parameter handling
 - Decimal parameters use explicit SQLite storage helpers (`AddDecimalToIntegerParameter` for scaled integers, `AddDecimalToTextParameter` for precision-safe text) instead of generic `AddWithValue`
+- Decimal retrieval uses matching read helpers: `GetDecimalFromText(ordinal)` for `TEXT`-stored decimals (pairs with `AddDecimalToTextParameter`) and `GetDecimalFromInteger(ordinal, scale)` for scaled-integer decimals (pairs with `AddDecimalToIntegerParameter`); `GetNullableDecimal` was renamed to `GetDecimalFromText`
 - `SeedDemoData` tool supports `--daysago` argument for flexible seeding across custom date ranges
 - `Scripts/SeedDemoData.bat` provides a convenient launcher for the demo-data seeding tool
 - Generated `Symbols-Data.sql` lowers crypto `DisplayOrder` values so crypto symbols group more naturally in UI lists

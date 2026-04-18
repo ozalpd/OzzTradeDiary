@@ -71,7 +71,7 @@ namespace TD.SQLite
 
             return result;
         }
-
+        
 
         public async Task<EntryOrder?> GetByIdAsync(int? id)
         {
@@ -89,12 +89,12 @@ namespace TD.SQLite
                 return null;
 
             var entryOrder = MapEntryOrder(reader);
-
+            
             OnLoaded(entryOrder);
             return entryOrder;
         }
         partial void OnLoaded(EntryOrder entryOrder);
-
+        
         public async Task<int> CreateAsync(EntryOrder entryOrder)
         {
             ArgumentNullException.ThrowIfNull(entryOrder);
@@ -106,7 +106,7 @@ namespace TD.SQLite
             command.CommandText = @$"INSERT INTO {_tableName} ({string.Join(", ", ColumnNames[1..])})
             VALUES (@tradeId, @orderType, @executeTime, @orderPrice, @filledPrice, @orderQuantity, @filledQuantity, @orderValue, @filledValue, @displayOrder);
             SELECT last_insert_rowid();";
-
+            
             command.AddParameter("@tradeId", entryOrder.TradeId);
             command.AddParameter("@orderType", (int)entryOrder.OrderType);
             command.AddDateTimeToTextParameter("@executeTime", entryOrder.ExecuteTime);
@@ -123,7 +123,7 @@ namespace TD.SQLite
             command.AddParameter("@displayOrder", entryOrder.DisplayOrder);
 
             var id = Convert.ToInt32((long)(await command.ExecuteScalarAsync() ?? 0));
-
+            
             await _metadataRepository.SaveLastUpdateUtcAsync(connection);
             ClearRecordCountCache();
             entryOrder.Id = id;
@@ -158,15 +158,15 @@ namespace TD.SQLite
             await using var connection = await GetOpenConnectionAsync();
             var existingEntryOrder = await GetByIdAsync(entryOrder.Id);
             bool noChanges = existingEntryOrder != null
-                          && existingEntryOrder.OrderType == entryOrder.OrderType
-                          && existingEntryOrder.ExecuteTime == entryOrder.ExecuteTime
-                          && existingEntryOrder.OrderPrice == entryOrder.OrderPrice
-                          && existingEntryOrder.FilledPrice == entryOrder.FilledPrice
-                          && existingEntryOrder.OrderQuantity == entryOrder.OrderQuantity
-                          && existingEntryOrder.FilledQuantity == entryOrder.FilledQuantity
-                          && existingEntryOrder.OrderValue == entryOrder.OrderValue
-                          && existingEntryOrder.FilledValue == entryOrder.FilledValue
-                          && existingEntryOrder.DisplayOrder == entryOrder.DisplayOrder;
+                          && existingEntryOrder.OrderType == entryOrder.OrderType 
+                          && existingEntryOrder.ExecuteTime == entryOrder.ExecuteTime 
+                          && existingEntryOrder.OrderPrice == entryOrder.OrderPrice 
+                          && existingEntryOrder.FilledPrice == entryOrder.FilledPrice 
+                          && existingEntryOrder.OrderQuantity == entryOrder.OrderQuantity 
+                          && existingEntryOrder.FilledQuantity == entryOrder.FilledQuantity 
+                          && existingEntryOrder.OrderValue == entryOrder.OrderValue 
+                          && existingEntryOrder.FilledValue == entryOrder.FilledValue 
+                          && existingEntryOrder.DisplayOrder == entryOrder.DisplayOrder; 
 
             if (noChanges)
                 return false;
@@ -207,7 +207,7 @@ namespace TD.SQLite
                 await _metadataRepository.SaveLastUpdateUtcAsync(connection);
                 OnUpdated(entryOrder);
             }
-
+            
             return affectedRows > 0;
         }
         partial void OnUpdated(EntryOrder entryOrder);
@@ -219,15 +219,22 @@ namespace TD.SQLite
                 Id = reader.GetInt32(ColNrs.Id),
                 TradeId = reader.GetInt32(ColNrs.TradeId),
                 OrderType = (OrderType)reader.GetInt32(ColNrs.OrderType),
-                ExecuteTime = reader.IsDBNull(ColNrs.ExecuteTime) ? null : ToLocalDateTime(reader.GetString(ColNrs.ExecuteTime)),
-                OrderPrice = reader.GetDecimal(ColNrs.OrderPrice),
-                FilledPrice = reader.IsDBNull(ColNrs.FilledPrice) ? null : reader.GetDecimal(ColNrs.FilledPrice),
-                OrderQuantity = reader.IsDBNull(ColNrs.OrderQuantity) ? null : reader.GetDecimal(ColNrs.OrderQuantity),
-                FilledQuantity = reader.IsDBNull(ColNrs.FilledQuantity) ? null : reader.GetDecimal(ColNrs.FilledQuantity),
-                OrderValue = reader.IsDBNull(ColNrs.OrderValue) ? null : reader.GetDecimal(ColNrs.OrderValue),
-                FilledValue = reader.IsDBNull(ColNrs.FilledValue) ? null : reader.GetDecimal(ColNrs.FilledValue),
+                ExecuteTime = reader.IsDBNull(ColNrs.ExecuteTime) ? null
+                            : ToLocalDateTime(reader.GetString(ColNrs.ExecuteTime)),
+                OrderPrice = reader.GetDecimalFromText(ColNrs.OrderPrice) ?? 0m,
+                FilledPrice = reader.IsDBNull(ColNrs.FilledPrice) ? null
+                            : reader.GetDecimalFromText(ColNrs.FilledPrice),
+                OrderQuantity = reader.IsDBNull(ColNrs.OrderQuantity) ? null
+                              : reader.GetDecimalFromText(ColNrs.OrderQuantity),
+                FilledQuantity = reader.IsDBNull(ColNrs.FilledQuantity) ? null
+                               : reader.GetDecimalFromText(ColNrs.FilledQuantity),
+                OrderValue = reader.IsDBNull(ColNrs.OrderValue) ? null
+                           : reader.GetDecimalFromInteger(ColNrs.OrderValue,
+                                           DecimalToIntegerScale.OrderValue),
+                FilledValue = reader.IsDBNull(ColNrs.FilledValue) ? null
+                            : reader.GetDecimalFromInteger(ColNrs.FilledValue,
+                                            DecimalToIntegerScale.FilledValue),
                 DisplayOrder = reader.GetInt32(ColNrs.DisplayOrder)
-
             };
 
             return entryOrder;
@@ -255,17 +262,17 @@ namespace TD.SQLite
         /// Contains the names of all columns in the SQLiteDataReader.
         /// </summary>
         public readonly string[] ColumnNames = new[] {
-            "Id",
-            "TradeId",
-            "OrderType",
-            "ExecuteTime",
-            "OrderPrice",
-            "FilledPrice",
-            "OrderQuantity",
-            "FilledQuantity",
-            "OrderValue",
-            "FilledValue",
-            "DisplayOrder"
+            "Id", 
+            "TradeId", 
+            "OrderType", 
+            "ExecuteTime", 
+            "OrderPrice", 
+            "FilledPrice", 
+            "OrderQuantity", 
+            "FilledQuantity", 
+            "OrderValue", 
+            "FilledValue", 
+            "DisplayOrder" 
         };
 
         /// <summary>

@@ -71,7 +71,7 @@ namespace TD.SQLite
 
             return result;
         }
-
+        
 
         public async Task<StopLossOrder?> GetByIdAsync(int? id)
         {
@@ -89,12 +89,12 @@ namespace TD.SQLite
                 return null;
 
             var stopLossOrder = MapStopLossOrder(reader);
-
+            
             OnLoaded(stopLossOrder);
             return stopLossOrder;
         }
         partial void OnLoaded(StopLossOrder stopLossOrder);
-
+        
         public async Task<int> CreateAsync(StopLossOrder stopLossOrder)
         {
             ArgumentNullException.ThrowIfNull(stopLossOrder);
@@ -106,7 +106,7 @@ namespace TD.SQLite
             command.CommandText = @$"INSERT INTO {_tableName} ({string.Join(", ", ColumnNames[1..])})
             VALUES (@tradeId, @stopAll, @orderType, @executeTime, @orderPrice, @filledPrice, @orderQuantity, @filledQuantity, @orderValue, @filledValue, @displayOrder);
             SELECT last_insert_rowid();";
-
+            
             command.AddParameter("@tradeId", stopLossOrder.TradeId);
             command.AddParameter("@stopAll", stopLossOrder.StopAll);
             command.AddParameter("@orderType", (int)stopLossOrder.OrderType);
@@ -124,7 +124,7 @@ namespace TD.SQLite
             command.AddParameter("@displayOrder", stopLossOrder.DisplayOrder);
 
             var id = Convert.ToInt32((long)(await command.ExecuteScalarAsync() ?? 0));
-
+            
             await _metadataRepository.SaveLastUpdateUtcAsync(connection);
             ClearRecordCountCache();
             stopLossOrder.Id = id;
@@ -159,16 +159,16 @@ namespace TD.SQLite
             await using var connection = await GetOpenConnectionAsync();
             var existingStopLossOrder = await GetByIdAsync(stopLossOrder.Id);
             bool noChanges = existingStopLossOrder != null
-                          && existingStopLossOrder.StopAll == stopLossOrder.StopAll
-                          && existingStopLossOrder.OrderType == stopLossOrder.OrderType
-                          && existingStopLossOrder.ExecuteTime == stopLossOrder.ExecuteTime
-                          && existingStopLossOrder.OrderPrice == stopLossOrder.OrderPrice
-                          && existingStopLossOrder.FilledPrice == stopLossOrder.FilledPrice
-                          && existingStopLossOrder.OrderQuantity == stopLossOrder.OrderQuantity
-                          && existingStopLossOrder.FilledQuantity == stopLossOrder.FilledQuantity
-                          && existingStopLossOrder.OrderValue == stopLossOrder.OrderValue
-                          && existingStopLossOrder.FilledValue == stopLossOrder.FilledValue
-                          && existingStopLossOrder.DisplayOrder == stopLossOrder.DisplayOrder;
+                          && existingStopLossOrder.StopAll == stopLossOrder.StopAll 
+                          && existingStopLossOrder.OrderType == stopLossOrder.OrderType 
+                          && existingStopLossOrder.ExecuteTime == stopLossOrder.ExecuteTime 
+                          && existingStopLossOrder.OrderPrice == stopLossOrder.OrderPrice 
+                          && existingStopLossOrder.FilledPrice == stopLossOrder.FilledPrice 
+                          && existingStopLossOrder.OrderQuantity == stopLossOrder.OrderQuantity 
+                          && existingStopLossOrder.FilledQuantity == stopLossOrder.FilledQuantity 
+                          && existingStopLossOrder.OrderValue == stopLossOrder.OrderValue 
+                          && existingStopLossOrder.FilledValue == stopLossOrder.FilledValue 
+                          && existingStopLossOrder.DisplayOrder == stopLossOrder.DisplayOrder; 
 
             if (noChanges)
                 return false;
@@ -211,7 +211,7 @@ namespace TD.SQLite
                 await _metadataRepository.SaveLastUpdateUtcAsync(connection);
                 OnUpdated(stopLossOrder);
             }
-
+            
             return affectedRows > 0;
         }
         partial void OnUpdated(StopLossOrder stopLossOrder);
@@ -224,15 +224,22 @@ namespace TD.SQLite
                 TradeId = reader.GetInt32(ColNrs.TradeId),
                 StopAll = reader.GetInt64(ColNrs.StopAll) == 1,
                 OrderType = (OrderType)reader.GetInt32(ColNrs.OrderType),
-                ExecuteTime = reader.IsDBNull(ColNrs.ExecuteTime) ? null : ToLocalDateTime(reader.GetString(ColNrs.ExecuteTime)),
-                OrderPrice = reader.GetDecimal(ColNrs.OrderPrice),
-                FilledPrice = reader.IsDBNull(ColNrs.FilledPrice) ? null : reader.GetDecimal(ColNrs.FilledPrice),
-                OrderQuantity = reader.IsDBNull(ColNrs.OrderQuantity) ? null : reader.GetDecimal(ColNrs.OrderQuantity),
-                FilledQuantity = reader.IsDBNull(ColNrs.FilledQuantity) ? null : reader.GetDecimal(ColNrs.FilledQuantity),
-                OrderValue = reader.IsDBNull(ColNrs.OrderValue) ? null : reader.GetDecimal(ColNrs.OrderValue),
-                FilledValue = reader.IsDBNull(ColNrs.FilledValue) ? null : reader.GetDecimal(ColNrs.FilledValue),
+                ExecuteTime = reader.IsDBNull(ColNrs.ExecuteTime) ? null
+                            : ToLocalDateTime(reader.GetString(ColNrs.ExecuteTime)),
+                OrderPrice = reader.GetDecimalFromText(ColNrs.OrderPrice) ?? 0m,
+                FilledPrice = reader.IsDBNull(ColNrs.FilledPrice) ? null
+                            : reader.GetDecimalFromText(ColNrs.FilledPrice),
+                OrderQuantity = reader.IsDBNull(ColNrs.OrderQuantity) ? null
+                              : reader.GetDecimalFromText(ColNrs.OrderQuantity),
+                FilledQuantity = reader.IsDBNull(ColNrs.FilledQuantity) ? null
+                               : reader.GetDecimalFromText(ColNrs.FilledQuantity),
+                OrderValue = reader.IsDBNull(ColNrs.OrderValue) ? null
+                           : reader.GetDecimalFromInteger(ColNrs.OrderValue,
+                                           DecimalToIntegerScale.OrderValue),
+                FilledValue = reader.IsDBNull(ColNrs.FilledValue) ? null
+                            : reader.GetDecimalFromInteger(ColNrs.FilledValue,
+                                            DecimalToIntegerScale.FilledValue),
                 DisplayOrder = reader.GetInt32(ColNrs.DisplayOrder)
-
             };
 
             return stopLossOrder;
@@ -261,18 +268,18 @@ namespace TD.SQLite
         /// Contains the names of all columns in the SQLiteDataReader.
         /// </summary>
         public readonly string[] ColumnNames = new[] {
-            "Id",
-            "TradeId",
-            "StopAll",
-            "OrderType",
-            "ExecuteTime",
-            "OrderPrice",
-            "FilledPrice",
-            "OrderQuantity",
-            "FilledQuantity",
-            "OrderValue",
-            "FilledValue",
-            "DisplayOrder"
+            "Id", 
+            "TradeId", 
+            "StopAll", 
+            "OrderType", 
+            "ExecuteTime", 
+            "OrderPrice", 
+            "FilledPrice", 
+            "OrderQuantity", 
+            "FilledQuantity", 
+            "OrderValue", 
+            "FilledValue", 
+            "DisplayOrder" 
         };
 
         /// <summary>

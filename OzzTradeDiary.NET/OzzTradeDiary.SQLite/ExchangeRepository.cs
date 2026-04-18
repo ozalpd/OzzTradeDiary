@@ -17,15 +17,15 @@ namespace TD.SQLite
     public partial class ExchangeRepository : AbstractDatabaseRepository<Exchange>, IExchangeRepository
     {
         public ExchangeRepository(string databasePath
-                               , ISymbolRepository? symbolRepository = null
-                               , ITradingAccountRepository? tradingAccountRepository = null) : base(databasePath, "Exchanges")
+                               , ISymbolRepository? symbolRepository = null 
+                               , ITradingAccountRepository? tradingAccountRepository = null) : base(databasePath, "Exchanges") 
         {
             _selectStatement = $"SELECT {string.Join(", ", ColumnNames)} FROM {_tableName}";
             _symbolRepository = symbolRepository ?? new SymbolRepository(databasePath, exchangeRepository: this);
             _tradingAccountRepository = tradingAccountRepository ?? new TradingAccountRepository(databasePath, exchangeRepository: this);
             InitializeDatabase();
             OnInitialized(symbolRepository == null
-                        , tradingAccountRepository == null);
+                        , tradingAccountRepository == null); 
         }
         private readonly string _selectStatement;
         private readonly ISymbolRepository _symbolRepository;
@@ -44,7 +44,7 @@ namespace TD.SQLite
         /// which can be useful to determine if any additional initialization or event wiring is needed.
         /// </summary>
         partial void OnInitialized(bool isSymbolRepositoryNull
-                                 , bool isTradingAccountRepositoryNull);
+                                 , bool isTradingAccountRepositoryNull); 
 
         public async Task<IReadOnlyList<Exchange>> GetAllAsync(bool? isActive = null)
         {
@@ -87,7 +87,7 @@ namespace TD.SQLite
                 return null;
 
             var exchange = MapExchange(reader);
-
+            
             OnLoaded(exchange);
             return exchange;
         }
@@ -108,12 +108,12 @@ namespace TD.SQLite
                 return null;
 
             var exchange = MapExchange(reader);
-
+            
             OnLoaded(exchange);
             return exchange;
         }
         partial void OnLoaded(Exchange exchange);
-
+        
         public async Task<int> CreateAsync(Exchange exchange)
         {
             ArgumentNullException.ThrowIfNull(exchange);
@@ -132,7 +132,7 @@ namespace TD.SQLite
             command.CommandText = @$"INSERT INTO {_tableName} ({string.Join(", ", ColumnNames[1..])})
             VALUES (@exchangeName, @exchangeCode, @defaultCurrency, @hasAnySymbol, @displayOrder, @isActive);
             SELECT last_insert_rowid();";
-
+            
             command.AddParameter("@exchangeName", exchange.ExchangeName);
             command.AddParameter("@exchangeCode", exchange.ExchangeCode);
             command.AddNullableParameter("@defaultCurrency", exchange.DefaultCurrency);
@@ -141,7 +141,7 @@ namespace TD.SQLite
             command.AddParameter("@isActive", exchange.IsActive);
 
             var id = Convert.ToInt32((long)(await command.ExecuteScalarAsync() ?? 0));
-
+            
             await _metadataRepository.SaveLastUpdateUtcAsync(connection);
             ClearRecordCountCache();
             exchange.Id = id;
@@ -182,10 +182,10 @@ namespace TD.SQLite
 
             existingExchange = await GetByIdAsync(exchange.Id);
             bool noChanges = existingExchange != null
-                          && existingExchange.ExchangeName == exchange.ExchangeName
-                          && existingExchange.DefaultCurrency == exchange.DefaultCurrency
-                          && existingExchange.DisplayOrder == exchange.DisplayOrder
-                          && existingExchange.IsActive == exchange.IsActive;
+                          && existingExchange.ExchangeName == exchange.ExchangeName 
+                          && existingExchange.DefaultCurrency == exchange.DefaultCurrency 
+                          && existingExchange.DisplayOrder == exchange.DisplayOrder 
+                          && existingExchange.IsActive == exchange.IsActive; 
 
             if (noChanges)
                 return false;
@@ -212,7 +212,7 @@ namespace TD.SQLite
                 await _metadataRepository.SaveLastUpdateUtcAsync(connection);
                 OnUpdated(exchange);
             }
-
+            
             return affectedRows > 0;
         }
         partial void OnUpdated(Exchange exchange);
@@ -225,7 +225,7 @@ namespace TD.SQLite
             command.CommandText = @$"UPDATE {_tableName} SET
                 HasAnySymbol = @hasAnySymbol 
             WHERE Id = @id";
-
+            
             command.AddParameter("@id", id);
             command.AddParameter("@hasAnySymbol", hasAnySymbol);
 
@@ -246,11 +246,11 @@ namespace TD.SQLite
                 Id = reader.GetInt32(ColNrs.Id),
                 ExchangeName = reader.GetString(ColNrs.ExchangeName),
                 ExchangeCode = reader.GetString(ColNrs.ExchangeCode),
-                DefaultCurrency = reader.IsDBNull(ColNrs.DefaultCurrency) ? null : reader.GetString(ColNrs.DefaultCurrency),
+                DefaultCurrency = reader.IsDBNull(ColNrs.DefaultCurrency) ? null
+                                : reader.GetString(ColNrs.DefaultCurrency),
                 HasAnySymbol = reader.GetInt64(ColNrs.HasAnySymbol) == 1,
                 DisplayOrder = reader.GetInt32(ColNrs.DisplayOrder),
                 IsActive = reader.GetInt64(ColNrs.IsActive) == 1
-
             };
 
             return exchange;
@@ -274,13 +274,13 @@ namespace TD.SQLite
         /// Contains the names of all columns in the SQLiteDataReader.
         /// </summary>
         public readonly string[] ColumnNames = new[] {
-            "Id",
-            "ExchangeName",
-            "ExchangeCode",
-            "DefaultCurrency",
-            "HasAnySymbol",
-            "DisplayOrder",
-            "IsActive"
+            "Id", 
+            "ExchangeName", 
+            "ExchangeCode", 
+            "DefaultCurrency", 
+            "HasAnySymbol", 
+            "DisplayOrder", 
+            "IsActive" 
         };
     }
 

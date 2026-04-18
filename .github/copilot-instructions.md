@@ -110,6 +110,8 @@ Internal tracking versions: `OzzTradeDiary` `0.0.43`, `OzzTradeDiary.WPF` `0.0.4
 - Use `AddDecimalToIntegerParameter(...)` when persisting scaled integer decimal values.
 - Use `AddDecimalToTextParameter(...)` when persisting precision-sensitive decimal values as `TEXT`.
 - Do not use `AddNullableParameter(decimal?)` for decimal persistence.
+- Use `GetDecimalFromText(ordinal)` when reading decimals stored as `TEXT` columns (pairs with `AddDecimalToTextParameter`).
+- Use `GetDecimalFromInteger(ordinal, scale)` when reading decimals stored as scaled integers (pairs with `AddDecimalToIntegerParameter`); pass the same `scale` used during write.
 - Exclude calculated `OrderValue` / `FilledValue` properties from code-generated persisted fields.
 - Use `TD.SQLite.Extensions.SqliteExtensions` scaling helpers for decimal-to-integer persistence where value columns are stored as scaled integers.
 - Store `OrderValue` and `FilledValue` as calculated/non-persisted values for order entities, while persisted decimal storage should continue to respect configured SQLite column types and scales.
