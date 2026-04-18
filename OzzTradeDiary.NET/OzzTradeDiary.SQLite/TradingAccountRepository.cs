@@ -17,7 +17,7 @@ namespace TD.SQLite
     public partial class TradingAccountRepository : AbstractDatabaseRepository<TradingAccount>, ITradingAccountRepository
     {
         public TradingAccountRepository(string databasePath
-                               , IExchangeRepository? exchangeRepository = null) : base(databasePath, "TradingAccounts") 
+                               , IExchangeRepository? exchangeRepository = null) : base(databasePath, "TradingAccounts")
         {
             _selectStatement = $"SELECT {string.Join(", ", ColumnNames)} FROM {_tableName}";
             _exchangeRepository = exchangeRepository ?? new ExchangeRepository(databasePath);
@@ -51,7 +51,7 @@ namespace TD.SQLite
             if (isActive.HasValue)
             {
                 command.CommandText += " WHERE IsActive = @isActive";
-                command.Parameters.AddWithValue("@isActive", isActive.Value ? 1 : 0);
+                command.AddParameter("@isActive", isActive.Value);
             }
 
             command.CommandText += " ORDER BY DisplayOrder, Title";
@@ -82,7 +82,7 @@ namespace TD.SQLite
             if (isActive.HasValue)
             {
                 command.CommandText += " AND IsActive = @isActive";
-                command.Parameters.AddWithValue("@isActive", isActive.Value ? 1 : 0);
+                command.AddParameter("@isActive", isActive.Value);
             }
 
             command.CommandText += " ORDER BY DisplayOrder, Title";
@@ -99,7 +99,7 @@ namespace TD.SQLite
 
             return result;
         }
-        
+
 
         public async Task<TradingAccount?> GetByIdAsync(int? id)
         {
@@ -118,7 +118,7 @@ namespace TD.SQLite
 
             var tradingAccount = MapTradingAccount(reader);
             await LoadExchangeAsync(tradingAccount);
-            
+
             OnLoaded(tradingAccount);
             return tradingAccount;
         }
@@ -140,7 +140,7 @@ namespace TD.SQLite
 
             var tradingAccount = MapTradingAccount(reader);
             await LoadExchangeAsync(tradingAccount);
-            
+
             OnLoaded(tradingAccount);
             return tradingAccount;
         }
@@ -164,7 +164,7 @@ namespace TD.SQLite
             command.CommandText = @$"INSERT INTO {_tableName} ({string.Join(", ", ColumnNames[1..])})
             VALUES (@title, @exchangeId, @notes, @displayOrder, @isActive);
             SELECT last_insert_rowid();";
-            
+
             command.AddParameter("@title", tradingAccount.Title);
             command.AddParameter("@exchangeId", tradingAccount.ExchangeId);
             command.AddNullableParameter("@notes", tradingAccount.Notes);
@@ -172,7 +172,7 @@ namespace TD.SQLite
             command.AddParameter("@isActive", tradingAccount.IsActive);
 
             var id = Convert.ToInt32((long)(await command.ExecuteScalarAsync() ?? 0));
-            
+
             await _metadataRepository.SaveLastUpdateUtcAsync(connection);
             ClearRecordCountCache();
             tradingAccount.Id = id;
@@ -213,10 +213,10 @@ namespace TD.SQLite
 
             existingTradingAccount = await GetByIdAsync(tradingAccount.Id);
             bool noChanges = existingTradingAccount != null
-                          && existingTradingAccount.Title == tradingAccount.Title 
-                          && existingTradingAccount.Notes == tradingAccount.Notes 
-                          && existingTradingAccount.DisplayOrder == tradingAccount.DisplayOrder 
-                          && existingTradingAccount.IsActive == tradingAccount.IsActive; 
+                          && existingTradingAccount.Title == tradingAccount.Title
+                          && existingTradingAccount.Notes == tradingAccount.Notes
+                          && existingTradingAccount.DisplayOrder == tradingAccount.DisplayOrder
+                          && existingTradingAccount.IsActive == tradingAccount.IsActive;
 
             if (noChanges)
                 return false;
@@ -243,7 +243,7 @@ namespace TD.SQLite
                 await _metadataRepository.SaveLastUpdateUtcAsync(connection);
                 OnUpdated(tradingAccount);
             }
-            
+
             return affectedRows > 0;
         }
         partial void OnUpdated(TradingAccount tradingAccount);
@@ -259,12 +259,12 @@ namespace TD.SQLite
         {
             var tradingAccount = new TradingAccount
             {
-                Id = reader.GetInt32(ColNrs.Id), 
-                Title = reader.GetString(ColNrs.Title), 
-                ExchangeId = reader.GetInt32(ColNrs.ExchangeId), 
-                Notes = reader.IsDBNull(ColNrs.Notes) ? null : reader.GetString(ColNrs.Notes), 
-                DisplayOrder = reader.GetInt32(ColNrs.DisplayOrder), 
-                IsActive = reader.GetInt64(ColNrs.IsActive) == 1 
+                Id = reader.GetInt32(ColNrs.Id),
+                Title = reader.GetString(ColNrs.Title),
+                ExchangeId = reader.GetInt32(ColNrs.ExchangeId),
+                Notes = reader.IsDBNull(ColNrs.Notes) ? null : reader.GetString(ColNrs.Notes),
+                DisplayOrder = reader.GetInt32(ColNrs.DisplayOrder),
+                IsActive = reader.GetInt64(ColNrs.IsActive) == 1
 
             };
 
@@ -288,12 +288,12 @@ namespace TD.SQLite
         /// Contains the names of all columns in the SQLiteDataReader.
         /// </summary>
         public readonly string[] ColumnNames = new[] {
-            "Id", 
-            "Title", 
-            "ExchangeId", 
-            "Notes", 
-            "DisplayOrder", 
-            "IsActive" 
+            "Id",
+            "Title",
+            "ExchangeId",
+            "Notes",
+            "DisplayOrder",
+            "IsActive"
         };
     }
 

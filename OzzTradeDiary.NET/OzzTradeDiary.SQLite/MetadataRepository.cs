@@ -46,7 +46,7 @@ namespace TD.SQLite
         }
         private static MetadataRepository? _instance;
 
-        public string ConnectionString {  get { return _connectionString; } }
+        public string ConnectionString { get { return _connectionString; } }
         private readonly string _connectionString;
 
         private void InitializeDatabase()

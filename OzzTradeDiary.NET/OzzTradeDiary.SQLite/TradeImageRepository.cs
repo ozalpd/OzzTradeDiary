@@ -71,7 +71,7 @@ namespace TD.SQLite
 
             return result;
         }
-        
+
 
         public async Task<TradeImage?> GetByIdAsync(int? id)
         {
@@ -89,7 +89,7 @@ namespace TD.SQLite
                 return null;
 
             var tradeImage = MapTradeImage(reader);
-            
+
             OnLoaded(tradeImage);
             return tradeImage;
         }
@@ -106,14 +106,14 @@ namespace TD.SQLite
             command.CommandText = @$"INSERT INTO {_tableName} ({string.Join(", ", ColumnNames[1..])})
             VALUES (@tradeId, @imageURL, @notes, @updatedAt);
             SELECT last_insert_rowid();";
-            
+
             command.AddParameter("@tradeId", tradeImage.TradeId);
             command.AddParameter("@imageURL", tradeImage.ImageURL);
             command.AddNullableParameter("@notes", tradeImage.Notes);
             command.AddDateTimeToTextParameter("@updatedAt", DateTime.Now);
 
             var id = Convert.ToInt32((long)(await command.ExecuteScalarAsync() ?? 0));
-            
+
             await _metadataRepository.SaveLastUpdateUtcAsync(connection);
             ClearRecordCountCache();
             tradeImage.Id = id;
@@ -148,9 +148,9 @@ namespace TD.SQLite
             await using var connection = await GetOpenConnectionAsync();
             var existingTradeImage = await GetByIdAsync(tradeImage.Id);
             bool noChanges = existingTradeImage != null
-                          && existingTradeImage.ImageURL == tradeImage.ImageURL 
-                          && existingTradeImage.Notes == tradeImage.Notes 
-                          && existingTradeImage.UpdatedAt == tradeImage.UpdatedAt; 
+                          && existingTradeImage.ImageURL == tradeImage.ImageURL
+                          && existingTradeImage.Notes == tradeImage.Notes
+                          && existingTradeImage.UpdatedAt == tradeImage.UpdatedAt;
 
             if (noChanges)
                 return false;
@@ -175,7 +175,7 @@ namespace TD.SQLite
                 await _metadataRepository.SaveLastUpdateUtcAsync(connection);
                 OnUpdated(tradeImage);
             }
-            
+
             return affectedRows > 0;
         }
         partial void OnUpdated(TradeImage tradeImage);
@@ -184,11 +184,11 @@ namespace TD.SQLite
         {
             var tradeImage = new TradeImage
             {
-                Id = reader.GetInt32(ColNrs.Id), 
-                TradeId = reader.IsDBNull(ColNrs.TradeId) ? null : reader.GetInt32(ColNrs.TradeId), 
-                ImageURL = reader.GetString(ColNrs.ImageURL), 
-                Notes = reader.IsDBNull(ColNrs.Notes) ? null : reader.GetString(ColNrs.Notes), 
-                UpdatedAt = ToLocalDateTime(reader.GetString(ColNrs.UpdatedAt)) ?? DateTime.MinValue 
+                Id = reader.GetInt32(ColNrs.Id),
+                TradeId = reader.IsDBNull(ColNrs.TradeId) ? null : reader.GetInt32(ColNrs.TradeId),
+                ImageURL = reader.GetString(ColNrs.ImageURL),
+                Notes = reader.IsDBNull(ColNrs.Notes) ? null : reader.GetString(ColNrs.Notes),
+                UpdatedAt = ToLocalDateTime(reader.GetString(ColNrs.UpdatedAt)) ?? DateTime.MinValue
 
             };
 
@@ -211,11 +211,11 @@ namespace TD.SQLite
         /// Contains the names of all columns in the SQLiteDataReader.
         /// </summary>
         public readonly string[] ColumnNames = new[] {
-            "Id", 
-            "TradeId", 
-            "ImageURL", 
-            "Notes", 
-            "UpdatedAt" 
+            "Id",
+            "TradeId",
+            "ImageURL",
+            "Notes",
+            "UpdatedAt"
         };
     }
 

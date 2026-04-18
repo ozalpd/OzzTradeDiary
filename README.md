@@ -4,7 +4,7 @@ A Windows desktop trade journaling application for tracking trades across multip
 
 > **Status**: Pre-release development (no public release yet)
 > 
-> **Internal tracking versions**: `OzzTradeDiary` `0.0.44`, `OzzTradeDiary.WPF` `0.0.44`, `OzzTradeDiary.SQLite` `0.0.44`, `OzzTradeDiary.i18n` `0.0.44`
+> **Internal tracking versions**: `OzzTradeDiary` `0.0.45`, `OzzTradeDiary.WPF` `0.0.45`, `OzzTradeDiary.SQLite` `0.0.45`, `OzzTradeDiary.i18n` `0.0.45`
 
 ## Changelog
 
@@ -24,6 +24,10 @@ See [`CHANGELOG.md`](CHANGELOG.md) for release history.
 - DPI-aware multi-monitor window positioning
 - `AppSettings` uses a debug-safe default data location: in `DEBUG` builds database and related app data resolve under repo-root `SampleData` (git-ignored), while release builds continue to use user app-data folders
 - Shared debug `SampleData` path resolution now lives in `AppSettings.part.cs` and is linked into `OzzTradeDiary.Tools.SeedDemoData` so the WPF app and seeding tool use the same default debug database path
+- Trade filtering via `TradeQueryParameters` in `TD.Helpers` with support for pagination, date ranges, position values, P/L, and risk ranges
+- `TradeRepository.GetPagedAsync` and `SymbolRepository.GetPagedAsync` provide comprehensive paging and filtering using type-safe parameter handling
+- Decimal parameters use explicit SQLite storage helpers (`AddDecimalToIntegerParameter` for scaled integers, `AddDecimalToTextParameter` for precision-safe text) instead of generic `AddWithValue`
+- `SeedDemoData` tool supports `--daysago` argument for flexible seeding across custom date ranges
 - `Scripts/SeedDemoData.bat` provides a convenient launcher for the demo-data seeding tool
 - Generated `Symbols-Data.sql` lowers crypto `DisplayOrder` values so crypto symbols group more naturally in UI lists
 - Repository interfaces are now `partial`, allowing extension across files while keeping generated files untouched

@@ -4,6 +4,21 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.0.45] - 2026-04-18
+
+### Added
+- Added min/max range filters for position value, P/L, and risk to `TradeQueryParameters`: `PlannedPositionValueMin/Max`, `ExecutedPositionValueMin/Max`, `PlannedProfitLossMin/Max`, `RealizedProfitLossMin/Max`, and `PlannedRiskAmountMin/Max`.
+- `SeedDemoData` tool now supports `--daysago` argument for flexible seeding across custom date ranges; batch scripts updated accordingly.
+
+### Changed
+- Implemented full-featured `GetPagedAsync` in `TradeRepository` and `SymbolRepository` with comprehensive filtering support; moved paging logic from partial files into main generated classes for cohesion.
+- Refactored all repository parameter handling: replaced `AddWithValue` with type-safe `SqliteExtensions` helpers (`AddParameter`, `AddDateTimeToTextParameter`, `AddDecimalToTextParameter`, `AddDecimalToIntegerParameter`).
+- Updated code generation settings to support new `TradeQueryParameters` search fields and paging support; adjusted codegen engine ordering for proper dependency flow.
+- `TradeQueryParameters.HasAnySearchCriteria()` and copy constructor updated to include all new position-value, P/L, and risk filter properties.
+- Removed obsolete `TradeQueryParameters.part.cs` file (functionality consolidated into generated `TradeQueryParameters.cs`).
+- Minor repository code cleanups and consistent formatting across all repository implementations.
+- Bumped all project versions to `0.0.45` (`OzzTradeDiary`, `OzzTradeDiary.WPF`, `OzzTradeDiary.SQLite`, `OzzTradeDiary.i18n`).
+
 ## [0.0.44] - 2026-04-18
 
 ### Changed

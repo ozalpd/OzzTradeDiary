@@ -19,6 +19,7 @@
           <SingleColumnUpdate>false</SingleColumnUpdate>
         </SqliteRepositoryPropertySetting>
       </Properties>
+      <GenerateGetPaged>false</GenerateGetPaged>
       <TableName>IPrimaryKeys</TableName>
       <FileNameDDL>IPrimaryKey.sql</FileNameDDL>
       <OrderByClause>ORDER BY Id</OrderByClause>
@@ -38,6 +39,7 @@
           <SingleColumnUpdate>false</SingleColumnUpdate>
         </SqliteRepositoryPropertySetting>
       </Properties>
+      <GenerateGetPaged>false</GenerateGetPaged>
       <TableName>IDisplayOrders</TableName>
       <FileNameDDL>IDisplayOrder.sql</FileNameDDL>
       <OrderByClause>ORDER BY DisplayOrder, Id</OrderByClause>
@@ -57,6 +59,7 @@
           <SingleColumnUpdate>false</SingleColumnUpdate>
         </SqliteRepositoryPropertySetting>
       </Properties>
+      <GenerateGetPaged>false</GenerateGetPaged>
       <TableName>IIsActives</TableName>
       <FileNameDDL>IIsActive.sql</FileNameDDL>
       <OrderByClause>ORDER BY DisplayOrder, Id</OrderByClause>
@@ -77,6 +80,7 @@
           <SingleColumnUpdate>false</SingleColumnUpdate>
         </SqliteRepositoryPropertySetting>
       </Properties>
+      <GenerateGetPaged>false</GenerateGetPaged>
       <TableName>IUpdatedAts</TableName>
       <FileNameDDL>IUpdatedAt.sql</FileNameDDL>
       <OrderByClause>ORDER BY Id</OrderByClause>
@@ -97,6 +101,7 @@
           <SingleColumnUpdate>false</SingleColumnUpdate>
         </SqliteRepositoryPropertySetting>
       </Properties>
+      <GenerateGetPaged>false</GenerateGetPaged>
       <TableName>ICreatedAts</TableName>
       <FileNameDDL>ICreatedAt.sql</FileNameDDL>
       <OrderByClause>ORDER BY Id</OrderByClause>
@@ -179,6 +184,7 @@
           <SingleColumnUpdate>false</SingleColumnUpdate>
         </SqliteRepositoryPropertySetting>
       </Properties>
+      <GenerateGetPaged>false</GenerateGetPaged>
       <TableName>ITradeOrders</TableName>
       <FileNameDDL>ITradeOrder.sql</FileNameDDL>
       <OrderByClause>ORDER BY DisplayOrder, Id</OrderByClause>
@@ -243,6 +249,7 @@
           <SingleColumnUpdate>false</SingleColumnUpdate>
         </SqliteRepositoryPropertySetting>
       </Properties>
+      <GenerateGetPaged>false</GenerateGetPaged>
       <TableName>Exchanges</TableName>
       <FileNameDDL>Exchange.sql</FileNameDDL>
       <FileNameSeed>Exchanges-Data.sql</FileNameSeed>
@@ -290,6 +297,7 @@
           <SingleColumnUpdate>false</SingleColumnUpdate>
         </SqliteRepositoryPropertySetting>
       </Properties>
+      <GenerateGetPaged>false</GenerateGetPaged>
       <TableName>TradingAccounts</TableName>
       <FileNameDDL>TradingAccount.sql</FileNameDDL>
       <OrderByClause>ORDER BY DisplayOrder, Title</OrderByClause>
@@ -318,6 +326,7 @@
           <SingleColumnUpdate>false</SingleColumnUpdate>
         </SqliteRepositoryPropertySetting>
       </Properties>
+      <GenerateGetPaged>false</GenerateGetPaged>
       <TableName>Currencies</TableName>
       <FileNameDDL>Currency.sql</FileNameDDL>
       <FileNameSeed>Currencies-Data.sql</FileNameSeed>
@@ -401,6 +410,7 @@
           <SingleColumnUpdate>false</SingleColumnUpdate>
         </SqliteRepositoryPropertySetting>
       </Properties>
+      <GenerateGetPaged>true</GenerateGetPaged>
       <TableName>Symbols</TableName>
       <FileNameDDL>Symbol.sql</FileNameDDL>
       <FileNameSeed>Symbols-Data.sql</FileNameSeed>
@@ -430,6 +440,7 @@
           <SingleColumnUpdate>false</SingleColumnUpdate>
         </SqliteRepositoryPropertySetting>
       </Properties>
+      <GenerateGetPaged>false</GenerateGetPaged>
       <TableName>EntryOrders</TableName>
       <FileNameDDL>EntryOrder.sql</FileNameDDL>
       <OrderByClause>ORDER BY DisplayOrder, Id</OrderByClause>
@@ -458,6 +469,7 @@
           <SingleColumnUpdate>false</SingleColumnUpdate>
         </SqliteRepositoryPropertySetting>
       </Properties>
+      <GenerateGetPaged>false</GenerateGetPaged>
       <TableName>TakeProfitOrders</TableName>
       <FileNameDDL>TakeProfitOrder.sql</FileNameDDL>
       <OrderByClause>ORDER BY DisplayOrder, Id</OrderByClause>
@@ -495,6 +507,7 @@
           <SingleColumnUpdate>false</SingleColumnUpdate>
         </SqliteRepositoryPropertySetting>
       </Properties>
+      <GenerateGetPaged>false</GenerateGetPaged>
       <TableName>StopLossOrders</TableName>
       <FileNameDDL>StopLossOrder.sql</FileNameDDL>
       <OrderByClause>ORDER BY DisplayOrder, Id</OrderByClause>
@@ -542,6 +555,7 @@
           <SingleColumnUpdate>false</SingleColumnUpdate>
         </SqliteRepositoryPropertySetting>
       </Properties>
+      <GenerateGetPaged>false</GenerateGetPaged>
       <TableName>TradeImages</TableName>
       <FileNameDDL>TradeImage.sql</FileNameDDL>
       <OrderByClause>ORDER BY TradeId DESC, Id DESC</OrderByClause>
@@ -778,6 +792,7 @@
           <SingleColumnUpdate>false</SingleColumnUpdate>
         </SqliteRepositoryPropertySetting>
       </Properties>
+      <GenerateGetPaged>true</GenerateGetPaged>
       <TableName>Trades</TableName>
       <FileNameDDL>Trade.sql</FileNameDDL>
       <OrderByClause>ORDER BY UpdatedAt DESC, EntryTime DESC</OrderByClause>

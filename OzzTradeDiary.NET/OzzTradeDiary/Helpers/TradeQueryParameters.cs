@@ -30,6 +30,16 @@ namespace TD.Helpers
                 TradeDirection = tradeQueryParams.TradeDirection;
                 EntryTimeMin = tradeQueryParams.EntryTimeMin;
                 EntryTimeMax = tradeQueryParams.EntryTimeMax;
+                PlannedPositionValueMin = tradeQueryParams.PlannedPositionValueMin;
+                PlannedPositionValueMax = tradeQueryParams.PlannedPositionValueMax;
+                ExecutedPositionValueMin = tradeQueryParams.ExecutedPositionValueMin;
+                ExecutedPositionValueMax = tradeQueryParams.ExecutedPositionValueMax;
+                PlannedProfitLossMin = tradeQueryParams.PlannedProfitLossMin;
+                PlannedProfitLossMax = tradeQueryParams.PlannedProfitLossMax;
+                RealizedProfitLossMin = tradeQueryParams.RealizedProfitLossMin;
+                RealizedProfitLossMax = tradeQueryParams.RealizedProfitLossMax;
+                PlannedRiskAmountMin = tradeQueryParams.PlannedRiskAmountMin;
+                PlannedRiskAmountMax = tradeQueryParams.PlannedRiskAmountMax;
                 UpdatedAtMin = tradeQueryParams.UpdatedAtMin;
                 UpdatedAtMax = tradeQueryParams.UpdatedAtMax;
             }
@@ -40,6 +50,16 @@ namespace TD.Helpers
         public TradeDirection? TradeDirection { get; set; }
         public DateTime? EntryTimeMin { get; set; }
         public DateTime? EntryTimeMax { get; set; }
+        public decimal? PlannedPositionValueMin { get; set; }
+        public decimal? PlannedPositionValueMax { get; set; }
+        public decimal? ExecutedPositionValueMin { get; set; }
+        public decimal? ExecutedPositionValueMax { get; set; }
+        public decimal? PlannedProfitLossMin { get; set; }
+        public decimal? PlannedProfitLossMax { get; set; }
+        public decimal? RealizedProfitLossMin { get; set; }
+        public decimal? RealizedProfitLossMax { get; set; }
+        public decimal? PlannedRiskAmountMin { get; set; }
+        public decimal? PlannedRiskAmountMax { get; set; }
         public DateTime? UpdatedAtMin { get; set; }
         public DateTime? UpdatedAtMax { get; set; }
 
@@ -52,6 +72,11 @@ namespace TD.Helpers
             _hasAnySearchCriteria = _hasAnySearchCriteria || SymbolId.HasValue;
             _hasAnySearchCriteria = _hasAnySearchCriteria || TradeDirection.HasValue;
             _hasAnySearchCriteria = _hasAnySearchCriteria || EntryTimeMin.HasValue || EntryTimeMax.HasValue;
+            _hasAnySearchCriteria = _hasAnySearchCriteria || PlannedPositionValueMin.HasValue || PlannedPositionValueMax.HasValue;
+            _hasAnySearchCriteria = _hasAnySearchCriteria || ExecutedPositionValueMin.HasValue || ExecutedPositionValueMax.HasValue;
+            _hasAnySearchCriteria = _hasAnySearchCriteria || PlannedProfitLossMin.HasValue || PlannedProfitLossMax.HasValue;
+            _hasAnySearchCriteria = _hasAnySearchCriteria || RealizedProfitLossMin.HasValue || RealizedProfitLossMax.HasValue;
+            _hasAnySearchCriteria = _hasAnySearchCriteria || PlannedRiskAmountMin.HasValue || PlannedRiskAmountMax.HasValue;
             _hasAnySearchCriteria = _hasAnySearchCriteria || UpdatedAtMin.HasValue || UpdatedAtMax.HasValue;
 
             OnHasAnySearchCriteria();

@@ -71,7 +71,7 @@ namespace TD.SQLite
 
             return result;
         }
-        
+
 
         public async Task<TakeProfitOrder?> GetByIdAsync(int? id)
         {
@@ -89,7 +89,7 @@ namespace TD.SQLite
                 return null;
 
             var takeProfitOrder = MapTakeProfitOrder(reader);
-            
+
             OnLoaded(takeProfitOrder);
             return takeProfitOrder;
         }
@@ -106,7 +106,7 @@ namespace TD.SQLite
             command.CommandText = @$"INSERT INTO {_tableName} ({string.Join(", ", ColumnNames[1..])})
             VALUES (@tradeId, @orderType, @executeTime, @orderPrice, @filledPrice, @orderQuantity, @filledQuantity, @orderValue, @filledValue, @displayOrder);
             SELECT last_insert_rowid();";
-            
+
             command.AddParameter("@tradeId", takeProfitOrder.TradeId);
             command.AddParameter("@orderType", (int)takeProfitOrder.OrderType);
             command.AddDateTimeToTextParameter("@executeTime", takeProfitOrder.ExecuteTime);
@@ -114,12 +114,16 @@ namespace TD.SQLite
             command.AddDecimalToTextParameter("@filledPrice", takeProfitOrder.FilledPrice);
             command.AddDecimalToTextParameter("@orderQuantity", takeProfitOrder.OrderQuantity);
             command.AddDecimalToTextParameter("@filledQuantity", takeProfitOrder.FilledQuantity);
-            command.AddDecimalToIntegerParameter("@orderValue", takeProfitOrder.OrderValue, DecimalToIntegerScale.OrderValue);
-            command.AddDecimalToIntegerParameter("@filledValue", takeProfitOrder.FilledValue, DecimalToIntegerScale.FilledValue);
+            command.AddDecimalToIntegerParameter("@orderValue",
+                                                takeProfitOrder.OrderValue,
+                                                DecimalToIntegerScale.OrderValue);
+            command.AddDecimalToIntegerParameter("@filledValue",
+                                                takeProfitOrder.FilledValue,
+                                                DecimalToIntegerScale.FilledValue);
             command.AddParameter("@displayOrder", takeProfitOrder.DisplayOrder);
 
             var id = Convert.ToInt32((long)(await command.ExecuteScalarAsync() ?? 0));
-            
+
             await _metadataRepository.SaveLastUpdateUtcAsync(connection);
             ClearRecordCountCache();
             takeProfitOrder.Id = id;
@@ -154,15 +158,15 @@ namespace TD.SQLite
             await using var connection = await GetOpenConnectionAsync();
             var existingTakeProfitOrder = await GetByIdAsync(takeProfitOrder.Id);
             bool noChanges = existingTakeProfitOrder != null
-                          && existingTakeProfitOrder.OrderType == takeProfitOrder.OrderType 
-                          && existingTakeProfitOrder.ExecuteTime == takeProfitOrder.ExecuteTime 
-                          && existingTakeProfitOrder.OrderPrice == takeProfitOrder.OrderPrice 
-                          && existingTakeProfitOrder.FilledPrice == takeProfitOrder.FilledPrice 
-                          && existingTakeProfitOrder.OrderQuantity == takeProfitOrder.OrderQuantity 
-                          && existingTakeProfitOrder.FilledQuantity == takeProfitOrder.FilledQuantity 
-                          && existingTakeProfitOrder.OrderValue == takeProfitOrder.OrderValue 
-                          && existingTakeProfitOrder.FilledValue == takeProfitOrder.FilledValue 
-                          && existingTakeProfitOrder.DisplayOrder == takeProfitOrder.DisplayOrder; 
+                          && existingTakeProfitOrder.OrderType == takeProfitOrder.OrderType
+                          && existingTakeProfitOrder.ExecuteTime == takeProfitOrder.ExecuteTime
+                          && existingTakeProfitOrder.OrderPrice == takeProfitOrder.OrderPrice
+                          && existingTakeProfitOrder.FilledPrice == takeProfitOrder.FilledPrice
+                          && existingTakeProfitOrder.OrderQuantity == takeProfitOrder.OrderQuantity
+                          && existingTakeProfitOrder.FilledQuantity == takeProfitOrder.FilledQuantity
+                          && existingTakeProfitOrder.OrderValue == takeProfitOrder.OrderValue
+                          && existingTakeProfitOrder.FilledValue == takeProfitOrder.FilledValue
+                          && existingTakeProfitOrder.DisplayOrder == takeProfitOrder.DisplayOrder;
 
             if (noChanges)
                 return false;
@@ -189,8 +193,12 @@ namespace TD.SQLite
             command.AddDecimalToTextParameter("@filledPrice", takeProfitOrder.FilledPrice);
             command.AddDecimalToTextParameter("@orderQuantity", takeProfitOrder.OrderQuantity);
             command.AddDecimalToTextParameter("@filledQuantity", takeProfitOrder.FilledQuantity);
-            command.AddDecimalToIntegerParameter("@orderValue", takeProfitOrder.OrderValue, DecimalToIntegerScale.OrderValue);
-            command.AddDecimalToIntegerParameter("@filledValue", takeProfitOrder.FilledValue, DecimalToIntegerScale.FilledValue);
+            command.AddDecimalToIntegerParameter("@orderValue",
+                                                takeProfitOrder.OrderValue,
+                                                DecimalToIntegerScale.OrderValue);
+            command.AddDecimalToIntegerParameter("@filledValue",
+                                                takeProfitOrder.FilledValue,
+                                                DecimalToIntegerScale.FilledValue);
             command.AddParameter("@displayOrder", takeProfitOrder.DisplayOrder);
 
             var affectedRows = await command.ExecuteNonQueryAsync();
@@ -199,7 +207,7 @@ namespace TD.SQLite
                 await _metadataRepository.SaveLastUpdateUtcAsync(connection);
                 OnUpdated(takeProfitOrder);
             }
-            
+
             return affectedRows > 0;
         }
         partial void OnUpdated(TakeProfitOrder takeProfitOrder);
@@ -208,17 +216,17 @@ namespace TD.SQLite
         {
             var takeProfitOrder = new TakeProfitOrder
             {
-                Id = reader.GetInt32(ColNrs.Id), 
-                TradeId = reader.GetInt32(ColNrs.TradeId), 
-                OrderType = (OrderType)reader.GetInt32(ColNrs.OrderType), 
-                ExecuteTime = reader.IsDBNull(ColNrs.ExecuteTime) ? null : ToLocalDateTime(reader.GetString(ColNrs.ExecuteTime)), 
-                OrderPrice = reader.GetDecimal(ColNrs.OrderPrice), 
-                FilledPrice = reader.IsDBNull(ColNrs.FilledPrice) ? null : reader.GetDecimal(ColNrs.FilledPrice), 
-                OrderQuantity = reader.IsDBNull(ColNrs.OrderQuantity) ? null : reader.GetDecimal(ColNrs.OrderQuantity), 
-                FilledQuantity = reader.IsDBNull(ColNrs.FilledQuantity) ? null : reader.GetDecimal(ColNrs.FilledQuantity), 
-                OrderValue = reader.IsDBNull(ColNrs.OrderValue) ? null : reader.GetDecimal(ColNrs.OrderValue), 
-                FilledValue = reader.IsDBNull(ColNrs.FilledValue) ? null : reader.GetDecimal(ColNrs.FilledValue), 
-                DisplayOrder = reader.GetInt32(ColNrs.DisplayOrder) 
+                Id = reader.GetInt32(ColNrs.Id),
+                TradeId = reader.GetInt32(ColNrs.TradeId),
+                OrderType = (OrderType)reader.GetInt32(ColNrs.OrderType),
+                ExecuteTime = reader.IsDBNull(ColNrs.ExecuteTime) ? null : ToLocalDateTime(reader.GetString(ColNrs.ExecuteTime)),
+                OrderPrice = reader.GetDecimal(ColNrs.OrderPrice),
+                FilledPrice = reader.IsDBNull(ColNrs.FilledPrice) ? null : reader.GetDecimal(ColNrs.FilledPrice),
+                OrderQuantity = reader.IsDBNull(ColNrs.OrderQuantity) ? null : reader.GetDecimal(ColNrs.OrderQuantity),
+                FilledQuantity = reader.IsDBNull(ColNrs.FilledQuantity) ? null : reader.GetDecimal(ColNrs.FilledQuantity),
+                OrderValue = reader.IsDBNull(ColNrs.OrderValue) ? null : reader.GetDecimal(ColNrs.OrderValue),
+                FilledValue = reader.IsDBNull(ColNrs.FilledValue) ? null : reader.GetDecimal(ColNrs.FilledValue),
+                DisplayOrder = reader.GetInt32(ColNrs.DisplayOrder)
 
             };
 
@@ -247,17 +255,17 @@ namespace TD.SQLite
         /// Contains the names of all columns in the SQLiteDataReader.
         /// </summary>
         public readonly string[] ColumnNames = new[] {
-            "Id", 
-            "TradeId", 
-            "OrderType", 
-            "ExecuteTime", 
-            "OrderPrice", 
-            "FilledPrice", 
-            "OrderQuantity", 
-            "FilledQuantity", 
-            "OrderValue", 
-            "FilledValue", 
-            "DisplayOrder" 
+            "Id",
+            "TradeId",
+            "OrderType",
+            "ExecuteTime",
+            "OrderPrice",
+            "FilledPrice",
+            "OrderQuantity",
+            "FilledQuantity",
+            "OrderValue",
+            "FilledValue",
+            "DisplayOrder"
         };
 
         /// <summary>

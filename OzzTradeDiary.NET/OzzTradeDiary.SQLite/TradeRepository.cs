@@ -6,6 +6,7 @@
 //
 //----------------------------------------------------------------------------------
 using Microsoft.Data.Sqlite;
+using TD.Helpers;
 using TD.Models;
 using TD.SQLite.Extensions;
 
@@ -17,12 +18,12 @@ namespace TD.SQLite
     public partial class TradeRepository : AbstractDatabaseRepository<Trade>, ITradeRepository
     {
         public TradeRepository(string databasePath
-                               , ITradingAccountRepository? tradingAccountRepository = null 
-                               , ISymbolRepository? symbolRepository = null 
-                               , IEntryOrderRepository? entryOrderRepository = null 
-                               , ITakeProfitOrderRepository? takeProfitOrderRepository = null 
-                               , IStopLossOrderRepository? stopLossOrderRepository = null 
-                               , ITradeImageRepository? tradeImageRepository = null) : base(databasePath, "Trades") 
+                               , ITradingAccountRepository? tradingAccountRepository = null
+                               , ISymbolRepository? symbolRepository = null
+                               , IEntryOrderRepository? entryOrderRepository = null
+                               , ITakeProfitOrderRepository? takeProfitOrderRepository = null
+                               , IStopLossOrderRepository? stopLossOrderRepository = null
+                               , ITradeImageRepository? tradeImageRepository = null) : base(databasePath, "Trades")
         {
             _selectStatement = $"SELECT {string.Join(", ", ColumnNames)} FROM {_tableName}";
             _tradingAccountRepository = tradingAccountRepository ?? new TradingAccountRepository(databasePath);
@@ -33,11 +34,11 @@ namespace TD.SQLite
             _tradeImageRepository = tradeImageRepository ?? new TradeImageRepository(databasePath);
             InitializeDatabase();
             OnInitialized(tradingAccountRepository == null
-                        , symbolRepository == null 
-                        , entryOrderRepository == null 
-                        , takeProfitOrderRepository == null 
-                        , stopLossOrderRepository == null 
-                        , tradeImageRepository == null); 
+                        , symbolRepository == null
+                        , entryOrderRepository == null
+                        , takeProfitOrderRepository == null
+                        , stopLossOrderRepository == null
+                        , tradeImageRepository == null);
         }
         private readonly string _selectStatement;
         private readonly ITradingAccountRepository _tradingAccountRepository;
@@ -59,11 +60,11 @@ namespace TD.SQLite
         /// which can be useful to determine if any additional initialization or event wiring is needed.
         /// </summary>
         partial void OnInitialized(bool isTradingAccountRepositoryNull
-                                 , bool isSymbolRepositoryNull 
-                                 , bool isEntryOrderRepositoryNull 
-                                 , bool isTakeProfitOrderRepositoryNull 
-                                 , bool isStopLossOrderRepositoryNull 
-                                 , bool isTradeImageRepositoryNull); 
+                                 , bool isSymbolRepositoryNull
+                                 , bool isEntryOrderRepositoryNull
+                                 , bool isTakeProfitOrderRepositoryNull
+                                 , bool isStopLossOrderRepositoryNull
+                                 , bool isTradeImageRepositoryNull);
 
         public async Task<IReadOnlyList<Trade>> GetAllAsync()
         {
@@ -120,7 +121,7 @@ namespace TD.SQLite
 
             return result;
         }
-        
+
 
         public async Task<IReadOnlyList<Trade>> GetBySymbolIdAsync(int symbolId)
         {
@@ -150,7 +151,7 @@ namespace TD.SQLite
 
             return result;
         }
-        
+
 
         public async Task<Trade?> GetByIdAsync(int? id)
         {
@@ -170,11 +171,156 @@ namespace TD.SQLite
             var trade = MapTrade(reader);
             await LoadTradingAccountAsync(trade);
             await LoadSymbolAsync(trade);
-            
+
             OnLoaded(trade);
             return trade;
         }
         partial void OnLoaded(Trade trade);
+
+        public async Task<IReadOnlyList<Trade>> GetPagedAsync(TradeQueryParameters queryParameters)
+        {
+            ArgumentNullException.ThrowIfNull(queryParameters);
+
+            var result = new List<Trade>();
+            var tradingAccountsById = (await _tradingAccountRepository.GetAllAsync()).ToDictionary(item => item.Id);
+            var symbolsById = (await _symbolRepository.GetAllAsync()).ToDictionary(item => item.Id);
+
+            await using var connection = await GetOpenConnectionAsync();
+            await using var command = connection.CreateCommand();
+            command.CommandText = _selectStatement;
+
+            var whereClauses = new List<string>();
+            if (queryParameters.TradingAccountId.HasValue)
+            {
+                whereClauses.Add("TradingAccountId = @tradingAccountId");
+                command.AddParameter("@tradingAccountId", queryParameters.TradingAccountId.Value);
+            }
+            if (queryParameters.SymbolId.HasValue)
+            {
+                whereClauses.Add("SymbolId = @symbolId");
+                command.AddParameter("@symbolId", queryParameters.SymbolId.Value);
+            }
+            if (queryParameters.TradeDirection.HasValue)
+            {
+                whereClauses.Add("TradeDirection = @tradeDirection");
+                command.AddParameter("@tradeDirection", (int)queryParameters.TradeDirection.Value);
+            }
+            if (queryParameters.EntryTimeMin.HasValue)
+            {
+                whereClauses.Add("EntryTime >= @entryTimeMin");
+                command.AddDateTimeToTextParameter("@entryTimeMin", queryParameters.EntryTimeMin.Value);
+            }
+            if (queryParameters.EntryTimeMax.HasValue)
+            {
+                whereClauses.Add("EntryTime <= @entryTimeMax");
+                command.AddDateTimeToTextParameter("@entryTimeMax", queryParameters.EntryTimeMax.Value);
+            }
+            if (queryParameters.PlannedPositionValueMin.HasValue)
+            {
+                whereClauses.Add("PlannedPositionValue >= @plannedPositionValueMin");
+                command.AddDecimalToIntegerParameter("@plannedPositionValueMin",
+                                                    queryParameters.PlannedPositionValueMin.Value,
+                                                    DecimalToIntegerScale.PlannedPositionValue);
+            }
+            if (queryParameters.PlannedPositionValueMax.HasValue)
+            {
+                whereClauses.Add("PlannedPositionValue <= @plannedPositionValueMax");
+                command.AddDecimalToIntegerParameter("@plannedPositionValueMax",
+                                                    queryParameters.PlannedPositionValueMax.Value,
+                                                    DecimalToIntegerScale.PlannedPositionValue);
+            }
+            if (queryParameters.ExecutedPositionValueMin.HasValue)
+            {
+                whereClauses.Add("ExecutedPositionValue >= @executedPositionValueMin");
+                command.AddDecimalToIntegerParameter("@executedPositionValueMin",
+                                                    queryParameters.ExecutedPositionValueMin.Value,
+                                                    DecimalToIntegerScale.ExecutedPositionValue);
+            }
+            if (queryParameters.ExecutedPositionValueMax.HasValue)
+            {
+                whereClauses.Add("ExecutedPositionValue <= @executedPositionValueMax");
+                command.AddDecimalToIntegerParameter("@executedPositionValueMax",
+                                                    queryParameters.ExecutedPositionValueMax.Value,
+                                                    DecimalToIntegerScale.ExecutedPositionValue);
+            }
+            if (queryParameters.PlannedProfitLossMin.HasValue)
+            {
+                whereClauses.Add("PlannedProfitLoss >= @plannedProfitLossMin");
+                command.AddDecimalToIntegerParameter("@plannedProfitLossMin",
+                                                    queryParameters.PlannedProfitLossMin.Value,
+                                                    DecimalToIntegerScale.PlannedProfitLoss);
+            }
+            if (queryParameters.PlannedProfitLossMax.HasValue)
+            {
+                whereClauses.Add("PlannedProfitLoss <= @plannedProfitLossMax");
+                command.AddDecimalToIntegerParameter("@plannedProfitLossMax",
+                                                    queryParameters.PlannedProfitLossMax.Value,
+                                                    DecimalToIntegerScale.PlannedProfitLoss);
+            }
+            if (queryParameters.RealizedProfitLossMin.HasValue)
+            {
+                whereClauses.Add("RealizedProfitLoss >= @realizedProfitLossMin");
+                command.AddDecimalToIntegerParameter("@realizedProfitLossMin",
+                                                    queryParameters.RealizedProfitLossMin.Value,
+                                                    DecimalToIntegerScale.RealizedProfitLoss);
+            }
+            if (queryParameters.RealizedProfitLossMax.HasValue)
+            {
+                whereClauses.Add("RealizedProfitLoss <= @realizedProfitLossMax");
+                command.AddDecimalToIntegerParameter("@realizedProfitLossMax",
+                                                    queryParameters.RealizedProfitLossMax.Value,
+                                                    DecimalToIntegerScale.RealizedProfitLoss);
+            }
+            if (queryParameters.PlannedRiskAmountMin.HasValue)
+            {
+                whereClauses.Add("PlannedRiskAmount >= @plannedRiskAmountMin");
+                command.AddDecimalToIntegerParameter("@plannedRiskAmountMin",
+                                                    queryParameters.PlannedRiskAmountMin.Value,
+                                                    DecimalToIntegerScale.PlannedRiskAmount);
+            }
+            if (queryParameters.PlannedRiskAmountMax.HasValue)
+            {
+                whereClauses.Add("PlannedRiskAmount <= @plannedRiskAmountMax");
+                command.AddDecimalToIntegerParameter("@plannedRiskAmountMax",
+                                                    queryParameters.PlannedRiskAmountMax.Value,
+                                                    DecimalToIntegerScale.PlannedRiskAmount);
+            }
+            if (queryParameters.UpdatedAtMin.HasValue)
+            {
+                whereClauses.Add("UpdatedAt >= @updatedAtMin");
+                command.AddDateTimeToTextParameter("@updatedAtMin", queryParameters.UpdatedAtMin.Value);
+            }
+            if (queryParameters.UpdatedAtMax.HasValue)
+            {
+                whereClauses.Add("UpdatedAt <= @updatedAtMax");
+                command.AddDateTimeToTextParameter("@updatedAtMax", queryParameters.UpdatedAtMax.Value);
+            }
+
+            if (whereClauses.Count > 0)
+            {
+                var whereClause = string.Join(" AND ", whereClauses);
+                command.CommandText = _selectStatement + " WHERE " + whereClause;
+            }
+
+            command.CommandText += " ORDER BY Id LIMIT @pageSize OFFSET @skip";
+            command.Parameters.AddWithValue("@pageSize", queryParameters.PageSize);
+            command.Parameters.AddWithValue("@skip", queryParameters.Skip);
+
+            await using var reader = await command.ExecuteReaderAsync();
+            while (await reader.ReadAsync())
+            {
+                var trade = MapTrade(reader);
+                if (tradingAccountsById.TryGetValue(trade.TradingAccountId, out var tradingAccount))
+                    trade.TradingAccount = tradingAccount;
+
+                if (symbolsById.TryGetValue(trade.SymbolId, out var symbol))
+                    trade.Symbol = symbol;
+
+                result.Add(trade);
+            }
+
+            return result;
+        }
 
         public async Task<int> CreateAsync(Trade trade)
         {
@@ -187,7 +333,7 @@ namespace TD.SQLite
             command.CommandText = @$"INSERT INTO {_tableName} ({string.Join(", ", ColumnNames[1..])})
             VALUES (@tradingAccountId, @symbolId, @entryTime, @entryMethod, @tradeDirection, @isFullyClosed, @orderQuantity, @filledQuantity, @plannedEntryPrice, @executedEntryPrice, @plannedPositionValue, @executedPositionValue, @plannedProfitLoss, @realizedProfitLoss, @plannedTP, @executedTP, @plannedRiskAmount, @plannedSL, @executedSL, @updatedAt);
             SELECT last_insert_rowid();";
-            
+
             command.AddParameter("@tradingAccountId", trade.TradingAccountId);
             command.AddParameter("@symbolId", trade.SymbolId);
             command.AddDateTimeToTextParameter("@entryTime", trade.EntryTime);
@@ -220,7 +366,7 @@ namespace TD.SQLite
             command.AddDateTimeToTextParameter("@updatedAt", DateTime.Now);
 
             var id = Convert.ToInt32((long)(await command.ExecuteScalarAsync() ?? 0));
-            
+
             await _metadataRepository.SaveLastUpdateUtcAsync(connection);
             ClearRecordCountCache();
             trade.Id = id;
@@ -255,24 +401,24 @@ namespace TD.SQLite
             await using var connection = await GetOpenConnectionAsync();
             var existingTrade = await GetByIdAsync(trade.Id);
             bool noChanges = existingTrade != null
-                          && existingTrade.EntryTime == trade.EntryTime 
-                          && existingTrade.EntryMethod == trade.EntryMethod 
-                          && existingTrade.TradeDirection == trade.TradeDirection 
-                          && existingTrade.IsFullyClosed == trade.IsFullyClosed 
-                          && existingTrade.OrderQuantity == trade.OrderQuantity 
-                          && existingTrade.FilledQuantity == trade.FilledQuantity 
-                          && existingTrade.PlannedEntryPrice == trade.PlannedEntryPrice 
-                          && existingTrade.ExecutedEntryPrice == trade.ExecutedEntryPrice 
-                          && existingTrade.PlannedPositionValue == trade.PlannedPositionValue 
-                          && existingTrade.ExecutedPositionValue == trade.ExecutedPositionValue 
-                          && existingTrade.PlannedProfitLoss == trade.PlannedProfitLoss 
-                          && existingTrade.RealizedProfitLoss == trade.RealizedProfitLoss 
-                          && existingTrade.PlannedTP == trade.PlannedTP 
-                          && existingTrade.ExecutedTP == trade.ExecutedTP 
-                          && existingTrade.PlannedRiskAmount == trade.PlannedRiskAmount 
-                          && existingTrade.PlannedSL == trade.PlannedSL 
-                          && existingTrade.ExecutedSL == trade.ExecutedSL 
-                          && existingTrade.UpdatedAt == trade.UpdatedAt; 
+                          && existingTrade.EntryTime == trade.EntryTime
+                          && existingTrade.EntryMethod == trade.EntryMethod
+                          && existingTrade.TradeDirection == trade.TradeDirection
+                          && existingTrade.IsFullyClosed == trade.IsFullyClosed
+                          && existingTrade.OrderQuantity == trade.OrderQuantity
+                          && existingTrade.FilledQuantity == trade.FilledQuantity
+                          && existingTrade.PlannedEntryPrice == trade.PlannedEntryPrice
+                          && existingTrade.ExecutedEntryPrice == trade.ExecutedEntryPrice
+                          && existingTrade.PlannedPositionValue == trade.PlannedPositionValue
+                          && existingTrade.ExecutedPositionValue == trade.ExecutedPositionValue
+                          && existingTrade.PlannedProfitLoss == trade.PlannedProfitLoss
+                          && existingTrade.RealizedProfitLoss == trade.RealizedProfitLoss
+                          && existingTrade.PlannedTP == trade.PlannedTP
+                          && existingTrade.ExecutedTP == trade.ExecutedTP
+                          && existingTrade.PlannedRiskAmount == trade.PlannedRiskAmount
+                          && existingTrade.PlannedSL == trade.PlannedSL
+                          && existingTrade.ExecutedSL == trade.ExecutedSL
+                          && existingTrade.UpdatedAt == trade.UpdatedAt;
 
             if (noChanges)
                 return false;
@@ -337,7 +483,7 @@ namespace TD.SQLite
                 await _metadataRepository.SaveLastUpdateUtcAsync(connection);
                 OnUpdated(trade);
             }
-            
+
             return affectedRows > 0;
         }
         partial void OnUpdated(Trade trade);
@@ -360,27 +506,27 @@ namespace TD.SQLite
         {
             var trade = new Trade
             {
-                Id = reader.GetInt32(ColNrs.Id), 
-                TradingAccountId = reader.GetInt32(ColNrs.TradingAccountId), 
-                SymbolId = reader.GetInt32(ColNrs.SymbolId), 
-                EntryTime = reader.IsDBNull(ColNrs.EntryTime) ? null : ToLocalDateTime(reader.GetString(ColNrs.EntryTime)), 
-                EntryMethod = (EntryMethod)reader.GetInt32(ColNrs.EntryMethod), 
-                TradeDirection = (TradeDirection)reader.GetInt32(ColNrs.TradeDirection), 
-                IsFullyClosed = reader.GetInt64(ColNrs.IsFullyClosed) == 1, 
-                OrderQuantity = reader.IsDBNull(ColNrs.OrderQuantity) ? null : reader.GetDecimal(ColNrs.OrderQuantity), 
-                FilledQuantity = reader.IsDBNull(ColNrs.FilledQuantity) ? null : reader.GetDecimal(ColNrs.FilledQuantity), 
-                PlannedEntryPrice = reader.IsDBNull(ColNrs.PlannedEntryPrice) ? null : reader.GetDecimal(ColNrs.PlannedEntryPrice), 
-                ExecutedEntryPrice = reader.IsDBNull(ColNrs.ExecutedEntryPrice) ? null : reader.GetDecimal(ColNrs.ExecutedEntryPrice), 
-                PlannedPositionValue = reader.IsDBNull(ColNrs.PlannedPositionValue) ? null : reader.GetDecimal(ColNrs.PlannedPositionValue), 
-                ExecutedPositionValue = reader.IsDBNull(ColNrs.ExecutedPositionValue) ? null : reader.GetDecimal(ColNrs.ExecutedPositionValue), 
-                PlannedProfitLoss = reader.IsDBNull(ColNrs.PlannedProfitLoss) ? null : reader.GetDecimal(ColNrs.PlannedProfitLoss), 
-                RealizedProfitLoss = reader.IsDBNull(ColNrs.RealizedProfitLoss) ? null : reader.GetDecimal(ColNrs.RealizedProfitLoss), 
-                PlannedTP = reader.IsDBNull(ColNrs.PlannedTP) ? null : reader.GetDecimal(ColNrs.PlannedTP), 
-                ExecutedTP = reader.IsDBNull(ColNrs.ExecutedTP) ? null : reader.GetDecimal(ColNrs.ExecutedTP), 
-                PlannedRiskAmount = reader.IsDBNull(ColNrs.PlannedRiskAmount) ? null : reader.GetDecimal(ColNrs.PlannedRiskAmount), 
-                PlannedSL = reader.IsDBNull(ColNrs.PlannedSL) ? null : reader.GetDecimal(ColNrs.PlannedSL), 
-                ExecutedSL = reader.IsDBNull(ColNrs.ExecutedSL) ? null : reader.GetDecimal(ColNrs.ExecutedSL), 
-                UpdatedAt = ToLocalDateTime(reader.GetString(ColNrs.UpdatedAt)) ?? DateTime.MinValue 
+                Id = reader.GetInt32(ColNrs.Id),
+                TradingAccountId = reader.GetInt32(ColNrs.TradingAccountId),
+                SymbolId = reader.GetInt32(ColNrs.SymbolId),
+                EntryTime = reader.IsDBNull(ColNrs.EntryTime) ? null : ToLocalDateTime(reader.GetString(ColNrs.EntryTime)),
+                EntryMethod = (EntryMethod)reader.GetInt32(ColNrs.EntryMethod),
+                TradeDirection = (TradeDirection)reader.GetInt32(ColNrs.TradeDirection),
+                IsFullyClosed = reader.GetInt64(ColNrs.IsFullyClosed) == 1,
+                OrderQuantity = reader.IsDBNull(ColNrs.OrderQuantity) ? null : reader.GetDecimal(ColNrs.OrderQuantity),
+                FilledQuantity = reader.IsDBNull(ColNrs.FilledQuantity) ? null : reader.GetDecimal(ColNrs.FilledQuantity),
+                PlannedEntryPrice = reader.IsDBNull(ColNrs.PlannedEntryPrice) ? null : reader.GetDecimal(ColNrs.PlannedEntryPrice),
+                ExecutedEntryPrice = reader.IsDBNull(ColNrs.ExecutedEntryPrice) ? null : reader.GetDecimal(ColNrs.ExecutedEntryPrice),
+                PlannedPositionValue = reader.IsDBNull(ColNrs.PlannedPositionValue) ? null : reader.GetDecimal(ColNrs.PlannedPositionValue),
+                ExecutedPositionValue = reader.IsDBNull(ColNrs.ExecutedPositionValue) ? null : reader.GetDecimal(ColNrs.ExecutedPositionValue),
+                PlannedProfitLoss = reader.IsDBNull(ColNrs.PlannedProfitLoss) ? null : reader.GetDecimal(ColNrs.PlannedProfitLoss),
+                RealizedProfitLoss = reader.IsDBNull(ColNrs.RealizedProfitLoss) ? null : reader.GetDecimal(ColNrs.RealizedProfitLoss),
+                PlannedTP = reader.IsDBNull(ColNrs.PlannedTP) ? null : reader.GetDecimal(ColNrs.PlannedTP),
+                ExecutedTP = reader.IsDBNull(ColNrs.ExecutedTP) ? null : reader.GetDecimal(ColNrs.ExecutedTP),
+                PlannedRiskAmount = reader.IsDBNull(ColNrs.PlannedRiskAmount) ? null : reader.GetDecimal(ColNrs.PlannedRiskAmount),
+                PlannedSL = reader.IsDBNull(ColNrs.PlannedSL) ? null : reader.GetDecimal(ColNrs.PlannedSL),
+                ExecutedSL = reader.IsDBNull(ColNrs.ExecutedSL) ? null : reader.GetDecimal(ColNrs.ExecutedSL),
+                UpdatedAt = ToLocalDateTime(reader.GetString(ColNrs.UpdatedAt)) ?? DateTime.MinValue
 
             };
 
@@ -419,27 +565,27 @@ namespace TD.SQLite
         /// Contains the names of all columns in the SQLiteDataReader.
         /// </summary>
         public readonly string[] ColumnNames = new[] {
-            "Id", 
-            "TradingAccountId", 
-            "SymbolId", 
-            "EntryTime", 
-            "EntryMethod", 
-            "TradeDirection", 
-            "IsFullyClosed", 
-            "OrderQuantity", 
-            "FilledQuantity", 
-            "PlannedEntryPrice", 
-            "ExecutedEntryPrice", 
-            "PlannedPositionValue", 
-            "ExecutedPositionValue", 
-            "PlannedProfitLoss", 
-            "RealizedProfitLoss", 
-            "PlannedTP", 
-            "ExecutedTP", 
-            "PlannedRiskAmount", 
-            "PlannedSL", 
-            "ExecutedSL", 
-            "UpdatedAt" 
+            "Id",
+            "TradingAccountId",
+            "SymbolId",
+            "EntryTime",
+            "EntryMethod",
+            "TradeDirection",
+            "IsFullyClosed",
+            "OrderQuantity",
+            "FilledQuantity",
+            "PlannedEntryPrice",
+            "ExecutedEntryPrice",
+            "PlannedPositionValue",
+            "ExecutedPositionValue",
+            "PlannedProfitLoss",
+            "RealizedProfitLoss",
+            "PlannedTP",
+            "ExecutedTP",
+            "PlannedRiskAmount",
+            "PlannedSL",
+            "ExecutedSL",
+            "UpdatedAt"
         };
 
         /// <summary>
@@ -469,6 +615,7 @@ namespace TD.SQLite
         Task<IReadOnlyList<Trade>> GetByTradingAccountIdAsync(int tradingAccountId);
         Task<IReadOnlyList<Trade>> GetBySymbolIdAsync(int symbolId);
         Task<Trade?> GetByIdAsync(int? id);
+        Task<IReadOnlyList<Trade>> GetPagedAsync(TradeQueryParameters queryParameters);
         Task<int> CreateAsync(Trade trade);
         Task<bool> DeleteAsync(int id);
         Task<bool> UpdateAsync(Trade trade);

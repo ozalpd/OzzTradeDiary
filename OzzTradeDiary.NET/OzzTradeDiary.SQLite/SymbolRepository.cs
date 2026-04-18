@@ -6,6 +6,7 @@
 //
 //----------------------------------------------------------------------------------
 using Microsoft.Data.Sqlite;
+using TD.Helpers;
 using TD.Models;
 using TD.SQLite.Extensions;
 
@@ -17,7 +18,7 @@ namespace TD.SQLite
     public partial class SymbolRepository : AbstractDatabaseRepository<Symbol>, ISymbolRepository
     {
         public SymbolRepository(string databasePath
-                               , IExchangeRepository? exchangeRepository = null) : base(databasePath, "Symbols") 
+                               , IExchangeRepository? exchangeRepository = null) : base(databasePath, "Symbols")
         {
             _selectStatement = $"SELECT {string.Join(", ", ColumnNames)} FROM {_tableName}";
             _exchangeRepository = exchangeRepository ?? new ExchangeRepository(databasePath);
@@ -52,7 +53,7 @@ namespace TD.SQLite
             if (isActive.HasValue)
             {
                 command.CommandText += " WHERE IsActive = @isActive";
-                command.Parameters.AddWithValue("@isActive", isActive.Value ? 1 : 0);
+                command.AddParameter("@isActive", isActive.Value);
             }
 
             command.CommandText += " ORDER BY DisplayOrder, TickerFull";
@@ -83,7 +84,7 @@ namespace TD.SQLite
             if (isActive.HasValue)
             {
                 command.CommandText += " AND IsActive = @isActive";
-                command.Parameters.AddWithValue("@isActive", isActive.Value ? 1 : 0);
+                command.AddParameter("@isActive", isActive.Value);
             }
 
             command.CommandText += " ORDER BY DisplayOrder, TickerFull";
@@ -100,7 +101,7 @@ namespace TD.SQLite
 
             return result;
         }
-        
+
 
         public async Task<Symbol?> GetByIdAsync(int? id)
         {
@@ -119,7 +120,7 @@ namespace TD.SQLite
 
             var symbol = MapSymbol(reader);
             await LoadExchangeAsync(symbol);
-            
+
             OnLoaded(symbol);
             return symbol;
         }
@@ -141,11 +142,52 @@ namespace TD.SQLite
 
             var symbol = MapSymbol(reader);
             await LoadExchangeAsync(symbol);
-            
+
             OnLoaded(symbol);
             return symbol;
         }
         partial void OnLoaded(Symbol symbol);
+
+        public async Task<IReadOnlyList<Symbol>> GetPagedAsync(QueryParameters queryParameters, bool? isActive = null)
+        {
+            ArgumentNullException.ThrowIfNull(queryParameters);
+
+            var result = new List<Symbol>();
+            var exchangesById = (await _exchangeRepository.GetAllAsync()).ToDictionary(item => item.Id);
+
+            await using var connection = await GetOpenConnectionAsync();
+            await using var command = connection.CreateCommand();
+            command.CommandText = _selectStatement;
+
+            var whereClauses = new List<string>();
+            if (isActive.HasValue)
+            {
+                whereClauses.Add("IsActive = @isActive");
+                command.AddParameter("@isActive", isActive.Value);
+            }
+
+            if (whereClauses.Count > 0)
+            {
+                var whereClause = string.Join(" AND ", whereClauses);
+                command.CommandText = _selectStatement + " WHERE " + whereClause;
+            }
+
+            command.CommandText += " ORDER BY Id LIMIT @pageSize OFFSET @skip";
+            command.Parameters.AddWithValue("@pageSize", queryParameters.PageSize);
+            command.Parameters.AddWithValue("@skip", queryParameters.Skip);
+
+            await using var reader = await command.ExecuteReaderAsync();
+            while (await reader.ReadAsync())
+            {
+                var symbol = MapSymbol(reader);
+                if (exchangesById.TryGetValue(symbol.ExchangeId, out var exchange))
+                    symbol.Exchange = exchange;
+
+                result.Add(symbol);
+            }
+
+            return result;
+        }
 
         public async Task<int> CreateAsync(Symbol symbol)
         {
@@ -165,7 +207,7 @@ namespace TD.SQLite
             command.CommandText = @$"INSERT INTO {_tableName} ({string.Join(", ", ColumnNames[1..])})
             VALUES (@ticker, @tickerFull, @baseCurrency, @priceCurrency, @description, @exchangeId, @marketType, @displayOrder, @isActive);
             SELECT last_insert_rowid();";
-            
+
             command.AddParameter("@ticker", symbol.Ticker);
             command.AddParameter("@tickerFull", symbol.TickerFull);
             command.AddNullableParameter("@baseCurrency", symbol.BaseCurrency);
@@ -177,7 +219,7 @@ namespace TD.SQLite
             command.AddParameter("@isActive", symbol.IsActive);
 
             var id = Convert.ToInt32((long)(await command.ExecuteScalarAsync() ?? 0));
-            
+
             await _metadataRepository.SaveLastUpdateUtcAsync(connection);
             ClearRecordCountCache();
             symbol.Id = id;
@@ -218,10 +260,10 @@ namespace TD.SQLite
 
             existingSymbol = await GetByIdAsync(symbol.Id);
             bool noChanges = existingSymbol != null
-                          && existingSymbol.Description == symbol.Description 
-                          && existingSymbol.MarketType == symbol.MarketType 
-                          && existingSymbol.DisplayOrder == symbol.DisplayOrder 
-                          && existingSymbol.IsActive == symbol.IsActive; 
+                          && existingSymbol.Description == symbol.Description
+                          && existingSymbol.MarketType == symbol.MarketType
+                          && existingSymbol.DisplayOrder == symbol.DisplayOrder
+                          && existingSymbol.IsActive == symbol.IsActive;
 
             if (noChanges)
                 return false;
@@ -248,7 +290,7 @@ namespace TD.SQLite
                 await _metadataRepository.SaveLastUpdateUtcAsync(connection);
                 OnUpdated(symbol);
             }
-            
+
             return affectedRows > 0;
         }
         partial void OnUpdated(Symbol symbol);
@@ -264,16 +306,16 @@ namespace TD.SQLite
         {
             var symbol = new Symbol
             {
-                Id = reader.GetInt32(ColNrs.Id), 
-                Ticker = reader.GetString(ColNrs.Ticker), 
-                TickerFull = reader.GetString(ColNrs.TickerFull), 
-                BaseCurrency = reader.IsDBNull(ColNrs.BaseCurrency) ? null : reader.GetString(ColNrs.BaseCurrency), 
-                PriceCurrency = reader.GetString(ColNrs.PriceCurrency), 
-                Description = reader.IsDBNull(ColNrs.Description) ? null : reader.GetString(ColNrs.Description), 
-                ExchangeId = reader.GetInt32(ColNrs.ExchangeId), 
-                MarketType = (MarketType)reader.GetInt32(ColNrs.MarketType), 
-                DisplayOrder = reader.GetInt32(ColNrs.DisplayOrder), 
-                IsActive = reader.GetInt64(ColNrs.IsActive) == 1 
+                Id = reader.GetInt32(ColNrs.Id),
+                Ticker = reader.GetString(ColNrs.Ticker),
+                TickerFull = reader.GetString(ColNrs.TickerFull),
+                BaseCurrency = reader.IsDBNull(ColNrs.BaseCurrency) ? null : reader.GetString(ColNrs.BaseCurrency),
+                PriceCurrency = reader.GetString(ColNrs.PriceCurrency),
+                Description = reader.IsDBNull(ColNrs.Description) ? null : reader.GetString(ColNrs.Description),
+                ExchangeId = reader.GetInt32(ColNrs.ExchangeId),
+                MarketType = (MarketType)reader.GetInt32(ColNrs.MarketType),
+                DisplayOrder = reader.GetInt32(ColNrs.DisplayOrder),
+                IsActive = reader.GetInt64(ColNrs.IsActive) == 1
 
             };
 
@@ -301,16 +343,16 @@ namespace TD.SQLite
         /// Contains the names of all columns in the SQLiteDataReader.
         /// </summary>
         public readonly string[] ColumnNames = new[] {
-            "Id", 
-            "Ticker", 
-            "TickerFull", 
-            "BaseCurrency", 
-            "PriceCurrency", 
-            "Description", 
-            "ExchangeId", 
-            "MarketType", 
-            "DisplayOrder", 
-            "IsActive" 
+            "Id",
+            "Ticker",
+            "TickerFull",
+            "BaseCurrency",
+            "PriceCurrency",
+            "Description",
+            "ExchangeId",
+            "MarketType",
+            "DisplayOrder",
+            "IsActive"
         };
     }
 
@@ -320,6 +362,7 @@ namespace TD.SQLite
         Task<IReadOnlyList<Symbol>> GetByExchangeIdAsync(int exchangeId, bool? isActive = null);
         Task<Symbol?> GetByIdAsync(int? id);
         Task<Symbol?> GetByTickerFullAsync(string? tickerFull);
+        Task<IReadOnlyList<Symbol>> GetPagedAsync(QueryParameters queryParameters, bool? isActive = null);
         Task<int> CreateAsync(Symbol symbol);
         Task<bool> DeleteAsync(int id);
         Task<bool> UpdateAsync(Symbol symbol);

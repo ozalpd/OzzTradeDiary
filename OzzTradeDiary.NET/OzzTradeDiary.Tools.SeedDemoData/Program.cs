@@ -19,11 +19,11 @@ if (options.Reset && File.Exists(databasePath))
     Console.WriteLine("Existing debug database deleted.");
 }
 
-await SeedDemoDataAsync(databasePath);
+await SeedDemoDataAsync(databasePath, options.DaysAgo ?? 60);
 Console.WriteLine("Demo data seeding completed.");
 return 0;
 
-static async Task SeedDemoDataAsync(string databasePath)
+static async Task SeedDemoDataAsync(string databasePath, int daysAgoStart)
 {
     Directory.CreateDirectory(Path.GetDirectoryName(databasePath)!);
 
@@ -50,9 +50,9 @@ static async Task SeedDemoDataAsync(string databasePath)
     if (exchange2 != null)
         tradingAccount2 = await EnsureDemoTradingAccountAsync(tradingAccountRepository, exchange2);
 
-    for (int i = 30; i > 0; i--)
+    for (int i = daysAgoStart / 2; i > 0; i--)
     {
-        int daysAgo = i * 3;
+        int daysAgo = (i * 2) - 1;
         await seedTrades(tradingAccount1, tradeRepository, tradeImageRepository, exchange1, daysAgo);
         if (tradingAccount2 != null)
             await seedTrades(tradingAccount2, tradeRepository, tradeImageRepository, exchange2, daysAgo, "USDT.P");
@@ -75,7 +75,7 @@ static async Task SeedDemoDataAsync(string databasePath)
         {
             for (int j = 0; j < tradesCount; j++)
             {
-                var trade = await EnsureDemoTradeAsync(tradeRepository, tradeImageRepository, tradingAccount.Id, symbol, daysAgo + (3 + tradesCount) - j);
+                var trade = await EnsureDemoTradeAsync(tradeRepository, tradeImageRepository, tradingAccount.Id, symbol, daysAgo + tradesCount - j - 1);
             }
 
             tradesCount = tradesCount - 1; // Decrease the number of trades for each subsequent symbol to create variety, starting from 15 for the first symbol.
@@ -288,6 +288,8 @@ static string GetDefaultDebugDatabasePath()
 sealed class SeedOptions
 {
     public string? DatabasePath { get; private set; }
+
+    public int? DaysAgo { get; private set; }
     public bool Reset { get; private set; }
     public bool ShowHelp { get; private set; }
 
@@ -303,6 +305,12 @@ sealed class SeedOptions
                     if (i + 1 < args.Length)
                     {
                         options.DatabasePath = args[++i];
+                    }
+                    break;
+                case "--daysago":
+                    if (i + 1 < args.Length && int.TryParse(args[++i], out var daysAgo))
+                    {
+                        options.DaysAgo = daysAgo;
                     }
                     break;
                 case "--reset":
