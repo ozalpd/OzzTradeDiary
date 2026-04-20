@@ -1,5 +1,6 @@
 ﻿using System.Globalization;
 using System.Windows;
+using TD.SQLite;
 using TD.WPF.Models;
 using TD.WPF.Views;
 
@@ -21,7 +22,8 @@ namespace TD.WPF
                 Thread.CurrentThread.CurrentCulture = culture;
             }
 
-            new MainWindow().Show();
+            var tradeRepository = new TradeRepository(settings.DatabasePath);
+            new MainWindow(tradeRepository).Show();
         }
     }
 }

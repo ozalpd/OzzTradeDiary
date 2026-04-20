@@ -25,6 +25,12 @@ Internal tracking versions: `OzzTradeDiary` `0.0.43`, `OzzTradeDiary.WPF` `0.0.4
 
 **Platform strategy**: Core models (`TD`), localization (`TD.i18n`), and data access (`TD.SQLite`) target `net10.0` (cross-platform). Only the WPF project targets `net10.0-windows10.0.19041.0`. Keep business logic and data access out of the WPF project so future platform frontends (MAUI, web, etc.) can reuse them.
 
+**Planned modularization direction**:
+- Add `TD.RepositoryContracts` to host shared repository interfaces (for example `ITradeRepository`) as a platform-agnostic contract layer.
+- Add `TD.AppContracts` to host shared app-service/lookup interfaces (for example `IExchangeLookupService`, `ISymbolLookupService`) as a platform-agnostic contract layer.
+- Keep reusable lookup/app-service contracts in `TD.AppContracts` (avoid placing reusable contracts in `TD.WPF`).
+- Target a future `OzzTradeDiary.MAUI` frontend that consumes shared core/localization/contracts rather than WPF-specific assemblies.
+
 - Shared helper logic such as `EnumExtension` and `TextExtensions` belongs in the platform-agnostic core library, not in `TD.WPF.Extensions`.
 
 ## Build and Test

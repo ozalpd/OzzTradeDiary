@@ -124,6 +124,10 @@ See [`CHANGELOG.md`](CHANGELOG.md) for release history.
 
 ## Planned
 
+- Introduce `TD.RepositoryContracts` to host shared repository abstractions (for example `ITradeRepository`) so non-UI projects can depend on contracts without taking a concrete data-access implementation dependency
+- Introduce `TD.AppContracts` to host shared application-service/lookup contracts (for example `IExchangeLookupService`, `ISymbolLookupService`) used by both WPF and future MAUI frontends
+- Add a MAUI frontend project (`OzzTradeDiary.MAUI`) that reuses platform-agnostic core (`TD`), localization (`TD.i18n`), and data/repository contract layers
+- Keep lookup/app-service contracts in `TD.AppContracts` (separate from WPF-only assemblies) so both WPF and MAUI can share the same service abstractions
 - Remaining model repository classes in `OzzTradeDiary.SQLite`
 - Functional data layer repositories and query logic
 - Multi-market support: Stock, Forex, Crypto, Futures, Options, Commodities, and more

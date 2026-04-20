@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using TD.SQLite;
 using TD.WPF.Models;
 using TD.WPF.ViewModels;
 
@@ -10,10 +11,12 @@ namespace TD.WPF.Views
     public partial class MainWindow : Window
     {
         private readonly AppSettings _appSettings = AppSettings.GetAppSettings();
+        private readonly ITradeRepository _tradeRepository;
         private MainWindowVM _viewModel;
 
-        public MainWindow()
+        public MainWindow(ITradeRepository tradeRepository)
         {
+            _tradeRepository = tradeRepository ?? throw new ArgumentNullException(nameof(tradeRepository));
             InitializeComponent();
             SourceInitialized += MainWindow_SourceInitialized;
             Closing += MainWindow_Closing;
@@ -24,7 +27,7 @@ namespace TD.WPF.Views
             SourceInitialized -= MainWindow_SourceInitialized;
             _appSettings.MainWindowPosition.SetWindowPositions(this);
             Title = $"Ozz Trade Diary - v{AppVersion.Version}";
-            _viewModel = new MainWindowVM();
+            _viewModel = new MainWindowVM(_tradeRepository);
             DataContext = _viewModel;
         }
 

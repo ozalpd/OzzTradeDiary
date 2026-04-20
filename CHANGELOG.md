@@ -8,11 +8,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ### Added
 - Added WPF lookup services `IExchangeLookupService`/`ExchangeLookupService` and `ICurrencyLookupService`/`CurrencyLookupService` to provide active exchange/currency collections for create dialogs.
+- Added `ISymbolLookupService`/`SymbolLookupService` and `ITradingAccountLookupService`/`TradingAccountLookupService` for active symbol and trading-account lookup collections.
 - Added empty lookup service implementations for design-time/default constructor scenarios.
 
 ### Changed
 - `SymbolCreateVM` and `TradingAccountCreateVM` now load lookup data through injected lookup services instead of direct repository dependencies.
 - Maintenance create-dialog composition now passes lookup-service instances when opening Symbol and TradingAccount create windows.
+- Moved `ITradeRepository` composition to `App.OnStartup` and passed it through `MainWindow` into `MainWindowVM` constructor injection.
 
 ## [0.0.47] - 2026-04-20
 

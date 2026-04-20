@@ -1,20 +1,23 @@
-﻿using TD.WPF.Commands;
-using TD.WPF.Models;
+﻿using TD.SQLite;
+using TD.WPF.Commands;
+using TD.WPF.ViewModels.Trades;
 
 namespace TD.WPF.ViewModels
 {
     internal class MainWindowVM : AbstractDiaryVM
     {
-        public MainWindowVM()
+        public MainWindowVM(ITradeRepository tradeRepository)
         {
-            var appSettings = AppSettings.GetAppSettings();
-            var databasePath = appSettings.DatabasePath;
+            TradeRepository = tradeRepository ?? throw new ArgumentNullException(nameof(tradeRepository));
 
+            TradeHistory = new TradeHistoryVM();
             ShowMaintenanceCommand = new ShowMaintenanceCommand();
             ShowAboutCommand = new ShowAboutCommand();
             ExitCommand = new ExitCommand();
         }
 
+        public ITradeRepository TradeRepository { get; }
+        public TradeHistoryVM TradeHistory { get; }
         public ShowMaintenanceCommand ShowMaintenanceCommand { get; }
         public ShowAboutCommand ShowAboutCommand { get; }
         public ExitCommand ExitCommand { get; }

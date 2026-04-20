@@ -17,3 +17,19 @@ internal sealed class EmptyCurrencyLookupService : ICurrencyLookupService
         return Task.FromResult<IReadOnlyList<Currency>>(Array.Empty<Currency>());
     }
 }
+
+internal sealed class EmptySymbolLookupService : ISymbolLookupService
+{
+    public Task<IReadOnlyList<Symbol>> GetActiveSymbolsAsync()
+    {
+        return Task.FromResult<IReadOnlyList<Symbol>>(Array.Empty<Symbol>());
+    }
+}
+
+internal sealed class EmptyTradingAccountLookupService : ITradingAccountLookupService
+{
+    public Task<IReadOnlyList<TradingAccount>> GetActiveTradingAccountsAsync()
+    {
+        return Task.FromResult<IReadOnlyList<TradingAccount>>(Array.Empty<TradingAccount>());
+    }
+}
