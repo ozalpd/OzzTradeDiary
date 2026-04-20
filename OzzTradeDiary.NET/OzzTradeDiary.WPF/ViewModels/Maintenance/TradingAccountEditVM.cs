@@ -2,7 +2,7 @@
 
 namespace TD.WPF.ViewModels.Maintenance
 {
-    internal class TradingAccountEditVM : AbstractEditVM
+    internal class TradingAccountEditVM : AbstractCreateEditVM
     {
         private TradingAccount _tradingAccount;
         public TradingAccount TradingAccount => _tradingAccount;

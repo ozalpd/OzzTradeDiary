@@ -59,7 +59,6 @@
       <Name>IUpdatedAt</Name>
       <Exclude>true</Exclude>
       <OverwriteExisting>false</OverwriteExisting>
-      <UpdatedAtName>UpdatedAt</UpdatedAtName>
       <Properties>
         <ModelPropertySetting>
           <Name>UpdatedAt</Name>
@@ -77,7 +76,6 @@
       <Name>ICreatedAt</Name>
       <Exclude>true</Exclude>
       <OverwriteExisting>false</OverwriteExisting>
-      <CreatedAtName>CreatedAt</CreatedAtName>
       <Properties>
         <ModelPropertySetting>
           <Name>CreatedAt</Name>
@@ -474,7 +472,6 @@
       <Name>TradeImage</Name>
       <Exclude>false</Exclude>
       <OverwriteExisting>true</OverwriteExisting>
-      <UpdatedAtName>UpdatedAt</UpdatedAtName>
       <Properties>
         <ModelPropertySetting>
           <Name>TradeId</Name>
@@ -519,7 +516,6 @@
       <Name>Trade</Name>
       <Exclude>false</Exclude>
       <OverwriteExisting>true</OverwriteExisting>
-      <UpdatedAtName>UpdatedAt</UpdatedAtName>
       <Properties>
         <ModelPropertySetting>
           <Name>TradingAccountId</Name>

@@ -17,6 +17,7 @@ namespace TD.WPF.Views.Maintenance
             // We will create a dummy TradingAccount for the designer.
             InitializeComponent();
             _viewModel = new TradingAccountEditVM(new TradingAccount());
+            _isDirty = _viewModel;
             DataContext = _viewModel;
         }
 

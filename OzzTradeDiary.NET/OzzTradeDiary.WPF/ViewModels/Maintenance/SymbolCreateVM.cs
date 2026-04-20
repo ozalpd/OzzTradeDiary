@@ -6,7 +6,7 @@ using TD.WPF.Models;
 
 namespace TD.WPF.ViewModels.Maintenance
 {
-    internal class SymbolCreateVM : AbstractEditVM
+    internal class SymbolCreateVM : AbstractCreateEditVM
     {
         private const string NoBaseCurrencyDisplayText = "No Base Currency";
         private readonly IReadOnlyList<MarketTypeValueItem> _marketTypeValues;

@@ -279,7 +279,7 @@ namespace TD.SQLite.Extensions
             parameter.Value = value;
             command.Parameters.Add(parameter);
         }
-
+        
         /// <summary>
         /// Converts a scaled integer value from the specified column in the data reader to a nullable decimal.
         /// </summary>

@@ -68,7 +68,6 @@
       <Name>IUpdatedAt</Name>
       <Exclude>true</Exclude>
       <OverwriteExisting>false</OverwriteExisting>
-      <UpdatedAtName>UpdatedAt</UpdatedAtName>
       <Properties>
         <SqliteRepositoryPropertySetting>
           <Name>UpdatedAt</Name>
@@ -84,12 +83,12 @@
       <TableName>IUpdatedAts</TableName>
       <FileNameDDL>IUpdatedAt.sql</FileNameDDL>
       <OrderByClause>ORDER BY Id</OrderByClause>
+      <UpdatedAtName>UpdatedAt</UpdatedAtName>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="SqliteRepositoryEntitySetting">
       <Name>ICreatedAt</Name>
       <Exclude>true</Exclude>
       <OverwriteExisting>false</OverwriteExisting>
-      <CreatedAtName>CreatedAt</CreatedAtName>
       <Properties>
         <SqliteRepositoryPropertySetting>
           <Name>CreatedAt</Name>
@@ -105,6 +104,7 @@
       <TableName>ICreatedAts</TableName>
       <FileNameDDL>ICreatedAt.sql</FileNameDDL>
       <OrderByClause>ORDER BY Id</OrderByClause>
+      <CreatedAtName>CreatedAt</CreatedAtName>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="SqliteRepositoryEntitySetting">
       <Name>ITradeOrder</Name>
@@ -516,7 +516,6 @@
       <Name>TradeImage</Name>
       <Exclude>false</Exclude>
       <OverwriteExisting>true</OverwriteExisting>
-      <UpdatedAtName>UpdatedAt</UpdatedAtName>
       <Properties>
         <SqliteRepositoryPropertySetting>
           <Name>TradeId</Name>
@@ -559,12 +558,12 @@
       <TableName>TradeImages</TableName>
       <FileNameDDL>TradeImage.sql</FileNameDDL>
       <OrderByClause>ORDER BY TradeId DESC, Id DESC</OrderByClause>
+      <UpdatedAtName>UpdatedAt</UpdatedAtName>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="SqliteRepositoryEntitySetting">
       <Name>Trade</Name>
       <Exclude>false</Exclude>
       <OverwriteExisting>true</OverwriteExisting>
-      <UpdatedAtName>UpdatedAt</UpdatedAtName>
       <Properties>
         <SqliteRepositoryPropertySetting>
           <Name>TradingAccountId</Name>
@@ -796,6 +795,7 @@
       <TableName>Trades</TableName>
       <FileNameDDL>Trade.sql</FileNameDDL>
       <OrderByClause>ORDER BY UpdatedAt DESC, EntryTime DESC</OrderByClause>
+      <UpdatedAtName>UpdatedAt</UpdatedAtName>
     </BaseEntitySetting>
   </EntitySettings>
   <RenderAllEntities>false</RenderAllEntities>

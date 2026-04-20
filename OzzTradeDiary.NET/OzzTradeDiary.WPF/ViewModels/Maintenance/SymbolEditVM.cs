@@ -2,7 +2,7 @@
 
 namespace TD.WPF.ViewModels.Maintenance
 {
-    internal class SymbolEditVM : AbstractEditVM
+    internal class SymbolEditVM : AbstractCreateEditVM
     {
         private Symbol _symbol;
         public Symbol Symbol => _symbol;

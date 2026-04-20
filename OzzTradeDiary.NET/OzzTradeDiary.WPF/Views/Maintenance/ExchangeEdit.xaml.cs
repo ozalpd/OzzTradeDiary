@@ -20,7 +20,7 @@ namespace TD.WPF.Views.Maintenance
             DataContext = _viewModel;
         }
 
-        public ExchangeEdit(Exchange exchange):base(new ExchangeEditVM(exchange))
+        public ExchangeEdit(Exchange exchange) : base(new ExchangeEditVM(exchange))
         {
             InitializeComponent();
             _viewModel = (ExchangeEditVM)DataContext;

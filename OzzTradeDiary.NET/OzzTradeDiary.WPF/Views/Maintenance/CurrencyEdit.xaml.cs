@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using TD.Models;
+using TD.WPF.ViewModels;
 using TD.WPF.ViewModels.Maintenance;
 
 namespace TD.WPF.Views.Maintenance
@@ -17,6 +18,7 @@ namespace TD.WPF.Views.Maintenance
             // We will create a dummy Currency for the designer.
             InitializeComponent();
             _viewModel = new CurrencyEditVM(new Currency());
+            _isDirty = _viewModel;
             DataContext = _viewModel;
         }
 

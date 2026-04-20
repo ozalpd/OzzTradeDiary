@@ -5,7 +5,7 @@ using TD.WPF.Models;
 
 namespace TD.WPF.ViewModels.Maintenance
 {
-    internal class TradingAccountCreateVM : AbstractEditVM
+    internal class TradingAccountCreateVM : AbstractCreateEditVM
     {
         private TradingAccount _tradingAccount;
         public TradingAccount TradingAccount => _tradingAccount;

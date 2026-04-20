@@ -17,6 +17,7 @@ namespace TD.WPF.Views.Maintenance
             // We will create a dummy Symbol for the designer.
             InitializeComponent();
             _viewModel = new SymbolEditVM(new Symbol());
+            _isDirty = _viewModel;
             DataContext = _viewModel;
         }
 

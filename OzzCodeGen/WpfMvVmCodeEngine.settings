@@ -1,0 +1,860 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WpfMvvmCodeEngine xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Language>CSharp</Language>
+  <NamespaceName>TD.Models</NamespaceName>
+  <TargetFolder>WpfMvvm</TargetFolder>
+  <EntitySettings>
+    <BaseEntitySetting xsi:type="WpfMvvmEntitySetting">
+      <Name>IPrimaryKey</Name>
+      <Exclude>true</Exclude>
+      <OverwriteExisting>false</OverwriteExisting>
+      <Properties>
+        <WpfMvvmPropertySetting>
+          <Name>Id</Name>
+          <Exclude>false</Exclude>
+          <DefaultValue />
+          <IncludeInView>true</IncludeInView>
+          <IncludeInViewModel>true</IncludeInViewModel>
+          <IsReadOnlyInCreate>true</IsReadOnlyInCreate>
+          <IsReadOnlyInEdit>true</IsReadOnlyInEdit>
+          <ValueConstraint />
+        </WpfMvvmPropertySetting>
+      </Properties>
+      <GenerateCreateView>true</GenerateCreateView>
+      <GenerateEditView>true</GenerateEditView>
+      <GenerateCreateViewModel>true</GenerateCreateViewModel>
+      <GenerateEditViewModel>true</GenerateEditViewModel>
+      <GenerateCommands>true</GenerateCommands>
+      <RepositoryName>IIPrimaryKeyRepository</RepositoryName>
+      <SubFolder />
+    </BaseEntitySetting>
+    <BaseEntitySetting xsi:type="WpfMvvmEntitySetting">
+      <Name>IDisplayOrder</Name>
+      <Exclude>true</Exclude>
+      <OverwriteExisting>false</OverwriteExisting>
+      <Properties>
+        <WpfMvvmPropertySetting>
+          <Name>DisplayOrder</Name>
+          <Exclude>false</Exclude>
+          <DefaultValue>1000</DefaultValue>
+          <IncludeInView>true</IncludeInView>
+          <IncludeInViewModel>true</IncludeInViewModel>
+          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
+          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
+          <ValueConstraint />
+        </WpfMvvmPropertySetting>
+      </Properties>
+      <GenerateCreateView>true</GenerateCreateView>
+      <GenerateEditView>true</GenerateEditView>
+      <GenerateCreateViewModel>true</GenerateCreateViewModel>
+      <GenerateEditViewModel>true</GenerateEditViewModel>
+      <GenerateCommands>true</GenerateCommands>
+      <RepositoryName>IIDisplayOrderRepository</RepositoryName>
+      <SubFolder />
+    </BaseEntitySetting>
+    <BaseEntitySetting xsi:type="WpfMvvmEntitySetting">
+      <Name>IIsActive</Name>
+      <Exclude>true</Exclude>
+      <OverwriteExisting>false</OverwriteExisting>
+      <Properties>
+        <WpfMvvmPropertySetting>
+          <Name>IsActive</Name>
+          <Exclude>false</Exclude>
+          <DefaultValue>true</DefaultValue>
+          <IncludeInView>true</IncludeInView>
+          <IncludeInViewModel>true</IncludeInViewModel>
+          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
+          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
+          <ValueConstraint />
+        </WpfMvvmPropertySetting>
+      </Properties>
+      <GenerateCreateView>true</GenerateCreateView>
+      <GenerateEditView>true</GenerateEditView>
+      <GenerateCreateViewModel>true</GenerateCreateViewModel>
+      <GenerateEditViewModel>true</GenerateEditViewModel>
+      <GenerateCommands>true</GenerateCommands>
+      <RepositoryName>IIIsActiveRepository</RepositoryName>
+      <SubFolder />
+    </BaseEntitySetting>
+    <BaseEntitySetting xsi:type="WpfMvvmEntitySetting">
+      <Name>ICreatedAt</Name>
+      <Exclude>true</Exclude>
+      <OverwriteExisting>false</OverwriteExisting>
+      <Properties>
+        <WpfMvvmPropertySetting>
+          <Name>CreatedAt</Name>
+          <Exclude>false</Exclude>
+          <DefaultValue />
+          <IncludeInView>true</IncludeInView>
+          <IncludeInViewModel>true</IncludeInViewModel>
+          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
+          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
+          <ValueConstraint />
+        </WpfMvvmPropertySetting>
+      </Properties>
+      <GenerateCreateView>true</GenerateCreateView>
+      <GenerateEditView>true</GenerateEditView>
+      <GenerateCreateViewModel>true</GenerateCreateViewModel>
+      <GenerateEditViewModel>true</GenerateEditViewModel>
+      <GenerateCommands>true</GenerateCommands>
+      <RepositoryName>IICreatedAtRepository</RepositoryName>
+      <SubFolder />
+    </BaseEntitySetting>
+    <BaseEntitySetting xsi:type="WpfMvvmEntitySetting">
+      <Name>IUpdatedAt</Name>
+      <Exclude>true</Exclude>
+      <OverwriteExisting>false</OverwriteExisting>
+      <Properties>
+        <WpfMvvmPropertySetting>
+          <Name>UpdatedAt</Name>
+          <Exclude>false</Exclude>
+          <DefaultValue />
+          <IncludeInView>true</IncludeInView>
+          <IncludeInViewModel>true</IncludeInViewModel>
+          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
+          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
+          <ValueConstraint />
+        </WpfMvvmPropertySetting>
+      </Properties>
+      <GenerateCreateView>true</GenerateCreateView>
+      <GenerateEditView>true</GenerateEditView>
+      <GenerateCreateViewModel>true</GenerateCreateViewModel>
+      <GenerateEditViewModel>true</GenerateEditViewModel>
+      <GenerateCommands>true</GenerateCommands>
+      <RepositoryName>IIUpdatedAtRepository</RepositoryName>
+      <SubFolder />
+    </BaseEntitySetting>
+    <BaseEntitySetting xsi:type="WpfMvvmEntitySetting">
+      <Name>ITradeOrder</Name>
+      <Exclude>true</Exclude>
+      <OverwriteExisting>false</OverwriteExisting>
+      <Properties>
+        <WpfMvvmPropertySetting>
+          <Name>OrderType</Name>
+          <Exclude>false</Exclude>
+          <DefaultValue />
+          <IncludeInView>true</IncludeInView>
+          <IncludeInViewModel>true</IncludeInViewModel>
+          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
+          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
+          <ValueConstraint />
+        </WpfMvvmPropertySetting>
+        <WpfMvvmPropertySetting>
+          <Name>ExecuteTime</Name>
+          <Exclude>false</Exclude>
+          <DefaultValue />
+          <IncludeInView>true</IncludeInView>
+          <IncludeInViewModel>true</IncludeInViewModel>
+          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
+          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
+          <ValueConstraint />
+        </WpfMvvmPropertySetting>
+        <WpfMvvmPropertySetting>
+          <Name>OrderPrice</Name>
+          <Exclude>false</Exclude>
+          <DefaultValue />
+          <IncludeInView>true</IncludeInView>
+          <IncludeInViewModel>true</IncludeInViewModel>
+          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
+          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
+          <ValueConstraint />
+        </WpfMvvmPropertySetting>
+        <WpfMvvmPropertySetting>
+          <Name>FilledPrice</Name>
+          <Exclude>false</Exclude>
+          <DefaultValue />
+          <IncludeInView>true</IncludeInView>
+          <IncludeInViewModel>true</IncludeInViewModel>
+          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
+          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
+          <ValueConstraint />
+        </WpfMvvmPropertySetting>
+        <WpfMvvmPropertySetting>
+          <Name>OrderQuantity</Name>
+          <Exclude>false</Exclude>
+          <DefaultValue />
+          <IncludeInView>true</IncludeInView>
+          <IncludeInViewModel>true</IncludeInViewModel>
+          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
+          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
+          <ValueConstraint />
+        </WpfMvvmPropertySetting>
+        <WpfMvvmPropertySetting>
+          <Name>FilledQuantity</Name>
+          <Exclude>false</Exclude>
+          <DefaultValue />
+          <IncludeInView>true</IncludeInView>
+          <IncludeInViewModel>true</IncludeInViewModel>
+          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
+          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
+          <ValueConstraint />
+        </WpfMvvmPropertySetting>
+        <WpfMvvmPropertySetting>
+          <Name>OrderValue</Name>
+          <Exclude>false</Exclude>
+          <DefaultValue />
+          <IncludeInView>true</IncludeInView>
+          <IncludeInViewModel>true</IncludeInViewModel>
+          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
+          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
+          <ValueConstraint />
+        </WpfMvvmPropertySetting>
+        <WpfMvvmPropertySetting>
+          <Name>FilledValue</Name>
+          <Exclude>false</Exclude>
+          <DefaultValue />
+          <IncludeInView>true</IncludeInView>
+          <IncludeInViewModel>true</IncludeInViewModel>
+          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
+          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
+          <ValueConstraint />
+        </WpfMvvmPropertySetting>
+      </Properties>
+      <GenerateCreateView>true</GenerateCreateView>
+      <GenerateEditView>true</GenerateEditView>
+      <GenerateCreateViewModel>true</GenerateCreateViewModel>
+      <GenerateEditViewModel>true</GenerateEditViewModel>
+      <GenerateCommands>true</GenerateCommands>
+      <RepositoryName>IITradeOrderRepository</RepositoryName>
+      <SubFolder />
+    </BaseEntitySetting>
+    <BaseEntitySetting xsi:type="WpfMvvmEntitySetting">
+      <Name>Exchange</Name>
+      <Exclude>false</Exclude>
+      <OverwriteExisting>true</OverwriteExisting>
+      <Properties>
+        <WpfMvvmPropertySetting>
+          <Name>ExchangeName</Name>
+          <Exclude>false</Exclude>
+          <DefaultValue />
+          <IncludeInView>true</IncludeInView>
+          <IncludeInViewModel>true</IncludeInViewModel>
+          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
+          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
+          <ValueConstraint />
+        </WpfMvvmPropertySetting>
+        <WpfMvvmPropertySetting>
+          <Name>ExchangeCode</Name>
+          <Exclude>false</Exclude>
+          <DefaultValue />
+          <IncludeInView>true</IncludeInView>
+          <IncludeInViewModel>true</IncludeInViewModel>
+          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
+          <IsReadOnlyInEdit>true</IsReadOnlyInEdit>
+          <ValueConstraint>.ToUpperInvariant()</ValueConstraint>
+        </WpfMvvmPropertySetting>
+        <WpfMvvmPropertySetting>
+          <Name>DefaultCurrency</Name>
+          <Exclude>false</Exclude>
+          <DefaultValue />
+          <IncludeInView>true</IncludeInView>
+          <IncludeInViewModel>true</IncludeInViewModel>
+          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
+          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
+          <ValueConstraint>.ToUpperInvariant()</ValueConstraint>
+        </WpfMvvmPropertySetting>
+        <WpfMvvmPropertySetting>
+          <Name>HasAnySymbol</Name>
+          <Exclude>false</Exclude>
+          <DefaultValue />
+          <IncludeInView>false</IncludeInView>
+          <IncludeInViewModel>false</IncludeInViewModel>
+          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
+          <IsReadOnlyInEdit>true</IsReadOnlyInEdit>
+          <ValueConstraint />
+        </WpfMvvmPropertySetting>
+      </Properties>
+      <GenerateCreateView>true</GenerateCreateView>
+      <GenerateEditView>true</GenerateEditView>
+      <GenerateCreateViewModel>true</GenerateCreateViewModel>
+      <GenerateEditViewModel>true</GenerateEditViewModel>
+      <GenerateCommands>true</GenerateCommands>
+      <RepositoryName>IExchangeRepository</RepositoryName>
+      <SubFolder>Maintenance</SubFolder>
+    </BaseEntitySetting>
+    <BaseEntitySetting xsi:type="WpfMvvmEntitySetting">
+      <Name>TradingAccount</Name>
+      <Exclude>false</Exclude>
+      <OverwriteExisting>true</OverwriteExisting>
+      <Properties>
+        <WpfMvvmPropertySetting>
+          <Name>Title</Name>
+          <Exclude>false</Exclude>
+          <DefaultValue />
+          <IncludeInView>true</IncludeInView>
+          <IncludeInViewModel>true</IncludeInViewModel>
+          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
+          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
+          <ValueConstraint />
+        </WpfMvvmPropertySetting>
+        <WpfMvvmPropertySetting>
+          <Name>ExchangeId</Name>
+          <Exclude>false</Exclude>
+          <DefaultValue />
+          <IncludeInView>true</IncludeInView>
+          <IncludeInViewModel>true</IncludeInViewModel>
+          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
+          <IsReadOnlyInEdit>true</IsReadOnlyInEdit>
+          <ValueConstraint />
+        </WpfMvvmPropertySetting>
+        <WpfMvvmPropertySetting>
+          <Name>Exchange</Name>
+          <Exclude>false</Exclude>
+          <DefaultValue />
+          <IncludeInView>true</IncludeInView>
+          <IncludeInViewModel>true</IncludeInViewModel>
+          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
+          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
+          <ValueConstraint />
+        </WpfMvvmPropertySetting>
+        <WpfMvvmPropertySetting>
+          <Name>Notes</Name>
+          <Exclude>false</Exclude>
+          <DefaultValue />
+          <IncludeInView>true</IncludeInView>
+          <IncludeInViewModel>true</IncludeInViewModel>
+          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
+          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
+          <ValueConstraint />
+        </WpfMvvmPropertySetting>
+      </Properties>
+      <GenerateCreateView>true</GenerateCreateView>
+      <GenerateEditView>true</GenerateEditView>
+      <GenerateCreateViewModel>true</GenerateCreateViewModel>
+      <GenerateEditViewModel>true</GenerateEditViewModel>
+      <GenerateCommands>true</GenerateCommands>
+      <RepositoryName>ITradingAccountRepository</RepositoryName>
+      <SubFolder>Maintenance</SubFolder>
+    </BaseEntitySetting>
+    <BaseEntitySetting xsi:type="WpfMvvmEntitySetting">
+      <Name>Currency</Name>
+      <Exclude>false</Exclude>
+      <OverwriteExisting>true</OverwriteExisting>
+      <Properties>
+        <WpfMvvmPropertySetting>
+          <Name>CurrencyTicker</Name>
+          <Exclude>false</Exclude>
+          <DefaultValue />
+          <IncludeInView>true</IncludeInView>
+          <IncludeInViewModel>true</IncludeInViewModel>
+          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
+          <IsReadOnlyInEdit>true</IsReadOnlyInEdit>
+          <ValueConstraint>.ToUpperInvariant()</ValueConstraint>
+        </WpfMvvmPropertySetting>
+        <WpfMvvmPropertySetting>
+          <Name>Description</Name>
+          <Exclude>false</Exclude>
+          <DefaultValue />
+          <IncludeInView>true</IncludeInView>
+          <IncludeInViewModel>true</IncludeInViewModel>
+          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
+          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
+          <ValueConstraint />
+        </WpfMvvmPropertySetting>
+      </Properties>
+      <GenerateCreateView>true</GenerateCreateView>
+      <GenerateEditView>true</GenerateEditView>
+      <GenerateCreateViewModel>true</GenerateCreateViewModel>
+      <GenerateEditViewModel>true</GenerateEditViewModel>
+      <GenerateCommands>true</GenerateCommands>
+      <RepositoryName>ICurrencyRepository</RepositoryName>
+      <SubFolder>Maintenance</SubFolder>
+    </BaseEntitySetting>
+    <BaseEntitySetting xsi:type="WpfMvvmEntitySetting">
+      <Name>Symbol</Name>
+      <Exclude>false</Exclude>
+      <OverwriteExisting>true</OverwriteExisting>
+      <Properties>
+        <WpfMvvmPropertySetting>
+          <Name>Ticker</Name>
+          <Exclude>false</Exclude>
+          <DefaultValue />
+          <IncludeInView>true</IncludeInView>
+          <IncludeInViewModel>true</IncludeInViewModel>
+          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
+          <IsReadOnlyInEdit>true</IsReadOnlyInEdit>
+          <ValueConstraint>.ToUpperInvariant()</ValueConstraint>
+        </WpfMvvmPropertySetting>
+        <WpfMvvmPropertySetting>
+          <Name>TickerFull</Name>
+          <Exclude>false</Exclude>
+          <DefaultValue />
+          <IncludeInView>true</IncludeInView>
+          <IncludeInViewModel>true</IncludeInViewModel>
+          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
+          <IsReadOnlyInEdit>true</IsReadOnlyInEdit>
+          <ValueConstraint>.ToUpperInvariant()</ValueConstraint>
+        </WpfMvvmPropertySetting>
+        <WpfMvvmPropertySetting>
+          <Name>BaseCurrency</Name>
+          <Exclude>false</Exclude>
+          <DefaultValue />
+          <IncludeInView>true</IncludeInView>
+          <IncludeInViewModel>true</IncludeInViewModel>
+          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
+          <IsReadOnlyInEdit>true</IsReadOnlyInEdit>
+          <ValueConstraint>.ToUpperInvariant()</ValueConstraint>
+        </WpfMvvmPropertySetting>
+        <WpfMvvmPropertySetting>
+          <Name>PriceCurrency</Name>
+          <Exclude>false</Exclude>
+          <DefaultValue />
+          <IncludeInView>true</IncludeInView>
+          <IncludeInViewModel>true</IncludeInViewModel>
+          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
+          <IsReadOnlyInEdit>true</IsReadOnlyInEdit>
+          <ValueConstraint>.ToUpperInvariant()</ValueConstraint>
+        </WpfMvvmPropertySetting>
+        <WpfMvvmPropertySetting>
+          <Name>Description</Name>
+          <Exclude>false</Exclude>
+          <DefaultValue />
+          <IncludeInView>true</IncludeInView>
+          <IncludeInViewModel>true</IncludeInViewModel>
+          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
+          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
+          <ValueConstraint />
+        </WpfMvvmPropertySetting>
+        <WpfMvvmPropertySetting>
+          <Name>ExchangeId</Name>
+          <Exclude>false</Exclude>
+          <DefaultValue />
+          <IncludeInView>true</IncludeInView>
+          <IncludeInViewModel>true</IncludeInViewModel>
+          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
+          <IsReadOnlyInEdit>true</IsReadOnlyInEdit>
+          <ValueConstraint />
+        </WpfMvvmPropertySetting>
+        <WpfMvvmPropertySetting>
+          <Name>Exchange</Name>
+          <Exclude>false</Exclude>
+          <DefaultValue />
+          <IncludeInView>true</IncludeInView>
+          <IncludeInViewModel>true</IncludeInViewModel>
+          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
+          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
+          <ValueConstraint />
+        </WpfMvvmPropertySetting>
+        <WpfMvvmPropertySetting>
+          <Name>MarketType</Name>
+          <Exclude>false</Exclude>
+          <DefaultValue />
+          <IncludeInView>true</IncludeInView>
+          <IncludeInViewModel>true</IncludeInViewModel>
+          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
+          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
+          <ValueConstraint />
+        </WpfMvvmPropertySetting>
+      </Properties>
+      <GenerateCreateView>true</GenerateCreateView>
+      <GenerateEditView>true</GenerateEditView>
+      <GenerateCreateViewModel>true</GenerateCreateViewModel>
+      <GenerateEditViewModel>true</GenerateEditViewModel>
+      <GenerateCommands>true</GenerateCommands>
+      <RepositoryName>ISymbolRepository</RepositoryName>
+      <SubFolder>Maintenance</SubFolder>
+    </BaseEntitySetting>
+    <BaseEntitySetting xsi:type="WpfMvvmEntitySetting">
+      <Name>EntryOrder</Name>
+      <Exclude>false</Exclude>
+      <OverwriteExisting>true</OverwriteExisting>
+      <Properties>
+        <WpfMvvmPropertySetting>
+          <Name>TradeId</Name>
+          <Exclude>false</Exclude>
+          <DefaultValue />
+          <IncludeInView>true</IncludeInView>
+          <IncludeInViewModel>true</IncludeInViewModel>
+          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
+          <IsReadOnlyInEdit>true</IsReadOnlyInEdit>
+          <ValueConstraint />
+        </WpfMvvmPropertySetting>
+        <WpfMvvmPropertySetting>
+          <Name>Trade</Name>
+          <Exclude>false</Exclude>
+          <DefaultValue />
+          <IncludeInView>true</IncludeInView>
+          <IncludeInViewModel>true</IncludeInViewModel>
+          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
+          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
+          <ValueConstraint />
+        </WpfMvvmPropertySetting>
+      </Properties>
+      <GenerateCreateView>true</GenerateCreateView>
+      <GenerateEditView>true</GenerateEditView>
+      <GenerateCreateViewModel>true</GenerateCreateViewModel>
+      <GenerateEditViewModel>true</GenerateEditViewModel>
+      <GenerateCommands>true</GenerateCommands>
+      <RepositoryName>IEntryOrderRepository</RepositoryName>
+      <SubFolder>EntryOrders</SubFolder>
+    </BaseEntitySetting>
+    <BaseEntitySetting xsi:type="WpfMvvmEntitySetting">
+      <Name>TakeProfitOrder</Name>
+      <Exclude>false</Exclude>
+      <OverwriteExisting>true</OverwriteExisting>
+      <Properties>
+        <WpfMvvmPropertySetting>
+          <Name>TradeId</Name>
+          <Exclude>false</Exclude>
+          <DefaultValue />
+          <IncludeInView>true</IncludeInView>
+          <IncludeInViewModel>true</IncludeInViewModel>
+          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
+          <IsReadOnlyInEdit>true</IsReadOnlyInEdit>
+          <ValueConstraint />
+        </WpfMvvmPropertySetting>
+        <WpfMvvmPropertySetting>
+          <Name>Trade</Name>
+          <Exclude>false</Exclude>
+          <DefaultValue />
+          <IncludeInView>true</IncludeInView>
+          <IncludeInViewModel>true</IncludeInViewModel>
+          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
+          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
+          <ValueConstraint />
+        </WpfMvvmPropertySetting>
+      </Properties>
+      <GenerateCreateView>true</GenerateCreateView>
+      <GenerateEditView>true</GenerateEditView>
+      <GenerateCreateViewModel>true</GenerateCreateViewModel>
+      <GenerateEditViewModel>true</GenerateEditViewModel>
+      <GenerateCommands>true</GenerateCommands>
+      <RepositoryName>ITakeProfitOrderRepository</RepositoryName>
+      <SubFolder>TakeProfitOrders</SubFolder>
+    </BaseEntitySetting>
+    <BaseEntitySetting xsi:type="WpfMvvmEntitySetting">
+      <Name>StopLossOrder</Name>
+      <Exclude>false</Exclude>
+      <OverwriteExisting>true</OverwriteExisting>
+      <Properties>
+        <WpfMvvmPropertySetting>
+          <Name>TradeId</Name>
+          <Exclude>false</Exclude>
+          <DefaultValue />
+          <IncludeInView>true</IncludeInView>
+          <IncludeInViewModel>true</IncludeInViewModel>
+          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
+          <IsReadOnlyInEdit>true</IsReadOnlyInEdit>
+          <ValueConstraint />
+        </WpfMvvmPropertySetting>
+        <WpfMvvmPropertySetting>
+          <Name>Trade</Name>
+          <Exclude>false</Exclude>
+          <DefaultValue />
+          <IncludeInView>true</IncludeInView>
+          <IncludeInViewModel>true</IncludeInViewModel>
+          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
+          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
+          <ValueConstraint />
+        </WpfMvvmPropertySetting>
+        <WpfMvvmPropertySetting>
+          <Name>StopAll</Name>
+          <Exclude>false</Exclude>
+          <DefaultValue />
+          <IncludeInView>true</IncludeInView>
+          <IncludeInViewModel>true</IncludeInViewModel>
+          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
+          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
+          <ValueConstraint />
+        </WpfMvvmPropertySetting>
+      </Properties>
+      <GenerateCreateView>true</GenerateCreateView>
+      <GenerateEditView>true</GenerateEditView>
+      <GenerateCreateViewModel>true</GenerateCreateViewModel>
+      <GenerateEditViewModel>true</GenerateEditViewModel>
+      <GenerateCommands>true</GenerateCommands>
+      <RepositoryName>IStopLossOrderRepository</RepositoryName>
+      <SubFolder>StopLossOrders</SubFolder>
+    </BaseEntitySetting>
+    <BaseEntitySetting xsi:type="WpfMvvmEntitySetting">
+      <Name>TradeImage</Name>
+      <Exclude>false</Exclude>
+      <OverwriteExisting>true</OverwriteExisting>
+      <Properties>
+        <WpfMvvmPropertySetting>
+          <Name>TradeId</Name>
+          <Exclude>false</Exclude>
+          <DefaultValue />
+          <IncludeInView>true</IncludeInView>
+          <IncludeInViewModel>true</IncludeInViewModel>
+          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
+          <IsReadOnlyInEdit>true</IsReadOnlyInEdit>
+          <ValueConstraint />
+        </WpfMvvmPropertySetting>
+        <WpfMvvmPropertySetting>
+          <Name>Trade</Name>
+          <Exclude>false</Exclude>
+          <DefaultValue />
+          <IncludeInView>true</IncludeInView>
+          <IncludeInViewModel>true</IncludeInViewModel>
+          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
+          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
+          <ValueConstraint />
+        </WpfMvvmPropertySetting>
+        <WpfMvvmPropertySetting>
+          <Name>ImageURL</Name>
+          <Exclude>false</Exclude>
+          <DefaultValue />
+          <IncludeInView>true</IncludeInView>
+          <IncludeInViewModel>true</IncludeInViewModel>
+          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
+          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
+          <ValueConstraint />
+        </WpfMvvmPropertySetting>
+        <WpfMvvmPropertySetting>
+          <Name>Notes</Name>
+          <Exclude>false</Exclude>
+          <DefaultValue />
+          <IncludeInView>true</IncludeInView>
+          <IncludeInViewModel>true</IncludeInViewModel>
+          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
+          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
+          <ValueConstraint />
+        </WpfMvvmPropertySetting>
+      </Properties>
+      <GenerateCreateView>true</GenerateCreateView>
+      <GenerateEditView>true</GenerateEditView>
+      <GenerateCreateViewModel>true</GenerateCreateViewModel>
+      <GenerateEditViewModel>true</GenerateEditViewModel>
+      <GenerateCommands>true</GenerateCommands>
+      <RepositoryName>ITradeImageRepository</RepositoryName>
+      <SubFolder>TradeImages</SubFolder>
+    </BaseEntitySetting>
+    <BaseEntitySetting xsi:type="WpfMvvmEntitySetting">
+      <Name>Trade</Name>
+      <Exclude>false</Exclude>
+      <OverwriteExisting>true</OverwriteExisting>
+      <Properties>
+        <WpfMvvmPropertySetting>
+          <Name>TradingAccountId</Name>
+          <Exclude>false</Exclude>
+          <DefaultValue />
+          <IncludeInView>true</IncludeInView>
+          <IncludeInViewModel>true</IncludeInViewModel>
+          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
+          <IsReadOnlyInEdit>true</IsReadOnlyInEdit>
+          <ValueConstraint />
+        </WpfMvvmPropertySetting>
+        <WpfMvvmPropertySetting>
+          <Name>TradingAccount</Name>
+          <Exclude>false</Exclude>
+          <DefaultValue />
+          <IncludeInView>true</IncludeInView>
+          <IncludeInViewModel>true</IncludeInViewModel>
+          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
+          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
+          <ValueConstraint />
+        </WpfMvvmPropertySetting>
+        <WpfMvvmPropertySetting>
+          <Name>SymbolId</Name>
+          <Exclude>false</Exclude>
+          <DefaultValue />
+          <IncludeInView>true</IncludeInView>
+          <IncludeInViewModel>true</IncludeInViewModel>
+          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
+          <IsReadOnlyInEdit>true</IsReadOnlyInEdit>
+          <ValueConstraint />
+        </WpfMvvmPropertySetting>
+        <WpfMvvmPropertySetting>
+          <Name>Symbol</Name>
+          <Exclude>false</Exclude>
+          <DefaultValue />
+          <IncludeInView>true</IncludeInView>
+          <IncludeInViewModel>true</IncludeInViewModel>
+          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
+          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
+          <ValueConstraint />
+        </WpfMvvmPropertySetting>
+        <WpfMvvmPropertySetting>
+          <Name>EntryTime</Name>
+          <Exclude>false</Exclude>
+          <DefaultValue />
+          <IncludeInView>true</IncludeInView>
+          <IncludeInViewModel>true</IncludeInViewModel>
+          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
+          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
+          <ValueConstraint />
+        </WpfMvvmPropertySetting>
+        <WpfMvvmPropertySetting>
+          <Name>EntryMethod</Name>
+          <Exclude>false</Exclude>
+          <DefaultValue />
+          <IncludeInView>true</IncludeInView>
+          <IncludeInViewModel>true</IncludeInViewModel>
+          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
+          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
+          <ValueConstraint />
+        </WpfMvvmPropertySetting>
+        <WpfMvvmPropertySetting>
+          <Name>TradeDirection</Name>
+          <Exclude>false</Exclude>
+          <DefaultValue />
+          <IncludeInView>true</IncludeInView>
+          <IncludeInViewModel>true</IncludeInViewModel>
+          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
+          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
+          <ValueConstraint />
+        </WpfMvvmPropertySetting>
+        <WpfMvvmPropertySetting>
+          <Name>IsFullyClosed</Name>
+          <Exclude>false</Exclude>
+          <DefaultValue />
+          <IncludeInView>true</IncludeInView>
+          <IncludeInViewModel>true</IncludeInViewModel>
+          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
+          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
+          <ValueConstraint />
+        </WpfMvvmPropertySetting>
+        <WpfMvvmPropertySetting>
+          <Name>OrderQuantity</Name>
+          <Exclude>false</Exclude>
+          <DefaultValue />
+          <IncludeInView>true</IncludeInView>
+          <IncludeInViewModel>true</IncludeInViewModel>
+          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
+          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
+          <ValueConstraint />
+        </WpfMvvmPropertySetting>
+        <WpfMvvmPropertySetting>
+          <Name>FilledQuantity</Name>
+          <Exclude>false</Exclude>
+          <DefaultValue />
+          <IncludeInView>true</IncludeInView>
+          <IncludeInViewModel>true</IncludeInViewModel>
+          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
+          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
+          <ValueConstraint />
+        </WpfMvvmPropertySetting>
+        <WpfMvvmPropertySetting>
+          <Name>PlannedEntryPrice</Name>
+          <Exclude>false</Exclude>
+          <DefaultValue />
+          <IncludeInView>true</IncludeInView>
+          <IncludeInViewModel>true</IncludeInViewModel>
+          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
+          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
+          <ValueConstraint />
+        </WpfMvvmPropertySetting>
+        <WpfMvvmPropertySetting>
+          <Name>ExecutedEntryPrice</Name>
+          <Exclude>false</Exclude>
+          <DefaultValue />
+          <IncludeInView>true</IncludeInView>
+          <IncludeInViewModel>true</IncludeInViewModel>
+          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
+          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
+          <ValueConstraint />
+        </WpfMvvmPropertySetting>
+        <WpfMvvmPropertySetting>
+          <Name>PlannedPositionValue</Name>
+          <Exclude>false</Exclude>
+          <DefaultValue />
+          <IncludeInView>true</IncludeInView>
+          <IncludeInViewModel>true</IncludeInViewModel>
+          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
+          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
+          <ValueConstraint />
+        </WpfMvvmPropertySetting>
+        <WpfMvvmPropertySetting>
+          <Name>ExecutedPositionValue</Name>
+          <Exclude>false</Exclude>
+          <DefaultValue />
+          <IncludeInView>true</IncludeInView>
+          <IncludeInViewModel>true</IncludeInViewModel>
+          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
+          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
+          <ValueConstraint />
+        </WpfMvvmPropertySetting>
+        <WpfMvvmPropertySetting>
+          <Name>PlannedProfitLoss</Name>
+          <Exclude>false</Exclude>
+          <DefaultValue />
+          <IncludeInView>true</IncludeInView>
+          <IncludeInViewModel>true</IncludeInViewModel>
+          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
+          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
+          <ValueConstraint />
+        </WpfMvvmPropertySetting>
+        <WpfMvvmPropertySetting>
+          <Name>RealizedProfitLoss</Name>
+          <Exclude>false</Exclude>
+          <DefaultValue />
+          <IncludeInView>true</IncludeInView>
+          <IncludeInViewModel>true</IncludeInViewModel>
+          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
+          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
+          <ValueConstraint />
+        </WpfMvvmPropertySetting>
+        <WpfMvvmPropertySetting>
+          <Name>PlannedTP</Name>
+          <Exclude>false</Exclude>
+          <DefaultValue />
+          <IncludeInView>true</IncludeInView>
+          <IncludeInViewModel>true</IncludeInViewModel>
+          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
+          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
+          <ValueConstraint />
+        </WpfMvvmPropertySetting>
+        <WpfMvvmPropertySetting>
+          <Name>ExecutedTP</Name>
+          <Exclude>false</Exclude>
+          <DefaultValue />
+          <IncludeInView>true</IncludeInView>
+          <IncludeInViewModel>true</IncludeInViewModel>
+          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
+          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
+          <ValueConstraint />
+        </WpfMvvmPropertySetting>
+        <WpfMvvmPropertySetting>
+          <Name>PlannedRiskAmount</Name>
+          <Exclude>false</Exclude>
+          <DefaultValue />
+          <IncludeInView>true</IncludeInView>
+          <IncludeInViewModel>true</IncludeInViewModel>
+          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
+          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
+          <ValueConstraint />
+        </WpfMvvmPropertySetting>
+        <WpfMvvmPropertySetting>
+          <Name>PlannedSL</Name>
+          <Exclude>false</Exclude>
+          <DefaultValue />
+          <IncludeInView>true</IncludeInView>
+          <IncludeInViewModel>true</IncludeInViewModel>
+          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
+          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
+          <ValueConstraint />
+        </WpfMvvmPropertySetting>
+        <WpfMvvmPropertySetting>
+          <Name>ExecutedSL</Name>
+          <Exclude>false</Exclude>
+          <DefaultValue />
+          <IncludeInView>true</IncludeInView>
+          <IncludeInViewModel>true</IncludeInViewModel>
+          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
+          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
+          <ValueConstraint />
+        </WpfMvvmPropertySetting>
+      </Properties>
+      <GenerateCreateView>true</GenerateCreateView>
+      <GenerateEditView>true</GenerateEditView>
+      <GenerateCreateViewModel>true</GenerateCreateViewModel>
+      <GenerateEditViewModel>true</GenerateEditViewModel>
+      <GenerateCommands>true</GenerateCommands>
+      <RepositoryName>ITradeRepository</RepositoryName>
+      <SubFolder>Trades</SubFolder>
+    </BaseEntitySetting>
+  </EntitySettings>
+  <RenderAllEntities>false</RenderAllEntities>
+  <CommandFolder>Commands</CommandFolder>
+  <CommandNamespaceName>TD.WPF.Commands</CommandNamespaceName>
+  <InfrastructureFolder />
+  <MvvmContractsNamespaceName>TD.Mvvm.Contracts</MvvmContractsNamespaceName>
+  <MvvmNamespaceName>TD.Mvvm</MvvmNamespaceName>
+  <RepositoryNamespaceName>TD.SQLite</RepositoryNamespaceName>
+  <UseResourceFiles>false</UseResourceFiles>
+  <ViewFolder>Views</ViewFolder>
+  <ViewModelFolder>ViewModels</ViewModelFolder>
+  <ViewModelNamespaceName>TD.WPF.ViewModels</ViewModelNamespaceName>
+  <ViewNamespaceName>TD.WPF.Views</ViewNamespaceName>
+</WpfMvvmCodeEngine>

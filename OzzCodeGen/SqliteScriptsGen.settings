@@ -88,7 +88,6 @@
       <Name>IUpdatedAt</Name>
       <Exclude>true</Exclude>
       <OverwriteExisting>false</OverwriteExisting>
-      <UpdatedAtName>UpdatedAt</UpdatedAtName>
       <Properties>
         <StorageColumnSetting>
           <Name>UpdatedAt</Name>
@@ -117,7 +116,6 @@
       <Name>ICreatedAt</Name>
       <Exclude>true</Exclude>
       <OverwriteExisting>false</OverwriteExisting>
-      <CreatedAtName>CreatedAt</CreatedAtName>
       <Properties>
         <StorageColumnSetting>
           <Name>CreatedAt</Name>
@@ -627,7 +625,6 @@
       <Name>TradeImage</Name>
       <Exclude>false</Exclude>
       <OverwriteExisting>true</OverwriteExisting>
-      <UpdatedAtName>UpdatedAt</UpdatedAtName>
       <Properties>
         <StorageColumnSetting>
           <Name>TradeId</Name>
@@ -683,7 +680,6 @@
       <Name>Trade</Name>
       <Exclude>false</Exclude>
       <OverwriteExisting>true</OverwriteExisting>
-      <UpdatedAtName>UpdatedAt</UpdatedAtName>
       <Properties>
         <StorageColumnSetting>
           <Name>TradingAccountId</Name>

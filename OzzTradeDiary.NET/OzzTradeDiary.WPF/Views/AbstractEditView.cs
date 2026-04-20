@@ -4,20 +4,15 @@ using TD.WPF.ViewModels;
 
 namespace TD.WPF.Views
 {
-    public class AbstractEditView : Window
+    public abstract class AbstractEditView : Window
     {
-        protected IIsDirty _isDirty;
-        public AbstractEditView()
-        {
-            _isDirty = new DummyEditView();
-            DataContext = _isDirty;
-        }
-
+        protected AbstractEditView() { }
         public AbstractEditView(IIsDirty isDirty)
         {
             _isDirty = isDirty;
             DataContext = _isDirty;
         }
+        protected IIsDirty _isDirty;
 
         protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
         {
@@ -42,6 +37,4 @@ namespace TD.WPF.Views
 
         public bool IsDirty => _isDirty.IsDirty;
     }
-
-    internal class DummyEditView : AbstractEditVM { }
 }
