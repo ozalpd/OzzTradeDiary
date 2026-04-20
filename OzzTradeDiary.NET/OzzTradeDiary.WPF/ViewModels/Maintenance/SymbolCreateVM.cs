@@ -1,26 +1,25 @@
 ﻿using System.Collections.ObjectModel;
-using TD.Models;
-using TD.SQLite;
 using TD.Extensions;
-using TD.WPF.Models;
+using TD.Models;
+using TD.WPF.Services;
 
 namespace TD.WPF.ViewModels.Maintenance
 {
     internal class SymbolCreateVM : AbstractCreateEditVM
     {
         private const string NoBaseCurrencyDisplayText = "No Base Currency";
+        private readonly IExchangeLookupService _exchangeLookupService;
+        private readonly ICurrencyLookupService _currencyLookupService;
         private readonly IReadOnlyList<MarketTypeValueItem> _marketTypeValues;
         private readonly ObservableCollection<BaseCurrencyValueItem> _baseCurrencyValues;
         private Symbol _symbol;
         public Symbol Symbol => _symbol;
 
-        public SymbolCreateVM()
+        public SymbolCreateVM(IExchangeLookupService exchangeLookupService, ICurrencyLookupService currencyLookupService)
         {
-            var appSettings = AppSettings.GetAppSettings();
-            var databasePath = appSettings.DatabasePath;
+            _exchangeLookupService = exchangeLookupService;
+            _currencyLookupService = currencyLookupService;
 
-            CurrencyRepository = new CurrencyRepository(databasePath);
-            ExchangeRepository = new ExchangeRepository(databasePath);
             Currencies = new ObservableCollection<Currency>();
             Exchanges = new ObservableCollection<Exchange>();
             _baseCurrencyValues = new ObservableCollection<BaseCurrencyValueItem>
@@ -34,9 +33,8 @@ namespace TD.WPF.ViewModels.Maintenance
                 .ToList();
 
             _symbol = new Symbol();
-            IsActive = true;
             DisplayOrder = 1000;
-            ValidateModel(_symbol);
+            IsActive = true;
         }
 
         public async Task LoadAllAsync()
@@ -47,7 +45,7 @@ namespace TD.WPF.ViewModels.Maintenance
 
         public async Task LoadCurrenciesAsync()
         {
-            var items = await CurrencyRepository.GetAllAsync(isActive: true);
+            var items = await _currencyLookupService.GetActiveCurrenciesAsync();
             Currencies.Clear();
             _baseCurrencyValues.Clear();
             _baseCurrencyValues.Add(new BaseCurrencyValueItem { Value = null, DisplayValue = NoBaseCurrencyDisplayText });
@@ -61,7 +59,7 @@ namespace TD.WPF.ViewModels.Maintenance
 
         public async Task LoadExchangesAsync()
         {
-            var items = await ExchangeRepository.GetAllAsync(isActive: true);
+            var items = await _exchangeLookupService.GetActiveExchangesAsync();
             Exchanges.Clear();
             foreach (var item in items)
             {
@@ -69,10 +67,8 @@ namespace TD.WPF.ViewModels.Maintenance
             }
         }
 
-        public ICurrencyRepository CurrencyRepository { get; }
         public ObservableCollection<Currency> Currencies { get; }
 
-        public IExchangeRepository ExchangeRepository { get; }
         public ObservableCollection<Exchange> Exchanges { get; }
 
         public Exchange? SelectedExchange

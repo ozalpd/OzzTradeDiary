@@ -1,34 +1,30 @@
 ﻿using System.Collections.ObjectModel;
 using TD.Models;
-using TD.SQLite;
-using TD.WPF.Models;
+using TD.WPF.Services;
 
 namespace TD.WPF.ViewModels.Maintenance
 {
     internal class TradingAccountCreateVM : AbstractCreateEditVM
     {
+        private readonly IExchangeLookupService _exchangeLookupService;
         private TradingAccount _tradingAccount;
         public TradingAccount TradingAccount => _tradingAccount;
-        public TradingAccountCreateVM()
-        {
-            var appSettings = AppSettings.GetAppSettings();
-            var databasePath = appSettings.DatabasePath;
 
-            ExchangeRepository = new ExchangeRepository(databasePath);
+        public TradingAccountCreateVM(IExchangeLookupService exchangeLookupService)
+        {
+            _exchangeLookupService = exchangeLookupService;
 
             Exchanges = new ObservableCollection<Exchange>();
             _tradingAccount = new TradingAccount();
-            IsActive = true;
             DisplayOrder = 1000;
-            ValidateModel(_tradingAccount);
+            IsActive = true;
         }
 
-        public IExchangeRepository ExchangeRepository { get; }
         public ObservableCollection<Exchange> Exchanges { get; }
 
         public async Task LoadExchangesAsync()
         {
-            var items = await ExchangeRepository.GetAllAsync(isActive: true);
+            var items = await _exchangeLookupService.GetActiveExchangesAsync();
             Exchanges.Clear();
             foreach (var item in items)
             {

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using TD.Models;
+using TD.WPF.Services;
 using TD.WPF.ViewModels.Maintenance;
 
 namespace TD.WPF.Views.Maintenance
@@ -14,11 +15,15 @@ namespace TD.WPF.Views.Maintenance
 
         public TradingAccount TradingAccount => _viewModel.TradingAccount;
 
-        public TradingAccountCreate()
+        public TradingAccountCreate() : this(new EmptyExchangeLookupService())
+        {
+        }
+
+        internal TradingAccountCreate(IExchangeLookupService exchangeLookupService)
         {
             InitializeComponent();
 
-            _viewModel = new TradingAccountCreateVM();
+            _viewModel = new TradingAccountCreateVM(exchangeLookupService);
             DataContext = _viewModel;
             SourceInitialized += CreateTradingAccount_SourceInitialized;
         }

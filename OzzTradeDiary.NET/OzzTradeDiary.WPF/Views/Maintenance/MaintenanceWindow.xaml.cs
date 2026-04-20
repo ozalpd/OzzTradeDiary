@@ -3,6 +3,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using TD.WPF.Extensions;
 using TD.WPF.Models;
+using TD.WPF.Services;
 using TD.WPF.ViewModels.Maintenance;
 
 namespace TD.WPF.Views.Maintenance
@@ -14,6 +15,8 @@ namespace TD.WPF.Views.Maintenance
     {
         private MaintenanceWindowVM _viewModel;
         private readonly AppSettings _appSettings = AppSettings.GetAppSettings();
+        private IExchangeLookupService _exchangeLookupService = new EmptyExchangeLookupService();
+        private ICurrencyLookupService _currencyLookupService = new EmptyCurrencyLookupService();
 
         public MaintenanceWindow()
         {
@@ -27,6 +30,8 @@ namespace TD.WPF.Views.Maintenance
         private async void Window_SourceInitialized(object? sender, EventArgs e)
         {
             _viewModel = new MaintenanceWindowVM();
+            _exchangeLookupService = new ExchangeLookupService(_viewModel.ExchangeRepository);
+            _currencyLookupService = new CurrencyLookupService(_viewModel.CurrencyRepository);
             DataContext = _viewModel;
             _appSettings.MaintenanceWindowPosition.SetWindowPositions(this);
             await ExecuteUiActionAsync(_viewModel.LoadAllAsync, "Load data");
@@ -167,7 +172,7 @@ namespace TD.WPF.Views.Maintenance
 
         private async void AddTradingAccount_Click(object sender, RoutedEventArgs e)
         {
-            var dialog = new TradingAccountCreate { Owner = this };
+            var dialog = new TradingAccountCreate(_exchangeLookupService) { Owner = this };
             if (dialog.ShowDialog() == true)
             {
                 _viewModel.TradingAccounts.Add(dialog.TradingAccount);
@@ -213,7 +218,7 @@ namespace TD.WPF.Views.Maintenance
 
         private async void AddSymbol_Click(object sender, RoutedEventArgs e)
         {
-            var dialog = new SymbolCreate { Owner = this };
+            var dialog = new SymbolCreate(_exchangeLookupService, _currencyLookupService) { Owner = this };
             if (dialog.ShowDialog() == true)
             {
                 _viewModel.Symbols.Add(dialog.Symbol);

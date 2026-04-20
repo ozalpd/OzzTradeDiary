@@ -2,7 +2,7 @@
 <WpfMvvmCodeEngine xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Language>CSharp</Language>
   <NamespaceName>TD.Models</NamespaceName>
-  <TargetFolder>WpfMvvm</TargetFolder>
+  <TargetFolder>..\OzzTradeDiary.NET\OzzTradeDiary.WPF\</TargetFolder>
   <EntitySettings>
     <BaseEntitySetting xsi:type="WpfMvvmEntitySetting">
       <Name>IPrimaryKey</Name>

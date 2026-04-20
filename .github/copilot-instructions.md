@@ -69,6 +69,7 @@ Internal tracking versions: `OzzTradeDiary` `0.0.43`, `OzzTradeDiary.WPF` `0.0.4
 - Validation: extend `AbstractDataErrorInfoVM` (implements `INotifyDataErrorInfo`); for dialog ViewModels expose `IsValid => !HasErrors`, subscribe to `ErrorsChanged` to raise it, and call `ValidateModel` in the constructor so the OK button starts disabled
 - Collections: extend `AbstractCollectionVM<T>` (provides `ObservableCollection<T>`, filtering, selection)
 - Data access: extend `AbstractDiaryVM` (provides repository instances and CRUD operations for Currency, Exchange, TradingAccount, Symbol — use as base when a ViewModel needs direct repository access)
+- **ViewModels must not instantiate repositories directly**; instead, use data-source abstraction for lookup data such as exchanges and currencies.
 - Commands: extend `AbstractCommand` (implements `ICommand`)
 - Feature-specific ViewModels are grouped in subfolders matching their feature area (e.g., `ViewModels/Maintenance/` → namespace `TD.WPF.ViewModels.Maintenance`)
 - Follow entity-first naming: `TradingAccountCreateVM` (not `CreateTradingAccountVM`).

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using TD.Models;
+using TD.WPF.Services;
 using TD.WPF.ViewModels.Maintenance;
 
 namespace TD.WPF.Views.Maintenance
@@ -14,11 +15,15 @@ namespace TD.WPF.Views.Maintenance
 
         public Symbol Symbol => _viewModel.Symbol;
 
-        public SymbolCreate()
+        public SymbolCreate() : this(new EmptyExchangeLookupService(), new EmptyCurrencyLookupService())
+        {
+        }
+
+        internal SymbolCreate(IExchangeLookupService exchangeLookupService, ICurrencyLookupService currencyLookupService)
         {
             InitializeComponent();
 
-            _viewModel = new SymbolCreateVM();
+            _viewModel = new SymbolCreateVM(exchangeLookupService, currencyLookupService);
             DataContext = _viewModel;
             SourceInitialized += CreateSymbol_SourceInitialized;
         }
