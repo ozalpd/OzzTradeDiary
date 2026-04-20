@@ -4,6 +4,20 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.0.47] - 2026-04-20
+
+### Added
+- Introduced `WpfMvVmCodeEngine.settings` for WPF View/ViewModel/Command generation and updated `OzzTradeDiary.OzzGen` pipeline ordering to include the new MVVM generation stage.
+
+### Changed
+- Refactored core WPF ViewModel base classes to generated, `public`, and extensible implementations for cleaner reuse across feature ViewModels.
+- Replaced `AbstractEditVM` with `AbstractCreateEditVM` and updated maintenance ViewModels to inherit from the new base class.
+- Improved ViewModel property validation and null handling for create/edit flows.
+- Made `AbstractEditView` abstract and simplified dirty-tracking behavior for edit dialogs.
+- Updated code generation and repository settings to remove redundant fields and keep generated outputs aligned.
+- Minor style and documentation cleanups across MVVM/WPF-related generated and companion code.
+- Bumped all project versions to `0.0.47` (`OzzTradeDiary`, `OzzTradeDiary.WPF`, `OzzTradeDiary.SQLite`, `OzzTradeDiary.i18n`).
+
 ## [0.0.46] - 2026-04-18
 
 ### Added
