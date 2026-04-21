@@ -20,11 +20,12 @@
           <ValueConstraint />
         </WpfMvvmPropertySetting>
       </Properties>
+      <GenerateCommands>true</GenerateCommands>
       <GenerateCreateView>true</GenerateCreateView>
       <GenerateEditView>true</GenerateEditView>
       <GenerateCreateViewModel>true</GenerateCreateViewModel>
       <GenerateEditViewModel>true</GenerateEditViewModel>
-      <GenerateCommands>true</GenerateCommands>
+      <GenerateLookupService>false</GenerateLookupService>
       <RepositoryName>IIPrimaryKeyRepository</RepositoryName>
       <SubFolder />
     </BaseEntitySetting>
@@ -44,11 +45,12 @@
           <ValueConstraint />
         </WpfMvvmPropertySetting>
       </Properties>
+      <GenerateCommands>true</GenerateCommands>
       <GenerateCreateView>true</GenerateCreateView>
       <GenerateEditView>true</GenerateEditView>
       <GenerateCreateViewModel>true</GenerateCreateViewModel>
       <GenerateEditViewModel>true</GenerateEditViewModel>
-      <GenerateCommands>true</GenerateCommands>
+      <GenerateLookupService>false</GenerateLookupService>
       <RepositoryName>IIDisplayOrderRepository</RepositoryName>
       <SubFolder />
     </BaseEntitySetting>
@@ -68,11 +70,12 @@
           <ValueConstraint />
         </WpfMvvmPropertySetting>
       </Properties>
+      <GenerateCommands>true</GenerateCommands>
       <GenerateCreateView>true</GenerateCreateView>
       <GenerateEditView>true</GenerateEditView>
       <GenerateCreateViewModel>true</GenerateCreateViewModel>
       <GenerateEditViewModel>true</GenerateEditViewModel>
-      <GenerateCommands>true</GenerateCommands>
+      <GenerateLookupService>false</GenerateLookupService>
       <RepositoryName>IIIsActiveRepository</RepositoryName>
       <SubFolder />
     </BaseEntitySetting>
@@ -92,11 +95,12 @@
           <ValueConstraint />
         </WpfMvvmPropertySetting>
       </Properties>
+      <GenerateCommands>true</GenerateCommands>
       <GenerateCreateView>true</GenerateCreateView>
       <GenerateEditView>true</GenerateEditView>
       <GenerateCreateViewModel>true</GenerateCreateViewModel>
       <GenerateEditViewModel>true</GenerateEditViewModel>
-      <GenerateCommands>true</GenerateCommands>
+      <GenerateLookupService>false</GenerateLookupService>
       <RepositoryName>IICreatedAtRepository</RepositoryName>
       <SubFolder />
     </BaseEntitySetting>
@@ -116,11 +120,12 @@
           <ValueConstraint />
         </WpfMvvmPropertySetting>
       </Properties>
+      <GenerateCommands>true</GenerateCommands>
       <GenerateCreateView>true</GenerateCreateView>
       <GenerateEditView>true</GenerateEditView>
       <GenerateCreateViewModel>true</GenerateCreateViewModel>
       <GenerateEditViewModel>true</GenerateEditViewModel>
-      <GenerateCommands>true</GenerateCommands>
+      <GenerateLookupService>false</GenerateLookupService>
       <RepositoryName>IIUpdatedAtRepository</RepositoryName>
       <SubFolder />
     </BaseEntitySetting>
@@ -210,11 +215,12 @@
           <ValueConstraint />
         </WpfMvvmPropertySetting>
       </Properties>
+      <GenerateCommands>true</GenerateCommands>
       <GenerateCreateView>true</GenerateCreateView>
       <GenerateEditView>true</GenerateEditView>
       <GenerateCreateViewModel>true</GenerateCreateViewModel>
       <GenerateEditViewModel>true</GenerateEditViewModel>
-      <GenerateCommands>true</GenerateCommands>
+      <GenerateLookupService>false</GenerateLookupService>
       <RepositoryName>IITradeOrderRepository</RepositoryName>
       <SubFolder />
     </BaseEntitySetting>
@@ -264,11 +270,12 @@
           <ValueConstraint />
         </WpfMvvmPropertySetting>
       </Properties>
+      <GenerateCommands>true</GenerateCommands>
       <GenerateCreateView>true</GenerateCreateView>
       <GenerateEditView>true</GenerateEditView>
       <GenerateCreateViewModel>true</GenerateCreateViewModel>
       <GenerateEditViewModel>true</GenerateEditViewModel>
-      <GenerateCommands>true</GenerateCommands>
+      <GenerateLookupService>true</GenerateLookupService>
       <RepositoryName>IExchangeRepository</RepositoryName>
       <SubFolder>Maintenance</SubFolder>
     </BaseEntitySetting>
@@ -318,11 +325,12 @@
           <ValueConstraint />
         </WpfMvvmPropertySetting>
       </Properties>
+      <GenerateCommands>true</GenerateCommands>
       <GenerateCreateView>true</GenerateCreateView>
       <GenerateEditView>true</GenerateEditView>
       <GenerateCreateViewModel>true</GenerateCreateViewModel>
       <GenerateEditViewModel>true</GenerateEditViewModel>
-      <GenerateCommands>true</GenerateCommands>
+      <GenerateLookupService>true</GenerateLookupService>
       <RepositoryName>ITradingAccountRepository</RepositoryName>
       <SubFolder>Maintenance</SubFolder>
     </BaseEntitySetting>
@@ -352,11 +360,12 @@
           <ValueConstraint />
         </WpfMvvmPropertySetting>
       </Properties>
+      <GenerateCommands>true</GenerateCommands>
       <GenerateCreateView>true</GenerateCreateView>
       <GenerateEditView>true</GenerateEditView>
       <GenerateCreateViewModel>true</GenerateCreateViewModel>
       <GenerateEditViewModel>true</GenerateEditViewModel>
-      <GenerateCommands>true</GenerateCommands>
+      <GenerateLookupService>true</GenerateLookupService>
       <RepositoryName>ICurrencyRepository</RepositoryName>
       <SubFolder>Maintenance</SubFolder>
     </BaseEntitySetting>
@@ -446,11 +455,12 @@
           <ValueConstraint />
         </WpfMvvmPropertySetting>
       </Properties>
+      <GenerateCommands>true</GenerateCommands>
       <GenerateCreateView>true</GenerateCreateView>
       <GenerateEditView>true</GenerateEditView>
       <GenerateCreateViewModel>true</GenerateCreateViewModel>
       <GenerateEditViewModel>true</GenerateEditViewModel>
-      <GenerateCommands>true</GenerateCommands>
+      <GenerateLookupService>true</GenerateLookupService>
       <RepositoryName>ISymbolRepository</RepositoryName>
       <SubFolder>Maintenance</SubFolder>
     </BaseEntitySetting>
@@ -480,11 +490,12 @@
           <ValueConstraint />
         </WpfMvvmPropertySetting>
       </Properties>
+      <GenerateCommands>true</GenerateCommands>
       <GenerateCreateView>true</GenerateCreateView>
       <GenerateEditView>true</GenerateEditView>
       <GenerateCreateViewModel>true</GenerateCreateViewModel>
       <GenerateEditViewModel>true</GenerateEditViewModel>
-      <GenerateCommands>true</GenerateCommands>
+      <GenerateLookupService>false</GenerateLookupService>
       <RepositoryName>IEntryOrderRepository</RepositoryName>
       <SubFolder>EntryOrders</SubFolder>
     </BaseEntitySetting>
@@ -514,11 +525,12 @@
           <ValueConstraint />
         </WpfMvvmPropertySetting>
       </Properties>
+      <GenerateCommands>true</GenerateCommands>
       <GenerateCreateView>true</GenerateCreateView>
       <GenerateEditView>true</GenerateEditView>
       <GenerateCreateViewModel>true</GenerateCreateViewModel>
       <GenerateEditViewModel>true</GenerateEditViewModel>
-      <GenerateCommands>true</GenerateCommands>
+      <GenerateLookupService>false</GenerateLookupService>
       <RepositoryName>ITakeProfitOrderRepository</RepositoryName>
       <SubFolder>TakeProfitOrders</SubFolder>
     </BaseEntitySetting>
@@ -558,11 +570,12 @@
           <ValueConstraint />
         </WpfMvvmPropertySetting>
       </Properties>
+      <GenerateCommands>true</GenerateCommands>
       <GenerateCreateView>true</GenerateCreateView>
       <GenerateEditView>true</GenerateEditView>
       <GenerateCreateViewModel>true</GenerateCreateViewModel>
       <GenerateEditViewModel>true</GenerateEditViewModel>
-      <GenerateCommands>true</GenerateCommands>
+      <GenerateLookupService>false</GenerateLookupService>
       <RepositoryName>IStopLossOrderRepository</RepositoryName>
       <SubFolder>StopLossOrders</SubFolder>
     </BaseEntitySetting>
@@ -612,11 +625,12 @@
           <ValueConstraint />
         </WpfMvvmPropertySetting>
       </Properties>
+      <GenerateCommands>true</GenerateCommands>
       <GenerateCreateView>true</GenerateCreateView>
       <GenerateEditView>true</GenerateEditView>
       <GenerateCreateViewModel>true</GenerateCreateViewModel>
       <GenerateEditViewModel>true</GenerateEditViewModel>
-      <GenerateCommands>true</GenerateCommands>
+      <GenerateLookupService>false</GenerateLookupService>
       <RepositoryName>ITradeImageRepository</RepositoryName>
       <SubFolder>TradeImages</SubFolder>
     </BaseEntitySetting>
@@ -836,22 +850,25 @@
           <ValueConstraint />
         </WpfMvvmPropertySetting>
       </Properties>
+      <GenerateCommands>true</GenerateCommands>
       <GenerateCreateView>true</GenerateCreateView>
       <GenerateEditView>true</GenerateEditView>
       <GenerateCreateViewModel>true</GenerateCreateViewModel>
       <GenerateEditViewModel>true</GenerateEditViewModel>
-      <GenerateCommands>true</GenerateCommands>
+      <GenerateLookupService>false</GenerateLookupService>
       <RepositoryName>ITradeRepository</RepositoryName>
       <SubFolder>Trades</SubFolder>
     </BaseEntitySetting>
   </EntitySettings>
   <RenderAllEntities>false</RenderAllEntities>
+  <BaseClassNamespaceName>TD.Models.Infra</BaseClassNamespaceName>
+  <ContractsNamespaceName />
+  <InfrastructureFolder />
   <CommandFolder>Commands</CommandFolder>
   <CommandNamespaceName>TD.WPF.Commands</CommandNamespaceName>
-  <InfrastructureFolder />
-  <MvvmContractsNamespaceName>TD.Mvvm.Contracts</MvvmContractsNamespaceName>
-  <MvvmNamespaceName>TD.Mvvm</MvvmNamespaceName>
   <RepositoryNamespaceName>TD.SQLite</RepositoryNamespaceName>
+  <ServiceFolder>Services</ServiceFolder>
+  <ServiceNamespaceName>TD.WPF.Services</ServiceNamespaceName>
   <UseResourceFiles>false</UseResourceFiles>
   <ViewFolder>Views</ViewFolder>
   <ViewModelFolder>ViewModels</ViewModelFolder>

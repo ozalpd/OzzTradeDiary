@@ -799,6 +799,9 @@
     </BaseEntitySetting>
   </EntitySettings>
   <RenderAllEntities>false</RenderAllEntities>
+  <BaseClassNamespaceName>TD.SQLite.Infra</BaseClassNamespaceName>
+  <ContractsNamespaceName>TD.SQLite.Infra</ContractsNamespaceName>
+  <InfrastructureFolder>Infrastructure</InfrastructureFolder>
   <MetadataRepositoryName>MetadataRepository</MetadataRepositoryName>
   <BaseRepositoryClassName>AbstractDatabaseRepository</BaseRepositoryClassName>
 </CSharpSqliteRepositoryEngine>

@@ -45,7 +45,7 @@ namespace TD.WPF.ViewModels.Maintenance
 
         public async Task LoadCurrenciesAsync()
         {
-            var items = await _currencyLookupService.GetActiveCurrenciesAsync();
+            var items = await _currencyLookupService.GetCurrenciesAsync(isActive: true);
             Currencies.Clear();
             _baseCurrencyValues.Clear();
             _baseCurrencyValues.Add(new BaseCurrencyValueItem { Value = null, DisplayValue = NoBaseCurrencyDisplayText });
@@ -59,7 +59,7 @@ namespace TD.WPF.ViewModels.Maintenance
 
         public async Task LoadExchangesAsync()
         {
-            var items = await _exchangeLookupService.GetActiveExchangesAsync();
+            var items = await _exchangeLookupService.GetExchangesAsync(isActive: true);
             Exchanges.Clear();
             foreach (var item in items)
             {

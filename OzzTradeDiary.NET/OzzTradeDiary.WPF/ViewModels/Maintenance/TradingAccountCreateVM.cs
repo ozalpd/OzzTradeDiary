@@ -1,4 +1,4 @@
-﻿using System.Collections.ObjectModel;
+using System.Collections.ObjectModel;
 using TD.Models;
 using TD.WPF.Services;
 
@@ -24,7 +24,7 @@ namespace TD.WPF.ViewModels.Maintenance
 
         public async Task LoadExchangesAsync()
         {
-            var items = await _exchangeLookupService.GetActiveExchangesAsync();
+            var items = await _exchangeLookupService.GetExchangesAsync(isActive: true);
             Exchanges.Clear();
             foreach (var item in items)
             {

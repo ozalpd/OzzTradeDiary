@@ -1,4 +1,4 @@
-﻿using TD.Validation;
+using TD.Validation;
 using System.ComponentModel;
 using System.Collections;
 //----------------------------------------------------------------------------------

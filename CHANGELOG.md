@@ -4,6 +4,21 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.0.49] - 2026-04-21
+
+### Changed
+- Refactored generated lookup service contracts to use `Get<Entity>sAsync(bool isActive)` signatures and marked the interfaces as `partial` for future extensibility.
+- Regenerated lookup service implementations with the new method signatures, updated code-generated file headers, and generated design-time mock implementations.
+- Updated maintenance create ViewModels to use the regenerated lookup service APIs instead of the previous active-only method names.
+- Regenerated abstract/base WPF ViewModel files with standardized codegen headers, formatting cleanups, and improved generated output consistency.
+- Moved the `IIsDirty` contract inside `AbstractCreateEditVM` so create/edit dialog dirty-state behavior stays co-located with the shared base ViewModel.
+- Refactored and reordered the Currency tab in `MaintenanceWindow.xaml` for a cleaner maintenance UI layout.
+- Updated OzzCodeGen/MVVM settings to improve generated namespace structure, folder structure, and lookup service generation.
+- Bumped all project versions to `0.0.49` (`OzzTradeDiary`, `OzzTradeDiary.WPF`, `OzzTradeDiary.SQLite`, `OzzTradeDiary.i18n`).
+
+### Removed
+- Removed redundant hand-written design-time lookup service stubs that are now replaced by regenerated design-time mock classes.
+
 ## [0.0.48] - 2026-04-20
 
 ### Added

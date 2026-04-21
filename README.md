@@ -4,7 +4,7 @@ A Windows desktop trade journaling application for tracking trades across multip
 
 > **Status**: Pre-release development (no public release yet)
 > 
-> **Internal tracking versions**: `OzzTradeDiary` `0.0.48`, `OzzTradeDiary.WPF` `0.0.48`, `OzzTradeDiary.SQLite` `0.0.48`, `OzzTradeDiary.i18n` `0.0.48`
+> **Internal tracking versions**: `OzzTradeDiary` `0.0.49`, `OzzTradeDiary.WPF` `0.0.49`, `OzzTradeDiary.SQLite` `0.0.49`, `OzzTradeDiary.i18n` `0.0.49`
 
 ## Changelog
 
@@ -22,6 +22,13 @@ See [`CHANGELOG.md`](CHANGELOG.md) for release history.
 ## Features
 
 - DPI-aware multi-monitor window positioning
+- Generated WPF lookup service contracts are `partial` and now use `Get<Entity>sAsync(bool isActive)` signatures for consistent lookup loading across entities
+- Generated lookup service implementations now include updated codegen headers and generated design-time mock classes instead of redundant hand-written stubs
+- Maintenance create ViewModels were updated to consume the regenerated lookup service APIs
+- Core abstract/base WPF ViewModels were regenerated with standardized codegen headers and formatting improvements
+- `IIsDirty` now lives inside `AbstractCreateEditVM` so shared dirty-state behavior stays with the create/edit dialog base ViewModel
+- `MaintenanceWindow.xaml` Currency tab was refactored and reordered for a cleaner maintenance layout
+- OzzCodeGen MVVM settings now generate improved namespace/folder structure and lookup service outputs
 - `AppSettings` uses a debug-safe default data location: in `DEBUG` builds database and related app data resolve under repo-root `SampleData` (git-ignored), while release builds continue to use user app-data folders
 - Shared debug `SampleData` path resolution now lives in `AppSettings.part.cs` and is linked into `OzzTradeDiary.Tools.SeedDemoData` so the WPF app and seeding tool use the same default debug database path
 - Trade filtering via `TradeQueryParameters` in `TD.Helpers` with support for pagination, date ranges, position values, P/L, and risk ranges
@@ -188,7 +195,7 @@ OzzTradeDiary.slnx
 │       ├── Extensions/           # WPF-specific helpers
 │       ├── Models/               # App settings, versioning, window positioning
 │       ├── Resources/            # XAML styles, Bootstrap Icons
-│       ├── Services/             # Database backup, auto-backup
+│       ├── Services/             # Database backup, lookup services, auto-backup
 │       ├── ViewModels/           # MVVM view models
 │       │   └── Maintenance/      # ViewModels for maintenance screens (TD.WPF.ViewModels.Maintenance)
 │       └── Views/                # XAML views

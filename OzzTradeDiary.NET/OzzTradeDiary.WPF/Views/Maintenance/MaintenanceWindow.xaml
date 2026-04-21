@@ -166,6 +166,63 @@
                 </DockPanel>
             </TabItem>
 
+            <TabItem Header="{x:Static i18n:LocalizedStrings.Currency}">
+                <DockPanel>
+                    <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="0,0,0,8">
+                        <Button Style="{StaticResource IconButtonStyle-28x24}"
+                                ToolTip="{x:Static i18n:LocalizedStrings.AddCurrency}"
+                                Click="AddCurrency_Click">
+                            <Viewbox Width="14" Height="14">
+                                <Path Fill="#0044D7" Data="{StaticResource plus-circle}"/>
+                            </Viewbox>
+                        </Button>
+                        <Button Style="{StaticResource IconButtonStyle-28x24}"
+                                ToolTip="{x:Static i18n:ActionStrings.Save}"
+                                Click="SaveCurrencies_Click">
+                            <Viewbox Width="14" Height="14">
+                                <Path Fill="#0044D7" Data="{StaticResource floppy-fill}"/>
+                            </Viewbox>
+                        </Button>
+                        <Button Style="{StaticResource IconButtonStyle-28x24}"
+                                ToolTip="{x:Static i18n:ActionStrings.Refresh}"
+                                Click="RefreshCurrencies_Click">
+                            <Viewbox Width="14" Height="14">
+                                <Path Fill="#0044D7" Data="{StaticResource arrow-clockwise}"/>
+                            </Viewbox>
+                        </Button>
+                        <Button ToolTip="{x:Static i18n:ActionStrings.Edit}"
+                                Click="EditCurrencys_Click">
+                            <Button.Style>
+                                <Style TargetType="Button" BasedOn="{StaticResource IconButtonStyle-28x24}">
+                                    <Setter Property="IsEnabled" Value="True" />
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding SelectedCurrency}" Value="{x:Null}">
+                                            <Setter Property="IsEnabled" Value="False" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Style>
+                            <Viewbox Width="14" Height="14">
+                                <Path Fill="#0044D7" Data="{StaticResource pencil-square}"/>
+                            </Viewbox>
+                        </Button>
+                    </StackPanel>
+                    <DataGrid ItemsSource="{Binding Currencies}"
+                              SelectedItem="{Binding SelectedCurrency}"
+                              AutoGenerateColumns="False"
+                              CanUserAddRows="False"
+                              CanUserDeleteRows="False"
+                              IsReadOnly="False">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.Id}" Binding="{Binding Id}" IsReadOnly="True" Width="70" />
+                            <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.CurrencyTicker}" Binding="{Binding CurrencyTicker}" Width="180" />
+                            <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.Description}" Binding="{Binding Description}" Width="*" />
+                            <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.DisplayOrder}" Binding="{Binding DisplayOrder}" Width="130" />
+                            <DataGridCheckBoxColumn Header="{x:Static i18n:LocalizedStrings.IsActive}" Binding="{Binding IsActive}" Width="120" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </DockPanel>
+            </TabItem>
             <TabItem Header="{x:Static i18n:LocalizedStrings.Symbol}" Height="20" VerticalAlignment="Top">
                 <DockPanel>
                     <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="0,0,0,8">
@@ -206,9 +263,10 @@
                                 <Path Fill="#0044D7" Data="{StaticResource pencil-square}"/>
                             </Viewbox>
                         </Button>
-                        
+
                         <Border Width="32" Background="Transparent" />
-                        <Border Width="32" Background="Transparent" /><!-- TODO: Replace with a delete button -->
+                        <Border Width="32" Background="Transparent" />
+                        <!-- TODO: Replace with a delete button -->
                         <Grid Margin="8,1,0,0">
                             <TextBox x:Name="SymbolSearchTextBox"  Width="120"
                                      Text="{Binding SymbolSearchString, UpdateSourceTrigger=PropertyChanged}" />
@@ -270,64 +328,6 @@
                             <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.MarketType}" Binding="{Binding MarketType}" Width="112" />
                             <DataGridCheckBoxColumn Header="{x:Static i18n:LocalizedStrings.IsActive}" Binding="{Binding IsActive}" Width="64" />
                             <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.DisplayOrder}" Binding="{Binding DisplayOrder}" Width="64" />
-                        </DataGrid.Columns>
-                    </DataGrid>
-                </DockPanel>
-            </TabItem>
-
-            <TabItem Header="{x:Static i18n:LocalizedStrings.Currency}">
-                <DockPanel>
-                    <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="0,0,0,8">
-                        <Button Style="{StaticResource IconButtonStyle-28x24}"
-                                ToolTip="{x:Static i18n:LocalizedStrings.AddCurrency}"
-                                Click="AddCurrency_Click">
-                            <Viewbox Width="14" Height="14">
-                                <Path Fill="#0044D7" Data="{StaticResource plus-circle}"/>
-                            </Viewbox>
-                        </Button>
-                        <Button Style="{StaticResource IconButtonStyle-28x24}"
-                                ToolTip="{x:Static i18n:ActionStrings.Save}"
-                                Click="SaveCurrencies_Click">
-                            <Viewbox Width="14" Height="14">
-                                <Path Fill="#0044D7" Data="{StaticResource floppy-fill}"/>
-                            </Viewbox>
-                        </Button>
-                        <Button Style="{StaticResource IconButtonStyle-28x24}"
-                                ToolTip="{x:Static i18n:ActionStrings.Refresh}"
-                                Click="RefreshCurrencies_Click">
-                            <Viewbox Width="14" Height="14">
-                                <Path Fill="#0044D7" Data="{StaticResource arrow-clockwise}"/>
-                            </Viewbox>
-                        </Button>
-                        <Button ToolTip="{x:Static i18n:ActionStrings.Edit}"
-                                Click="EditCurrencys_Click">
-                            <Button.Style>
-                                <Style TargetType="Button" BasedOn="{StaticResource IconButtonStyle-28x24}">
-                                    <Setter Property="IsEnabled" Value="True" />
-                                    <Style.Triggers>
-                                        <DataTrigger Binding="{Binding SelectedCurrency}" Value="{x:Null}">
-                                            <Setter Property="IsEnabled" Value="False" />
-                                        </DataTrigger>
-                                    </Style.Triggers>
-                                </Style>
-                            </Button.Style>
-                            <Viewbox Width="14" Height="14">
-                                <Path Fill="#0044D7" Data="{StaticResource pencil-square}"/>
-                            </Viewbox>
-                        </Button>
-                    </StackPanel>
-                    <DataGrid ItemsSource="{Binding Currencies}"
-                              SelectedItem="{Binding SelectedCurrency}"
-                              AutoGenerateColumns="False"
-                              CanUserAddRows="False"
-                              CanUserDeleteRows="False"
-                              IsReadOnly="False">
-                        <DataGrid.Columns>
-                            <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.Id}" Binding="{Binding Id}" IsReadOnly="True" Width="70" />
-                            <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.CurrencyTicker}" Binding="{Binding CurrencyTicker}" Width="180" />
-                            <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.Description}" Binding="{Binding Description}" Width="*" />
-                            <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.DisplayOrder}" Binding="{Binding DisplayOrder}" Width="130" />
-                            <DataGridCheckBoxColumn Header="{x:Static i18n:LocalizedStrings.IsActive}" Binding="{Binding IsActive}" Width="120" />
                         </DataGrid.Columns>
                     </DataGrid>
                 </DockPanel>
