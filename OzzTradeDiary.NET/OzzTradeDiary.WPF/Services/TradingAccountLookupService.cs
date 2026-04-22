@@ -26,11 +26,12 @@ namespace TD.WPF.Services
     }
 
     /// <summary>
-    /// Provides a no-op implementation of the I interface that returns an empty list of tradingAccounts.
+    /// Provides a no-op implementation of the ITradingAccountLookupService interface that returns an empty or
+    /// mock list of tradingAccounts.
     /// </summary>
-    /// <remarks>This implementation can be used in scenarios where tradingAccount lookup functionality is optional or not
-    /// required, such as in design time, in testing or when no ITradingAccountRepository are configured.</remarks>
-    internal sealed partial class TradingAccountMockLookupService : ITradingAccountLookupService
+    /// <remarks>This implementation can be used in scenarios where tradingAccount lookup functionality is optional or
+    /// not required, such as in design time, in testing or when no ITradingAccountRepository are configured.</remarks>
+    public sealed partial class TradingAccountMockLookupService : ITradingAccountLookupService
     {
         public Task<IReadOnlyList<TradingAccount>> GetTradingAccountsAsync(bool isActive)
         {

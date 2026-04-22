@@ -26,11 +26,12 @@ namespace TD.WPF.Services
     }
 
     /// <summary>
-    /// Provides a no-op implementation of the I interface that returns an empty list of symbols.
+    /// Provides a no-op implementation of the ISymbolLookupService interface that returns an empty or
+    /// mock list of symbols.
     /// </summary>
-    /// <remarks>This implementation can be used in scenarios where symbol lookup functionality is optional or not
-    /// required, such as in design time, in testing or when no ISymbolRepository are configured.</remarks>
-    internal sealed partial class SymbolMockLookupService : ISymbolLookupService
+    /// <remarks>This implementation can be used in scenarios where symbol lookup functionality is optional or
+    /// not required, such as in design time, in testing or when no ISymbolRepository are configured.</remarks>
+    public sealed partial class SymbolMockLookupService : ISymbolLookupService
     {
         public Task<IReadOnlyList<Symbol>> GetSymbolsAsync(bool isActive)
         {

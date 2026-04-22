@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using TD.Models;
 using TD.SQLite;
 using TD.Validation;

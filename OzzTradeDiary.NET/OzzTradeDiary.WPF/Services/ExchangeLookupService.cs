@@ -26,11 +26,12 @@ namespace TD.WPF.Services
     }
 
     /// <summary>
-    /// Provides a no-op implementation of the I interface that returns an empty list of exchanges.
+    /// Provides a no-op implementation of the IExchangeLookupService interface that returns an empty or
+    /// mock list of exchanges.
     /// </summary>
-    /// <remarks>This implementation can be used in scenarios where exchange lookup functionality is optional or not
-    /// required, such as in design time, in testing or when no IExchangeRepository are configured.</remarks>
-    internal sealed partial class ExchangeMockLookupService : IExchangeLookupService
+    /// <remarks>This implementation can be used in scenarios where exchange lookup functionality is optional or
+    /// not required, such as in design time, in testing or when no IExchangeRepository are configured.</remarks>
+    public sealed partial class ExchangeMockLookupService : IExchangeLookupService
     {
         public Task<IReadOnlyList<Exchange>> GetExchangesAsync(bool isActive)
         {
