@@ -1,2 +1,2 @@
-@dotnet run --project ..\OzzTradeDiary.NET\OzzTradeDiary.Tools.SeedDemoData\OzzTradeDiary.Tools.SeedDemoData.csproj
+@dotnet run --project ..\OzzTradeDiary.NET\TD.Tools.SeedDemoData\TD.Tools.SeedDemoData.csproj
 @pause

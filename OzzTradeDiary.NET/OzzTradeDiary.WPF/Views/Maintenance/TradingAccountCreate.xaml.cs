@@ -15,7 +15,7 @@ namespace TD.WPF.Views.Maintenance
 
         public TradingAccount TradingAccount => _viewModel.TradingAccount;
 
-        public TradingAccountCreate() : this(new EmptyExchangeLookupService())
+        public TradingAccountCreate() : this(new ExchangeMockLookupService())
         {
         }
 

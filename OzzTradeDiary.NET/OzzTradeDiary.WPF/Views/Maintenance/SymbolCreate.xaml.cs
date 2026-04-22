@@ -15,7 +15,7 @@ namespace TD.WPF.Views.Maintenance
 
         public Symbol Symbol => _viewModel.Symbol;
 
-        public SymbolCreate() : this(new EmptyExchangeLookupService(), new EmptyCurrencyLookupService())
+        public SymbolCreate() : this(new ExchangeMockLookupService(), new CurrencyMockLookupService())
         {
         }
 

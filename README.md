@@ -4,7 +4,7 @@ A Windows desktop trade journaling application for tracking trades across multip
 
 > **Status**: Pre-release development (no public release yet)
 > 
-> **Internal tracking versions**: `OzzTradeDiary` `0.0.49`, `OzzTradeDiary.WPF` `0.0.49`, `OzzTradeDiary.SQLite` `0.0.49`, `OzzTradeDiary.i18n` `0.0.49`
+> **Internal tracking versions**: `OzzTradeDiary` `0.0.50`, `OzzTradeDiary.WPF` `0.0.50`, `OzzTradeDiary.SQLite` `0.0.50`, `OzzTradeDiary.i18n` `0.0.50`
 
 ## Changelog
 
@@ -22,6 +22,9 @@ See [`CHANGELOG.md`](CHANGELOG.md) for release history.
 ## Features
 
 - DPI-aware multi-monitor window positioning
+- Renamed generated WPF design-time/default lookup service implementations from `Empty*LookupService` to `Mock*LookupService`, and updated usages accordingly
+- Disabled code generation for TradingAccount/Symbol create/edit ViewModels
+- Updated internal tracking version comments to align with `0.0.50`
 - Generated WPF lookup service contracts are `partial` and now use `Get<Entity>sAsync(bool isActive)` signatures for consistent lookup loading across entities
 - Generated lookup service implementations now include updated codegen headers and generated design-time mock classes instead of redundant hand-written stubs
 - Maintenance create ViewModels were updated to consume the regenerated lookup service APIs
@@ -30,7 +33,7 @@ See [`CHANGELOG.md`](CHANGELOG.md) for release history.
 - `MaintenanceWindow.xaml` Currency tab was refactored and reordered for a cleaner maintenance layout
 - OzzCodeGen MVVM settings now generate improved namespace/folder structure and lookup service outputs
 - `AppSettings` uses a debug-safe default data location: in `DEBUG` builds database and related app data resolve under repo-root `SampleData` (git-ignored), while release builds continue to use user app-data folders
-- Shared debug `SampleData` path resolution now lives in `AppSettings.part.cs` and is linked into `OzzTradeDiary.Tools.SeedDemoData` so the WPF app and seeding tool use the same default debug database path
+- Shared debug `SampleData` path resolution now lives in `AppSettings.part.cs` and is linked into `TD.Tools.SeedDemoData` so the WPF app and seeding tool use the same default debug database path
 - Trade filtering via `TradeQueryParameters` in `TD.Helpers` with support for pagination, date ranges, position values, P/L, and risk ranges
 - `TradeRepository.GetPagedAsync` and `SymbolRepository.GetPagedAsync` provide comprehensive paging and filtering using type-safe parameter handling
 - Decimal parameters use explicit SQLite storage helpers (`AddDecimalToIntegerParameter` for scaled integers, `AddDecimalToTextParameter` for precision-safe text) instead of generic `AddWithValue`
@@ -190,6 +193,7 @@ OzzTradeDiary.slnx
 │   │   ├── SymbolRepository.cs
 │   │   ├── TradeRepository.cs
 │   │   └── ...                   # Repository classes live at the project root
+│   ├── TD.Tools.SeedDemoData/    # Demo-data seeding console tool
 │   └── OzzTradeDiary.WPF/        # Desktop UI (TD.WPF namespace) — Windows only
 │       ├── Commands/             # ICommand implementations
 │       ├── Extensions/           # WPF-specific helpers
@@ -247,7 +251,7 @@ Shared enum and text helper logic lives in `TD.Extensions` so UI projects such a
 At repository startup, initialization executes generated DDL scripts and applies baseline seed scripts only when target tables are empty.
 
 - Seeding is idempotent and uses the inherited `SeedIfEmpty(...)` helper from `AbstractDatabaseRepository`.
-- Demo data for local debugging can be seeded with `OzzTradeDiary.Tools.SeedDemoData` or the convenience launcher `Scripts/SeedDemoData.bat`.
+- Demo data for local debugging can be seeded with `TD.Tools.SeedDemoData` or the convenience launcher `Scripts/SeedDemoData.bat`.
 - `SeedDemoData` generates demo symbols/trades/images for multiple crypto tickers with a crypto base-price dictionary for more realistic price generation.
 - Demo seeding creates two exchanges and two trading accounts, then distributes generated trades over a wider date range.
 - `SeedTrades` supports flexible account/exchange/day-range/suffix targeting for reusable seeding scenarios.

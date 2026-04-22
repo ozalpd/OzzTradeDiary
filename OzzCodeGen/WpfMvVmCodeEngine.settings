@@ -328,8 +328,8 @@
       <GenerateCommands>true</GenerateCommands>
       <GenerateCreateView>true</GenerateCreateView>
       <GenerateEditView>true</GenerateEditView>
-      <GenerateCreateViewModel>true</GenerateCreateViewModel>
-      <GenerateEditViewModel>true</GenerateEditViewModel>
+      <GenerateCreateViewModel>false</GenerateCreateViewModel>
+      <GenerateEditViewModel>false</GenerateEditViewModel>
       <GenerateLookupService>true</GenerateLookupService>
       <RepositoryName>ITradingAccountRepository</RepositoryName>
       <SubFolder>Maintenance</SubFolder>
@@ -458,8 +458,8 @@
       <GenerateCommands>true</GenerateCommands>
       <GenerateCreateView>true</GenerateCreateView>
       <GenerateEditView>true</GenerateEditView>
-      <GenerateCreateViewModel>true</GenerateCreateViewModel>
-      <GenerateEditViewModel>true</GenerateEditViewModel>
+      <GenerateCreateViewModel>false</GenerateCreateViewModel>
+      <GenerateEditViewModel>false</GenerateEditViewModel>
       <GenerateLookupService>true</GenerateLookupService>
       <RepositoryName>ISymbolRepository</RepositoryName>
       <SubFolder>Maintenance</SubFolder>

@@ -4,6 +4,15 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.0.50] - 2026-04-22
+
+### Changed
+- Bumped all project versions to `0.0.50` (`OzzTradeDiary`, `OzzTradeDiary.WPF`, `OzzTradeDiary.SQLite`, `OzzTradeDiary.i18n`).
+- Renamed the demo-data seeding tool project and all related references from `OzzTradeDiary.Tools.SeedDemoData` to `TD.Tools.SeedDemoData`, including solution and batch-script references.
+- Renamed WPF design-time/default lookup services from `Empty*LookupService` to `*MockLookupService` and updated all usages.
+- Disabled code generation for TradingAccount/Symbol create/edit ViewModels.
+- Updated internal tracking version comments to align with `0.0.50`.
+
 ## [0.0.49] - 2026-04-21
 
 ### Changed

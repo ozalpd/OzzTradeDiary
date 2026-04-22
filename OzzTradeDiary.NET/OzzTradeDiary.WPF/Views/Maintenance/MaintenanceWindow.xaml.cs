@@ -15,8 +15,8 @@ namespace TD.WPF.Views.Maintenance
     {
         private MaintenanceWindowVM _viewModel;
         private readonly AppSettings _appSettings = AppSettings.GetAppSettings();
-        private IExchangeLookupService _exchangeLookupService = new EmptyExchangeLookupService();
-        private ICurrencyLookupService _currencyLookupService = new EmptyCurrencyLookupService();
+        private IExchangeLookupService _exchangeLookupService = new ExchangeMockLookupService();
+        private ICurrencyLookupService _currencyLookupService = new CurrencyMockLookupService();
 
         public MaintenanceWindow()
         {

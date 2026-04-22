@@ -1,2 +1,2 @@
-@dotnet run --project ..\OzzTradeDiary.NET\OzzTradeDiary.Tools.SeedDemoData\OzzTradeDiary.Tools.SeedDemoData.csproj --reset --daysago 6
+@dotnet run --project ..\OzzTradeDiary.NET\TD.Tools.SeedDemoData\TD.Tools.SeedDemoData.csproj --reset --daysago 6
 @pause

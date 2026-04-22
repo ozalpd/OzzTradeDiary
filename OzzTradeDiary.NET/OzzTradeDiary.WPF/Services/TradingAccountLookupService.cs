@@ -30,7 +30,7 @@ namespace TD.WPF.Services
     /// </summary>
     /// <remarks>This implementation can be used in scenarios where tradingAccount lookup functionality is optional or not
     /// required, such as in design time, in testing or when no ITradingAccountRepository are configured.</remarks>
-    internal sealed partial class EmptyTradingAccountLookupService : ITradingAccountLookupService
+    internal sealed partial class TradingAccountMockLookupService : ITradingAccountLookupService
     {
         public Task<IReadOnlyList<TradingAccount>> GetTradingAccountsAsync(bool isActive)
         {

@@ -30,7 +30,7 @@ namespace TD.WPF.Services
     /// </summary>
     /// <remarks>This implementation can be used in scenarios where symbol lookup functionality is optional or not
     /// required, such as in design time, in testing or when no ISymbolRepository are configured.</remarks>
-    internal sealed partial class EmptySymbolLookupService : ISymbolLookupService
+    internal sealed partial class SymbolMockLookupService : ISymbolLookupService
     {
         public Task<IReadOnlyList<Symbol>> GetSymbolsAsync(bool isActive)
         {

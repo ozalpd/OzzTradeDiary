@@ -30,7 +30,7 @@ namespace TD.WPF.Services
     /// </summary>
     /// <remarks>This implementation can be used in scenarios where exchange lookup functionality is optional or not
     /// required, such as in design time, in testing or when no IExchangeRepository are configured.</remarks>
-    internal sealed partial class EmptyExchangeLookupService : IExchangeLookupService
+    internal sealed partial class ExchangeMockLookupService : IExchangeLookupService
     {
         public Task<IReadOnlyList<Exchange>> GetExchangesAsync(bool isActive)
         {
