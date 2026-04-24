@@ -862,8 +862,8 @@
   </EntitySettings>
   <RenderAllEntities>false</RenderAllEntities>
   <BaseClassNamespaceName>TD.Models.Infra</BaseClassNamespaceName>
-  <ContractsNamespaceName />
-  <InfrastructureFolder />
+  <ContractsNamespaceName>TD.AppInfra</ContractsNamespaceName>
+  <InfrastructureFolder>..\OzzTradeDiary.NET\OzzTradeDiary.AppInfra\</InfrastructureFolder>
   <CommandFolder>Commands</CommandFolder>
   <CommandNamespaceName>TD.WPF.Commands</CommandNamespaceName>
   <RepositoryNamespaceName>TD.SQLite</RepositoryNamespaceName>

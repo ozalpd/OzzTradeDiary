@@ -9,11 +9,11 @@
 		<ApplicationIcon>Assets\OzzTradeDiary-256.ico</ApplicationIcon>
 		<RootNamespace>TD.WPF</RootNamespace>
 
-		<Version>0.0.50</Version>
-		<AssemblyVersion>0.0.50.0</AssemblyVersion>
-		<FileVersion>0.0.50.0</FileVersion>
-		<InformationalVersion>0.0.50</InformationalVersion>
-		
+		<Version>0.0.51</Version>
+		<AssemblyVersion>0.0.51.0</AssemblyVersion>
+		<FileVersion>0.0.51.0</FileVersion>
+		<InformationalVersion>0.0.51</InformationalVersion>
+
 		<Company>Ozalp Donduren</Company>
 		<Product>Ozz Trade Diary</Product>
 		<Description>Trade Journal Application</Description>
@@ -25,6 +25,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<ProjectReference Include="..\OzzTradeDiary.AppInfra\OzzTradeDiary.AppInfra.csproj" />
 		<ProjectReference Include="..\OzzTradeDiary.i18n\OzzTradeDiary.i18n.csproj" />
 		<ProjectReference Include="..\OzzTradeDiary\OzzTradeDiary.csproj" />
 		<ProjectReference Include="..\OzzTradeDiary.SQLite\OzzTradeDiary.SQLite.csproj" />

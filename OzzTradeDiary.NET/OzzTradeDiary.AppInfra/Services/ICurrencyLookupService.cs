@@ -6,7 +6,7 @@ using TD.Models;
 //     so manual changes should be made in another partial class file.
 //
 //----------------------------------------------------------------------------------
-namespace TD.WPF.Services
+namespace TD.AppInfra.Services
 {
     public partial interface ICurrencyLookupService
     {

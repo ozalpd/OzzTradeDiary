@@ -1,4 +1,5 @@
-﻿using TD.Models;
+﻿using TD.AppInfra.ViewModels;
+using TD.Models;
 
 namespace TD.WPF.ViewModels.Maintenance
 {

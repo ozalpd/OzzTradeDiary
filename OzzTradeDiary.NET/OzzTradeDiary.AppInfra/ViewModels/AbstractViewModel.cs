@@ -6,7 +6,7 @@ using System.ComponentModel;
 //     so manual changes should be made in another partial class file.
 //
 //----------------------------------------------------------------------------------
-namespace TD.WPF.ViewModels
+namespace TD.AppInfra.ViewModels
 {
     public abstract class AbstractViewModel : INotifyPropertyChanged
     {

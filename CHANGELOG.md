@@ -4,6 +4,19 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.0.51] - 2026-04-23
+
+### Added
+- Introduced `OzzTradeDiary.AppInfra` (`TD.AppInfra`) project for shared ViewModel and command base classes targeting `net10.0` for cross-platform reuse.
+
+### Changed
+- Moved shared ViewModel base classes (`AbstractViewModel`, `AbstractDataErrorInfoVM`, `AbstractCreateEditVM`, `AbstractCollectionVM`, `AbstractCommand`, etc.) from `TD.WPF` to `TD.AppInfra` with `public` visibility.
+- Updated all WPF usages to reference `TD.AppInfra` base classes instead of local `TD.WPF` implementations.
+- Updated project references: `OzzTradeDiary.WPF` and `TD.Tools.SeedDemoData` now reference `OzzTradeDiary.AppInfra`.
+- Updated namespaces: moved base classes to `TD.AppInfra` namespace; WPF-specific derived classes remain in `TD.WPF` namespace.
+- Aligned modularization toward future MAUI frontend: shared infra/base classes are now platform-independent and available for reuse.
+- Bumped all project versions to `0.0.51` (`OzzTradeDiary`, `OzzTradeDiary.AppInfra`, `OzzTradeDiary.WPF`, `OzzTradeDiary.SQLite`, `OzzTradeDiary.i18n`).
+
 ## [0.0.50] - 2026-04-22
 
 ### Changed

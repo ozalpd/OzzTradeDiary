@@ -1,6 +1,6 @@
 ﻿using System.Windows;
+using TD.AppInfra.ViewModels;
 using TD.i18n;
-using TD.WPF.ViewModels;
 
 namespace TD.WPF.Views
 {

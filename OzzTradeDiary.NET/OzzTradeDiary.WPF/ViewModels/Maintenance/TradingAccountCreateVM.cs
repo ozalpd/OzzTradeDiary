@@ -1,6 +1,7 @@
 using System.Collections.ObjectModel;
+using TD.AppInfra.Services;
+using TD.AppInfra.ViewModels;
 using TD.Models;
-using TD.WPF.Services;
 
 namespace TD.WPF.ViewModels.Maintenance
 {
