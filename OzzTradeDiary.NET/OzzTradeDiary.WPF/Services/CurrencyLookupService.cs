@@ -10,6 +10,12 @@ using TD.SQLite;
 //----------------------------------------------------------------------------------
 namespace TD.WPF.Services
 {
+    /// <summary>
+    /// Provides currency lookup functionality using an underlying currency repository.
+    /// </summary>
+    /// <remarks>This service is intended for retrieving currency data, typically for populating UI selection
+    /// lists or performing currency-related lookups. It abstracts the data access layer, allowing consumers to retrieve
+    /// currency information without depending directly on repository implementations.</remarks>
     public partial class CurrencyLookupService : ICurrencyLookupService
     {
         private readonly ICurrencyRepository _currencyRepository;
@@ -24,30 +30,5 @@ namespace TD.WPF.Services
             var currencies = await _currencyRepository.GetAllAsync(isActive);
             return currencies.ToList();
         }
-    }
-
-    /// <summary>
-    /// Provides a no-op implementation of the ICurrencyLookupService interface that returns an empty or
-    /// mock list of currencies.
-    /// </summary>
-    /// <remarks>This implementation can be used in scenarios where currency lookup functionality is optional or
-    /// not required, such as in design time, in testing or when no ICurrencyRepository are configured.</remarks>
-    public sealed partial class CurrencyMockLookupService : ICurrencyLookupService
-    {
-        public Task<IReadOnlyList<Currency>> GetCurrenciesAsync(bool isActive)
-        {
-            var currencies = new List<Currency>();
-            FillMockData(currencies);
-            return Task.FromResult<IReadOnlyList<Currency>>(currencies);
-        }
-
-        /// <summary>
-        /// Populates the specified list with mock currency data for testing or demonstration purposes.
-        /// </summary>
-        /// <remarks>This method is intended for use in test scenarios or when sample data is required.
-        /// The implementation should ensure that the provided list is filled with representative currency objects as
-        /// needed by the caller.</remarks>
-        /// <param name="currencies">The list of <see cref="Currency"/> objects to populate with mock data. Must not be null.</param>
-        partial void FillMockData(List<Currency> currencies);
     }
 }

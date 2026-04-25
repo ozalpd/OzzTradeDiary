@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.0.52] - 2026-04-23
+
+### Changed
+- Bumped all project versions to `0.0.52` (`OzzTradeDiary`, `OzzTradeDiary.AppInfra`, `OzzTradeDiary.WPF`, `OzzTradeDiary.SQLite`, `OzzTradeDiary.i18n`).
+- Added XML documentation comments to lookup service interfaces and WPF lookup service classes for clearer API usage.
+- Moved mock lookup service implementations to `TD.AppInfra.Services` in dedicated files for better shared organization.
+- Removed mock lookup service classes from the WPF project after moving them to AppInfra.
+- Removed unused `using` directives from `SymbolCreate.xaml.cs` and `TradingAccountCreate.xaml.cs`.
+- No functional behavior changes; this release focuses on code clarity and project organization.
+
 ## [0.0.51] - 2026-04-23
 
 ### Added

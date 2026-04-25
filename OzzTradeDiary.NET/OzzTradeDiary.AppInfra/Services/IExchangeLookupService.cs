@@ -8,6 +8,12 @@ using TD.Models;
 //----------------------------------------------------------------------------------
 namespace TD.AppInfra.Services
 {
+    /// <summary>
+    /// Defines a service for retrieving exchange information for use in lookup scenarios.
+    /// </summary>
+    /// <remarks>Implementations of this interface provide access to exchange data, typically for populating
+    /// selection lists or validating exchange references in the application. Methods are asynchronous to support data
+    /// sources that may require I/O operations, such as databases or remote services.</remarks>
     public partial interface IExchangeLookupService
     {
         Task<IReadOnlyList<Exchange>> GetExchangesAsync(bool isActive);

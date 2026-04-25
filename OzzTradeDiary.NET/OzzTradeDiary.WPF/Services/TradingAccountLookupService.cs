@@ -10,6 +10,12 @@ using TD.SQLite;
 //----------------------------------------------------------------------------------
 namespace TD.WPF.Services
 {
+    /// <summary>
+    /// Provides tradingAccount lookup functionality using an underlying tradingAccount repository.
+    /// </summary>
+    /// <remarks>This service is intended for retrieving tradingAccount data, typically for populating UI selection
+    /// lists or performing tradingAccount-related lookups. It abstracts the data access layer, allowing consumers to retrieve
+    /// tradingAccount information without depending directly on repository implementations.</remarks>
     public partial class TradingAccountLookupService : ITradingAccountLookupService
     {
         private readonly ITradingAccountRepository _tradingAccountRepository;
@@ -24,30 +30,5 @@ namespace TD.WPF.Services
             var tradingAccounts = await _tradingAccountRepository.GetAllAsync(isActive);
             return tradingAccounts.ToList();
         }
-    }
-
-    /// <summary>
-    /// Provides a no-op implementation of the ITradingAccountLookupService interface that returns an empty or
-    /// mock list of tradingAccounts.
-    /// </summary>
-    /// <remarks>This implementation can be used in scenarios where tradingAccount lookup functionality is optional or
-    /// not required, such as in design time, in testing or when no ITradingAccountRepository are configured.</remarks>
-    public sealed partial class TradingAccountMockLookupService : ITradingAccountLookupService
-    {
-        public Task<IReadOnlyList<TradingAccount>> GetTradingAccountsAsync(bool isActive)
-        {
-            var tradingAccounts = new List<TradingAccount>();
-            FillMockData(tradingAccounts);
-            return Task.FromResult<IReadOnlyList<TradingAccount>>(tradingAccounts);
-        }
-
-        /// <summary>
-        /// Populates the specified list with mock tradingAccount data for testing or demonstration purposes.
-        /// </summary>
-        /// <remarks>This method is intended for use in test scenarios or when sample data is required.
-        /// The implementation should ensure that the provided list is filled with representative tradingAccount objects as
-        /// needed by the caller.</remarks>
-        /// <param name="tradingAccounts">The list of <see cref="TradingAccount"/> objects to populate with mock data. Must not be null.</param>
-        partial void FillMockData(List<TradingAccount> tradingAccounts);
     }
 }

@@ -10,6 +10,12 @@ using TD.SQLite;
 //----------------------------------------------------------------------------------
 namespace TD.WPF.Services
 {
+    /// <summary>
+    /// Provides symbol lookup functionality using an underlying symbol repository.
+    /// </summary>
+    /// <remarks>This service is intended for retrieving symbol data, typically for populating UI selection
+    /// lists or performing symbol-related lookups. It abstracts the data access layer, allowing consumers to retrieve
+    /// symbol information without depending directly on repository implementations.</remarks>
     public partial class SymbolLookupService : ISymbolLookupService
     {
         private readonly ISymbolRepository _symbolRepository;
@@ -24,30 +30,5 @@ namespace TD.WPF.Services
             var symbols = await _symbolRepository.GetAllAsync(isActive);
             return symbols.ToList();
         }
-    }
-
-    /// <summary>
-    /// Provides a no-op implementation of the ISymbolLookupService interface that returns an empty or
-    /// mock list of symbols.
-    /// </summary>
-    /// <remarks>This implementation can be used in scenarios where symbol lookup functionality is optional or
-    /// not required, such as in design time, in testing or when no ISymbolRepository are configured.</remarks>
-    public sealed partial class SymbolMockLookupService : ISymbolLookupService
-    {
-        public Task<IReadOnlyList<Symbol>> GetSymbolsAsync(bool isActive)
-        {
-            var symbols = new List<Symbol>();
-            FillMockData(symbols);
-            return Task.FromResult<IReadOnlyList<Symbol>>(symbols);
-        }
-
-        /// <summary>
-        /// Populates the specified list with mock symbol data for testing or demonstration purposes.
-        /// </summary>
-        /// <remarks>This method is intended for use in test scenarios or when sample data is required.
-        /// The implementation should ensure that the provided list is filled with representative symbol objects as
-        /// needed by the caller.</remarks>
-        /// <param name="symbols">The list of <see cref="Symbol"/> objects to populate with mock data. Must not be null.</param>
-        partial void FillMockData(List<Symbol> symbols);
     }
 }

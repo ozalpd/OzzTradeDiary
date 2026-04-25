@@ -10,6 +10,12 @@ using TD.SQLite;
 //----------------------------------------------------------------------------------
 namespace TD.WPF.Services
 {
+    /// <summary>
+    /// Provides exchange lookup functionality using an underlying exchange repository.
+    /// </summary>
+    /// <remarks>This service is intended for retrieving exchange data, typically for populating UI selection
+    /// lists or performing exchange-related lookups. It abstracts the data access layer, allowing consumers to retrieve
+    /// exchange information without depending directly on repository implementations.</remarks>
     public partial class ExchangeLookupService : IExchangeLookupService
     {
         private readonly IExchangeRepository _exchangeRepository;
@@ -24,30 +30,5 @@ namespace TD.WPF.Services
             var exchanges = await _exchangeRepository.GetAllAsync(isActive);
             return exchanges.ToList();
         }
-    }
-
-    /// <summary>
-    /// Provides a no-op implementation of the IExchangeLookupService interface that returns an empty or
-    /// mock list of exchanges.
-    /// </summary>
-    /// <remarks>This implementation can be used in scenarios where exchange lookup functionality is optional or
-    /// not required, such as in design time, in testing or when no IExchangeRepository are configured.</remarks>
-    public sealed partial class ExchangeMockLookupService : IExchangeLookupService
-    {
-        public Task<IReadOnlyList<Exchange>> GetExchangesAsync(bool isActive)
-        {
-            var exchanges = new List<Exchange>();
-            FillMockData(exchanges);
-            return Task.FromResult<IReadOnlyList<Exchange>>(exchanges);
-        }
-
-        /// <summary>
-        /// Populates the specified list with mock exchange data for testing or demonstration purposes.
-        /// </summary>
-        /// <remarks>This method is intended for use in test scenarios or when sample data is required.
-        /// The implementation should ensure that the provided list is filled with representative exchange objects as
-        /// needed by the caller.</remarks>
-        /// <param name="exchanges">The list of <see cref="Exchange"/> objects to populate with mock data. Must not be null.</param>
-        partial void FillMockData(List<Exchange> exchanges);
     }
 }

@@ -8,6 +8,12 @@ using TD.Models;
 //----------------------------------------------------------------------------------
 namespace TD.AppInfra.Services
 {
+    /// <summary>
+    /// Defines a service for retrieving symbol information for use in lookup scenarios.
+    /// </summary>
+    /// <remarks>Implementations of this interface provide access to symbol data, typically for populating
+    /// selection lists or validating symbol references in the application. Methods are asynchronous to support data
+    /// sources that may require I/O operations, such as databases or remote services.</remarks>
     public partial interface ISymbolLookupService
     {
         Task<IReadOnlyList<Symbol>> GetSymbolsAsync(bool isActive);
