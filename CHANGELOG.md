@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
-## [0.0.52] - 2026-04-23
+## [0.0.52] - 2026-04-25
 
 ### Changed
 - Bumped all project versions to `0.0.52` (`OzzTradeDiary`, `OzzTradeDiary.AppInfra`, `OzzTradeDiary.WPF`, `OzzTradeDiary.SQLite`, `OzzTradeDiary.i18n`).
@@ -14,7 +14,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - Removed unused `using` directives from `SymbolCreate.xaml.cs` and `TradingAccountCreate.xaml.cs`.
 - No functional behavior changes; this release focuses on code clarity and project organization.
 
-## [0.0.51] - 2026-04-23
+## [0.0.51] - 2026-04-24
 
 ### Added
 - Introduced `OzzTradeDiary.AppInfra` (`TD.AppInfra`) project for shared ViewModel and command base classes targeting `net10.0` for cross-platform reuse.

@@ -4,7 +4,7 @@
 
 Early-stage development (pre-release, no public release yet).
 
-Internal tracking versions: `OzzTradeDiary` `0.0.51`, `OzzTradeDiary.AppInfra` `0.0.51`, `OzzTradeDiary.WPF` `0.0.51`, `OzzTradeDiary.SQLite` `0.0.51`, `OzzTradeDiary.i18n` `0.0.51`.
+Internal tracking versions: `OzzTradeDiary` `0.0.52`, `OzzTradeDiary.AppInfra` `0.0.52`, `OzzTradeDiary.WPF` `0.0.52`, `OzzTradeDiary.SQLite` `0.0.52`, `OzzTradeDiary.i18n` `0.0.52`.
 
 - **Changelog discipline**: Any behavior change (repository logic, initialization, seeding, schema generation impact, UI-visible behavior) must be recorded in `CHANGELOG.md`.
 
@@ -32,7 +32,6 @@ Internal tracking versions: `OzzTradeDiary` `0.0.51`, `OzzTradeDiary.AppInfra` `
 - Keep reusable lookup/app-service contracts in `TD.AppContracts` (avoid placing reusable contracts in `TD.WPF`).
 - Target a future `OzzTradeDiary.MAUI` frontend that consumes shared core/localization/app-infra/contracts rather than WPF-specific assemblies.
 - Shared helper logic such as `EnumExtension` and `TextExtensions` belongs in the platform-agnostic core library, not in `TD.WPF.Extensions`.
-- Rename the shared concrete implementation project to `TD.AppInfra` instead of `TD.Infrastructure`.
 
 ## Build and Test
 
@@ -105,8 +104,7 @@ Internal tracking versions: `OzzTradeDiary` `0.0.51`, `OzzTradeDiary.AppInfra` `
 - All repositories (except `SqliteDatabaseMetadataRepository`) inherit from `AbstractDatabaseRepository` or the shared generic repository base, keeping entity-specific logic minimal. Call `ValidateOrThrow` in `CreateAsync` and `UpdateAsync` immediately after the null guard; it runs `ModelValidator.Validate` and throws `ValidationException` with all error messages joined by newlines if validation fails.
 - Repository base classes should use shared `GetOpenConnection()` / `GetOpenConnectionAsync()` helpers for SQLite connections, and clear record-count caches after create/delete/seed operations via `ClearRecordCountCache()`.
 - Prefer async transaction wrappers in `AbstractDatabaseRepository` for future multi-step repository operations when a repository needs atomic changes.
-- Prefer readable names without redundant prefixes/suffixes: repository classes should be named `SymbolRepository`, `ExchangeRepository`, etc. under the `TD.SQLite` namespace.
-- Prefer readable repository names without redundant `SqliteDatabase` prefixes, e.g. `SymbolRepository`, `ExchangeRepository`, `TradingAccountRepository`.
+- Prefer readable names without redundant prefixes/suffixes: repository classes should be named `SymbolRepository`, `ExchangeRepository`, `TradingAccountRepository`, etc. under the `TD.SQLite` namespace.
 - Generated repository interfaces are co-located in the same file as the repository class and use the `I<Entity>Repository` name (e.g. `IExchangeRepository`, `ITradingAccountRepository`, `ISymbolRepository`).
 - Lookup APIs should accept nullable inputs (`int?`, `string?`) for `GetByIdAsync` / `GetBy*Async` and return `null` for `null` inputs.
 - Generated repositories expose constructor-level `OnInitialized(...)` partial hooks (with dependency-ownership flags) and operation hooks such as `OnLoaded(T entity)`, `OnCreated(T entity)`, and `OnUpdated(T entity)` / `OnUpdated(int id)` for extensibility without modifying generated code.
@@ -181,7 +179,7 @@ Internal tracking versions: `OzzTradeDiary` `0.0.51`, `OzzTradeDiary.AppInfra` `
 - **Database path**: In `DEBUG` builds, default data paths should resolve under repo-root `SampleData` (git-ignored) to avoid touching user profile data; in non-debug builds the default remains user app-data (`{LocalApplicationData}/OzzTradeDiary`).
 - **Shared partial reuse**: When multiple projects need the same non-generated implementation detail (for example debug `SampleData` path discovery), prefer extracting it into a partial file such as `AppSettings.part.cs` and linking that file into the consuming projects.
 - **Developer scripts**: Put developer convenience launchers in the repo-root `Scripts/` folder (for example `Scripts/SeedDemoData.bat`) instead of scattering them at the solution root.
-- **Demo seeding**: `OzzTradeDiary.Tools.SeedDemoData` should favor richer debug datasets (multiple symbols, randomized trade values, weighted trade direction, realistic quantity generation, and multiple images per trade) while remaining easy to rerun.
+- **Demo seeding**: `TD.Tools.SeedDemoData` (`OzzTradeDiary.NET/OzzTradeDiary.Tools.SeedDemoData/`) is a console tool for seeding realistic demo data into the debug SQLite database. It supports `--reset` (wipe and reseed), `--db <path>` (custom database path), and `--daysago <n>` (spread trades over n days). The convenience launcher is `Scripts/SeedDemoData.bat`. The tool shares debug `SampleData` path resolution with the WPF app via a linked `AppSettings.part.cs` partial file. Keep seeding logic aligned with model/repository changes; favor richer datasets (multiple exchanges, accounts, symbols, randomized trade values, weighted direction, multiple images per trade).
 - **Exchange symbol flag**: `Exchange.HasAnySymbol` is the canonical persisted flag for whether an exchange has linked symbols; use it in UI/repository logic instead of recalculating the state when the data is already loaded.
 
 ## Key Entities

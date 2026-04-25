@@ -21,107 +21,53 @@ See [`CHANGELOG.md`](CHANGELOG.md) for release history.
 
 ## Features
 
-- DPI-aware multi-monitor window positioning
-- Generated WPF design-time/default lookup service implementations `Mock*LookupService`
-- `AppSettings` uses a debug-safe default data location: in `DEBUG` builds database and related app data resolve under repo-root `SampleData` (git-ignored), while release builds continue to use user app-data folders
-- Shared debug `SampleData` path resolution now lives in `AppSettings.part.cs` and is linked into `TD.Tools.SeedDemoData` so the WPF app and seeding tool use the same default debug database path
-- Trade filtering via `TradeQueryParameters` in `TD.Helpers` with support for pagination, date ranges, position values, P/L, and risk ranges
-- `TradeRepository.GetPagedAsync` and `SymbolRepository.GetPagedAsync` provide comprehensive paging and filtering using type-safe parameter handling
-- Decimal parameters use explicit SQLite storage helpers (`AddDecimalToIntegerParameter` for scaled integers, `AddDecimalToTextParameter` for precision-safe text) instead of generic `AddWithValue`
-- Decimal retrieval uses matching read helpers: `GetDecimalFromText(ordinal)` for `TEXT`-stored decimals (pairs with `AddDecimalToTextParameter`) and `GetDecimalFromInteger(ordinal, scale)` for scaled-integer decimals (pairs with `AddDecimalToIntegerParameter`); `GetNullableDecimal` was renamed to `GetDecimalFromText`
-- `SeedDemoData` tool supports `--daysago` argument for flexible seeding across custom date ranges
-- `Scripts/SeedDemoData.bat` provides a convenient launcher for the demo-data seeding tool
-- Generated `Symbols-Data.sql` lowers crypto `DisplayOrder` values so crypto symbols group more naturally in UI lists
-- Repository interfaces are now `partial`, allowing extension across files while keeping generated files untouched
-- Repository constructors now expose `OnInitialized` partial hooks so generated repositories can be extended without modifying generated source
-- Repository contracts and implementations now expose richer partial hooks/methods for navigation loading and update flows (`OnLoaded`, `OnCreated`, `OnUpdated`) to support extensibility
-- `OrderAmount` and `FilledAmount` were removed from persisted order models and replaced with calculated partial `OrderValue` and `FilledValue` properties for `EntryOrder`, `StopLossOrder`, and `TakeProfitOrder`
-- `OrderValue` and `FilledValue` are excluded from codegen-persisted fields so schema and repositories no longer treat them as stored columns for order entities
-- `TD.SQLite.Extensions.SqliteExtensions` now provides explicit decimal storage helpers such as `AddDecimalToIntegerParameter` and `AddDecimalToTextParameter`
-- Decimal repository parameter handling no longer uses `AddNullableParameter(decimal?)`; explicit integer-scaled vs text-decimal helpers are used instead
-- Code generation engine order was updated to keep regeneration dependencies flowing in the correct sequence
-- `TD.SQLite.Extensions.SqliteExtensions` now provides type-safe nullable parameter helpers together with decimal scaling helpers for SQLite persistence
-- Price and quantity fields are stored as `TEXT` where precision must be preserved, with code generation metadata keeping SQLite column names and decimal scales aligned
-- Localization resources and vocabulary inputs were updated for the value-field refactor
-- `Trade` now persists `PlannedPositionValue` and `ExecutedPositionValue` in the model and SQLite schema with aligned repository mapping and column ordering
-- Generated SQLite schema now includes index coverage for planned/executed trade position-value querying
-- Repository parameterization has been refactored to use `SqliteCommand` extension methods from `TD.SQLite.Extensions.SqliteExtensions` for safer typed command parameters
-- Demo data seeding now populates planned/executed trade position-value fields
-- `Trade` entry-price fields were renamed from `PlannedEntry`/`ExecutedEntry` to `PlannedEntryPrice`/`ExecutedEntryPrice` for clearer domain intent; all model, repository, schema, and localization references were updated accordingly
-- `Trade` now persists `IsFullyClosed`, `PlannedProfitLoss`, `RealizedProfitLoss`, and `PlannedRiskAmount` as domain fields, with aligned schema, indexes, repository mapping, and localization
-- Demo data seeding now populates the P/L, risk, and closed fields alongside existing trade fields
-- Demo seeding now includes `ADAUSD`, uses a crypto base-price dictionary for more realistic price generation, and assigns unique symbol `DisplayOrder` values
-- Demo seeding now creates two demo exchanges and two trading accounts, then spreads generated trades over a wider date range
-- `SeedTrades` was refactored to support flexible account/exchange/day-range/suffix targeting for reusable seeding scenarios
-- Default trade ordering in the repository was updated to align with the new domain contract
-- `TD.Helpers.TradeQueryParameters` now includes extended filter properties and improved extensibility for search-criteria logic via partial methods
-- `UpdateExchangeHasAnySymbolAsync` is now public so it can correctly satisfy repository interface contracts
-- `TD.Helpers` now includes generated query contracts for reusable pagination/search inputs (`QueryParameters`) and typed trade filtering (`TradeQueryParameters`)
-- `QueryParameters` was moved out of `TD.Validation` and now includes XML documentation plus a copy constructor for reuse and extension scenarios
-- `CsModelClassCodeEngine.settings` now supports per-entity query parameter generation and explicit search-parameter marking
-- Generated model and validator files now use clearer standardized codegen headers
-- Introduced `WpfMvVmCodeEngine.settings` to generate WPF Views, ViewModels, and Commands; `OzzTradeDiary.OzzGen` pipeline was updated to include this MVVM generation stage
-- Core WPF ViewModel base classes are code-generated, `public`, and extensible for easier reuse across feature areas
-- Maintenance create/edit ViewModels now inherit from `AbstractCreateEditVM` (replacing `AbstractEditVM`) with improved null handling and validation flow
-- `ExchangeRepository` now receives `SymbolRepository` and `TradingAccountRepository` through constructor injection to support explicit navigation-loading dependencies
-- `TradingAccountRepository` initialization is no longer owned by `ExchangeRepository` and is managed by the composition root/caller
-- `Exchange` now exposes navigation collections (`Symbols`, `TradingAccounts`) and `ExchangeRepository` can async-load them for richer repository-driven data composition
-- `Trade` now includes `OrderQuantity` and `FilledQuantity` fields, with matching repository mapping and schema support
-- `SeedDemoData` now generates richer crypto demo trades using weighted direction and more realistic quantity values
-- Symbol creation in the seeder is dynamic based on ticker input (for example `DEMO:BTCUSD`, `DEMO:ETHUSD`)
-- Seeder workflow is reset-first for repeatable local debugging datasets
-- `Exchange.HasAnySymbol` is carried through the model, schema, repositories, seed data, localization, codegen, and maintenance UI for exchange/symbol linkage
-- `AppSettings.UiCulture` stores the user's preferred BCP-47 culture name (e.g. `"en-US"`, `"tr-TR"`); applied to `CurrentUICulture` and `CurrentCulture` in `App.OnStartup` before `MainWindow` is created — when empty the OS culture is used
-- `MainWindow` menu items are fully localized via `{x:Static i18n:ActionStrings.*}` and `{x:Static i18n:LocalizedStrings.*}`
-- Repository class names in `TD.SQLite` use concise readable names such as `SymbolRepository` and `ExchangeRepository`; generated repository interfaces are co-located and use `I<Entity>Repository` naming (for example `ITradingAccountRepository`, `ISymbolRepository`)
-- Repository lookup APIs use nullable parameters (`int?`, `string?`) for `GetByIdAsync`/`GetBy*Async` and return `null` for `null` inputs for safer call paths
-- Generated repositories now support `OnLoaded` partial hooks in addition to create/update hooks for post-load extensibility
-- `Trade` navigation properties can be generated with `AutoLoad=true`, allowing related collections to be populated automatically after entity load
-- `TradeRepository.OnLoaded` now populates `TradeImages`, `EntryOrders`, `TakeProfitOrders`, and `StopLossOrders`
-- `TradeRepository` now uses injected order and image repositories to load related collections
-- `MetadataRepository` uses a singleton `GetInstance()` pattern so all repositories and WPF services share the same metadata access and database connection string source of truth
-- Repository base classes use shared `GetOpenConnection()` / `GetOpenConnectionAsync()` helpers, with `ClearRecordCountCache()` used after create/delete/seed operations
-- Date and time values are stored as `TEXT` in SQLite scripts, with `UpdatedAt` columns aligned to text-based handling
-- Domain enums wired in models (including `OrderType` and `TradeDirection`)
-- String validation and generated resources now use `MaxStringLength` / `MinStringLength` metadata where applicable
-- `TD.Extensions.EnumExtension` shared helper in `OzzTradeDiary` for building enum value collections and reading localized `Display` attribute text for UI bindings across WPF and future platform frontends
-- Shared text helpers were moved from the WPF app into `OzzTradeDiary` so they can be reused by platform-agnostic and future UI projects
-- Generated SQLite schema includes `OrderType` for `EntryOrder`, `TakeProfitOrder`, and `StopLossOrder`
+### Trade Journal
+- Track trades across multiple markets: Crypto, Stock, Forex, Futures, Options, Commodities, and more
+- Long and short trade directions
+- Multiple order types: Market, Limit, Stop, StopLimit, TrailingStop
+- Entry/exit orders, stop-loss, and take-profit levels per trade
+- Trade images: attach chart screenshots or web URLs with notes
+- Trade filtering and paging with `TradeQueryParameters` — supports date ranges, position values, P/L, and risk range filters
+
+### Multi-Account & Multi-Exchange
+- Manage multiple exchanges with optional default currency per exchange
+- Manage multiple trading accounts linked to exchanges
+- Manage symbols with market type, base/price currency, and exchange association
+
+### Maintenance UI
+- Maintenance window for Currency, Exchange, TradingAccount, and Symbol CRUD
+- Add, Edit, Save, Refresh, and Delete operations with localized icon-based buttons
+- Symbols tab supports text search and exchange-based filtering
+- Safe exchange deletion — disabled when exchange is referenced by symbols or trading accounts
+- Unsaved-changes confirmation on dialog close for edit dialogs
+
+### Localization
+- Full English and Turkish UI support
+- Localized DataAnnotations on model classes for display names and validation messages
+- All UI strings sourced from generated resource classes (`ActionStrings`, `CommonStrings`, `ErrorStrings`, `LocalizedStrings`, `MessageStrings`)
+
+### Data Layer
+- Raw SQLite data access via Microsoft.Data.Sqlite — no ORM
 - Repositories implemented: `Currency`, `Exchange`, `TradingAccount`, `Symbol`, `Trade`, `TradeImage`, `EntryOrder`, `StopLossOrder`, `TakeProfitOrder`
-- Added full CRUD repository support and entity mapping for `Trade`, `EntryOrder`, `StopLossOrder`, and `TakeProfitOrder`
-- Generated SQL index definitions were updated for better query performance, especially in `Trades` and `TradeImages`
-- Repository implementations now share a generic base class, with minor `ModelValidator` cleanup and repository refactoring
-- SQLite insert/update repository paths now handle nullable values more reliably, persisting SQL `NULL` where appropriate
-- `Exchange` includes nullable `DefaultCurrency`, persisted in SQLite as SQL `NULL` when not set
-- `AbstractDatabaseRepository` base class provides shared `ValidateOrThrow` helper called in `CreateAsync`/`UpdateAsync` — throws `ValidationException` with all DataAnnotations error messages
-- `AbstractDatabaseRepository` centralizes SQLite connection handling, record-count cache invalidation, SQL script execution, and async transaction helpers for future multi-step repository operations
-- `AbstractDiaryVM` base ViewModel consolidates repository initialization and CRUD operations shared across ViewModels
-- `AbstractCreateEditVM` provides shared create/edit ViewModel behavior (including dirty-state contract) and replaces the previous `AbstractEditVM` base
-- `ModelValidator` shared utility in `TD.Validation` for DataAnnotations-based model validation reusable by WPF, MAUI, and ASP.NET
-- Dedicated localization project `OzzTradeDiary.i18n` with generated resources: `ActionStrings`, `CommonStrings`, `ErrorStrings`, `LocalizedStrings`, `MessageStrings` (`default` + `tr`)
-- Turkish translations and localization code generation vocabulary were improved so generated resources stay aligned
-- Model classes apply localized DataAnnotations using `TD.i18n` resources for display names and validation messages
-- Maintenance window accessible from menu, with singleton window management (bring-to-front if already open)
-- Maintenance window provides Add, Edit, Save, Refresh, and Delete (Exchange) CRUD operations for Currency, Exchange, TradingAccount, and Symbol
-- `MaintenanceWindow` now includes `HasAnySymbol` exchange handling and updated symbol grid behavior
-- `MaintenanceWindow` Symbols tab supports search and exchange-based filtering with localized placeholder text
-- `MaintenanceWindow` edit flows have been polished for a more consistent maintenance experience
-- `CurrencyCreate`/`CurrencyEdit`, `ExchangeCreate`/`ExchangeEdit`, and `SymbolCreate`/`SymbolEdit` dialogs with dedicated view models integrated into maintenance flows
-- `SymbolCreate` market type ComboBox shows localized display text from enum `Display` attributes instead of blank items
-- `AbstractEditView` is an abstract base window for shared unsaved-changes confirmation with simplified dirty tracking in create/edit dialogs
-- `TradingAccountEdit`, `ExchangeEdit`, and `CurrencyEdit` inherit from `AbstractEditView` for consistent `Yes/No/Cancel` close handling when there are pending changes
-- `DeleteExchangeCommand` with `CanExecute` safety checks (disabled when exchange is referenced by Symbols or TradingAccounts) and `Yes/No` confirmation before deletion
-- `TradingAccountCreate` dialog (renamed from `CreateTradingAccount`) and `TradingAccountCreateVM` (renamed from `CreateTradingAccountVM`) with icon-based action buttons, live per-field validation, inline error display, and OK button enabled only when all required fields are valid
-- `TradingAccountCreate` and maintenance grids display `ExchangeCode` instead of numeric `ExchangeId`
-- `AccountCode` property removed from `TradingAccount` model and generated DDL
-- Shared validation styles `ValidationTextBoxStyle` and `ValidationComboBoxStyle` for consistent inline error display across forms
-- `ReadOnlyTextBoxStyle` for non-editable fields with darker background cue; read-only bindings use `Mode=OneWay`
-- `TradingAccountEdit` dialog for editing mutable fields (`DisplayOrder`, `IsActive`, `Notes`) of existing trading accounts; immutable fields (`Title`, `ExchangeCode`) displayed as read-only
-- `TradeImage` repository added with improved structure and documentation
-- Generator execution order in `OzzTradeDiary.OzzGen` is kept aligned with repository and schema dependencies for generated hooks and auto-loading behavior
-- About dialog with auto-close on deactivation, high-resolution icon rendering, and GitHub link
-- Bootstrap Icons rendered as window title bar icons via `WindowExtensions`
-- Application version displayed in `MainWindow` title bar via `AppVersion`
+- Navigation collections auto-loaded for `Exchange` (Symbols, TradingAccounts) and `Trade` (orders, images)
+- Type-safe decimal SQLite persistence — scaled integers for values, `TEXT` for precision-sensitive price/quantity fields
+
+### Database Backup
+- Automatic and manual SQLite backup via SQLite BACKUP API
+- Backups archived as timestamped ZIP files
+- Configurable retention policy with automatic cleanup of old backups
+
+### Developer Experience
+- `TD.Tools.SeedDemoData` console tool for seeding realistic demo crypto trade data
+- `Scripts/SeedDemoData.bat` convenience launcher — resets and reseeds the debug database
+- Debug builds use repo-root `SampleData/` path to avoid touching user app-data folders
+- SQLite DDL scripts, localization resources, model classes, and repository interfaces generated by OzzCodeGen
+
+### Application Infrastructure
+- DPI-aware multi-monitor window positioning
+- App version displayed in title bar; Bootstrap Icons for window title bar icons
+- UI culture configurable via `AppSettings.UiCulture` (BCP-47); falls back to OS culture when empty
+- Shared platform-agnostic MVVM base classes (`AbstractViewModel`, `AbstractCommand`, `AbstractDataErrorInfoVM`, `AbstractCreateEditVM`) in `TD.AppInfra` for reuse by WPF and future frontends
 
 ## Planned
 
