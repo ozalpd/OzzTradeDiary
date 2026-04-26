@@ -862,7 +862,7 @@
   </EntitySettings>
   <RenderAllEntities>false</RenderAllEntities>
   <BaseClassNamespaceName>TD.Models.Infra</BaseClassNamespaceName>
-  <ContractsNamespaceName>TD.AppInfra</ContractsNamespaceName>
+  <InfrastructureNamespaceName>TD.AppInfra</InfrastructureNamespaceName>
   <InfrastructureFolder>..\OzzTradeDiary.NET\OzzTradeDiary.AppInfra\</InfrastructureFolder>
   <CommandFolder>Commands</CommandFolder>
   <CommandNamespaceName>TD.WPF.Commands</CommandNamespaceName>

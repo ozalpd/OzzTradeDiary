@@ -191,7 +191,7 @@
                             </Viewbox>
                         </Button>
                         <Button ToolTip="{x:Static i18n:ActionStrings.Edit}"
-                                Click="EditCurrencys_Click">
+                                Click="EditCurrencies_Click">
                             <Button.Style>
                                 <Style TargetType="Button" BasedOn="{StaticResource IconButtonStyle-28x24}">
                                     <Setter Property="IsEnabled" Value="True" />

@@ -51,9 +51,4 @@ namespace TD.SQLite
             _ = LoadNavigationCollections(trade);
         }
     }
-
-    public partial interface ITradeRepository
-    {
-        Task LoadNavigationCollections(Trade trade);
-    }
 }

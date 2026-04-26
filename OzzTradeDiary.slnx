@@ -7,10 +7,11 @@
     <File Path="README.md" />
     <File Path="Scripts/SeedDemoData.bat" />
   </Folder>
+  <Project Path="OzzTradeDiary.NET/OzzTradeDiary/OzzTradeDiary.csproj" Id="19976e79-998a-4777-a38d-88d8b65258f0" />
   <Project Path="OzzTradeDiary.NET/OzzTradeDiary.AppInfra/OzzTradeDiary.AppInfra.csproj" Id="6dfd1c9e-796c-4dc3-b418-48e63ee09ce5" />
   <Project Path="OzzTradeDiary.NET/OzzTradeDiary.i18n/OzzTradeDiary.i18n.csproj" Id="9ee4aa5f-5af6-4e2a-bbe8-c73ea4990aa1" />
   <Project Path="OzzTradeDiary.NET/OzzTradeDiary.SQLite/OzzTradeDiary.SQLite.csproj" Id="7719c9b6-3a14-4aa1-8798-de8cac7c71dd" />
   <Project Path="OzzTradeDiary.NET/OzzTradeDiary.WPF/OzzTradeDiary.WPF.csproj" />
-  <Project Path="OzzTradeDiary.NET/OzzTradeDiary/OzzTradeDiary.csproj" Id="19976e79-998a-4777-a38d-88d8b65258f0" />
+  <Project Path="OzzTradeDiary.NET/TD.RepositoryContracts/TD.RepositoryContracts.csproj" Id="1b543670-9307-4553-b8c3-1c074a6888ae" />
   <Project Path="OzzTradeDiary.NET/TD.Tools.SeedDemoData/TD.Tools.SeedDemoData.csproj" />
 </Solution>

@@ -15,8 +15,8 @@
           <AutoLoad>false</AutoLoad>
           <CheckIfAltered>false</CheckIfAltered>
           <ColumnName>Id</ColumnName>
-          <DecimalToIntegerScale>0</DecimalToIntegerScale>
           <SingleColumnUpdate>false</SingleColumnUpdate>
+          <DecimalToIntegerScale>0</DecimalToIntegerScale>
         </SqliteRepositoryPropertySetting>
       </Properties>
       <GenerateGetPaged>false</GenerateGetPaged>
@@ -35,8 +35,8 @@
           <AutoLoad>false</AutoLoad>
           <CheckIfAltered>true</CheckIfAltered>
           <ColumnName>DisplayOrder</ColumnName>
-          <DecimalToIntegerScale>0</DecimalToIntegerScale>
           <SingleColumnUpdate>false</SingleColumnUpdate>
+          <DecimalToIntegerScale>0</DecimalToIntegerScale>
         </SqliteRepositoryPropertySetting>
       </Properties>
       <GenerateGetPaged>false</GenerateGetPaged>
@@ -55,8 +55,8 @@
           <AutoLoad>false</AutoLoad>
           <CheckIfAltered>true</CheckIfAltered>
           <ColumnName>IsActive</ColumnName>
-          <DecimalToIntegerScale>0</DecimalToIntegerScale>
           <SingleColumnUpdate>false</SingleColumnUpdate>
+          <DecimalToIntegerScale>0</DecimalToIntegerScale>
         </SqliteRepositoryPropertySetting>
       </Properties>
       <GenerateGetPaged>false</GenerateGetPaged>
@@ -75,8 +75,8 @@
           <AutoLoad>false</AutoLoad>
           <CheckIfAltered>false</CheckIfAltered>
           <ColumnName>UpdatedAt</ColumnName>
-          <DecimalToIntegerScale>0</DecimalToIntegerScale>
           <SingleColumnUpdate>false</SingleColumnUpdate>
+          <DecimalToIntegerScale>0</DecimalToIntegerScale>
         </SqliteRepositoryPropertySetting>
       </Properties>
       <GenerateGetPaged>false</GenerateGetPaged>
@@ -96,8 +96,8 @@
           <AutoLoad>false</AutoLoad>
           <CheckIfAltered>false</CheckIfAltered>
           <ColumnName>CreatedAt</ColumnName>
-          <DecimalToIntegerScale>0</DecimalToIntegerScale>
           <SingleColumnUpdate>false</SingleColumnUpdate>
+          <DecimalToIntegerScale>0</DecimalToIntegerScale>
         </SqliteRepositoryPropertySetting>
       </Properties>
       <GenerateGetPaged>false</GenerateGetPaged>
@@ -117,8 +117,8 @@
           <AutoLoad>false</AutoLoad>
           <CheckIfAltered>true</CheckIfAltered>
           <ColumnName>OrderType</ColumnName>
-          <DecimalToIntegerScale>0</DecimalToIntegerScale>
           <SingleColumnUpdate>false</SingleColumnUpdate>
+          <DecimalToIntegerScale>0</DecimalToIntegerScale>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
           <Name>ExecuteTime</Name>
@@ -126,8 +126,8 @@
           <AutoLoad>false</AutoLoad>
           <CheckIfAltered>true</CheckIfAltered>
           <ColumnName>ExecuteTime</ColumnName>
-          <DecimalToIntegerScale>0</DecimalToIntegerScale>
           <SingleColumnUpdate>false</SingleColumnUpdate>
+          <DecimalToIntegerScale>0</DecimalToIntegerScale>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
           <Name>OrderPrice</Name>
@@ -135,8 +135,8 @@
           <AutoLoad>false</AutoLoad>
           <CheckIfAltered>true</CheckIfAltered>
           <ColumnName>OrderPrice</ColumnName>
-          <DecimalToIntegerScale>0</DecimalToIntegerScale>
           <SingleColumnUpdate>false</SingleColumnUpdate>
+          <DecimalToIntegerScale>0</DecimalToIntegerScale>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
           <Name>FilledPrice</Name>
@@ -144,8 +144,8 @@
           <AutoLoad>false</AutoLoad>
           <CheckIfAltered>true</CheckIfAltered>
           <ColumnName>FilledPrice</ColumnName>
-          <DecimalToIntegerScale>0</DecimalToIntegerScale>
           <SingleColumnUpdate>false</SingleColumnUpdate>
+          <DecimalToIntegerScale>0</DecimalToIntegerScale>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
           <Name>OrderQuantity</Name>
@@ -153,8 +153,8 @@
           <AutoLoad>false</AutoLoad>
           <CheckIfAltered>true</CheckIfAltered>
           <ColumnName>OrderQuantity</ColumnName>
-          <DecimalToIntegerScale>0</DecimalToIntegerScale>
           <SingleColumnUpdate>false</SingleColumnUpdate>
+          <DecimalToIntegerScale>0</DecimalToIntegerScale>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
           <Name>FilledQuantity</Name>
@@ -162,8 +162,8 @@
           <AutoLoad>false</AutoLoad>
           <CheckIfAltered>true</CheckIfAltered>
           <ColumnName>FilledQuantity</ColumnName>
-          <DecimalToIntegerScale>0</DecimalToIntegerScale>
           <SingleColumnUpdate>false</SingleColumnUpdate>
+          <DecimalToIntegerScale>0</DecimalToIntegerScale>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
           <Name>OrderValue</Name>
@@ -171,8 +171,8 @@
           <AutoLoad>false</AutoLoad>
           <CheckIfAltered>true</CheckIfAltered>
           <ColumnName>OrderValue</ColumnName>
-          <DecimalToIntegerScale>4</DecimalToIntegerScale>
           <SingleColumnUpdate>false</SingleColumnUpdate>
+          <DecimalToIntegerScale>4</DecimalToIntegerScale>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
           <Name>FilledValue</Name>
@@ -180,8 +180,8 @@
           <AutoLoad>false</AutoLoad>
           <CheckIfAltered>true</CheckIfAltered>
           <ColumnName>FilledValue</ColumnName>
-          <DecimalToIntegerScale>4</DecimalToIntegerScale>
           <SingleColumnUpdate>false</SingleColumnUpdate>
+          <DecimalToIntegerScale>4</DecimalToIntegerScale>
         </SqliteRepositoryPropertySetting>
       </Properties>
       <GenerateGetPaged>false</GenerateGetPaged>
@@ -200,8 +200,8 @@
           <AutoLoad>false</AutoLoad>
           <CheckIfAltered>true</CheckIfAltered>
           <ColumnName>ExchangeName</ColumnName>
-          <DecimalToIntegerScale>0</DecimalToIntegerScale>
           <SingleColumnUpdate>false</SingleColumnUpdate>
+          <DecimalToIntegerScale>0</DecimalToIntegerScale>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
           <Name>ExchangeCode</Name>
@@ -209,8 +209,8 @@
           <AutoLoad>false</AutoLoad>
           <CheckIfAltered>false</CheckIfAltered>
           <ColumnName>ExchangeCode</ColumnName>
-          <DecimalToIntegerScale>0</DecimalToIntegerScale>
           <SingleColumnUpdate>false</SingleColumnUpdate>
+          <DecimalToIntegerScale>0</DecimalToIntegerScale>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
           <Name>DefaultCurrency</Name>
@@ -218,8 +218,8 @@
           <AutoLoad>false</AutoLoad>
           <CheckIfAltered>true</CheckIfAltered>
           <ColumnName>DefaultCurrency</ColumnName>
-          <DecimalToIntegerScale>0</DecimalToIntegerScale>
           <SingleColumnUpdate>false</SingleColumnUpdate>
+          <DecimalToIntegerScale>0</DecimalToIntegerScale>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
           <Name>HasAnySymbol</Name>
@@ -227,8 +227,8 @@
           <AutoLoad>false</AutoLoad>
           <CheckIfAltered>false</CheckIfAltered>
           <ColumnName>HasAnySymbol</ColumnName>
-          <DecimalToIntegerScale>0</DecimalToIntegerScale>
           <SingleColumnUpdate>true</SingleColumnUpdate>
+          <DecimalToIntegerScale>0</DecimalToIntegerScale>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
           <Name>Symbols</Name>
@@ -236,8 +236,8 @@
           <AutoLoad>true</AutoLoad>
           <CheckIfAltered>false</CheckIfAltered>
           <ColumnName>Symbols</ColumnName>
-          <DecimalToIntegerScale>0</DecimalToIntegerScale>
           <SingleColumnUpdate>false</SingleColumnUpdate>
+          <DecimalToIntegerScale>0</DecimalToIntegerScale>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
           <Name>TradingAccounts</Name>
@@ -245,8 +245,8 @@
           <AutoLoad>true</AutoLoad>
           <CheckIfAltered>false</CheckIfAltered>
           <ColumnName>TradingAccounts</ColumnName>
-          <DecimalToIntegerScale>0</DecimalToIntegerScale>
           <SingleColumnUpdate>false</SingleColumnUpdate>
+          <DecimalToIntegerScale>0</DecimalToIntegerScale>
         </SqliteRepositoryPropertySetting>
       </Properties>
       <GenerateGetPaged>false</GenerateGetPaged>
@@ -266,8 +266,8 @@
           <AutoLoad>false</AutoLoad>
           <CheckIfAltered>true</CheckIfAltered>
           <ColumnName>Title</ColumnName>
-          <DecimalToIntegerScale>0</DecimalToIntegerScale>
           <SingleColumnUpdate>false</SingleColumnUpdate>
+          <DecimalToIntegerScale>0</DecimalToIntegerScale>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
           <Name>ExchangeId</Name>
@@ -275,8 +275,8 @@
           <AutoLoad>false</AutoLoad>
           <CheckIfAltered>false</CheckIfAltered>
           <ColumnName>ExchangeId</ColumnName>
-          <DecimalToIntegerScale>0</DecimalToIntegerScale>
           <SingleColumnUpdate>false</SingleColumnUpdate>
+          <DecimalToIntegerScale>0</DecimalToIntegerScale>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
           <Name>Exchange</Name>
@@ -284,8 +284,8 @@
           <AutoLoad>true</AutoLoad>
           <CheckIfAltered>false</CheckIfAltered>
           <ColumnName>Exchange</ColumnName>
-          <DecimalToIntegerScale>0</DecimalToIntegerScale>
           <SingleColumnUpdate>false</SingleColumnUpdate>
+          <DecimalToIntegerScale>0</DecimalToIntegerScale>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
           <Name>Notes</Name>
@@ -293,8 +293,8 @@
           <AutoLoad>false</AutoLoad>
           <CheckIfAltered>true</CheckIfAltered>
           <ColumnName>Notes</ColumnName>
-          <DecimalToIntegerScale>0</DecimalToIntegerScale>
           <SingleColumnUpdate>false</SingleColumnUpdate>
+          <DecimalToIntegerScale>0</DecimalToIntegerScale>
         </SqliteRepositoryPropertySetting>
       </Properties>
       <GenerateGetPaged>false</GenerateGetPaged>
@@ -313,8 +313,8 @@
           <AutoLoad>false</AutoLoad>
           <CheckIfAltered>false</CheckIfAltered>
           <ColumnName>CurrencyTicker</ColumnName>
-          <DecimalToIntegerScale>0</DecimalToIntegerScale>
           <SingleColumnUpdate>false</SingleColumnUpdate>
+          <DecimalToIntegerScale>0</DecimalToIntegerScale>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
           <Name>Description</Name>
@@ -322,8 +322,8 @@
           <AutoLoad>false</AutoLoad>
           <CheckIfAltered>true</CheckIfAltered>
           <ColumnName>Description</ColumnName>
-          <DecimalToIntegerScale>0</DecimalToIntegerScale>
           <SingleColumnUpdate>false</SingleColumnUpdate>
+          <DecimalToIntegerScale>0</DecimalToIntegerScale>
         </SqliteRepositoryPropertySetting>
       </Properties>
       <GenerateGetPaged>false</GenerateGetPaged>
@@ -343,8 +343,8 @@
           <AutoLoad>false</AutoLoad>
           <CheckIfAltered>false</CheckIfAltered>
           <ColumnName>Ticker</ColumnName>
-          <DecimalToIntegerScale>0</DecimalToIntegerScale>
           <SingleColumnUpdate>false</SingleColumnUpdate>
+          <DecimalToIntegerScale>0</DecimalToIntegerScale>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
           <Name>TickerFull</Name>
@@ -352,8 +352,8 @@
           <AutoLoad>false</AutoLoad>
           <CheckIfAltered>false</CheckIfAltered>
           <ColumnName>TickerFull</ColumnName>
-          <DecimalToIntegerScale>0</DecimalToIntegerScale>
           <SingleColumnUpdate>false</SingleColumnUpdate>
+          <DecimalToIntegerScale>0</DecimalToIntegerScale>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
           <Name>BaseCurrency</Name>
@@ -361,8 +361,8 @@
           <AutoLoad>false</AutoLoad>
           <CheckIfAltered>false</CheckIfAltered>
           <ColumnName>BaseCurrency</ColumnName>
-          <DecimalToIntegerScale>0</DecimalToIntegerScale>
           <SingleColumnUpdate>false</SingleColumnUpdate>
+          <DecimalToIntegerScale>0</DecimalToIntegerScale>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
           <Name>PriceCurrency</Name>
@@ -370,8 +370,8 @@
           <AutoLoad>false</AutoLoad>
           <CheckIfAltered>false</CheckIfAltered>
           <ColumnName>PriceCurrency</ColumnName>
-          <DecimalToIntegerScale>0</DecimalToIntegerScale>
           <SingleColumnUpdate>false</SingleColumnUpdate>
+          <DecimalToIntegerScale>0</DecimalToIntegerScale>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
           <Name>Description</Name>
@@ -379,8 +379,8 @@
           <AutoLoad>false</AutoLoad>
           <CheckIfAltered>true</CheckIfAltered>
           <ColumnName>Description</ColumnName>
-          <DecimalToIntegerScale>0</DecimalToIntegerScale>
           <SingleColumnUpdate>false</SingleColumnUpdate>
+          <DecimalToIntegerScale>0</DecimalToIntegerScale>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
           <Name>ExchangeId</Name>
@@ -388,8 +388,8 @@
           <AutoLoad>false</AutoLoad>
           <CheckIfAltered>false</CheckIfAltered>
           <ColumnName>ExchangeId</ColumnName>
-          <DecimalToIntegerScale>0</DecimalToIntegerScale>
           <SingleColumnUpdate>false</SingleColumnUpdate>
+          <DecimalToIntegerScale>0</DecimalToIntegerScale>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
           <Name>Exchange</Name>
@@ -397,8 +397,8 @@
           <AutoLoad>true</AutoLoad>
           <CheckIfAltered>false</CheckIfAltered>
           <ColumnName>Exchange</ColumnName>
-          <DecimalToIntegerScale>0</DecimalToIntegerScale>
           <SingleColumnUpdate>false</SingleColumnUpdate>
+          <DecimalToIntegerScale>0</DecimalToIntegerScale>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
           <Name>MarketType</Name>
@@ -406,8 +406,8 @@
           <AutoLoad>false</AutoLoad>
           <CheckIfAltered>true</CheckIfAltered>
           <ColumnName>MarketType</ColumnName>
-          <DecimalToIntegerScale>0</DecimalToIntegerScale>
           <SingleColumnUpdate>false</SingleColumnUpdate>
+          <DecimalToIntegerScale>0</DecimalToIntegerScale>
         </SqliteRepositoryPropertySetting>
       </Properties>
       <GenerateGetPaged>true</GenerateGetPaged>
@@ -427,8 +427,8 @@
           <AutoLoad>false</AutoLoad>
           <CheckIfAltered>false</CheckIfAltered>
           <ColumnName>TradeId</ColumnName>
-          <DecimalToIntegerScale>0</DecimalToIntegerScale>
           <SingleColumnUpdate>false</SingleColumnUpdate>
+          <DecimalToIntegerScale>0</DecimalToIntegerScale>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
           <Name>Trade</Name>
@@ -436,8 +436,8 @@
           <AutoLoad>false</AutoLoad>
           <CheckIfAltered>false</CheckIfAltered>
           <ColumnName>Trade</ColumnName>
-          <DecimalToIntegerScale>0</DecimalToIntegerScale>
           <SingleColumnUpdate>false</SingleColumnUpdate>
+          <DecimalToIntegerScale>0</DecimalToIntegerScale>
         </SqliteRepositoryPropertySetting>
       </Properties>
       <GenerateGetPaged>false</GenerateGetPaged>
@@ -456,8 +456,8 @@
           <AutoLoad>false</AutoLoad>
           <CheckIfAltered>false</CheckIfAltered>
           <ColumnName>TradeId</ColumnName>
-          <DecimalToIntegerScale>0</DecimalToIntegerScale>
           <SingleColumnUpdate>false</SingleColumnUpdate>
+          <DecimalToIntegerScale>0</DecimalToIntegerScale>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
           <Name>Trade</Name>
@@ -465,8 +465,8 @@
           <AutoLoad>false</AutoLoad>
           <CheckIfAltered>false</CheckIfAltered>
           <ColumnName>Trade</ColumnName>
-          <DecimalToIntegerScale>0</DecimalToIntegerScale>
           <SingleColumnUpdate>false</SingleColumnUpdate>
+          <DecimalToIntegerScale>0</DecimalToIntegerScale>
         </SqliteRepositoryPropertySetting>
       </Properties>
       <GenerateGetPaged>false</GenerateGetPaged>
@@ -485,8 +485,8 @@
           <AutoLoad>false</AutoLoad>
           <CheckIfAltered>false</CheckIfAltered>
           <ColumnName>TradeId</ColumnName>
-          <DecimalToIntegerScale>0</DecimalToIntegerScale>
           <SingleColumnUpdate>false</SingleColumnUpdate>
+          <DecimalToIntegerScale>0</DecimalToIntegerScale>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
           <Name>Trade</Name>
@@ -494,8 +494,8 @@
           <AutoLoad>false</AutoLoad>
           <CheckIfAltered>false</CheckIfAltered>
           <ColumnName>Trade</ColumnName>
-          <DecimalToIntegerScale>0</DecimalToIntegerScale>
           <SingleColumnUpdate>false</SingleColumnUpdate>
+          <DecimalToIntegerScale>0</DecimalToIntegerScale>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
           <Name>StopAll</Name>
@@ -503,8 +503,8 @@
           <AutoLoad>false</AutoLoad>
           <CheckIfAltered>true</CheckIfAltered>
           <ColumnName>StopAll</ColumnName>
-          <DecimalToIntegerScale>0</DecimalToIntegerScale>
           <SingleColumnUpdate>false</SingleColumnUpdate>
+          <DecimalToIntegerScale>0</DecimalToIntegerScale>
         </SqliteRepositoryPropertySetting>
       </Properties>
       <GenerateGetPaged>false</GenerateGetPaged>
@@ -523,8 +523,8 @@
           <AutoLoad>false</AutoLoad>
           <CheckIfAltered>false</CheckIfAltered>
           <ColumnName>TradeId</ColumnName>
-          <DecimalToIntegerScale>0</DecimalToIntegerScale>
           <SingleColumnUpdate>false</SingleColumnUpdate>
+          <DecimalToIntegerScale>0</DecimalToIntegerScale>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
           <Name>Trade</Name>
@@ -532,8 +532,8 @@
           <AutoLoad>false</AutoLoad>
           <CheckIfAltered>false</CheckIfAltered>
           <ColumnName>Trade</ColumnName>
-          <DecimalToIntegerScale>0</DecimalToIntegerScale>
           <SingleColumnUpdate>false</SingleColumnUpdate>
+          <DecimalToIntegerScale>0</DecimalToIntegerScale>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
           <Name>ImageURL</Name>
@@ -541,8 +541,8 @@
           <AutoLoad>false</AutoLoad>
           <CheckIfAltered>true</CheckIfAltered>
           <ColumnName>ImageURL</ColumnName>
-          <DecimalToIntegerScale>0</DecimalToIntegerScale>
           <SingleColumnUpdate>false</SingleColumnUpdate>
+          <DecimalToIntegerScale>0</DecimalToIntegerScale>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
           <Name>Notes</Name>
@@ -550,8 +550,8 @@
           <AutoLoad>false</AutoLoad>
           <CheckIfAltered>true</CheckIfAltered>
           <ColumnName>Notes</ColumnName>
-          <DecimalToIntegerScale>0</DecimalToIntegerScale>
           <SingleColumnUpdate>false</SingleColumnUpdate>
+          <DecimalToIntegerScale>0</DecimalToIntegerScale>
         </SqliteRepositoryPropertySetting>
       </Properties>
       <GenerateGetPaged>false</GenerateGetPaged>
@@ -571,8 +571,8 @@
           <AutoLoad>false</AutoLoad>
           <CheckIfAltered>false</CheckIfAltered>
           <ColumnName>TradingAccountId</ColumnName>
-          <DecimalToIntegerScale>0</DecimalToIntegerScale>
           <SingleColumnUpdate>false</SingleColumnUpdate>
+          <DecimalToIntegerScale>0</DecimalToIntegerScale>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
           <Name>TradingAccount</Name>
@@ -580,8 +580,8 @@
           <AutoLoad>true</AutoLoad>
           <CheckIfAltered>false</CheckIfAltered>
           <ColumnName>TradingAccount</ColumnName>
-          <DecimalToIntegerScale>0</DecimalToIntegerScale>
           <SingleColumnUpdate>false</SingleColumnUpdate>
+          <DecimalToIntegerScale>0</DecimalToIntegerScale>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
           <Name>SymbolId</Name>
@@ -589,8 +589,8 @@
           <AutoLoad>false</AutoLoad>
           <CheckIfAltered>false</CheckIfAltered>
           <ColumnName>SymbolId</ColumnName>
-          <DecimalToIntegerScale>0</DecimalToIntegerScale>
           <SingleColumnUpdate>false</SingleColumnUpdate>
+          <DecimalToIntegerScale>0</DecimalToIntegerScale>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
           <Name>Symbol</Name>
@@ -598,8 +598,8 @@
           <AutoLoad>true</AutoLoad>
           <CheckIfAltered>false</CheckIfAltered>
           <ColumnName>Symbol</ColumnName>
-          <DecimalToIntegerScale>0</DecimalToIntegerScale>
           <SingleColumnUpdate>false</SingleColumnUpdate>
+          <DecimalToIntegerScale>0</DecimalToIntegerScale>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
           <Name>EntryTime</Name>
@@ -607,8 +607,8 @@
           <AutoLoad>false</AutoLoad>
           <CheckIfAltered>true</CheckIfAltered>
           <ColumnName>EntryTime</ColumnName>
-          <DecimalToIntegerScale>0</DecimalToIntegerScale>
           <SingleColumnUpdate>false</SingleColumnUpdate>
+          <DecimalToIntegerScale>0</DecimalToIntegerScale>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
           <Name>EntryMethod</Name>
@@ -616,8 +616,8 @@
           <AutoLoad>false</AutoLoad>
           <CheckIfAltered>true</CheckIfAltered>
           <ColumnName>EntryMethod</ColumnName>
-          <DecimalToIntegerScale>0</DecimalToIntegerScale>
           <SingleColumnUpdate>false</SingleColumnUpdate>
+          <DecimalToIntegerScale>0</DecimalToIntegerScale>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
           <Name>TradeDirection</Name>
@@ -625,8 +625,8 @@
           <AutoLoad>false</AutoLoad>
           <CheckIfAltered>true</CheckIfAltered>
           <ColumnName>TradeDirection</ColumnName>
-          <DecimalToIntegerScale>0</DecimalToIntegerScale>
           <SingleColumnUpdate>false</SingleColumnUpdate>
+          <DecimalToIntegerScale>0</DecimalToIntegerScale>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
           <Name>IsFullyClosed</Name>
@@ -634,8 +634,8 @@
           <AutoLoad>false</AutoLoad>
           <CheckIfAltered>false</CheckIfAltered>
           <ColumnName>IsFullyClosed</ColumnName>
-          <DecimalToIntegerScale>0</DecimalToIntegerScale>
           <SingleColumnUpdate>false</SingleColumnUpdate>
+          <DecimalToIntegerScale>0</DecimalToIntegerScale>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
           <Name>EntryOrders</Name>
@@ -643,8 +643,8 @@
           <AutoLoad>true</AutoLoad>
           <CheckIfAltered>false</CheckIfAltered>
           <ColumnName>EntryOrders</ColumnName>
-          <DecimalToIntegerScale>0</DecimalToIntegerScale>
           <SingleColumnUpdate>false</SingleColumnUpdate>
+          <DecimalToIntegerScale>0</DecimalToIntegerScale>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
           <Name>OrderQuantity</Name>
@@ -652,8 +652,8 @@
           <AutoLoad>false</AutoLoad>
           <CheckIfAltered>false</CheckIfAltered>
           <ColumnName>OrderQuantity</ColumnName>
-          <DecimalToIntegerScale>0</DecimalToIntegerScale>
           <SingleColumnUpdate>false</SingleColumnUpdate>
+          <DecimalToIntegerScale>0</DecimalToIntegerScale>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
           <Name>FilledQuantity</Name>
@@ -661,8 +661,8 @@
           <AutoLoad>false</AutoLoad>
           <CheckIfAltered>false</CheckIfAltered>
           <ColumnName>FilledQuantity</ColumnName>
-          <DecimalToIntegerScale>0</DecimalToIntegerScale>
           <SingleColumnUpdate>false</SingleColumnUpdate>
+          <DecimalToIntegerScale>0</DecimalToIntegerScale>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
           <Name>PlannedEntryPrice</Name>
@@ -670,8 +670,8 @@
           <AutoLoad>false</AutoLoad>
           <CheckIfAltered>true</CheckIfAltered>
           <ColumnName>PlannedEntryPrice</ColumnName>
-          <DecimalToIntegerScale>0</DecimalToIntegerScale>
           <SingleColumnUpdate>false</SingleColumnUpdate>
+          <DecimalToIntegerScale>0</DecimalToIntegerScale>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
           <Name>ExecutedEntryPrice</Name>
@@ -679,8 +679,8 @@
           <AutoLoad>false</AutoLoad>
           <CheckIfAltered>true</CheckIfAltered>
           <ColumnName>ExecutedEntryPrice</ColumnName>
-          <DecimalToIntegerScale>0</DecimalToIntegerScale>
           <SingleColumnUpdate>false</SingleColumnUpdate>
+          <DecimalToIntegerScale>0</DecimalToIntegerScale>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
           <Name>PlannedPositionValue</Name>
@@ -688,8 +688,8 @@
           <AutoLoad>false</AutoLoad>
           <CheckIfAltered>false</CheckIfAltered>
           <ColumnName>PlannedPositionValue</ColumnName>
-          <DecimalToIntegerScale>4</DecimalToIntegerScale>
           <SingleColumnUpdate>false</SingleColumnUpdate>
+          <DecimalToIntegerScale>4</DecimalToIntegerScale>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
           <Name>ExecutedPositionValue</Name>
@@ -697,8 +697,8 @@
           <AutoLoad>false</AutoLoad>
           <CheckIfAltered>false</CheckIfAltered>
           <ColumnName>ExecutedPositionValue</ColumnName>
-          <DecimalToIntegerScale>4</DecimalToIntegerScale>
           <SingleColumnUpdate>false</SingleColumnUpdate>
+          <DecimalToIntegerScale>4</DecimalToIntegerScale>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
           <Name>TakeProfitOrders</Name>
@@ -706,8 +706,8 @@
           <AutoLoad>true</AutoLoad>
           <CheckIfAltered>false</CheckIfAltered>
           <ColumnName>TakeProfitOrders</ColumnName>
-          <DecimalToIntegerScale>0</DecimalToIntegerScale>
           <SingleColumnUpdate>false</SingleColumnUpdate>
+          <DecimalToIntegerScale>0</DecimalToIntegerScale>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
           <Name>PlannedProfitLoss</Name>
@@ -715,8 +715,8 @@
           <AutoLoad>false</AutoLoad>
           <CheckIfAltered>false</CheckIfAltered>
           <ColumnName>PlannedProfitLoss</ColumnName>
-          <DecimalToIntegerScale>4</DecimalToIntegerScale>
           <SingleColumnUpdate>false</SingleColumnUpdate>
+          <DecimalToIntegerScale>4</DecimalToIntegerScale>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
           <Name>RealizedProfitLoss</Name>
@@ -724,8 +724,8 @@
           <AutoLoad>false</AutoLoad>
           <CheckIfAltered>false</CheckIfAltered>
           <ColumnName>RealizedProfitLoss</ColumnName>
-          <DecimalToIntegerScale>4</DecimalToIntegerScale>
           <SingleColumnUpdate>false</SingleColumnUpdate>
+          <DecimalToIntegerScale>4</DecimalToIntegerScale>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
           <Name>PlannedTP</Name>
@@ -733,8 +733,8 @@
           <AutoLoad>false</AutoLoad>
           <CheckIfAltered>true</CheckIfAltered>
           <ColumnName>PlannedTP</ColumnName>
-          <DecimalToIntegerScale>0</DecimalToIntegerScale>
           <SingleColumnUpdate>false</SingleColumnUpdate>
+          <DecimalToIntegerScale>0</DecimalToIntegerScale>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
           <Name>ExecutedTP</Name>
@@ -742,8 +742,8 @@
           <AutoLoad>false</AutoLoad>
           <CheckIfAltered>true</CheckIfAltered>
           <ColumnName>ExecutedTP</ColumnName>
-          <DecimalToIntegerScale>0</DecimalToIntegerScale>
           <SingleColumnUpdate>false</SingleColumnUpdate>
+          <DecimalToIntegerScale>0</DecimalToIntegerScale>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
           <Name>StopLossOrders</Name>
@@ -751,8 +751,8 @@
           <AutoLoad>true</AutoLoad>
           <CheckIfAltered>false</CheckIfAltered>
           <ColumnName>StopLossOrders</ColumnName>
-          <DecimalToIntegerScale>0</DecimalToIntegerScale>
           <SingleColumnUpdate>false</SingleColumnUpdate>
+          <DecimalToIntegerScale>0</DecimalToIntegerScale>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
           <Name>PlannedRiskAmount</Name>
@@ -760,8 +760,8 @@
           <AutoLoad>false</AutoLoad>
           <CheckIfAltered>false</CheckIfAltered>
           <ColumnName>PlannedRiskAmount</ColumnName>
-          <DecimalToIntegerScale>4</DecimalToIntegerScale>
           <SingleColumnUpdate>false</SingleColumnUpdate>
+          <DecimalToIntegerScale>4</DecimalToIntegerScale>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
           <Name>PlannedSL</Name>
@@ -769,8 +769,8 @@
           <AutoLoad>false</AutoLoad>
           <CheckIfAltered>true</CheckIfAltered>
           <ColumnName>PlannedSL</ColumnName>
-          <DecimalToIntegerScale>0</DecimalToIntegerScale>
           <SingleColumnUpdate>false</SingleColumnUpdate>
+          <DecimalToIntegerScale>0</DecimalToIntegerScale>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
           <Name>ExecutedSL</Name>
@@ -778,8 +778,8 @@
           <AutoLoad>false</AutoLoad>
           <CheckIfAltered>true</CheckIfAltered>
           <ColumnName>ExecutedSL</ColumnName>
-          <DecimalToIntegerScale>0</DecimalToIntegerScale>
           <SingleColumnUpdate>false</SingleColumnUpdate>
+          <DecimalToIntegerScale>0</DecimalToIntegerScale>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
           <Name>TradeImages</Name>
@@ -787,8 +787,8 @@
           <AutoLoad>true</AutoLoad>
           <CheckIfAltered>false</CheckIfAltered>
           <ColumnName>TradeImages</ColumnName>
-          <DecimalToIntegerScale>0</DecimalToIntegerScale>
           <SingleColumnUpdate>false</SingleColumnUpdate>
+          <DecimalToIntegerScale>0</DecimalToIntegerScale>
         </SqliteRepositoryPropertySetting>
       </Properties>
       <GenerateGetPaged>true</GenerateGetPaged>
@@ -800,8 +800,8 @@
   </EntitySettings>
   <RenderAllEntities>false</RenderAllEntities>
   <BaseClassNamespaceName>TD.SQLite.Infra</BaseClassNamespaceName>
-  <ContractsNamespaceName>TD.SQLite.Infra</ContractsNamespaceName>
-  <InfrastructureFolder>Infrastructure</InfrastructureFolder>
+  <InfrastructureNamespaceName>TD.RepositoryContracts</InfrastructureNamespaceName>
+  <InfrastructureFolder>..\OzzTradeDiary.NET\TD.RepositoryContracts</InfrastructureFolder>
   <MetadataRepositoryName>MetadataRepository</MetadataRepositoryName>
   <BaseRepositoryClassName>AbstractDatabaseRepository</BaseRepositoryClassName>
 </CSharpSqliteRepositoryEngine>

@@ -7,7 +7,9 @@
 //----------------------------------------------------------------------------------
 using Microsoft.Data.Sqlite;
 using TD.Models;
+using TD.RepositoryContracts;
 using TD.SQLite.Extensions;
+using TD.Validation;
 
 namespace TD.SQLite
 {
@@ -294,15 +296,5 @@ namespace TD.SQLite
             public readonly static int OrderValue = 4;
             public readonly static int FilledValue = 4;
         }
-    }
-
-    public partial interface IStopLossOrderRepository
-    {
-        Task<IReadOnlyList<StopLossOrder>> GetAllAsync();
-        Task<IReadOnlyList<StopLossOrder>> GetByTradeIdAsync(int tradeId);
-        Task<StopLossOrder?> GetByIdAsync(int? id);
-        Task<int> CreateAsync(StopLossOrder stopLossOrder);
-        Task<bool> DeleteAsync(int id);
-        Task<bool> UpdateAsync(StopLossOrder stopLossOrder);
     }
 }

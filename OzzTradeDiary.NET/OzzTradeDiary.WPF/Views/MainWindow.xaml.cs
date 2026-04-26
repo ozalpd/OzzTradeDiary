@@ -1,5 +1,5 @@
 ﻿using System.Windows;
-using TD.SQLite;
+using TD.RepositoryContracts;
 using TD.WPF.Models;
 using TD.WPF.ViewModels;
 

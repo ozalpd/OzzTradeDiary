@@ -88,7 +88,7 @@ namespace TD.WPF.Views.Maintenance
             }
         }
 
-        private async void EditCurrencys_Click(object sender, RoutedEventArgs e)
+        private async void EditCurrencies_Click(object sender, RoutedEventArgs e)
         {
 
             if (_viewModel.SelectedCurrency == null)

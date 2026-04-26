@@ -2,7 +2,6 @@
 using System.Collections.Specialized;
 using TD.Models;
 using TD.WPF.Commands;
-using TD.WPF.Models;
 
 namespace TD.WPF.ViewModels.Maintenance
 {
@@ -12,9 +11,6 @@ namespace TD.WPF.ViewModels.Maintenance
 
         public MaintenanceWindowVM()
         {
-            var appSettings = AppSettings.GetAppSettings();
-            var databasePath = appSettings.DatabasePath;
-
             _deleteExchangeCommand = new DeleteExchangeCommand(this);
             DeleteExchangeCommand = _deleteExchangeCommand;
             SymbolExchanges = new ObservableCollection<Exchange>();

@@ -1,6 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using TD.AppInfra.ViewModels;
 using TD.Models;
+using TD.RepositoryContracts;
 using TD.SQLite;
 using TD.WPF.Models;
 

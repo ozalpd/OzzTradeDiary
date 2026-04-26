@@ -8,7 +8,9 @@
 using Microsoft.Data.Sqlite;
 using TD.Helpers;
 using TD.Models;
+using TD.RepositoryContracts;
 using TD.SQLite.Extensions;
+using TD.Validation;
 
 namespace TD.SQLite
 {
@@ -355,17 +357,5 @@ namespace TD.SQLite
             "DisplayOrder", 
             "IsActive" 
         };
-    }
-
-    public partial interface ISymbolRepository
-    {
-        Task<IReadOnlyList<Symbol>> GetAllAsync(bool? isActive = null);
-        Task<IReadOnlyList<Symbol>> GetByExchangeIdAsync(int exchangeId, bool? isActive = null);
-        Task<Symbol?> GetByIdAsync(int? id);
-        Task<Symbol?> GetByTickerFullAsync(string? tickerFull);
-        Task<IReadOnlyList<Symbol>> GetPagedAsync(QueryParameters queryParameters, bool? isActive = null);
-        Task<int> CreateAsync(Symbol symbol);
-        Task<bool> DeleteAsync(int id);
-        Task<bool> UpdateAsync(Symbol symbol);
     }
 }

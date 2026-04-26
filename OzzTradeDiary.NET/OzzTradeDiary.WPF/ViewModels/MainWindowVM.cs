@@ -1,4 +1,4 @@
-﻿using TD.SQLite;
+﻿using TD.RepositoryContracts;
 using TD.WPF.Commands;
 using TD.WPF.ViewModels.Trades;
 

@@ -7,7 +7,9 @@
 //----------------------------------------------------------------------------------
 using Microsoft.Data.Sqlite;
 using TD.Models;
+using TD.RepositoryContracts;
 using TD.SQLite.Extensions;
+using TD.Validation;
 
 namespace TD.SQLite
 {
@@ -295,16 +297,5 @@ namespace TD.SQLite
             "DisplayOrder", 
             "IsActive" 
         };
-    }
-
-    public partial interface ITradingAccountRepository
-    {
-        Task<IReadOnlyList<TradingAccount>> GetAllAsync(bool? isActive = null);
-        Task<IReadOnlyList<TradingAccount>> GetByExchangeIdAsync(int exchangeId, bool? isActive = null);
-        Task<TradingAccount?> GetByIdAsync(int? id);
-        Task<TradingAccount?> GetByTitleAsync(string? title);
-        Task<int> CreateAsync(TradingAccount tradingAccount);
-        Task<bool> DeleteAsync(int id);
-        Task<bool> UpdateAsync(TradingAccount tradingAccount);
     }
 }

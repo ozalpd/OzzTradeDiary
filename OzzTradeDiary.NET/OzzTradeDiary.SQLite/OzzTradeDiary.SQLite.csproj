@@ -6,10 +6,10 @@
 		<Nullable>enable</Nullable>
 		<RootNamespace>TD.SQLite</RootNamespace>
 
-		<Version>0.0.52</Version>
-		<AssemblyVersion>0.0.52.0</AssemblyVersion>
-		<FileVersion>0.0.52.0</FileVersion>
-		<InformationalVersion>0.0.52</InformationalVersion>
+		<Version>0.0.53</Version>
+		<AssemblyVersion>0.0.53.0</AssemblyVersion>
+		<FileVersion>0.0.53.0</FileVersion>
+		<InformationalVersion>0.0.53</InformationalVersion>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -18,6 +18,7 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\OzzTradeDiary\OzzTradeDiary.csproj" />
+		<ProjectReference Include="..\TD.RepositoryContracts\TD.RepositoryContracts.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>

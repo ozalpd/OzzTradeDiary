@@ -32,9 +32,4 @@ namespace TD.SQLite
             }
         }
     }
-
-    public partial interface IExchangeRepository
-    {
-        Task LoadNavigationCollections(Exchange exchange);
-    }
 }

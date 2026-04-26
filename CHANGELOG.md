@@ -4,6 +4,18 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.0.53] - 2026-04-26
+
+### Changed
+- Moved repository contract interfaces from `TD.SQLite` to a new platform-agnostic `TD.RepositoryContracts` project.
+- Updated references across AppInfra, WPF, and related projects to use `TD.RepositoryContracts` namespaces.
+- Adjusted code generation settings and solution structure to align with the new repository-contract project layout.
+- Bumped all project versions to `0.0.53` (`OzzTradeDiary`, `OzzTradeDiary.AppInfra`, `OzzTradeDiary.RepositoryContracts`, `OzzTradeDiary.WPF`, `OzzTradeDiary.SQLite`, `OzzTradeDiary.i18n`).
+- Fixed a minor typo in a `MaintenanceWindow` event handler.
+
+### Notes
+- No repository implementation or business-logic behavior changes in this release.
+
 ## [0.0.52] - 2026-04-25
 
 ### Changed

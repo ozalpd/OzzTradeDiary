@@ -7,7 +7,9 @@
 //----------------------------------------------------------------------------------
 using Microsoft.Data.Sqlite;
 using TD.Models;
+using TD.RepositoryContracts;
 using TD.SQLite.Extensions;
+using TD.Validation;
 
 namespace TD.SQLite
 {
@@ -236,15 +238,5 @@ namespace TD.SQLite
             "DisplayOrder", 
             "IsActive" 
         };
-    }
-
-    public partial interface ICurrencyRepository
-    {
-        Task<IReadOnlyList<Currency>> GetAllAsync(bool? isActive = null);
-        Task<Currency?> GetByIdAsync(int? id);
-        Task<Currency?> GetByCurrencyTickerAsync(string? currencyTicker);
-        Task<int> CreateAsync(Currency currency);
-        Task<bool> DeleteAsync(int id);
-        Task<bool> UpdateAsync(Currency currency);
     }
 }

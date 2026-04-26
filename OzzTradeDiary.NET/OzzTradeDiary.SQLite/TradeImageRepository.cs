@@ -7,7 +7,9 @@
 //----------------------------------------------------------------------------------
 using Microsoft.Data.Sqlite;
 using TD.Models;
+using TD.RepositoryContracts;
 using TD.SQLite.Extensions;
+using TD.Validation;
 
 namespace TD.SQLite
 {
@@ -218,15 +220,5 @@ namespace TD.SQLite
             "Notes", 
             "UpdatedAt" 
         };
-    }
-
-    public partial interface ITradeImageRepository
-    {
-        Task<IReadOnlyList<TradeImage>> GetAllAsync();
-        Task<IReadOnlyList<TradeImage>> GetByTradeIdAsync(int? tradeId);
-        Task<TradeImage?> GetByIdAsync(int? id);
-        Task<int> CreateAsync(TradeImage tradeImage);
-        Task<bool> DeleteAsync(int id);
-        Task<bool> UpdateAsync(TradeImage tradeImage);
     }
 }

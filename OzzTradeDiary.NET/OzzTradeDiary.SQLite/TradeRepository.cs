@@ -8,7 +8,9 @@
 using Microsoft.Data.Sqlite;
 using TD.Helpers;
 using TD.Models;
+using TD.RepositoryContracts;
 using TD.SQLite.Extensions;
+using TD.Validation;
 
 namespace TD.SQLite
 {
@@ -625,17 +627,5 @@ namespace TD.SQLite
             public readonly static int PlannedSL = 0;
             public readonly static int ExecutedSL = 0;
         }
-    }
-
-    public partial interface ITradeRepository
-    {
-        Task<IReadOnlyList<Trade>> GetAllAsync();
-        Task<IReadOnlyList<Trade>> GetByTradingAccountIdAsync(int tradingAccountId);
-        Task<IReadOnlyList<Trade>> GetBySymbolIdAsync(int symbolId);
-        Task<Trade?> GetByIdAsync(int? id);
-        Task<IReadOnlyList<Trade>> GetPagedAsync(TradeQueryParameters queryParameters);
-        Task<int> CreateAsync(Trade trade);
-        Task<bool> DeleteAsync(int id);
-        Task<bool> UpdateAsync(Trade trade);
     }
 }
