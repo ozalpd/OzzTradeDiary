@@ -1,4 +1,3 @@
-using TD.AppInfra.Services;
 using TD.Models;
 using TD.RepositoryContracts;
 //----------------------------------------------------------------------------------
@@ -8,7 +7,7 @@ using TD.RepositoryContracts;
 //     so manual changes should be made in another partial class file.
 //
 //----------------------------------------------------------------------------------
-namespace TD.WPF.Services
+namespace TD.AppInfra.Services
 {
     /// <summary>
     /// Provides exchange lookup functionality using an underlying exchange repository.

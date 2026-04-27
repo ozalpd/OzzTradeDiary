@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.0.54] - 2026-04-27
+
+### Changed
+- Moved generated lookup service classes (`*LookupService`) from `TD.WPF.Services` to `TD.AppInfra.Services` for platform-agnostic reuse across WPF and future frontends.
+- Updated `WpfMvVmCodeEngine.settings`: set namespace to `TD.WPF`, added `RepoContractNamespaceName`, renamed `ServiceFolder` to `LookupFolder`, and enabled `PutLookupInInfra` so generated lookup services are placed in `TD.AppInfra`.
+- Added `TD.RepositoryContracts` project reference to `OzzTradeDiary.AppInfra.csproj` to support the new lookup service location.
+
 ## [0.0.53] - 2026-04-26
 
 ### Changed

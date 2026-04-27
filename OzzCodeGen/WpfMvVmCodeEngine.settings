@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WpfMvvmCodeEngine xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Language>CSharp</Language>
-  <NamespaceName>TD.Models</NamespaceName>
+  <NamespaceName>TD.WPF</NamespaceName>
   <TargetFolder>..\OzzTradeDiary.NET\OzzTradeDiary.WPF\</TargetFolder>
   <EntitySettings>
     <BaseEntitySetting xsi:type="WpfMvvmEntitySetting">
@@ -866,9 +866,11 @@
   <InfrastructureFolder>..\OzzTradeDiary.NET\OzzTradeDiary.AppInfra\</InfrastructureFolder>
   <CommandFolder>Commands</CommandFolder>
   <CommandNamespaceName>TD.WPF.Commands</CommandNamespaceName>
+  <RepoContractNamespaceName>TD.RepositoryContracts</RepoContractNamespaceName>
   <RepositoryNamespaceName>TD.SQLite</RepositoryNamespaceName>
-  <ServiceFolder>Services</ServiceFolder>
+  <LookupFolder>Services</LookupFolder>
   <ServiceNamespaceName>TD.WPF.Services</ServiceNamespaceName>
+  <PutLookupInInfra>true</PutLookupInInfra>
   <UseResourceFiles>false</UseResourceFiles>
   <ViewFolder>Views</ViewFolder>
   <ViewModelFolder>ViewModels</ViewModelFolder>
