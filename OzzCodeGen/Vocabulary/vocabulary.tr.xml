@@ -273,6 +273,10 @@
     <Translation>Onaylayanın IP</Translation>
   </Vocab>
   <Vocab>
+    <Name>AppTitle</Name>
+    <Translation>Ozz Trade Diary</Translation>
+  </Vocab>
+  <Vocab>
     <Name>AreYouSure</Name>
     <Translation>Yapmak istediğinizden emin misiniz</Translation>
   </Vocab>
@@ -1615,6 +1619,10 @@
   <Vocab>
     <Name>Save</Name>
     <Translation>Kaydet</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>SaveOperationFailed</Name>
+    <Translation>Kaydetme işlemi başarısız oldu!</Translation>
   </Vocab>
   <Vocab>
     <Name>Search</Name>

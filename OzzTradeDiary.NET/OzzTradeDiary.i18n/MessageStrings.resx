@@ -73,6 +73,9 @@
     <data name="NoResults" xml:space="preserve">
         <value>There is no results to display</value>
     </data>
+    <data name="SaveOperationFailed" xml:space="preserve">
+        <value>Save operation failed!</value>
+    </data>
     <data name="UnableToDelete" xml:space="preserve">
         <value>Unable to Delete</value>
     </data>

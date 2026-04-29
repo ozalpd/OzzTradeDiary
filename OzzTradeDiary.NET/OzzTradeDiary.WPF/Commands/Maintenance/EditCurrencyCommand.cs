@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using TD.i18n;
 using TD.WPF.Services;
 using TD.WPF.ViewModels;
 
@@ -28,14 +29,13 @@ namespace TD.WPF.Commands.Maintenance
             if (parameter is not Window owner)
                 return;
 
-            int id = _viewModel.SelectedCurrency.Id;
-
+            var currency = _viewModel.SelectedCurrency;
             try
             {
                 var dialogResult = _windowDialogService.ShowCurrencyEditDialog(owner, _viewModel.SelectedCurrency);
                 if (dialogResult.IsConfirmed && dialogResult.IsDirty)
                 {
-                    await _viewModel.SaveCurrenciesAsync();
+                    await _viewModel.SaveCurrencyAsync(currency);
                     await _viewModel.LoadCurrenciesAsync();
                 }
                 else if (dialogResult.IsDirty)
@@ -43,11 +43,11 @@ namespace TD.WPF.Commands.Maintenance
                     await _viewModel.LoadCurrenciesAsync();
                 }
 
-                _viewModel.SelectedCurrency = _viewModel.Currencies.FirstOrDefault(x => x.Id == id);
+                _viewModel.SelectedCurrency = _viewModel.Currencies.FirstOrDefault(x => x.Id == currency.Id);
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Edit trading account failed.\n{ex.Message}", "Ozz Trade Diary", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(MessageStrings.SaveOperationFailed, CommonStrings.AppTitle, MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }

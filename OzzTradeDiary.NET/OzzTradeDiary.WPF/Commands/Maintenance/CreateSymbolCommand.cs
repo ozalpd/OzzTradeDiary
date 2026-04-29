@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using TD.AppInfra.Services;
+using TD.i18n;
 using TD.WPF.Services;
 using TD.WPF.ViewModels;
 
@@ -29,17 +30,16 @@ namespace TD.WPF.Commands.Maintenance
 
                 if (dialogResult.IsConfirmed && dialogResult.Symbol is not null)
                 {
-                    var Symbol = dialogResult.Symbol;
-                    _viewModel.Symbols.Add(Symbol);
-                    await _viewModel.SaveSymbolsAsync();
+                    var symbol = dialogResult.Symbol;
+                    await _viewModel.SaveSymbolAsync(symbol);
                     await _viewModel.LoadSymbolsAsync();
 
-                    _viewModel.SelectedSymbol = _viewModel.Symbols.FirstOrDefault(x => x.Id == Symbol.Id);
+                    _viewModel.SelectedSymbol = _viewModel.Symbols.FirstOrDefault(x => x.Id == symbol.Id);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Create trading account failed.\n{ex.Message}", "Ozz Trade Diary", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(MessageStrings.SaveOperationFailed, CommonStrings.AppTitle, MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }

@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using TD.i18n;
 using TD.WPF.Services;
 using TD.WPF.ViewModels;
 
@@ -28,14 +29,13 @@ namespace TD.WPF.Commands.Maintenance
             if (parameter is not Window owner)
                 return;
 
-            int id = _viewModel.SelectedSymbol.Id;
-
+            var symbol = _viewModel.SelectedSymbol;
             try
             {
                 var dialogResult = _windowDialogService.ShowSymbolEditDialog(owner, _viewModel.SelectedSymbol);
                 if (dialogResult.IsConfirmed && dialogResult.IsDirty)
                 {
-                    await _viewModel.SaveSymbolsAsync();
+                    await _viewModel.SaveSymbolAsync(symbol);
                     await _viewModel.LoadSymbolsAsync();
                 }
                 else if (dialogResult.IsDirty)
@@ -43,11 +43,11 @@ namespace TD.WPF.Commands.Maintenance
                     await _viewModel.LoadCurrenciesAsync();
                 }
 
-                _viewModel.SelectedSymbol = _viewModel.Symbols.FirstOrDefault(x => x.Id == id);
+                _viewModel.SelectedSymbol = _viewModel.Symbols.FirstOrDefault(x => x.Id == symbol.Id);
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Edit trading account failed.\n{ex.Message}", "Ozz Trade Diary", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(MessageStrings.SaveOperationFailed, CommonStrings.AppTitle, MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }

@@ -33,25 +33,21 @@
                             </Viewbox>
                         </Button>
                         <Button Style="{StaticResource IconButtonStyle-28x24}"
-                                ToolTip="{x:Static i18n:ActionStrings.Save}"
-                                Click="SaveTradingAccounts_Click">
-                            <Viewbox Width="14" Height="14">
-                                <Path Fill="#0044D7" Data="{StaticResource floppy-fill}"/>
-                            </Viewbox>
-                        </Button>
-                        <Button Style="{StaticResource IconButtonStyle-28x24}"
-                                ToolTip="{x:Static i18n:ActionStrings.Refresh}"
-                                Click="RefreshTradingAccounts_Click">
-                            <Viewbox Width="14" Height="14">
-                                <Path Fill="#0044D7" Data="{StaticResource arrow-clockwise}"/>
-                            </Viewbox>
-                        </Button>
-                        <Button Style="{StaticResource IconButtonStyle-28x24}"
                                 ToolTip="{x:Static i18n:ActionStrings.Edit}"
                                 Command="{Binding EditTradingAccountCommand}"
                                 CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}">
                             <Viewbox Width="14" Height="14">
                                 <Path Fill="#0044D7" Data="{StaticResource pencil-square}"/>
+                            </Viewbox>
+                        </Button>
+
+                        <Border Width="32" Background="Transparent" />
+                        <Border Width="32" Background="Transparent" />
+                        <Button Style="{StaticResource IconButtonStyle-28x24}"
+                                ToolTip="{x:Static i18n:ActionStrings.Refresh}"
+                                Click="RefreshTradingAccounts_Click">
+                            <Viewbox Width="14" Height="14">
+                                <Path Fill="#0044D7" Data="{StaticResource arrow-clockwise}"/>
                             </Viewbox>
                         </Button>
                     </StackPanel>
@@ -85,20 +81,6 @@
                             </Viewbox>
                         </Button>
                         <Button Style="{StaticResource IconButtonStyle-28x24}"
-                                ToolTip="{x:Static i18n:ActionStrings.Save}"
-                                Click="SaveExchanges_Click">
-                            <Viewbox Width="14" Height="14">
-                                <Path Fill="#0044D7" Data="{StaticResource floppy-fill}"/>
-                            </Viewbox>
-                        </Button>
-                        <Button Style="{StaticResource IconButtonStyle-28x24}"
-                                ToolTip="{x:Static i18n:ActionStrings.Refresh}"
-                                Click="RefreshExchanges_Click">
-                            <Viewbox Width="14" Height="14">
-                                <Path Fill="#0044D7" Data="{StaticResource arrow-clockwise}"/>
-                            </Viewbox>
-                        </Button>
-                        <Button Style="{StaticResource IconButtonStyle-28x24}"
                                 ToolTip="{x:Static i18n:ActionStrings.Edit}"
                                 Command="{Binding EditExchangeCommand}"
                                 CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}">
@@ -106,8 +88,6 @@
                                 <Path Fill="#0044D7" Data="{StaticResource pencil-square}"/>
                             </Viewbox>
                         </Button>
-
-                        <Border Width="32" Background="Transparent" />
 
                         <Button Style="{StaticResource IconButtonStyle-28x24}" 
                                 ToolTip="{x:Static i18n:LocalizedStrings.DeleteExchange}"
@@ -130,6 +110,15 @@
                                         </Style>
                                     </Path.Style>
                                 </Path>
+                            </Viewbox>
+                        </Button>
+                        
+                        <Border Width="32" Background="Transparent" />
+                        <Button Style="{StaticResource IconButtonStyle-28x24}"
+                                ToolTip="{x:Static i18n:ActionStrings.Refresh}"
+                                Click="RefreshExchanges_Click">
+                            <Viewbox Width="14" Height="14">
+                                <Path Fill="#0044D7" Data="{StaticResource arrow-clockwise}"/>
                             </Viewbox>
                         </Button>
                     </StackPanel>
@@ -164,25 +153,21 @@
                             </Viewbox>
                         </Button>
                         <Button Style="{StaticResource IconButtonStyle-28x24}"
-                                ToolTip="{x:Static i18n:ActionStrings.Save}"
-                                Click="SaveCurrencies_Click">
-                            <Viewbox Width="14" Height="14">
-                                <Path Fill="#0044D7" Data="{StaticResource floppy-fill}"/>
-                            </Viewbox>
-                        </Button>
-                        <Button Style="{StaticResource IconButtonStyle-28x24}"
-                                ToolTip="{x:Static i18n:ActionStrings.Refresh}"
-                                Click="RefreshCurrencies_Click">
-                            <Viewbox Width="14" Height="14">
-                                <Path Fill="#0044D7" Data="{StaticResource arrow-clockwise}"/>
-                            </Viewbox>
-                        </Button>
-                        <Button Style="{StaticResource IconButtonStyle-28x24}"
                                 ToolTip="{x:Static i18n:ActionStrings.Edit}"
                                 Command="{Binding EditCurrencyCommand}"
                                 CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}">
                             <Viewbox Width="14" Height="14">
                                 <Path Fill="#0044D7" Data="{StaticResource pencil-square}"/>
+                            </Viewbox>
+                        </Button>
+
+                        <Border Width="32" Background="Transparent" />
+                        <Border Width="32" Background="Transparent" />
+                        <Button Style="{StaticResource IconButtonStyle-28x24}"
+                                ToolTip="{x:Static i18n:ActionStrings.Refresh}"
+                                Click="RefreshCurrencies_Click">
+                            <Viewbox Width="14" Height="14">
+                                <Path Fill="#0044D7" Data="{StaticResource arrow-clockwise}"/>
                             </Viewbox>
                         </Button>
                     </StackPanel>
@@ -214,20 +199,6 @@
                             </Viewbox>
                         </Button>
                         <Button Style="{StaticResource IconButtonStyle-28x24}"
-                                ToolTip="{x:Static i18n:ActionStrings.Save}"
-                                Click="SaveSymbols_Click">
-                            <Viewbox Width="14" Height="14">
-                                <Path Fill="#0044D7" Data="{StaticResource floppy-fill}"/>
-                            </Viewbox>
-                        </Button>
-                        <Button Style="{StaticResource IconButtonStyle-28x24}"
-                                ToolTip="{x:Static i18n:ActionStrings.Refresh}"
-                                Click="RefreshSymbols_Click">
-                            <Viewbox Width="14" Height="14">
-                                <Path Fill="#0044D7" Data="{StaticResource arrow-clockwise}"/>
-                            </Viewbox>
-                        </Button>
-                        <Button Style="{StaticResource IconButtonStyle-28x24}"
                                 ToolTip="{x:Static i18n:ActionStrings.Edit}"
                                 Command="{Binding EditSymbolCommand}"
                                 CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}">
@@ -237,6 +208,15 @@
                         </Button>
 
                         <Border Width="32" Background="Transparent" />
+                        <Border Width="32" Background="Transparent" />
+                        <Button Style="{StaticResource IconButtonStyle-28x24}"
+                                ToolTip="{x:Static i18n:ActionStrings.Refresh}"
+                                Click="RefreshSymbols_Click">
+                            <Viewbox Width="14" Height="14">
+                                <Path Fill="#0044D7" Data="{StaticResource arrow-clockwise}"/>
+                            </Viewbox>
+                        </Button>
+
                         <Border Width="32" Background="Transparent" />
                         <!-- TODO: Replace with a delete button -->
                         <Grid Margin="8,1,0,0">

@@ -1,5 +1,6 @@
 using System.Windows;
 using TD.AppInfra.Services;
+using TD.i18n;
 using TD.WPF.Services;
 using TD.WPF.ViewModels;
 
@@ -29,8 +30,7 @@ internal class CreateTradingAccountCommand : AbstractCommand
             if (dialogResult.IsConfirmed && dialogResult.TradingAccount is not null)
             {
                 var tradingAccount = dialogResult.TradingAccount;
-                _viewModel.TradingAccounts.Add(tradingAccount);
-                await _viewModel.SaveTradingAccountsAsync();
+                await _viewModel.SaveTradingAccountAsync(tradingAccount);
                 await _viewModel.LoadTradingAccountsAsync();
 
                 _viewModel.SelectedTradingAccount = _viewModel.TradingAccounts.FirstOrDefault(x => x.Id == tradingAccount.Id);
@@ -38,7 +38,7 @@ internal class CreateTradingAccountCommand : AbstractCommand
         }
         catch (Exception ex)
         {
-            MessageBox.Show($"Create trading account failed.\n{ex.Message}", "Ozz Trade Diary", MessageBoxButton.OK, MessageBoxImage.Error);
+            MessageBox.Show(MessageStrings.SaveOperationFailed, CommonStrings.AppTitle, MessageBoxButton.OK, MessageBoxImage.Error);
         }
     }
 }

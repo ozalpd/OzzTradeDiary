@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using TD.i18n;
 using TD.WPF.Services;
 using TD.WPF.ViewModels;
 
@@ -26,17 +27,16 @@ namespace TD.WPF.Commands.Maintenance
 
                 if (dialogResult.IsConfirmed && dialogResult.Currency is not null)
                 {
-                    var Currency = dialogResult.Currency;
-                    _viewModel.Currencies.Add(Currency);
-                    await _viewModel.SaveCurrenciesAsync();
+                    var currency = dialogResult.Currency;
+                    await _viewModel.SaveCurrencyAsync(currency);
                     await _viewModel.LoadCurrenciesAsync();
 
-                    _viewModel.SelectedCurrency = _viewModel.Currencies.FirstOrDefault(x => x.Id == Currency.Id);
+                    _viewModel.SelectedCurrency = _viewModel.Currencies.FirstOrDefault(x => x.Id == currency.Id);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Create trading account failed.\n{ex.Message}", "Ozz Trade Diary", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(MessageStrings.SaveOperationFailed, CommonStrings.AppTitle, MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }

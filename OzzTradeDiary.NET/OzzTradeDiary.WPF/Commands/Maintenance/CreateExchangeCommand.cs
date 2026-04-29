@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using TD.i18n;
 using TD.WPF.Services;
 using TD.WPF.ViewModels;
 
@@ -26,17 +27,16 @@ namespace TD.WPF.Commands.Maintenance
 
                 if (dialogResult.IsConfirmed && dialogResult.Exchange is not null)
                 {
-                    var Exchange = dialogResult.Exchange;
-                    _viewModel.Exchanges.Add(Exchange);
-                    await _viewModel.SaveExchangesAsync();
+                    var exchange = dialogResult.Exchange;
+                    await _viewModel.SaveExchangeAsync(exchange);
                     await _viewModel.LoadExchangesAsync();
 
-                    _viewModel.SelectedExchange = _viewModel.Exchanges.FirstOrDefault(x => x.Id == Exchange.Id);
+                    _viewModel.SelectedExchange = _viewModel.Exchanges.FirstOrDefault(x => x.Id == exchange.Id);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Create trading account failed.\n{ex.Message}", "Ozz Trade Diary", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(MessageStrings.SaveOperationFailed, CommonStrings.AppTitle, MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }

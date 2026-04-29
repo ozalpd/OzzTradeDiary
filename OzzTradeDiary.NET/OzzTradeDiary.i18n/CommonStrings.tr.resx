@@ -61,6 +61,9 @@
     <data name="Admin" xml:space="preserve">
         <value>Admin</value>
     </data>
+    <data name="AppTitle" xml:space="preserve">
+        <value>Ozz Trade Diary</value>
+    </data>
     <data name="Home" xml:space="preserve">
         <value>Ana Sayfa</value>
     </data>

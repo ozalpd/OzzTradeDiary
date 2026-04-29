@@ -59,48 +59,36 @@ namespace TD.WPF.ViewModels
             ReplaceCollection(Symbols, items);
         }
 
-        public async Task SaveCurrenciesAsync()
+        public async Task SaveCurrencyAsync(Currency currency)
         {
-            foreach (var item in Currencies)
-            {
-                if (item.Id <= 0)
-                    item.Id = await CurrencyRepository.CreateAsync(item);
-                else
-                    await CurrencyRepository.UpdateAsync(item);
-            }
+            if (currency.Id <= 0)
+                currency.Id = await CurrencyRepository.CreateAsync(currency);
+            else
+                await CurrencyRepository.UpdateAsync(currency);
         }
 
-        public async Task SaveExchangesAsync()
+        public async Task SaveExchangeAsync(Exchange exchange)
         {
-            foreach (var item in Exchanges)
-            {
-                if (item.Id <= 0)
-                    item.Id = await ExchangeRepository.CreateAsync(item);
-                else
-                    await ExchangeRepository.UpdateAsync(item);
-            }
+            if (exchange.Id <= 0)
+                exchange.Id = await ExchangeRepository.CreateAsync(exchange);
+            else
+                await ExchangeRepository.UpdateAsync(exchange);
         }
 
-        public async Task SaveTradingAccountsAsync()
+        public async Task SaveTradingAccountAsync(TradingAccount tradingAccount)
         {
-            foreach (var item in TradingAccounts)
-            {
-                if (item.Id <= 0)
-                    item.Id = await TradingAccountRepository.CreateAsync(item);
-                else
-                    await TradingAccountRepository.UpdateAsync(item);
-            }
+            if (tradingAccount.Id <= 0)
+                tradingAccount.Id = await TradingAccountRepository.CreateAsync(tradingAccount);
+            else
+                await TradingAccountRepository.UpdateAsync(tradingAccount);
         }
 
-        public async Task SaveSymbolsAsync()
+        public async Task SaveSymbolAsync(Symbol symbol)
         {
-            foreach (var item in Symbols)
-            {
-                if (item.Id <= 0)
-                    item.Id = await SymbolRepository.CreateAsync(item);
-                else
-                    await SymbolRepository.UpdateAsync(item);
-            }
+            if (symbol.Id <= 0)
+                symbol.Id = await SymbolRepository.CreateAsync(symbol);
+            else
+                await SymbolRepository.UpdateAsync(symbol);
         }
 
 

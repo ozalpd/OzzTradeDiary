@@ -78,21 +78,9 @@ namespace TD.WPF.Views.Maintenance
                 : Visibility.Collapsed;
         }
 
-        private async void SaveCurrencies_Click(object sender, RoutedEventArgs e)
-        {
-            await ExecuteUiActionAsync(_viewModel.SaveCurrenciesAsync, "Save currencies");
-            await ExecuteUiActionAsync(_viewModel.LoadCurrenciesAsync, "Refresh currencies");
-        }
-
         private async void RefreshCurrencies_Click(object sender, RoutedEventArgs e)
         {
             await ExecuteUiActionAsync(_viewModel.LoadCurrenciesAsync, "Refresh currencies");
-        }
-
-        private async void SaveExchanges_Click(object sender, RoutedEventArgs e)
-        {
-            await ExecuteUiActionAsync(_viewModel.SaveExchangesAsync, "Save exchanges");
-            await ExecuteUiActionAsync(_viewModel.LoadExchangesAsync, "Refresh exchanges");
         }
 
         private async void RefreshExchanges_Click(object sender, RoutedEventArgs e)
@@ -100,21 +88,9 @@ namespace TD.WPF.Views.Maintenance
             await ExecuteUiActionAsync(_viewModel.LoadExchangesAsync, "Refresh exchanges");
         }
 
-        private async void SaveTradingAccounts_Click(object sender, RoutedEventArgs e)
-        {
-            await ExecuteUiActionAsync(_viewModel.SaveTradingAccountsAsync, "Save trading accounts");
-            await ExecuteUiActionAsync(_viewModel.LoadTradingAccountsAsync, "Refresh trading accounts");
-        }
-
         private async void RefreshTradingAccounts_Click(object sender, RoutedEventArgs e)
         {
             await ExecuteUiActionAsync(_viewModel.LoadTradingAccountsAsync, "Refresh trading accounts");
-        }
-
-        private async void SaveSymbols_Click(object sender, RoutedEventArgs e)
-        {
-            await ExecuteUiActionAsync(_viewModel.SaveSymbolsAsync, "Save symbols");
-            await ExecuteUiActionAsync(_viewModel.LoadSymbolsAsync, "Refresh symbols");
         }
 
         private async void RefreshSymbols_Click(object sender, RoutedEventArgs e)

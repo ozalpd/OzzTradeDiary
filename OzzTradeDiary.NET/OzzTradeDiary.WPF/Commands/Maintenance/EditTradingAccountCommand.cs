@@ -1,4 +1,5 @@
 using System.Windows;
+using TD.i18n;
 using TD.WPF.Services;
 using TD.WPF.ViewModels;
 
@@ -28,14 +29,13 @@ internal class EditTradingAccountCommand : AbstractCommand
         if (parameter is not Window owner)
             return;
 
-        int id = _viewModel.SelectedTradingAccount.Id;
-
+        var tradingAccount = _viewModel.SelectedTradingAccount;
         try
         {
             var dialogResult = _windowDialogService.ShowTradingAccountEditDialog(owner, _viewModel.SelectedTradingAccount);
             if (dialogResult.IsConfirmed && dialogResult.IsDirty)
             {
-                await _viewModel.SaveTradingAccountsAsync();
+                await _viewModel.SaveTradingAccountAsync(tradingAccount);
                 await _viewModel.LoadTradingAccountsAsync();
             }
             else if (dialogResult.IsDirty)
@@ -43,11 +43,11 @@ internal class EditTradingAccountCommand : AbstractCommand
                 await _viewModel.LoadCurrenciesAsync();
             }
 
-            _viewModel.SelectedTradingAccount = _viewModel.TradingAccounts.FirstOrDefault(x => x.Id == id);
+            _viewModel.SelectedTradingAccount = _viewModel.TradingAccounts.FirstOrDefault(x => x.Id == tradingAccount.Id);
         }
         catch (Exception ex)
         {
-            MessageBox.Show($"Edit trading account failed.\n{ex.Message}", "Ozz Trade Diary", MessageBoxButton.OK, MessageBoxImage.Error);
+            MessageBox.Show(MessageStrings.SaveOperationFailed, CommonStrings.AppTitle, MessageBoxButton.OK, MessageBoxImage.Error);
         }
     }
 }

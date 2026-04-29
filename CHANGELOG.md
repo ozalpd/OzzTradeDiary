@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.0.57] - 2026-04-29
+
+### Changed
+- Refactored the four `AbstractDiaryVM` save methods to persist only the single entity passed by the caller instead of all loaded maintenance entities, and updated the eight maintenance create/edit commands to use the new single-entity save flow.
+- Update MaintenanceWindow XAML: remove Save buttons, adjust Edit/Refresh icons and layout.
+- Add AppTitle and SaveOperationFailed localization keys (EN/TR); update .resx and designer files.
+- Use localized error messages in maintenance commands.
+
 ## [0.0.56] - 2026-04-29
 
 ### Changed

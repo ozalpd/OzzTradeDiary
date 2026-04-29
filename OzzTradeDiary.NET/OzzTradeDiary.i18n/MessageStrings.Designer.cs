@@ -106,6 +106,15 @@ namespace TD.i18n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Save operation failed!.
+        /// </summary>
+        public static string SaveOperationFailed {
+            get {
+                return ResourceManager.GetString("SaveOperationFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Unable to Delete.
         /// </summary>
         public static string UnableToDelete {

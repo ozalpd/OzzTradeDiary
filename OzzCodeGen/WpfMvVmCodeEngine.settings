@@ -869,7 +869,6 @@
   <RepoContractNamespaceName>TD.RepositoryContracts</RepoContractNamespaceName>
   <RepositoryNamespaceName>TD.SQLite</RepositoryNamespaceName>
   <LookupFolder>Services</LookupFolder>
-  <ServiceNamespaceName>TD.WPF.Services</ServiceNamespaceName>
   <PutLookupInInfra>true</PutLookupInInfra>
   <UseResourceFiles>false</UseResourceFiles>
   <ViewFolder>Views</ViewFolder>

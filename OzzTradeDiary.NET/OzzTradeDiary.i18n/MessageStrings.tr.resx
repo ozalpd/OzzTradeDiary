@@ -73,6 +73,9 @@
     <data name="NoResults" xml:space="preserve">
         <value>Hiç sonuç bulunamadı</value>
     </data>
+    <data name="SaveOperationFailed" xml:space="preserve">
+        <value>Kaydetme işlemi başarısız oldu!</value>
+    </data>
     <data name="UnableToDelete" xml:space="preserve">
         <value>Silinemez</value>
     </data>
