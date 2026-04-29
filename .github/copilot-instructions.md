@@ -4,7 +4,7 @@
 
 Early-stage development (pre-release, no public release yet).
 
-Internal tracking versions: `OzzTradeDiary` `0.0.53`, `OzzTradeDiary.AppInfra` `0.0.53`, `OzzTradeDiary.RepositoryContracts` `0.0.53`, `OzzTradeDiary.WPF` `0.0.53`, `OzzTradeDiary.SQLite` `0.0.53`, `OzzTradeDiary.i18n` `0.0.53`.
+Internal tracking versions: `OzzTradeDiary` `0.0.55`, `OzzTradeDiary.AppInfra` `0.0.55`, `OzzTradeDiary.RepositoryContracts` `0.0.53`, `OzzTradeDiary.WPF` `0.0.55`, `OzzTradeDiary.SQLite` `0.0.55`, `OzzTradeDiary.i18n` `0.0.55`.
 
 - **Changelog discipline**: Any behavior change (repository logic, initialization, seeding, schema generation impact, UI-visible behavior) must be recorded in `CHANGELOG.md`.
 
@@ -30,6 +30,7 @@ Internal tracking versions: `OzzTradeDiary` `0.0.53`, `OzzTradeDiary.AppInfra` `
 **Planned modularization direction**:
 - Keep `TD.RepositoryContracts` as the platform-agnostic source of truth for repository interfaces (for example `ITradeRepository`).
 - Add `TD.AppContracts` to host shared app-service/lookup interfaces (for example `IExchangeLookupService`, `ISymbolLookupService`) as a platform-agnostic contract layer.
+- For app-service contracts, prefer `I<Entity>AppService` naming (for example `ITradingAccountAppService`, `ITradeAppService`, `ITradeImageAppService`).
 - Keep reusable lookup/app-service contracts in `TD.AppContracts` (avoid placing reusable contracts in `TD.WPF`).
 - Target a future `OzzTradeDiary.MAUI` frontend that consumes shared core/localization/app-infra/contracts rather than WPF-specific assemblies.
 - Shared helper logic such as `EnumExtension` and `TextExtensions` belongs in the platform-agnostic core library, not in `TD.WPF.Extensions`.
@@ -82,9 +83,9 @@ Internal tracking versions: `OzzTradeDiary` `0.0.53`, `OzzTradeDiary.AppInfra` `
 - Commands: extend `AbstractCommand` (implements `ICommand`)
 - Feature-specific ViewModels are grouped in subfolders matching their feature area (e.g., `ViewModels/Maintenance/` → namespace `TD.WPF.ViewModels.Maintenance`)
 - Follow entity-first naming: `TradingAccountCreateVM` (not `CreateTradingAccountVM`).
+- **Avoid introducing VM-specific interfaces like `ITradingAccountVM` when only one VM uses the behavior; prefer a service abstraction if reuse is needed later.**
 - `IIsDirty` is declared in `AbstractCreateEditVM` in `TD.AppInfra`; do not reintroduce a separate `IIsDirty.cs` file unless the abstraction changes again.
 - For enum-backed UI selections, prefer `TD.Extensions.EnumExtension.GetValues<T>()` together with enum `Display` attributes / `GetDisplayValue()` so ComboBoxes show localized display text instead of raw enum names.
-
 
 ### Views (TD.WPF namespace)
 

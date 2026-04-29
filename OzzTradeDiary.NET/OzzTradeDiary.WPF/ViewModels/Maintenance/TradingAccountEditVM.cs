@@ -56,5 +56,12 @@ namespace TD.WPF.ViewModels.Maintenance
                 }
             }
         }
+
+        public bool ValidateModel()
+        {
+            return ValidateProperty(_tradingAccount, nameof(Title))
+                && ValidateProperty(_tradingAccount, nameof(Notes))
+                && ValidateProperty(_tradingAccount, nameof(DisplayOrder));
+        }
     }
 }

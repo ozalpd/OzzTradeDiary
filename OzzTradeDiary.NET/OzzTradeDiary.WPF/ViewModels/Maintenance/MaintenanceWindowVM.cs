@@ -2,17 +2,22 @@
 using System.Collections.Specialized;
 using TD.Models;
 using TD.WPF.Commands;
+using TD.WPF.Services;
 
 namespace TD.WPF.ViewModels.Maintenance
 {
     internal class MaintenanceWindowVM : AbstractDiaryVM
     {
         private readonly DeleteExchangeCommand _deleteExchangeCommand;
+        private readonly EditTradingAccountCommand _editTradingAccountCommand;
 
-        public MaintenanceWindowVM()
+        public MaintenanceWindowVM(IWindowDialogService windowDialogService)
         {
             _deleteExchangeCommand = new DeleteExchangeCommand(this);
+            _editTradingAccountCommand = new EditTradingAccountCommand(this, windowDialogService);
             DeleteExchangeCommand = _deleteExchangeCommand;
+            CreateTradingAccountCommand = new CreateTradingAccountCommand(this, windowDialogService);
+            EditTradingAccountCommand = _editTradingAccountCommand;
             SymbolExchanges = new ObservableCollection<Exchange>();
             FilteredSymbols = new ObservableCollection<Symbol>();
 
@@ -22,6 +27,8 @@ namespace TD.WPF.ViewModels.Maintenance
         }
 
         public DeleteExchangeCommand DeleteExchangeCommand { get; }
+        public CreateTradingAccountCommand CreateTradingAccountCommand { get; }
+        public EditTradingAccountCommand EditTradingAccountCommand { get; }
         public ObservableCollection<Symbol> FilteredSymbols { get; }
         public ObservableCollection<Exchange> SymbolExchanges { get; }
 
@@ -136,11 +143,15 @@ namespace TD.WPF.ViewModels.Maintenance
         {
             if (e.PropertyName == nameof(SelectedExchange))
                 _deleteExchangeCommand.RaiseCanExecuteChanged();
+
+            if (e.PropertyName == nameof(SelectedTradingAccount))
+                _editTradingAccountCommand.RaiseCanExecuteChanged();
         }
 
         private void OnDependencyCollectionChanged(object? sender, NotifyCollectionChangedEventArgs e)
         {
             _deleteExchangeCommand.RaiseCanExecuteChanged();
+            _editTradingAccountCommand.RaiseCanExecuteChanged();
         }
     }
 }

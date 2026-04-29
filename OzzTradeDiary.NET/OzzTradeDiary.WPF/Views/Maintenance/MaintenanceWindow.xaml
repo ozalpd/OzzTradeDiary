@@ -26,7 +26,8 @@
                     <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="0,0,0,8">
                         <Button Style="{StaticResource IconButtonStyle-28x24}"
                                 ToolTip="{x:Static i18n:LocalizedStrings.AddTradingAccount}"
-                                Click="AddTradingAccount_Click">
+                                Command="{Binding CreateTradingAccountCommand}"
+                                CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}">
                             <Viewbox Width="14" Height="14">
                                 <Path Fill="#0044D7" Data="{StaticResource plus-circle}"/>
                             </Viewbox>
@@ -46,7 +47,8 @@
                             </Viewbox>
                         </Button>
                         <Button ToolTip="{x:Static i18n:ActionStrings.Edit}"
-                                Click="EditTradingAccounts_Click">
+                                Command="{Binding EditTradingAccountCommand}"
+                                CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}">
                             <Button.Style>
                                 <Style TargetType="Button" BasedOn="{StaticResource IconButtonStyle-28x24}">
                                     <Setter Property="IsEnabled" Value="True" />

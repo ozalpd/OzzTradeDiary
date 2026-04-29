@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.0.55] - 2026-04-29
+
+### Changed
+- Added a WPF-specific `IWindowDialogService` and `WindowDialogService` to centralize maintenance edit dialog creation and owner assignment (`Owner = this`).
+- Updated `MaintenanceWindow` edit handlers (Currency, Exchange, TradingAccount, Symbol) to use `WindowDialogService` instead of directly constructing edit windows in code-behind.
+- Replaced `EditTradingAccounts_Click` UI wiring with `EditTradingAccountCommand` in `MaintenanceWindow`, passing the owner window as command parameter while preserving existing edit/save-refresh behavior.
+- Replaced `AddTradingAccount_Click` UI wiring with `CreateTradingAccountCommand` in `MaintenanceWindow`, passing the owner window as command parameter while preserving existing create/save-refresh behavior.
+- Extended `IWindowDialogService` with TradingAccount create-dialog support and updated `CreateTradingAccountCommand` to use the dialog service instead of constructing `TradingAccountCreate` directly.
+- `TradingAccountCreate` now blocks dialog confirmation when model validation fails and initializes create-VM validation state so the OK action stays disabled until required inputs are valid.
+
 ## [0.0.54] - 2026-04-27
 
 ### Changed
