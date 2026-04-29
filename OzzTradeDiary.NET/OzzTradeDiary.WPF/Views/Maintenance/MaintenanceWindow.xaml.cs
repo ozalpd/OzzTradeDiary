@@ -2,6 +2,7 @@
 using System.Windows.Controls;
 using System.Windows.Input;
 using TD.AppInfra.Services;
+using TD.i18n;
 using TD.WPF.Extensions;
 using TD.WPF.Models;
 using TD.WPF.Services;
@@ -106,7 +107,7 @@ namespace TD.WPF.Views.Maintenance
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"{operationName} failed.\n{ex.Message}", "Ozz Trade Diary", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show($"{operationName} failed.\n{ex.Message}", CommonStrings.AppTitle, MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }

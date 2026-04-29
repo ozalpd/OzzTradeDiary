@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
+- Minor namespace and using fixes
+
+## [0.0.60] - 2026-04-29
+
+### Changed
+- Icon buttons in MaintenanceWindow now use dynamic styles for enabled/disabled/hover states, improving visual feedback.
+- Error dialogs now use localized app title.
+- Changelog and minor namespace/usings updated.
 
 ## [0.0.59] - 2026-04-29
 

@@ -86,6 +86,7 @@ Internal tracking versions: `OzzTradeDiary` `0.0.55`, `OzzTradeDiary.AppInfra` `
 - **Avoid introducing VM-specific interfaces like `ITradingAccountVM` when only one VM uses the behavior; prefer a service abstraction if reuse is needed later.**
 - `IIsDirty` is declared in `AbstractCreateEditVM` in `TD.AppInfra`; do not reintroduce a separate `IIsDirty.cs` file unless the abstraction changes again.
 - For enum-backed UI selections, prefer `TD.Extensions.EnumExtension.GetValues<T>()` together with enum `Display` attributes / `GetDisplayValue()` so ComboBoxes show localized display text instead of raw enum names.
+- Prefer keeping simple one-line refresh handlers in code-behind (e.g., `RefreshCurrencies_Click`) instead of introducing refresh commands, to avoid unnecessary complexity.
 
 ### Views (TD.WPF namespace)
 
