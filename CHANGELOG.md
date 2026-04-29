@@ -4,13 +4,34 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
-## [0.0.57] - 2026-04-29
+## [0.0.59] - 2026-04-29
+
+### Added
+- Introduce AbstractAsyncCommand/IAsyncCommand for reusable async WPF commands
+- Added AreYouSureToDelete localization (EN/TR) and update resources
+- Added Load[Entity]InProgress flags to AbstractDiaryVM to prevent concurrent loads
+
+### Changed
+- Refactor DeleteExchangeCommand to async, use localized prompt, and disable when related data exists or is loading
+- Remove obsolete exchange delete logic from MaintenanceWindowVM
+- Minor namespace and using fixes
+
+## [0.0.58] - 2026-04-29
 
 ### Changed
 - Refactored the four `AbstractDiaryVM` save methods to persist only the single entity passed by the caller instead of all loaded maintenance entities, and updated the eight maintenance create/edit commands to use the new single-entity save flow.
 - Update MaintenanceWindow XAML: remove Save buttons, adjust Edit/Refresh icons and layout.
 - Add AppTitle and SaveOperationFailed localization keys (EN/TR); update .resx and designer files.
 - Use localized error messages in maintenance commands.
+
+## [0.0.57] - 2026-04-29
+- Replaces code-behind event handlers in MaintenanceWindow with command classes for create/edit actions on Currency,
+- Exchange, and Symbol. Adds new commands under TD.WPF.Commands.Maintenance and updates IWindowDialogService for dialog creation.
+- MaintenanceWindowVM and XAML now bind to these commands, improving MVVM separation and button enablement logic.
+- Removes obsolete code-behind methods and applies minor namespace corrections.
+- No changes to business logic or data models.
+
+### Changed
 
 ## [0.0.56] - 2026-04-29
 

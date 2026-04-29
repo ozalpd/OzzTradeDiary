@@ -1,33 +1,50 @@
 using System.Windows;
-using TD.WPF.ViewModels.Maintenance;
+using TD.i18n;
+using TD.WPF.ViewModels;
 
 namespace TD.WPF.Commands.Maintenance;
 
-internal class DeleteExchangeCommand : AbstractCommand
+internal class DeleteExchangeCommand : AbstractAsyncCommand
 {
-    private readonly MaintenanceWindowVM _viewModel;
+    private readonly AbstractDiaryVM _viewModel;
 
-    public DeleteExchangeCommand(MaintenanceWindowVM viewModel)
+    public DeleteExchangeCommand(AbstractDiaryVM viewModel)
     {
         _viewModel = viewModel;
     }
 
-    public override bool CanExecute(object? parameter)
+    protected override bool CanExecuteAsync(object? parameter)
     {
-        return _viewModel.CanDeleteSelectedExchange();
+        if (_viewModel.SelectedExchange is null)
+            return false;
+
+        if (_viewModel.LoadSymbolsInProgress || _viewModel.LoadTradingAccountsInProgress)
+            return false;
+
+        return !_viewModel.Symbols.Any(s => s.ExchangeId == _viewModel.SelectedExchange.Id)
+            && !_viewModel.TradingAccounts.Any(a => a.ExchangeId == _viewModel.SelectedExchange.Id);
     }
 
-    public override void Execute(object? parameter)
+    public override async Task ExecuteAsync(object? parameter)
     {
+        var exchangeToDelete = _viewModel.SelectedExchange;
+        if (exchangeToDelete is null || exchangeToDelete.Id <= 0)
+            return;
+
         var result = MessageBox.Show(
-            "Are you sure to delete?",
-            "Ozz Trade Diary",
+            MessageStrings.AreYouSureToDelete,
+            CommonStrings.AppTitle,
             MessageBoxButton.YesNo,
             MessageBoxImage.Question);
 
         if (result != MessageBoxResult.Yes)
             return;
 
-        _viewModel.DeleteSelectedExchange();
+        bool deleted = await _viewModel.ExchangeRepository.DeleteAsync(exchangeToDelete.Id);
+        if (!deleted)
+            return;
+
+        _viewModel.SelectedExchange = null;
+        _viewModel.Exchanges.Remove(exchangeToDelete);
     }
 }

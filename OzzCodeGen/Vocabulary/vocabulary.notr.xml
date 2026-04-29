@@ -281,6 +281,10 @@
     <Translation>Are you sure</Translation>
   </Vocab>
   <Vocab>
+    <Name>AreYouSureToDelete</Name>
+    <Translation>Are you sure to delete?</Translation>
+  </Vocab>
+  <Vocab>
     <Name>BackToIndex</Name>
     <Translation>Go to List</Translation>
   </Vocab>

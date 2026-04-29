@@ -70,6 +70,15 @@ namespace TD.i18n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Are you sure to delete?.
+        /// </summary>
+        public static string AreYouSureToDelete {
+            get {
+                return ResourceManager.GetString("AreYouSureToDelete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to This record has some relations..
         /// </summary>
         public static string BecauseOfRelatedRecords {

@@ -281,6 +281,10 @@
     <Translation>Yapmak istediğinizden emin misiniz</Translation>
   </Vocab>
   <Vocab>
+    <Name>AreYouSureToDelete</Name>
+    <Translation>Silmek istediğinizden emin misiniz?</Translation>
+  </Vocab>
+  <Vocab>
     <Name>BackToIndex</Name>
     <Translation>Listeye Git</Translation>
   </Vocab>

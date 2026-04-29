@@ -61,6 +61,9 @@
     <data name="AreYouSure" xml:space="preserve">
         <value>Yapmak istediğinizden emin misiniz</value>
     </data>
+    <data name="AreYouSureToDelete" xml:space="preserve">
+        <value>Silmek istediğinizden emin misiniz?</value>
+    </data>
     <data name="BecauseOfRelatedRecords" xml:space="preserve">
         <value>Bu kayıtla ilişkili başka kayıtlar mevcut.</value>
     </data>

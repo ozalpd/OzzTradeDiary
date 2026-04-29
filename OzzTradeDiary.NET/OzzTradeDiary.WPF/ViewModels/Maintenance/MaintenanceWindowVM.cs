@@ -74,37 +74,6 @@ namespace TD.WPF.ViewModels.Maintenance
         }
         private string? _symbolSearchString;
 
-
-
-        public bool CanDeleteSelectedExchange()
-        {
-            if (SelectedExchange is null)
-                return false;
-
-            var exchangeId = SelectedExchange.Id;
-            return !Symbols.Any(symbol => symbol.ExchangeId == exchangeId)
-                && !TradingAccounts.Any(account => account.ExchangeId == exchangeId);
-        }
-
-        public void DeleteSelectedExchange()
-        {
-            if (!CanDeleteSelectedExchange() || SelectedExchange is null)
-                return;
-
-            var exchangeToDelete = SelectedExchange;
-
-            if (exchangeToDelete.Id > 0)
-            {
-                var deleted = ExchangeRepository.DeleteAsync(exchangeToDelete.Id).GetAwaiter().GetResult();
-                if (!deleted)
-                    return;
-            }
-
-            Exchanges.Remove(exchangeToDelete);
-            SelectedExchange = null;
-            DeleteExchangeCommand.RaiseCanExecuteChanged();
-        }
-
         private void FilterSymbols()
         {
             if (SelectedSymbolExchange is null && string.IsNullOrWhiteSpace(SymbolSearchString))
@@ -160,7 +129,10 @@ namespace TD.WPF.ViewModels.Maintenance
                 EditCurrencyCommand.RaiseCanExecuteChanged();
 
             if (e.PropertyName == nameof(SelectedExchange))
+            {
+                DeleteExchangeCommand.RaiseCanExecuteChanged();
                 EditExchangeCommand.RaiseCanExecuteChanged();
+            }
 
             if (e.PropertyName == nameof(SelectedExchange))
                 DeleteExchangeCommand.RaiseCanExecuteChanged();

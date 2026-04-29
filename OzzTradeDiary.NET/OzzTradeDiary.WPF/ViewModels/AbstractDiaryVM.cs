@@ -35,28 +35,76 @@ namespace TD.WPF.ViewModels
         public ObservableCollection<TradingAccount> TradingAccounts { get; }
         public ObservableCollection<Symbol> Symbols { get; }
 
+        public bool LoadCurrenciesInProgress { get; private set; } = false;
         public virtual async Task LoadCurrenciesAsync()
         {
-            var items = await CurrencyRepository.GetAllAsync();
-            ReplaceCollection(Currencies, items);
+            if (LoadCurrenciesInProgress)
+                return;
+
+            LoadCurrenciesInProgress = true;
+            try
+            {
+                var items = await CurrencyRepository.GetAllAsync();
+                ReplaceCollection(Currencies, items);
+            }
+            finally
+            {
+                LoadCurrenciesInProgress = false;
+            }
         }
 
+        public bool LoadExchangesInProgress { get; private set; } = false;
         public virtual async Task LoadExchangesAsync()
         {
-            var items = await ExchangeRepository.GetAllAsync();
-            ReplaceCollection(Exchanges, items);
+            if (LoadExchangesInProgress)
+                return;
+
+            LoadExchangesInProgress = true;
+            try
+            {
+                var items = await ExchangeRepository.GetAllAsync();
+                ReplaceCollection(Exchanges, items);
+            }
+            finally
+            {
+                LoadExchangesInProgress = false;
+            }
         }
 
+        public bool LoadTradingAccountsInProgress { get; private set; } = false;
         public virtual async Task LoadTradingAccountsAsync()
         {
-            var items = await TradingAccountRepository.GetAllAsync();
-            ReplaceCollection(TradingAccounts, items);
+            if (LoadTradingAccountsInProgress)
+                return;
+
+            LoadTradingAccountsInProgress = true;
+            try
+            {
+                var items = await TradingAccountRepository.GetAllAsync();
+                ReplaceCollection(TradingAccounts, items);
+            }
+            finally
+            {
+                LoadTradingAccountsInProgress = false;
+            }
         }
 
+        public bool LoadSymbolsInProgress { get; private set; } = false;
         public virtual async Task LoadSymbolsAsync()
         {
-            var items = await SymbolRepository.GetAllAsync();
-            ReplaceCollection(Symbols, items);
+            if (LoadSymbolsInProgress)
+                return;
+
+            LoadSymbolsInProgress = true;
+            try
+            {
+                var items = await SymbolRepository.GetAllAsync();
+                ReplaceCollection(Symbols, items);
+            }
+            finally
+            {
+                LoadSymbolsInProgress = false;
+            }
         }
 
         public async Task SaveCurrencyAsync(Currency currency)

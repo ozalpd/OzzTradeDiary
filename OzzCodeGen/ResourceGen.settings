@@ -972,6 +972,12 @@
           <LocalizeValidationMsg>false</LocalizeValidationMsg>
         </LocalizationPropertySetting>
         <LocalizationPropertySetting>
+          <Name>AreYouSureToDelete</Name>
+          <Exclude>false</Exclude>
+          <LocalizeRequiredMsg>false</LocalizeRequiredMsg>
+          <LocalizeValidationMsg>false</LocalizeValidationMsg>
+        </LocalizationPropertySetting>
+        <LocalizationPropertySetting>
           <Name>BecauseOfRelatedRecords</Name>
           <Exclude>false</Exclude>
           <LocalizeRequiredMsg>false</LocalizeRequiredMsg>
