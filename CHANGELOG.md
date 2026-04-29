@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.0.56] - 2026-04-29
+
+### Changed
+- Views `CurrencyCreate`, `CurrencyEdit`, `ExchangeCreate`, `ExchangeEdit`,  `SymbolCreate`, `SymbolEdit`, and `TradingAccountEdit`,  now blocks dialog confirmation when model validation fails and initializes create-VM validation state so the OK action stays disabled until required inputs are valid.
+
+
 ## [0.0.55] - 2026-04-29
 
 ### Changed

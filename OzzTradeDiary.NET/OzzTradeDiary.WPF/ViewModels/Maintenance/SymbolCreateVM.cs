@@ -336,5 +336,10 @@ namespace TD.WPF.ViewModels.Maintenance
             public MarketType Value { get; set; }
             public string DisplayValue { get; set; } = string.Empty;
         }
+
+        public bool ValidateModel()
+        {
+            return ValidateModel(_symbol);
+        }
     }
 }

@@ -64,5 +64,10 @@ namespace TD.WPF.ViewModels.Maintenance
                 }
             }
         }
+
+        public bool ValidateModel()
+        {
+            return ValidateModel(_symbol);
+        }
     }
 }

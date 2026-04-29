@@ -23,6 +23,9 @@ namespace TD.WPF.Views.Maintenance
 
         private void OkButton_Click(object sender, RoutedEventArgs e)
         {
+            if (!_viewModel.ValidateModel())
+                return;
+
             DialogResult = true;
         }
     }

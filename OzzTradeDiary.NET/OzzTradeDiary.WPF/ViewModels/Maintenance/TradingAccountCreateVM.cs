@@ -103,9 +103,7 @@ namespace TD.WPF.ViewModels.Maintenance
 
         public bool ValidateModel()
         {
-            return ValidateProperty(_tradingAccount, nameof(Title))
-                && ValidateProperty(_tradingAccount, nameof(ExchangeId))
-                && ValidateProperty(_tradingAccount, nameof(DisplayOrder));
+            return ValidateModel(_tradingAccount);
         }
     }
 }
