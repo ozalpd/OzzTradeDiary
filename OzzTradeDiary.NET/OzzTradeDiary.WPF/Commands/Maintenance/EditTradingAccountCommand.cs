@@ -47,7 +47,11 @@ internal class EditTradingAccountCommand : AbstractCommand
         }
         catch (Exception ex)
         {
-            MessageBox.Show(MessageStrings.SaveOperationFailed, CommonStrings.AppTitle, MessageBoxButton.OK, MessageBoxImage.Error);
+            string innerExceptionMsg = ex.InnerException != null ? $"\n{ex.InnerException.Message}" : "";
+            MessageBox.Show($"{MessageStrings.SaveOperationFailed}\n{ex.Message}{innerExceptionMsg}",
+                CommonStrings.AppTitle,
+                MessageBoxButton.OK,
+                MessageBoxImage.Error);
         }
     }
 }

@@ -1,6 +1,7 @@
 using System.Windows;
 using TD.AppInfra.Services;
 using TD.i18n;
+using TD.Models;
 using TD.WPF.Services;
 using TD.WPF.ViewModels;
 
@@ -10,11 +11,16 @@ internal class CreateTradingAccountCommand : AbstractCommand
 {
     private readonly AbstractDiaryVM _viewModel;
     private readonly IWindowDialogService _windowDialogService;
+    private readonly IExchangeLookupService _exchangeLookupService;
+    private readonly Exchange? _preselectedExchange;
 
-    public CreateTradingAccountCommand(AbstractDiaryVM viewModel, IWindowDialogService windowDialogService)
+    public CreateTradingAccountCommand(AbstractDiaryVM viewModel, IWindowDialogService windowDialogService,
+        IExchangeLookupService exchangeLookupService, Exchange? preselectedExchange = null)
     {
         _viewModel = viewModel;
         _windowDialogService = windowDialogService;
+        _exchangeLookupService = exchangeLookupService;
+        _preselectedExchange = preselectedExchange;
     }
 
     public override async void Execute(object? parameter)
@@ -24,8 +30,7 @@ internal class CreateTradingAccountCommand : AbstractCommand
 
         try
         {
-            var exchangeLookupService = new ExchangeLookupService(_viewModel.ExchangeRepository);
-            var dialogResult = _windowDialogService.ShowTradingAccountCreateDialog(owner, exchangeLookupService);
+            var dialogResult = _windowDialogService.ShowTradingAccountCreateDialog(owner, _exchangeLookupService, _preselectedExchange);
 
             if (dialogResult.IsConfirmed && dialogResult.TradingAccount is not null)
             {
@@ -38,7 +43,11 @@ internal class CreateTradingAccountCommand : AbstractCommand
         }
         catch (Exception ex)
         {
-            MessageBox.Show(MessageStrings.SaveOperationFailed, CommonStrings.AppTitle, MessageBoxButton.OK, MessageBoxImage.Error);
+            string innerExceptionMsg = ex.InnerException != null ? $"\n{ex.InnerException.Message}" : "";
+            MessageBox.Show($"{MessageStrings.SaveOperationFailed}\n{ex.Message}{innerExceptionMsg}",
+                CommonStrings.AppTitle,
+                MessageBoxButton.OK,
+                MessageBoxImage.Error);
         }
     }
 }

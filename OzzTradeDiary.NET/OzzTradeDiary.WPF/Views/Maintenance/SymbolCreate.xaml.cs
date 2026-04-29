@@ -11,19 +11,21 @@ namespace TD.WPF.Views.Maintenance
     public partial class SymbolCreate : Window
     {
         private readonly SymbolCreateVM _viewModel;
+        private Exchange? _selectedExchange;
 
         public Symbol Symbol => _viewModel.Symbol;
 
-        public SymbolCreate() : this(new ExchangeMockLookupService(), new CurrencyMockLookupService())
+        public SymbolCreate() : this(new ExchangeMockLookupService(), new CurrencyMockLookupService(), null)
         {
         }
 
-        internal SymbolCreate(IExchangeLookupService exchangeLookupService, ICurrencyLookupService currencyLookupService)
+        internal SymbolCreate(IExchangeLookupService exchangeLookupService, ICurrencyLookupService currencyLookupService, Exchange? selectedExchange)
         {
             InitializeComponent();
 
             _viewModel = new SymbolCreateVM(exchangeLookupService, currencyLookupService);
             DataContext = _viewModel;
+            _selectedExchange = selectedExchange;
             SourceInitialized += CreateSymbol_SourceInitialized;
         }
 
@@ -32,6 +34,8 @@ namespace TD.WPF.Views.Maintenance
             try
             {
                 await _viewModel.LoadExchangesAsync();
+                if (_selectedExchange != null)
+                    _viewModel.ExchangeId = _selectedExchange.Id;
             }
             catch (Exception ex)
             {

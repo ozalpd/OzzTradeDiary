@@ -11,19 +11,21 @@ namespace TD.WPF.Views.Maintenance
     public partial class TradingAccountCreate : Window
     {
         private readonly TradingAccountCreateVM _viewModel;
+        private Exchange? _selectedExchange;
 
         public TradingAccount TradingAccount => _viewModel.TradingAccount;
 
-        public TradingAccountCreate() : this(new ExchangeMockLookupService())
+        public TradingAccountCreate() : this(new ExchangeMockLookupService(), null)
         {
         }
 
-        internal TradingAccountCreate(IExchangeLookupService exchangeLookupService)
+        internal TradingAccountCreate(IExchangeLookupService exchangeLookupService, Exchange? selectedExchange)
         {
             InitializeComponent();
 
             _viewModel = new TradingAccountCreateVM(exchangeLookupService);
             DataContext = _viewModel;
+            _selectedExchange = selectedExchange;
             SourceInitialized += CreateTradingAccount_SourceInitialized;
         }
 
@@ -32,6 +34,11 @@ namespace TD.WPF.Views.Maintenance
             try
             {
                 await _viewModel.LoadExchangesAsync();
+                if (_selectedExchange != null)
+                {
+                    _viewModel.ExchangeId = _selectedExchange.Id;
+                    _viewModel.Title= $"{_selectedExchange.ExchangeName} Account";
+                }
             }
             catch (Exception ex)
             {

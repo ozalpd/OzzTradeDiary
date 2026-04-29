@@ -29,9 +29,8 @@ Internal tracking versions: `OzzTradeDiary` `0.0.55`, `OzzTradeDiary.AppInfra` `
 
 **Planned modularization direction**:
 - Keep `TD.RepositoryContracts` as the platform-agnostic source of truth for repository interfaces (for example `ITradeRepository`).
-- Add `TD.AppContracts` to host shared app-service/lookup interfaces (for example `IExchangeLookupService`, `ISymbolLookupService`) as a platform-agnostic contract layer.
 - For app-service contracts, prefer `I<Entity>AppService` naming (for example `ITradingAccountAppService`, `ITradeAppService`, `ITradeImageAppService`).
-- Keep reusable lookup/app-service contracts in `TD.AppContracts` (avoid placing reusable contracts in `TD.WPF`).
+- Keep reusable lookup/app-service contracts in `TD.AppInfra` (avoid placing reusable contracts in `TD.WPF`).
 - Target a future `OzzTradeDiary.MAUI` frontend that consumes shared core/localization/app-infra/contracts rather than WPF-specific assemblies.
 - Shared helper logic such as `EnumExtension` and `TextExtensions` belongs in the platform-agnostic core library, not in `TD.WPF.Extensions`.
 

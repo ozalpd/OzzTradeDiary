@@ -56,7 +56,7 @@ internal interface IWindowDialogService
     /// <param name="exchangeLookupService">The exchange lookup service used to provide exchange selection options within the dialog.</param>
     /// <returns>A tuple containing a Boolean value that is <see langword="true"/> if the user confirmed the dialog; otherwise, <see
     /// langword="false"/>. The second item is the created TradingAccount if confirmed; otherwise, <see langword="null"/>.</returns>
-    (bool IsConfirmed, TradingAccount? TradingAccount) ShowTradingAccountCreateDialog(Window owner, IExchangeLookupService exchangeLookupService);
+    (bool IsConfirmed, TradingAccount? TradingAccount) ShowTradingAccountCreateDialog(Window owner, IExchangeLookupService exchangeLookupService, Exchange? selectedExchange);
 
     /// <summary>
     /// Displays the Trading Account edit dialog for the specified account and returns the result indicating whether the
@@ -79,7 +79,7 @@ internal interface IWindowDialogService
     /// <param name="currencyLookupService">The currency lookup service used to provide currency selection options within the dialog.</param>
     /// <returns>A tuple containing a Boolean value that is <see langword="true"/> if the user confirmed the dialog; otherwise, <see
     /// langword="false"/>. The second item is the created Symbol if confirmed; otherwise, <see langword="null"/>.</returns>
-    (bool IsConfirmed, Symbol? Symbol) ShowSymbolCreateDialog(Window owner, IExchangeLookupService exchangeLookupService, ICurrencyLookupService currencyLookupService);
+    (bool IsConfirmed, Symbol? Symbol) ShowSymbolCreateDialog(Window owner, IExchangeLookupService exchangeLookupService, ICurrencyLookupService currencyLookupService, Exchange? selectedExchange);
 
     /// <summary>
     /// Displays the symbol edit dialog for the specified symbol and returns the result indicating whether the dialog

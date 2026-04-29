@@ -56,9 +56,9 @@ internal class WindowDialogService : IWindowDialogService
     }
 
     /// <inheritdoc />
-    public (bool IsConfirmed, Symbol? Symbol) ShowSymbolCreateDialog(Window owner, IExchangeLookupService exchangeLookupService, ICurrencyLookupService currencyLookupService)
+    public (bool IsConfirmed, Symbol? Symbol) ShowSymbolCreateDialog(Window owner, IExchangeLookupService exchangeLookupService, ICurrencyLookupService currencyLookupService, Exchange? selectedExchange)
     {
-        var dialog = new SymbolCreate(exchangeLookupService, currencyLookupService)
+        var dialog = new SymbolCreate(exchangeLookupService, currencyLookupService, selectedExchange)
         {
             Owner = owner
         };
@@ -80,21 +80,9 @@ internal class WindowDialogService : IWindowDialogService
     }
 
     /// <inheritdoc />
-    public (bool IsConfirmed, TradingAccount? TradingAccount) ShowTradingAccountCreateDialog(Window owner)
+    public (bool IsConfirmed, TradingAccount? TradingAccount) ShowTradingAccountCreateDialog(Window owner, IExchangeLookupService exchangeLookupService, Exchange? selectedExchange)
     {
-        var dialog = new TradingAccountCreate()
-        {
-            Owner = owner
-        };
-
-        var result = dialog.ShowDialog() == true;
-        return (result, result ? dialog.TradingAccount : null);
-    }
-
-    /// <inheritdoc />
-    public (bool IsConfirmed, TradingAccount? TradingAccount) ShowTradingAccountCreateDialog(Window owner, IExchangeLookupService exchangeLookupService)
-    {
-        var dialog = new TradingAccountCreate(exchangeLookupService)
+        var dialog = new TradingAccountCreate(exchangeLookupService, selectedExchange)
         {
             Owner = owner
         };

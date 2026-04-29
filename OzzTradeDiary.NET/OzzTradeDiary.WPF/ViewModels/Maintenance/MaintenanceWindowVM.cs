@@ -1,5 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using System.Collections.Specialized;
+using TD.AppInfra.Services;
 using TD.Models;
 using TD.WPF.Commands.Maintenance;
 using TD.WPF.Services;
@@ -10,6 +11,9 @@ namespace TD.WPF.ViewModels.Maintenance
     {
         public MaintenanceWindowVM(IWindowDialogService windowDialogService)
         {
+            var exchangeLookupService = new ExchangeLookupService(ExchangeRepository);
+            var currencyLookupService = new CurrencyLookupService(CurrencyRepository);
+
             CreateCurrencyCommand = new CreateCurrencyCommand(this, windowDialogService);
             EditCurrencyCommand = new EditCurrencyCommand(this, windowDialogService);
 
@@ -17,10 +21,10 @@ namespace TD.WPF.ViewModels.Maintenance
             EditExchangeCommand = new EditExchangeCommand(this, windowDialogService);
             DeleteExchangeCommand = new DeleteExchangeCommand(this);
 
-            CreateSymbolCommand = new CreateSymbolCommand(this, windowDialogService);
+            CreateSymbolCommand = new CreateSymbolCommand(this, windowDialogService, exchangeLookupService, currencyLookupService);
             EditSymbolCommand = new EditSymbolCommand(this, windowDialogService);
 
-            CreateTradingAccountCommand = new CreateTradingAccountCommand(this, windowDialogService);
+            CreateTradingAccountCommand = new CreateTradingAccountCommand(this, windowDialogService, exchangeLookupService);
             EditTradingAccountCommand = new EditTradingAccountCommand(this, windowDialogService);
 
             SymbolExchanges = new ObservableCollection<Exchange>();

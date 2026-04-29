@@ -3,14 +3,20 @@
 All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
-- Minor namespace and using fixes
 
 ## [0.0.60] - 2026-04-29
 
+### Added
+- Introduce ISymbolCreationContext and implement in AbstractDiaryVM
+
 ### Changed
+- Refactor MaintenanceWindowVM to construct and pass lookup services explicitly
+- Add support for preselecting Exchange in symbol/account dialogs
+- Update dialog service, commands, and constructors to accept Exchange
+- Pre-populate exchange selection and suggest default account title
 - Icon buttons in MaintenanceWindow now use dynamic styles for enabled/disabled/hover states, improving visual feedback.
 - Error dialogs now use localized app title.
-- Changelog and minor namespace/usings updated.
+- Show inner exception details in error dialogs for better diagnostics
 
 ## [0.0.59] - 2026-04-29
 
