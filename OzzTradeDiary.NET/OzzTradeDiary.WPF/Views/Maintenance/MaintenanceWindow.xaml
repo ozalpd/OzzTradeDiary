@@ -46,19 +46,10 @@
                                 <Path Fill="#0044D7" Data="{StaticResource arrow-clockwise}"/>
                             </Viewbox>
                         </Button>
-                        <Button ToolTip="{x:Static i18n:ActionStrings.Edit}"
+                        <Button Style="{StaticResource IconButtonStyle-28x24}"
+                                ToolTip="{x:Static i18n:ActionStrings.Edit}"
                                 Command="{Binding EditTradingAccountCommand}"
                                 CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}">
-                            <Button.Style>
-                                <Style TargetType="Button" BasedOn="{StaticResource IconButtonStyle-28x24}">
-                                    <Setter Property="IsEnabled" Value="True" />
-                                    <Style.Triggers>
-                                        <DataTrigger Binding="{Binding SelectedTradingAccount}" Value="{x:Null}">
-                                            <Setter Property="IsEnabled" Value="False" />
-                                        </DataTrigger>
-                                    </Style.Triggers>
-                                </Style>
-                            </Button.Style>
                             <Viewbox Width="14" Height="14">
                                 <Path Fill="#0044D7" Data="{StaticResource pencil-square}"/>
                             </Viewbox>
@@ -87,7 +78,8 @@
                     <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="0,0,0,8">
                         <Button Style="{StaticResource IconButtonStyle-28x24}"
                                 ToolTip="{x:Static i18n:LocalizedStrings.AddExchange}"
-                                Click="AddExchange_Click">
+                                Command="{Binding CreateExchangeCommand}"
+                                CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}">
                             <Viewbox Width="14" Height="14">
                                 <Path Fill="#0044D7" Data="{StaticResource plus-circle}"/>
                             </Viewbox>
@@ -106,18 +98,10 @@
                                 <Path Fill="#0044D7" Data="{StaticResource arrow-clockwise}"/>
                             </Viewbox>
                         </Button>
-                        <Button ToolTip="{x:Static i18n:ActionStrings.Edit}"
-                                Click="EditExchanges_Click">
-                            <Button.Style>
-                                <Style TargetType="Button" BasedOn="{StaticResource IconButtonStyle-28x24}">
-                                    <Setter Property="IsEnabled" Value="True" />
-                                    <Style.Triggers>
-                                        <DataTrigger Binding="{Binding SelectedExchange}" Value="{x:Null}">
-                                            <Setter Property="IsEnabled" Value="False" />
-                                        </DataTrigger>
-                                    </Style.Triggers>
-                                </Style>
-                            </Button.Style>
+                        <Button Style="{StaticResource IconButtonStyle-28x24}"
+                                ToolTip="{x:Static i18n:ActionStrings.Edit}"
+                                Command="{Binding EditExchangeCommand}"
+                                CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}">
                             <Viewbox Width="14" Height="14">
                                 <Path Fill="#0044D7" Data="{StaticResource pencil-square}"/>
                             </Viewbox>
@@ -173,7 +157,8 @@
                     <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="0,0,0,8">
                         <Button Style="{StaticResource IconButtonStyle-28x24}"
                                 ToolTip="{x:Static i18n:LocalizedStrings.AddCurrency}"
-                                Click="AddCurrency_Click">
+                                Command="{Binding CreateCurrencyCommand}"
+                                CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}">
                             <Viewbox Width="14" Height="14">
                                 <Path Fill="#0044D7" Data="{StaticResource plus-circle}"/>
                             </Viewbox>
@@ -192,18 +177,10 @@
                                 <Path Fill="#0044D7" Data="{StaticResource arrow-clockwise}"/>
                             </Viewbox>
                         </Button>
-                        <Button ToolTip="{x:Static i18n:ActionStrings.Edit}"
-                                Click="EditCurrencies_Click">
-                            <Button.Style>
-                                <Style TargetType="Button" BasedOn="{StaticResource IconButtonStyle-28x24}">
-                                    <Setter Property="IsEnabled" Value="True" />
-                                    <Style.Triggers>
-                                        <DataTrigger Binding="{Binding SelectedCurrency}" Value="{x:Null}">
-                                            <Setter Property="IsEnabled" Value="False" />
-                                        </DataTrigger>
-                                    </Style.Triggers>
-                                </Style>
-                            </Button.Style>
+                        <Button Style="{StaticResource IconButtonStyle-28x24}"
+                                ToolTip="{x:Static i18n:ActionStrings.Edit}"
+                                Command="{Binding EditCurrencyCommand}"
+                                CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}">
                             <Viewbox Width="14" Height="14">
                                 <Path Fill="#0044D7" Data="{StaticResource pencil-square}"/>
                             </Viewbox>
@@ -230,7 +207,8 @@
                     <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="0,0,0,8">
                         <Button Style="{StaticResource IconButtonStyle-28x24}"
                                 ToolTip="{x:Static i18n:LocalizedStrings.AddSymbol}"
-                                Click="AddSymbol_Click">
+                                Command="{Binding CreateSymbolCommand}"
+                                CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}">
                             <Viewbox Width="14" Height="14">
                                 <Path Fill="#0044D7" Data="{StaticResource plus-circle}"/>
                             </Viewbox>
@@ -249,18 +227,10 @@
                                 <Path Fill="#0044D7" Data="{StaticResource arrow-clockwise}"/>
                             </Viewbox>
                         </Button>
-                        <Button ToolTip="{x:Static i18n:ActionStrings.Edit}"
-                                Click="EditSymbols_Click">
-                            <Button.Style>
-                                <Style TargetType="Button" BasedOn="{StaticResource IconButtonStyle-28x24}">
-                                    <Setter Property="IsEnabled" Value="True" />
-                                    <Style.Triggers>
-                                        <DataTrigger Binding="{Binding SelectedSymbol}" Value="{x:Null}">
-                                            <Setter Property="IsEnabled" Value="False" />
-                                        </DataTrigger>
-                                    </Style.Triggers>
-                                </Style>
-                            </Button.Style>
+                        <Button Style="{StaticResource IconButtonStyle-28x24}"
+                                ToolTip="{x:Static i18n:ActionStrings.Edit}"
+                                Command="{Binding EditSymbolCommand}"
+                                CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}">
                             <Viewbox Width="14" Height="14">
                                 <Path Fill="#0044D7" Data="{StaticResource pencil-square}"/>
                             </Viewbox>

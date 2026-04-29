@@ -7,6 +7,15 @@ namespace TD.WPF.Services;
 internal interface IWindowDialogService
 {
     /// <summary>
+    /// Displays the Trading Account creation dialog and returns the result indicating whether the user confirmed the dialog
+    /// and the created Currency, if any.
+    /// </summary>
+    /// <param name="owner">The window that will own the dialog. This determines the dialog's parent window for modality and positioning.</param>
+    /// <returns>A tuple containing a Boolean value that is <see langword="true"/> if the user confirmed the dialog; otherwise, <see
+    /// langword="false"/>. The second item is the created Currency if confirmed; otherwise, <see langword="null"/>.</returns>
+    (bool IsConfirmed, Currency? Currency) ShowCurrencyCreateDialog(Window owner);
+
+    /// <summary>
     /// Displays a modal dialog for editing a currency and returns the result indicating whether the dialog was
     /// confirmed and if any changes were made.
     /// </summary>
@@ -17,6 +26,15 @@ internal interface IWindowDialogService
     /// otherwise, <see langword="false"/>. IsDirty is <see langword="true"/> if any changes were made to the currency;
     /// otherwise, <see langword="false"/>.</returns>
     (bool IsConfirmed, bool IsDirty) ShowCurrencyEditDialog(Window owner, Currency currency);
+
+    /// <summary>
+    /// Displays the Trading Account creation dialog and returns the result indicating whether the user confirmed the dialog
+    /// and the created Exchange, if any.
+    /// </summary>
+    /// <param name="owner">The window that will own the dialog. This determines the dialog's parent window for modality and positioning.</param>
+    /// <returns>A tuple containing a Boolean value that is <see langword="true"/> if the user confirmed the dialog; otherwise, <see
+    /// langword="false"/>. The second item is the created Exchange if confirmed; otherwise, <see langword="null"/>.</returns>
+    (bool IsConfirmed, Exchange? Exchange) ShowExchangeCreateDialog(Window owner);
 
     /// <summary>
     /// Displays a modal dialog for editing the specified exchange and returns the result indicating whether the dialog
@@ -51,6 +69,17 @@ internal interface IWindowDialogService
     /// <returns>A tuple containing two values: IsConfirmed is true if the user confirmed the dialog; otherwise, false. IsDirty
     /// is true if any changes were made to the TradingAccount during the dialog session; otherwise, false.</returns>
     (bool IsConfirmed, bool IsDirty) ShowTradingAccountEditDialog(Window owner, TradingAccount tradingAccount);
+
+    /// <summary>
+    /// Displays the Trading Account creation dialog and returns the result indicating whether the user confirmed the dialog
+    /// and the created Symbol, if any.
+    /// </summary>
+    /// <param name="owner">The window that will own the dialog. This determines the dialog's parent window for modality and positioning.</param>
+    /// <param name="exchangeLookupService">The exchange lookup service used to provide exchange selection options within the dialog.</param>
+    /// <param name="currencyLookupService">The currency lookup service used to provide currency selection options within the dialog.</param>
+    /// <returns>A tuple containing a Boolean value that is <see langword="true"/> if the user confirmed the dialog; otherwise, <see
+    /// langword="false"/>. The second item is the created Symbol if confirmed; otherwise, <see langword="null"/>.</returns>
+    (bool IsConfirmed, Symbol? Symbol) ShowSymbolCreateDialog(Window owner, IExchangeLookupService exchangeLookupService, ICurrencyLookupService currencyLookupService);
 
     /// <summary>
     /// Displays the symbol edit dialog for the specified symbol and returns the result indicating whether the dialog

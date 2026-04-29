@@ -8,7 +8,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ### Changed
 - Views `CurrencyCreate`, `CurrencyEdit`, `ExchangeCreate`, `ExchangeEdit`,  `SymbolCreate`, `SymbolEdit`, and `TradingAccountEdit`,  now blocks dialog confirmation when model validation fails and initializes create-VM validation state so the OK action stays disabled until required inputs are valid.
-
+- Moved `CreateTradingAccountCommand` and `EditTradingAccountCommand` to `Commands/Maintenance/` subfolder for better project structure.
+- Added `CreateCurrencyCommand`, `EditCurrencyCommand`, `CreateExchangeCommand`, `EditExchangeCommand`, `CreateSymbolCommand`, and `EditSymbolCommand` in `Commands/Maintenance/`, wired them to `MaintenanceWindowVM` and bound in `MaintenanceWindow.xaml`.
+- Removed all remaining maintenance edit/create `_Click` code-behind methods from `MaintenanceWindow.xaml.cs`; all maintenance actions are now command-driven.
 
 ## [0.0.55] - 2026-04-29
 

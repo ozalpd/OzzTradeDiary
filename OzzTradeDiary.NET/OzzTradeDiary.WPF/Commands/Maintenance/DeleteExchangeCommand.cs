@@ -1,7 +1,7 @@
 using System.Windows;
 using TD.WPF.ViewModels.Maintenance;
 
-namespace TD.WPF.Commands;
+namespace TD.WPF.Commands.Maintenance;
 
 internal class DeleteExchangeCommand : AbstractCommand
 {

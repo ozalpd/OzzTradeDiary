@@ -3,7 +3,7 @@ using TD.AppInfra.Services;
 using TD.WPF.Services;
 using TD.WPF.ViewModels;
 
-namespace TD.WPF.Commands;
+namespace TD.WPF.Commands.Maintenance;
 
 internal class CreateTradingAccountCommand : AbstractCommand
 {

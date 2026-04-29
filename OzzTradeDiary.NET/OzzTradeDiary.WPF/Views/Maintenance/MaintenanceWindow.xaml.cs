@@ -78,38 +78,6 @@ namespace TD.WPF.Views.Maintenance
                 : Visibility.Collapsed;
         }
 
-        private async void AddCurrency_Click(object sender, RoutedEventArgs e)
-        {
-            var dialog = new CurrencyCreate { Owner = this };
-            if (dialog.ShowDialog() == true)
-            {
-                _viewModel.Currencies.Add(dialog.Currency);
-                await ExecuteUiActionAsync(_viewModel.SaveCurrenciesAsync, "Save currencies");
-                await ExecuteUiActionAsync(_viewModel.LoadCurrenciesAsync, "Refresh currencies");
-            }
-        }
-
-        private async void EditCurrencies_Click(object sender, RoutedEventArgs e)
-        {
-
-            if (_viewModel.SelectedCurrency == null)
-                return;
-
-            int id = _viewModel.SelectedCurrency.Id;
-            var dialogResult = _windowDialogService.ShowCurrencyEditDialog(this, _viewModel.SelectedCurrency);
-            if (dialogResult.IsConfirmed && dialogResult.IsDirty)
-            {
-                await ExecuteUiActionAsync(_viewModel.SaveCurrenciesAsync, "Save currencies");
-                await ExecuteUiActionAsync(_viewModel.LoadCurrenciesAsync, "Refresh currencies");
-            }
-            else if (dialogResult.IsDirty)
-            {
-                await ExecuteUiActionAsync(_viewModel.LoadCurrenciesAsync, "Refresh currencies");
-            }
-
-            _viewModel.SelectedCurrency = _viewModel.Currencies.FirstOrDefault(x => x.Id == id);
-        }
-
         private async void SaveCurrencies_Click(object sender, RoutedEventArgs e)
         {
             await ExecuteUiActionAsync(_viewModel.SaveCurrenciesAsync, "Save currencies");
@@ -119,37 +87,6 @@ namespace TD.WPF.Views.Maintenance
         private async void RefreshCurrencies_Click(object sender, RoutedEventArgs e)
         {
             await ExecuteUiActionAsync(_viewModel.LoadCurrenciesAsync, "Refresh currencies");
-        }
-
-        private async void AddExchange_Click(object sender, RoutedEventArgs e)
-        {
-            var dialog = new ExchangeCreate { Owner = this };
-            if (dialog.ShowDialog() == true)
-            {
-                _viewModel.Exchanges.Add(dialog.Exchange);
-                await ExecuteUiActionAsync(_viewModel.SaveExchangesAsync, "Save exchanges");
-                await ExecuteUiActionAsync(_viewModel.LoadExchangesAsync, "Refresh exchanges");
-            }
-        }
-
-        private async void EditExchanges_Click(object sender, RoutedEventArgs e)
-        {
-            if (_viewModel.SelectedExchange == null)
-                return;
-
-            int id = _viewModel.SelectedExchange.Id;
-            var dialogResult = _windowDialogService.ShowExchangeEditDialog(this, _viewModel.SelectedExchange);
-            if (dialogResult.IsConfirmed && dialogResult.IsDirty)
-            {
-                await ExecuteUiActionAsync(_viewModel.SaveExchangesAsync, "Save exchanges");
-                await ExecuteUiActionAsync(_viewModel.LoadExchangesAsync, "Refresh exchanges");
-            }
-            else if (dialogResult.IsDirty)
-            {
-                await ExecuteUiActionAsync(_viewModel.LoadExchangesAsync, "Refresh exchanges");
-            }
-
-            _viewModel.SelectedExchange = _viewModel.Exchanges.FirstOrDefault(x => x.Id == id);
         }
 
         private async void SaveExchanges_Click(object sender, RoutedEventArgs e)
@@ -172,37 +109,6 @@ namespace TD.WPF.Views.Maintenance
         private async void RefreshTradingAccounts_Click(object sender, RoutedEventArgs e)
         {
             await ExecuteUiActionAsync(_viewModel.LoadTradingAccountsAsync, "Refresh trading accounts");
-        }
-
-        private async void AddSymbol_Click(object sender, RoutedEventArgs e)
-        {
-            var dialog = new SymbolCreate(_exchangeLookupService, _currencyLookupService) { Owner = this };
-            if (dialog.ShowDialog() == true)
-            {
-                _viewModel.Symbols.Add(dialog.Symbol);
-                await ExecuteUiActionAsync(_viewModel.SaveSymbolsAsync, "Save symbols");
-                await ExecuteUiActionAsync(_viewModel.LoadSymbolsAsync, "Refresh symbols");
-            }
-        }
-
-        private async void EditSymbols_Click(object sender, RoutedEventArgs e)
-        {
-            if (_viewModel.SelectedSymbol == null)
-                return;
-
-            int id = _viewModel.SelectedSymbol.Id;
-            var dialogResult = _windowDialogService.ShowSymbolEditDialog(this, _viewModel.SelectedSymbol);
-            if (dialogResult.IsConfirmed && dialogResult.IsDirty)
-            {
-                await ExecuteUiActionAsync(_viewModel.SaveSymbolsAsync, "Save symbols");
-                await ExecuteUiActionAsync(_viewModel.LoadSymbolsAsync, "Refresh symbols");
-            }
-            else if (dialogResult.IsDirty)
-            {
-                await ExecuteUiActionAsync(_viewModel.LoadSymbolsAsync, "Refresh symbols");
-            }
-
-            _viewModel.SelectedSymbol = _viewModel.Symbols.FirstOrDefault(x => x.Id == id);
         }
 
         private async void SaveSymbols_Click(object sender, RoutedEventArgs e)
