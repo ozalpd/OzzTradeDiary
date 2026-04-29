@@ -4,7 +4,7 @@ A Windows desktop trade journaling application for tracking trades across multip
 
 > **Status**: Pre-release development (no public release yet)
 > 
-> **Internal tracking versions**: `OzzTradeDiary` `0.0.55`, `OzzTradeDiary.AppInfra` `0.0.55`, `OzzTradeDiary.RepositoryContracts` `0.0.55`, `OzzTradeDiary.WPF` `0.0.55`, `OzzTradeDiary.SQLite` `0.0.55`, `OzzTradeDiary.i18n` `0.0.55`
+> **Internal tracking versions**: `OzzTradeDiary` `0.0.60`, `OzzTradeDiary.AppInfra` `0.0.60`, `OzzTradeDiary.RepositoryContracts` `0.0.60`, `OzzTradeDiary.WPF` `0.0.60`, `OzzTradeDiary.SQLite` `0.0.60`, `OzzTradeDiary.i18n` `0.0.60`
 
 ## Changelog
 

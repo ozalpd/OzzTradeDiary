@@ -4,7 +4,7 @@
 
 Early-stage development (pre-release, no public release yet).
 
-Internal tracking versions: `OzzTradeDiary` `0.0.55`, `OzzTradeDiary.AppInfra` `0.0.55`, `OzzTradeDiary.RepositoryContracts` `0.0.53`, `OzzTradeDiary.WPF` `0.0.55`, `OzzTradeDiary.SQLite` `0.0.55`, `OzzTradeDiary.i18n` `0.0.55`.
+Internal tracking versions: `OzzTradeDiary` `0.0.60`, `OzzTradeDiary.AppInfra` `0.0.60`, `OzzTradeDiary.RepositoryContracts` `0.0.60`, `OzzTradeDiary.WPF` `0.0.60`, `OzzTradeDiary.SQLite` `0.0.60`, `OzzTradeDiary.i18n` `0.0.60`.
 
 - **Changelog discipline**: Any behavior change (repository logic, initialization, seeding, schema generation impact, UI-visible behavior) must be recorded in `CHANGELOG.md`.
 
@@ -86,6 +86,7 @@ Internal tracking versions: `OzzTradeDiary` `0.0.55`, `OzzTradeDiary.AppInfra` `
 - `IIsDirty` is declared in `AbstractCreateEditVM` in `TD.AppInfra`; do not reintroduce a separate `IIsDirty.cs` file unless the abstraction changes again.
 - For enum-backed UI selections, prefer `TD.Extensions.EnumExtension.GetValues<T>()` together with enum `Display` attributes / `GetDisplayValue()` so ComboBoxes show localized display text instead of raw enum names.
 - Prefer keeping simple one-line refresh handlers in code-behind (e.g., `RefreshCurrencies_Click`) instead of introducing refresh commands, to avoid unnecessary complexity.
+- Use context interfaces for commands selectively: only when it reduces coupling/reuse needs; not all commands should depend on context interfaces, and preselected entities should be introduced only where needed.
 
 ### Views (TD.WPF namespace)
 
