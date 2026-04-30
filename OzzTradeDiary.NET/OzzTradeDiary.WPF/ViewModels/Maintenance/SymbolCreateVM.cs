@@ -9,17 +9,17 @@ namespace TD.WPF.ViewModels.Maintenance
     internal class SymbolCreateVM : AbstractCreateEditVM
     {
         private const string NoBaseCurrencyDisplayText = "No Base Currency";
-        private readonly IExchangeLookupService _exchangeLookupService;
         private readonly ICurrencyLookupService _currencyLookupService;
+        private readonly IExchangeLookupService _exchangeLookupService;
         private readonly IReadOnlyList<MarketTypeValueItem> _marketTypeValues;
         private readonly ObservableCollection<BaseCurrencyValueItem> _baseCurrencyValues;
         private Symbol _symbol;
         public Symbol Symbol => _symbol;
 
-        public SymbolCreateVM(IExchangeLookupService exchangeLookupService, ICurrencyLookupService currencyLookupService)
+        public SymbolCreateVM(ICurrencyLookupService currencyLookupService, IExchangeLookupService exchangeLookupService)
         {
-            _exchangeLookupService = exchangeLookupService;
             _currencyLookupService = currencyLookupService;
+            _exchangeLookupService = exchangeLookupService;
 
             Currencies = new ObservableCollection<Currency>();
             Exchanges = new ObservableCollection<Exchange>();

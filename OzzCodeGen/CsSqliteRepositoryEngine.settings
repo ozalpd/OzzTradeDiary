@@ -223,8 +223,8 @@
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
           <Name>DefaultCurrency</Name>
-          <Exclude>true</Exclude>
-          <AutoLoad>false</AutoLoad>
+          <Exclude>false</Exclude>
+          <AutoLoad>true</AutoLoad>
           <CheckIfAltered>false</CheckIfAltered>
           <ColumnName>DefaultCurrency</ColumnName>
           <SingleColumnUpdate>false</SingleColumnUpdate>

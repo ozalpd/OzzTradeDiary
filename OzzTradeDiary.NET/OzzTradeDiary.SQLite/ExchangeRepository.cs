@@ -19,17 +19,21 @@ namespace TD.SQLite
     public partial class ExchangeRepository : AbstractDatabaseRepository<Exchange>, IExchangeRepository
     {
         public ExchangeRepository(string databasePath
+                               , ICurrencyRepository? currencyRepository = null 
                                , ISymbolRepository? symbolRepository = null 
                                , ITradingAccountRepository? tradingAccountRepository = null) : base(databasePath, "Exchanges") 
         {
             _selectStatement = $"SELECT {string.Join(", ", ColumnNames)} FROM {_tableName}";
+            _currencyRepository = currencyRepository ?? new CurrencyRepository(databasePath);
             _symbolRepository = symbolRepository ?? new SymbolRepository(databasePath, exchangeRepository: this);
             _tradingAccountRepository = tradingAccountRepository ?? new TradingAccountRepository(databasePath, exchangeRepository: this);
             InitializeDatabase();
-            OnInitialized(symbolRepository == null
+            OnInitialized(currencyRepository == null
+                        , symbolRepository == null 
                         , tradingAccountRepository == null); 
         }
         private readonly string _selectStatement;
+        private readonly ICurrencyRepository _currencyRepository;
         private readonly ISymbolRepository _symbolRepository;
         private readonly ITradingAccountRepository _tradingAccountRepository;
 
@@ -45,12 +49,14 @@ namespace TD.SQLite
         /// The parameters indicate whether the corresponding repository was created by this repository (true) or provided externally (false),
         /// which can be useful to determine if any additional initialization or event wiring is needed.
         /// </summary>
-        partial void OnInitialized(bool isSymbolRepositoryNull
+        partial void OnInitialized(bool isCurrencyRepositoryNull
+                                 , bool isSymbolRepositoryNull 
                                  , bool isTradingAccountRepositoryNull); 
 
         public async Task<IReadOnlyList<Exchange>> GetAllAsync(bool? isActive = null)
         {
             var result = new List<Exchange>();
+            var currenciesById = (await _currencyRepository.GetAllAsync()).ToDictionary(item => item.Id);
 
             await using var connection = await GetOpenConnectionAsync();
             await using var command = connection.CreateCommand();
@@ -67,6 +73,9 @@ namespace TD.SQLite
             while (await reader.ReadAsync())
             {
                 var exchange = MapExchange(reader);
+                if (currenciesById.TryGetValue(exchange.DefaultCurrencyId, out var defaultCurrency))
+                    exchange.DefaultCurrency = defaultCurrency;
+
                 result.Add(exchange);
             }
 
@@ -76,6 +85,7 @@ namespace TD.SQLite
         public async Task<IReadOnlyList<Exchange>> GetByDefaultCurrencyIdAsync(int defaultCurrencyId, bool? isActive = null)
         {
             var result = new List<Exchange>();
+            var currenciesById = (await _currencyRepository.GetAllAsync()).ToDictionary(item => item.Id);
 
             await using var connection = await GetOpenConnectionAsync();
             await using var command = connection.CreateCommand();
@@ -94,6 +104,9 @@ namespace TD.SQLite
             while (await reader.ReadAsync())
             {
                 var exchange = MapExchange(reader);
+                if (currenciesById.TryGetValue(exchange.DefaultCurrencyId, out var defaultCurrency))
+                    exchange.DefaultCurrency = defaultCurrency;
+
                 result.Add(exchange);
             }
 
@@ -117,6 +130,7 @@ namespace TD.SQLite
                 return null;
 
             var exchange = MapExchange(reader);
+            await LoadCurrencyAsync(exchange);
             
             OnLoaded(exchange);
             return exchange;
@@ -138,6 +152,7 @@ namespace TD.SQLite
                 return null;
 
             var exchange = MapExchange(reader);
+            await LoadCurrencyAsync(exchange);
             
             OnLoaded(exchange);
             return exchange;
@@ -213,7 +228,6 @@ namespace TD.SQLite
             existingExchange = await GetByIdAsync(exchange.Id);
             bool noChanges = existingExchange != null
                           && existingExchange.ExchangeName == exchange.ExchangeName 
-                          && existingExchange.DefaultCurrencyId == exchange.DefaultCurrencyId 
                           && existingExchange.DisplayOrder == exchange.DisplayOrder 
                           && existingExchange.IsActive == exchange.IsActive; 
 
@@ -221,18 +235,16 @@ namespace TD.SQLite
                 return false;
 
             await using var command = connection.CreateCommand();
-            // ExchangeCode, HasAnySymbol are not updated to avoid complications with existing references,
-            // so only ExchangeName, DefaultCurrencyId, DisplayOrder, IsActive are updated
+            // ExchangeCode, DefaultCurrencyId, HasAnySymbol are not updated to avoid complications with existing references,
+            // so only ExchangeName, DisplayOrder, IsActive are updated
             command.CommandText = @$"UPDATE {_tableName} SET
                 ExchangeName = @exchangeName, 
-                DefaultCurrencyId = @defaultCurrencyId, 
                 DisplayOrder = @displayOrder, 
                 IsActive = @isActive 
             WHERE Id = @id";
 
             command.AddParameter("@id", exchange.Id);
             command.AddParameter("@exchangeName", exchange.ExchangeName);
-            command.AddParameter("@defaultCurrencyId", exchange.DefaultCurrencyId);
             command.AddParameter("@displayOrder", exchange.DisplayOrder);
             command.AddParameter("@isActive", exchange.IsActive);
 
@@ -268,6 +280,13 @@ namespace TD.SQLite
 
             return affectedRows > 0;
         }
+
+        private async Task LoadCurrencyAsync(Exchange exchange)
+        {
+            exchange.DefaultCurrency = await _currencyRepository.GetByIdAsync(exchange.DefaultCurrencyId)
+                            ?? new Currency { Id = exchange.DefaultCurrencyId };
+        }
+
 
         private static Exchange MapExchange(SqliteDataReader reader)
         {

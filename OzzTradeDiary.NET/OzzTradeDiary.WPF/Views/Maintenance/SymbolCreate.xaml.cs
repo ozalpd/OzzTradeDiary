@@ -23,7 +23,7 @@ namespace TD.WPF.Views.Maintenance
         {
             InitializeComponent();
 
-            _viewModel = new SymbolCreateVM(exchangeLookupService, currencyLookupService);
+            _viewModel = new SymbolCreateVM(currencyLookupService, exchangeLookupService);
             DataContext = _viewModel;
             _selectedExchange = preselectedExchange;
             SourceInitialized += CreateSymbol_SourceInitialized;

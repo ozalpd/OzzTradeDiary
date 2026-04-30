@@ -334,7 +334,7 @@
           <IncludeInViewModel>true</IncludeInViewModel>
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
-          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
+          <IsReadOnlyInEdit>true</IsReadOnlyInEdit>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
@@ -355,8 +355,8 @@
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
           <IsPreselectedInCreate>true</IsPreselectedInCreate>
-          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
-          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
+          <IsReadOnlyInCreate>true</IsReadOnlyInCreate>
+          <IsReadOnlyInEdit>true</IsReadOnlyInEdit>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
@@ -374,10 +374,10 @@
       <GenerateCreateCommand>true</GenerateCreateCommand>
       <GenerateCreateView>true</GenerateCreateView>
       <GenerateEditView>true</GenerateEditView>
-      <GenerateCreateViewModel>false</GenerateCreateViewModel>
+      <GenerateCreateViewModel>true</GenerateCreateViewModel>
       <GenerateDeleteCommand>true</GenerateDeleteCommand>
       <GenerateEditCommand>true</GenerateEditCommand>
-      <GenerateEditViewModel>false</GenerateEditViewModel>
+      <GenerateEditViewModel>true</GenerateEditViewModel>
       <GenerateLookupService>true</GenerateLookupService>
       <RepositoryName>ITradingAccountRepository</RepositoryName>
       <SubFolder>Maintenance</SubFolder>
