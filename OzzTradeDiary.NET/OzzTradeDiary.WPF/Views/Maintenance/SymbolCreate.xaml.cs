@@ -19,13 +19,13 @@ namespace TD.WPF.Views.Maintenance
         {
         }
 
-        internal SymbolCreate(IExchangeLookupService exchangeLookupService, ICurrencyLookupService currencyLookupService, Exchange? selectedExchange)
+        internal SymbolCreate(IExchangeLookupService exchangeLookupService, ICurrencyLookupService currencyLookupService, Exchange? preselectedExchange)
         {
             InitializeComponent();
 
             _viewModel = new SymbolCreateVM(exchangeLookupService, currencyLookupService);
             DataContext = _viewModel;
-            _selectedExchange = selectedExchange;
+            _selectedExchange = preselectedExchange;
             SourceInitialized += CreateSymbol_SourceInitialized;
         }
 

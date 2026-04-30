@@ -19,13 +19,13 @@ namespace TD.WPF.Views.Maintenance
         {
         }
 
-        internal TradingAccountCreate(IExchangeLookupService exchangeLookupService, Exchange? selectedExchange)
+        internal TradingAccountCreate(IExchangeLookupService exchangeLookupService, Exchange? preselectedExchange)
         {
             InitializeComponent();
 
             _viewModel = new TradingAccountCreateVM(exchangeLookupService);
             DataContext = _viewModel;
-            _selectedExchange = selectedExchange;
+            _selectedExchange = preselectedExchange;
             SourceInitialized += CreateTradingAccount_SourceInitialized;
         }
 
