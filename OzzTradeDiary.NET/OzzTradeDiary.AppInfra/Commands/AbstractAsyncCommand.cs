@@ -1,13 +1,13 @@
 using System.Windows.Input;
 
-namespace TD.WPF.Commands;
+namespace TD.AppInfra.Commands;
 
-internal interface IAsyncCommand : ICommand
+public interface IAsyncCommand : ICommand
 {
     Task ExecuteAsync(object? parameter);
 }
 
-internal abstract class AbstractAsyncCommand : AbstractCommand, IAsyncCommand
+public abstract class AbstractAsyncCommand : AbstractCommand, IAsyncCommand
 {
     private bool _isExecuting;
 

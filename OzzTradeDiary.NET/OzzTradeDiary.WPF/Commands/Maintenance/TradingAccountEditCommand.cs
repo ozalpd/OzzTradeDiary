@@ -1,4 +1,5 @@
 using System.Windows;
+using TD.AppInfra.Commands;
 using TD.i18n;
 using TD.WPF.Services;
 using TD.WPF.ViewModels;
@@ -40,7 +41,7 @@ internal class TradingAccountEditCommand : AbstractCommand
             }
             else if (dialogResult.IsDirty)
             {
-                await _viewModel.LoadCurrenciesAsync();
+                await _viewModel.LoadTradingAccountsAsync();
             }
 
             _viewModel.SelectedTradingAccount = _viewModel.TradingAccounts.FirstOrDefault(x => x.Id == tradingAccount.Id);

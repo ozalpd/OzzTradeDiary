@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using TD.AppInfra.Commands;
 using TD.i18n;
 using TD.WPF.Services;
 using TD.WPF.ViewModels;
@@ -41,7 +42,7 @@ namespace TD.WPF.Commands.Maintenance
                 }
                 else if (dialogResult.IsDirty)
                 {
-                    await _viewModel.LoadCurrenciesAsync();
+                    await _viewModel.LoadExchangesAsync();
                 }
 
                 _viewModel.SelectedExchange = _viewModel.Exchanges.FirstOrDefault(x => x.Id == exchange.Id);

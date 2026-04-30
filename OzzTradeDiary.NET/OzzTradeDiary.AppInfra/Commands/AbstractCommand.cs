@@ -1,8 +1,8 @@
 ﻿using System.Windows.Input;
 
-namespace TD.WPF.Commands;
+namespace TD.AppInfra.Commands;
 
-internal abstract class AbstractCommand : ICommand
+public abstract class AbstractCommand : ICommand
 {
     public abstract void Execute(object? parameter);
 

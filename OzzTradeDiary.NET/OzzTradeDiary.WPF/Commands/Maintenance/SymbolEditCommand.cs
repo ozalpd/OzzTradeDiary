@@ -1,16 +1,17 @@
 ﻿using System.Windows;
+using TD.AppInfra.Commands;
+using TD.AppInfra.ViewModels;
 using TD.i18n;
 using TD.WPF.Services;
-using TD.WPF.ViewModels;
 
 namespace TD.WPF.Commands.Maintenance
 {
     internal class SymbolEditCommand : AbstractCommand
     {
-        private readonly AbstractDiaryVM _viewModel;
+        private readonly ISymbolCreationContext _viewModel;
         private readonly IWindowDialogService _windowDialogService;
 
-        public SymbolEditCommand(AbstractDiaryVM viewModel, IWindowDialogService windowDialogService)
+        public SymbolEditCommand(ISymbolCreationContext viewModel, IWindowDialogService windowDialogService)
         {
             _viewModel = viewModel;
             _windowDialogService = windowDialogService;
@@ -40,7 +41,7 @@ namespace TD.WPF.Commands.Maintenance
                 }
                 else if (dialogResult.IsDirty)
                 {
-                    await _viewModel.LoadCurrenciesAsync();
+                    await _viewModel.LoadSymbolsAsync();
                 }
 
                 _viewModel.SelectedSymbol = _viewModel.Symbols.FirstOrDefault(x => x.Id == symbol.Id);

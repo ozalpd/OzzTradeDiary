@@ -21,6 +21,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - Added PreselectedExchange property to SymbolCreateCommand and TradingAccountCreateCommand to support exchange preselection in dialogs.
 - Updated MaintenanceWindowVM and MaintenanceWindow.xaml to use new command names and properties.
 - Performed related cleanup and refactoring.
+- AbstractCommand, AbstractAsyncCommand, and IAsyncCommand are now public and relocated to TD.AppInfra.Commands for cross-platform reuse.
+- Updated all WPF command classes to use the new namespace.
+- SymbolEditCommand now uses ISymbolCreationContext for context injection.
+- Fixed fallback reload logic in ExchangeEditCommand, SymbolEditCommand, and TradingAccountEditCommand to reload the correct entity list after a dirty dialog result.
 
 ## [0.0.59] - 2026-04-29
 

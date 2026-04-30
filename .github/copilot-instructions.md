@@ -15,7 +15,7 @@ Internal tracking versions: `OzzTradeDiary` `0.0.60`, `OzzTradeDiary.AppInfra` `
 | Project | Namespace | Role | Platform |
 |---------|-----------|------|----------|
 | `OzzTradeDiary` | `TD` | Core data models, shared helpers (`TD.Helpers`), and shared validation utilities (`TD.Validation`) | Platform-independent |
-| `OzzTradeDiary.AppInfra` | `TD.AppInfra` | Shared ViewModel/Command base classes (`AbstractViewModel`, `AbstractCommand`, `AbstractDataErrorInfoVM`, `AbstractCreateEditVM`, etc.) | Platform-independent |
+| `OzzTradeDiary.AppInfra` | `TD.AppInfra` | Shared ViewModel/Command base classes (`AbstractViewModel`, `AbstractCommand`, `AbstractAsyncCommand`, `AbstractDataErrorInfoVM`, `AbstractCreateEditVM`, etc.) | Platform-independent |
 | `TD.RepositoryContracts` | `TD.RepositoryContracts` | Shared repository contract interfaces (`ITradeRepository`, `IExchangeRepository`, etc.) | Platform-independent |
 | `OzzTradeDiary.i18n` | `TD.i18n` | Localization resources (`ActionStrings`, `CommonStrings`, `ErrorStrings`, `LocalizedStrings`, `MessageStrings`) | Platform-independent |
 | `OzzTradeDiary.SQLite` | `TD.SQLite` | Data access — raw SQLite via Microsoft.Data.Sqlite; implements repository contracts | Platform-independent |
@@ -74,13 +74,14 @@ Internal tracking versions: `OzzTradeDiary` `0.0.60`, `OzzTradeDiary.AppInfra` `
 ### ViewModels (TD.AppInfra and TD.WPF namespaces)
 
 - Shared base classes live in `TD.AppInfra` (`AbstractViewModel`, `AbstractDataErrorInfoVM`, `AbstractCreateEditVM`, `AbstractCollectionVM`, `AbstractDiaryVM`, etc.) with `public` visibility for cross-platform reuse
+- Shared command bases live in `TD.AppInfra.Commands` (`AbstractCommand`, `AbstractAsyncCommand`) and should be reused by platform-specific UI projects.
 - WPF-specific ViewModels live in `TD.WPF` and inherit from `TD.AppInfra` base classes
 - Inherit from `AbstractViewModel` (provides `INotifyPropertyChanged` via `RaisePropertyChanged()`)
 - Validation: extend `AbstractDataErrorInfoVM` (implements `INotifyDataErrorInfo`); for dialog ViewModels expose `IsValid => !HasErrors`, subscribe to `ErrorsChanged` to raise it, and call `ValidateModel` in the constructor so the OK button starts disabled
 - Collections: extend `AbstractCollectionVM<T>` (provides `ObservableCollection<T>`, filtering, selection)
 - Data access: extend `AbstractDiaryVM` (provides repository instances and CRUD operations for Currency, Exchange, TradingAccount, Symbol — use as base when a ViewModel needs direct repository access)
 - **ViewModels must not instantiate repositories directly**; instead, use data-source abstraction for lookup data such as exchanges and currencies.
-- Commands: extend `AbstractCommand` (implements `ICommand`)
+- Commands: extend `AbstractCommand` (or `AbstractAsyncCommand` for async workflows)
 - Feature-specific ViewModels are grouped in subfolders matching their feature area (e.g., `ViewModels/Maintenance/` → namespace `TD.WPF.ViewModels.Maintenance`)
 - Follow entity-first naming: `TradingAccountCreateVM` (not `CreateTradingAccountVM`).
 - **Avoid introducing VM-specific interfaces like `ITradingAccountVM` when only one VM uses the behavior; prefer a service abstraction if reuse is needed later.**

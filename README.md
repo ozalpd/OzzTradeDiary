@@ -68,7 +68,7 @@ See [`CHANGELOG.md`](CHANGELOG.md) for release history.
 - DPI-aware multi-monitor window positioning
 - App version displayed in title bar; Bootstrap Icons for window title bar icons
 - UI culture configurable via `AppSettings.UiCulture` (BCP-47); falls back to OS culture when empty
-- Shared platform-agnostic MVVM base classes (`AbstractViewModel`, `AbstractCommand`, `AbstractDataErrorInfoVM`, `AbstractCreateEditVM`) in `TD.AppInfra` for reuse by WPF and future frontends
+- Shared platform-agnostic MVVM base classes (`AbstractViewModel`, `AbstractCommand`, `AbstractDataErrorInfoVM`, `AbstractCreateEditVM`) in `TD.AppInfra` for reuse by WPF and future MAUI frontends
 
 ## Planned
 
