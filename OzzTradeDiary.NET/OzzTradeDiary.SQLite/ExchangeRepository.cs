@@ -73,6 +73,34 @@ namespace TD.SQLite
             return result;
         }
 
+        public async Task<IReadOnlyList<Exchange>> GetByDefaultCurrencyIdAsync(int defaultCurrencyId, bool? isActive = null)
+        {
+            var result = new List<Exchange>();
+
+            await using var connection = await GetOpenConnectionAsync();
+            await using var command = connection.CreateCommand();
+            command.CommandText = _selectStatement;
+            command.CommandText += " WHERE DefaultCurrencyId = @defaultCurrencyId";
+            command.AddParameter("@defaultCurrencyId", defaultCurrencyId);
+            if (isActive.HasValue)
+            {
+                command.CommandText += " AND IsActive = @isActive";
+                command.AddParameter("@isActive", isActive.Value);
+            }
+
+            command.CommandText += " ORDER BY DisplayOrder, ExchangeName";
+
+            await using var reader = await command.ExecuteReaderAsync();
+            while (await reader.ReadAsync())
+            {
+                var exchange = MapExchange(reader);
+                result.Add(exchange);
+            }
+
+            return result;
+        }
+        
+
         public async Task<Exchange?> GetByIdAsync(int? id)
         {
             if (!id.HasValue || id.Value < 1)
@@ -132,12 +160,12 @@ namespace TD.SQLite
 
             await using var command = connection.CreateCommand();
             command.CommandText = @$"INSERT INTO {_tableName} ({string.Join(", ", ColumnNames[1..])})
-            VALUES (@exchangeName, @exchangeCode, @defaultCurrency, @hasAnySymbol, @displayOrder, @isActive);
+            VALUES (@exchangeName, @exchangeCode, @defaultCurrencyId, @hasAnySymbol, @displayOrder, @isActive);
             SELECT last_insert_rowid();";
             
             command.AddParameter("@exchangeName", exchange.ExchangeName);
             command.AddParameter("@exchangeCode", exchange.ExchangeCode);
-            command.AddNullableParameter("@defaultCurrency", exchange.DefaultCurrency);
+            command.AddParameter("@defaultCurrencyId", exchange.DefaultCurrencyId);
             command.AddParameter("@hasAnySymbol", exchange.HasAnySymbol);
             command.AddParameter("@displayOrder", exchange.DisplayOrder);
             command.AddParameter("@isActive", exchange.IsActive);
@@ -185,7 +213,7 @@ namespace TD.SQLite
             existingExchange = await GetByIdAsync(exchange.Id);
             bool noChanges = existingExchange != null
                           && existingExchange.ExchangeName == exchange.ExchangeName 
-                          && existingExchange.DefaultCurrency == exchange.DefaultCurrency 
+                          && existingExchange.DefaultCurrencyId == exchange.DefaultCurrencyId 
                           && existingExchange.DisplayOrder == exchange.DisplayOrder 
                           && existingExchange.IsActive == exchange.IsActive; 
 
@@ -194,17 +222,17 @@ namespace TD.SQLite
 
             await using var command = connection.CreateCommand();
             // ExchangeCode, HasAnySymbol are not updated to avoid complications with existing references,
-            // so only ExchangeName, DefaultCurrency, DisplayOrder, IsActive are updated
+            // so only ExchangeName, DefaultCurrencyId, DisplayOrder, IsActive are updated
             command.CommandText = @$"UPDATE {_tableName} SET
                 ExchangeName = @exchangeName, 
-                DefaultCurrency = @defaultCurrency, 
+                DefaultCurrencyId = @defaultCurrencyId, 
                 DisplayOrder = @displayOrder, 
                 IsActive = @isActive 
             WHERE Id = @id";
 
             command.AddParameter("@id", exchange.Id);
             command.AddParameter("@exchangeName", exchange.ExchangeName);
-            command.AddNullableParameter("@defaultCurrency", exchange.DefaultCurrency);
+            command.AddParameter("@defaultCurrencyId", exchange.DefaultCurrencyId);
             command.AddParameter("@displayOrder", exchange.DisplayOrder);
             command.AddParameter("@isActive", exchange.IsActive);
 
@@ -248,8 +276,7 @@ namespace TD.SQLite
                 Id = reader.GetInt32(ColNrs.Id),
                 ExchangeName = reader.GetString(ColNrs.ExchangeName),
                 ExchangeCode = reader.GetString(ColNrs.ExchangeCode),
-                DefaultCurrency = reader.IsDBNull(ColNrs.DefaultCurrency) ? null
-                                : reader.GetString(ColNrs.DefaultCurrency),
+                DefaultCurrencyId = reader.GetInt32(ColNrs.DefaultCurrencyId),
                 HasAnySymbol = reader.GetInt64(ColNrs.HasAnySymbol) == 1,
                 DisplayOrder = reader.GetInt32(ColNrs.DisplayOrder),
                 IsActive = reader.GetInt64(ColNrs.IsActive) == 1
@@ -266,7 +293,7 @@ namespace TD.SQLite
             public readonly static int Id = 0;
             public readonly static int ExchangeName = 1;
             public readonly static int ExchangeCode = 2;
-            public readonly static int DefaultCurrency = 3;
+            public readonly static int DefaultCurrencyId = 3;
             public readonly static int HasAnySymbol = 4;
             public readonly static int DisplayOrder = 5;
             public readonly static int IsActive = 6;
@@ -279,7 +306,7 @@ namespace TD.SQLite
             "Id", 
             "ExchangeName", 
             "ExchangeCode", 
-            "DefaultCurrency", 
+            "DefaultCurrencyId", 
             "HasAnySymbol", 
             "DisplayOrder", 
             "IsActive" 

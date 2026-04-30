@@ -454,6 +454,9 @@
     <data name="PriceCurrency" xml:space="preserve">
         <value>Karşı Döviz</value>
     </data>
+    <data name="PriceCurrencyId" xml:space="preserve">
+        <value>Karşı Döviz</value>
+    </data>
     <data name="RealizedProfitLoss" xml:space="preserve">
         <value>Gerçekleşen Kazanç/Kayıp</value>
     </data>

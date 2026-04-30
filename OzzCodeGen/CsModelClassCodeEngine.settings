@@ -195,13 +195,21 @@
           <IsSearchParameter>true</IsSearchParameter>
         </ModelPropertySetting>
         <ModelPropertySetting>
-          <Name>DefaultCurrency</Name>
+          <Name>DefaultCurrencyId</Name>
           <Exclude>false</Exclude>
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
-          <Required />
+          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
           <IsSearchParameter>true</IsSearchParameter>
+        </ModelPropertySetting>
+        <ModelPropertySetting>
+          <Name>DefaultCurrency</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <HtmlEncode xsi:nil="true" />
+          <Required />
+          <IsSearchParameter>false</IsSearchParameter>
         </ModelPropertySetting>
         <ModelPropertySetting>
           <Name>HasAnySymbol</Name>
@@ -334,13 +342,21 @@
           <IsSearchParameter>true</IsSearchParameter>
         </ModelPropertySetting>
         <ModelPropertySetting>
-          <Name>PriceCurrency</Name>
+          <Name>PriceCurrencyId</Name>
           <Exclude>false</Exclude>
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
           <IsSearchParameter>true</IsSearchParameter>
+        </ModelPropertySetting>
+        <ModelPropertySetting>
+          <Name>PriceCurrency</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <HtmlEncode xsi:nil="true" />
+          <Required />
+          <IsSearchParameter>false</IsSearchParameter>
         </ModelPropertySetting>
         <ModelPropertySetting>
           <Name>Description</Name>

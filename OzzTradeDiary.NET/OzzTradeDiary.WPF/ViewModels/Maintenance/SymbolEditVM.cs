@@ -23,7 +23,7 @@ namespace TD.WPF.ViewModels.Maintenance
 
         public string? BaseCurrency => _symbol.BaseCurrency;
 
-        public string PriceCurrency => _symbol.PriceCurrency;
+        public int PriceCurrencyId => _symbol.PriceCurrencyId;
 
         public bool IsActive
         {

@@ -454,6 +454,9 @@
     <data name="PriceCurrency" xml:space="preserve">
         <value>Price Currency</value>
     </data>
+    <data name="PriceCurrencyId" xml:space="preserve">
+        <value>Price Currency Id</value>
+    </data>
     <data name="RealizedProfitLoss" xml:space="preserve">
         <value>Realized Profit Loss</value>
     </data>

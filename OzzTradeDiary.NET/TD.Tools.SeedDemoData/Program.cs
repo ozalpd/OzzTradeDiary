@@ -29,8 +29,14 @@ static async Task SeedDemoDataAsync(string databasePath, int daysAgoStart)
     Directory.CreateDirectory(Path.GetDirectoryName(databasePath)!);
 
     var exchangeRepository = new ExchangeRepository(databasePath);
-    var symbolRepository = new SymbolRepository(databasePath, exchangeRepository);
-    var tradingAccountRepository = new TradingAccountRepository(databasePath, exchangeRepository);
+    if (exchangeRepository == null)
+    {
+        Console.WriteLine("Failed to create ExchangeRepository.");
+        return;
+    }
+
+    var symbolRepository = new SymbolRepository(databasePath, exchangeRepository: exchangeRepository);
+    var tradingAccountRepository = new TradingAccountRepository(databasePath, exchangeRepository: exchangeRepository);
     var tradeImageRepository = new TradeImageRepository(databasePath);
     var tradeRepository = new TradeRepository(databasePath, tradingAccountRepository, symbolRepository, tradeImageRepository: tradeImageRepository);
 
@@ -38,9 +44,10 @@ static async Task SeedDemoDataAsync(string databasePath, int daysAgoStart)
     var tickers = new[] { "BTCUSD", "ETHUSD", "SOLUSD", "AVAXUSD", "XRPUSD", "ETCUSD", "DOGEUSD", "BNBUSD", "SUIUSD", "ZROUSD", //← Top 10 popular cryptos
                           "APTUSD", "ENAUSD", "ONDOUSD", "EIGENUSD", "SWELLUSD", "PENGUUSD", "ADAUSD", "POPCATUSD", "LUNAUSD" };
 
+    var currencyRepository = new CurrencyRepository(databasePath);
     for (int i = 0; i < tickers.Length; i++)
     {
-        var symbol = await EnsureDemoSymbolAsync(symbolRepository, exchange1, tickers[i], 100 * (i + 1));
+        await EnsureDemoSymbolAsync(symbolRepository, currencyRepository, exchange1, tickers[i], 100 * (i + 1));
     }
 
     var tradingAccount1 = await EnsureDemoTradingAccountAsync(tradingAccountRepository, exchange1);
@@ -101,7 +108,7 @@ static async Task<Exchange> EnsureDemoExchangeAsync(IExchangeRepository exchange
     {
         ExchangeName = "Demo Exchange",
         ExchangeCode = exchangeCode,
-        DefaultCurrency = "USD",
+        DefaultCurrencyId = 2, //USDT
         HasAnySymbol = false,
         DisplayOrder = 9990,
         IsActive = true
@@ -112,7 +119,7 @@ static async Task<Exchange> EnsureDemoExchangeAsync(IExchangeRepository exchange
     return exchange;
 }
 
-static async Task<Symbol> EnsureDemoSymbolAsync(ISymbolRepository symbolRepository, Exchange exchange, string ticker, int displayOrder)
+static async Task<Symbol?> EnsureDemoSymbolAsync(ISymbolRepository symbolRepository, ICurrencyRepository currencyRepository, Exchange exchange, string ticker, int displayOrder)
 {
     string tickerFull = $"{exchange.ExchangeCode}:{ticker}";
     var existing = await symbolRepository.GetByTickerFullAsync(tickerFull);
@@ -122,12 +129,16 @@ static async Task<Symbol> EnsureDemoSymbolAsync(ISymbolRepository symbolReposito
         return existing;
     }
     int tickerLength = ticker.Length;
+    var priceCurrency = await currencyRepository.GetByCurrencyTickerAsync(ticker.Substring(tickerLength - 3, 3));
+    if (priceCurrency == null)
+        return null;
+
     var symbol = new Symbol
     {
         Ticker = ticker,
         TickerFull = tickerFull,
         BaseCurrency = ticker.Substring(0, ticker.Length - 3),
-        PriceCurrency = ticker.Substring(ticker.Length - 3, 3),
+        PriceCurrencyId = priceCurrency.Id,
         Description = $"Demo {ticker} symbol for local debugging",
         ExchangeId = exchange.Id,
         MarketType = MarketType.Crypto,

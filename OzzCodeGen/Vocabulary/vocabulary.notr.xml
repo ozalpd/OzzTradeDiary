@@ -1445,6 +1445,10 @@
     <Translation>Price Currency</Translation>
   </Vocab>
   <Vocab>
+    <Name>PriceCurrencyId</Name>
+    <Translation>Price Currency Id</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Print</Name>
     <Translation>Print</Translation>
   </Vocab>

@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.0.61] - 2026-04-30
+
+### Changed
+- `Exchange.DefaultCurrency` and `Symbol.PriceCurrency` are now integer foreign keys (`DefaultCurrencyId`, `PriceCurrencyId`) referencing `Currency` entities, replacing string tickers. Updated all schema, seed data, repositories, ViewModels, and codegen settings to support this.
+- Added navigation properties and repository query methods for currency FKs to `ExchangeRepository` and `SymbolRepository`.
+- Updated `TD.Tools.SeedDemoData` to support new currency FK structure.
+
 ## [0.0.60] - 2026-04-29
 
 ### Added

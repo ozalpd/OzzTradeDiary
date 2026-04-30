@@ -15,6 +15,7 @@
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsReadOnlyInCreate>true</IsReadOnlyInCreate>
           <IsReadOnlyInEdit>true</IsReadOnlyInEdit>
           <ValueConstraint />
@@ -42,6 +43,7 @@
           <DefaultValue>1000</DefaultValue>
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
           <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <ValueConstraint />
@@ -69,6 +71,7 @@
           <DefaultValue>true</DefaultValue>
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
           <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <ValueConstraint />
@@ -96,6 +99,7 @@
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
           <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <ValueConstraint />
@@ -123,6 +127,7 @@
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
           <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <ValueConstraint />
@@ -150,6 +155,7 @@
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
           <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <ValueConstraint />
@@ -160,6 +166,7 @@
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
           <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <ValueConstraint />
@@ -170,6 +177,7 @@
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
           <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <ValueConstraint />
@@ -180,6 +188,7 @@
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
           <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <ValueConstraint />
@@ -190,6 +199,7 @@
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
           <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <ValueConstraint />
@@ -200,6 +210,7 @@
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
           <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <ValueConstraint />
@@ -210,6 +221,7 @@
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
           <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <ValueConstraint />
@@ -220,6 +232,7 @@
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
           <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <ValueConstraint />
@@ -247,6 +260,7 @@
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
           <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <ValueConstraint />
@@ -257,9 +271,21 @@
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
           <IsReadOnlyInEdit>true</IsReadOnlyInEdit>
           <ValueConstraint>.ToUpperInvariant()</ValueConstraint>
+        </WpfMvvmPropertySetting>
+        <WpfMvvmPropertySetting>
+          <Name>DefaultCurrencyId</Name>
+          <Exclude>false</Exclude>
+          <DefaultValue />
+          <IncludeInView>true</IncludeInView>
+          <IncludeInViewModel>true</IncludeInViewModel>
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
+          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
+          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
+          <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
           <Name>DefaultCurrency</Name>
@@ -267,9 +293,10 @@
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
           <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
-          <ValueConstraint>.ToUpperInvariant()</ValueConstraint>
+          <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
           <Name>HasAnySymbol</Name>
@@ -277,6 +304,7 @@
           <DefaultValue />
           <IncludeInView>false</IncludeInView>
           <IncludeInViewModel>false</IncludeInViewModel>
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
           <IsReadOnlyInEdit>true</IsReadOnlyInEdit>
           <ValueConstraint />
@@ -304,6 +332,7 @@
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
           <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <ValueConstraint />
@@ -314,6 +343,7 @@
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
           <IsReadOnlyInEdit>true</IsReadOnlyInEdit>
           <ValueConstraint />
@@ -324,6 +354,7 @@
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
+          <IsPreselectedInCreate>true</IsPreselectedInCreate>
           <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
           <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <ValueConstraint />
@@ -334,6 +365,7 @@
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
           <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <ValueConstraint />
@@ -361,6 +393,7 @@
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
           <IsReadOnlyInEdit>true</IsReadOnlyInEdit>
           <ValueConstraint>.ToUpperInvariant()</ValueConstraint>
@@ -371,6 +404,7 @@
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
           <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <ValueConstraint />
@@ -398,6 +432,7 @@
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
           <IsReadOnlyInEdit>true</IsReadOnlyInEdit>
           <ValueConstraint>.ToUpperInvariant()</ValueConstraint>
@@ -408,6 +443,7 @@
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
           <IsReadOnlyInEdit>true</IsReadOnlyInEdit>
           <ValueConstraint>.ToUpperInvariant()</ValueConstraint>
@@ -418,9 +454,21 @@
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
           <IsReadOnlyInEdit>true</IsReadOnlyInEdit>
           <ValueConstraint>.ToUpperInvariant()</ValueConstraint>
+        </WpfMvvmPropertySetting>
+        <WpfMvvmPropertySetting>
+          <Name>PriceCurrencyId</Name>
+          <Exclude>false</Exclude>
+          <DefaultValue />
+          <IncludeInView>true</IncludeInView>
+          <IncludeInViewModel>true</IncludeInViewModel>
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
+          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
+          <IsReadOnlyInEdit>true</IsReadOnlyInEdit>
+          <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
           <Name>PriceCurrency</Name>
@@ -428,9 +476,10 @@
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
-          <IsReadOnlyInEdit>true</IsReadOnlyInEdit>
-          <ValueConstraint>.ToUpperInvariant()</ValueConstraint>
+          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
+          <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
           <Name>Description</Name>
@@ -438,6 +487,7 @@
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
           <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <ValueConstraint />
@@ -448,6 +498,7 @@
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
           <IsReadOnlyInEdit>true</IsReadOnlyInEdit>
           <ValueConstraint />
@@ -458,6 +509,7 @@
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
+          <IsPreselectedInCreate>true</IsPreselectedInCreate>
           <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
           <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <ValueConstraint />
@@ -468,6 +520,7 @@
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
           <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <ValueConstraint />
@@ -495,6 +548,7 @@
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
           <IsReadOnlyInEdit>true</IsReadOnlyInEdit>
           <ValueConstraint />
@@ -505,6 +559,7 @@
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
           <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <ValueConstraint />
@@ -532,6 +587,7 @@
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
           <IsReadOnlyInEdit>true</IsReadOnlyInEdit>
           <ValueConstraint />
@@ -542,6 +598,7 @@
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
           <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <ValueConstraint />
@@ -569,6 +626,7 @@
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
           <IsReadOnlyInEdit>true</IsReadOnlyInEdit>
           <ValueConstraint />
@@ -579,6 +637,7 @@
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
           <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <ValueConstraint />
@@ -589,6 +648,7 @@
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
           <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <ValueConstraint />
@@ -616,6 +676,7 @@
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
           <IsReadOnlyInEdit>true</IsReadOnlyInEdit>
           <ValueConstraint />
@@ -626,6 +687,7 @@
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
           <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <ValueConstraint />
@@ -636,6 +698,7 @@
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
           <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <ValueConstraint />
@@ -646,6 +709,7 @@
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
           <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <ValueConstraint />
@@ -673,6 +737,7 @@
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
           <IsReadOnlyInEdit>true</IsReadOnlyInEdit>
           <ValueConstraint />
@@ -683,6 +748,7 @@
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
           <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <ValueConstraint />
@@ -693,6 +759,7 @@
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
           <IsReadOnlyInEdit>true</IsReadOnlyInEdit>
           <ValueConstraint />
@@ -703,6 +770,7 @@
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
           <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <ValueConstraint />
@@ -713,6 +781,7 @@
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
           <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <ValueConstraint />
@@ -723,6 +792,7 @@
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
           <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <ValueConstraint />
@@ -733,6 +803,7 @@
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
           <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <ValueConstraint />
@@ -743,6 +814,7 @@
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
           <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <ValueConstraint />
@@ -753,6 +825,7 @@
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
           <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <ValueConstraint />
@@ -763,6 +836,7 @@
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
           <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <ValueConstraint />
@@ -773,6 +847,7 @@
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
           <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <ValueConstraint />
@@ -783,6 +858,7 @@
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
           <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <ValueConstraint />
@@ -793,6 +869,7 @@
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
           <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <ValueConstraint />
@@ -803,6 +880,7 @@
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
           <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <ValueConstraint />
@@ -813,6 +891,7 @@
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
           <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <ValueConstraint />
@@ -823,6 +902,7 @@
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
           <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <ValueConstraint />
@@ -833,6 +913,7 @@
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
           <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <ValueConstraint />
@@ -843,6 +924,7 @@
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
           <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <ValueConstraint />
@@ -853,6 +935,7 @@
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
           <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <ValueConstraint />
@@ -863,6 +946,7 @@
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
           <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <ValueConstraint />
@@ -873,6 +957,7 @@
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
           <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <ValueConstraint />

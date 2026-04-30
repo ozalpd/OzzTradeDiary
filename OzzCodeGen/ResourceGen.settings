@@ -149,6 +149,12 @@
           <LocalizeValidationMsg>false</LocalizeValidationMsg>
         </LocalizationPropertySetting>
         <LocalizationPropertySetting>
+          <Name>DefaultCurrencyId</Name>
+          <Exclude>false</Exclude>
+          <LocalizeRequiredMsg>false</LocalizeRequiredMsg>
+          <LocalizeValidationMsg>false</LocalizeValidationMsg>
+        </LocalizationPropertySetting>
+        <LocalizationPropertySetting>
           <Name>DefaultCurrency</Name>
           <Exclude>false</Exclude>
           <LocalizeRequiredMsg>false</LocalizeRequiredMsg>
@@ -246,6 +252,12 @@
         </LocalizationPropertySetting>
         <LocalizationPropertySetting>
           <Name>BaseCurrency</Name>
+          <Exclude>false</Exclude>
+          <LocalizeRequiredMsg>false</LocalizeRequiredMsg>
+          <LocalizeValidationMsg>false</LocalizeValidationMsg>
+        </LocalizationPropertySetting>
+        <LocalizationPropertySetting>
+          <Name>PriceCurrencyId</Name>
           <Exclude>false</Exclude>
           <LocalizeRequiredMsg>false</LocalizeRequiredMsg>
           <LocalizeValidationMsg>false</LocalizeValidationMsg>

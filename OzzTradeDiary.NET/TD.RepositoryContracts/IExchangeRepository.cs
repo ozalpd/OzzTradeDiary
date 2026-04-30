@@ -13,6 +13,7 @@ namespace TD.RepositoryContracts
     public partial interface IExchangeRepository
     {
         Task<IReadOnlyList<Exchange>> GetAllAsync(bool? isActive = null);
+        Task<IReadOnlyList<Exchange>> GetByDefaultCurrencyIdAsync(int defaultCurrencyId, bool? isActive = null);
         Task<Exchange?> GetByIdAsync(int? id);
         Task<Exchange?> GetByExchangeCodeAsync(string? exchangeCode);
         Task<int> CreateAsync(Exchange exchange);

@@ -20,14 +20,18 @@ namespace TD.SQLite
     public partial class SymbolRepository : AbstractDatabaseRepository<Symbol>, ISymbolRepository
     {
         public SymbolRepository(string databasePath
+                               , ICurrencyRepository? currencyRepository = null 
                                , IExchangeRepository? exchangeRepository = null) : base(databasePath, "Symbols") 
         {
             _selectStatement = $"SELECT {string.Join(", ", ColumnNames)} FROM {_tableName}";
+            _currencyRepository = currencyRepository ?? new CurrencyRepository(databasePath);
             _exchangeRepository = exchangeRepository ?? new ExchangeRepository(databasePath);
             InitializeDatabase();
-            OnInitialized(exchangeRepository == null);
+            OnInitialized(currencyRepository == null
+                        , exchangeRepository == null); 
         }
         private readonly string _selectStatement;
+        private readonly ICurrencyRepository _currencyRepository;
         private readonly IExchangeRepository _exchangeRepository;
 
         private void InitializeDatabase()
@@ -42,11 +46,13 @@ namespace TD.SQLite
         /// The parameters indicate whether the corresponding repository was created by this repository (true) or provided externally (false),
         /// which can be useful to determine if any additional initialization or event wiring is needed.
         /// </summary>
-        partial void OnInitialized(bool isExchangeRepositoryNull);
+        partial void OnInitialized(bool isCurrencyRepositoryNull
+                                 , bool isExchangeRepositoryNull); 
 
         public async Task<IReadOnlyList<Symbol>> GetAllAsync(bool? isActive = null)
         {
             var result = new List<Symbol>();
+            var currenciesById = (await _currencyRepository.GetAllAsync()).ToDictionary(item => item.Id);
             var exchangesById = (await _exchangeRepository.GetAllAsync()).ToDictionary(item => item.Id);
 
             await using var connection = await GetOpenConnectionAsync();
@@ -64,6 +70,9 @@ namespace TD.SQLite
             while (await reader.ReadAsync())
             {
                 var symbol = MapSymbol(reader);
+                if (currenciesById.TryGetValue(symbol.PriceCurrencyId, out var priceCurrency))
+                    symbol.PriceCurrency = priceCurrency;
+
                 if (exchangesById.TryGetValue(symbol.ExchangeId, out var exchange))
                     symbol.Exchange = exchange;
 
@@ -73,9 +82,46 @@ namespace TD.SQLite
             return result;
         }
 
+        public async Task<IReadOnlyList<Symbol>> GetByPriceCurrencyIdAsync(int priceCurrencyId, bool? isActive = null)
+        {
+            var result = new List<Symbol>();
+            var currenciesById = (await _currencyRepository.GetAllAsync()).ToDictionary(item => item.Id);
+            var exchangesById = (await _exchangeRepository.GetAllAsync()).ToDictionary(item => item.Id);
+
+            await using var connection = await GetOpenConnectionAsync();
+            await using var command = connection.CreateCommand();
+            command.CommandText = _selectStatement;
+            command.CommandText += " WHERE PriceCurrencyId = @priceCurrencyId";
+            command.AddParameter("@priceCurrencyId", priceCurrencyId);
+            if (isActive.HasValue)
+            {
+                command.CommandText += " AND IsActive = @isActive";
+                command.AddParameter("@isActive", isActive.Value);
+            }
+
+            command.CommandText += " ORDER BY DisplayOrder, TickerFull";
+
+            await using var reader = await command.ExecuteReaderAsync();
+            while (await reader.ReadAsync())
+            {
+                var symbol = MapSymbol(reader);
+                if (currenciesById.TryGetValue(symbol.PriceCurrencyId, out var priceCurrency))
+                    symbol.PriceCurrency = priceCurrency;
+
+                if (exchangesById.TryGetValue(symbol.ExchangeId, out var exchange))
+                    symbol.Exchange = exchange;
+
+                result.Add(symbol);
+            }
+
+            return result;
+        }
+        
+
         public async Task<IReadOnlyList<Symbol>> GetByExchangeIdAsync(int exchangeId, bool? isActive = null)
         {
             var result = new List<Symbol>();
+            var currenciesById = (await _currencyRepository.GetAllAsync()).ToDictionary(item => item.Id);
             var exchangesById = (await _exchangeRepository.GetAllAsync()).ToDictionary(item => item.Id);
 
             await using var connection = await GetOpenConnectionAsync();
@@ -95,6 +141,9 @@ namespace TD.SQLite
             while (await reader.ReadAsync())
             {
                 var symbol = MapSymbol(reader);
+                if (currenciesById.TryGetValue(symbol.PriceCurrencyId, out var priceCurrency))
+                    symbol.PriceCurrency = priceCurrency;
+
                 if (exchangesById.TryGetValue(symbol.ExchangeId, out var exchange))
                     symbol.Exchange = exchange;
 
@@ -121,6 +170,7 @@ namespace TD.SQLite
                 return null;
 
             var symbol = MapSymbol(reader);
+            await LoadCurrencyAsync(symbol);
             await LoadExchangeAsync(symbol);
             
             OnLoaded(symbol);
@@ -143,6 +193,7 @@ namespace TD.SQLite
                 return null;
 
             var symbol = MapSymbol(reader);
+            await LoadCurrencyAsync(symbol);
             await LoadExchangeAsync(symbol);
             
             OnLoaded(symbol);
@@ -155,6 +206,7 @@ namespace TD.SQLite
             ArgumentNullException.ThrowIfNull(queryParameters);
 
             var result = new List<Symbol>();
+            var currenciesById = (await _currencyRepository.GetAllAsync()).ToDictionary(item => item.Id);
             var exchangesById = (await _exchangeRepository.GetAllAsync()).ToDictionary(item => item.Id);
 
             await using var connection = await GetOpenConnectionAsync();
@@ -182,6 +234,9 @@ namespace TD.SQLite
             while (await reader.ReadAsync())
             {
                 var symbol = MapSymbol(reader);
+                if (currenciesById.TryGetValue(symbol.PriceCurrencyId, out var priceCurrency))
+                    symbol.PriceCurrency = priceCurrency;
+
                 if (exchangesById.TryGetValue(symbol.ExchangeId, out var exchange))
                     symbol.Exchange = exchange;
 
@@ -207,13 +262,13 @@ namespace TD.SQLite
 
             await using var command = connection.CreateCommand();
             command.CommandText = @$"INSERT INTO {_tableName} ({string.Join(", ", ColumnNames[1..])})
-            VALUES (@ticker, @tickerFull, @baseCurrency, @priceCurrency, @description, @exchangeId, @marketType, @displayOrder, @isActive);
+            VALUES (@ticker, @tickerFull, @baseCurrency, @priceCurrencyId, @description, @exchangeId, @marketType, @displayOrder, @isActive);
             SELECT last_insert_rowid();";
             
             command.AddParameter("@ticker", symbol.Ticker);
             command.AddParameter("@tickerFull", symbol.TickerFull);
             command.AddNullableParameter("@baseCurrency", symbol.BaseCurrency);
-            command.AddParameter("@priceCurrency", symbol.PriceCurrency);
+            command.AddParameter("@priceCurrencyId", symbol.PriceCurrencyId);
             command.AddNullableParameter("@description", symbol.Description);
             command.AddParameter("@exchangeId", symbol.ExchangeId);
             command.AddParameter("@marketType", (int)symbol.MarketType);
@@ -271,7 +326,7 @@ namespace TD.SQLite
                 return false;
 
             await using var command = connection.CreateCommand();
-            // Ticker, TickerFull, BaseCurrency, PriceCurrency, ExchangeId are not updated to avoid complications with existing references,
+            // Ticker, TickerFull, BaseCurrency, PriceCurrencyId, ExchangeId are not updated to avoid complications with existing references,
             // so only Description, MarketType, DisplayOrder, IsActive are updated
             command.CommandText = @$"UPDATE {_tableName} SET
                 Description = @description, 
@@ -297,6 +352,13 @@ namespace TD.SQLite
         }
         partial void OnUpdated(Symbol symbol);
 
+        private async Task LoadCurrencyAsync(Symbol symbol)
+        {
+            symbol.PriceCurrency = await _currencyRepository.GetByIdAsync(symbol.PriceCurrencyId)
+                            ?? new Currency { Id = symbol.PriceCurrencyId };
+        }
+
+
         private async Task LoadExchangeAsync(Symbol symbol)
         {
             symbol.Exchange = await _exchangeRepository.GetByIdAsync(symbol.ExchangeId)
@@ -313,7 +375,7 @@ namespace TD.SQLite
                 TickerFull = reader.GetString(ColNrs.TickerFull),
                 BaseCurrency = reader.IsDBNull(ColNrs.BaseCurrency) ? null
                              : reader.GetString(ColNrs.BaseCurrency),
-                PriceCurrency = reader.GetString(ColNrs.PriceCurrency),
+                PriceCurrencyId = reader.GetInt32(ColNrs.PriceCurrencyId),
                 Description = reader.IsDBNull(ColNrs.Description) ? null
                             : reader.GetString(ColNrs.Description),
                 ExchangeId = reader.GetInt32(ColNrs.ExchangeId),
@@ -334,7 +396,7 @@ namespace TD.SQLite
             public readonly static int Ticker = 1;
             public readonly static int TickerFull = 2;
             public readonly static int BaseCurrency = 3;
-            public readonly static int PriceCurrency = 4;
+            public readonly static int PriceCurrencyId = 4;
             public readonly static int Description = 5;
             public readonly static int ExchangeId = 6;
             public readonly static int MarketType = 7;
@@ -350,7 +412,7 @@ namespace TD.SQLite
             "Ticker", 
             "TickerFull", 
             "BaseCurrency", 
-            "PriceCurrency", 
+            "PriceCurrencyId", 
             "Description", 
             "ExchangeId", 
             "MarketType", 

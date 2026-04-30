@@ -16,6 +16,7 @@ namespace TD.Models
         {
             this.Symbols = new HashSet<Symbol>();
             this.TradingAccounts = new HashSet<TradingAccount>();
+            this.DefaultCurrency = new Currency();
             this.ExchangeName = string.Empty;
             this.ExchangeCode = string.Empty;
 
@@ -38,12 +39,12 @@ namespace TD.Models
         [Display(ResourceType = typeof(LocalizedStrings), Name = "ExchangeCode")]
         public string ExchangeCode { get; set; }
 
-        /// <summary>
-        /// Ticker of default curreny of the exchange.
-        /// </summary>
-        [StringLength(8, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxStringLength")]
+        [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "DefaultCurrencyId")]
+        public int DefaultCurrencyId { get; set; }
+
         [Display(ResourceType = typeof(LocalizedStrings), Name = "DefaultCurrency")]
-        public string? DefaultCurrency { get; set; }
+        public Currency DefaultCurrency { get; set; }
 
         /// <summary>
         /// Determine if the exchange has any symbol.
@@ -75,7 +76,7 @@ namespace TD.Models
             var clone = new Exchange();
             clone.ExchangeName = this.ExchangeName;
             clone.ExchangeCode = this.ExchangeCode;
-            clone.DefaultCurrency = this.DefaultCurrency;
+            clone.DefaultCurrencyId = this.DefaultCurrencyId;
             clone.HasAnySymbol = this.HasAnySymbol;
             clone.DisplayOrder = this.DisplayOrder;
             clone.IsActive = this.IsActive;

@@ -84,9 +84,9 @@ namespace TD.WPF.ViewModels.Maintenance
                     ExchangeId = _selectedExchange.Id;
                     SetTickerFull();
 
-                    if (string.IsNullOrWhiteSpace(PriceCurrency) && SelectedExchange != null)
+                    if (PriceCurrencyId == 0 && SelectedExchange != null)
                     {
-                        PriceCurrency = SelectedExchange.DefaultCurrency ?? string.Empty;
+                        PriceCurrencyId = SelectedExchange.DefaultCurrencyId;
                     }
                 }
             }
@@ -145,16 +145,16 @@ namespace TD.WPF.ViewModels.Maintenance
         /// <summary>
         /// Contains a string (CurrencyTicker) that representing currency of the symbol's price. For example, this property holds "JPY" for "GBPJPY", "USDT" for "BTCUSDT" and "USD" for "NASDAQ:MSFT".
         /// </summary>
-        public string PriceCurrency
+        public int PriceCurrencyId
         {
-            get { return _symbol.PriceCurrency; }
+            get { return _symbol.PriceCurrencyId; }
             set
             {
-                if (_symbol.PriceCurrency != value)
+                if (_symbol.PriceCurrencyId != value)
                 {
-                    _symbol.PriceCurrency = value;
-                    RaisePropertyChanged(nameof(PriceCurrency));
-                    ValidateProperty(_symbol, nameof(PriceCurrency));
+                    _symbol.PriceCurrencyId = value;
+                    RaisePropertyChanged(nameof(PriceCurrencyId));
+                    ValidateProperty(_symbol, nameof(PriceCurrencyId));
                 }
             }
         }
@@ -292,7 +292,7 @@ namespace TD.WPF.ViewModels.Maintenance
 
             if (currency != null)
             {
-                PriceCurrency = currency.CurrencyTicker;
+                PriceCurrencyId = currency.Id;
             }
 
             bool needToCatchBaseCurrency = MarketType == MarketType.Forex

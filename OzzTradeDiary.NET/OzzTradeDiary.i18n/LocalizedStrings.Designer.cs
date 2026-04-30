@@ -1249,6 +1249,15 @@ namespace TD.i18n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Price Currency Id.
+        /// </summary>
+        public static string PriceCurrencyId {
+            get {
+                return ResourceManager.GetString("PriceCurrencyId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Realized Profit Loss.
         /// </summary>
         public static string RealizedProfitLoss {

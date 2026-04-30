@@ -213,10 +213,19 @@
           <DecimalToIntegerScale>0</DecimalToIntegerScale>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
-          <Name>DefaultCurrency</Name>
+          <Name>DefaultCurrencyId</Name>
           <Exclude>false</Exclude>
           <AutoLoad>false</AutoLoad>
-          <CheckIfAltered>true</CheckIfAltered>
+          <CheckIfAltered>false</CheckIfAltered>
+          <ColumnName>DefaultCurrencyId</ColumnName>
+          <SingleColumnUpdate>false</SingleColumnUpdate>
+          <DecimalToIntegerScale>0</DecimalToIntegerScale>
+        </SqliteRepositoryPropertySetting>
+        <SqliteRepositoryPropertySetting>
+          <Name>DefaultCurrency</Name>
+          <Exclude>true</Exclude>
+          <AutoLoad>false</AutoLoad>
+          <CheckIfAltered>false</CheckIfAltered>
           <ColumnName>DefaultCurrency</ColumnName>
           <SingleColumnUpdate>false</SingleColumnUpdate>
           <DecimalToIntegerScale>0</DecimalToIntegerScale>
@@ -365,9 +374,18 @@
           <DecimalToIntegerScale>0</DecimalToIntegerScale>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
-          <Name>PriceCurrency</Name>
+          <Name>PriceCurrencyId</Name>
           <Exclude>false</Exclude>
           <AutoLoad>false</AutoLoad>
+          <CheckIfAltered>false</CheckIfAltered>
+          <ColumnName>PriceCurrencyId</ColumnName>
+          <SingleColumnUpdate>false</SingleColumnUpdate>
+          <DecimalToIntegerScale>0</DecimalToIntegerScale>
+        </SqliteRepositoryPropertySetting>
+        <SqliteRepositoryPropertySetting>
+          <Name>PriceCurrency</Name>
+          <Exclude>false</Exclude>
+          <AutoLoad>true</AutoLoad>
           <CheckIfAltered>false</CheckIfAltered>
           <ColumnName>PriceCurrency</ColumnName>
           <SingleColumnUpdate>false</SingleColumnUpdate>

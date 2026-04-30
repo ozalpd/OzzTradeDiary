@@ -14,10 +14,10 @@ namespace TD.Models
     {
         public Symbol()
         {
+            this.PriceCurrency = new Currency();
             this.Exchange = new Exchange();
             this.Ticker = string.Empty;
             this.TickerFull = string.Empty;
-            this.PriceCurrency = string.Empty;
 
             OnInitilazed();
         }
@@ -51,13 +51,12 @@ namespace TD.Models
         [Display(ResourceType = typeof(LocalizedStrings), Name = "BaseCurrency")]
         public string? BaseCurrency { get; set; }
 
-        /// <summary>
-        /// Contains a string (CurrencyTicker) that representing currency of the symbol's price. For example, this property holds "JPY" for "GBPJPY", "USDT" for "BTCUSDT" and "USD" for "NASDAQ:MSFT".
-        /// </summary>
-        [StringLength(8, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxStringLength")]
         [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "PriceCurrencyId")]
+        public int PriceCurrencyId { get; set; }
+
         [Display(ResourceType = typeof(LocalizedStrings), Name = "PriceCurrency")]
-        public string PriceCurrency { get; set; }
+        public Currency PriceCurrency { get; set; }
 
         /// <summary>
         /// Description of the symbol.
@@ -104,7 +103,7 @@ namespace TD.Models
             clone.Ticker = this.Ticker;
             clone.TickerFull = this.TickerFull;
             clone.BaseCurrency = this.BaseCurrency;
-            clone.PriceCurrency = this.PriceCurrency;
+            clone.PriceCurrencyId = this.PriceCurrencyId;
             clone.Description = this.Description;
             clone.ExchangeId = this.ExchangeId;
             clone.MarketType = this.MarketType;

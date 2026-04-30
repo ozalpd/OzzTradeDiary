@@ -1445,6 +1445,10 @@
     <Translation>Karşı Döviz</Translation>
   </Vocab>
   <Vocab>
+    <Name>PriceCurrencyId</Name>
+    <Translation>Karşı Döviz</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Print</Name>
     <Translation>Yazdır</Translation>
   </Vocab>

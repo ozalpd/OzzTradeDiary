@@ -13,6 +13,7 @@ namespace TD.RepositoryContracts
     public partial interface ISymbolRepository
     {
         Task<IReadOnlyList<Symbol>> GetAllAsync(bool? isActive = null);
+        Task<IReadOnlyList<Symbol>> GetByPriceCurrencyIdAsync(int priceCurrencyId, bool? isActive = null);
         Task<IReadOnlyList<Symbol>> GetByExchangeIdAsync(int exchangeId, bool? isActive = null);
         Task<Symbol?> GetByIdAsync(int? id);
         Task<Symbol?> GetByTickerFullAsync(string? tickerFull);

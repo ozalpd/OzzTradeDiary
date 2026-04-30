@@ -488,27 +488,36 @@
           <IsStoreGenerated>false</IsStoreGenerated>
           <MaxLength>8</MaxLength>
         </BaseProperty>
-        <BaseProperty xsi:type="StringProperty">
-          <Name>DefaultCurrency</Name>
-          <Comment>Ticker of default curreny of the exchange.</Comment>
+        <BaseProperty xsi:type="SimpleProperty">
+          <Name>DefaultCurrencyId</Name>
           <DisplayOrder>10300</DisplayOrder>
-          <DisplayName>Default Currency</DisplayName>
-          <TypeName>string</TypeName>
+          <DisplayName>Default Currency Id</DisplayName>
+          <TypeName>int</TypeName>
           <IsClientComputed>false</IsClientComputed>
           <IsServerComputed>false</IsServerComputed>
           <RestrictedData>false</RestrictedData>
           <EnumTypeName />
           <IsKey>false</IsKey>
-          <IsForeignKey>false</IsForeignKey>
+          <IsForeignKey>true</IsForeignKey>
           <IsImmutable>false</IsImmutable>
-          <IsNullable>true</IsNullable>
+          <IsNullable>false</IsNullable>
           <IsStoreGenerated>false</IsStoreGenerated>
-          <MaxLength>8</MaxLength>
+        </BaseProperty>
+        <BaseProperty xsi:type="ComplexProperty">
+          <Name>DefaultCurrency</Name>
+          <DisplayOrder>10400</DisplayOrder>
+          <DisplayName>Default Currency</DisplayName>
+          <TypeName>Currency</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <RestrictedData>false</RestrictedData>
+          <DependentPropertyName>DefaultCurrencyId</DependentPropertyName>
+          <DependentPropertyType>int</DependentPropertyType>
         </BaseProperty>
         <BaseProperty xsi:type="SimpleProperty">
           <Name>HasAnySymbol</Name>
           <Comment>Determine if the exchange has any symbol.</Comment>
-          <DisplayOrder>10400</DisplayOrder>
+          <DisplayOrder>10500</DisplayOrder>
           <DisplayName>Has Any Symbol</DisplayName>
           <TypeName>bool</TypeName>
           <IsClientComputed>false</IsClientComputed>
@@ -523,7 +532,7 @@
         </BaseProperty>
         <BaseProperty xsi:type="CollectionProperty">
           <Name>Symbols</Name>
-          <DisplayOrder>10500</DisplayOrder>
+          <DisplayOrder>10600</DisplayOrder>
           <DisplayName>Symbols</DisplayName>
           <TypeName>ICollection&lt;Symbol&gt;</TypeName>
           <IsClientComputed>false</IsClientComputed>
@@ -532,7 +541,7 @@
         </BaseProperty>
         <BaseProperty xsi:type="CollectionProperty">
           <Name>TradingAccounts</Name>
-          <DisplayOrder>10600</DisplayOrder>
+          <DisplayOrder>10700</DisplayOrder>
           <DisplayName>Trading Accounts</DisplayName>
           <TypeName>ICollection&lt;TradingAccount&gt;</TypeName>
           <IsClientComputed>false</IsClientComputed>
@@ -723,27 +732,36 @@
           <IsStoreGenerated>false</IsStoreGenerated>
           <MaxLength>8</MaxLength>
         </BaseProperty>
-        <BaseProperty xsi:type="StringProperty">
-          <Name>PriceCurrency</Name>
-          <Comment>Contains a string (CurrencyTicker) that representing currency of the symbol's price. For example, this property holds "JPY" for "GBPJPY", "USDT" for "BTCUSDT" and "USD" for "NASDAQ:MSFT".</Comment>
+        <BaseProperty xsi:type="SimpleProperty">
+          <Name>PriceCurrencyId</Name>
           <DisplayOrder>10400</DisplayOrder>
-          <DisplayName>Price Currency</DisplayName>
-          <TypeName>string</TypeName>
+          <DisplayName>Price Currency Id</DisplayName>
+          <TypeName>int</TypeName>
           <IsClientComputed>false</IsClientComputed>
           <IsServerComputed>false</IsServerComputed>
           <RestrictedData>false</RestrictedData>
           <EnumTypeName />
           <IsKey>false</IsKey>
-          <IsForeignKey>false</IsForeignKey>
+          <IsForeignKey>true</IsForeignKey>
           <IsImmutable>true</IsImmutable>
           <IsNullable>false</IsNullable>
           <IsStoreGenerated>false</IsStoreGenerated>
-          <MaxLength>8</MaxLength>
+        </BaseProperty>
+        <BaseProperty xsi:type="ComplexProperty">
+          <Name>PriceCurrency</Name>
+          <DisplayOrder>10500</DisplayOrder>
+          <DisplayName>Price Currency</DisplayName>
+          <TypeName>Currency</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <RestrictedData>false</RestrictedData>
+          <DependentPropertyName>PriceCurrencyId</DependentPropertyName>
+          <DependentPropertyType>int</DependentPropertyType>
         </BaseProperty>
         <BaseProperty xsi:type="StringProperty">
           <Name>Description</Name>
           <Comment>Description of the symbol.</Comment>
-          <DisplayOrder>10500</DisplayOrder>
+          <DisplayOrder>10600</DisplayOrder>
           <DisplayName>Description</DisplayName>
           <TypeName>string</TypeName>
           <IsClientComputed>false</IsClientComputed>
@@ -760,7 +778,7 @@
         <BaseProperty xsi:type="SimpleProperty">
           <Name>ExchangeId</Name>
           <Comment>The Id value of exchange record that related to the symbol.</Comment>
-          <DisplayOrder>10600</DisplayOrder>
+          <DisplayOrder>10700</DisplayOrder>
           <DisplayName>Exchange Id</DisplayName>
           <TypeName>int</TypeName>
           <IsClientComputed>false</IsClientComputed>
@@ -776,7 +794,7 @@
         <BaseProperty xsi:type="ComplexProperty">
           <Name>Exchange</Name>
           <Comment>Exchange of the symbol.</Comment>
-          <DisplayOrder>10700</DisplayOrder>
+          <DisplayOrder>10800</DisplayOrder>
           <DisplayName>Exchange</DisplayName>
           <TypeName>Exchange</TypeName>
           <IsClientComputed>false</IsClientComputed>
@@ -787,7 +805,7 @@
         </BaseProperty>
         <BaseProperty xsi:type="SimpleProperty">
           <Name>MarketType</Name>
-          <DisplayOrder>10800</DisplayOrder>
+          <DisplayOrder>10900</DisplayOrder>
           <DisplayName>Market Type</DisplayName>
           <TypeName>int</TypeName>
           <IsClientComputed>false</IsClientComputed>
@@ -1376,8 +1394,8 @@
   <StripSourcePrefixes>false</StripSourcePrefixes>
   <SourceClassPrefix />
   <CodeEngineList>
-    <string>Wpf_Mvvm_View_ViewModel_Generator</string>
     <string>CS_Sqlite_Repository_Generator</string>
+    <string>Wpf_Mvvm_View_ViewModel_Generator</string>
     <string>CS_Model_Class_Generator</string>
     <string>Sqlite_Scripts_Generator</string>
     <string>Localization_Resource_Generator</string>
