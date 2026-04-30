@@ -1,45 +1,49 @@
 using System.Windows;
-using TD.AppInfra.Services;
 using TD.i18n;
-using TD.Models;
 using TD.WPF.Services;
 using TD.WPF.ViewModels;
 
 namespace TD.WPF.Commands.Maintenance;
 
-internal class CreateTradingAccountCommand : AbstractCommand
+internal class TradingAccountEditCommand : AbstractCommand
 {
     private readonly AbstractDiaryVM _viewModel;
     private readonly IWindowDialogService _windowDialogService;
-    private readonly IExchangeLookupService _exchangeLookupService;
-    private readonly Exchange? _preselectedExchange;
 
-    public CreateTradingAccountCommand(AbstractDiaryVM viewModel, IWindowDialogService windowDialogService,
-        IExchangeLookupService exchangeLookupService, Exchange? preselectedExchange = null)
+    public TradingAccountEditCommand(AbstractDiaryVM viewModel, IWindowDialogService windowDialogService)
     {
         _viewModel = viewModel;
         _windowDialogService = windowDialogService;
-        _exchangeLookupService = exchangeLookupService;
-        _preselectedExchange = preselectedExchange;
+    }
+
+    public override bool CanExecute(object? parameter)
+    {
+        return _viewModel.SelectedTradingAccount is not null;
     }
 
     public override async void Execute(object? parameter)
     {
+        if (_viewModel.SelectedTradingAccount is null)
+            return;
+
         if (parameter is not Window owner)
             return;
 
+        var tradingAccount = _viewModel.SelectedTradingAccount;
         try
         {
-            var dialogResult = _windowDialogService.ShowTradingAccountCreateDialog(owner, _exchangeLookupService, _preselectedExchange);
-
-            if (dialogResult.IsConfirmed && dialogResult.TradingAccount is not null)
+            var dialogResult = _windowDialogService.ShowTradingAccountEditDialog(owner, _viewModel.SelectedTradingAccount);
+            if (dialogResult.IsConfirmed && dialogResult.IsDirty)
             {
-                var tradingAccount = dialogResult.TradingAccount;
                 await _viewModel.SaveTradingAccountAsync(tradingAccount);
                 await _viewModel.LoadTradingAccountsAsync();
-
-                _viewModel.SelectedTradingAccount = _viewModel.TradingAccounts.FirstOrDefault(x => x.Id == tradingAccount.Id);
             }
+            else if (dialogResult.IsDirty)
+            {
+                await _viewModel.LoadCurrenciesAsync();
+            }
+
+            _viewModel.SelectedTradingAccount = _viewModel.TradingAccounts.FirstOrDefault(x => x.Id == tradingAccount.Id);
         }
         catch (Exception ex)
         {

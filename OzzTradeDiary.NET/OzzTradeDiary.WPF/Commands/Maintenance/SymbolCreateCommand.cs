@@ -7,23 +7,20 @@ using TD.WPF.Services;
 
 namespace TD.WPF.Commands.Maintenance
 {
-    internal class CreateSymbolCommand : AbstractCommand
+    internal class SymbolCreateCommand : AbstractCommand
     {
         private readonly ISymbolCreationContext _viewModel;
         private readonly IWindowDialogService _windowDialogService;
         private readonly IExchangeLookupService _exchangeLookupService;
         private readonly ICurrencyLookupService _currencyLookupService;
-        private readonly Exchange? _preselectedExchange;
 
-        public CreateSymbolCommand(ISymbolCreationContext viewModel, IWindowDialogService windowDialogService,
-            IExchangeLookupService exchangeLookupService, ICurrencyLookupService currencyLookupService,
-            Exchange? preselectedExchange = null)
+        public SymbolCreateCommand(ISymbolCreationContext viewModel, IWindowDialogService windowDialogService,
+            IExchangeLookupService exchangeLookupService, ICurrencyLookupService currencyLookupService)
         {
             _viewModel = viewModel;
             _windowDialogService = windowDialogService;
             _exchangeLookupService = exchangeLookupService;
             _currencyLookupService = currencyLookupService;
-            _preselectedExchange = preselectedExchange;
         }
 
         public override async void Execute(object? parameter)
@@ -33,7 +30,7 @@ namespace TD.WPF.Commands.Maintenance
 
             try
             {
-                var dialogResult = _windowDialogService.ShowSymbolCreateDialog(owner, _exchangeLookupService, _currencyLookupService, _preselectedExchange);
+                var dialogResult = _windowDialogService.ShowSymbolCreateDialog(owner, _exchangeLookupService, _currencyLookupService, PreselectedExchange);
 
                 if (dialogResult.IsConfirmed && dialogResult.Symbol is not null)
                 {
@@ -52,6 +49,16 @@ namespace TD.WPF.Commands.Maintenance
                     MessageBoxButton.OK,
                     MessageBoxImage.Error);
             }
+            finally
+            {
+                PreselectedExchange = null;
+            }
         }
+
+        /// <summary>
+        /// Before executing the command, we can set this property to have the exchange preselected in the trading account creation dialog.
+        /// This is useful when you want to create a trading account for a specific exchange and want to save the user from having to select it manually.
+        /// </summary>
+        public Exchange? PreselectedExchange { get; set; } = null;
     }
 }

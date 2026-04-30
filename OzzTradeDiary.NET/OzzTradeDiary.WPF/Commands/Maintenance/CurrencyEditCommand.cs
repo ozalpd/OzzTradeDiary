@@ -5,12 +5,12 @@ using TD.WPF.ViewModels;
 
 namespace TD.WPF.Commands.Maintenance
 {
-    internal class EditExchangeCommand : AbstractCommand
+    internal class CurrencyEditCommand : AbstractCommand
     {
         private readonly AbstractDiaryVM _viewModel;
         private readonly IWindowDialogService _windowDialogService;
 
-        public EditExchangeCommand(AbstractDiaryVM viewModel, IWindowDialogService windowDialogService)
+        public CurrencyEditCommand(AbstractDiaryVM viewModel, IWindowDialogService windowDialogService)
         {
             _viewModel = viewModel;
             _windowDialogService = windowDialogService;
@@ -18,33 +18,32 @@ namespace TD.WPF.Commands.Maintenance
 
         public override bool CanExecute(object? parameter)
         {
-            return _viewModel.SelectedExchange is not null;
+            return _viewModel.SelectedCurrency is not null;
         }
 
         public override async void Execute(object? parameter)
         {
-            if (_viewModel.SelectedExchange is null)
+            if (_viewModel.SelectedCurrency is null)
                 return;
 
             if (parameter is not Window owner)
                 return;
 
-            var exchange = _viewModel.SelectedExchange;
-
+            var currency = _viewModel.SelectedCurrency;
             try
             {
-                var dialogResult = _windowDialogService.ShowExchangeEditDialog(owner, _viewModel.SelectedExchange);
+                var dialogResult = _windowDialogService.ShowCurrencyEditDialog(owner, _viewModel.SelectedCurrency);
                 if (dialogResult.IsConfirmed && dialogResult.IsDirty)
                 {
-                    await _viewModel.SaveExchangeAsync(exchange);
-                    await _viewModel.LoadExchangesAsync();
+                    await _viewModel.SaveCurrencyAsync(currency);
+                    await _viewModel.LoadCurrenciesAsync();
                 }
                 else if (dialogResult.IsDirty)
                 {
                     await _viewModel.LoadCurrenciesAsync();
                 }
 
-                _viewModel.SelectedExchange = _viewModel.Exchanges.FirstOrDefault(x => x.Id == exchange.Id);
+                _viewModel.SelectedCurrency = _viewModel.Currencies.FirstOrDefault(x => x.Id == currency.Id);
             }
             catch (Exception ex)
             {

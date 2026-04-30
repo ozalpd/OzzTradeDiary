@@ -4,11 +4,11 @@ using TD.WPF.ViewModels;
 
 namespace TD.WPF.Commands.Maintenance;
 
-internal class DeleteExchangeCommand : AbstractAsyncCommand
+internal class ExchangeDeleteCommand : AbstractAsyncCommand
 {
     private readonly AbstractDiaryVM _viewModel;
 
-    public DeleteExchangeCommand(AbstractDiaryVM viewModel)
+    public ExchangeDeleteCommand(AbstractDiaryVM viewModel)
     {
         _viewModel = viewModel;
     }

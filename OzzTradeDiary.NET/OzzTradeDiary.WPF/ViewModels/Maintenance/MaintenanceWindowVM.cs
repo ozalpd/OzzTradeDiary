@@ -14,18 +14,18 @@ namespace TD.WPF.ViewModels.Maintenance
             var exchangeLookupService = new ExchangeLookupService(ExchangeRepository);
             var currencyLookupService = new CurrencyLookupService(CurrencyRepository);
 
-            CreateCurrencyCommand = new CreateCurrencyCommand(this, windowDialogService);
-            EditCurrencyCommand = new EditCurrencyCommand(this, windowDialogService);
+            CurrencyCreateCommand = new CurrencyCreateCommand(this, windowDialogService);
+            CurrencyEditCommand = new CurrencyEditCommand(this, windowDialogService);
 
-            CreateExchangeCommand = new CreateExchangeCommand(this, windowDialogService);
-            EditExchangeCommand = new EditExchangeCommand(this, windowDialogService);
-            DeleteExchangeCommand = new DeleteExchangeCommand(this);
+            ExchangeCreateCommand = new ExchangeCreateCommand(this, windowDialogService);
+            ExchangeEditCommand = new ExchangeEditCommand(this, windowDialogService);
+            ExchangeDeleteCommand = new ExchangeDeleteCommand(this);
 
-            CreateSymbolCommand = new CreateSymbolCommand(this, windowDialogService, exchangeLookupService, currencyLookupService);
-            EditSymbolCommand = new EditSymbolCommand(this, windowDialogService);
+            SymbolCreateCommand = new SymbolCreateCommand(this, windowDialogService, exchangeLookupService, currencyLookupService);
+            SymbolEditCommand = new SymbolEditCommand(this, windowDialogService);
 
-            CreateTradingAccountCommand = new CreateTradingAccountCommand(this, windowDialogService, exchangeLookupService);
-            EditTradingAccountCommand = new EditTradingAccountCommand(this, windowDialogService);
+            TradingAccountCreateCommand = new TradingAccountCreateCommand(this, windowDialogService, exchangeLookupService);
+            TradingAccountEditCommand = new TradingAccountEditCommand(this, windowDialogService);
 
             SymbolExchanges = new ObservableCollection<Exchange>();
             FilteredSymbols = new ObservableCollection<Symbol>();
@@ -35,18 +35,18 @@ namespace TD.WPF.ViewModels.Maintenance
             TradingAccounts.CollectionChanged += OnDependencyCollectionChanged;
         }
 
-        public CreateCurrencyCommand CreateCurrencyCommand { get; }
-        public EditCurrencyCommand EditCurrencyCommand { get; }
+        public CurrencyCreateCommand CurrencyCreateCommand { get; }
+        public CurrencyEditCommand CurrencyEditCommand { get; }
 
-        public CreateExchangeCommand CreateExchangeCommand { get; }
-        public EditExchangeCommand EditExchangeCommand { get; }
-        public DeleteExchangeCommand DeleteExchangeCommand { get; }
+        public ExchangeCreateCommand ExchangeCreateCommand { get; }
+        public ExchangeEditCommand ExchangeEditCommand { get; }
+        public ExchangeDeleteCommand ExchangeDeleteCommand { get; }
 
-        public CreateSymbolCommand CreateSymbolCommand { get; }
-        public EditSymbolCommand EditSymbolCommand { get; }
+        public SymbolCreateCommand SymbolCreateCommand { get; }
+        public SymbolEditCommand SymbolEditCommand { get; }
 
-        public CreateTradingAccountCommand CreateTradingAccountCommand { get; }
-        public EditTradingAccountCommand EditTradingAccountCommand { get; }
+        public TradingAccountCreateCommand TradingAccountCreateCommand { get; }
+        public TradingAccountEditCommand TradingAccountEditCommand { get; }
 
         public ObservableCollection<Symbol> FilteredSymbols { get; }
         public ObservableCollection<Exchange> SymbolExchanges { get; }
@@ -111,7 +111,7 @@ namespace TD.WPF.ViewModels.Maintenance
             await LoadExchangesAsync();
             await LoadTradingAccountsAsync();
             await LoadSymbolsAsync();
-            DeleteExchangeCommand.RaiseCanExecuteChanged();
+            ExchangeDeleteCommand.RaiseCanExecuteChanged();
         }
 
         public override async Task LoadExchangesAsync()
@@ -130,31 +130,30 @@ namespace TD.WPF.ViewModels.Maintenance
         private void OnPropertyChanged(object? sender, System.ComponentModel.PropertyChangedEventArgs e)
         {
             if (e.PropertyName == nameof(SelectedCurrency))
-                EditCurrencyCommand.RaiseCanExecuteChanged();
+                CurrencyEditCommand.RaiseCanExecuteChanged();
 
             if (e.PropertyName == nameof(SelectedExchange))
             {
-                DeleteExchangeCommand.RaiseCanExecuteChanged();
-                EditExchangeCommand.RaiseCanExecuteChanged();
+                ExchangeDeleteCommand.RaiseCanExecuteChanged();
+                ExchangeEditCommand.RaiseCanExecuteChanged();
             }
 
             if (e.PropertyName == nameof(SelectedExchange))
-                DeleteExchangeCommand.RaiseCanExecuteChanged();
-
+                ExchangeDeleteCommand.RaiseCanExecuteChanged();
             if (e.PropertyName == nameof(SelectedSymbol))
-                EditSymbolCommand.RaiseCanExecuteChanged();
+                SymbolEditCommand.RaiseCanExecuteChanged();
 
             if (e.PropertyName == nameof(SelectedTradingAccount))
-                EditTradingAccountCommand.RaiseCanExecuteChanged();
+                TradingAccountEditCommand.RaiseCanExecuteChanged();
         }
 
         private void OnDependencyCollectionChanged(object? sender, NotifyCollectionChangedEventArgs e)
         {
-            EditCurrencyCommand.RaiseCanExecuteChanged();
-            EditExchangeCommand.RaiseCanExecuteChanged();
-            DeleteExchangeCommand.RaiseCanExecuteChanged();
-            EditSymbolCommand.RaiseCanExecuteChanged();
-            EditTradingAccountCommand.RaiseCanExecuteChanged();
+            CurrencyEditCommand.RaiseCanExecuteChanged();
+            ExchangeEditCommand.RaiseCanExecuteChanged();
+            ExchangeDeleteCommand.RaiseCanExecuteChanged();
+            SymbolEditCommand.RaiseCanExecuteChanged();
+            TradingAccountEditCommand.RaiseCanExecuteChanged();
         }
     }
 }

@@ -5,12 +5,12 @@ using TD.WPF.ViewModels;
 
 namespace TD.WPF.Commands.Maintenance
 {
-    internal class EditSymbolCommand : AbstractCommand
+    internal class ExchangeEditCommand : AbstractCommand
     {
         private readonly AbstractDiaryVM _viewModel;
         private readonly IWindowDialogService _windowDialogService;
 
-        public EditSymbolCommand(AbstractDiaryVM viewModel, IWindowDialogService windowDialogService)
+        public ExchangeEditCommand(AbstractDiaryVM viewModel, IWindowDialogService windowDialogService)
         {
             _viewModel = viewModel;
             _windowDialogService = windowDialogService;
@@ -18,32 +18,33 @@ namespace TD.WPF.Commands.Maintenance
 
         public override bool CanExecute(object? parameter)
         {
-            return _viewModel.SelectedSymbol is not null;
+            return _viewModel.SelectedExchange is not null;
         }
 
         public override async void Execute(object? parameter)
         {
-            if (_viewModel.SelectedSymbol is null)
+            if (_viewModel.SelectedExchange is null)
                 return;
 
             if (parameter is not Window owner)
                 return;
 
-            var symbol = _viewModel.SelectedSymbol;
+            var exchange = _viewModel.SelectedExchange;
+
             try
             {
-                var dialogResult = _windowDialogService.ShowSymbolEditDialog(owner, _viewModel.SelectedSymbol);
+                var dialogResult = _windowDialogService.ShowExchangeEditDialog(owner, _viewModel.SelectedExchange);
                 if (dialogResult.IsConfirmed && dialogResult.IsDirty)
                 {
-                    await _viewModel.SaveSymbolAsync(symbol);
-                    await _viewModel.LoadSymbolsAsync();
+                    await _viewModel.SaveExchangeAsync(exchange);
+                    await _viewModel.LoadExchangesAsync();
                 }
                 else if (dialogResult.IsDirty)
                 {
                     await _viewModel.LoadCurrenciesAsync();
                 }
 
-                _viewModel.SelectedSymbol = _viewModel.Symbols.FirstOrDefault(x => x.Id == symbol.Id);
+                _viewModel.SelectedExchange = _viewModel.Exchanges.FirstOrDefault(x => x.Id == exchange.Id);
             }
             catch (Exception ex)
             {

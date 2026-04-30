@@ -17,6 +17,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - Icon buttons in MaintenanceWindow now use dynamic styles for enabled/disabled/hover states, improving visual feedback.
 - Error dialogs now use localized app title.
 - Show inner exception details in error dialogs for better diagnostics
+- Renamed all maintenance command classes to follow the {Entity}{Action}Command pattern for clarity and consistency.
+- Added PreselectedExchange property to SymbolCreateCommand and TradingAccountCreateCommand to support exchange preselection in dialogs.
+- Updated MaintenanceWindowVM and MaintenanceWindow.xaml to use new command names and properties.
+- Performed related cleanup and refactoring.
 
 ## [0.0.59] - 2026-04-29
 

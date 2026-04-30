@@ -26,7 +26,7 @@
                     <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="0,0,0,8">
                         <Button Style="{StaticResource IconButtonStyle-28x24}"
                                 ToolTip="{x:Static i18n:LocalizedStrings.AddTradingAccount}"
-                                Command="{Binding CreateTradingAccountCommand}"
+                                Command="{Binding TradingAccountCreateCommand}"
                                 CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}">
                             <Viewbox Width="14" Height="14">
                                 <Path>
@@ -49,7 +49,7 @@
                         </Button>
                         <Button Style="{StaticResource IconButtonStyle-28x24}"
                                 ToolTip="{x:Static i18n:ActionStrings.Edit}"
-                                Command="{Binding EditTradingAccountCommand}"
+                                Command="{Binding TradingAccountEditCommand}"
                                 CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}">
                             <Viewbox Width="14" Height="14">
                                 <Path>
@@ -119,7 +119,7 @@
                     <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="0,0,0,8">
                         <Button Style="{StaticResource IconButtonStyle-28x24}"
                                 ToolTip="{x:Static i18n:LocalizedStrings.AddExchange}"
-                                Command="{Binding CreateExchangeCommand}"
+                                Command="{Binding ExchangeCreateCommand}"
                                 CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}">
                             <Viewbox Width="14" Height="14">
                                 <Path>
@@ -142,7 +142,7 @@
                         </Button>
                         <Button Style="{StaticResource IconButtonStyle-28x24}"
                                 ToolTip="{x:Static i18n:ActionStrings.Edit}"
-                                Command="{Binding EditExchangeCommand}"
+                                Command="{Binding ExchangeEditCommand}"
                                 CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}">
                             <Viewbox Width="14" Height="14">
                                 <Path>
@@ -167,7 +167,7 @@
                         <Button Style="{StaticResource IconButtonStyle-28x24}" 
                                 ToolTip="{x:Static i18n:LocalizedStrings.DeleteExchange}"
                                 Background="#C80000"
-                                Command="{Binding DeleteExchangeCommand}"
+                                Command="{Binding ExchangeDeleteCommand}"
                                 CommandParameter="{Binding}"
                                 AutomationProperties.Name="Sil">
                             <Viewbox Width="14" Height="14">
@@ -238,7 +238,7 @@
                     <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="0,0,0,8">
                         <Button Style="{StaticResource IconButtonStyle-28x24}"
                                 ToolTip="{x:Static i18n:LocalizedStrings.AddCurrency}"
-                                Command="{Binding CreateCurrencyCommand}"
+                                Command="{Binding CurrencyCreateCommand}"
                                 CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}">
                             <Viewbox Width="14" Height="14">
                                 <Path>
@@ -261,7 +261,7 @@
                         </Button>
                         <Button Style="{StaticResource IconButtonStyle-28x24}"
                                 ToolTip="{x:Static i18n:ActionStrings.Edit}"
-                                Command="{Binding EditCurrencyCommand}"
+                                Command="{Binding CurrencyEditCommand}"
                                 CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}">
                             <Viewbox Width="14" Height="14">
                                 <Path>
@@ -329,7 +329,7 @@
                     <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="0,0,0,8">
                         <Button Style="{StaticResource IconButtonStyle-28x24}"
                                 ToolTip="{x:Static i18n:LocalizedStrings.AddSymbol}"
-                                Command="{Binding CreateSymbolCommand}"
+                                Command="{Binding SymbolCreateCommand}"
                                 CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}">
                             <Viewbox Width="14" Height="14">
                                 <Path>
@@ -352,7 +352,7 @@
                         </Button>
                         <Button Style="{StaticResource IconButtonStyle-28x24}"
                                 ToolTip="{x:Static i18n:ActionStrings.Edit}"
-                                Command="{Binding EditSymbolCommand}"
+                                Command="{Binding SymbolEditCommand}"
                                 CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}">
                             <Viewbox Width="14" Height="14">
                                 <Path>

@@ -5,12 +5,12 @@ using TD.WPF.ViewModels;
 
 namespace TD.WPF.Commands.Maintenance
 {
-    internal class CreateCurrencyCommand : AbstractCommand
+    internal class CurrencyCreateCommand : AbstractCommand
     {
         private readonly AbstractDiaryVM _viewModel;
         private readonly IWindowDialogService _windowDialogService;
 
-        public CreateCurrencyCommand(AbstractDiaryVM viewModel, IWindowDialogService windowDialogService)
+        public CurrencyCreateCommand(AbstractDiaryVM viewModel, IWindowDialogService windowDialogService)
         {
             _viewModel = viewModel;
             _windowDialogService = windowDialogService;

@@ -5,45 +5,34 @@ using TD.WPF.ViewModels;
 
 namespace TD.WPF.Commands.Maintenance
 {
-    internal class EditCurrencyCommand : AbstractCommand
+    internal class ExchangeCreateCommand : AbstractCommand
     {
         private readonly AbstractDiaryVM _viewModel;
         private readonly IWindowDialogService _windowDialogService;
 
-        public EditCurrencyCommand(AbstractDiaryVM viewModel, IWindowDialogService windowDialogService)
+        public ExchangeCreateCommand(AbstractDiaryVM viewModel, IWindowDialogService windowDialogService)
         {
             _viewModel = viewModel;
             _windowDialogService = windowDialogService;
         }
 
-        public override bool CanExecute(object? parameter)
-        {
-            return _viewModel.SelectedCurrency is not null;
-        }
-
         public override async void Execute(object? parameter)
         {
-            if (_viewModel.SelectedCurrency is null)
-                return;
-
             if (parameter is not Window owner)
                 return;
 
-            var currency = _viewModel.SelectedCurrency;
             try
             {
-                var dialogResult = _windowDialogService.ShowCurrencyEditDialog(owner, _viewModel.SelectedCurrency);
-                if (dialogResult.IsConfirmed && dialogResult.IsDirty)
-                {
-                    await _viewModel.SaveCurrencyAsync(currency);
-                    await _viewModel.LoadCurrenciesAsync();
-                }
-                else if (dialogResult.IsDirty)
-                {
-                    await _viewModel.LoadCurrenciesAsync();
-                }
+                var dialogResult = _windowDialogService.ShowExchangeCreateDialog(owner);
 
-                _viewModel.SelectedCurrency = _viewModel.Currencies.FirstOrDefault(x => x.Id == currency.Id);
+                if (dialogResult.IsConfirmed && dialogResult.Exchange is not null)
+                {
+                    var exchange = dialogResult.Exchange;
+                    await _viewModel.SaveExchangeAsync(exchange);
+                    await _viewModel.LoadExchangesAsync();
+
+                    _viewModel.SelectedExchange = _viewModel.Exchanges.FirstOrDefault(x => x.Id == exchange.Id);
+                }
             }
             catch (Exception ex)
             {

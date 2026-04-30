@@ -47,6 +47,7 @@ Internal tracking versions: `OzzTradeDiary` `0.0.60`, `OzzTradeDiary.AppInfra` `
 - **Namespaces**: Short — `TD`, `TD.WPF`, `TD.SQLite`
 - **Classes/Properties**: PascalCase
 - **Private fields**: `_camelCase`
+- **Command naming**: Entity-first, verb-last — e.g., `TradingAccountCreateCommand`, `ExchangeDeleteCommand`. This groups all commands for the same entity together in Solution Explorer. Method names remain verb-first — e.g., `CreateTradingAccount()`, `DeleteExchange()`.
 - **ViewModel suffix**: `VM` (e.g., `AbstractCollectionVM<T>`, `AbstractDataErrorInfoVM`)
 - **View / ViewModel naming**: Entity-first, verb-last — e.g., `TradingAccountCreate`, `TradingAccountCreateVM`. This groups all files for the same entity together in Solution Explorer. Method names remain verb-first — e.g., `CreateTradingAccount()`, `DeleteExchange()`.
 
