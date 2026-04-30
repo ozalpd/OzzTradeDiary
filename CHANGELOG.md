@@ -10,6 +10,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - `Exchange.DefaultCurrency` and `Symbol.PriceCurrency` are now integer foreign keys (`DefaultCurrencyId`, `PriceCurrencyId`) referencing `Currency` entities, replacing string tickers. Updated all schema, seed data, repositories, ViewModels, and codegen settings to support this.
 - Added navigation properties and repository query methods for currency FKs to `ExchangeRepository` and `SymbolRepository`.
 - Updated `TD.Tools.SeedDemoData` to support new currency FK structure.
+- Update ExchangeRepository to inject/use ICurrencyRepository for navigation property population
+- Prevent DefaultCurrencyId updates in ExchangeRepository
+- Pass CurrencyRepository to dependent repos in AbstractDiaryVM
+- Regenerate TradingAccountCreate/EditVM as public partial classes with navigation/read-only properties
+- Add TradingAccountEditVM.part.cs for ExchangeCode display
+- Update WPF MVVM codegen: ExchangeId/DefaultCurrency read-only, generate create/edit VMs for TradingAccount
+- Swap SymbolCreateVM constructor param order and update usage
+
 
 ## [0.0.60] - 2026-04-29
 
