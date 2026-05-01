@@ -19,6 +19,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - Swap SymbolCreateVM constructor param order and update usage
 - Refactored dialog service and command/viewmodel interactions for Exchange and Symbol creation/editing to require explicit injection of ICurrencyLookupService and IExchangeLookupService.
 - Updated constructors and method signatures for consistency and improved dependency management.
+- Updated WpfMvVmCodeEngine.settings to fine-tune which ViewModel and Command classes are generated per entity; enabled Create/Edit VM and View generation for core entities, disabled for others.
+- Set CommandVmNamespace and CommandVmTypeName explicitly for each entity.
+- Regenerated Currency, Exchange, Symbol, and TradingAccount command files as partial classes with codegen headers, improved exception handling, and consistent formatting.
 
 ## [0.0.60] - 2026-04-29
 
