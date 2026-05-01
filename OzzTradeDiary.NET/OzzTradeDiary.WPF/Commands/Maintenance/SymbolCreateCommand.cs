@@ -12,16 +12,16 @@ namespace TD.WPF.Commands.Maintenance
     {
         private readonly ISymbolCreationContext _viewModel;
         private readonly IWindowDialogService _windowDialogService;
-        private readonly IExchangeLookupService _exchangeLookupService;
         private readonly ICurrencyLookupService _currencyLookupService;
+        private readonly IExchangeLookupService _exchangeLookupService;
 
         public SymbolCreateCommand(ISymbolCreationContext viewModel, IWindowDialogService windowDialogService,
-            IExchangeLookupService exchangeLookupService, ICurrencyLookupService currencyLookupService)
+                                   ICurrencyLookupService currencyLookupService, IExchangeLookupService exchangeLookupService)
         {
             _viewModel = viewModel;
             _windowDialogService = windowDialogService;
-            _exchangeLookupService = exchangeLookupService;
             _currencyLookupService = currencyLookupService;
+            _exchangeLookupService = exchangeLookupService;
         }
 
         public override async void Execute(object? parameter)
@@ -31,7 +31,7 @@ namespace TD.WPF.Commands.Maintenance
 
             try
             {
-                var dialogResult = _windowDialogService.ShowSymbolCreateDialog(owner, _exchangeLookupService, _currencyLookupService, PreselectedExchange);
+                var dialogResult = _windowDialogService.ShowSymbolCreateDialog(owner, _currencyLookupService, _exchangeLookupService, PreselectedExchange);
 
                 if (dialogResult.IsConfirmed && dialogResult.Symbol is not null)
                 {

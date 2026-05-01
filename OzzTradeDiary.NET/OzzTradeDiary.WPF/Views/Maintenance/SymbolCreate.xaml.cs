@@ -15,11 +15,11 @@ namespace TD.WPF.Views.Maintenance
 
         public Symbol Symbol => _viewModel.Symbol;
 
-        public SymbolCreate() : this(new ExchangeMockLookupService(), new CurrencyMockLookupService(), null)
+        public SymbolCreate() : this(new CurrencyMockLookupService(), new ExchangeMockLookupService(), null)
         {
         }
 
-        internal SymbolCreate(IExchangeLookupService exchangeLookupService, ICurrencyLookupService currencyLookupService, Exchange? preselectedExchange)
+        internal SymbolCreate(ICurrencyLookupService currencyLookupService, IExchangeLookupService exchangeLookupService, Exchange? preselectedExchange)
         {
             InitializeComponent();
 

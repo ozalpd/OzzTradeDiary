@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using TD.AppInfra.Commands;
+using TD.AppInfra.Services;
 using TD.i18n;
 using TD.WPF.Services;
 using TD.WPF.ViewModels;
@@ -10,11 +11,13 @@ namespace TD.WPF.Commands.Maintenance
     {
         private readonly AbstractDiaryVM _viewModel;
         private readonly IWindowDialogService _windowDialogService;
+        private readonly ICurrencyLookupService _currencyLookupService;
 
-        public ExchangeCreateCommand(AbstractDiaryVM viewModel, IWindowDialogService windowDialogService)
+        public ExchangeCreateCommand(AbstractDiaryVM viewModel, IWindowDialogService windowDialogService, ICurrencyLookupService currencyLookupService)
         {
             _viewModel = viewModel;
             _windowDialogService = windowDialogService;
+            _currencyLookupService = currencyLookupService;
         }
 
         public override async void Execute(object? parameter)
@@ -24,7 +27,7 @@ namespace TD.WPF.Commands.Maintenance
 
             try
             {
-                var dialogResult = _windowDialogService.ShowExchangeCreateDialog(owner);
+                var dialogResult = _windowDialogService.ShowExchangeCreateDialog(owner, _currencyLookupService);
 
                 if (dialogResult.IsConfirmed && dialogResult.Exchange is not null)
                 {

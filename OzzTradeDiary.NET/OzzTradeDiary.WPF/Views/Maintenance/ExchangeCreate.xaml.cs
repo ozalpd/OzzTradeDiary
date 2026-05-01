@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using TD.AppInfra.Services;
 using TD.Models;
 using TD.WPF.ViewModels.Maintenance;
 
@@ -13,11 +14,13 @@ namespace TD.WPF.Views.Maintenance
 
         public Exchange Exchange => _viewModel.Exchange;
 
-        public ExchangeCreate()
+        public ExchangeCreate() : this(new CurrencyMockLookupService()) { }
+
+        public ExchangeCreate(ICurrencyLookupService currencyLookupService)
         {
             InitializeComponent();
 
-            _viewModel = new ExchangeCreateVM();
+            _viewModel = new ExchangeCreateVM(currencyLookupService);
             DataContext = _viewModel;
         }
 

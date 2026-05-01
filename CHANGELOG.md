@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
-## [0.0.61] - 2026-04-30
+## [0.0.61] - 2026-05-01
 
 ### Changed
 - `Exchange.DefaultCurrency` and `Symbol.PriceCurrency` are now integer foreign keys (`DefaultCurrencyId`, `PriceCurrencyId`) referencing `Currency` entities, replacing string tickers. Updated all schema, seed data, repositories, ViewModels, and codegen settings to support this.
@@ -17,7 +17,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - Add TradingAccountEditVM.part.cs for ExchangeCode display
 - Update WPF MVVM codegen: ExchangeId/DefaultCurrency read-only, generate create/edit VMs for TradingAccount
 - Swap SymbolCreateVM constructor param order and update usage
-
+- Refactored dialog service and command/viewmodel interactions for Exchange and Symbol creation/editing to require explicit injection of ICurrencyLookupService and IExchangeLookupService.
+- Updated constructors and method signatures for consistency and improved dependency management.
 
 ## [0.0.60] - 2026-04-29
 

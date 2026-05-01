@@ -17,11 +17,11 @@ namespace TD.WPF.ViewModels.Maintenance
             CurrencyCreateCommand = new CurrencyCreateCommand(this, windowDialogService);
             CurrencyEditCommand = new CurrencyEditCommand(this, windowDialogService);
 
-            ExchangeCreateCommand = new ExchangeCreateCommand(this, windowDialogService);
+            ExchangeCreateCommand = new ExchangeCreateCommand(this, windowDialogService, currencyLookupService);
             ExchangeEditCommand = new ExchangeEditCommand(this, windowDialogService);
             ExchangeDeleteCommand = new ExchangeDeleteCommand(this);
 
-            SymbolCreateCommand = new SymbolCreateCommand(this, windowDialogService, exchangeLookupService, currencyLookupService);
+            SymbolCreateCommand = new SymbolCreateCommand(this, windowDialogService, currencyLookupService, exchangeLookupService);
             SymbolEditCommand = new SymbolEditCommand(this, windowDialogService);
 
             TradingAccountCreateCommand = new TradingAccountCreateCommand(this, windowDialogService, exchangeLookupService);
