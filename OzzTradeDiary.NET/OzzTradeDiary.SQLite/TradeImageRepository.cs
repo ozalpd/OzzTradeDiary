@@ -20,10 +20,14 @@ namespace TD.SQLite
         public TradeImageRepository(string databasePath) : base(databasePath, "TradeImages")
         {
             _selectStatement = $"SELECT {string.Join(", ", ColumnNames)} FROM {_tableName}";
+            _databasePath = databasePath;
+
             InitializeDatabase();
             OnInitialized();
         }
+        private readonly string _databasePath;
         private readonly string _selectStatement;
+
 
         private void InitializeDatabase()
         {
@@ -51,10 +55,11 @@ namespace TD.SQLite
 
             return result;
         }
-        public async Task<bool> AnyByTradeIdAsync(int? tradeId)
+
+        public async Task<bool> AnyByTradeIdAsync(int tradeId)
         {
             if (tradeId < 1)
-                throw new ArgumentOutOfRangeException(nameof(tradeId), tradeId, "Must be a valid positive id.");
+                return false;
 
             await using var connection = await GetOpenConnectionAsync();
             await using var command = connection.CreateCommand();
@@ -65,7 +70,7 @@ namespace TD.SQLite
         }
 
 
-        public async Task<IReadOnlyList<TradeImage>> GetByTradeIdAsync(int? tradeId)
+        public async Task<IReadOnlyList<TradeImage>> GetByTradeIdAsync(int tradeId)
         {
             var result = new List<TradeImage>();
 
@@ -137,6 +142,22 @@ namespace TD.SQLite
         }
         partial void OnCreated(TradeImage tradeImage);
 
+        /// <summary>
+        /// Determines whether a tradeImage can be safely deleted based on the absence of related records.
+        /// </summary>
+        /// <remarks>A tradeImage can be deleted only if there are no associated records. Use this method
+        /// before attempting to delete a tradeImage to avoid violating referential integrity.</remarks>
+        /// <param name="id">The identifier of the tradeImage record to check for deletability.</param>
+        /// <returns>A task that represents the asynchronous operation. The task result is <see langword="true"/> if the tradeImage
+        /// can be deleted; otherwise, <see langword="false"/>.</returns>
+        public Task<bool> CanDeleteAsync(int id)
+        {
+            if (id < 1)
+                return Task.FromResult(false);
+
+            return Task.FromResult(true);
+        }
+
         public async Task<bool> DeleteAsync(int id)
         {
             await using var connection = await GetOpenConnectionAsync();
@@ -162,7 +183,10 @@ namespace TD.SQLite
             await using var connection = await GetOpenConnectionAsync();
             var existingTradeImage = await GetByIdAsync(tradeImage.Id);
             bool noChanges = existingTradeImage != null
-                          && existingTradeImage.ImageURL == tradeImage.ImageURL                          && existingTradeImage.Notes == tradeImage.Notes                          && existingTradeImage.UpdatedAt == tradeImage.UpdatedAt;
+                          && existingTradeImage.ImageURL == tradeImage.ImageURL
+                          && existingTradeImage.Notes == tradeImage.Notes
+                          && existingTradeImage.UpdatedAt == tradeImage.UpdatedAt;
+
             if (noChanges)
                 return false;
 
@@ -170,7 +194,10 @@ namespace TD.SQLite
             // TradeId is not updated to avoid complications with existing references,
             // so only ImageURL, Notes, UpdatedAt are updated
             command.CommandText = @$"UPDATE {_tableName} SET
-                ImageURL = @imageURL,                Notes = @notes,                UpdatedAt = @updatedAt            WHERE Id = @id";
+                ImageURL = @imageURL,
+                Notes = @notes,
+                UpdatedAt = @updatedAt
+            WHERE Id = @id";
 
             command.AddParameter("@id", tradeImage.Id);
             command.AddParameter("@imageURL", tradeImage.ImageURL);
@@ -220,6 +247,11 @@ namespace TD.SQLite
         /// Contains the names of all columns in the SQLiteDataReader.
         /// </summary>
         public readonly string[] ColumnNames = new[] {
-            "Id",            "TradeId",            "ImageURL",            "Notes",            "UpdatedAt"        };
+            "Id",
+            "TradeId",
+            "ImageURL",
+            "Notes",
+            "UpdatedAt"
+        };
     }
 }

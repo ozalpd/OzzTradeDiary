@@ -251,7 +251,7 @@
         <SqliteRepositoryPropertySetting>
           <Name>TradingAccounts</Name>
           <Exclude>false</Exclude>
-          <AutoLoad>true</AutoLoad>
+          <AutoLoad>false</AutoLoad>
           <CheckIfAltered>false</CheckIfAltered>
           <ColumnName>TradingAccounts</ColumnName>
           <SingleColumnUpdate>false</SingleColumnUpdate>

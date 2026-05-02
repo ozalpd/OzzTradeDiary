@@ -17,6 +17,7 @@ namespace TD.RepositoryContracts
         Task<IReadOnlyList<StopLossOrder>> GetByTradeIdAsync(int tradeId);
         Task<StopLossOrder?> GetByIdAsync(int? id);
         Task<int> CreateAsync(StopLossOrder stopLossOrder);
+        Task<bool> CanDeleteAsync(int id);
         Task<bool> DeleteAsync(int id);
         Task<bool> UpdateAsync(StopLossOrder stopLossOrder);
     }

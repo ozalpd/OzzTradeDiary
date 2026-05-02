@@ -20,6 +20,7 @@ namespace TD.RepositoryContracts
         Task<Trade?> GetByIdAsync(int? id);
         Task<IReadOnlyList<Trade>> GetPagedAsync(TradeQueryParameters queryParameters);
         Task<int> CreateAsync(Trade trade);
+        Task<bool> CanDeleteAsync(int id);
         Task<bool> DeleteAsync(int id);
         Task<bool> UpdateAsync(Trade trade);
     }

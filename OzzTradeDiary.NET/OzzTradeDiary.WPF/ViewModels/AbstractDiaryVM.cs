@@ -16,7 +16,7 @@ namespace TD.WPF.ViewModels
 
             CurrencyRepository = new CurrencyRepository(databasePath);
             SymbolRepository = new SymbolRepository(databasePath, currencyRepository: CurrencyRepository);
-            ExchangeRepository = new ExchangeRepository(databasePath, CurrencyRepository, SymbolRepository, TradingAccountRepository);
+            ExchangeRepository = new ExchangeRepository(databasePath, CurrencyRepository, SymbolRepository);
             TradingAccountRepository = new TradingAccountRepository(databasePath, ExchangeRepository);
 
             Currencies = new ObservableCollection<Currency>();

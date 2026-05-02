@@ -20,10 +20,14 @@ namespace TD.SQLite
         public TakeProfitOrderRepository(string databasePath) : base(databasePath, "TakeProfitOrders")
         {
             _selectStatement = $"SELECT {string.Join(", ", ColumnNames)} FROM {_tableName}";
+            _databasePath = databasePath;
+
             InitializeDatabase();
             OnInitialized();
         }
+        private readonly string _databasePath;
         private readonly string _selectStatement;
+
 
         private void InitializeDatabase()
         {
@@ -51,10 +55,11 @@ namespace TD.SQLite
 
             return result;
         }
+
         public async Task<bool> AnyByTradeIdAsync(int tradeId)
         {
             if (tradeId < 1)
-                throw new ArgumentOutOfRangeException(nameof(tradeId), tradeId, "Must be a valid positive id.");
+                return false;
 
             await using var connection = await GetOpenConnectionAsync();
             await using var command = connection.CreateCommand();
@@ -118,7 +123,8 @@ namespace TD.SQLite
 
             await using var command = connection.CreateCommand();
             command.CommandText = @$"INSERT INTO {_tableName} ({string.Join(", ", ColumnNames[1..])})
-            VALUES (@tradeId, @orderType, @executeTime, @orderPrice, @filledPrice, @orderQuantity, @filledQuantity, @orderValue, @filledValue, @displayOrder);
+            VALUES (@tradeId, @orderType, @executeTime, @orderPrice, @filledPrice, @orderQuantity,
+                    @filledQuantity, @orderValue, @filledValue, @displayOrder);
             SELECT last_insert_rowid();";
 
             command.AddParameter("@tradeId", takeProfitOrder.TradeId);
@@ -147,6 +153,22 @@ namespace TD.SQLite
         }
         partial void OnCreated(TakeProfitOrder takeProfitOrder);
 
+        /// <summary>
+        /// Determines whether a takeProfitOrder can be safely deleted based on the absence of related records.
+        /// </summary>
+        /// <remarks>A takeProfitOrder can be deleted only if there are no associated records. Use this method
+        /// before attempting to delete a takeProfitOrder to avoid violating referential integrity.</remarks>
+        /// <param name="id">The identifier of the takeProfitOrder record to check for deletability.</param>
+        /// <returns>A task that represents the asynchronous operation. The task result is <see langword="true"/> if the takeProfitOrder
+        /// can be deleted; otherwise, <see langword="false"/>.</returns>
+        public Task<bool> CanDeleteAsync(int id)
+        {
+            if (id < 1)
+                return Task.FromResult(false);
+
+            return Task.FromResult(true);
+        }
+
         public async Task<bool> DeleteAsync(int id)
         {
             await using var connection = await GetOpenConnectionAsync();
@@ -172,7 +194,16 @@ namespace TD.SQLite
             await using var connection = await GetOpenConnectionAsync();
             var existingTakeProfitOrder = await GetByIdAsync(takeProfitOrder.Id);
             bool noChanges = existingTakeProfitOrder != null
-                          && existingTakeProfitOrder.OrderType == takeProfitOrder.OrderType                          && existingTakeProfitOrder.ExecuteTime == takeProfitOrder.ExecuteTime                          && existingTakeProfitOrder.OrderPrice == takeProfitOrder.OrderPrice                          && existingTakeProfitOrder.FilledPrice == takeProfitOrder.FilledPrice                          && existingTakeProfitOrder.OrderQuantity == takeProfitOrder.OrderQuantity                          && existingTakeProfitOrder.FilledQuantity == takeProfitOrder.FilledQuantity                          && existingTakeProfitOrder.OrderValue == takeProfitOrder.OrderValue                          && existingTakeProfitOrder.FilledValue == takeProfitOrder.FilledValue                          && existingTakeProfitOrder.DisplayOrder == takeProfitOrder.DisplayOrder;
+                          && existingTakeProfitOrder.OrderType == takeProfitOrder.OrderType
+                          && existingTakeProfitOrder.ExecuteTime == takeProfitOrder.ExecuteTime
+                          && existingTakeProfitOrder.OrderPrice == takeProfitOrder.OrderPrice
+                          && existingTakeProfitOrder.FilledPrice == takeProfitOrder.FilledPrice
+                          && existingTakeProfitOrder.OrderQuantity == takeProfitOrder.OrderQuantity
+                          && existingTakeProfitOrder.FilledQuantity == takeProfitOrder.FilledQuantity
+                          && existingTakeProfitOrder.OrderValue == takeProfitOrder.OrderValue
+                          && existingTakeProfitOrder.FilledValue == takeProfitOrder.FilledValue
+                          && existingTakeProfitOrder.DisplayOrder == takeProfitOrder.DisplayOrder;
+
             if (noChanges)
                 return false;
 
@@ -180,7 +211,16 @@ namespace TD.SQLite
             // TradeId is not updated to avoid complications with existing references,
             // so only OrderType, ExecuteTime, OrderPrice, FilledPrice, OrderQuantity, FilledQuantity, OrderValue, FilledValue, DisplayOrder are updated
             command.CommandText = @$"UPDATE {_tableName} SET
-                OrderType = @orderType,                ExecuteTime = @executeTime,                OrderPrice = @orderPrice,                FilledPrice = @filledPrice,                OrderQuantity = @orderQuantity,                FilledQuantity = @filledQuantity,                OrderValue = @orderValue,                FilledValue = @filledValue,                DisplayOrder = @displayOrder            WHERE Id = @id";
+                OrderType = @orderType,
+                ExecuteTime = @executeTime,
+                OrderPrice = @orderPrice,
+                FilledPrice = @filledPrice,
+                OrderQuantity = @orderQuantity,
+                FilledQuantity = @filledQuantity,
+                OrderValue = @orderValue,
+                FilledValue = @filledValue,
+                DisplayOrder = @displayOrder
+            WHERE Id = @id";
 
             command.AddParameter("@id", takeProfitOrder.Id);
             command.AddParameter("@orderType", (int)takeProfitOrder.OrderType);
@@ -258,7 +298,18 @@ namespace TD.SQLite
         /// Contains the names of all columns in the SQLiteDataReader.
         /// </summary>
         public readonly string[] ColumnNames = new[] {
-            "Id",            "TradeId",            "OrderType",            "ExecuteTime",            "OrderPrice",            "FilledPrice",            "OrderQuantity",            "FilledQuantity",            "OrderValue",            "FilledValue",            "DisplayOrder"        };
+            "Id",
+            "TradeId",
+            "OrderType",
+            "ExecuteTime",
+            "OrderPrice",
+            "FilledPrice",
+            "OrderQuantity",
+            "FilledQuantity",
+            "OrderValue",
+            "FilledValue",
+            "DisplayOrder"
+        };
 
         /// <summary>
         /// Contains the scale values used for converting decimal properties to integer storage.

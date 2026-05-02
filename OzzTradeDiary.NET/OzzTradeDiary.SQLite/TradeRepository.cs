@@ -25,23 +25,105 @@ namespace TD.SQLite
 
         {
             _selectStatement = $"SELECT {string.Join(", ", ColumnNames)} FROM {_tableName}";
-            _entryOrderRepository = entryOrderRepository ?? new EntryOrderRepository(databasePath);
-            _stopLossOrderRepository = stopLossOrderRepository ?? new StopLossOrderRepository(databasePath);
-            _symbolRepository = symbolRepository ?? new SymbolRepository(databasePath);
-            _takeProfitOrderRepository = takeProfitOrderRepository ?? new TakeProfitOrderRepository(databasePath);
-            _tradeImageRepository = tradeImageRepository ?? new TradeImageRepository(databasePath);
-            _tradingAccountRepository = tradingAccountRepository ?? new TradingAccountRepository(databasePath);
+            _databasePath = databasePath;
+            if (entryOrderRepository != null)
+                _entryOrderRepository = entryOrderRepository;
+            if (stopLossOrderRepository != null)
+                _stopLossOrderRepository = stopLossOrderRepository;
+            if (symbolRepository != null)
+                _symbolRepository = symbolRepository;
+            if (takeProfitOrderRepository != null)
+                _takeProfitOrderRepository = takeProfitOrderRepository;
+            if (tradeImageRepository != null)
+                _tradeImageRepository = tradeImageRepository;
+            if (tradingAccountRepository != null)
+                _tradingAccountRepository = tradingAccountRepository;
+
             InitializeDatabase();
             OnInitialized(entryOrderRepository == null, stopLossOrderRepository == null, symbolRepository == null,
                           takeProfitOrderRepository == null, tradeImageRepository == null, tradingAccountRepository == null);
         }
+        private readonly string _databasePath;
         private readonly string _selectStatement;
-        private readonly IEntryOrderRepository _entryOrderRepository;
-        private readonly IStopLossOrderRepository _stopLossOrderRepository;
-        private readonly ISymbolRepository _symbolRepository;
-        private readonly ITakeProfitOrderRepository _takeProfitOrderRepository;
-        private readonly ITradeImageRepository _tradeImageRepository;
-        private readonly ITradingAccountRepository _tradingAccountRepository;
+
+        protected IEntryOrderRepository EntryOrderRepository
+        {
+            get
+            {
+                if (_entryOrderRepository == null)
+                {
+                    _entryOrderRepository = new EntryOrderRepository(_databasePath);
+                }
+                return _entryOrderRepository;
+            }
+        }
+        private IEntryOrderRepository _entryOrderRepository;
+
+        protected IStopLossOrderRepository StopLossOrderRepository
+        {
+            get
+            {
+                if (_stopLossOrderRepository == null)
+                {
+                    _stopLossOrderRepository = new StopLossOrderRepository(_databasePath);
+                }
+                return _stopLossOrderRepository;
+            }
+        }
+        private IStopLossOrderRepository _stopLossOrderRepository;
+
+        protected ISymbolRepository SymbolRepository
+        {
+            get
+            {
+                if (_symbolRepository == null)
+                {
+                    _symbolRepository = new SymbolRepository(_databasePath);
+                }
+                return _symbolRepository;
+            }
+        }
+        private ISymbolRepository _symbolRepository;
+
+        protected ITakeProfitOrderRepository TakeProfitOrderRepository
+        {
+            get
+            {
+                if (_takeProfitOrderRepository == null)
+                {
+                    _takeProfitOrderRepository = new TakeProfitOrderRepository(_databasePath);
+                }
+                return _takeProfitOrderRepository;
+            }
+        }
+        private ITakeProfitOrderRepository _takeProfitOrderRepository;
+
+        protected ITradeImageRepository TradeImageRepository
+        {
+            get
+            {
+                if (_tradeImageRepository == null)
+                {
+                    _tradeImageRepository = new TradeImageRepository(_databasePath);
+                }
+                return _tradeImageRepository;
+            }
+        }
+        private ITradeImageRepository _tradeImageRepository;
+
+        protected ITradingAccountRepository TradingAccountRepository
+        {
+            get
+            {
+                if (_tradingAccountRepository == null)
+                {
+                    _tradingAccountRepository = new TradingAccountRepository(_databasePath);
+                }
+                return _tradingAccountRepository;
+            }
+        }
+        private ITradingAccountRepository _tradingAccountRepository;
+
 
         private void InitializeDatabase()
         {
@@ -60,8 +142,8 @@ namespace TD.SQLite
         public async Task<IReadOnlyList<Trade>> GetAllAsync()
         {
             var result = new List<Trade>();
-            var symbolsById = (await _symbolRepository.GetAllAsync()).ToDictionary(item => item.Id);
-            var tradingAccountsById = (await _tradingAccountRepository.GetAllAsync()).ToDictionary(item => item.Id);
+            var symbolsById = (await SymbolRepository.GetAllAsync()).ToDictionary(item => item.Id);
+            var tradingAccountsById = (await TradingAccountRepository.GetAllAsync()).ToDictionary(item => item.Id);
 
             await using var connection = await GetOpenConnectionAsync();
             await using var command = connection.CreateCommand();
@@ -83,10 +165,11 @@ namespace TD.SQLite
 
             return result;
         }
+
         public async Task<bool> AnyBySymbolIdAsync(int symbolId)
         {
             if (symbolId < 1)
-                throw new ArgumentOutOfRangeException(nameof(symbolId), symbolId, "Must be a valid positive id.");
+                return false;
 
             await using var connection = await GetOpenConnectionAsync();
             await using var command = connection.CreateCommand();
@@ -100,8 +183,8 @@ namespace TD.SQLite
         public async Task<IReadOnlyList<Trade>> GetBySymbolIdAsync(int symbolId)
         {
             var result = new List<Trade>();
-            var symbolsById = (await _symbolRepository.GetAllAsync()).ToDictionary(item => item.Id);
-            var tradingAccountsById = (await _tradingAccountRepository.GetAllAsync()).ToDictionary(item => item.Id);
+            var symbolsById = (await SymbolRepository.GetAllAsync()).ToDictionary(item => item.Id);
+            var tradingAccountsById = (await TradingAccountRepository.GetAllAsync()).ToDictionary(item => item.Id);
 
             await using var connection = await GetOpenConnectionAsync();
             await using var command = connection.CreateCommand();
@@ -126,10 +209,11 @@ namespace TD.SQLite
             return result;
         }
 
+
         public async Task<bool> AnyByTradingAccountIdAsync(int tradingAccountId)
         {
             if (tradingAccountId < 1)
-                throw new ArgumentOutOfRangeException(nameof(tradingAccountId), tradingAccountId, "Must be a valid positive id.");
+                return false;
 
             await using var connection = await GetOpenConnectionAsync();
             await using var command = connection.CreateCommand();
@@ -143,8 +227,8 @@ namespace TD.SQLite
         public async Task<IReadOnlyList<Trade>> GetByTradingAccountIdAsync(int tradingAccountId)
         {
             var result = new List<Trade>();
-            var symbolsById = (await _symbolRepository.GetAllAsync()).ToDictionary(item => item.Id);
-            var tradingAccountsById = (await _tradingAccountRepository.GetAllAsync()).ToDictionary(item => item.Id);
+            var symbolsById = (await SymbolRepository.GetAllAsync()).ToDictionary(item => item.Id);
+            var tradingAccountsById = (await TradingAccountRepository.GetAllAsync()).ToDictionary(item => item.Id);
 
             await using var connection = await GetOpenConnectionAsync();
             await using var command = connection.CreateCommand();
@@ -199,8 +283,8 @@ namespace TD.SQLite
             ArgumentNullException.ThrowIfNull(queryParameters);
 
             var result = new List<Trade>();
-            var symbolsById = (await _symbolRepository.GetAllAsync()).ToDictionary(item => item.Id);
-            var tradingAccountsById = (await _tradingAccountRepository.GetAllAsync()).ToDictionary(item => item.Id);
+            var symbolsById = (await SymbolRepository.GetAllAsync()).ToDictionary(item => item.Id);
+            var tradingAccountsById = (await TradingAccountRepository.GetAllAsync()).ToDictionary(item => item.Id);
 
             await using var connection = await GetOpenConnectionAsync();
             await using var command = connection.CreateCommand();
@@ -348,7 +432,10 @@ namespace TD.SQLite
 
             await using var command = connection.CreateCommand();
             command.CommandText = @$"INSERT INTO {_tableName} ({string.Join(", ", ColumnNames[1..])})
-            VALUES (@tradingAccountId, @symbolId, @entryTime, @entryMethod, @tradeDirection, @isFullyClosed, @orderQuantity, @filledQuantity, @plannedEntryPrice, @executedEntryPrice, @plannedPositionValue, @executedPositionValue, @plannedProfitLoss, @realizedProfitLoss, @plannedTP, @executedTP, @plannedRiskAmount, @plannedSL, @executedSL, @updatedAt);
+            VALUES (@tradingAccountId, @symbolId, @entryTime, @entryMethod, @tradeDirection, @isFullyClosed,
+                    @orderQuantity, @filledQuantity, @plannedEntryPrice, @executedEntryPrice, @plannedPositionValue, @executedPositionValue,
+                    @plannedProfitLoss, @realizedProfitLoss, @plannedTP, @executedTP, @plannedRiskAmount, @plannedSL,
+                    @executedSL, @updatedAt);
             SELECT last_insert_rowid();";
 
             command.AddParameter("@tradingAccountId", trade.TradingAccountId);
@@ -393,6 +480,36 @@ namespace TD.SQLite
         }
         partial void OnCreated(Trade trade);
 
+        /// <summary>
+        /// Determines whether a trade can be safely deleted based on the absence of related records.
+        /// </summary>
+        /// <remarks>A trade can be deleted only if there are no associated records. Use this method
+        /// before attempting to delete a trade to avoid violating referential integrity.</remarks>
+        /// <param name="id">The identifier of the trade record to check for deletability.</param>
+        /// <returns>A task that represents the asynchronous operation. The task result is <see langword="true"/> if the trade
+        /// can be deleted; otherwise, <see langword="false"/>.</returns>
+        public async Task<bool> CanDeleteAsync(int id)
+        {
+            if (id < 1)
+                return false;
+
+            bool result = true;
+
+            // Checking any entryOrder record exists through EntryOrder.TradeId reference
+            result = result && !(await EntryOrderRepository.AnyByTradeIdAsync(id));
+
+            // Checking any takeProfitOrder record exists through TakeProfitOrder.TradeId reference
+            result = result && !(await TakeProfitOrderRepository.AnyByTradeIdAsync(id));
+
+            // Checking any stopLossOrder record exists through StopLossOrder.TradeId reference
+            result = result && !(await StopLossOrderRepository.AnyByTradeIdAsync(id));
+
+            // Checking any tradeImage record exists through TradeImage.TradeId reference
+            result = result && !(await TradeImageRepository.AnyByTradeIdAsync(id));
+
+            return result;
+        }
+
         public async Task<bool> DeleteAsync(int id)
         {
             await using var connection = await GetOpenConnectionAsync();
@@ -418,7 +535,25 @@ namespace TD.SQLite
             await using var connection = await GetOpenConnectionAsync();
             var existingTrade = await GetByIdAsync(trade.Id);
             bool noChanges = existingTrade != null
-                          && existingTrade.EntryTime == trade.EntryTime                          && existingTrade.EntryMethod == trade.EntryMethod                          && existingTrade.TradeDirection == trade.TradeDirection                          && existingTrade.IsFullyClosed == trade.IsFullyClosed                          && existingTrade.OrderQuantity == trade.OrderQuantity                          && existingTrade.FilledQuantity == trade.FilledQuantity                          && existingTrade.PlannedEntryPrice == trade.PlannedEntryPrice                          && existingTrade.ExecutedEntryPrice == trade.ExecutedEntryPrice                          && existingTrade.PlannedPositionValue == trade.PlannedPositionValue                          && existingTrade.ExecutedPositionValue == trade.ExecutedPositionValue                          && existingTrade.PlannedProfitLoss == trade.PlannedProfitLoss                          && existingTrade.RealizedProfitLoss == trade.RealizedProfitLoss                          && existingTrade.PlannedTP == trade.PlannedTP                          && existingTrade.ExecutedTP == trade.ExecutedTP                          && existingTrade.PlannedRiskAmount == trade.PlannedRiskAmount                          && existingTrade.PlannedSL == trade.PlannedSL                          && existingTrade.ExecutedSL == trade.ExecutedSL                          && existingTrade.UpdatedAt == trade.UpdatedAt;
+                          && existingTrade.EntryTime == trade.EntryTime
+                          && existingTrade.EntryMethod == trade.EntryMethod
+                          && existingTrade.TradeDirection == trade.TradeDirection
+                          && existingTrade.IsFullyClosed == trade.IsFullyClosed
+                          && existingTrade.OrderQuantity == trade.OrderQuantity
+                          && existingTrade.FilledQuantity == trade.FilledQuantity
+                          && existingTrade.PlannedEntryPrice == trade.PlannedEntryPrice
+                          && existingTrade.ExecutedEntryPrice == trade.ExecutedEntryPrice
+                          && existingTrade.PlannedPositionValue == trade.PlannedPositionValue
+                          && existingTrade.ExecutedPositionValue == trade.ExecutedPositionValue
+                          && existingTrade.PlannedProfitLoss == trade.PlannedProfitLoss
+                          && existingTrade.RealizedProfitLoss == trade.RealizedProfitLoss
+                          && existingTrade.PlannedTP == trade.PlannedTP
+                          && existingTrade.ExecutedTP == trade.ExecutedTP
+                          && existingTrade.PlannedRiskAmount == trade.PlannedRiskAmount
+                          && existingTrade.PlannedSL == trade.PlannedSL
+                          && existingTrade.ExecutedSL == trade.ExecutedSL
+                          && existingTrade.UpdatedAt == trade.UpdatedAt;
+
             if (noChanges)
                 return false;
 
@@ -426,7 +561,25 @@ namespace TD.SQLite
             // TradingAccountId, SymbolId are not updated to avoid complications with existing references,
             // so only EntryTime, EntryMethod, TradeDirection, IsFullyClosed, OrderQuantity, FilledQuantity, PlannedEntryPrice, ExecutedEntryPrice, PlannedPositionValue, ExecutedPositionValue, PlannedProfitLoss, RealizedProfitLoss, PlannedTP, ExecutedTP, PlannedRiskAmount, PlannedSL, ExecutedSL, UpdatedAt are updated
             command.CommandText = @$"UPDATE {_tableName} SET
-                EntryTime = @entryTime,                EntryMethod = @entryMethod,                TradeDirection = @tradeDirection,                IsFullyClosed = @isFullyClosed,                OrderQuantity = @orderQuantity,                FilledQuantity = @filledQuantity,                PlannedEntryPrice = @plannedEntryPrice,                ExecutedEntryPrice = @executedEntryPrice,                PlannedPositionValue = @plannedPositionValue,                ExecutedPositionValue = @executedPositionValue,                PlannedProfitLoss = @plannedProfitLoss,                RealizedProfitLoss = @realizedProfitLoss,                PlannedTP = @plannedTP,                ExecutedTP = @executedTP,                PlannedRiskAmount = @plannedRiskAmount,                PlannedSL = @plannedSL,                ExecutedSL = @executedSL,                UpdatedAt = @updatedAt            WHERE Id = @id";
+                EntryTime = @entryTime,
+                EntryMethod = @entryMethod,
+                TradeDirection = @tradeDirection,
+                IsFullyClosed = @isFullyClosed,
+                OrderQuantity = @orderQuantity,
+                FilledQuantity = @filledQuantity,
+                PlannedEntryPrice = @plannedEntryPrice,
+                ExecutedEntryPrice = @executedEntryPrice,
+                PlannedPositionValue = @plannedPositionValue,
+                ExecutedPositionValue = @executedPositionValue,
+                PlannedProfitLoss = @plannedProfitLoss,
+                RealizedProfitLoss = @realizedProfitLoss,
+                PlannedTP = @plannedTP,
+                ExecutedTP = @executedTP,
+                PlannedRiskAmount = @plannedRiskAmount,
+                PlannedSL = @plannedSL,
+                ExecutedSL = @executedSL,
+                UpdatedAt = @updatedAt
+            WHERE Id = @id";
 
             command.AddParameter("@id", trade.Id);
             command.AddDateTimeToTextParameter("@entryTime", trade.EntryTime);
@@ -564,7 +717,28 @@ namespace TD.SQLite
         /// Contains the names of all columns in the SQLiteDataReader.
         /// </summary>
         public readonly string[] ColumnNames = new[] {
-            "Id",            "TradingAccountId",            "SymbolId",            "EntryTime",            "EntryMethod",            "TradeDirection",            "IsFullyClosed",            "OrderQuantity",            "FilledQuantity",            "PlannedEntryPrice",            "ExecutedEntryPrice",            "PlannedPositionValue",            "ExecutedPositionValue",            "PlannedProfitLoss",            "RealizedProfitLoss",            "PlannedTP",            "ExecutedTP",            "PlannedRiskAmount",            "PlannedSL",            "ExecutedSL",            "UpdatedAt"        };
+            "Id",
+            "TradingAccountId",
+            "SymbolId",
+            "EntryTime",
+            "EntryMethod",
+            "TradeDirection",
+            "IsFullyClosed",
+            "OrderQuantity",
+            "FilledQuantity",
+            "PlannedEntryPrice",
+            "ExecutedEntryPrice",
+            "PlannedPositionValue",
+            "ExecutedPositionValue",
+            "PlannedProfitLoss",
+            "RealizedProfitLoss",
+            "PlannedTP",
+            "ExecutedTP",
+            "PlannedRiskAmount",
+            "PlannedSL",
+            "ExecutedSL",
+            "UpdatedAt"
+        };
 
         /// <summary>
         /// Contains the scale values used for converting decimal properties to integer storage.

@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "TD.Tools.SeedDemoData": {
+      "commandName": "Project",
+      "commandLineArgs": "--reset --daysago 3"
+    }
+  }
+}

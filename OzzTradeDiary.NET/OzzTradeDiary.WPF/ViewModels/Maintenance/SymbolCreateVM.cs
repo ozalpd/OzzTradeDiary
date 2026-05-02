@@ -31,7 +31,7 @@ namespace TD.WPF.ViewModels.Maintenance
             DisplayOrder = 1000;
             IsActive = true;
         }
-           
+
         public ObservableCollection<Currency> Currencies { get; }
 
         public async Task LoadCurrenciesAsync()
@@ -43,7 +43,7 @@ namespace TD.WPF.ViewModels.Maintenance
                 Currencies.Add(item);
             }
         }
-           
+
         public ObservableCollection<Exchange> Exchanges { get; }
 
         public async Task LoadExchangesAsync()

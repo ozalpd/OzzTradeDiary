@@ -17,6 +17,7 @@ namespace TD.RepositoryContracts
         Task<IReadOnlyList<EntryOrder>> GetByTradeIdAsync(int tradeId);
         Task<EntryOrder?> GetByIdAsync(int? id);
         Task<int> CreateAsync(EntryOrder entryOrder);
+        Task<bool> CanDeleteAsync(int id);
         Task<bool> DeleteAsync(int id);
         Task<bool> UpdateAsync(EntryOrder entryOrder);
     }

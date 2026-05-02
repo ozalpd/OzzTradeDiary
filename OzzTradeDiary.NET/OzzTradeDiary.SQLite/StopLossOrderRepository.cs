@@ -20,10 +20,14 @@ namespace TD.SQLite
         public StopLossOrderRepository(string databasePath) : base(databasePath, "StopLossOrders")
         {
             _selectStatement = $"SELECT {string.Join(", ", ColumnNames)} FROM {_tableName}";
+            _databasePath = databasePath;
+
             InitializeDatabase();
             OnInitialized();
         }
+        private readonly string _databasePath;
         private readonly string _selectStatement;
+
 
         private void InitializeDatabase()
         {
@@ -51,10 +55,11 @@ namespace TD.SQLite
 
             return result;
         }
+
         public async Task<bool> AnyByTradeIdAsync(int tradeId)
         {
             if (tradeId < 1)
-                throw new ArgumentOutOfRangeException(nameof(tradeId), tradeId, "Must be a valid positive id.");
+                return false;
 
             await using var connection = await GetOpenConnectionAsync();
             await using var command = connection.CreateCommand();
@@ -118,7 +123,8 @@ namespace TD.SQLite
 
             await using var command = connection.CreateCommand();
             command.CommandText = @$"INSERT INTO {_tableName} ({string.Join(", ", ColumnNames[1..])})
-            VALUES (@tradeId, @stopAll, @orderType, @executeTime, @orderPrice, @filledPrice, @orderQuantity, @filledQuantity, @orderValue, @filledValue, @displayOrder);
+            VALUES (@tradeId, @stopAll, @orderType, @executeTime, @orderPrice, @filledPrice,
+                    @orderQuantity, @filledQuantity, @orderValue, @filledValue, @displayOrder);
             SELECT last_insert_rowid();";
 
             command.AddParameter("@tradeId", stopLossOrder.TradeId);
@@ -148,6 +154,22 @@ namespace TD.SQLite
         }
         partial void OnCreated(StopLossOrder stopLossOrder);
 
+        /// <summary>
+        /// Determines whether a stopLossOrder can be safely deleted based on the absence of related records.
+        /// </summary>
+        /// <remarks>A stopLossOrder can be deleted only if there are no associated records. Use this method
+        /// before attempting to delete a stopLossOrder to avoid violating referential integrity.</remarks>
+        /// <param name="id">The identifier of the stopLossOrder record to check for deletability.</param>
+        /// <returns>A task that represents the asynchronous operation. The task result is <see langword="true"/> if the stopLossOrder
+        /// can be deleted; otherwise, <see langword="false"/>.</returns>
+        public Task<bool> CanDeleteAsync(int id)
+        {
+            if (id < 1)
+                return Task.FromResult(false);
+
+            return Task.FromResult(true);
+        }
+
         public async Task<bool> DeleteAsync(int id)
         {
             await using var connection = await GetOpenConnectionAsync();
@@ -173,7 +195,17 @@ namespace TD.SQLite
             await using var connection = await GetOpenConnectionAsync();
             var existingStopLossOrder = await GetByIdAsync(stopLossOrder.Id);
             bool noChanges = existingStopLossOrder != null
-                          && existingStopLossOrder.StopAll == stopLossOrder.StopAll                          && existingStopLossOrder.OrderType == stopLossOrder.OrderType                          && existingStopLossOrder.ExecuteTime == stopLossOrder.ExecuteTime                          && existingStopLossOrder.OrderPrice == stopLossOrder.OrderPrice                          && existingStopLossOrder.FilledPrice == stopLossOrder.FilledPrice                          && existingStopLossOrder.OrderQuantity == stopLossOrder.OrderQuantity                          && existingStopLossOrder.FilledQuantity == stopLossOrder.FilledQuantity                          && existingStopLossOrder.OrderValue == stopLossOrder.OrderValue                          && existingStopLossOrder.FilledValue == stopLossOrder.FilledValue                          && existingStopLossOrder.DisplayOrder == stopLossOrder.DisplayOrder;
+                          && existingStopLossOrder.StopAll == stopLossOrder.StopAll
+                          && existingStopLossOrder.OrderType == stopLossOrder.OrderType
+                          && existingStopLossOrder.ExecuteTime == stopLossOrder.ExecuteTime
+                          && existingStopLossOrder.OrderPrice == stopLossOrder.OrderPrice
+                          && existingStopLossOrder.FilledPrice == stopLossOrder.FilledPrice
+                          && existingStopLossOrder.OrderQuantity == stopLossOrder.OrderQuantity
+                          && existingStopLossOrder.FilledQuantity == stopLossOrder.FilledQuantity
+                          && existingStopLossOrder.OrderValue == stopLossOrder.OrderValue
+                          && existingStopLossOrder.FilledValue == stopLossOrder.FilledValue
+                          && existingStopLossOrder.DisplayOrder == stopLossOrder.DisplayOrder;
+
             if (noChanges)
                 return false;
 
@@ -181,7 +213,17 @@ namespace TD.SQLite
             // TradeId is not updated to avoid complications with existing references,
             // so only StopAll, OrderType, ExecuteTime, OrderPrice, FilledPrice, OrderQuantity, FilledQuantity, OrderValue, FilledValue, DisplayOrder are updated
             command.CommandText = @$"UPDATE {_tableName} SET
-                StopAll = @stopAll,                OrderType = @orderType,                ExecuteTime = @executeTime,                OrderPrice = @orderPrice,                FilledPrice = @filledPrice,                OrderQuantity = @orderQuantity,                FilledQuantity = @filledQuantity,                OrderValue = @orderValue,                FilledValue = @filledValue,                DisplayOrder = @displayOrder            WHERE Id = @id";
+                StopAll = @stopAll,
+                OrderType = @orderType,
+                ExecuteTime = @executeTime,
+                OrderPrice = @orderPrice,
+                FilledPrice = @filledPrice,
+                OrderQuantity = @orderQuantity,
+                FilledQuantity = @filledQuantity,
+                OrderValue = @orderValue,
+                FilledValue = @filledValue,
+                DisplayOrder = @displayOrder
+            WHERE Id = @id";
 
             command.AddParameter("@id", stopLossOrder.Id);
             command.AddParameter("@stopAll", stopLossOrder.StopAll);
@@ -262,7 +304,19 @@ namespace TD.SQLite
         /// Contains the names of all columns in the SQLiteDataReader.
         /// </summary>
         public readonly string[] ColumnNames = new[] {
-            "Id",            "TradeId",            "StopAll",            "OrderType",            "ExecuteTime",            "OrderPrice",            "FilledPrice",            "OrderQuantity",            "FilledQuantity",            "OrderValue",            "FilledValue",            "DisplayOrder"        };
+            "Id",
+            "TradeId",
+            "StopAll",
+            "OrderType",
+            "ExecuteTime",
+            "OrderPrice",
+            "FilledPrice",
+            "OrderQuantity",
+            "FilledQuantity",
+            "OrderValue",
+            "FilledValue",
+            "DisplayOrder"
+        };
 
         /// <summary>
         /// Contains the scale values used for converting decimal properties to integer storage.

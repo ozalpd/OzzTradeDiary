@@ -561,7 +561,7 @@
       <UseInheritance>false</UseInheritance>
       <SchemaName>dbo</SchemaName>
       <TableName>EntryOrders</TableName>
-      <HasLogTable>true</HasLogTable>
+      <HasLogTable>false</HasLogTable>
       <LogTableName>EntryOrdersLog</LogTableName>
       <StoredProcGeneration>CUD</StoredProcGeneration>
       <CustomStoredProcs>false</CustomStoredProcs>
@@ -591,7 +591,7 @@
       <UseInheritance>false</UseInheritance>
       <SchemaName>dbo</SchemaName>
       <TableName>TakeProfitOrders</TableName>
-      <HasLogTable>true</HasLogTable>
+      <HasLogTable>false</HasLogTable>
       <LogTableName>TakeProfitOrdersLog</LogTableName>
       <StoredProcGeneration>CUD</StoredProcGeneration>
       <CustomStoredProcs>false</CustomStoredProcs>
@@ -634,7 +634,7 @@
       <UseInheritance>false</UseInheritance>
       <SchemaName>dbo</SchemaName>
       <TableName>StopLossOrders</TableName>
-      <HasLogTable>true</HasLogTable>
+      <HasLogTable>false</HasLogTable>
       <LogTableName>StopLossOrdersLog</LogTableName>
       <StoredProcGeneration>CUD</StoredProcGeneration>
       <CustomStoredProcs>false</CustomStoredProcs>
@@ -957,7 +957,7 @@
       <UseInheritance>false</UseInheritance>
       <SchemaName>dbo</SchemaName>
       <TableName>Trades</TableName>
-      <HasLogTable>true</HasLogTable>
+      <HasLogTable>false</HasLogTable>
       <LogTableName>TradesLog</LogTableName>
       <StoredProcGeneration>CUD</StoredProcGeneration>
       <CustomStoredProcs>false</CustomStoredProcs>

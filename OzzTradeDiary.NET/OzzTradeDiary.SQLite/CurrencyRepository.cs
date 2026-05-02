@@ -20,10 +20,40 @@ namespace TD.SQLite
         public CurrencyRepository(string databasePath) : base(databasePath, "Currencies")
         {
             _selectStatement = $"SELECT {string.Join(", ", ColumnNames)} FROM {_tableName}";
+            _databasePath = databasePath;
+
             InitializeDatabase();
             OnInitialized();
         }
+        private readonly string _databasePath;
         private readonly string _selectStatement;
+
+        protected IExchangeRepository ExchangeRepository
+        {
+            get
+            {
+                if (_exchangeRepository == null)
+                {
+                    _exchangeRepository = new ExchangeRepository(_databasePath, currencyRepository: this);
+                }
+                return _exchangeRepository;
+            }
+        }
+        private IExchangeRepository _exchangeRepository;
+
+        protected ISymbolRepository SymbolRepository
+        {
+            get
+            {
+                if (_symbolRepository == null)
+                {
+                    _symbolRepository = new SymbolRepository(_databasePath, currencyRepository: this);
+                }
+                return _symbolRepository;
+            }
+        }
+        private ISymbolRepository _symbolRepository;
+
 
         private void InitializeDatabase()
         {
@@ -137,6 +167,30 @@ namespace TD.SQLite
         }
         partial void OnCreated(Currency currency);
 
+        /// <summary>
+        /// Determines whether a currency can be safely deleted based on the absence of related records.
+        /// </summary>
+        /// <remarks>A currency can be deleted only if there are no associated records. Use this method
+        /// before attempting to delete a currency to avoid violating referential integrity.</remarks>
+        /// <param name="id">The identifier of the currency record to check for deletability.</param>
+        /// <returns>A task that represents the asynchronous operation. The task result is <see langword="true"/> if the currency
+        /// can be deleted; otherwise, <see langword="false"/>.</returns>
+        public async Task<bool> CanDeleteAsync(int id)
+        {
+            if (id < 1)
+                return false;
+
+            bool result = true;
+
+            // Checking any exchange record exists through Exchange.DefaultCurrencyId reference
+            result = result && !(await ExchangeRepository.AnyByDefaultCurrencyIdAsync(id));
+
+            // Checking any symbol record exists through Symbol.PriceCurrencyId reference
+            result = result && !(await SymbolRepository.AnyByPriceCurrencyIdAsync(id));
+
+            return result;
+        }
+
         public async Task<bool> DeleteAsync(int id)
         {
             await using var connection = await GetOpenConnectionAsync();
@@ -168,7 +222,10 @@ namespace TD.SQLite
 
             existingCurrency = await GetByIdAsync(currency.Id);
             bool noChanges = existingCurrency != null
-                          && existingCurrency.Description == currency.Description                          && existingCurrency.DisplayOrder == currency.DisplayOrder                          && existingCurrency.IsActive == currency.IsActive;
+                          && existingCurrency.Description == currency.Description
+                          && existingCurrency.DisplayOrder == currency.DisplayOrder
+                          && existingCurrency.IsActive == currency.IsActive;
+
             if (noChanges)
                 return false;
 
@@ -176,7 +233,10 @@ namespace TD.SQLite
             // CurrencyTicker is not updated to avoid complications with existing references,
             // so only Description, DisplayOrder, IsActive are updated
             command.CommandText = @$"UPDATE {_tableName} SET
-                Description = @description,                DisplayOrder = @displayOrder,                IsActive = @isActive            WHERE Id = @id";
+                Description = @description,
+                DisplayOrder = @displayOrder,
+                IsActive = @isActive
+            WHERE Id = @id";
 
             command.AddParameter("@id", currency.Id);
             command.AddNullableParameter("@description", currency.Description);
@@ -225,6 +285,11 @@ namespace TD.SQLite
         /// Contains the names of all columns in the SQLiteDataReader.
         /// </summary>
         public readonly string[] ColumnNames = new[] {
-            "Id",            "CurrencyTicker",            "Description",            "DisplayOrder",            "IsActive"        };
+            "Id",
+            "CurrencyTicker",
+            "Description",
+            "DisplayOrder",
+            "IsActive"
+        };
     }
 }

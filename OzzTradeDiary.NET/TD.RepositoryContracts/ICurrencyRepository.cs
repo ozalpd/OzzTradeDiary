@@ -16,6 +16,7 @@ namespace TD.RepositoryContracts
         Task<Currency?> GetByIdAsync(int? id);
         Task<Currency?> GetByCurrencyTickerAsync(string? currencyTicker);
         Task<int> CreateAsync(Currency currency);
+        Task<bool> CanDeleteAsync(int id);
         Task<bool> DeleteAsync(int id);
         Task<bool> UpdateAsync(Currency currency);
     }

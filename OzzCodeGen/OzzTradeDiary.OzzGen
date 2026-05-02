@@ -166,12 +166,10 @@
   <DataModel>
     <EntityDefinition>
       <Name>IPrimaryKey</Name>
-      <EntitySource />
       <Comment>For defining the PrimaryKey of entities</Comment>
       <NamespaceName>TD</NamespaceName>
       <DisplayOrder>1</DisplayOrder>
       <Abstract>true</Abstract>
-      <LetDownloadAll>false</LetDownloadAll>
       <DisplayName>IPrimaryKey</DisplayName>
       <DisplayMember>Id</DisplayMember>
       <Properties>
@@ -195,11 +193,9 @@
     </EntityDefinition>
     <EntityDefinition>
       <Name>IDisplayOrder</Name>
-      <EntitySource />
       <NamespaceName>TD</NamespaceName>
       <DisplayOrder>2</DisplayOrder>
       <Abstract>true</Abstract>
-      <LetDownloadAll>false</LetDownloadAll>
       <DisplayName>IDisplay Order</DisplayName>
       <DisplayMember>Id</DisplayMember>
       <BaseTypeName>IPrimaryKey</BaseTypeName>
@@ -223,11 +219,9 @@
     </EntityDefinition>
     <EntityDefinition>
       <Name>IIsActive</Name>
-      <EntitySource />
       <NamespaceName>TD</NamespaceName>
       <DisplayOrder>3</DisplayOrder>
       <Abstract>true</Abstract>
-      <LetDownloadAll>false</LetDownloadAll>
       <DisplayName>IIs Active</DisplayName>
       <DisplayMember>Id</DisplayMember>
       <BaseTypeName>IDisplayOrder</BaseTypeName>
@@ -251,11 +245,9 @@
     </EntityDefinition>
     <EntityDefinition>
       <Name>ICreatedAt</Name>
-      <EntitySource />
       <NamespaceName>TD</NamespaceName>
       <DisplayOrder>4</DisplayOrder>
       <Abstract>true</Abstract>
-      <LetDownloadAll>false</LetDownloadAll>
       <DisplayName>ICreated At</DisplayName>
       <DisplayMember>Id</DisplayMember>
       <BaseTypeName>IPrimaryKey</BaseTypeName>
@@ -279,11 +271,9 @@
     </EntityDefinition>
     <EntityDefinition>
       <Name>IUpdatedAt</Name>
-      <EntitySource />
       <NamespaceName>TD</NamespaceName>
       <DisplayOrder>4</DisplayOrder>
       <Abstract>true</Abstract>
-      <LetDownloadAll>false</LetDownloadAll>
       <DisplayName>IUpdated At</DisplayName>
       <DisplayMember>Id</DisplayMember>
       <BaseTypeName>IPrimaryKey</BaseTypeName>
@@ -307,11 +297,9 @@
     </EntityDefinition>
     <EntityDefinition>
       <Name>ITradeOrder</Name>
-      <EntitySource />
       <NamespaceName>TD</NamespaceName>
       <DisplayOrder>5</DisplayOrder>
       <Abstract>true</Abstract>
-      <LetDownloadAll>false</LetDownloadAll>
       <DisplayName>ITrade Order</DisplayName>
       <DisplayMember>Id</DisplayMember>
       <BaseTypeName>IDisplayOrder</BaseTypeName>
@@ -446,11 +434,9 @@
     </EntityDefinition>
     <EntityDefinition>
       <Name>Exchange</Name>
-      <EntitySource />
       <NamespaceName>TD</NamespaceName>
       <DisplayOrder>6</DisplayOrder>
       <Abstract>false</Abstract>
-      <LetDownloadAll>false</LetDownloadAll>
       <DisplayName>Exchange</DisplayName>
       <DisplayMember>ExchangeName</DisplayMember>
       <BaseTypeName>IIsActive</BaseTypeName>
@@ -552,11 +538,9 @@
     </EntityDefinition>
     <EntityDefinition>
       <Name>TradingAccount</Name>
-      <EntitySource />
       <NamespaceName>TD</NamespaceName>
       <DisplayOrder>7</DisplayOrder>
       <Abstract>false</Abstract>
-      <LetDownloadAll>false</LetDownloadAll>
       <DisplayName>Trading Account</DisplayName>
       <DisplayMember>Title</DisplayMember>
       <BaseTypeName>IIsActive</BaseTypeName>
@@ -625,11 +609,9 @@
     </EntityDefinition>
     <EntityDefinition>
       <Name>Currency</Name>
-      <EntitySource />
       <NamespaceName>TD</NamespaceName>
       <DisplayOrder>8</DisplayOrder>
       <Abstract>false</Abstract>
-      <LetDownloadAll>false</LetDownloadAll>
       <DisplayName>Currency</DisplayName>
       <DisplayMember>CurrencyTicker</DisplayMember>
       <BaseTypeName>IIsActive</BaseTypeName>
@@ -672,11 +654,9 @@
     </EntityDefinition>
     <EntityDefinition>
       <Name>Symbol</Name>
-      <EntitySource />
       <NamespaceName>TD</NamespaceName>
       <DisplayOrder>9</DisplayOrder>
       <Abstract>false</Abstract>
-      <LetDownloadAll>false</LetDownloadAll>
       <DisplayName>Symbol</DisplayName>
       <DisplayMember>TickerFull</DisplayMember>
       <BaseTypeName>IIsActive</BaseTypeName>
@@ -822,11 +802,9 @@
     </EntityDefinition>
     <EntityDefinition>
       <Name>EntryOrder</Name>
-      <EntitySource />
       <NamespaceName>TD</NamespaceName>
       <DisplayOrder>10</DisplayOrder>
       <Abstract>false</Abstract>
-      <LetDownloadAll>false</LetDownloadAll>
       <DisplayName>Entry Order</DisplayName>
       <DisplayMember>Id</DisplayMember>
       <BaseTypeName>ITradeOrder</BaseTypeName>
@@ -861,11 +839,9 @@
     </EntityDefinition>
     <EntityDefinition>
       <Name>TakeProfitOrder</Name>
-      <EntitySource />
       <NamespaceName>TD</NamespaceName>
       <DisplayOrder>11</DisplayOrder>
       <Abstract>false</Abstract>
-      <LetDownloadAll>false</LetDownloadAll>
       <DisplayName>Entry Order</DisplayName>
       <DisplayMember>Id</DisplayMember>
       <BaseTypeName>ITradeOrder</BaseTypeName>
@@ -900,11 +876,9 @@
     </EntityDefinition>
     <EntityDefinition>
       <Name>StopLossOrder</Name>
-      <EntitySource />
       <NamespaceName>TD</NamespaceName>
       <DisplayOrder>12</DisplayOrder>
       <Abstract>false</Abstract>
-      <LetDownloadAll>false</LetDownloadAll>
       <DisplayName>Entry Order</DisplayName>
       <DisplayMember>Id</DisplayMember>
       <BaseTypeName>ITradeOrder</BaseTypeName>
@@ -955,11 +929,9 @@
     </EntityDefinition>
     <EntityDefinition>
       <Name>TradeImage</Name>
-      <EntitySource />
       <NamespaceName>TD</NamespaceName>
       <DisplayOrder>13</DisplayOrder>
       <Abstract>false</Abstract>
-      <LetDownloadAll>false</LetDownloadAll>
       <DisplayName>Trade Image</DisplayName>
       <DisplayMember>TradeId</DisplayMember>
       <BaseTypeName>IUpdatedAt</BaseTypeName>
@@ -1027,11 +999,9 @@
     </EntityDefinition>
     <EntityDefinition>
       <Name>Trade</Name>
-      <EntitySource />
       <NamespaceName>TD</NamespaceName>
       <DisplayOrder>14</DisplayOrder>
       <Abstract>false</Abstract>
-      <LetDownloadAll>false</LetDownloadAll>
       <DisplayName>Trade</DisplayName>
       <DisplayMember>Id</DisplayMember>
       <BaseTypeName>IUpdatedAt</BaseTypeName>

@@ -21,6 +21,7 @@ namespace TD.RepositoryContracts
         Task<Symbol?> GetByTickerFullAsync(string? tickerFull);
         Task<IReadOnlyList<Symbol>> GetPagedAsync(QueryParameters queryParameters, bool? isActive = null);
         Task<int> CreateAsync(Symbol symbol);
+        Task<bool> CanDeleteAsync(int id);
         Task<bool> DeleteAsync(int id);
         Task<bool> UpdateAsync(Symbol symbol);
     }

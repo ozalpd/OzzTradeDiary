@@ -18,6 +18,7 @@ namespace TD.RepositoryContracts
         Task<TradingAccount?> GetByIdAsync(int? id);
         Task<TradingAccount?> GetByTitleAsync(string? title);
         Task<int> CreateAsync(TradingAccount tradingAccount);
+        Task<bool> CanDeleteAsync(int id);
         Task<bool> DeleteAsync(int id);
         Task<bool> UpdateAsync(TradingAccount tradingAccount);
     }

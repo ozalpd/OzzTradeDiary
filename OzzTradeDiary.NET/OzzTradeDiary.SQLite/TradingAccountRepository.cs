@@ -21,12 +21,42 @@ namespace TD.SQLite
 
         {
             _selectStatement = $"SELECT {string.Join(", ", ColumnNames)} FROM {_tableName}";
-            _exchangeRepository = exchangeRepository ?? new ExchangeRepository(databasePath);
+            _databasePath = databasePath;
+            if (exchangeRepository != null)
+                _exchangeRepository = exchangeRepository;
+
             InitializeDatabase();
             OnInitialized(exchangeRepository == null);
         }
+        private readonly string _databasePath;
         private readonly string _selectStatement;
-        private readonly IExchangeRepository _exchangeRepository;
+
+        protected IExchangeRepository ExchangeRepository
+        {
+            get
+            {
+                if (_exchangeRepository == null)
+                {
+                    _exchangeRepository = new ExchangeRepository(_databasePath);
+                }
+                return _exchangeRepository;
+            }
+        }
+        private IExchangeRepository _exchangeRepository;
+
+        protected ITradeRepository TradeRepository
+        {
+            get
+            {
+                if (_tradeRepository == null)
+                {
+                    _tradeRepository = new TradeRepository(_databasePath, tradingAccountRepository: this);
+                }
+                return _tradeRepository;
+            }
+        }
+        private ITradeRepository _tradeRepository;
+
 
         private void InitializeDatabase()
         {
@@ -44,7 +74,7 @@ namespace TD.SQLite
         public async Task<IReadOnlyList<TradingAccount>> GetAllAsync(bool? isActive = null)
         {
             var result = new List<TradingAccount>();
-            var exchangesById = (await _exchangeRepository.GetAllAsync()).ToDictionary(item => item.Id);
+            var exchangesById = (await ExchangeRepository.GetAllAsync()).ToDictionary(item => item.Id);
 
             await using var connection = await GetOpenConnectionAsync();
             await using var command = connection.CreateCommand();
@@ -69,10 +99,11 @@ namespace TD.SQLite
 
             return result;
         }
+
         public async Task<bool> AnyByExchangeIdAsync(int exchangeId)
         {
             if (exchangeId < 1)
-                throw new ArgumentOutOfRangeException(nameof(exchangeId), exchangeId, "Must be a valid positive id.");
+                return false;
 
             await using var connection = await GetOpenConnectionAsync();
             await using var command = connection.CreateCommand();
@@ -86,7 +117,7 @@ namespace TD.SQLite
         public async Task<IReadOnlyList<TradingAccount>> GetByExchangeIdAsync(int exchangeId, bool? isActive = null)
         {
             var result = new List<TradingAccount>();
-            var exchangesById = (await _exchangeRepository.GetAllAsync()).ToDictionary(item => item.Id);
+            var exchangesById = (await ExchangeRepository.GetAllAsync()).ToDictionary(item => item.Id);
 
             await using var connection = await GetOpenConnectionAsync();
             await using var command = connection.CreateCommand();
@@ -196,6 +227,27 @@ namespace TD.SQLite
         }
         partial void OnCreated(TradingAccount tradingAccount);
 
+        /// <summary>
+        /// Determines whether a tradingAccount can be safely deleted based on the absence of related records.
+        /// </summary>
+        /// <remarks>A tradingAccount can be deleted only if there are no associated records. Use this method
+        /// before attempting to delete a tradingAccount to avoid violating referential integrity.</remarks>
+        /// <param name="id">The identifier of the tradingAccount record to check for deletability.</param>
+        /// <returns>A task that represents the asynchronous operation. The task result is <see langword="true"/> if the tradingAccount
+        /// can be deleted; otherwise, <see langword="false"/>.</returns>
+        public async Task<bool> CanDeleteAsync(int id)
+        {
+            if (id < 1)
+                return false;
+
+            bool result = true;
+
+            // Checking any trade record exists through Trade.TradingAccountId reference
+            result = result && !(await TradeRepository.AnyByTradingAccountIdAsync(id));
+
+            return result;
+        }
+
         public async Task<bool> DeleteAsync(int id)
         {
             await using var connection = await GetOpenConnectionAsync();
@@ -227,7 +279,11 @@ namespace TD.SQLite
 
             existingTradingAccount = await GetByIdAsync(tradingAccount.Id);
             bool noChanges = existingTradingAccount != null
-                          && existingTradingAccount.Title == tradingAccount.Title                          && existingTradingAccount.Notes == tradingAccount.Notes                          && existingTradingAccount.DisplayOrder == tradingAccount.DisplayOrder                          && existingTradingAccount.IsActive == tradingAccount.IsActive;
+                          && existingTradingAccount.Title == tradingAccount.Title
+                          && existingTradingAccount.Notes == tradingAccount.Notes
+                          && existingTradingAccount.DisplayOrder == tradingAccount.DisplayOrder
+                          && existingTradingAccount.IsActive == tradingAccount.IsActive;
+
             if (noChanges)
                 return false;
 
@@ -235,7 +291,11 @@ namespace TD.SQLite
             // ExchangeId is not updated to avoid complications with existing references,
             // so only Title, Notes, DisplayOrder, IsActive are updated
             command.CommandText = @$"UPDATE {_tableName} SET
-                Title = @title,                Notes = @notes,                DisplayOrder = @displayOrder,                IsActive = @isActive            WHERE Id = @id";
+                Title = @title,
+                Notes = @notes,
+                DisplayOrder = @displayOrder,
+                IsActive = @isActive
+            WHERE Id = @id";
 
             command.AddParameter("@id", tradingAccount.Id);
             command.AddParameter("@title", tradingAccount.Title);
@@ -294,6 +354,12 @@ namespace TD.SQLite
         /// Contains the names of all columns in the SQLiteDataReader.
         /// </summary>
         public readonly string[] ColumnNames = new[] {
-            "Id",            "Title",            "ExchangeId",            "Notes",            "DisplayOrder",            "IsActive"        };
+            "Id",
+            "Title",
+            "ExchangeId",
+            "Notes",
+            "DisplayOrder",
+            "IsActive"
+        };
     }
 }

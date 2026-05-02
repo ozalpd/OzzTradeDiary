@@ -13,10 +13,11 @@ namespace TD.RepositoryContracts
     public partial interface ITradeImageRepository
     {
         Task<IReadOnlyList<TradeImage>> GetAllAsync();
-        Task<bool> AnyByTradeIdAsync(int? tradeId);
-        Task<IReadOnlyList<TradeImage>> GetByTradeIdAsync(int? tradeId);
+        Task<bool> AnyByTradeIdAsync(int tradeId);
+        Task<IReadOnlyList<TradeImage>> GetByTradeIdAsync(int tradeId);
         Task<TradeImage?> GetByIdAsync(int? id);
         Task<int> CreateAsync(TradeImage tradeImage);
+        Task<bool> CanDeleteAsync(int id);
         Task<bool> DeleteAsync(int id);
         Task<bool> UpdateAsync(TradeImage tradeImage);
     }

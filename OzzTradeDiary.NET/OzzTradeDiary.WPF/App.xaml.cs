@@ -21,8 +21,16 @@ namespace TD.WPF
                 Thread.CurrentThread.CurrentUICulture = culture;
                 Thread.CurrentThread.CurrentCulture = culture;
             }
-
-            var tradeRepository = new TradeRepository(settings.DatabasePath);
+            string databasePath = settings.DatabasePath;
+            var currencyRepository = new CurrencyRepository(databasePath);
+            var exchangeRepository = new ExchangeRepository(databasePath, currencyRepository: currencyRepository);
+            var tradeRepository = new TradeRepository(databasePath,
+                                  new EntryOrderRepository(databasePath),
+                                  new StopLossOrderRepository(databasePath),
+                                  new SymbolRepository(databasePath, exchangeRepository: exchangeRepository, currencyRepository: currencyRepository),
+                                  new TakeProfitOrderRepository(databasePath),
+                                  new TradeImageRepository(databasePath),
+                                  new TradingAccountRepository(databasePath, exchangeRepository: exchangeRepository));
             new MainWindow(tradeRepository).Show();
         }
     }

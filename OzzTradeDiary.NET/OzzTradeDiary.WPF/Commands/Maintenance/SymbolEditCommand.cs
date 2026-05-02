@@ -17,7 +17,7 @@ namespace TD.WPF.Commands.Maintenance
     {
         private readonly ISymbolCreationContext _viewModel;
         private readonly IWindowDialogService _windowDialogService;
-        
+
         public SymbolEditCommand(ISymbolCreationContext viewModel, IWindowDialogService windowDialogService)
         {
             _viewModel = viewModel;

@@ -21,7 +21,7 @@ namespace TD.WPF.Commands.Maintenance
         private readonly IWindowDialogService _windowDialogService;
         private readonly ICurrencyLookupService _currencyLookupService;
         private readonly IExchangeLookupService _exchangeLookupService;
-        
+
         public SymbolCreateCommand(ISymbolCreationContext viewModel, IWindowDialogService windowDialogService,
                                    ICurrencyLookupService currencyLookupService, IExchangeLookupService exchangeLookupService)
         {

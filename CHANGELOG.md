@@ -8,11 +8,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ### Added
 - Added AnyBy* methods to all major repositories for referential integrity checks. Introduced CanDeleteAsync to IExchangeRepository to prevent deleting exchanges with dependent entities.
+- Added CanDeleteAsync to all repositories for safe deletes with referential checks.
 
 ### Changed
 - Updated repository constructors, method signatures, and dependency injection order for consistency.
 - Adjusted AbstractDiaryVM and ExchangeDeleteCommand to use new APIs.
 - Updated SeedDemoData tool for new signatures.
+- Refactor repository constructors to use lazy dependency initialization and improve dependency injection, especially in WPF startup.
+- Update AnyBy*IdAsync to return false for invalid IDs.
 
 ## [0.0.61] - 2026-05-01
 

@@ -18,6 +18,7 @@ namespace TD.RepositoryContracts
         Task<Exchange?> GetByIdAsync(int? id);
         Task<Exchange?> GetByExchangeCodeAsync(string? exchangeCode);
         Task<int> CreateAsync(Exchange exchange);
+        Task<bool> CanDeleteAsync(int id);
         Task<bool> DeleteAsync(int id);
         Task<bool> UpdateAsync(Exchange exchange);
         Task<bool> UpdateHasAnySymbolAsync(int id, bool hasAnySymbol);

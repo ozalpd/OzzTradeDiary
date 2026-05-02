@@ -27,7 +27,7 @@ namespace TD.WPF.ViewModels.Maintenance
             DisplayOrder = 1000;
             IsActive = true;
         }
-           
+
         public ObservableCollection<Exchange> Exchanges { get; }
 
         public async Task LoadExchangesAsync()
