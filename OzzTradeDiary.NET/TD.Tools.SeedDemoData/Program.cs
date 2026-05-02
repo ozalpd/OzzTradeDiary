@@ -38,7 +38,7 @@ static async Task SeedDemoDataAsync(string databasePath, int daysAgoStart)
     var symbolRepository = new SymbolRepository(databasePath, exchangeRepository: exchangeRepository);
     var tradingAccountRepository = new TradingAccountRepository(databasePath, exchangeRepository: exchangeRepository);
     var tradeImageRepository = new TradeImageRepository(databasePath);
-    var tradeRepository = new TradeRepository(databasePath, tradingAccountRepository, symbolRepository, tradeImageRepository: tradeImageRepository);
+    var tradeRepository = new TradeRepository(databasePath, symbolRepository: symbolRepository, tradeImageRepository: tradeImageRepository, tradingAccountRepository: tradingAccountRepository);
 
     var exchange1 = await EnsureDemoExchangeAsync(exchangeRepository);
     var tickers = new[] { "BTCUSD", "ETHUSD", "SOLUSD", "AVAXUSD", "XRPUSD", "ETCUSD", "DOGEUSD", "BNBUSD", "SUIUSD", "ZROUSD", //← Top 10 popular cryptos

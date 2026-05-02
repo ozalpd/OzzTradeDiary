@@ -5,7 +5,7 @@ using TD.WPF.ViewModels;
 
 namespace TD.WPF.Commands.Maintenance;
 
-internal class ExchangeDeleteCommand : AbstractAsyncCommand
+internal class ExchangeDeleteCommand : AbstractCommand
 {
     private readonly AbstractDiaryVM _viewModel;
 
@@ -14,7 +14,7 @@ internal class ExchangeDeleteCommand : AbstractAsyncCommand
         _viewModel = viewModel;
     }
 
-    protected override bool CanExecuteAsync(object? parameter)
+    public override bool CanExecute(object? parameter)
     {
         if (_viewModel.SelectedExchange is null)
             return false;
@@ -22,11 +22,14 @@ internal class ExchangeDeleteCommand : AbstractAsyncCommand
         if (_viewModel.LoadSymbolsInProgress || _viewModel.LoadTradingAccountsInProgress)
             return false;
 
-        return !_viewModel.Symbols.Any(s => s.ExchangeId == _viewModel.SelectedExchange.Id)
-            && !_viewModel.TradingAccounts.Any(a => a.ExchangeId == _viewModel.SelectedExchange.Id);
+        var result = _viewModel.ExchangeRepository
+                               .CanDeleteAsync(_viewModel.SelectedExchange.Id)
+                               .GetAwaiter()
+                               .GetResult();
+        return result;
     }
 
-    public override async Task ExecuteAsync(object? parameter)
+    public override async void Execute(object? parameter)
     {
         var exchangeToDelete = _viewModel.SelectedExchange;
         if (exchangeToDelete is null || exchangeToDelete.Id <= 0)

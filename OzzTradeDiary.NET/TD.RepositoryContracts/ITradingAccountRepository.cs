@@ -13,6 +13,7 @@ namespace TD.RepositoryContracts
     public partial interface ITradingAccountRepository
     {
         Task<IReadOnlyList<TradingAccount>> GetAllAsync(bool? isActive = null);
+        Task<bool> AnyByExchangeIdAsync(int exchangeId);
         Task<IReadOnlyList<TradingAccount>> GetByExchangeIdAsync(int exchangeId, bool? isActive = null);
         Task<TradingAccount?> GetByIdAsync(int? id);
         Task<TradingAccount?> GetByTitleAsync(string? title);

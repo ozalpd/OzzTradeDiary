@@ -9,7 +9,6 @@ using Microsoft.Data.Sqlite;
 using TD.Models;
 using TD.RepositoryContracts;
 using TD.SQLite.Extensions;
-using TD.Validation;
 
 namespace TD.SQLite
 {
@@ -52,6 +51,19 @@ namespace TD.SQLite
 
             return result;
         }
+        public async Task<bool> AnyByTradeIdAsync(int tradeId)
+        {
+            if (tradeId < 1)
+                throw new ArgumentOutOfRangeException(nameof(tradeId), tradeId, "Must be a valid positive id.");
+
+            await using var connection = await GetOpenConnectionAsync();
+            await using var command = connection.CreateCommand();
+            command.CommandText = $"SELECT COUNT(1) FROM {_tableName} WHERE TradeId = @tradeId";
+            command.Parameters.AddWithValue("@tradeId", tradeId);
+            var result = await command.ExecuteScalarAsync();
+            return Convert.ToInt64(result) > 0;
+        }
+
 
         public async Task<IReadOnlyList<StopLossOrder>> GetByTradeIdAsync(int tradeId)
         {
@@ -73,7 +85,7 @@ namespace TD.SQLite
 
             return result;
         }
-        
+
 
         public async Task<StopLossOrder?> GetByIdAsync(int? id)
         {
@@ -91,12 +103,12 @@ namespace TD.SQLite
                 return null;
 
             var stopLossOrder = MapStopLossOrder(reader);
-            
+
             OnLoaded(stopLossOrder);
             return stopLossOrder;
         }
         partial void OnLoaded(StopLossOrder stopLossOrder);
-        
+
         public async Task<int> CreateAsync(StopLossOrder stopLossOrder)
         {
             ArgumentNullException.ThrowIfNull(stopLossOrder);
@@ -108,7 +120,7 @@ namespace TD.SQLite
             command.CommandText = @$"INSERT INTO {_tableName} ({string.Join(", ", ColumnNames[1..])})
             VALUES (@tradeId, @stopAll, @orderType, @executeTime, @orderPrice, @filledPrice, @orderQuantity, @filledQuantity, @orderValue, @filledValue, @displayOrder);
             SELECT last_insert_rowid();";
-            
+
             command.AddParameter("@tradeId", stopLossOrder.TradeId);
             command.AddParameter("@stopAll", stopLossOrder.StopAll);
             command.AddParameter("@orderType", (int)stopLossOrder.OrderType);
@@ -126,7 +138,7 @@ namespace TD.SQLite
             command.AddParameter("@displayOrder", stopLossOrder.DisplayOrder);
 
             var id = Convert.ToInt32((long)(await command.ExecuteScalarAsync() ?? 0));
-            
+
             await _metadataRepository.SaveLastUpdateUtcAsync(connection);
             ClearRecordCountCache();
             stopLossOrder.Id = id;
@@ -161,17 +173,7 @@ namespace TD.SQLite
             await using var connection = await GetOpenConnectionAsync();
             var existingStopLossOrder = await GetByIdAsync(stopLossOrder.Id);
             bool noChanges = existingStopLossOrder != null
-                          && existingStopLossOrder.StopAll == stopLossOrder.StopAll 
-                          && existingStopLossOrder.OrderType == stopLossOrder.OrderType 
-                          && existingStopLossOrder.ExecuteTime == stopLossOrder.ExecuteTime 
-                          && existingStopLossOrder.OrderPrice == stopLossOrder.OrderPrice 
-                          && existingStopLossOrder.FilledPrice == stopLossOrder.FilledPrice 
-                          && existingStopLossOrder.OrderQuantity == stopLossOrder.OrderQuantity 
-                          && existingStopLossOrder.FilledQuantity == stopLossOrder.FilledQuantity 
-                          && existingStopLossOrder.OrderValue == stopLossOrder.OrderValue 
-                          && existingStopLossOrder.FilledValue == stopLossOrder.FilledValue 
-                          && existingStopLossOrder.DisplayOrder == stopLossOrder.DisplayOrder; 
-
+                          && existingStopLossOrder.StopAll == stopLossOrder.StopAll                          && existingStopLossOrder.OrderType == stopLossOrder.OrderType                          && existingStopLossOrder.ExecuteTime == stopLossOrder.ExecuteTime                          && existingStopLossOrder.OrderPrice == stopLossOrder.OrderPrice                          && existingStopLossOrder.FilledPrice == stopLossOrder.FilledPrice                          && existingStopLossOrder.OrderQuantity == stopLossOrder.OrderQuantity                          && existingStopLossOrder.FilledQuantity == stopLossOrder.FilledQuantity                          && existingStopLossOrder.OrderValue == stopLossOrder.OrderValue                          && existingStopLossOrder.FilledValue == stopLossOrder.FilledValue                          && existingStopLossOrder.DisplayOrder == stopLossOrder.DisplayOrder;
             if (noChanges)
                 return false;
 
@@ -179,17 +181,7 @@ namespace TD.SQLite
             // TradeId is not updated to avoid complications with existing references,
             // so only StopAll, OrderType, ExecuteTime, OrderPrice, FilledPrice, OrderQuantity, FilledQuantity, OrderValue, FilledValue, DisplayOrder are updated
             command.CommandText = @$"UPDATE {_tableName} SET
-                StopAll = @stopAll, 
-                OrderType = @orderType, 
-                ExecuteTime = @executeTime, 
-                OrderPrice = @orderPrice, 
-                FilledPrice = @filledPrice, 
-                OrderQuantity = @orderQuantity, 
-                FilledQuantity = @filledQuantity, 
-                OrderValue = @orderValue, 
-                FilledValue = @filledValue, 
-                DisplayOrder = @displayOrder 
-            WHERE Id = @id";
+                StopAll = @stopAll,                OrderType = @orderType,                ExecuteTime = @executeTime,                OrderPrice = @orderPrice,                FilledPrice = @filledPrice,                OrderQuantity = @orderQuantity,                FilledQuantity = @filledQuantity,                OrderValue = @orderValue,                FilledValue = @filledValue,                DisplayOrder = @displayOrder            WHERE Id = @id";
 
             command.AddParameter("@id", stopLossOrder.Id);
             command.AddParameter("@stopAll", stopLossOrder.StopAll);
@@ -213,7 +205,7 @@ namespace TD.SQLite
                 await _metadataRepository.SaveLastUpdateUtcAsync(connection);
                 OnUpdated(stopLossOrder);
             }
-            
+
             return affectedRows > 0;
         }
         partial void OnUpdated(StopLossOrder stopLossOrder);
@@ -270,19 +262,7 @@ namespace TD.SQLite
         /// Contains the names of all columns in the SQLiteDataReader.
         /// </summary>
         public readonly string[] ColumnNames = new[] {
-            "Id", 
-            "TradeId", 
-            "StopAll", 
-            "OrderType", 
-            "ExecuteTime", 
-            "OrderPrice", 
-            "FilledPrice", 
-            "OrderQuantity", 
-            "FilledQuantity", 
-            "OrderValue", 
-            "FilledValue", 
-            "DisplayOrder" 
-        };
+            "Id",            "TradeId",            "StopAll",            "OrderType",            "ExecuteTime",            "OrderPrice",            "FilledPrice",            "OrderQuantity",            "FilledQuantity",            "OrderValue",            "FilledValue",            "DisplayOrder"        };
 
         /// <summary>
         /// Contains the scale values used for converting decimal properties to integer storage.

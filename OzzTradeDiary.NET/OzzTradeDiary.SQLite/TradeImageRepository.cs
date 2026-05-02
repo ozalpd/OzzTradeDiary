@@ -9,7 +9,6 @@ using Microsoft.Data.Sqlite;
 using TD.Models;
 using TD.RepositoryContracts;
 using TD.SQLite.Extensions;
-using TD.Validation;
 
 namespace TD.SQLite
 {
@@ -52,6 +51,19 @@ namespace TD.SQLite
 
             return result;
         }
+        public async Task<bool> AnyByTradeIdAsync(int? tradeId)
+        {
+            if (tradeId < 1)
+                throw new ArgumentOutOfRangeException(nameof(tradeId), tradeId, "Must be a valid positive id.");
+
+            await using var connection = await GetOpenConnectionAsync();
+            await using var command = connection.CreateCommand();
+            command.CommandText = $"SELECT COUNT(1) FROM {_tableName} WHERE TradeId = @tradeId";
+            command.Parameters.AddWithValue("@tradeId", tradeId);
+            var result = await command.ExecuteScalarAsync();
+            return Convert.ToInt64(result) > 0;
+        }
+
 
         public async Task<IReadOnlyList<TradeImage>> GetByTradeIdAsync(int? tradeId)
         {
@@ -73,7 +85,7 @@ namespace TD.SQLite
 
             return result;
         }
-        
+
 
         public async Task<TradeImage?> GetByIdAsync(int? id)
         {
@@ -91,12 +103,12 @@ namespace TD.SQLite
                 return null;
 
             var tradeImage = MapTradeImage(reader);
-            
+
             OnLoaded(tradeImage);
             return tradeImage;
         }
         partial void OnLoaded(TradeImage tradeImage);
-        
+
         public async Task<int> CreateAsync(TradeImage tradeImage)
         {
             ArgumentNullException.ThrowIfNull(tradeImage);
@@ -108,14 +120,14 @@ namespace TD.SQLite
             command.CommandText = @$"INSERT INTO {_tableName} ({string.Join(", ", ColumnNames[1..])})
             VALUES (@tradeId, @imageURL, @notes, @updatedAt);
             SELECT last_insert_rowid();";
-            
+
             command.AddParameter("@tradeId", tradeImage.TradeId);
             command.AddParameter("@imageURL", tradeImage.ImageURL);
             command.AddNullableParameter("@notes", tradeImage.Notes);
             command.AddDateTimeToTextParameter("@updatedAt", DateTime.Now);
 
             var id = Convert.ToInt32((long)(await command.ExecuteScalarAsync() ?? 0));
-            
+
             await _metadataRepository.SaveLastUpdateUtcAsync(connection);
             ClearRecordCountCache();
             tradeImage.Id = id;
@@ -150,10 +162,7 @@ namespace TD.SQLite
             await using var connection = await GetOpenConnectionAsync();
             var existingTradeImage = await GetByIdAsync(tradeImage.Id);
             bool noChanges = existingTradeImage != null
-                          && existingTradeImage.ImageURL == tradeImage.ImageURL 
-                          && existingTradeImage.Notes == tradeImage.Notes 
-                          && existingTradeImage.UpdatedAt == tradeImage.UpdatedAt; 
-
+                          && existingTradeImage.ImageURL == tradeImage.ImageURL                          && existingTradeImage.Notes == tradeImage.Notes                          && existingTradeImage.UpdatedAt == tradeImage.UpdatedAt;
             if (noChanges)
                 return false;
 
@@ -161,10 +170,7 @@ namespace TD.SQLite
             // TradeId is not updated to avoid complications with existing references,
             // so only ImageURL, Notes, UpdatedAt are updated
             command.CommandText = @$"UPDATE {_tableName} SET
-                ImageURL = @imageURL, 
-                Notes = @notes, 
-                UpdatedAt = @updatedAt 
-            WHERE Id = @id";
+                ImageURL = @imageURL,                Notes = @notes,                UpdatedAt = @updatedAt            WHERE Id = @id";
 
             command.AddParameter("@id", tradeImage.Id);
             command.AddParameter("@imageURL", tradeImage.ImageURL);
@@ -177,7 +183,7 @@ namespace TD.SQLite
                 await _metadataRepository.SaveLastUpdateUtcAsync(connection);
                 OnUpdated(tradeImage);
             }
-            
+
             return affectedRows > 0;
         }
         partial void OnUpdated(TradeImage tradeImage);
@@ -214,11 +220,6 @@ namespace TD.SQLite
         /// Contains the names of all columns in the SQLiteDataReader.
         /// </summary>
         public readonly string[] ColumnNames = new[] {
-            "Id", 
-            "TradeId", 
-            "ImageURL", 
-            "Notes", 
-            "UpdatedAt" 
-        };
+            "Id",            "TradeId",            "ImageURL",            "Notes",            "UpdatedAt"        };
     }
 }

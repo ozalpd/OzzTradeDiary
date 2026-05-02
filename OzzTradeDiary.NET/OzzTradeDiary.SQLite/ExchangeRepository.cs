@@ -9,7 +9,6 @@ using Microsoft.Data.Sqlite;
 using TD.Models;
 using TD.RepositoryContracts;
 using TD.SQLite.Extensions;
-using TD.Validation;
 
 namespace TD.SQLite
 {
@@ -18,19 +17,16 @@ namespace TD.SQLite
     /// </summary>
     public partial class ExchangeRepository : AbstractDatabaseRepository<Exchange>, IExchangeRepository
     {
-        public ExchangeRepository(string databasePath
-                               , ICurrencyRepository? currencyRepository = null 
-                               , ISymbolRepository? symbolRepository = null 
-                               , ITradingAccountRepository? tradingAccountRepository = null) : base(databasePath, "Exchanges") 
+        public ExchangeRepository(string databasePath, ICurrencyRepository? currencyRepository = null,
+                                  ISymbolRepository? symbolRepository = null, ITradingAccountRepository? tradingAccountRepository = null) : base(databasePath, "Exchanges")
+
         {
             _selectStatement = $"SELECT {string.Join(", ", ColumnNames)} FROM {_tableName}";
             _currencyRepository = currencyRepository ?? new CurrencyRepository(databasePath);
             _symbolRepository = symbolRepository ?? new SymbolRepository(databasePath, exchangeRepository: this);
             _tradingAccountRepository = tradingAccountRepository ?? new TradingAccountRepository(databasePath, exchangeRepository: this);
             InitializeDatabase();
-            OnInitialized(currencyRepository == null
-                        , symbolRepository == null 
-                        , tradingAccountRepository == null); 
+            OnInitialized(currencyRepository == null, symbolRepository == null, tradingAccountRepository == null);
         }
         private readonly string _selectStatement;
         private readonly ICurrencyRepository _currencyRepository;
@@ -49,9 +45,7 @@ namespace TD.SQLite
         /// The parameters indicate whether the corresponding repository was created by this repository (true) or provided externally (false),
         /// which can be useful to determine if any additional initialization or event wiring is needed.
         /// </summary>
-        partial void OnInitialized(bool isCurrencyRepositoryNull
-                                 , bool isSymbolRepositoryNull 
-                                 , bool isTradingAccountRepositoryNull); 
+        partial void OnInitialized(bool isCurrencyRepository, bool isSymbolRepository, bool isTradingAccountRepository);
 
         public async Task<IReadOnlyList<Exchange>> GetAllAsync(bool? isActive = null)
         {
@@ -81,6 +75,19 @@ namespace TD.SQLite
 
             return result;
         }
+        public async Task<bool> AnyByDefaultCurrencyIdAsync(int defaultCurrencyId)
+        {
+            if (defaultCurrencyId < 1)
+                throw new ArgumentOutOfRangeException(nameof(defaultCurrencyId), defaultCurrencyId, "Must be a valid positive id.");
+
+            await using var connection = await GetOpenConnectionAsync();
+            await using var command = connection.CreateCommand();
+            command.CommandText = $"SELECT COUNT(1) FROM {_tableName} WHERE DefaultCurrencyId = @defaultCurrencyId";
+            command.Parameters.AddWithValue("@defaultCurrencyId", defaultCurrencyId);
+            var result = await command.ExecuteScalarAsync();
+            return Convert.ToInt64(result) > 0;
+        }
+
 
         public async Task<IReadOnlyList<Exchange>> GetByDefaultCurrencyIdAsync(int defaultCurrencyId, bool? isActive = null)
         {
@@ -112,7 +119,7 @@ namespace TD.SQLite
 
             return result;
         }
-        
+
 
         public async Task<Exchange?> GetByIdAsync(int? id)
         {
@@ -131,7 +138,7 @@ namespace TD.SQLite
 
             var exchange = MapExchange(reader);
             await LoadCurrencyAsync(exchange);
-            
+
             OnLoaded(exchange);
             return exchange;
         }
@@ -153,12 +160,12 @@ namespace TD.SQLite
 
             var exchange = MapExchange(reader);
             await LoadCurrencyAsync(exchange);
-            
+
             OnLoaded(exchange);
             return exchange;
         }
         partial void OnLoaded(Exchange exchange);
-        
+
         public async Task<int> CreateAsync(Exchange exchange)
         {
             ArgumentNullException.ThrowIfNull(exchange);
@@ -177,7 +184,7 @@ namespace TD.SQLite
             command.CommandText = @$"INSERT INTO {_tableName} ({string.Join(", ", ColumnNames[1..])})
             VALUES (@exchangeName, @exchangeCode, @defaultCurrencyId, @hasAnySymbol, @displayOrder, @isActive);
             SELECT last_insert_rowid();";
-            
+
             command.AddParameter("@exchangeName", exchange.ExchangeName);
             command.AddParameter("@exchangeCode", exchange.ExchangeCode);
             command.AddParameter("@defaultCurrencyId", exchange.DefaultCurrencyId);
@@ -186,7 +193,7 @@ namespace TD.SQLite
             command.AddParameter("@isActive", exchange.IsActive);
 
             var id = Convert.ToInt32((long)(await command.ExecuteScalarAsync() ?? 0));
-            
+
             await _metadataRepository.SaveLastUpdateUtcAsync(connection);
             ClearRecordCountCache();
             exchange.Id = id;
@@ -227,10 +234,7 @@ namespace TD.SQLite
 
             existingExchange = await GetByIdAsync(exchange.Id);
             bool noChanges = existingExchange != null
-                          && existingExchange.ExchangeName == exchange.ExchangeName 
-                          && existingExchange.DisplayOrder == exchange.DisplayOrder 
-                          && existingExchange.IsActive == exchange.IsActive; 
-
+                          && existingExchange.ExchangeName == exchange.ExchangeName                          && existingExchange.DisplayOrder == exchange.DisplayOrder                          && existingExchange.IsActive == exchange.IsActive;
             if (noChanges)
                 return false;
 
@@ -238,10 +242,7 @@ namespace TD.SQLite
             // ExchangeCode, DefaultCurrencyId, HasAnySymbol are not updated to avoid complications with existing references,
             // so only ExchangeName, DisplayOrder, IsActive are updated
             command.CommandText = @$"UPDATE {_tableName} SET
-                ExchangeName = @exchangeName, 
-                DisplayOrder = @displayOrder, 
-                IsActive = @isActive 
-            WHERE Id = @id";
+                ExchangeName = @exchangeName,                DisplayOrder = @displayOrder,                IsActive = @isActive            WHERE Id = @id";
 
             command.AddParameter("@id", exchange.Id);
             command.AddParameter("@exchangeName", exchange.ExchangeName);
@@ -254,7 +255,7 @@ namespace TD.SQLite
                 await _metadataRepository.SaveLastUpdateUtcAsync(connection);
                 OnUpdated(exchange);
             }
-            
+
             return affectedRows > 0;
         }
         partial void OnUpdated(Exchange exchange);
@@ -265,9 +266,8 @@ namespace TD.SQLite
             await using var connection = await GetOpenConnectionAsync();
             await using var command = connection.CreateCommand();
             command.CommandText = @$"UPDATE {_tableName} SET
-                HasAnySymbol = @hasAnySymbol 
-            WHERE Id = @id";
-            
+                HasAnySymbol = @hasAnySymbol            WHERE Id = @id";
+
             command.AddParameter("@id", id);
             command.AddParameter("@hasAnySymbol", hasAnySymbol);
 
@@ -322,13 +322,6 @@ namespace TD.SQLite
         /// Contains the names of all columns in the SQLiteDataReader.
         /// </summary>
         public readonly string[] ColumnNames = new[] {
-            "Id", 
-            "ExchangeName", 
-            "ExchangeCode", 
-            "DefaultCurrencyId", 
-            "HasAnySymbol", 
-            "DisplayOrder", 
-            "IsActive" 
-        };
+            "Id",            "ExchangeName",            "ExchangeCode",            "DefaultCurrencyId",            "HasAnySymbol",            "DisplayOrder",            "IsActive"        };
     }
 }

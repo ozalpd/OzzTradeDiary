@@ -9,7 +9,6 @@ using Microsoft.Data.Sqlite;
 using TD.Models;
 using TD.RepositoryContracts;
 using TD.SQLite.Extensions;
-using TD.Validation;
 
 namespace TD.SQLite
 {
@@ -76,7 +75,7 @@ namespace TD.SQLite
                 return null;
 
             var currency = MapCurrency(reader);
-            
+
             OnLoaded(currency);
             return currency;
         }
@@ -97,12 +96,12 @@ namespace TD.SQLite
                 return null;
 
             var currency = MapCurrency(reader);
-            
+
             OnLoaded(currency);
             return currency;
         }
         partial void OnLoaded(Currency currency);
-        
+
         public async Task<int> CreateAsync(Currency currency)
         {
             ArgumentNullException.ThrowIfNull(currency);
@@ -121,14 +120,14 @@ namespace TD.SQLite
             command.CommandText = @$"INSERT INTO {_tableName} ({string.Join(", ", ColumnNames[1..])})
             VALUES (@currencyTicker, @description, @displayOrder, @isActive);
             SELECT last_insert_rowid();";
-            
+
             command.AddParameter("@currencyTicker", currency.CurrencyTicker);
             command.AddNullableParameter("@description", currency.Description);
             command.AddParameter("@displayOrder", currency.DisplayOrder);
             command.AddParameter("@isActive", currency.IsActive);
 
             var id = Convert.ToInt32((long)(await command.ExecuteScalarAsync() ?? 0));
-            
+
             await _metadataRepository.SaveLastUpdateUtcAsync(connection);
             ClearRecordCountCache();
             currency.Id = id;
@@ -169,10 +168,7 @@ namespace TD.SQLite
 
             existingCurrency = await GetByIdAsync(currency.Id);
             bool noChanges = existingCurrency != null
-                          && existingCurrency.Description == currency.Description 
-                          && existingCurrency.DisplayOrder == currency.DisplayOrder 
-                          && existingCurrency.IsActive == currency.IsActive; 
-
+                          && existingCurrency.Description == currency.Description                          && existingCurrency.DisplayOrder == currency.DisplayOrder                          && existingCurrency.IsActive == currency.IsActive;
             if (noChanges)
                 return false;
 
@@ -180,10 +176,7 @@ namespace TD.SQLite
             // CurrencyTicker is not updated to avoid complications with existing references,
             // so only Description, DisplayOrder, IsActive are updated
             command.CommandText = @$"UPDATE {_tableName} SET
-                Description = @description, 
-                DisplayOrder = @displayOrder, 
-                IsActive = @isActive 
-            WHERE Id = @id";
+                Description = @description,                DisplayOrder = @displayOrder,                IsActive = @isActive            WHERE Id = @id";
 
             command.AddParameter("@id", currency.Id);
             command.AddNullableParameter("@description", currency.Description);
@@ -196,7 +189,7 @@ namespace TD.SQLite
                 await _metadataRepository.SaveLastUpdateUtcAsync(connection);
                 OnUpdated(currency);
             }
-            
+
             return affectedRows > 0;
         }
         partial void OnUpdated(Currency currency);
@@ -232,11 +225,6 @@ namespace TD.SQLite
         /// Contains the names of all columns in the SQLiteDataReader.
         /// </summary>
         public readonly string[] ColumnNames = new[] {
-            "Id", 
-            "CurrencyTicker", 
-            "Description", 
-            "DisplayOrder", 
-            "IsActive" 
-        };
+            "Id",            "CurrencyTicker",            "Description",            "DisplayOrder",            "IsActive"        };
     }
 }

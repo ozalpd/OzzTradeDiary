@@ -13,6 +13,7 @@ namespace TD.RepositoryContracts
     public partial interface IEntryOrderRepository
     {
         Task<IReadOnlyList<EntryOrder>> GetAllAsync();
+        Task<bool> AnyByTradeIdAsync(int tradeId);
         Task<IReadOnlyList<EntryOrder>> GetByTradeIdAsync(int tradeId);
         Task<EntryOrder?> GetByIdAsync(int? id);
         Task<int> CreateAsync(EntryOrder entryOrder);

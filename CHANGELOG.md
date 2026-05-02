@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.0.62] - 2026-05-02
+
+### Added
+- Added AnyBy* methods to all major repositories for referential integrity checks. Introduced CanDeleteAsync to IExchangeRepository to prevent deleting exchanges with dependent entities.
+
+### Changed
+- Updated repository constructors, method signatures, and dependency injection order for consistency.
+- Adjusted AbstractDiaryVM and ExchangeDeleteCommand to use new APIs.
+- Updated SeedDemoData tool for new signatures.
+
 ## [0.0.61] - 2026-05-01
 
 ### Changed

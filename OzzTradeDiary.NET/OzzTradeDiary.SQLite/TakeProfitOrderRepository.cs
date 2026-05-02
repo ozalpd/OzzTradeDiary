@@ -9,7 +9,6 @@ using Microsoft.Data.Sqlite;
 using TD.Models;
 using TD.RepositoryContracts;
 using TD.SQLite.Extensions;
-using TD.Validation;
 
 namespace TD.SQLite
 {
@@ -52,6 +51,19 @@ namespace TD.SQLite
 
             return result;
         }
+        public async Task<bool> AnyByTradeIdAsync(int tradeId)
+        {
+            if (tradeId < 1)
+                throw new ArgumentOutOfRangeException(nameof(tradeId), tradeId, "Must be a valid positive id.");
+
+            await using var connection = await GetOpenConnectionAsync();
+            await using var command = connection.CreateCommand();
+            command.CommandText = $"SELECT COUNT(1) FROM {_tableName} WHERE TradeId = @tradeId";
+            command.Parameters.AddWithValue("@tradeId", tradeId);
+            var result = await command.ExecuteScalarAsync();
+            return Convert.ToInt64(result) > 0;
+        }
+
 
         public async Task<IReadOnlyList<TakeProfitOrder>> GetByTradeIdAsync(int tradeId)
         {
@@ -73,7 +85,7 @@ namespace TD.SQLite
 
             return result;
         }
-        
+
 
         public async Task<TakeProfitOrder?> GetByIdAsync(int? id)
         {
@@ -91,12 +103,12 @@ namespace TD.SQLite
                 return null;
 
             var takeProfitOrder = MapTakeProfitOrder(reader);
-            
+
             OnLoaded(takeProfitOrder);
             return takeProfitOrder;
         }
         partial void OnLoaded(TakeProfitOrder takeProfitOrder);
-        
+
         public async Task<int> CreateAsync(TakeProfitOrder takeProfitOrder)
         {
             ArgumentNullException.ThrowIfNull(takeProfitOrder);
@@ -108,7 +120,7 @@ namespace TD.SQLite
             command.CommandText = @$"INSERT INTO {_tableName} ({string.Join(", ", ColumnNames[1..])})
             VALUES (@tradeId, @orderType, @executeTime, @orderPrice, @filledPrice, @orderQuantity, @filledQuantity, @orderValue, @filledValue, @displayOrder);
             SELECT last_insert_rowid();";
-            
+
             command.AddParameter("@tradeId", takeProfitOrder.TradeId);
             command.AddParameter("@orderType", (int)takeProfitOrder.OrderType);
             command.AddDateTimeToTextParameter("@executeTime", takeProfitOrder.ExecuteTime);
@@ -125,7 +137,7 @@ namespace TD.SQLite
             command.AddParameter("@displayOrder", takeProfitOrder.DisplayOrder);
 
             var id = Convert.ToInt32((long)(await command.ExecuteScalarAsync() ?? 0));
-            
+
             await _metadataRepository.SaveLastUpdateUtcAsync(connection);
             ClearRecordCountCache();
             takeProfitOrder.Id = id;
@@ -160,16 +172,7 @@ namespace TD.SQLite
             await using var connection = await GetOpenConnectionAsync();
             var existingTakeProfitOrder = await GetByIdAsync(takeProfitOrder.Id);
             bool noChanges = existingTakeProfitOrder != null
-                          && existingTakeProfitOrder.OrderType == takeProfitOrder.OrderType 
-                          && existingTakeProfitOrder.ExecuteTime == takeProfitOrder.ExecuteTime 
-                          && existingTakeProfitOrder.OrderPrice == takeProfitOrder.OrderPrice 
-                          && existingTakeProfitOrder.FilledPrice == takeProfitOrder.FilledPrice 
-                          && existingTakeProfitOrder.OrderQuantity == takeProfitOrder.OrderQuantity 
-                          && existingTakeProfitOrder.FilledQuantity == takeProfitOrder.FilledQuantity 
-                          && existingTakeProfitOrder.OrderValue == takeProfitOrder.OrderValue 
-                          && existingTakeProfitOrder.FilledValue == takeProfitOrder.FilledValue 
-                          && existingTakeProfitOrder.DisplayOrder == takeProfitOrder.DisplayOrder; 
-
+                          && existingTakeProfitOrder.OrderType == takeProfitOrder.OrderType                          && existingTakeProfitOrder.ExecuteTime == takeProfitOrder.ExecuteTime                          && existingTakeProfitOrder.OrderPrice == takeProfitOrder.OrderPrice                          && existingTakeProfitOrder.FilledPrice == takeProfitOrder.FilledPrice                          && existingTakeProfitOrder.OrderQuantity == takeProfitOrder.OrderQuantity                          && existingTakeProfitOrder.FilledQuantity == takeProfitOrder.FilledQuantity                          && existingTakeProfitOrder.OrderValue == takeProfitOrder.OrderValue                          && existingTakeProfitOrder.FilledValue == takeProfitOrder.FilledValue                          && existingTakeProfitOrder.DisplayOrder == takeProfitOrder.DisplayOrder;
             if (noChanges)
                 return false;
 
@@ -177,16 +180,7 @@ namespace TD.SQLite
             // TradeId is not updated to avoid complications with existing references,
             // so only OrderType, ExecuteTime, OrderPrice, FilledPrice, OrderQuantity, FilledQuantity, OrderValue, FilledValue, DisplayOrder are updated
             command.CommandText = @$"UPDATE {_tableName} SET
-                OrderType = @orderType, 
-                ExecuteTime = @executeTime, 
-                OrderPrice = @orderPrice, 
-                FilledPrice = @filledPrice, 
-                OrderQuantity = @orderQuantity, 
-                FilledQuantity = @filledQuantity, 
-                OrderValue = @orderValue, 
-                FilledValue = @filledValue, 
-                DisplayOrder = @displayOrder 
-            WHERE Id = @id";
+                OrderType = @orderType,                ExecuteTime = @executeTime,                OrderPrice = @orderPrice,                FilledPrice = @filledPrice,                OrderQuantity = @orderQuantity,                FilledQuantity = @filledQuantity,                OrderValue = @orderValue,                FilledValue = @filledValue,                DisplayOrder = @displayOrder            WHERE Id = @id";
 
             command.AddParameter("@id", takeProfitOrder.Id);
             command.AddParameter("@orderType", (int)takeProfitOrder.OrderType);
@@ -209,7 +203,7 @@ namespace TD.SQLite
                 await _metadataRepository.SaveLastUpdateUtcAsync(connection);
                 OnUpdated(takeProfitOrder);
             }
-            
+
             return affectedRows > 0;
         }
         partial void OnUpdated(TakeProfitOrder takeProfitOrder);
@@ -264,18 +258,7 @@ namespace TD.SQLite
         /// Contains the names of all columns in the SQLiteDataReader.
         /// </summary>
         public readonly string[] ColumnNames = new[] {
-            "Id", 
-            "TradeId", 
-            "OrderType", 
-            "ExecuteTime", 
-            "OrderPrice", 
-            "FilledPrice", 
-            "OrderQuantity", 
-            "FilledQuantity", 
-            "OrderValue", 
-            "FilledValue", 
-            "DisplayOrder" 
-        };
+            "Id",            "TradeId",            "OrderType",            "ExecuteTime",            "OrderPrice",            "FilledPrice",            "OrderQuantity",            "FilledQuantity",            "OrderValue",            "FilledValue",            "DisplayOrder"        };
 
         /// <summary>
         /// Contains the scale values used for converting decimal properties to integer storage.

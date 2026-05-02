@@ -13,8 +13,10 @@ namespace TD.RepositoryContracts
     public partial interface ITradeRepository
     {
         Task<IReadOnlyList<Trade>> GetAllAsync();
-        Task<IReadOnlyList<Trade>> GetByTradingAccountIdAsync(int tradingAccountId);
+        Task<bool> AnyBySymbolIdAsync(int symbolId);
         Task<IReadOnlyList<Trade>> GetBySymbolIdAsync(int symbolId);
+        Task<bool> AnyByTradingAccountIdAsync(int tradingAccountId);
+        Task<IReadOnlyList<Trade>> GetByTradingAccountIdAsync(int tradingAccountId);
         Task<Trade?> GetByIdAsync(int? id);
         Task<IReadOnlyList<Trade>> GetPagedAsync(TradeQueryParameters queryParameters);
         Task<int> CreateAsync(Trade trade);

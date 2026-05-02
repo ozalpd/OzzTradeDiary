@@ -13,6 +13,7 @@ namespace TD.RepositoryContracts
     public partial interface IStopLossOrderRepository
     {
         Task<IReadOnlyList<StopLossOrder>> GetAllAsync();
+        Task<bool> AnyByTradeIdAsync(int tradeId);
         Task<IReadOnlyList<StopLossOrder>> GetByTradeIdAsync(int tradeId);
         Task<StopLossOrder?> GetByIdAsync(int? id);
         Task<int> CreateAsync(StopLossOrder stopLossOrder);
