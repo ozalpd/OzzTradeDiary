@@ -48,22 +48,22 @@ namespace TD.WPF.Commands.Maintenance
             if (tradingAccount.Id < 1)
                 return;
 
-        var result = MessageBox.Show(
-            MessageStrings.AreYouSureToDelete,
-            CommonStrings.AppTitle,
-            MessageBoxButton.YesNo,
-            MessageBoxImage.Question);
+            var result = MessageBox.Show(
+                MessageStrings.AreYouSureToDelete,
+                CommonStrings.AppTitle,
+                MessageBoxButton.YesNo,
+                MessageBoxImage.Question);
 
-        if (result != MessageBoxResult.Yes)
-            return;
+            if (result != MessageBoxResult.Yes)
+                return;
 
-        bool deleted = await _viewModel.TradingAccountRepository.DeleteAsync(tradingAccount.Id);
-        if (!deleted)
-            return;
+            bool deleted = await _viewModel.TradingAccountRepository.DeleteAsync(tradingAccount.Id);
+            if (!deleted)
+                return;
 
-        _viewModel.SelectedTradingAccount = null;
-        _viewModel.TradingAccounts.Remove(tradingAccount);
-
+            _viewModel.SelectedTradingAccount = null;
+            _viewModel.TradingAccounts.Remove(tradingAccount);
+            await _viewModel.LoadTradingAccountsAsync();
         }
     }
 }

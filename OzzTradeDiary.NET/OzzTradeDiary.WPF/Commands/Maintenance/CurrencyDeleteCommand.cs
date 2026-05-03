@@ -48,22 +48,22 @@ namespace TD.WPF.Commands.Maintenance
             if (currency.Id < 1)
                 return;
 
-        var result = MessageBox.Show(
-            MessageStrings.AreYouSureToDelete,
-            CommonStrings.AppTitle,
-            MessageBoxButton.YesNo,
-            MessageBoxImage.Question);
+            var result = MessageBox.Show(
+                MessageStrings.AreYouSureToDelete,
+                CommonStrings.AppTitle,
+                MessageBoxButton.YesNo,
+                MessageBoxImage.Question);
 
-        if (result != MessageBoxResult.Yes)
-            return;
+            if (result != MessageBoxResult.Yes)
+                return;
 
-        bool deleted = await _viewModel.CurrencyRepository.DeleteAsync(currency.Id);
-        if (!deleted)
-            return;
+            bool deleted = await _viewModel.CurrencyRepository.DeleteAsync(currency.Id);
+            if (!deleted)
+                return;
 
-        _viewModel.SelectedCurrency = null;
-        _viewModel.Currencies.Remove(currency);
-
+            _viewModel.SelectedCurrency = null;
+            _viewModel.Currencies.Remove(currency);
+            await _viewModel.LoadCurrenciesAsync();
         }
     }
 }
