@@ -39,7 +39,7 @@ namespace TD.SQLite
                 return _exchangeRepository;
             }
         }
-        private IExchangeRepository _exchangeRepository;
+        private IExchangeRepository? _exchangeRepository;
 
         protected ISymbolRepository SymbolRepository
         {
@@ -52,7 +52,7 @@ namespace TD.SQLite
                 return _symbolRepository;
             }
         }
-        private ISymbolRepository _symbolRepository;
+        private ISymbolRepository? _symbolRepository;
 
 
         private void InitializeDatabase()

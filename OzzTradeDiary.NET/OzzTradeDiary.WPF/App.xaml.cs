@@ -25,12 +25,12 @@ namespace TD.WPF
             var currencyRepository = new CurrencyRepository(databasePath);
             var exchangeRepository = new ExchangeRepository(databasePath, currencyRepository: currencyRepository);
             var tradeRepository = new TradeRepository(databasePath,
-                                  new EntryOrderRepository(databasePath),
-                                  new StopLossOrderRepository(databasePath),
-                                  new SymbolRepository(databasePath, exchangeRepository: exchangeRepository, currencyRepository: currencyRepository),
-                                  new TakeProfitOrderRepository(databasePath),
-                                  new TradeImageRepository(databasePath),
-                                  new TradingAccountRepository(databasePath, exchangeRepository: exchangeRepository));
+                                  entryOrderRepository: new EntryOrderRepository(databasePath),
+                                  stopLossOrderRepository: new StopLossOrderRepository(databasePath),
+                                  symbolRepository: new SymbolRepository(databasePath, exchangeRepository: exchangeRepository, currencyRepository: currencyRepository),
+                                  takeProfitOrderRepository: new TakeProfitOrderRepository(databasePath),
+                                  tradeImageRepository: new TradeImageRepository(databasePath),
+                                  tradingAccountRepository: new TradingAccountRepository(databasePath, exchangeRepository: exchangeRepository));
             new MainWindow(tradeRepository).Show();
         }
     }

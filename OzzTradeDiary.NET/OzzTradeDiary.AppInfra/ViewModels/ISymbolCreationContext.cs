@@ -1,5 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using TD.Models;
+using TD.RepositoryContracts;
 
 namespace TD.AppInfra.ViewModels
 {
@@ -9,5 +10,6 @@ namespace TD.AppInfra.ViewModels
         Symbol? SelectedSymbol { get; set; }
         Task SaveSymbolAsync(Symbol symbol);
         Task LoadSymbolsAsync();
+        ISymbolRepository SymbolRepository { get; }
     }
 }

@@ -332,7 +332,7 @@
       <CommandVmTypeName>AbstractDiaryVM</CommandVmTypeName>
       <GenerateCreateCommand>true</GenerateCreateCommand>
       <GenerateEditCommand>true</GenerateEditCommand>
-      <GenerateDeleteCommand>true</GenerateDeleteCommand>
+      <GenerateDeleteCommand>false</GenerateDeleteCommand>
       <GenerateCreateVM>true</GenerateCreateVM>
       <GenerateEditVM>true</GenerateEditVM>
       <GenerateCollectionVM>false</GenerateCollectionVM>

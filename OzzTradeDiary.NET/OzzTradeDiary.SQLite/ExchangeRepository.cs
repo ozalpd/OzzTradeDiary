@@ -45,7 +45,7 @@ namespace TD.SQLite
                 return _currencyRepository;
             }
         }
-        private ICurrencyRepository _currencyRepository;
+        private ICurrencyRepository? _currencyRepository;
 
         protected ISymbolRepository SymbolRepository
         {
@@ -58,7 +58,7 @@ namespace TD.SQLite
                 return _symbolRepository;
             }
         }
-        private ISymbolRepository _symbolRepository;
+        private ISymbolRepository? _symbolRepository;
 
         protected ITradingAccountRepository TradingAccountRepository
         {
@@ -71,7 +71,7 @@ namespace TD.SQLite
                 return _tradingAccountRepository;
             }
         }
-        private ITradingAccountRepository _tradingAccountRepository;
+        private ITradingAccountRepository? _tradingAccountRepository;
 
 
         private void InitializeDatabase()

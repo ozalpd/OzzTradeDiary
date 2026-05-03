@@ -57,7 +57,7 @@ namespace TD.SQLite
                 return _entryOrderRepository;
             }
         }
-        private IEntryOrderRepository _entryOrderRepository;
+        private IEntryOrderRepository? _entryOrderRepository;
 
         protected IStopLossOrderRepository StopLossOrderRepository
         {
@@ -70,7 +70,7 @@ namespace TD.SQLite
                 return _stopLossOrderRepository;
             }
         }
-        private IStopLossOrderRepository _stopLossOrderRepository;
+        private IStopLossOrderRepository? _stopLossOrderRepository;
 
         protected ISymbolRepository SymbolRepository
         {
@@ -83,7 +83,7 @@ namespace TD.SQLite
                 return _symbolRepository;
             }
         }
-        private ISymbolRepository _symbolRepository;
+        private ISymbolRepository? _symbolRepository;
 
         protected ITakeProfitOrderRepository TakeProfitOrderRepository
         {
@@ -96,7 +96,7 @@ namespace TD.SQLite
                 return _takeProfitOrderRepository;
             }
         }
-        private ITakeProfitOrderRepository _takeProfitOrderRepository;
+        private ITakeProfitOrderRepository? _takeProfitOrderRepository;
 
         protected ITradeImageRepository TradeImageRepository
         {
@@ -109,7 +109,7 @@ namespace TD.SQLite
                 return _tradeImageRepository;
             }
         }
-        private ITradeImageRepository _tradeImageRepository;
+        private ITradeImageRepository? _tradeImageRepository;
 
         protected ITradingAccountRepository TradingAccountRepository
         {
@@ -122,7 +122,7 @@ namespace TD.SQLite
                 return _tradingAccountRepository;
             }
         }
-        private ITradingAccountRepository _tradingAccountRepository;
+        private ITradingAccountRepository? _tradingAccountRepository;
 
 
         private void InitializeDatabase()

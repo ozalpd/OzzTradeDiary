@@ -15,16 +15,19 @@ namespace TD.WPF.ViewModels.Maintenance
             var currencyLookupService = new CurrencyLookupService(CurrencyRepository);
 
             CurrencyCreateCommand = new CurrencyCreateCommand(this, windowDialogService);
+            CurrencyDeleteCommand = new CurrencyDeleteCommand(this);
             CurrencyEditCommand = new CurrencyEditCommand(this, windowDialogService);
 
             ExchangeCreateCommand = new ExchangeCreateCommand(this, windowDialogService, currencyLookupService);
-            ExchangeEditCommand = new ExchangeEditCommand(this, windowDialogService);
             ExchangeDeleteCommand = new ExchangeDeleteCommand(this);
+            ExchangeEditCommand = new ExchangeEditCommand(this, windowDialogService);
 
             SymbolCreateCommand = new SymbolCreateCommand(this, windowDialogService, currencyLookupService, exchangeLookupService);
+            SymbolDeleteCommand = new SymbolDeleteCommand(this);
             SymbolEditCommand = new SymbolEditCommand(this, windowDialogService);
 
             TradingAccountCreateCommand = new TradingAccountCreateCommand(this, windowDialogService, exchangeLookupService);
+            TradingAccountDeleteCommand = new TradingAccountDeleteCommand(this);
             TradingAccountEditCommand = new TradingAccountEditCommand(this, windowDialogService);
 
             SymbolExchanges = new ObservableCollection<Exchange>();
@@ -36,16 +39,19 @@ namespace TD.WPF.ViewModels.Maintenance
         }
 
         public CurrencyCreateCommand CurrencyCreateCommand { get; }
+        public CurrencyDeleteCommand CurrencyDeleteCommand { get; }
         public CurrencyEditCommand CurrencyEditCommand { get; }
 
         public ExchangeCreateCommand ExchangeCreateCommand { get; }
-        public ExchangeEditCommand ExchangeEditCommand { get; }
         public ExchangeDeleteCommand ExchangeDeleteCommand { get; }
+        public ExchangeEditCommand ExchangeEditCommand { get; }
 
         public SymbolCreateCommand SymbolCreateCommand { get; }
+        public SymbolDeleteCommand SymbolDeleteCommand { get; }
         public SymbolEditCommand SymbolEditCommand { get; }
 
         public TradingAccountCreateCommand TradingAccountCreateCommand { get; }
+        public TradingAccountDeleteCommand TradingAccountDeleteCommand { get; }
         public TradingAccountEditCommand TradingAccountEditCommand { get; }
 
         public ObservableCollection<Symbol> FilteredSymbols { get; }
@@ -108,10 +114,20 @@ namespace TD.WPF.ViewModels.Maintenance
         public async Task LoadAllAsync()
         {
             await LoadCurrenciesAsync();
+            CurrencyDeleteCommand.RaiseCanExecuteChanged();
+            CurrencyEditCommand.RaiseCanExecuteChanged();
+
             await LoadExchangesAsync();
-            await LoadTradingAccountsAsync();
-            await LoadSymbolsAsync();
             ExchangeDeleteCommand.RaiseCanExecuteChanged();
+            ExchangeEditCommand.RaiseCanExecuteChanged();
+
+            await LoadTradingAccountsAsync();
+            TradingAccountDeleteCommand.RaiseCanExecuteChanged();
+            TradingAccountEditCommand.RaiseCanExecuteChanged();
+
+            await LoadSymbolsAsync();
+            SymbolDeleteCommand.RaiseCanExecuteChanged();
+            SymbolEditCommand.RaiseCanExecuteChanged();
         }
 
         public override async Task LoadExchangesAsync()
@@ -130,7 +146,10 @@ namespace TD.WPF.ViewModels.Maintenance
         private void OnPropertyChanged(object? sender, System.ComponentModel.PropertyChangedEventArgs e)
         {
             if (e.PropertyName == nameof(SelectedCurrency))
+            {
+                CurrencyDeleteCommand.RaiseCanExecuteChanged();
                 CurrencyEditCommand.RaiseCanExecuteChanged();
+            }
 
             if (e.PropertyName == nameof(SelectedExchange))
             {
@@ -138,13 +157,17 @@ namespace TD.WPF.ViewModels.Maintenance
                 ExchangeEditCommand.RaiseCanExecuteChanged();
             }
 
-            if (e.PropertyName == nameof(SelectedExchange))
-                ExchangeDeleteCommand.RaiseCanExecuteChanged();
-            if (e.PropertyName == nameof(SelectedSymbol))
-                SymbolEditCommand.RaiseCanExecuteChanged();
-
             if (e.PropertyName == nameof(SelectedTradingAccount))
+            {
+                TradingAccountDeleteCommand.RaiseCanExecuteChanged();
                 TradingAccountEditCommand.RaiseCanExecuteChanged();
+            }
+
+            if (e.PropertyName == nameof(SelectedSymbol))
+            {
+                SymbolDeleteCommand.RaiseCanExecuteChanged();
+                SymbolEditCommand.RaiseCanExecuteChanged();
+            }
         }
 
         private void OnDependencyCollectionChanged(object? sender, NotifyCollectionChangedEventArgs e)

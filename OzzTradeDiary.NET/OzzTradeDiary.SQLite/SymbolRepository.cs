@@ -46,7 +46,7 @@ namespace TD.SQLite
                 return _exchangeRepository;
             }
         }
-        private IExchangeRepository _exchangeRepository;
+        private IExchangeRepository? _exchangeRepository;
 
         protected ICurrencyRepository CurrencyRepository
         {
@@ -59,7 +59,7 @@ namespace TD.SQLite
                 return _currencyRepository;
             }
         }
-        private ICurrencyRepository _currencyRepository;
+        private ICurrencyRepository? _currencyRepository;
 
         protected ITradeRepository TradeRepository
         {
@@ -72,7 +72,7 @@ namespace TD.SQLite
                 return _tradeRepository;
             }
         }
-        private ITradeRepository _tradeRepository;
+        private ITradeRepository? _tradeRepository;
 
 
         private void InitializeDatabase()

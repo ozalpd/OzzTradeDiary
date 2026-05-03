@@ -71,7 +71,32 @@
                             </Viewbox>
                         </Button>
 
-                        <Border Width="32" Background="Transparent" />
+                        <Button Style="{StaticResource IconButtonStyle-28x24}" 
+                                ToolTip="{x:Static i18n:LocalizedStrings.DeleteTradingAccount}"
+                                Background="#C80000"
+                                Command="{Binding TradingAccountDeleteCommand}"
+                                CommandParameter="{Binding}"
+                                AutomationProperties.Name="Sil">
+                            <Viewbox Width="14" Height="14">
+                                <Path>
+                                    <Path.Style>
+                                        <Style TargetType="Path">
+                                            <Setter Property="Fill" Value="#F8F8F8"/>
+                                            <Setter Property="Data" Value="{StaticResource trash3}"/>
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding IsEnabled, RelativeSource={RelativeSource AncestorType=Button}}" Value="False">
+                                                    <Setter Property="Fill" Value="#A0A0A0"/>
+                                                </DataTrigger>
+                                                <DataTrigger Binding="{Binding IsMouseOver, RelativeSource={RelativeSource AncestorType=Button}}" Value="True">
+                                                    <Setter Property="Fill" Value="#C80000"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Path.Style>
+                                </Path>
+                            </Viewbox>
+                        </Button>
+                        
                         <Border Width="32" Background="Transparent" />
                         <Button Style="{StaticResource IconButtonStyle-28x24}"
                                 ToolTip="{x:Static i18n:ActionStrings.Refresh}"
@@ -283,7 +308,32 @@
                             </Viewbox>
                         </Button>
 
-                        <Border Width="32" Background="Transparent" />
+                        <Button Style="{StaticResource IconButtonStyle-28x24}" 
+                                ToolTip="{x:Static i18n:LocalizedStrings.DeleteCurrency}"
+                                Background="#C80000"
+                                Command="{Binding CurrencyDeleteCommand}"
+                                CommandParameter="{Binding}"
+                                AutomationProperties.Name="Sil">
+                            <Viewbox Width="14" Height="14">
+                                <Path>
+                                    <Path.Style>
+                                        <Style TargetType="Path">
+                                            <Setter Property="Fill" Value="#F8F8F8"/>
+                                            <Setter Property="Data" Value="{StaticResource trash3}"/>
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding IsEnabled, RelativeSource={RelativeSource AncestorType=Button}}" Value="False">
+                                                    <Setter Property="Fill" Value="#A0A0A0"/>
+                                                </DataTrigger>
+                                                <DataTrigger Binding="{Binding IsMouseOver, RelativeSource={RelativeSource AncestorType=Button}}" Value="True">
+                                                    <Setter Property="Fill" Value="#C80000"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Path.Style>
+                                </Path>
+                            </Viewbox>
+                        </Button>
+                        
                         <Border Width="32" Background="Transparent" />
                         <Button Style="{StaticResource IconButtonStyle-28x24}"
                                 ToolTip="{x:Static i18n:ActionStrings.Refresh}"
@@ -374,7 +424,32 @@
                             </Viewbox>
                         </Button>
 
-                        <Border Width="32" Background="Transparent" />
+                        <Button Style="{StaticResource IconButtonStyle-28x24}" 
+                                ToolTip="{x:Static i18n:LocalizedStrings.DeleteSymbol}"
+                                Background="#C80000"
+                                Command="{Binding SymbolDeleteCommand}"
+                                CommandParameter="{Binding}"
+                                AutomationProperties.Name="Sil">
+                            <Viewbox Width="14" Height="14">
+                                <Path>
+                                    <Path.Style>
+                                        <Style TargetType="Path">
+                                            <Setter Property="Fill" Value="#F8F8F8"/>
+                                            <Setter Property="Data" Value="{StaticResource trash3}"/>
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding IsEnabled, RelativeSource={RelativeSource AncestorType=Button}}" Value="False">
+                                                    <Setter Property="Fill" Value="#A0A0A0"/>
+                                                </DataTrigger>
+                                                <DataTrigger Binding="{Binding IsMouseOver, RelativeSource={RelativeSource AncestorType=Button}}" Value="True">
+                                                    <Setter Property="Fill" Value="#C80000"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Path.Style>
+                                </Path>
+                            </Viewbox>
+                        </Button>
+                        
                         <Border Width="32" Background="Transparent" />
                         <Button Style="{StaticResource IconButtonStyle-28x24}"
                                 ToolTip="{x:Static i18n:ActionStrings.Refresh}"

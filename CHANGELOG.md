@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.0.63] - 2026-05-03
+
+### Added
+- Added `CurrencyDeleteCommand`, `SymbolDeleteCommand`, and `TradingAccountDeleteCommand` with confirmation dialogs and repository integration. Wired new delete commands and buttons into `MaintenanceWindowVM` and `MaintenanceWindow.xaml`.
+
+
 ## [0.0.62] - 2026-05-02
 
 ### Added

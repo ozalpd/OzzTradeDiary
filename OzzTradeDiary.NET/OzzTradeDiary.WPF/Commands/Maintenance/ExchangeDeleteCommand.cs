@@ -50,5 +50,6 @@ internal class ExchangeDeleteCommand : AbstractCommand
 
         _viewModel.SelectedExchange = null;
         _viewModel.Exchanges.Remove(exchangeToDelete);
+        await _viewModel.LoadExchangesAsync();
     }
 }
