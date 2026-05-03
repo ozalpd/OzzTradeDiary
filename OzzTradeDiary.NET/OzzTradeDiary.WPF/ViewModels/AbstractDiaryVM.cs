@@ -51,7 +51,10 @@ namespace TD.WPF.ViewModels
             {
                 LoadCurrenciesInProgress = false;
             }
+
+            OnCurrenciesLoaded();
         }
+        protected virtual void OnCurrenciesLoaded() { /* For override in derived classes */ }
 
         public bool LoadExchangesInProgress { get; private set; } = false;
         public virtual async Task LoadExchangesAsync()
@@ -69,7 +72,10 @@ namespace TD.WPF.ViewModels
             {
                 LoadExchangesInProgress = false;
             }
+
+            OnExchangesLoaded();
         }
+        protected virtual void OnExchangesLoaded() { /* For override in derived classes */ }
 
         public bool LoadTradingAccountsInProgress { get; private set; } = false;
         public virtual async Task LoadTradingAccountsAsync()
@@ -87,7 +93,10 @@ namespace TD.WPF.ViewModels
             {
                 LoadTradingAccountsInProgress = false;
             }
+
+            OnTradingAccountsLoaded();
         }
+        protected virtual void OnTradingAccountsLoaded() { /* For override in derived classes */ }
 
         public bool LoadSymbolsInProgress { get; private set; } = false;
         public virtual async Task LoadSymbolsAsync()
@@ -105,7 +114,10 @@ namespace TD.WPF.ViewModels
             {
                 LoadSymbolsInProgress = false;
             }
+
+            OnSymbolsLoaded();
         }
+        protected virtual void OnSymbolsLoaded() { /* For override in derived classes */ }
 
         public async Task SaveCurrencyAsync(Currency currency)
         {

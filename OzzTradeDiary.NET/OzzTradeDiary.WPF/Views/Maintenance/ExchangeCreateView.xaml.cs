@@ -6,17 +6,17 @@ using TD.WPF.ViewModels.Maintenance;
 namespace TD.WPF.Views.Maintenance
 {
     /// <summary>
-    /// Interaction logic for CreateExchange.xaml
+    /// Interaction logic for ExchangeCreateView.xaml
     /// </summary>
-    public partial class ExchangeCreate : Window
+    public partial class ExchangeCreateView : Window
     {
         private readonly ExchangeCreateVM _viewModel;
 
         public Exchange Exchange => _viewModel.Exchange;
 
-        public ExchangeCreate() : this(new CurrencyMockLookupService()) { }
+        public ExchangeCreateView() : this(new CurrencyMockLookupService()) { }
 
-        public ExchangeCreate(ICurrencyLookupService currencyLookupService)
+        public ExchangeCreateView(ICurrencyLookupService currencyLookupService)
         {
             InitializeComponent();
 

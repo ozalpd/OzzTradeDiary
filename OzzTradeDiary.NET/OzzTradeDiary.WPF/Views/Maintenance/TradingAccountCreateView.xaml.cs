@@ -6,20 +6,20 @@ using TD.WPF.ViewModels.Maintenance;
 namespace TD.WPF.Views.Maintenance
 {
     /// <summary>
-    /// Interaction logic for CreateTradingAccount.xaml
+    /// Interaction logic for TradingAccountCreateView.xaml
     /// </summary>
-    public partial class TradingAccountCreate : Window
+    public partial class TradingAccountCreateView : Window
     {
         private readonly TradingAccountCreateVM _viewModel;
         private Exchange? _selectedExchange;
 
         public TradingAccount TradingAccount => _viewModel.TradingAccount;
 
-        public TradingAccountCreate() : this(new ExchangeMockLookupService(), null)
+        public TradingAccountCreateView() : this(new ExchangeMockLookupService(), null)
         {
         }
 
-        internal TradingAccountCreate(IExchangeLookupService exchangeLookupService, Exchange? preselectedExchange)
+        internal TradingAccountCreateView(IExchangeLookupService exchangeLookupService, Exchange? preselectedExchange)
         {
             InitializeComponent();
 

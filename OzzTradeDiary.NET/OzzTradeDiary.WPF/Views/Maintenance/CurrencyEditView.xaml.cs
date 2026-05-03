@@ -1,34 +1,36 @@
 ﻿using System.Windows;
 using TD.Models;
+using TD.WPF.ViewModels;
 using TD.WPF.ViewModels.Maintenance;
 
 namespace TD.WPF.Views.Maintenance
 {
     /// <summary>
-    /// Interaction logic for ExchangeEdit.xaml
+    /// Interaction logic for CurrencyEditView.xaml
     /// </summary>
-    public partial class ExchangeEdit
+    public partial class CurrencyEditView
     {
-        private ExchangeEditVM _viewModel;
+        private CurrencyEditVM _viewModel;
 
-        public ExchangeEdit()
+        public CurrencyEditView()
         {
             // This constructor should not be called, but we need it for the designer to work.
-            // We will create a dummy Exchange for the designer.
+            // We will create a dummy Currency for the designer.
             InitializeComponent();
-            _viewModel = new ExchangeEditVM(new Exchange());
+            _viewModel = new CurrencyEditVM(new Currency());
+            _isDirty = _viewModel;
             DataContext = _viewModel;
         }
 
-        public ExchangeEdit(Exchange exchange) : base(new ExchangeEditVM(exchange))
+        public CurrencyEditView(Currency currency) : base(new CurrencyEditVM(currency))
         {
             InitializeComponent();
-            _viewModel = (ExchangeEditVM)DataContext;
+            _viewModel = (CurrencyEditVM)DataContext;
         }
 
-        public Exchange Exchange
+        public Currency Currency
         {
-            get { return _viewModel.Exchange; }
+            get { return _viewModel.Currency; }
         }
 
         private void OkButton_Click(object sender, RoutedEventArgs e)

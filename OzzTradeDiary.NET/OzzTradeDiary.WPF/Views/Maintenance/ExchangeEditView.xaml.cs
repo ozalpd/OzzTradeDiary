@@ -5,32 +5,30 @@ using TD.WPF.ViewModels.Maintenance;
 namespace TD.WPF.Views.Maintenance
 {
     /// <summary>
-    /// Interaction logic for SymbolEdit.xaml
+    /// Interaction logic for ExchangeEditView.xaml
     /// </summary>
-    public partial class SymbolEdit
+    public partial class ExchangeEditView
     {
-        private SymbolEditVM _viewModel;
+        private ExchangeEditVM _viewModel;
 
-        public SymbolEdit()
+        public ExchangeEditView()
         {
             // This constructor should not be called, but we need it for the designer to work.
-            // We will create a dummy Symbol for the designer.
+            // We will create a dummy Exchange for the designer.
             InitializeComponent();
-            _viewModel = new SymbolEditVM(new Symbol());
-            _isDirty = _viewModel;
+            _viewModel = new ExchangeEditVM(new Exchange());
             DataContext = _viewModel;
         }
 
-        public SymbolEdit(Symbol Symbol) : base(new SymbolEditVM(Symbol))
+        public ExchangeEditView(Exchange exchange) : base(new ExchangeEditVM(exchange))
         {
             InitializeComponent();
-            //_viewModel = new SymbolEditVM(Symbol);
-            _viewModel = (SymbolEditVM)DataContext;
+            _viewModel = (ExchangeEditVM)DataContext;
         }
 
-        public Symbol Symbol
+        public Exchange Exchange
         {
-            get { return _viewModel.Symbol; }
+            get { return _viewModel.Exchange; }
         }
 
         private void OkButton_Click(object sender, RoutedEventArgs e)

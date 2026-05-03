@@ -5,13 +5,13 @@ using TD.WPF.ViewModels.Maintenance;
 namespace TD.WPF.Views.Maintenance
 {
     /// <summary>
-    /// Interaction logic for TradingAccountEdit.xaml
+    /// Interaction logic for TradingAccountEditView.xaml
     /// </summary>
-    public partial class TradingAccountEdit
+    public partial class TradingAccountEditView
     {
         private TradingAccountEditVM _viewModel;
 
-        public TradingAccountEdit()
+        public TradingAccountEditView()
         {
             // This constructor should not be called, but we need it for the designer to work.
             // We will create a dummy TradingAccount for the designer.
@@ -21,7 +21,7 @@ namespace TD.WPF.Views.Maintenance
             DataContext = _viewModel;
         }
 
-        public TradingAccountEdit(TradingAccount tradingAccount) : base(new TradingAccountEditVM(tradingAccount))
+        public TradingAccountEditView(TradingAccount tradingAccount) : base(new TradingAccountEditVM(tradingAccount))
         {
             InitializeComponent();
             //_viewModel = new TradingAccountEditVM(tradingAccount);

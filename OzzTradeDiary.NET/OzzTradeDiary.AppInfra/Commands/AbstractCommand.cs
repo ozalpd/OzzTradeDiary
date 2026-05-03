@@ -7,7 +7,7 @@ using System.Windows.Input;
 //     so manual changes should be made in another partial class file.
 //
 //----------------------------------------------------------------------------------
-namespace TD.AppInfra.ViewModels
+namespace TD.AppInfra.Commands
 {
     public abstract class AbstractCommand : ICommand
     {

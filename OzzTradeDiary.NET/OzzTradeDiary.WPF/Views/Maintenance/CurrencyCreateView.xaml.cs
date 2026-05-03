@@ -5,15 +5,15 @@ using TD.WPF.ViewModels.Maintenance;
 namespace TD.WPF.Views.Maintenance
 {
     /// <summary>
-    /// Interaction logic for CreateCurrency.xaml
+    /// Interaction logic for CurrencyCreateView.xaml
     /// </summary>
-    public partial class CurrencyCreate : Window
+    public partial class CurrencyCreateView : Window
     {
         private readonly CurrencyCreateVM _viewModel;
 
         public Currency Currency => _viewModel.Currency;
 
-        public CurrencyCreate()
+        public CurrencyCreateView()
         {
             InitializeComponent();
 

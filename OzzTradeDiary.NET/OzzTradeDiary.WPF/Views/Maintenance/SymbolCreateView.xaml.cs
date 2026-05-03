@@ -6,20 +6,20 @@ using TD.WPF.ViewModels.Maintenance;
 namespace TD.WPF.Views.Maintenance
 {
     /// <summary>
-    /// Interaction logic for CreateSymbol.xaml
+    /// Interaction logic for SymbolCreateView.xaml
     /// </summary>
-    public partial class SymbolCreate : Window
+    public partial class SymbolCreateView : Window
     {
         private readonly SymbolCreateVM _viewModel;
         private Exchange? _selectedExchange;
 
         public Symbol Symbol => _viewModel.Symbol;
 
-        public SymbolCreate() : this(new CurrencyMockLookupService(), new ExchangeMockLookupService(), null)
+        public SymbolCreateView() : this(new CurrencyMockLookupService(), new ExchangeMockLookupService(), null)
         {
         }
 
-        internal SymbolCreate(ICurrencyLookupService currencyLookupService, IExchangeLookupService exchangeLookupService, Exchange? preselectedExchange)
+        internal SymbolCreateView(ICurrencyLookupService currencyLookupService, IExchangeLookupService exchangeLookupService, Exchange? preselectedExchange)
         {
             InitializeComponent();
 

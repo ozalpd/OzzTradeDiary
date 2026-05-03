@@ -1,36 +1,36 @@
 ﻿using System.Windows;
 using TD.Models;
-using TD.WPF.ViewModels;
 using TD.WPF.ViewModels.Maintenance;
 
 namespace TD.WPF.Views.Maintenance
 {
     /// <summary>
-    /// Interaction logic for CurrencyEdit.xaml
+    /// Interaction logic for SymbolEditView.xaml
     /// </summary>
-    public partial class CurrencyEdit
+    public partial class SymbolEditView
     {
-        private CurrencyEditVM _viewModel;
+        private SymbolEditVM _viewModel;
 
-        public CurrencyEdit()
+        public SymbolEditView()
         {
             // This constructor should not be called, but we need it for the designer to work.
-            // We will create a dummy Currency for the designer.
+            // We will create a dummy Symbol for the designer.
             InitializeComponent();
-            _viewModel = new CurrencyEditVM(new Currency());
+            _viewModel = new SymbolEditVM(new Symbol());
             _isDirty = _viewModel;
             DataContext = _viewModel;
         }
 
-        public CurrencyEdit(Currency currency) : base(new CurrencyEditVM(currency))
+        public SymbolEditView(Symbol Symbol) : base(new SymbolEditVM(Symbol))
         {
             InitializeComponent();
-            _viewModel = (CurrencyEditVM)DataContext;
+            //_viewModel = new SymbolEditVM(Symbol);
+            _viewModel = (SymbolEditVM)DataContext;
         }
 
-        public Currency Currency
+        public Symbol Symbol
         {
-            get { return _viewModel.Currency; }
+            get { return _viewModel.Symbol; }
         }
 
         private void OkButton_Click(object sender, RoutedEventArgs e)

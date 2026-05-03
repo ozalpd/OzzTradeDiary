@@ -17,7 +17,7 @@ namespace TD.WPF.Services
         /// <inheritdoc />
         public (bool IsConfirmed, Currency? Currency) ShowCurrencyCreateDialog(Window owner)
         {
-            var dialog = new CurrencyCreate()
+            var dialog = new CurrencyCreateView()
             {
                 Owner = owner
             };
@@ -29,7 +29,7 @@ namespace TD.WPF.Services
         /// <inheritdoc />
         public (bool IsConfirmed, bool IsDirty) ShowCurrencyEditDialog(Window owner, Currency currency)
         {
-            var dialog = new CurrencyEdit(currency)
+            var dialog = new CurrencyEditView(currency)
             {
                 Owner = owner
             };
@@ -41,7 +41,7 @@ namespace TD.WPF.Services
         /// <inheritdoc />
         public (bool IsConfirmed, Exchange? Exchange) ShowExchangeCreateDialog(Window owner, ICurrencyLookupService currencyLookupService)
         {
-            var dialog = new ExchangeCreate(currencyLookupService)
+            var dialog = new ExchangeCreateView(currencyLookupService)
             {
                 Owner = owner
             };
@@ -53,7 +53,7 @@ namespace TD.WPF.Services
         /// <inheritdoc />
         public (bool IsConfirmed, bool IsDirty) ShowExchangeEditDialog(Window owner, Exchange exchange)
         {
-            var dialog = new ExchangeEdit(exchange)
+            var dialog = new ExchangeEditView(exchange)
             {
                 Owner = owner
             };
@@ -65,7 +65,7 @@ namespace TD.WPF.Services
         /// <inheritdoc />
         public (bool IsConfirmed, Symbol? Symbol) ShowSymbolCreateDialog(Window owner, ICurrencyLookupService currencyLookupService, IExchangeLookupService exchangeLookupService, Exchange? preselectedExchange)
         {
-            var dialog = new SymbolCreate(currencyLookupService, exchangeLookupService, preselectedExchange)
+            var dialog = new SymbolCreateView(currencyLookupService, exchangeLookupService, preselectedExchange)
             {
                 Owner = owner
             };
@@ -77,7 +77,7 @@ namespace TD.WPF.Services
         /// <inheritdoc />
         public (bool IsConfirmed, bool IsDirty) ShowSymbolEditDialog(Window owner, Symbol symbol)
         {
-            var dialog = new SymbolEdit(symbol)
+            var dialog = new SymbolEditView(symbol)
             {
                 Owner = owner
             };
@@ -89,7 +89,7 @@ namespace TD.WPF.Services
         /// <inheritdoc />
         public (bool IsConfirmed, TradingAccount? TradingAccount) ShowTradingAccountCreateDialog(Window owner, IExchangeLookupService exchangeLookupService, Exchange? preselectedExchange)
         {
-            var dialog = new TradingAccountCreate(exchangeLookupService, preselectedExchange)
+            var dialog = new TradingAccountCreateView(exchangeLookupService, preselectedExchange)
             {
                 Owner = owner
             };
@@ -101,7 +101,7 @@ namespace TD.WPF.Services
         /// <inheritdoc />
         public (bool IsConfirmed, bool IsDirty) ShowTradingAccountEditDialog(Window owner, TradingAccount tradingAccount)
         {
-            var dialog = new TradingAccountEdit(tradingAccount)
+            var dialog = new TradingAccountEditView(tradingAccount)
             {
                 Owner = owner
             };

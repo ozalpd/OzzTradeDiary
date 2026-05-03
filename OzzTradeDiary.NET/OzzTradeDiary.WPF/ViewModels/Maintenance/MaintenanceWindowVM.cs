@@ -114,20 +114,9 @@ namespace TD.WPF.ViewModels.Maintenance
         public async Task LoadAllAsync()
         {
             await LoadCurrenciesAsync();
-            CurrencyDeleteCommand.RaiseCanExecuteChanged();
-            CurrencyEditCommand.RaiseCanExecuteChanged();
-
             await LoadExchangesAsync();
-            ExchangeDeleteCommand.RaiseCanExecuteChanged();
-            ExchangeEditCommand.RaiseCanExecuteChanged();
-
-            await LoadTradingAccountsAsync();
-            TradingAccountDeleteCommand.RaiseCanExecuteChanged();
-            TradingAccountEditCommand.RaiseCanExecuteChanged();
-
             await LoadSymbolsAsync();
-            SymbolDeleteCommand.RaiseCanExecuteChanged();
-            SymbolEditCommand.RaiseCanExecuteChanged();
+            await LoadTradingAccountsAsync();
         }
 
         public override async Task LoadExchangesAsync()
@@ -141,6 +130,35 @@ namespace TD.WPF.ViewModels.Maintenance
         {
             await base.LoadSymbolsAsync();
             FilterSymbols();
+        }
+
+        protected override void OnCurrenciesLoaded()
+        {
+            CurrencyDeleteCommand.RaiseCanExecuteChanged();
+            CurrencyEditCommand.RaiseCanExecuteChanged();
+        }
+
+        protected override void OnExchangesLoaded()
+        {
+            ExchangeDeleteCommand.RaiseCanExecuteChanged();
+            ExchangeEditCommand.RaiseCanExecuteChanged();
+            CurrencyDeleteCommand.RaiseCanExecuteChanged();
+            SymbolDeleteCommand.RaiseCanExecuteChanged();
+        }
+
+        protected override void OnSymbolsLoaded()
+        {
+            SymbolDeleteCommand.RaiseCanExecuteChanged();
+            SymbolEditCommand.RaiseCanExecuteChanged();
+            ExchangeDeleteCommand.RaiseCanExecuteChanged();
+            CurrencyDeleteCommand.RaiseCanExecuteChanged();
+        }
+
+        protected override void OnTradingAccountsLoaded()
+        {
+            TradingAccountDeleteCommand.RaiseCanExecuteChanged();
+            TradingAccountEditCommand.RaiseCanExecuteChanged();
+            ExchangeDeleteCommand.RaiseCanExecuteChanged();
         }
 
         private void OnPropertyChanged(object? sender, System.ComponentModel.PropertyChangedEventArgs e)

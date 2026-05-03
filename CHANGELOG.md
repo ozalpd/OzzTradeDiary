@@ -8,7 +8,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ### Added
 - Added `CurrencyDeleteCommand`, `SymbolDeleteCommand`, and `TradingAccountDeleteCommand` with confirmation dialogs and repository integration. Wired new delete commands and buttons into `MaintenanceWindowVM` and `MaintenanceWindow.xaml`.
+- Added overridable `On*Loaded` hooks to `AbstractDiaryVM` for post-load logic.
 
+### Changed
+- Refactored all maintenance dialog window/view classes to use the `{Entity}CreateView` / `{Entity}EditView` naming convention and updated all usages accordingly. Updated XAML and code-behind to match new names.
+- Moved command state refresh logic in `MaintenanceWindowVM` to these hooks and streamlined `LoadAllAsync`.
 
 ## [0.0.62] - 2026-05-02
 
