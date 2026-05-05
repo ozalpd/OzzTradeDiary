@@ -67,6 +67,9 @@
     <data name="AddExchange" xml:space="preserve">
         <value>Add Exchange</value>
     </data>
+    <data name="AddHoliday" xml:space="preserve">
+        <value>Add Holiday</value>
+    </data>
     <data name="AddIUpdatedAt" xml:space="preserve">
         <value>Add IUpdated At</value>
     </data>
@@ -79,8 +82,14 @@
     <data name="AddNewExchange" xml:space="preserve">
         <value>Add New Exchange</value>
     </data>
+    <data name="AddNewHoliday" xml:space="preserve">
+        <value>Add New Holiday</value>
+    </data>
     <data name="AddNewIUpdatedAt" xml:space="preserve">
         <value>Add New IUpdated At</value>
+    </data>
+    <data name="AddNewSession" xml:space="preserve">
+        <value>Add New Session</value>
     </data>
     <data name="AddNewStopLossOrder" xml:space="preserve">
         <value>Add New Stop Loss Order</value>
@@ -109,8 +118,14 @@
     <data name="AddRemoveExchange" xml:space="preserve">
         <value>Add Remove Exchange</value>
     </data>
+    <data name="AddRemoveHoliday" xml:space="preserve">
+        <value>Add Remove Holiday</value>
+    </data>
     <data name="AddRemoveIUpdatedAt" xml:space="preserve">
         <value>Add Remove IUpdated At</value>
+    </data>
+    <data name="AddRemoveSession" xml:space="preserve">
+        <value>Add Remove Session</value>
     </data>
     <data name="AddRemoveStopLossOrder" xml:space="preserve">
         <value>Add Remove Stop Loss Order</value>
@@ -130,6 +145,9 @@
     <data name="AddRemoveTradingAccount" xml:space="preserve">
         <value>Add Remove Trading Account</value>
     </data>
+    <data name="AddSession" xml:space="preserve">
+        <value>Add Session</value>
+    </data>
     <data name="AddStopLossOrder" xml:space="preserve">
         <value>Add Stop Loss Order</value>
     </data>
@@ -148,6 +166,9 @@
     <data name="AddTradingAccount" xml:space="preserve">
         <value>Add Trading Account</value>
     </data>
+    <data name="AfterHours" xml:space="preserve">
+        <value>After Hours</value>
+    </data>
     <data name="Balance" xml:space="preserve">
         <value>Balance</value>
     </data>
@@ -157,8 +178,17 @@
     <data name="Boolean" xml:space="preserve">
         <value>Boolean</value>
     </data>
+    <data name="Break" xml:space="preserve">
+        <value>Break</value>
+    </data>
+    <data name="ClosingAuction" xml:space="preserve">
+        <value>Closing Auction</value>
+    </data>
     <data name="Commodity" xml:space="preserve">
         <value>Commodity</value>
+    </data>
+    <data name="CountryCode" xml:space="preserve">
+        <value>Country Code</value>
     </data>
     <data name="CreateCurrency" xml:space="preserve">
         <value>Create Currency</value>
@@ -169,8 +199,14 @@
     <data name="CreateExchange" xml:space="preserve">
         <value>Create Exchange</value>
     </data>
+    <data name="CreateHoliday" xml:space="preserve">
+        <value>Create Holiday</value>
+    </data>
     <data name="CreateIUpdatedAt" xml:space="preserve">
         <value>Create IUpdated At</value>
+    </data>
+    <data name="CreateSession" xml:space="preserve">
+        <value>Create Session</value>
     </data>
     <data name="CreateStopLossOrder" xml:space="preserve">
         <value>Create Stop Loss Order</value>
@@ -220,6 +256,12 @@
     <data name="DateTimeArray" xml:space="preserve">
         <value>Date Time Array</value>
     </data>
+    <data name="Day" xml:space="preserve">
+        <value>Day</value>
+    </data>
+    <data name="DayOfWeek" xml:space="preserve">
+        <value>Day Of Week</value>
+    </data>
     <data name="Decimal" xml:space="preserve">
         <value>Decimal</value>
     </data>
@@ -228,6 +270,9 @@
     </data>
     <data name="DefaultCurrency" xml:space="preserve">
         <value>Default Currency</value>
+    </data>
+    <data name="DefaultCurrencyId" xml:space="preserve">
+        <value>Default Currency Id</value>
     </data>
     <data name="DeleteCurrency" xml:space="preserve">
         <value>Delete Currency</value>
@@ -238,8 +283,14 @@
     <data name="DeleteExchange" xml:space="preserve">
         <value>Delete Exchange</value>
     </data>
+    <data name="DeleteHoliday" xml:space="preserve">
+        <value>Delete Holiday</value>
+    </data>
     <data name="DeleteIUpdatedAt" xml:space="preserve">
         <value>Delete IUpdated At</value>
+    </data>
+    <data name="DeleteSession" xml:space="preserve">
+        <value>Delete Session</value>
     </data>
     <data name="DeleteStopLossOrder" xml:space="preserve">
         <value>Delete Stop Loss Order</value>
@@ -274,8 +325,14 @@
     <data name="EditExchange" xml:space="preserve">
         <value>Edit Exchange</value>
     </data>
+    <data name="EditHoliday" xml:space="preserve">
+        <value>Edit Holiday</value>
+    </data>
     <data name="EditIUpdatedAt" xml:space="preserve">
         <value>Edit IUpdated At</value>
+    </data>
+    <data name="EditSession" xml:space="preserve">
+        <value>Edit Session</value>
     </data>
     <data name="EditStopLossOrder" xml:space="preserve">
         <value>Edit Stop Loss Order</value>
@@ -294,6 +351,9 @@
     </data>
     <data name="EditTradingAccount" xml:space="preserve">
         <value>Edit Trading Account</value>
+    </data>
+    <data name="ElectronicTradingHours" xml:space="preserve">
+        <value>Electronic Trading Hours</value>
     </data>
     <data name="Email" xml:space="preserve">
         <value>Email</value>
@@ -370,6 +430,21 @@
     <data name="HasAnySymbol" xml:space="preserve">
         <value>Has Any Symbol</value>
     </data>
+    <data name="Holiday" xml:space="preserve">
+        <value>Holiday</value>
+    </data>
+    <data name="HolidayDate" xml:space="preserve">
+        <value>Holiday Date</value>
+    </data>
+    <data name="HolidayName" xml:space="preserve">
+        <value>Holiday Name</value>
+    </data>
+    <data name="Holidays" xml:space="preserve">
+        <value>Holidays</value>
+    </data>
+    <data name="HolidaysList" xml:space="preserve">
+        <value>Holidays List</value>
+    </data>
     <data name="Id" xml:space="preserve">
         <value>Record Nr</value>
     </data>
@@ -388,8 +463,14 @@
     <data name="IsActive" xml:space="preserve">
         <value>Is Active</value>
     </data>
+    <data name="IsAlwaysOpen" xml:space="preserve">
+        <value>Is Always Open</value>
+    </data>
     <data name="IsFullyClosed" xml:space="preserve">
         <value>Is Fully Closed</value>
+    </data>
+    <data name="IsHalfDay" xml:space="preserve">
+        <value>Is Half Day</value>
     </data>
     <data name="IUpdatedAt" xml:space="preserve">
         <value>IUpdated At</value>
@@ -403,17 +484,29 @@
     <data name="Limit" xml:space="preserve">
         <value>Limit</value>
     </data>
+    <data name="LocalClose" xml:space="preserve">
+        <value>Local Close</value>
+    </data>
+    <data name="LocalOpen" xml:space="preserve">
+        <value>Local Open</value>
+    </data>
     <data name="Market" xml:space="preserve">
         <value>Market</value>
     </data>
     <data name="MarketType" xml:space="preserve">
         <value>Market Type</value>
     </data>
+    <data name="Month" xml:space="preserve">
+        <value>Month</value>
+    </data>
     <data name="NetResult" xml:space="preserve">
         <value>Net Result</value>
     </data>
     <data name="Notes" xml:space="preserve">
         <value>Notes</value>
+    </data>
+    <data name="OpeningAuction" xml:space="preserve">
+        <value>Opening Auction</value>
     </data>
     <data name="Option" xml:space="preserve">
         <value>Option</value>
@@ -451,6 +544,9 @@
     <data name="PlannedTP" xml:space="preserve">
         <value>Planned TP</value>
     </data>
+    <data name="PreMarket" xml:space="preserve">
+        <value>Pre Market</value>
+    </data>
     <data name="PriceCurrency" xml:space="preserve">
         <value>Price Currency</value>
     </data>
@@ -459,6 +555,12 @@
     </data>
     <data name="RealizedProfitLoss" xml:space="preserve">
         <value>Realized Profit Loss</value>
+    </data>
+    <data name="Regular" xml:space="preserve">
+        <value>Regular</value>
+    </data>
+    <data name="RegularTradingHours" xml:space="preserve">
+        <value>Regular Trading Hours</value>
     </data>
     <data name="RemoveCurrency" xml:space="preserve">
         <value>Remove Currency</value>
@@ -469,8 +571,14 @@
     <data name="RemoveExchange" xml:space="preserve">
         <value>Remove Exchange</value>
     </data>
+    <data name="RemoveHoliday" xml:space="preserve">
+        <value>Remove Holiday</value>
+    </data>
     <data name="RemoveIUpdatedAt" xml:space="preserve">
         <value>Remove IUpdated At</value>
+    </data>
+    <data name="RemoveSession" xml:space="preserve">
+        <value>Remove Session</value>
     </data>
     <data name="RemoveStopLossOrder" xml:space="preserve">
         <value>Remove Stop Loss Order</value>
@@ -492,6 +600,18 @@
     </data>
     <data name="ReportTypes" xml:space="preserve">
         <value>Report Types</value>
+    </data>
+    <data name="Session" xml:space="preserve">
+        <value>Session</value>
+    </data>
+    <data name="Sessions" xml:space="preserve">
+        <value>Sessions</value>
+    </data>
+    <data name="SessionsList" xml:space="preserve">
+        <value>Sessions List</value>
+    </data>
+    <data name="SessionType" xml:space="preserve">
+        <value>Session Type</value>
     </data>
     <data name="SettingType" xml:space="preserve">
         <value>Setting Type</value>
@@ -519,6 +639,9 @@
     </data>
     <data name="StringArray" xml:space="preserve">
         <value>String Array</value>
+    </data>
+    <data name="SundayOpen" xml:space="preserve">
+        <value>Sunday Open</value>
     </data>
     <data name="Symbol" xml:space="preserve">
         <value>Symbol</value>
@@ -549,6 +672,9 @@
     </data>
     <data name="TickerFull" xml:space="preserve">
         <value>Ticker Full</value>
+    </data>
+    <data name="Timezone" xml:space="preserve">
+        <value>Timezone</value>
     </data>
     <data name="Title" xml:space="preserve">
         <value>Title</value>

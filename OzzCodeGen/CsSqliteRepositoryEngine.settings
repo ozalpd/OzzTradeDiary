@@ -65,27 +65,6 @@
       <OrderByClause>ORDER BY DisplayOrder, Id</OrderByClause>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="SqliteRepositoryEntitySetting">
-      <Name>IUpdatedAt</Name>
-      <Exclude>true</Exclude>
-      <OverwriteExisting>false</OverwriteExisting>
-      <Properties>
-        <SqliteRepositoryPropertySetting>
-          <Name>UpdatedAt</Name>
-          <Exclude>false</Exclude>
-          <AutoLoad>false</AutoLoad>
-          <CheckIfAltered>false</CheckIfAltered>
-          <ColumnName>UpdatedAt</ColumnName>
-          <SingleColumnUpdate>false</SingleColumnUpdate>
-          <DecimalToIntegerScale>0</DecimalToIntegerScale>
-        </SqliteRepositoryPropertySetting>
-      </Properties>
-      <GenerateGetPaged>false</GenerateGetPaged>
-      <TableName>IUpdatedAts</TableName>
-      <FileNameDDL>IUpdatedAt.sql</FileNameDDL>
-      <OrderByClause>ORDER BY Id</OrderByClause>
-      <UpdatedAtName>UpdatedAt</UpdatedAtName>
-    </BaseEntitySetting>
-    <BaseEntitySetting xsi:type="SqliteRepositoryEntitySetting">
       <Name>ICreatedAt</Name>
       <Exclude>true</Exclude>
       <OverwriteExisting>false</OverwriteExisting>
@@ -105,6 +84,27 @@
       <FileNameDDL>ICreatedAt.sql</FileNameDDL>
       <OrderByClause>ORDER BY Id</OrderByClause>
       <CreatedAtName>CreatedAt</CreatedAtName>
+    </BaseEntitySetting>
+    <BaseEntitySetting xsi:type="SqliteRepositoryEntitySetting">
+      <Name>IUpdatedAt</Name>
+      <Exclude>true</Exclude>
+      <OverwriteExisting>false</OverwriteExisting>
+      <Properties>
+        <SqliteRepositoryPropertySetting>
+          <Name>UpdatedAt</Name>
+          <Exclude>false</Exclude>
+          <AutoLoad>false</AutoLoad>
+          <CheckIfAltered>false</CheckIfAltered>
+          <ColumnName>UpdatedAt</ColumnName>
+          <SingleColumnUpdate>false</SingleColumnUpdate>
+          <DecimalToIntegerScale>0</DecimalToIntegerScale>
+        </SqliteRepositoryPropertySetting>
+      </Properties>
+      <GenerateGetPaged>false</GenerateGetPaged>
+      <TableName>IUpdatedAts</TableName>
+      <FileNameDDL>IUpdatedAt.sql</FileNameDDL>
+      <OrderByClause>ORDER BY Id</OrderByClause>
+      <UpdatedAtName>UpdatedAt</UpdatedAtName>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="SqliteRepositoryEntitySetting">
       <Name>ITradeOrder</Name>
@@ -213,6 +213,15 @@
           <DecimalToIntegerScale>0</DecimalToIntegerScale>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
+          <Name>CountryCode</Name>
+          <Exclude>false</Exclude>
+          <AutoLoad>false</AutoLoad>
+          <CheckIfAltered>false</CheckIfAltered>
+          <ColumnName>CountryCode</ColumnName>
+          <SingleColumnUpdate>false</SingleColumnUpdate>
+          <DecimalToIntegerScale>0</DecimalToIntegerScale>
+        </SqliteRepositoryPropertySetting>
+        <SqliteRepositoryPropertySetting>
           <Name>DefaultCurrencyId</Name>
           <Exclude>false</Exclude>
           <AutoLoad>false</AutoLoad>
@@ -227,6 +236,24 @@
           <AutoLoad>true</AutoLoad>
           <CheckIfAltered>false</CheckIfAltered>
           <ColumnName>DefaultCurrency</ColumnName>
+          <SingleColumnUpdate>false</SingleColumnUpdate>
+          <DecimalToIntegerScale>0</DecimalToIntegerScale>
+        </SqliteRepositoryPropertySetting>
+        <SqliteRepositoryPropertySetting>
+          <Name>Timezone</Name>
+          <Exclude>false</Exclude>
+          <AutoLoad>false</AutoLoad>
+          <CheckIfAltered>false</CheckIfAltered>
+          <ColumnName>Timezone</ColumnName>
+          <SingleColumnUpdate>false</SingleColumnUpdate>
+          <DecimalToIntegerScale>0</DecimalToIntegerScale>
+        </SqliteRepositoryPropertySetting>
+        <SqliteRepositoryPropertySetting>
+          <Name>IsAlwaysOpen</Name>
+          <Exclude>false</Exclude>
+          <AutoLoad>false</AutoLoad>
+          <CheckIfAltered>false</CheckIfAltered>
+          <ColumnName>IsAlwaysOpen</ColumnName>
           <SingleColumnUpdate>false</SingleColumnUpdate>
           <DecimalToIntegerScale>0</DecimalToIntegerScale>
         </SqliteRepositoryPropertySetting>
@@ -249,6 +276,24 @@
           <DecimalToIntegerScale>0</DecimalToIntegerScale>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
+          <Name>Sessions</Name>
+          <Exclude>false</Exclude>
+          <AutoLoad>true</AutoLoad>
+          <CheckIfAltered>false</CheckIfAltered>
+          <ColumnName>Sessions</ColumnName>
+          <SingleColumnUpdate>false</SingleColumnUpdate>
+          <DecimalToIntegerScale>0</DecimalToIntegerScale>
+        </SqliteRepositoryPropertySetting>
+        <SqliteRepositoryPropertySetting>
+          <Name>Holidays</Name>
+          <Exclude>false</Exclude>
+          <AutoLoad>true</AutoLoad>
+          <CheckIfAltered>false</CheckIfAltered>
+          <ColumnName>Holidays</ColumnName>
+          <SingleColumnUpdate>false</SingleColumnUpdate>
+          <DecimalToIntegerScale>0</DecimalToIntegerScale>
+        </SqliteRepositoryPropertySetting>
+        <SqliteRepositoryPropertySetting>
           <Name>TradingAccounts</Name>
           <Exclude>false</Exclude>
           <AutoLoad>false</AutoLoad>
@@ -263,6 +308,147 @@
       <FileNameDDL>Exchange.sql</FileNameDDL>
       <FileNameSeed>Exchanges-Data.sql</FileNameSeed>
       <OrderByClause>ORDER BY DisplayOrder, ExchangeName</OrderByClause>
+    </BaseEntitySetting>
+    <BaseEntitySetting xsi:type="SqliteRepositoryEntitySetting">
+      <Name>Session</Name>
+      <Exclude>false</Exclude>
+      <OverwriteExisting>false</OverwriteExisting>
+      <Properties>
+        <SqliteRepositoryPropertySetting>
+          <Name>ExchangeId</Name>
+          <Exclude>false</Exclude>
+          <AutoLoad>false</AutoLoad>
+          <CheckIfAltered>false</CheckIfAltered>
+          <ColumnName>ExchangeId</ColumnName>
+          <SingleColumnUpdate>false</SingleColumnUpdate>
+          <DecimalToIntegerScale>0</DecimalToIntegerScale>
+        </SqliteRepositoryPropertySetting>
+        <SqliteRepositoryPropertySetting>
+          <Name>Exchange</Name>
+          <Exclude>true</Exclude>
+          <AutoLoad>false</AutoLoad>
+          <CheckIfAltered>false</CheckIfAltered>
+          <ColumnName>Exchange</ColumnName>
+          <SingleColumnUpdate>false</SingleColumnUpdate>
+          <DecimalToIntegerScale>0</DecimalToIntegerScale>
+        </SqliteRepositoryPropertySetting>
+        <SqliteRepositoryPropertySetting>
+          <Name>SessionType</Name>
+          <Exclude>false</Exclude>
+          <AutoLoad>false</AutoLoad>
+          <CheckIfAltered>false</CheckIfAltered>
+          <ColumnName>SessionType</ColumnName>
+          <SingleColumnUpdate>false</SingleColumnUpdate>
+          <DecimalToIntegerScale>0</DecimalToIntegerScale>
+        </SqliteRepositoryPropertySetting>
+        <SqliteRepositoryPropertySetting>
+          <Name>DayOfWeek</Name>
+          <Exclude>false</Exclude>
+          <AutoLoad>false</AutoLoad>
+          <CheckIfAltered>false</CheckIfAltered>
+          <ColumnName>DayOfWeek</ColumnName>
+          <SingleColumnUpdate>false</SingleColumnUpdate>
+          <DecimalToIntegerScale>0</DecimalToIntegerScale>
+        </SqliteRepositoryPropertySetting>
+        <SqliteRepositoryPropertySetting>
+          <Name>LocalOpen</Name>
+          <Exclude>false</Exclude>
+          <AutoLoad>false</AutoLoad>
+          <CheckIfAltered>false</CheckIfAltered>
+          <ColumnName>LocalOpen</ColumnName>
+          <SingleColumnUpdate>false</SingleColumnUpdate>
+          <DecimalToIntegerScale>0</DecimalToIntegerScale>
+        </SqliteRepositoryPropertySetting>
+        <SqliteRepositoryPropertySetting>
+          <Name>LocalClose</Name>
+          <Exclude>false</Exclude>
+          <AutoLoad>false</AutoLoad>
+          <CheckIfAltered>false</CheckIfAltered>
+          <ColumnName>LocalClose</ColumnName>
+          <SingleColumnUpdate>false</SingleColumnUpdate>
+          <DecimalToIntegerScale>0</DecimalToIntegerScale>
+        </SqliteRepositoryPropertySetting>
+      </Properties>
+      <GenerateGetPaged>false</GenerateGetPaged>
+      <TableName>Sessions</TableName>
+      <FileNameDDL>Session.sql</FileNameDDL>
+      <FileNameSeed>Sessions-Data.sql</FileNameSeed>
+      <OrderByClause>ORDER BY DisplayOrder, Id</OrderByClause>
+    </BaseEntitySetting>
+    <BaseEntitySetting xsi:type="SqliteRepositoryEntitySetting">
+      <Name>Holiday</Name>
+      <Exclude>false</Exclude>
+      <OverwriteExisting>false</OverwriteExisting>
+      <Properties>
+        <SqliteRepositoryPropertySetting>
+          <Name>HolidayName</Name>
+          <Exclude>false</Exclude>
+          <AutoLoad>false</AutoLoad>
+          <CheckIfAltered>false</CheckIfAltered>
+          <ColumnName>HolidayName</ColumnName>
+          <SingleColumnUpdate>false</SingleColumnUpdate>
+          <DecimalToIntegerScale>0</DecimalToIntegerScale>
+        </SqliteRepositoryPropertySetting>
+        <SqliteRepositoryPropertySetting>
+          <Name>ExchangeId</Name>
+          <Exclude>false</Exclude>
+          <AutoLoad>false</AutoLoad>
+          <CheckIfAltered>false</CheckIfAltered>
+          <ColumnName>ExchangeId</ColumnName>
+          <SingleColumnUpdate>false</SingleColumnUpdate>
+          <DecimalToIntegerScale>0</DecimalToIntegerScale>
+        </SqliteRepositoryPropertySetting>
+        <SqliteRepositoryPropertySetting>
+          <Name>Exchange</Name>
+          <Exclude>true</Exclude>
+          <AutoLoad>false</AutoLoad>
+          <CheckIfAltered>false</CheckIfAltered>
+          <ColumnName>Exchange</ColumnName>
+          <SingleColumnUpdate>false</SingleColumnUpdate>
+          <DecimalToIntegerScale>0</DecimalToIntegerScale>
+        </SqliteRepositoryPropertySetting>
+        <SqliteRepositoryPropertySetting>
+          <Name>Month</Name>
+          <Exclude>false</Exclude>
+          <AutoLoad>false</AutoLoad>
+          <CheckIfAltered>false</CheckIfAltered>
+          <ColumnName>Month</ColumnName>
+          <SingleColumnUpdate>false</SingleColumnUpdate>
+          <DecimalToIntegerScale>0</DecimalToIntegerScale>
+        </SqliteRepositoryPropertySetting>
+        <SqliteRepositoryPropertySetting>
+          <Name>Day</Name>
+          <Exclude>false</Exclude>
+          <AutoLoad>false</AutoLoad>
+          <CheckIfAltered>false</CheckIfAltered>
+          <ColumnName>Day</ColumnName>
+          <SingleColumnUpdate>false</SingleColumnUpdate>
+          <DecimalToIntegerScale>0</DecimalToIntegerScale>
+        </SqliteRepositoryPropertySetting>
+        <SqliteRepositoryPropertySetting>
+          <Name>HolidayDate</Name>
+          <Exclude>false</Exclude>
+          <AutoLoad>false</AutoLoad>
+          <CheckIfAltered>false</CheckIfAltered>
+          <ColumnName>HolidayDate</ColumnName>
+          <SingleColumnUpdate>false</SingleColumnUpdate>
+          <DecimalToIntegerScale>0</DecimalToIntegerScale>
+        </SqliteRepositoryPropertySetting>
+        <SqliteRepositoryPropertySetting>
+          <Name>IsHalfDay</Name>
+          <Exclude>false</Exclude>
+          <AutoLoad>false</AutoLoad>
+          <CheckIfAltered>false</CheckIfAltered>
+          <ColumnName>IsHalfDay</ColumnName>
+          <SingleColumnUpdate>false</SingleColumnUpdate>
+          <DecimalToIntegerScale>0</DecimalToIntegerScale>
+        </SqliteRepositoryPropertySetting>
+      </Properties>
+      <GenerateGetPaged>false</GenerateGetPaged>
+      <TableName>Holidays</TableName>
+      <FileNameDDL>Holiday.sql</FileNameDDL>
+      <FileNameSeed>Holidays-Data.sql</FileNameSeed>
+      <OrderByClause>ORDER BY HolidayName</OrderByClause>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="SqliteRepositoryEntitySetting">
       <Name>TradingAccount</Name>

@@ -111,7 +111,9 @@ static async Task<Exchange> EnsureDemoExchangeAsync(IExchangeRepository exchange
         DefaultCurrencyId = 2, //USDT
         HasAnySymbol = false,
         DisplayOrder = 9990,
-        IsActive = true
+        IsActive = true,
+        CountryCode = "us",
+        Timezone = "UTC"
     };
 
     exchange.Id = await exchangeRepository.CreateAsync(exchange);

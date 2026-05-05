@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.1.0] - 2026-05-05
+
+### Added
+- Added `Session` and `Holiday` entities, models, and repositories with full CRUD support.
+- Added SQL DDL and seed data for sessions and holidays for major exchanges.
+
+### Changed
+- Extended `Exchange` with country, timezone, always-open, and navigation collections for sessions and holidays.
+- Updated codegen, localization, and WPF MVVM to support new fields and entities.
+
 ## [0.0.63] - 2026-05-03
 
 ### Added

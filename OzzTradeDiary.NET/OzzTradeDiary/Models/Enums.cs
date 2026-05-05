@@ -42,6 +42,30 @@ namespace TD.Models
         TrailingStop = 50
     }
 
+    public enum SessionType : int
+    {
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "Break")]
+        Break = 0,
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "Regular")]
+        Regular = 1,
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "PreMarket")]
+        PreMarket = 2,
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "AfterHours")]
+        AfterHours = 3,
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "SundayOpen")]
+        SundayOpen = 5,
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "OpeningAuction")]
+        OpeningAuction = 6,
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "ClosingAuction")]
+        ClosingAuction = 7,
+
+        // CME-specific
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "RegularTradingHours")]
+        RegularTradingHours = 8,      // RTH
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "ElectronicTradingHours")]
+        ElectronicTradingHours = 9    // ETH / Globex
+    }
+
     public enum SettingType : int
     {
         String = 1010,

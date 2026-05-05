@@ -45,6 +45,10 @@
     <Translation>Add Exchange</Translation>
   </Vocab>
   <Vocab>
+    <Name>AddHoliday</Name>
+    <Translation>Add Holiday</Translation>
+  </Vocab>
+  <Vocab>
     <Name>AddIUpdatedAt</Name>
     <Translation>Add IUpdated At</Translation>
   </Vocab>
@@ -85,6 +89,10 @@
     <Translation>Add New Exchange</Translation>
   </Vocab>
   <Vocab>
+    <Name>AddNewHoliday</Name>
+    <Translation>Add New Holiday</Translation>
+  </Vocab>
+  <Vocab>
     <Name>AddNewIUpdatedAt</Name>
     <Translation>Add New IUpdated At</Translation>
   </Vocab>
@@ -107,6 +115,10 @@
   <Vocab>
     <Name>AddNewPurchaseOrder</Name>
     <Translation>Add New Purchase Order</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddNewSession</Name>
+    <Translation>Add New Session</Translation>
   </Vocab>
   <Vocab>
     <Name>AddNewStopLossOrder</Name>
@@ -177,8 +189,16 @@
     <Translation>Add Remove Exchange</Translation>
   </Vocab>
   <Vocab>
+    <Name>AddRemoveHoliday</Name>
+    <Translation>Add Remove Holiday</Translation>
+  </Vocab>
+  <Vocab>
     <Name>AddRemoveIUpdatedAt</Name>
     <Translation>Add Remove IUpdated At</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddRemoveSession</Name>
+    <Translation>Add Remove Session</Translation>
   </Vocab>
   <Vocab>
     <Name>AddRemoveStopLossOrder</Name>
@@ -215,6 +235,10 @@
   <Vocab>
     <Name>Address2</Name>
     <Translation>Address Line 2</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddSession</Name>
+    <Translation>Add Session</Translation>
   </Vocab>
   <Vocab>
     <Name>AddStopLossOrder</Name>
@@ -255,6 +279,10 @@
   <Vocab>
     <Name>Admin</Name>
     <Translation>Admin</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AfterHours</Name>
+    <Translation>After Hours</Translation>
   </Vocab>
   <Vocab>
     <Name>Always</Name>
@@ -303,6 +331,10 @@
   <Vocab>
     <Name>Boolean</Name>
     <Translation>Boolean</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Break</Name>
+    <Translation>Break</Translation>
   </Vocab>
   <Vocab>
     <Name>Cancel</Name>
@@ -355,6 +387,10 @@
   <Vocab>
     <Name>Clone</Name>
     <Translation>Clone</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ClosingAuction</Name>
+    <Translation>Closing Auction</Translation>
   </Vocab>
   <Vocab>
     <Name>Code</Name>
@@ -425,6 +461,10 @@
     <Translation>Country</Translation>
   </Vocab>
   <Vocab>
+    <Name>CountryCode</Name>
+    <Translation>Country Code</Translation>
+  </Vocab>
+  <Vocab>
     <Name>CountryId</Name>
     <Translation>Country Id</Translation>
   </Vocab>
@@ -477,6 +517,10 @@
     <Translation>Create Exchange</Translation>
   </Vocab>
   <Vocab>
+    <Name>CreateHoliday</Name>
+    <Translation>Create Holiday</Translation>
+  </Vocab>
+  <Vocab>
     <Name>CreateIUpdatedAt</Name>
     <Translation>Create IUpdated At</Translation>
   </Vocab>
@@ -507,6 +551,10 @@
   <Vocab>
     <Name>CreatePurchaseOrder</Name>
     <Translation>Create Purchase Order</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CreateSession</Name>
+    <Translation>Create Session</Translation>
   </Vocab>
   <Vocab>
     <Name>CreateStopLossOrder</Name>
@@ -629,6 +677,14 @@
     <Translation>Date Time Array</Translation>
   </Vocab>
   <Vocab>
+    <Name>Day</Name>
+    <Translation>Day</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>DayOfWeek</Name>
+    <Translation>Day Of Week</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Decimal</Name>
     <Translation>Decimal</Translation>
   </Vocab>
@@ -639,6 +695,10 @@
   <Vocab>
     <Name>DefaultCurrency</Name>
     <Translation>Default Currency</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>DefaultCurrencyId</Name>
+    <Translation>Default Currency Id</Translation>
   </Vocab>
   <Vocab>
     <Name>Delete</Name>
@@ -681,6 +741,10 @@
     <Translation>Delete Exchange</Translation>
   </Vocab>
   <Vocab>
+    <Name>DeleteHoliday</Name>
+    <Translation>Delete Holiday</Translation>
+  </Vocab>
+  <Vocab>
     <Name>DeleteIUpdatedAt</Name>
     <Translation>Delete IUpdated At</Translation>
   </Vocab>
@@ -707,6 +771,10 @@
   <Vocab>
     <Name>DeletePurchaseOrder</Name>
     <Translation>Delete Purchase Order</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>DeleteSession</Name>
+    <Translation>Delete Session</Translation>
   </Vocab>
   <Vocab>
     <Name>DeleteStopLossOrder</Name>
@@ -829,6 +897,10 @@
     <Translation>Edit Exchange</Translation>
   </Vocab>
   <Vocab>
+    <Name>EditHoliday</Name>
+    <Translation>Edit Holiday</Translation>
+  </Vocab>
+  <Vocab>
     <Name>EditIUpdatedAt</Name>
     <Translation>Edit IUpdated At</Translation>
   </Vocab>
@@ -855,6 +927,10 @@
   <Vocab>
     <Name>EditPurchaseOrder</Name>
     <Translation>Edit Purchase Order</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>EditSession</Name>
+    <Translation>Edit Session</Translation>
   </Vocab>
   <Vocab>
     <Name>EditStopLossOrder</Name>
@@ -891,6 +967,10 @@
   <Vocab>
     <Name>EditTradingAccount</Name>
     <Translation>Edit Trading Account</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ElectronicTradingHours</Name>
+    <Translation>Electronic Trading Hours</Translation>
   </Vocab>
   <Vocab>
     <Name>Email</Name>
@@ -1057,6 +1137,26 @@
     <Translation>Help</Translation>
   </Vocab>
   <Vocab>
+    <Name>Holiday</Name>
+    <Translation>Holiday</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>HolidayDate</Name>
+    <Translation>Holiday Date</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>HolidayName</Name>
+    <Translation>Holiday Name</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Holidays</Name>
+    <Translation>Holidays</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>HolidaysList</Name>
+    <Translation>Holidays List</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Home</Name>
     <Translation>Home</Translation>
   </Vocab>
@@ -1105,12 +1205,20 @@
     <Translation>Is Active</Translation>
   </Vocab>
   <Vocab>
+    <Name>IsAlwaysOpen</Name>
+    <Translation>Is Always Open</Translation>
+  </Vocab>
+  <Vocab>
     <Name>IsApproved</Name>
     <Translation>Is Approved</Translation>
   </Vocab>
   <Vocab>
     <Name>IsFullyClosed</Name>
     <Translation>Is Fully Closed</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>IsHalfDay</Name>
+    <Translation>Is Half Day</Translation>
   </Vocab>
   <Vocab>
     <Name>IsPublished</Name>
@@ -1149,6 +1257,14 @@
     <Translation>Loading</Translation>
   </Vocab>
   <Vocab>
+    <Name>LocalClose</Name>
+    <Translation>Local Close</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>LocalOpen</Name>
+    <Translation>Local Open</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Location</Name>
     <Translation>Location</Translation>
   </Vocab>
@@ -1185,6 +1301,10 @@
     <Translation>Maintenance</Translation>
   </Vocab>
   <Vocab>
+    <Name>MaintenanceBreak</Name>
+    <Translation>Maintenance Break</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Male</Name>
     <Translation>Male</Translation>
   </Vocab>
@@ -1219,6 +1339,10 @@
   <Vocab>
     <Name>ModifyNr</Name>
     <Translation>Modify Nr</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Month</Name>
+    <Translation>Month</Translation>
   </Vocab>
   <Vocab>
     <Name>Name</Name>
@@ -1263,6 +1387,10 @@
   <Vocab>
     <Name>OK</Name>
     <Translation>OK</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>OpeningAuction</Name>
+    <Translation>Opening Auction</Translation>
   </Vocab>
   <Vocab>
     <Name>Option</Name>
@@ -1437,6 +1565,10 @@
     <Translation>Positive Decimal</Translation>
   </Vocab>
   <Vocab>
+    <Name>PreMarket</Name>
+    <Translation>Pre Market</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Price</Name>
     <Translation>Price</Translation>
   </Vocab>
@@ -1545,6 +1677,14 @@
     <Translation>Register</Translation>
   </Vocab>
   <Vocab>
+    <Name>Regular</Name>
+    <Translation>Regular</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>RegularTradingHours</Name>
+    <Translation>Regular Trading Hours</Translation>
+  </Vocab>
+  <Vocab>
     <Name>RelatedRecordsExist</Name>
     <Translation>This record has {0} related {1}.</Translation>
   </Vocab>
@@ -1565,8 +1705,16 @@
     <Translation>Remove Exchange</Translation>
   </Vocab>
   <Vocab>
+    <Name>RemoveHoliday</Name>
+    <Translation>Remove Holiday</Translation>
+  </Vocab>
+  <Vocab>
     <Name>RemoveIUpdatedAt</Name>
     <Translation>Remove IUpdated At</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>RemoveSession</Name>
+    <Translation>Remove Session</Translation>
   </Vocab>
   <Vocab>
     <Name>RemoveStopLossOrder</Name>
@@ -1651,6 +1799,22 @@
   <Vocab>
     <Name>SelectPlease</Name>
     <Translation>Please Select</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Session</Name>
+    <Translation>Session</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Sessions</Name>
+    <Translation>Sessions</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>SessionsList</Name>
+    <Translation>Sessions List</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>SessionType</Name>
+    <Translation>Session Type</Translation>
   </Vocab>
   <Vocab>
     <Name>SettingType</Name>
@@ -1753,6 +1917,10 @@
     <Translation>Summary</Translation>
   </Vocab>
   <Vocab>
+    <Name>SundayOpen</Name>
+    <Translation>Sunday Open</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Supplier</Name>
     <Translation>Supplier</Translation>
   </Vocab>
@@ -1823,6 +1991,10 @@
   <Vocab>
     <Name>TickerFull</Name>
     <Translation>Ticker Full</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Timezone</Name>
+    <Translation>Timezone</Translation>
   </Vocab>
   <Vocab>
     <Name>Title</Name>

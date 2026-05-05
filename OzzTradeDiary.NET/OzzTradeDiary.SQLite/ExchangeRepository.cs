@@ -18,6 +18,7 @@ namespace TD.SQLite
     public partial class ExchangeRepository : AbstractDatabaseRepository<Exchange>, IExchangeRepository
     {
         public ExchangeRepository(string databasePath, ICurrencyRepository? currencyRepository = null,
+                                  IHolidayRepository? holidayRepository = null, ISessionRepository? sessionRepository = null,
                                   ISymbolRepository? symbolRepository = null) : base(databasePath, "Exchanges")
 
         {
@@ -25,11 +26,16 @@ namespace TD.SQLite
             _databasePath = databasePath;
             if (currencyRepository != null)
                 _currencyRepository = currencyRepository;
+            if (holidayRepository != null)
+                _holidayRepository = holidayRepository;
+            if (sessionRepository != null)
+                _sessionRepository = sessionRepository;
             if (symbolRepository != null)
                 _symbolRepository = symbolRepository;
 
             InitializeDatabase();
-            OnInitialized(currencyRepository == null, symbolRepository == null);
+            OnInitialized(currencyRepository == null, holidayRepository == null, sessionRepository == null,
+                          symbolRepository == null);
         }
         private readonly string _databasePath;
         private readonly string _selectStatement;
@@ -46,6 +52,32 @@ namespace TD.SQLite
             }
         }
         private ICurrencyRepository? _currencyRepository;
+
+        protected IHolidayRepository HolidayRepository
+        {
+            get
+            {
+                if (_holidayRepository == null)
+                {
+                    _holidayRepository = new HolidayRepository(_databasePath);
+                }
+                return _holidayRepository;
+            }
+        }
+        private IHolidayRepository? _holidayRepository;
+
+        protected ISessionRepository SessionRepository
+        {
+            get
+            {
+                if (_sessionRepository == null)
+                {
+                    _sessionRepository = new SessionRepository(_databasePath);
+                }
+                return _sessionRepository;
+            }
+        }
+        private ISessionRepository? _sessionRepository;
 
         protected ISymbolRepository SymbolRepository
         {
@@ -86,7 +118,8 @@ namespace TD.SQLite
         /// The parameters indicate whether the corresponding repository was created by this repository (true) or provided externally (false),
         /// which can be useful to determine if any additional initialization or event wiring is needed.
         /// </summary>
-        partial void OnInitialized(bool isCurrencyRepository, bool isSymbolRepository);
+        partial void OnInitialized(bool isCurrencyRepository, bool isHolidayRepository, bool isSessionRepository,
+                                   bool isSymbolRepository);
 
         public async Task<IReadOnlyList<Exchange>> GetAllAsync(bool? isActive = null)
         {
@@ -224,12 +257,16 @@ namespace TD.SQLite
 
             await using var command = connection.CreateCommand();
             command.CommandText = @$"INSERT INTO {_tableName} ({string.Join(", ", ColumnNames[1..])})
-            VALUES (@exchangeName, @exchangeCode, @defaultCurrencyId, @hasAnySymbol, @displayOrder, @isActive);
+            VALUES (@exchangeName, @exchangeCode, @countryCode, @defaultCurrencyId, @timezone, @isAlwaysOpen,
+                    @hasAnySymbol, @displayOrder, @isActive);
             SELECT last_insert_rowid();";
 
             command.AddParameter("@exchangeName", exchange.ExchangeName);
             command.AddParameter("@exchangeCode", exchange.ExchangeCode);
+            command.AddParameter("@countryCode", exchange.CountryCode);
             command.AddParameter("@defaultCurrencyId", exchange.DefaultCurrencyId);
+            command.AddParameter("@timezone", exchange.Timezone);
+            command.AddParameter("@isAlwaysOpen", exchange.IsAlwaysOpen);
             command.AddParameter("@hasAnySymbol", exchange.HasAnySymbol);
             command.AddParameter("@displayOrder", exchange.DisplayOrder);
             command.AddParameter("@isActive", exchange.IsActive);
@@ -259,6 +296,12 @@ namespace TD.SQLite
                 return false;
 
             bool result = true;
+
+            // Checking any session record exists through Session.ExchangeId reference
+            result = result && !(await SessionRepository.AnyByExchangeIdAsync(id));
+
+            // Checking any holiday record exists through Holiday.ExchangeId reference
+            result = result && !(await HolidayRepository.AnyByExchangeIdAsync(id));
 
             // Checking any tradingAccount record exists through TradingAccount.ExchangeId reference
             result = result && !(await TradingAccountRepository.AnyByExchangeIdAsync(id));
@@ -301,6 +344,9 @@ namespace TD.SQLite
             existingExchange = await GetByIdAsync(exchange.Id);
             bool noChanges = existingExchange != null
                           && existingExchange.ExchangeName == exchange.ExchangeName
+                          && existingExchange.CountryCode == exchange.CountryCode
+                          && existingExchange.Timezone == exchange.Timezone
+                          && existingExchange.IsAlwaysOpen == exchange.IsAlwaysOpen
                           && existingExchange.DisplayOrder == exchange.DisplayOrder
                           && existingExchange.IsActive == exchange.IsActive;
 
@@ -309,15 +355,21 @@ namespace TD.SQLite
 
             await using var command = connection.CreateCommand();
             // ExchangeCode, DefaultCurrencyId, HasAnySymbol are not updated to avoid complications with existing references,
-            // so only ExchangeName, DisplayOrder, IsActive are updated
+            // so only ExchangeName, CountryCode, Timezone, IsAlwaysOpen, DisplayOrder, IsActive are updated
             command.CommandText = @$"UPDATE {_tableName} SET
                 ExchangeName = @exchangeName,
+                CountryCode = @countryCode,
+                Timezone = @timezone,
+                IsAlwaysOpen = @isAlwaysOpen,
                 DisplayOrder = @displayOrder,
                 IsActive = @isActive
             WHERE Id = @id";
 
             command.AddParameter("@id", exchange.Id);
             command.AddParameter("@exchangeName", exchange.ExchangeName);
+            command.AddParameter("@countryCode", exchange.CountryCode);
+            command.AddParameter("@timezone", exchange.Timezone);
+            command.AddParameter("@isAlwaysOpen", exchange.IsAlwaysOpen);
             command.AddParameter("@displayOrder", exchange.DisplayOrder);
             command.AddParameter("@isActive", exchange.IsActive);
 
@@ -367,7 +419,10 @@ namespace TD.SQLite
                 Id = reader.GetInt32(ColNrs.Id),
                 ExchangeName = reader.GetString(ColNrs.ExchangeName),
                 ExchangeCode = reader.GetString(ColNrs.ExchangeCode),
+                CountryCode = reader.GetString(ColNrs.CountryCode),
                 DefaultCurrencyId = reader.GetInt32(ColNrs.DefaultCurrencyId),
+                Timezone = reader.GetString(ColNrs.Timezone),
+                IsAlwaysOpen = reader.GetInt64(ColNrs.IsAlwaysOpen) == 1,
                 HasAnySymbol = reader.GetInt64(ColNrs.HasAnySymbol) == 1,
                 DisplayOrder = reader.GetInt32(ColNrs.DisplayOrder),
                 IsActive = reader.GetInt64(ColNrs.IsActive) == 1
@@ -384,10 +439,13 @@ namespace TD.SQLite
             public readonly static int Id = 0;
             public readonly static int ExchangeName = 1;
             public readonly static int ExchangeCode = 2;
-            public readonly static int DefaultCurrencyId = 3;
-            public readonly static int HasAnySymbol = 4;
-            public readonly static int DisplayOrder = 5;
-            public readonly static int IsActive = 6;
+            public readonly static int CountryCode = 3;
+            public readonly static int DefaultCurrencyId = 4;
+            public readonly static int Timezone = 5;
+            public readonly static int IsAlwaysOpen = 6;
+            public readonly static int HasAnySymbol = 7;
+            public readonly static int DisplayOrder = 8;
+            public readonly static int IsActive = 9;
         }
 
         /// <summary>
@@ -397,7 +455,10 @@ namespace TD.SQLite
             "Id",
             "ExchangeName",
             "ExchangeCode",
+            "CountryCode",
             "DefaultCurrencyId",
+            "Timezone",
+            "IsAlwaysOpen",
             "HasAnySymbol",
             "DisplayOrder",
             "IsActive"

@@ -23,7 +23,8 @@ namespace TD.WPF
             }
             string databasePath = settings.DatabasePath;
             var currencyRepository = new CurrencyRepository(databasePath);
-            var exchangeRepository = new ExchangeRepository(databasePath, currencyRepository: currencyRepository);
+            var exchangeRepository = new ExchangeRepository(databasePath,
+                                     currencyRepository: currencyRepository);
             var tradeRepository = new TradeRepository(databasePath,
                                   entryOrderRepository: new EntryOrderRepository(databasePath),
                                   stopLossOrderRepository: new StopLossOrderRepository(databasePath),

@@ -67,6 +67,9 @@
     <data name="AddExchange" xml:space="preserve">
         <value>Borsa Ekle</value>
     </data>
+    <data name="AddHoliday" xml:space="preserve">
+        <value>Tatil Ekle</value>
+    </data>
     <data name="AddIUpdatedAt" xml:space="preserve">
         <value>Değişiklik Tarihi Ekle</value>
     </data>
@@ -79,8 +82,14 @@
     <data name="AddNewExchange" xml:space="preserve">
         <value>Yeni Borsa Ekle</value>
     </data>
+    <data name="AddNewHoliday" xml:space="preserve">
+        <value>Yeni Tatil Ekle</value>
+    </data>
     <data name="AddNewIUpdatedAt" xml:space="preserve">
         <value>Yeni Değişiklik Tarihi Ekle</value>
+    </data>
+    <data name="AddNewSession" xml:space="preserve">
+        <value>Yeni Seans Ekle</value>
     </data>
     <data name="AddNewStopLossOrder" xml:space="preserve">
         <value>Yeni Zarar Kes Emri Ekle</value>
@@ -109,8 +118,14 @@
     <data name="AddRemoveExchange" xml:space="preserve">
         <value>Borsa Ekle/Çıkart</value>
     </data>
+    <data name="AddRemoveHoliday" xml:space="preserve">
+        <value>Tatil Ekle/Çıkar</value>
+    </data>
     <data name="AddRemoveIUpdatedAt" xml:space="preserve">
         <value>Değişiklik Tarihi Ekle/Çıkar</value>
+    </data>
+    <data name="AddRemoveSession" xml:space="preserve">
+        <value>Seans Ekle/Çıkar</value>
     </data>
     <data name="AddRemoveStopLossOrder" xml:space="preserve">
         <value>Zarar Kes Emri Ekle/Çıkar</value>
@@ -130,6 +145,9 @@
     <data name="AddRemoveTradingAccount" xml:space="preserve">
         <value>İşlem Hesabı Ekle/Çİkart</value>
     </data>
+    <data name="AddSession" xml:space="preserve">
+        <value>Seans Ekle</value>
+    </data>
     <data name="AddStopLossOrder" xml:space="preserve">
         <value>Zarar Kes Emri Ekle</value>
     </data>
@@ -148,6 +166,9 @@
     <data name="AddTradingAccount" xml:space="preserve">
         <value>İşlem Hesabı Ekle</value>
     </data>
+    <data name="AfterHours" xml:space="preserve">
+        <value>Seans Sonrası</value>
+    </data>
     <data name="Balance" xml:space="preserve">
         <value>Bakiye</value>
     </data>
@@ -157,8 +178,17 @@
     <data name="Boolean" xml:space="preserve">
         <value>Boolean</value>
     </data>
+    <data name="Break" xml:space="preserve">
+        <value>Ara</value>
+    </data>
+    <data name="ClosingAuction" xml:space="preserve">
+        <value>Kapanış Seansı</value>
+    </data>
     <data name="Commodity" xml:space="preserve">
         <value>Emtia</value>
+    </data>
+    <data name="CountryCode" xml:space="preserve">
+        <value>Ülke Kodu</value>
     </data>
     <data name="CreateCurrency" xml:space="preserve">
         <value>Döviz Oluştur</value>
@@ -169,8 +199,14 @@
     <data name="CreateExchange" xml:space="preserve">
         <value>Borsa Oluştur</value>
     </data>
+    <data name="CreateHoliday" xml:space="preserve">
+        <value>Tatil Oluştur</value>
+    </data>
     <data name="CreateIUpdatedAt" xml:space="preserve">
         <value>Değişiklik Tarihi Oluştur</value>
+    </data>
+    <data name="CreateSession" xml:space="preserve">
+        <value>Seans Oluştur</value>
     </data>
     <data name="CreateStopLossOrder" xml:space="preserve">
         <value>Zarar Kes Emri Oluştur</value>
@@ -220,6 +256,12 @@
     <data name="DateTimeArray" xml:space="preserve">
         <value>Tarih/Zaman Dizisi</value>
     </data>
+    <data name="Day" xml:space="preserve">
+        <value>Gün</value>
+    </data>
+    <data name="DayOfWeek" xml:space="preserve">
+        <value>Haftanın Günü</value>
+    </data>
     <data name="Decimal" xml:space="preserve">
         <value>Ondalık</value>
     </data>
@@ -227,6 +269,9 @@
         <value>Ondalık Dizisi</value>
     </data>
     <data name="DefaultCurrency" xml:space="preserve">
+        <value>Varsayılan Döviz</value>
+    </data>
+    <data name="DefaultCurrencyId" xml:space="preserve">
         <value>Varsayılan Döviz</value>
     </data>
     <data name="DeleteCurrency" xml:space="preserve">
@@ -238,8 +283,14 @@
     <data name="DeleteExchange" xml:space="preserve">
         <value>Borsayı Sil</value>
     </data>
+    <data name="DeleteHoliday" xml:space="preserve">
+        <value>Tatili Sil</value>
+    </data>
     <data name="DeleteIUpdatedAt" xml:space="preserve">
         <value>Değişiklik Tarihini Sil</value>
+    </data>
+    <data name="DeleteSession" xml:space="preserve">
+        <value>Seansı Sil</value>
     </data>
     <data name="DeleteStopLossOrder" xml:space="preserve">
         <value>Zarar Kes Emrini Sil</value>
@@ -274,8 +325,14 @@
     <data name="EditExchange" xml:space="preserve">
         <value>Borsayı Düzenle</value>
     </data>
+    <data name="EditHoliday" xml:space="preserve">
+        <value>Tatili Düzenle</value>
+    </data>
     <data name="EditIUpdatedAt" xml:space="preserve">
         <value>Değişiklik Tarihini Düzenle</value>
+    </data>
+    <data name="EditSession" xml:space="preserve">
+        <value>Seansı Düzenle</value>
     </data>
     <data name="EditStopLossOrder" xml:space="preserve">
         <value>Zarar Kes Emrini Düzenle</value>
@@ -294,6 +351,9 @@
     </data>
     <data name="EditTradingAccount" xml:space="preserve">
         <value>İşlem Hesabını Düzenle</value>
+    </data>
+    <data name="ElectronicTradingHours" xml:space="preserve">
+        <value>Elektronik İşlem Saatleri</value>
     </data>
     <data name="Email" xml:space="preserve">
         <value>E-Posta</value>
@@ -370,6 +430,21 @@
     <data name="HasAnySymbol" xml:space="preserve">
         <value>Sembole Sahip</value>
     </data>
+    <data name="Holiday" xml:space="preserve">
+        <value>Tatil</value>
+    </data>
+    <data name="HolidayDate" xml:space="preserve">
+        <value>Tatil Tarihi</value>
+    </data>
+    <data name="HolidayName" xml:space="preserve">
+        <value>Tatil İsmi</value>
+    </data>
+    <data name="Holidays" xml:space="preserve">
+        <value>Tatilller</value>
+    </data>
+    <data name="HolidaysList" xml:space="preserve">
+        <value>Tatil Listesi</value>
+    </data>
     <data name="Id" xml:space="preserve">
         <value>Kayıt No</value>
     </data>
@@ -388,8 +463,14 @@
     <data name="IsActive" xml:space="preserve">
         <value>Aktif</value>
     </data>
+    <data name="IsAlwaysOpen" xml:space="preserve">
+        <value>Sürekli Açık</value>
+    </data>
     <data name="IsFullyClosed" xml:space="preserve">
         <value>Tamamen Kapandı</value>
+    </data>
+    <data name="IsHalfDay" xml:space="preserve">
+        <value>Yarım Gün</value>
     </data>
     <data name="IUpdatedAt" xml:space="preserve">
         <value>Değişiklik Tarihi</value>
@@ -403,17 +484,29 @@
     <data name="Limit" xml:space="preserve">
         <value>Limit</value>
     </data>
+    <data name="LocalClose" xml:space="preserve">
+        <value>Kapanış (Yerel Saat)</value>
+    </data>
+    <data name="LocalOpen" xml:space="preserve">
+        <value>Açılış (Yerel Saat)</value>
+    </data>
     <data name="Market" xml:space="preserve">
         <value>Market</value>
     </data>
     <data name="MarketType" xml:space="preserve">
         <value>Piyasa Tipi</value>
     </data>
+    <data name="Month" xml:space="preserve">
+        <value>Ay</value>
+    </data>
     <data name="NetResult" xml:space="preserve">
         <value>Net Sonuç</value>
     </data>
     <data name="Notes" xml:space="preserve">
         <value>Notlar</value>
+    </data>
+    <data name="OpeningAuction" xml:space="preserve">
+        <value>Açılış Seansı</value>
     </data>
     <data name="Option" xml:space="preserve">
         <value>Opsiyon</value>
@@ -451,6 +544,9 @@
     <data name="PlannedTP" xml:space="preserve">
         <value>Planlanan Kar Al</value>
     </data>
+    <data name="PreMarket" xml:space="preserve">
+        <value>Seans Öncesi</value>
+    </data>
     <data name="PriceCurrency" xml:space="preserve">
         <value>Karşı Döviz</value>
     </data>
@@ -459,6 +555,12 @@
     </data>
     <data name="RealizedProfitLoss" xml:space="preserve">
         <value>Gerçekleşen Kazanç/Kayıp</value>
+    </data>
+    <data name="Regular" xml:space="preserve">
+        <value>Normal Seans</value>
+    </data>
+    <data name="RegularTradingHours" xml:space="preserve">
+        <value>Normal İşlem Saatleri</value>
     </data>
     <data name="RemoveCurrency" xml:space="preserve">
         <value>Dövizi Çıkart</value>
@@ -469,8 +571,14 @@
     <data name="RemoveExchange" xml:space="preserve">
         <value>Borsayı Çıkart</value>
     </data>
+    <data name="RemoveHoliday" xml:space="preserve">
+        <value>Tatil Çıkar</value>
+    </data>
     <data name="RemoveIUpdatedAt" xml:space="preserve">
         <value>Değişiklik Tarihini Çıkar</value>
+    </data>
+    <data name="RemoveSession" xml:space="preserve">
+        <value>Seans Çıkar</value>
     </data>
     <data name="RemoveStopLossOrder" xml:space="preserve">
         <value>Zarar Kes Emrini Çıkar</value>
@@ -492,6 +600,18 @@
     </data>
     <data name="ReportTypes" xml:space="preserve">
         <value>Rapor Tipi</value>
+    </data>
+    <data name="Session" xml:space="preserve">
+        <value>Seans</value>
+    </data>
+    <data name="Sessions" xml:space="preserve">
+        <value>Seanslar</value>
+    </data>
+    <data name="SessionsList" xml:space="preserve">
+        <value>Seans Listesi</value>
+    </data>
+    <data name="SessionType" xml:space="preserve">
+        <value>Seans Türü</value>
     </data>
     <data name="SettingType" xml:space="preserve">
         <value>Ayar Tipi</value>
@@ -519,6 +639,9 @@
     </data>
     <data name="StringArray" xml:space="preserve">
         <value>Metin Dizisi</value>
+    </data>
+    <data name="SundayOpen" xml:space="preserve">
+        <value>Pazar Açılışı</value>
     </data>
     <data name="Symbol" xml:space="preserve">
         <value>Sembol</value>
@@ -549,6 +672,9 @@
     </data>
     <data name="TickerFull" xml:space="preserve">
         <value>Uzun İşlem Kodu</value>
+    </data>
+    <data name="Timezone" xml:space="preserve">
+        <value>Saat Dilimi</value>
     </data>
     <data name="Title" xml:space="preserve">
         <value>Başlık</value>

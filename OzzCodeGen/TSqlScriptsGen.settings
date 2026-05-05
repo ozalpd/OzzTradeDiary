@@ -89,6 +89,33 @@
       <CustomStoredProcs>false</CustomStoredProcs>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="StorageEntitySetting">
+      <Name>ICreatedAt</Name>
+      <Exclude>true</Exclude>
+      <OverwriteExisting>false</OverwriteExisting>
+      <Properties>
+        <StorageColumnSetting>
+          <Name>CreatedAt</Name>
+          <Exclude>false</Exclude>
+          <DataType>DateTime</DataType>
+          <Length>0</Length>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <Unique>false</Unique>
+          <SortDesc>false</SortDesc>
+          <Nullable>false</Nullable>
+          <CheckIfAltered>false</CheckIfAltered>
+          <DoNotLog>false</DoNotLog>
+        </StorageColumnSetting>
+      </Properties>
+      <InheritedEntity>IPrimaryKey</InheritedEntity>
+      <UseInheritance>false</UseInheritance>
+      <SchemaName>dbo</SchemaName>
+      <TableName>ICreatedAts</TableName>
+      <HasLogTable>false</HasLogTable>
+      <StoredProcGeneration>NoStoredProcedure</StoredProcGeneration>
+      <CustomStoredProcs>false</CustomStoredProcs>
+    </BaseEntitySetting>
+    <BaseEntitySetting xsi:type="StorageEntitySetting">
       <Name>IUpdatedAt</Name>
       <Exclude>true</Exclude>
       <OverwriteExisting>false</OverwriteExisting>
@@ -113,33 +140,6 @@
       <UseInheritance>false</UseInheritance>
       <SchemaName>dbo</SchemaName>
       <TableName>IUpdatedAts</TableName>
-      <HasLogTable>false</HasLogTable>
-      <StoredProcGeneration>NoStoredProcedure</StoredProcGeneration>
-      <CustomStoredProcs>false</CustomStoredProcs>
-    </BaseEntitySetting>
-    <BaseEntitySetting xsi:type="StorageEntitySetting">
-      <Name>ICreatedAt</Name>
-      <Exclude>true</Exclude>
-      <OverwriteExisting>false</OverwriteExisting>
-      <Properties>
-        <StorageColumnSetting>
-          <Name>CreatedAt</Name>
-          <Exclude>false</Exclude>
-          <DataType>DateTime</DataType>
-          <Length>0</Length>
-          <PrimaryKey>false</PrimaryKey>
-          <Indexed>false</Indexed>
-          <Unique>false</Unique>
-          <SortDesc>false</SortDesc>
-          <Nullable>false</Nullable>
-          <CheckIfAltered>false</CheckIfAltered>
-          <DoNotLog>false</DoNotLog>
-        </StorageColumnSetting>
-      </Properties>
-      <InheritedEntity>IPrimaryKey</InheritedEntity>
-      <UseInheritance>false</UseInheritance>
-      <SchemaName>dbo</SchemaName>
-      <TableName>ICreatedAts</TableName>
       <HasLogTable>false</HasLogTable>
       <StoredProcGeneration>NoStoredProcedure</StoredProcGeneration>
       <CustomStoredProcs>false</CustomStoredProcs>
@@ -295,6 +295,19 @@
           <DoNotLog>false</DoNotLog>
         </StorageColumnSetting>
         <StorageColumnSetting>
+          <Name>CountryCode</Name>
+          <Exclude>false</Exclude>
+          <DataType>nVarChar</DataType>
+          <Length>4</Length>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <Unique>false</Unique>
+          <SortDesc>false</SortDesc>
+          <Nullable>false</Nullable>
+          <CheckIfAltered>false</CheckIfAltered>
+          <DoNotLog>false</DoNotLog>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
           <Name>DefaultCurrencyId</Name>
           <Exclude>false</Exclude>
           <DataType>int</DataType>
@@ -307,6 +320,32 @@
           <CheckIfAltered>false</CheckIfAltered>
           <DoNotLog>false</DoNotLog>
           <ForeignKeyTable>Currencies</ForeignKeyTable>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>Timezone</Name>
+          <Exclude>false</Exclude>
+          <DataType>nVarChar</DataType>
+          <Length>0</Length>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <Unique>false</Unique>
+          <SortDesc>false</SortDesc>
+          <Nullable>false</Nullable>
+          <CheckIfAltered>false</CheckIfAltered>
+          <DoNotLog>false</DoNotLog>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>IsAlwaysOpen</Name>
+          <Exclude>false</Exclude>
+          <DataType>bit</DataType>
+          <Length>0</Length>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <Unique>false</Unique>
+          <SortDesc>false</SortDesc>
+          <Nullable>false</Nullable>
+          <CheckIfAltered>false</CheckIfAltered>
+          <DoNotLog>false</DoNotLog>
         </StorageColumnSetting>
         <StorageColumnSetting>
           <Name>HasAnySymbol</Name>
@@ -326,6 +365,179 @@
       <UseInheritance>false</UseInheritance>
       <SchemaName>dbo</SchemaName>
       <TableName>Exchanges</TableName>
+      <HasLogTable>false</HasLogTable>
+      <StoredProcGeneration>NoStoredProcedure</StoredProcGeneration>
+      <CustomStoredProcs>false</CustomStoredProcs>
+    </BaseEntitySetting>
+    <BaseEntitySetting xsi:type="StorageEntitySetting">
+      <Name>Session</Name>
+      <Exclude>false</Exclude>
+      <OverwriteExisting>false</OverwriteExisting>
+      <Properties>
+        <StorageColumnSetting>
+          <Name>ExchangeId</Name>
+          <Exclude>false</Exclude>
+          <DataType>int</DataType>
+          <Length>0</Length>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <Unique>false</Unique>
+          <SortDesc>false</SortDesc>
+          <Nullable>false</Nullable>
+          <CheckIfAltered>false</CheckIfAltered>
+          <DoNotLog>false</DoNotLog>
+          <ForeignKeyTable>Exchanges</ForeignKeyTable>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>SessionType</Name>
+          <Exclude>false</Exclude>
+          <DataType>int</DataType>
+          <Length>0</Length>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <Unique>false</Unique>
+          <SortDesc>false</SortDesc>
+          <Nullable>false</Nullable>
+          <CheckIfAltered>false</CheckIfAltered>
+          <DoNotLog>false</DoNotLog>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>DayOfWeek</Name>
+          <Exclude>false</Exclude>
+          <DataType>int</DataType>
+          <Length>0</Length>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <Unique>false</Unique>
+          <SortDesc>false</SortDesc>
+          <Nullable>false</Nullable>
+          <CheckIfAltered>false</CheckIfAltered>
+          <DoNotLog>false</DoNotLog>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>LocalOpen</Name>
+          <Exclude>false</Exclude>
+          <DataType>nVarChar</DataType>
+          <Length>10</Length>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <Unique>false</Unique>
+          <SortDesc>false</SortDesc>
+          <Nullable>false</Nullable>
+          <CheckIfAltered>false</CheckIfAltered>
+          <DoNotLog>false</DoNotLog>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>LocalClose</Name>
+          <Exclude>false</Exclude>
+          <DataType>nVarChar</DataType>
+          <Length>10</Length>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <Unique>false</Unique>
+          <SortDesc>false</SortDesc>
+          <Nullable>false</Nullable>
+          <CheckIfAltered>false</CheckIfAltered>
+          <DoNotLog>false</DoNotLog>
+        </StorageColumnSetting>
+      </Properties>
+      <InheritedEntity>IDisplayOrder</InheritedEntity>
+      <UseInheritance>false</UseInheritance>
+      <SchemaName>dbo</SchemaName>
+      <TableName>Sessions</TableName>
+      <HasLogTable>false</HasLogTable>
+      <StoredProcGeneration>NoStoredProcedure</StoredProcGeneration>
+      <CustomStoredProcs>false</CustomStoredProcs>
+    </BaseEntitySetting>
+    <BaseEntitySetting xsi:type="StorageEntitySetting">
+      <Name>Holiday</Name>
+      <Exclude>false</Exclude>
+      <OverwriteExisting>false</OverwriteExisting>
+      <Properties>
+        <StorageColumnSetting>
+          <Name>HolidayName</Name>
+          <Exclude>false</Exclude>
+          <DataType>nVarChar</DataType>
+          <Length>200</Length>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <Unique>false</Unique>
+          <SortDesc>false</SortDesc>
+          <Nullable>false</Nullable>
+          <CheckIfAltered>false</CheckIfAltered>
+          <DoNotLog>false</DoNotLog>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>ExchangeId</Name>
+          <Exclude>false</Exclude>
+          <DataType>int</DataType>
+          <Length>0</Length>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <Unique>false</Unique>
+          <SortDesc>false</SortDesc>
+          <Nullable>false</Nullable>
+          <CheckIfAltered>false</CheckIfAltered>
+          <DoNotLog>false</DoNotLog>
+          <ForeignKeyTable>Exchanges</ForeignKeyTable>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>Month</Name>
+          <Exclude>false</Exclude>
+          <DataType>int</DataType>
+          <Length>0</Length>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <Unique>false</Unique>
+          <SortDesc>false</SortDesc>
+          <Nullable>true</Nullable>
+          <CheckIfAltered>false</CheckIfAltered>
+          <DoNotLog>false</DoNotLog>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>Day</Name>
+          <Exclude>false</Exclude>
+          <DataType>int</DataType>
+          <Length>0</Length>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <Unique>false</Unique>
+          <SortDesc>false</SortDesc>
+          <Nullable>true</Nullable>
+          <CheckIfAltered>false</CheckIfAltered>
+          <DoNotLog>false</DoNotLog>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>HolidayDate</Name>
+          <Exclude>false</Exclude>
+          <DataType>DateTime</DataType>
+          <Length>0</Length>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <Unique>false</Unique>
+          <SortDesc>false</SortDesc>
+          <Nullable>true</Nullable>
+          <CheckIfAltered>false</CheckIfAltered>
+          <DoNotLog>false</DoNotLog>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>IsHalfDay</Name>
+          <Exclude>false</Exclude>
+          <DataType>bit</DataType>
+          <Length>0</Length>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <Unique>false</Unique>
+          <SortDesc>false</SortDesc>
+          <Nullable>false</Nullable>
+          <CheckIfAltered>false</CheckIfAltered>
+          <DoNotLog>false</DoNotLog>
+        </StorageColumnSetting>
+      </Properties>
+      <InheritedEntity>IPrimaryKey</InheritedEntity>
+      <UseInheritance>false</UseInheritance>
+      <SchemaName>dbo</SchemaName>
+      <TableName>Holidays</TableName>
       <HasLogTable>false</HasLogTable>
       <StoredProcGeneration>NoStoredProcedure</StoredProcGeneration>
       <CustomStoredProcs>false</CustomStoredProcs>

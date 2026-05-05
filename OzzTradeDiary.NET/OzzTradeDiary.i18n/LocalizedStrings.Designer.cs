@@ -88,6 +88,15 @@ namespace TD.i18n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add Holiday.
+        /// </summary>
+        public static string AddHoliday {
+            get {
+                return ResourceManager.GetString("AddHoliday", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add IUpdated At.
         /// </summary>
         public static string AddIUpdatedAt {
@@ -124,11 +133,29 @@ namespace TD.i18n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add New Holiday.
+        /// </summary>
+        public static string AddNewHoliday {
+            get {
+                return ResourceManager.GetString("AddNewHoliday", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add New IUpdated At.
         /// </summary>
         public static string AddNewIUpdatedAt {
             get {
                 return ResourceManager.GetString("AddNewIUpdatedAt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add New Session.
+        /// </summary>
+        public static string AddNewSession {
+            get {
+                return ResourceManager.GetString("AddNewSession", resourceCulture);
             }
         }
         
@@ -214,11 +241,29 @@ namespace TD.i18n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add Remove Holiday.
+        /// </summary>
+        public static string AddRemoveHoliday {
+            get {
+                return ResourceManager.GetString("AddRemoveHoliday", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add Remove IUpdated At.
         /// </summary>
         public static string AddRemoveIUpdatedAt {
             get {
                 return ResourceManager.GetString("AddRemoveIUpdatedAt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add Remove Session.
+        /// </summary>
+        public static string AddRemoveSession {
+            get {
+                return ResourceManager.GetString("AddRemoveSession", resourceCulture);
             }
         }
         
@@ -277,6 +322,15 @@ namespace TD.i18n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add Session.
+        /// </summary>
+        public static string AddSession {
+            get {
+                return ResourceManager.GetString("AddSession", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add Stop Loss Order.
         /// </summary>
         public static string AddStopLossOrder {
@@ -331,6 +385,15 @@ namespace TD.i18n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to After Hours.
+        /// </summary>
+        public static string AfterHours {
+            get {
+                return ResourceManager.GetString("AfterHours", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Balance.
         /// </summary>
         public static string Balance {
@@ -358,11 +421,38 @@ namespace TD.i18n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Break.
+        /// </summary>
+        public static string Break {
+            get {
+                return ResourceManager.GetString("Break", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Closing Auction.
+        /// </summary>
+        public static string ClosingAuction {
+            get {
+                return ResourceManager.GetString("ClosingAuction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Commodity.
         /// </summary>
         public static string Commodity {
             get {
                 return ResourceManager.GetString("Commodity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Country Code.
+        /// </summary>
+        public static string CountryCode {
+            get {
+                return ResourceManager.GetString("CountryCode", resourceCulture);
             }
         }
         
@@ -394,11 +484,29 @@ namespace TD.i18n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Create Holiday.
+        /// </summary>
+        public static string CreateHoliday {
+            get {
+                return ResourceManager.GetString("CreateHoliday", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Create IUpdated At.
         /// </summary>
         public static string CreateIUpdatedAt {
             get {
                 return ResourceManager.GetString("CreateIUpdatedAt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Create Session.
+        /// </summary>
+        public static string CreateSession {
+            get {
+                return ResourceManager.GetString("CreateSession", resourceCulture);
             }
         }
         
@@ -547,6 +655,24 @@ namespace TD.i18n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Day.
+        /// </summary>
+        public static string Day {
+            get {
+                return ResourceManager.GetString("Day", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Day Of Week.
+        /// </summary>
+        public static string DayOfWeek {
+            get {
+                return ResourceManager.GetString("DayOfWeek", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Decimal.
         /// </summary>
         public static string Decimal {
@@ -570,6 +696,15 @@ namespace TD.i18n {
         public static string DefaultCurrency {
             get {
                 return ResourceManager.GetString("DefaultCurrency", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Default Currency Id.
+        /// </summary>
+        public static string DefaultCurrencyId {
+            get {
+                return ResourceManager.GetString("DefaultCurrencyId", resourceCulture);
             }
         }
         
@@ -601,11 +736,29 @@ namespace TD.i18n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Delete Holiday.
+        /// </summary>
+        public static string DeleteHoliday {
+            get {
+                return ResourceManager.GetString("DeleteHoliday", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Delete IUpdated At.
         /// </summary>
         public static string DeleteIUpdatedAt {
             get {
                 return ResourceManager.GetString("DeleteIUpdatedAt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete Session.
+        /// </summary>
+        public static string DeleteSession {
+            get {
+                return ResourceManager.GetString("DeleteSession", resourceCulture);
             }
         }
         
@@ -709,11 +862,29 @@ namespace TD.i18n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Edit Holiday.
+        /// </summary>
+        public static string EditHoliday {
+            get {
+                return ResourceManager.GetString("EditHoliday", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Edit IUpdated At.
         /// </summary>
         public static string EditIUpdatedAt {
             get {
                 return ResourceManager.GetString("EditIUpdatedAt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit Session.
+        /// </summary>
+        public static string EditSession {
+            get {
+                return ResourceManager.GetString("EditSession", resourceCulture);
             }
         }
         
@@ -768,6 +939,15 @@ namespace TD.i18n {
         public static string EditTradingAccount {
             get {
                 return ResourceManager.GetString("EditTradingAccount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Electronic Trading Hours.
+        /// </summary>
+        public static string ElectronicTradingHours {
+            get {
+                return ResourceManager.GetString("ElectronicTradingHours", resourceCulture);
             }
         }
         
@@ -997,6 +1177,51 @@ namespace TD.i18n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Holiday.
+        /// </summary>
+        public static string Holiday {
+            get {
+                return ResourceManager.GetString("Holiday", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Holiday Date.
+        /// </summary>
+        public static string HolidayDate {
+            get {
+                return ResourceManager.GetString("HolidayDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Holiday Name.
+        /// </summary>
+        public static string HolidayName {
+            get {
+                return ResourceManager.GetString("HolidayName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Holidays.
+        /// </summary>
+        public static string Holidays {
+            get {
+                return ResourceManager.GetString("Holidays", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Holidays List.
+        /// </summary>
+        public static string HolidaysList {
+            get {
+                return ResourceManager.GetString("HolidaysList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Record Nr.
         /// </summary>
         public static string Id {
@@ -1051,11 +1276,29 @@ namespace TD.i18n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Is Always Open.
+        /// </summary>
+        public static string IsAlwaysOpen {
+            get {
+                return ResourceManager.GetString("IsAlwaysOpen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Is Fully Closed.
         /// </summary>
         public static string IsFullyClosed {
             get {
                 return ResourceManager.GetString("IsFullyClosed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Is Half Day.
+        /// </summary>
+        public static string IsHalfDay {
+            get {
+                return ResourceManager.GetString("IsHalfDay", resourceCulture);
             }
         }
         
@@ -1096,6 +1339,24 @@ namespace TD.i18n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Local Close.
+        /// </summary>
+        public static string LocalClose {
+            get {
+                return ResourceManager.GetString("LocalClose", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Local Open.
+        /// </summary>
+        public static string LocalOpen {
+            get {
+                return ResourceManager.GetString("LocalOpen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Market.
         /// </summary>
         public static string Market {
@@ -1114,6 +1375,15 @@ namespace TD.i18n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Month.
+        /// </summary>
+        public static string Month {
+            get {
+                return ResourceManager.GetString("Month", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Net Result.
         /// </summary>
         public static string NetResult {
@@ -1128,6 +1398,15 @@ namespace TD.i18n {
         public static string Notes {
             get {
                 return ResourceManager.GetString("Notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Opening Auction.
+        /// </summary>
+        public static string OpeningAuction {
+            get {
+                return ResourceManager.GetString("OpeningAuction", resourceCulture);
             }
         }
         
@@ -1240,6 +1519,15 @@ namespace TD.i18n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Pre Market.
+        /// </summary>
+        public static string PreMarket {
+            get {
+                return ResourceManager.GetString("PreMarket", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Price Currency.
         /// </summary>
         public static string PriceCurrency {
@@ -1263,6 +1551,24 @@ namespace TD.i18n {
         public static string RealizedProfitLoss {
             get {
                 return ResourceManager.GetString("RealizedProfitLoss", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Regular.
+        /// </summary>
+        public static string Regular {
+            get {
+                return ResourceManager.GetString("Regular", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Regular Trading Hours.
+        /// </summary>
+        public static string RegularTradingHours {
+            get {
+                return ResourceManager.GetString("RegularTradingHours", resourceCulture);
             }
         }
         
@@ -1294,11 +1600,29 @@ namespace TD.i18n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Remove Holiday.
+        /// </summary>
+        public static string RemoveHoliday {
+            get {
+                return ResourceManager.GetString("RemoveHoliday", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Remove IUpdated At.
         /// </summary>
         public static string RemoveIUpdatedAt {
             get {
                 return ResourceManager.GetString("RemoveIUpdatedAt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Remove Session.
+        /// </summary>
+        public static string RemoveSession {
+            get {
+                return ResourceManager.GetString("RemoveSession", resourceCulture);
             }
         }
         
@@ -1362,6 +1686,42 @@ namespace TD.i18n {
         public static string ReportTypes {
             get {
                 return ResourceManager.GetString("ReportTypes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Session.
+        /// </summary>
+        public static string Session {
+            get {
+                return ResourceManager.GetString("Session", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sessions.
+        /// </summary>
+        public static string Sessions {
+            get {
+                return ResourceManager.GetString("Sessions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sessions List.
+        /// </summary>
+        public static string SessionsList {
+            get {
+                return ResourceManager.GetString("SessionsList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Session Type.
+        /// </summary>
+        public static string SessionType {
+            get {
+                return ResourceManager.GetString("SessionType", resourceCulture);
             }
         }
         
@@ -1443,6 +1803,15 @@ namespace TD.i18n {
         public static string StringArray {
             get {
                 return ResourceManager.GetString("StringArray", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sunday Open.
+        /// </summary>
+        public static string SundayOpen {
+            get {
+                return ResourceManager.GetString("SundayOpen", resourceCulture);
             }
         }
         
@@ -1533,6 +1902,15 @@ namespace TD.i18n {
         public static string TickerFull {
             get {
                 return ResourceManager.GetString("TickerFull", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Timezone.
+        /// </summary>
+        public static string Timezone {
+            get {
+                return ResourceManager.GetString("Timezone", resourceCulture);
             }
         }
         

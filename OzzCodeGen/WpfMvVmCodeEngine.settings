@@ -23,15 +23,15 @@
       </Properties>
       <CommandVmNamespace />
       <CommandVmTypeName />
-      <GenerateCreateCommand>true</GenerateCreateCommand>
-      <GenerateEditCommand>true</GenerateEditCommand>
-      <GenerateDeleteCommand>true</GenerateDeleteCommand>
-      <GenerateCreateVM>false</GenerateCreateVM>
-      <GenerateEditVM>false</GenerateEditVM>
-      <GenerateCollectionVM>false</GenerateCollectionVM>
-      <GenerateLookupService>false</GenerateLookupService>
-      <GenerateCreateView>true</GenerateCreateView>
-      <GenerateEditView>true</GenerateEditView>
+      <GenModeCreateCommand>DoNotGenerate</GenModeCreateCommand>
+      <GenModeEditCommand>DoNotGenerate</GenModeEditCommand>
+      <GenModeDeleteCommand>DoNotGenerate</GenModeDeleteCommand>
+      <GenModeCreateVM>DoNotGenerate</GenModeCreateVM>
+      <GenModeEditVM>DoNotGenerate</GenModeEditVM>
+      <GenModeCollectionVM>DoNotGenerate</GenModeCollectionVM>
+      <GenModeLookupService>DoNotGenerate</GenModeLookupService>
+      <GenModeCreateView>DoNotGenerate</GenModeCreateView>
+      <GenModeEditView>DoNotGenerate</GenModeEditView>
       <RepositoryName />
       <SubFolder />
     </BaseEntitySetting>
@@ -54,15 +54,15 @@
       </Properties>
       <CommandVmNamespace />
       <CommandVmTypeName />
-      <GenerateCreateCommand>true</GenerateCreateCommand>
-      <GenerateEditCommand>true</GenerateEditCommand>
-      <GenerateDeleteCommand>true</GenerateDeleteCommand>
-      <GenerateCreateVM>false</GenerateCreateVM>
-      <GenerateEditVM>false</GenerateEditVM>
-      <GenerateCollectionVM>false</GenerateCollectionVM>
-      <GenerateLookupService>false</GenerateLookupService>
-      <GenerateCreateView>true</GenerateCreateView>
-      <GenerateEditView>true</GenerateEditView>
+      <GenModeCreateCommand>DoNotGenerate</GenModeCreateCommand>
+      <GenModeEditCommand>DoNotGenerate</GenModeEditCommand>
+      <GenModeDeleteCommand>DoNotGenerate</GenModeDeleteCommand>
+      <GenModeCreateVM>DoNotGenerate</GenModeCreateVM>
+      <GenModeEditVM>DoNotGenerate</GenModeEditVM>
+      <GenModeCollectionVM>DoNotGenerate</GenModeCollectionVM>
+      <GenModeLookupService>DoNotGenerate</GenModeLookupService>
+      <GenModeCreateView>DoNotGenerate</GenModeCreateView>
+      <GenModeEditView>DoNotGenerate</GenModeEditView>
       <RepositoryName />
       <SubFolder />
     </BaseEntitySetting>
@@ -85,15 +85,15 @@
       </Properties>
       <CommandVmNamespace />
       <CommandVmTypeName />
-      <GenerateCreateCommand>true</GenerateCreateCommand>
-      <GenerateEditCommand>true</GenerateEditCommand>
-      <GenerateDeleteCommand>true</GenerateDeleteCommand>
-      <GenerateCreateVM>false</GenerateCreateVM>
-      <GenerateEditVM>false</GenerateEditVM>
-      <GenerateCollectionVM>false</GenerateCollectionVM>
-      <GenerateLookupService>false</GenerateLookupService>
-      <GenerateCreateView>true</GenerateCreateView>
-      <GenerateEditView>true</GenerateEditView>
+      <GenModeCreateCommand>DoNotGenerate</GenModeCreateCommand>
+      <GenModeEditCommand>DoNotGenerate</GenModeEditCommand>
+      <GenModeDeleteCommand>DoNotGenerate</GenModeDeleteCommand>
+      <GenModeCreateVM>DoNotGenerate</GenModeCreateVM>
+      <GenModeEditVM>DoNotGenerate</GenModeEditVM>
+      <GenModeCollectionVM>DoNotGenerate</GenModeCollectionVM>
+      <GenModeLookupService>DoNotGenerate</GenModeLookupService>
+      <GenModeCreateView>DoNotGenerate</GenModeCreateView>
+      <GenModeEditView>DoNotGenerate</GenModeEditView>
       <RepositoryName />
       <SubFolder />
     </BaseEntitySetting>
@@ -116,15 +116,15 @@
       </Properties>
       <CommandVmNamespace />
       <CommandVmTypeName />
-      <GenerateCreateCommand>true</GenerateCreateCommand>
-      <GenerateEditCommand>true</GenerateEditCommand>
-      <GenerateDeleteCommand>true</GenerateDeleteCommand>
-      <GenerateCreateVM>false</GenerateCreateVM>
-      <GenerateEditVM>false</GenerateEditVM>
-      <GenerateCollectionVM>false</GenerateCollectionVM>
-      <GenerateLookupService>false</GenerateLookupService>
-      <GenerateCreateView>true</GenerateCreateView>
-      <GenerateEditView>true</GenerateEditView>
+      <GenModeCreateCommand>DoNotGenerate</GenModeCreateCommand>
+      <GenModeEditCommand>DoNotGenerate</GenModeEditCommand>
+      <GenModeDeleteCommand>DoNotGenerate</GenModeDeleteCommand>
+      <GenModeCreateVM>DoNotGenerate</GenModeCreateVM>
+      <GenModeEditVM>DoNotGenerate</GenModeEditVM>
+      <GenModeCollectionVM>DoNotGenerate</GenModeCollectionVM>
+      <GenModeLookupService>DoNotGenerate</GenModeLookupService>
+      <GenModeCreateView>DoNotGenerate</GenModeCreateView>
+      <GenModeEditView>DoNotGenerate</GenModeEditView>
       <RepositoryName />
       <SubFolder />
     </BaseEntitySetting>
@@ -147,15 +147,15 @@
       </Properties>
       <CommandVmNamespace />
       <CommandVmTypeName />
-      <GenerateCreateCommand>true</GenerateCreateCommand>
-      <GenerateEditCommand>true</GenerateEditCommand>
-      <GenerateDeleteCommand>true</GenerateDeleteCommand>
-      <GenerateCreateVM>false</GenerateCreateVM>
-      <GenerateEditVM>false</GenerateEditVM>
-      <GenerateCollectionVM>false</GenerateCollectionVM>
-      <GenerateLookupService>false</GenerateLookupService>
-      <GenerateCreateView>true</GenerateCreateView>
-      <GenerateEditView>true</GenerateEditView>
+      <GenModeCreateCommand>DoNotGenerate</GenModeCreateCommand>
+      <GenModeEditCommand>DoNotGenerate</GenModeEditCommand>
+      <GenModeDeleteCommand>DoNotGenerate</GenModeDeleteCommand>
+      <GenModeCreateVM>DoNotGenerate</GenModeCreateVM>
+      <GenModeEditVM>DoNotGenerate</GenModeEditVM>
+      <GenModeCollectionVM>DoNotGenerate</GenModeCollectionVM>
+      <GenModeLookupService>DoNotGenerate</GenModeLookupService>
+      <GenModeCreateView>DoNotGenerate</GenModeCreateView>
+      <GenModeEditView>DoNotGenerate</GenModeEditView>
       <RepositoryName />
       <SubFolder />
     </BaseEntitySetting>
@@ -255,15 +255,15 @@
       </Properties>
       <CommandVmNamespace />
       <CommandVmTypeName />
-      <GenerateCreateCommand>true</GenerateCreateCommand>
-      <GenerateEditCommand>true</GenerateEditCommand>
-      <GenerateDeleteCommand>true</GenerateDeleteCommand>
-      <GenerateCreateVM>false</GenerateCreateVM>
-      <GenerateEditVM>false</GenerateEditVM>
-      <GenerateCollectionVM>false</GenerateCollectionVM>
-      <GenerateLookupService>false</GenerateLookupService>
-      <GenerateCreateView>true</GenerateCreateView>
-      <GenerateEditView>true</GenerateEditView>
+      <GenModeCreateCommand>DoNotGenerate</GenModeCreateCommand>
+      <GenModeEditCommand>DoNotGenerate</GenModeEditCommand>
+      <GenModeDeleteCommand>DoNotGenerate</GenModeDeleteCommand>
+      <GenModeCreateVM>DoNotGenerate</GenModeCreateVM>
+      <GenModeEditVM>DoNotGenerate</GenModeEditVM>
+      <GenModeCollectionVM>DoNotGenerate</GenModeCollectionVM>
+      <GenModeLookupService>DoNotGenerate</GenModeLookupService>
+      <GenModeCreateView>DoNotGenerate</GenModeCreateView>
+      <GenModeEditView>DoNotGenerate</GenModeEditView>
       <RepositoryName />
       <SubFolder />
     </BaseEntitySetting>
@@ -295,6 +295,17 @@
           <ValueConstraint>.ToUpperInvariant()</ValueConstraint>
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
+          <Name>CountryCode</Name>
+          <Exclude>false</Exclude>
+          <DefaultValue />
+          <IncludeInView>true</IncludeInView>
+          <IncludeInViewModel>true</IncludeInViewModel>
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
+          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
+          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
+          <ValueConstraint />
+        </WpfMvvmPropertySetting>
+        <WpfMvvmPropertySetting>
           <Name>DefaultCurrencyId</Name>
           <Exclude>false</Exclude>
           <DefaultValue />
@@ -307,6 +318,28 @@
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
           <Name>DefaultCurrency</Name>
+          <Exclude>false</Exclude>
+          <DefaultValue />
+          <IncludeInView>true</IncludeInView>
+          <IncludeInViewModel>true</IncludeInViewModel>
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
+          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
+          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
+          <ValueConstraint />
+        </WpfMvvmPropertySetting>
+        <WpfMvvmPropertySetting>
+          <Name>Timezone</Name>
+          <Exclude>false</Exclude>
+          <DefaultValue />
+          <IncludeInView>true</IncludeInView>
+          <IncludeInViewModel>true</IncludeInViewModel>
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
+          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
+          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
+          <ValueConstraint />
+        </WpfMvvmPropertySetting>
+        <WpfMvvmPropertySetting>
+          <Name>IsAlwaysOpen</Name>
           <Exclude>false</Exclude>
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
@@ -330,17 +363,200 @@
       </Properties>
       <CommandVmNamespace>TD.WPF.ViewModels</CommandVmNamespace>
       <CommandVmTypeName>AbstractDiaryVM</CommandVmTypeName>
-      <GenerateCreateCommand>true</GenerateCreateCommand>
-      <GenerateEditCommand>true</GenerateEditCommand>
-      <GenerateDeleteCommand>false</GenerateDeleteCommand>
-      <GenerateCreateVM>true</GenerateCreateVM>
-      <GenerateEditVM>true</GenerateEditVM>
-      <GenerateCollectionVM>false</GenerateCollectionVM>
-      <GenerateLookupService>true</GenerateLookupService>
-      <GenerateCreateView>true</GenerateCreateView>
-      <GenerateEditView>true</GenerateEditView>
+      <GenModeCreateCommand>GenerateIfNotExists</GenModeCreateCommand>
+      <GenModeEditCommand>GenerateIfNotExists</GenModeEditCommand>
+      <GenModeDeleteCommand>GenerateIfNotExists</GenModeDeleteCommand>
+      <GenModeCreateVM>GenerateIfNotExists</GenModeCreateVM>
+      <GenModeEditVM>GenerateIfNotExists</GenModeEditVM>
+      <GenModeCollectionVM>DoNotGenerate</GenModeCollectionVM>
+      <GenModeLookupService>GenerateIfNotExists</GenModeLookupService>
+      <GenModeCreateView>GenerateIfNotExists</GenModeCreateView>
+      <GenModeEditView>GenerateIfNotExists</GenModeEditView>
       <RepositoryName>IExchangeRepository</RepositoryName>
       <SubFolder>Maintenance</SubFolder>
+    </BaseEntitySetting>
+    <BaseEntitySetting xsi:type="WpfMvvmEntitySetting">
+      <Name>Session</Name>
+      <Exclude>false</Exclude>
+      <OverwriteExisting>false</OverwriteExisting>
+      <Properties>
+        <WpfMvvmPropertySetting>
+          <Name>ExchangeId</Name>
+          <Exclude>false</Exclude>
+          <DefaultValue />
+          <IncludeInView>true</IncludeInView>
+          <IncludeInViewModel>true</IncludeInViewModel>
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
+          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
+          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
+          <ValueConstraint />
+        </WpfMvvmPropertySetting>
+        <WpfMvvmPropertySetting>
+          <Name>Exchange</Name>
+          <Exclude>false</Exclude>
+          <DefaultValue />
+          <IncludeInView>true</IncludeInView>
+          <IncludeInViewModel>true</IncludeInViewModel>
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
+          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
+          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
+          <ValueConstraint />
+        </WpfMvvmPropertySetting>
+        <WpfMvvmPropertySetting>
+          <Name>SessionType</Name>
+          <Exclude>false</Exclude>
+          <DefaultValue />
+          <IncludeInView>true</IncludeInView>
+          <IncludeInViewModel>true</IncludeInViewModel>
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
+          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
+          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
+          <ValueConstraint />
+        </WpfMvvmPropertySetting>
+        <WpfMvvmPropertySetting>
+          <Name>DayOfWeek</Name>
+          <Exclude>false</Exclude>
+          <DefaultValue />
+          <IncludeInView>true</IncludeInView>
+          <IncludeInViewModel>true</IncludeInViewModel>
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
+          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
+          <IsReadOnlyInEdit>true</IsReadOnlyInEdit>
+          <ValueConstraint />
+        </WpfMvvmPropertySetting>
+        <WpfMvvmPropertySetting>
+          <Name>LocalOpen</Name>
+          <Exclude>false</Exclude>
+          <DefaultValue />
+          <IncludeInView>true</IncludeInView>
+          <IncludeInViewModel>true</IncludeInViewModel>
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
+          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
+          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
+          <ValueConstraint />
+        </WpfMvvmPropertySetting>
+        <WpfMvvmPropertySetting>
+          <Name>LocalClose</Name>
+          <Exclude>false</Exclude>
+          <DefaultValue />
+          <IncludeInView>true</IncludeInView>
+          <IncludeInViewModel>true</IncludeInViewModel>
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
+          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
+          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
+          <ValueConstraint />
+        </WpfMvvmPropertySetting>
+      </Properties>
+      <CommandVmNamespace />
+      <CommandVmTypeName>ISessionsVM</CommandVmTypeName>
+      <GenModeCreateCommand>GenerateIfNotExists</GenModeCreateCommand>
+      <GenModeEditCommand>GenerateIfNotExists</GenModeEditCommand>
+      <GenModeDeleteCommand>GenerateIfNotExists</GenModeDeleteCommand>
+      <GenModeCreateVM>GenerateIfNotExists</GenModeCreateVM>
+      <GenModeEditVM>GenerateIfNotExists</GenModeEditVM>
+      <GenModeCollectionVM>GenerateIfNotExists</GenModeCollectionVM>
+      <GenModeLookupService>DoNotGenerate</GenModeLookupService>
+      <GenModeCreateView>DoNotGenerate</GenModeCreateView>
+      <GenModeEditView>DoNotGenerate</GenModeEditView>
+      <RepositoryName>ISessionRepository</RepositoryName>
+      <SubFolder>Sessions</SubFolder>
+    </BaseEntitySetting>
+    <BaseEntitySetting xsi:type="WpfMvvmEntitySetting">
+      <Name>Holiday</Name>
+      <Exclude>false</Exclude>
+      <OverwriteExisting>false</OverwriteExisting>
+      <Properties>
+        <WpfMvvmPropertySetting>
+          <Name>HolidayName</Name>
+          <Exclude>false</Exclude>
+          <DefaultValue />
+          <IncludeInView>true</IncludeInView>
+          <IncludeInViewModel>true</IncludeInViewModel>
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
+          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
+          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
+          <ValueConstraint />
+        </WpfMvvmPropertySetting>
+        <WpfMvvmPropertySetting>
+          <Name>ExchangeId</Name>
+          <Exclude>false</Exclude>
+          <DefaultValue />
+          <IncludeInView>true</IncludeInView>
+          <IncludeInViewModel>true</IncludeInViewModel>
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
+          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
+          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
+          <ValueConstraint />
+        </WpfMvvmPropertySetting>
+        <WpfMvvmPropertySetting>
+          <Name>Exchange</Name>
+          <Exclude>false</Exclude>
+          <DefaultValue />
+          <IncludeInView>true</IncludeInView>
+          <IncludeInViewModel>true</IncludeInViewModel>
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
+          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
+          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
+          <ValueConstraint />
+        </WpfMvvmPropertySetting>
+        <WpfMvvmPropertySetting>
+          <Name>Month</Name>
+          <Exclude>false</Exclude>
+          <DefaultValue />
+          <IncludeInView>true</IncludeInView>
+          <IncludeInViewModel>true</IncludeInViewModel>
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
+          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
+          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
+          <ValueConstraint />
+        </WpfMvvmPropertySetting>
+        <WpfMvvmPropertySetting>
+          <Name>Day</Name>
+          <Exclude>false</Exclude>
+          <DefaultValue />
+          <IncludeInView>true</IncludeInView>
+          <IncludeInViewModel>true</IncludeInViewModel>
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
+          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
+          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
+          <ValueConstraint />
+        </WpfMvvmPropertySetting>
+        <WpfMvvmPropertySetting>
+          <Name>HolidayDate</Name>
+          <Exclude>false</Exclude>
+          <DefaultValue />
+          <IncludeInView>true</IncludeInView>
+          <IncludeInViewModel>true</IncludeInViewModel>
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
+          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
+          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
+          <ValueConstraint />
+        </WpfMvvmPropertySetting>
+        <WpfMvvmPropertySetting>
+          <Name>IsHalfDay</Name>
+          <Exclude>false</Exclude>
+          <DefaultValue />
+          <IncludeInView>true</IncludeInView>
+          <IncludeInViewModel>true</IncludeInViewModel>
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
+          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
+          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
+          <ValueConstraint />
+        </WpfMvvmPropertySetting>
+      </Properties>
+      <CommandVmNamespace />
+      <CommandVmTypeName>IHolidaysVM</CommandVmTypeName>
+      <GenModeCreateCommand>GenerateIfNotExists</GenModeCreateCommand>
+      <GenModeEditCommand>GenerateIfNotExists</GenModeEditCommand>
+      <GenModeDeleteCommand>GenerateIfNotExists</GenModeDeleteCommand>
+      <GenModeCreateVM>GenerateIfNotExists</GenModeCreateVM>
+      <GenModeEditVM>GenerateIfNotExists</GenModeEditVM>
+      <GenModeCollectionVM>GenerateIfNotExists</GenModeCollectionVM>
+      <GenModeLookupService>DoNotGenerate</GenModeLookupService>
+      <GenModeCreateView>DoNotGenerate</GenModeCreateView>
+      <GenModeEditView>DoNotGenerate</GenModeEditView>
+      <RepositoryName>IHolidayRepository</RepositoryName>
+      <SubFolder>Holidays</SubFolder>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="WpfMvvmEntitySetting">
       <Name>TradingAccount</Name>
@@ -394,15 +610,15 @@
       </Properties>
       <CommandVmNamespace>TD.WPF.ViewModels</CommandVmNamespace>
       <CommandVmTypeName>AbstractDiaryVM</CommandVmTypeName>
-      <GenerateCreateCommand>true</GenerateCreateCommand>
-      <GenerateEditCommand>true</GenerateEditCommand>
-      <GenerateDeleteCommand>true</GenerateDeleteCommand>
-      <GenerateCreateVM>true</GenerateCreateVM>
-      <GenerateEditVM>true</GenerateEditVM>
-      <GenerateCollectionVM>false</GenerateCollectionVM>
-      <GenerateLookupService>true</GenerateLookupService>
-      <GenerateCreateView>true</GenerateCreateView>
-      <GenerateEditView>true</GenerateEditView>
+      <GenModeCreateCommand>GenerateIfNotExists</GenModeCreateCommand>
+      <GenModeEditCommand>GenerateIfNotExists</GenModeEditCommand>
+      <GenModeDeleteCommand>GenerateIfNotExists</GenModeDeleteCommand>
+      <GenModeCreateVM>GenerateIfNotExists</GenModeCreateVM>
+      <GenModeEditVM>GenerateIfNotExists</GenModeEditVM>
+      <GenModeCollectionVM>DoNotGenerate</GenModeCollectionVM>
+      <GenModeLookupService>GenerateIfNotExists</GenModeLookupService>
+      <GenModeCreateView>GenerateIfNotExists</GenModeCreateView>
+      <GenModeEditView>GenerateIfNotExists</GenModeEditView>
       <RepositoryName>ITradingAccountRepository</RepositoryName>
       <SubFolder>Maintenance</SubFolder>
     </BaseEntitySetting>
@@ -436,15 +652,15 @@
       </Properties>
       <CommandVmNamespace>TD.WPF.ViewModels</CommandVmNamespace>
       <CommandVmTypeName>AbstractDiaryVM</CommandVmTypeName>
-      <GenerateCreateCommand>true</GenerateCreateCommand>
-      <GenerateEditCommand>true</GenerateEditCommand>
-      <GenerateDeleteCommand>true</GenerateDeleteCommand>
-      <GenerateCreateVM>true</GenerateCreateVM>
-      <GenerateEditVM>true</GenerateEditVM>
-      <GenerateCollectionVM>false</GenerateCollectionVM>
-      <GenerateLookupService>true</GenerateLookupService>
-      <GenerateCreateView>true</GenerateCreateView>
-      <GenerateEditView>true</GenerateEditView>
+      <GenModeCreateCommand>GenerateIfNotExists</GenModeCreateCommand>
+      <GenModeEditCommand>GenerateIfNotExists</GenModeEditCommand>
+      <GenModeDeleteCommand>GenerateIfNotExists</GenModeDeleteCommand>
+      <GenModeCreateVM>GenerateIfNotExists</GenModeCreateVM>
+      <GenModeEditVM>GenerateIfNotExists</GenModeEditVM>
+      <GenModeCollectionVM>DoNotGenerate</GenModeCollectionVM>
+      <GenModeLookupService>GenerateIfNotExists</GenModeLookupService>
+      <GenModeCreateView>GenerateIfNotExists</GenModeCreateView>
+      <GenModeEditView>GenerateIfNotExists</GenModeEditView>
       <RepositoryName>ICurrencyRepository</RepositoryName>
       <SubFolder>Maintenance</SubFolder>
     </BaseEntitySetting>
@@ -555,15 +771,15 @@
       </Properties>
       <CommandVmNamespace>TD.AppInfra.ViewModels</CommandVmNamespace>
       <CommandVmTypeName>ISymbolCreationContext</CommandVmTypeName>
-      <GenerateCreateCommand>true</GenerateCreateCommand>
-      <GenerateEditCommand>true</GenerateEditCommand>
-      <GenerateDeleteCommand>true</GenerateDeleteCommand>
-      <GenerateCreateVM>true</GenerateCreateVM>
-      <GenerateEditVM>true</GenerateEditVM>
-      <GenerateCollectionVM>false</GenerateCollectionVM>
-      <GenerateLookupService>true</GenerateLookupService>
-      <GenerateCreateView>true</GenerateCreateView>
-      <GenerateEditView>true</GenerateEditView>
+      <GenModeCreateCommand>GenerateIfNotExists</GenModeCreateCommand>
+      <GenModeEditCommand>GenerateIfNotExists</GenModeEditCommand>
+      <GenModeDeleteCommand>GenerateIfNotExists</GenModeDeleteCommand>
+      <GenModeCreateVM>GenerateIfNotExists</GenModeCreateVM>
+      <GenModeEditVM>GenerateIfNotExists</GenModeEditVM>
+      <GenModeCollectionVM>DoNotGenerate</GenModeCollectionVM>
+      <GenModeLookupService>GenerateIfNotExists</GenModeLookupService>
+      <GenModeCreateView>GenerateIfNotExists</GenModeCreateView>
+      <GenModeEditView>GenerateIfNotExists</GenModeEditView>
       <RepositoryName>ISymbolRepository</RepositoryName>
       <SubFolder>Maintenance</SubFolder>
     </BaseEntitySetting>
@@ -597,15 +813,15 @@
       </Properties>
       <CommandVmNamespace />
       <CommandVmTypeName>TradeHistoryVM</CommandVmTypeName>
-      <GenerateCreateCommand>false</GenerateCreateCommand>
-      <GenerateEditCommand>false</GenerateEditCommand>
-      <GenerateDeleteCommand>false</GenerateDeleteCommand>
-      <GenerateCreateVM>true</GenerateCreateVM>
-      <GenerateEditVM>true</GenerateEditVM>
-      <GenerateCollectionVM>false</GenerateCollectionVM>
-      <GenerateLookupService>false</GenerateLookupService>
-      <GenerateCreateView>true</GenerateCreateView>
-      <GenerateEditView>true</GenerateEditView>
+      <GenModeCreateCommand>GenerateIfNotExists</GenModeCreateCommand>
+      <GenModeEditCommand>GenerateIfNotExists</GenModeEditCommand>
+      <GenModeDeleteCommand>GenerateIfNotExists</GenModeDeleteCommand>
+      <GenModeCreateVM>GenerateIfNotExists</GenModeCreateVM>
+      <GenModeEditVM>GenerateIfNotExists</GenModeEditVM>
+      <GenModeCollectionVM>DoNotGenerate</GenModeCollectionVM>
+      <GenModeLookupService>DoNotGenerate</GenModeLookupService>
+      <GenModeCreateView>DoNotGenerate</GenModeCreateView>
+      <GenModeEditView>DoNotGenerate</GenModeEditView>
       <RepositoryName>IEntryOrderRepository</RepositoryName>
       <SubFolder>Trades</SubFolder>
     </BaseEntitySetting>
@@ -639,15 +855,15 @@
       </Properties>
       <CommandVmNamespace />
       <CommandVmTypeName>TradeHistoryVM</CommandVmTypeName>
-      <GenerateCreateCommand>false</GenerateCreateCommand>
-      <GenerateEditCommand>false</GenerateEditCommand>
-      <GenerateDeleteCommand>false</GenerateDeleteCommand>
-      <GenerateCreateVM>true</GenerateCreateVM>
-      <GenerateEditVM>true</GenerateEditVM>
-      <GenerateCollectionVM>false</GenerateCollectionVM>
-      <GenerateLookupService>false</GenerateLookupService>
-      <GenerateCreateView>true</GenerateCreateView>
-      <GenerateEditView>true</GenerateEditView>
+      <GenModeCreateCommand>GenerateIfNotExists</GenModeCreateCommand>
+      <GenModeEditCommand>GenerateIfNotExists</GenModeEditCommand>
+      <GenModeDeleteCommand>GenerateIfNotExists</GenModeDeleteCommand>
+      <GenModeCreateVM>GenerateIfNotExists</GenModeCreateVM>
+      <GenModeEditVM>GenerateIfNotExists</GenModeEditVM>
+      <GenModeCollectionVM>DoNotGenerate</GenModeCollectionVM>
+      <GenModeLookupService>DoNotGenerate</GenModeLookupService>
+      <GenModeCreateView>DoNotGenerate</GenModeCreateView>
+      <GenModeEditView>DoNotGenerate</GenModeEditView>
       <RepositoryName>ITakeProfitOrderRepository</RepositoryName>
       <SubFolder>Trades</SubFolder>
     </BaseEntitySetting>
@@ -692,15 +908,15 @@
       </Properties>
       <CommandVmNamespace />
       <CommandVmTypeName>TradeHistoryVM</CommandVmTypeName>
-      <GenerateCreateCommand>false</GenerateCreateCommand>
-      <GenerateEditCommand>false</GenerateEditCommand>
-      <GenerateDeleteCommand>false</GenerateDeleteCommand>
-      <GenerateCreateVM>true</GenerateCreateVM>
-      <GenerateEditVM>true</GenerateEditVM>
-      <GenerateCollectionVM>false</GenerateCollectionVM>
-      <GenerateLookupService>false</GenerateLookupService>
-      <GenerateCreateView>true</GenerateCreateView>
-      <GenerateEditView>true</GenerateEditView>
+      <GenModeCreateCommand>GenerateIfNotExists</GenModeCreateCommand>
+      <GenModeEditCommand>GenerateIfNotExists</GenModeEditCommand>
+      <GenModeDeleteCommand>GenerateIfNotExists</GenModeDeleteCommand>
+      <GenModeCreateVM>GenerateIfNotExists</GenModeCreateVM>
+      <GenModeEditVM>GenerateIfNotExists</GenModeEditVM>
+      <GenModeCollectionVM>DoNotGenerate</GenModeCollectionVM>
+      <GenModeLookupService>DoNotGenerate</GenModeLookupService>
+      <GenModeCreateView>DoNotGenerate</GenModeCreateView>
+      <GenModeEditView>DoNotGenerate</GenModeEditView>
       <RepositoryName>IStopLossOrderRepository</RepositoryName>
       <SubFolder>Trades</SubFolder>
     </BaseEntitySetting>
@@ -756,15 +972,15 @@
       </Properties>
       <CommandVmNamespace />
       <CommandVmTypeName>TradeHistoryVM</CommandVmTypeName>
-      <GenerateCreateCommand>false</GenerateCreateCommand>
-      <GenerateEditCommand>false</GenerateEditCommand>
-      <GenerateDeleteCommand>false</GenerateDeleteCommand>
-      <GenerateCreateVM>true</GenerateCreateVM>
-      <GenerateEditVM>true</GenerateEditVM>
-      <GenerateCollectionVM>false</GenerateCollectionVM>
-      <GenerateLookupService>false</GenerateLookupService>
-      <GenerateCreateView>true</GenerateCreateView>
-      <GenerateEditView>true</GenerateEditView>
+      <GenModeCreateCommand>GenerateIfNotExists</GenModeCreateCommand>
+      <GenModeEditCommand>GenerateIfNotExists</GenModeEditCommand>
+      <GenModeDeleteCommand>GenerateIfNotExists</GenModeDeleteCommand>
+      <GenModeCreateVM>GenerateIfNotExists</GenModeCreateVM>
+      <GenModeEditVM>GenerateIfNotExists</GenModeEditVM>
+      <GenModeCollectionVM>DoNotGenerate</GenModeCollectionVM>
+      <GenModeLookupService>DoNotGenerate</GenModeLookupService>
+      <GenModeCreateView>DoNotGenerate</GenModeCreateView>
+      <GenModeEditView>DoNotGenerate</GenModeEditView>
       <RepositoryName>ITradeImageRepository</RepositoryName>
       <SubFolder>Trades</SubFolder>
     </BaseEntitySetting>
@@ -1007,15 +1223,15 @@
       </Properties>
       <CommandVmNamespace />
       <CommandVmTypeName>TradesVM</CommandVmTypeName>
-      <GenerateCreateCommand>false</GenerateCreateCommand>
-      <GenerateEditCommand>false</GenerateEditCommand>
-      <GenerateDeleteCommand>false</GenerateDeleteCommand>
-      <GenerateCreateVM>true</GenerateCreateVM>
-      <GenerateEditVM>true</GenerateEditVM>
-      <GenerateCollectionVM>true</GenerateCollectionVM>
-      <GenerateLookupService>false</GenerateLookupService>
-      <GenerateCreateView>true</GenerateCreateView>
-      <GenerateEditView>true</GenerateEditView>
+      <GenModeCreateCommand>GenerateIfNotExists</GenModeCreateCommand>
+      <GenModeEditCommand>GenerateIfNotExists</GenModeEditCommand>
+      <GenModeDeleteCommand>GenerateIfNotExists</GenModeDeleteCommand>
+      <GenModeCreateVM>GenerateIfNotExists</GenModeCreateVM>
+      <GenModeEditVM>GenerateIfNotExists</GenModeEditVM>
+      <GenModeCollectionVM>DoNotGenerate</GenModeCollectionVM>
+      <GenModeLookupService>DoNotGenerate</GenModeLookupService>
+      <GenModeCreateView>DoNotGenerate</GenModeCreateView>
+      <GenModeEditView>DoNotGenerate</GenModeEditView>
       <RepositoryName>ITradeRepository</RepositoryName>
       <SubFolder>Trades</SubFolder>
     </BaseEntitySetting>
@@ -1029,7 +1245,8 @@
   <RepositoryNamespaceName>TD.SQLite</RepositoryNamespaceName>
   <LookupFolder>Services</LookupFolder>
   <PutLookupInInfra>true</PutLookupInInfra>
-  <UseResourceFiles>false</UseResourceFiles>
+  <UseLocalizedResx>true</UseLocalizedResx>
   <ViewFolder>Views</ViewFolder>
   <ViewModelFolder>ViewModels</ViewModelFolder>
+  <XamlResourcesFolder>Resources</XamlResourcesFolder>
 </WpfMvvmCodeEngine>

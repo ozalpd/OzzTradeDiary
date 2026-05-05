@@ -15,10 +15,14 @@ namespace TD.Models
         public Exchange()
         {
             this.Symbols = new HashSet<Symbol>();
+            this.Sessions = new HashSet<Session>();
+            this.Holidays = new HashSet<Holiday>();
             this.TradingAccounts = new HashSet<TradingAccount>();
             this.DefaultCurrency = new Currency();
             this.ExchangeName = string.Empty;
             this.ExchangeCode = string.Empty;
+            this.CountryCode = string.Empty;
+            this.Timezone = string.Empty;
 
             OnInitilazed();
         }
@@ -39,12 +43,30 @@ namespace TD.Models
         [Display(ResourceType = typeof(LocalizedStrings), Name = "ExchangeCode")]
         public string ExchangeCode { get; set; }
 
+        [StringLength(4, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxStringLength")]
+        [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "CountryCode")]
+        public string CountryCode { get; set; }
+
         [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
         [Display(ResourceType = typeof(LocalizedStrings), Name = "DefaultCurrencyId")]
         public int DefaultCurrencyId { get; set; }
 
         [Display(ResourceType = typeof(LocalizedStrings), Name = "DefaultCurrency")]
         public Currency DefaultCurrency { get; set; }
+
+        /// <summary>
+        /// IANA timezone name
+        /// </summary>
+        [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "Timezone")]
+        public string Timezone { get; set; }
+
+        /// <summary>
+        /// It's true for 24/7 open markets others respect to their related records at Sessions and Holidays
+        /// </summary>
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "IsAlwaysOpen")]
+        public bool IsAlwaysOpen { get; set; }
 
         /// <summary>
         /// Determine if the exchange has any symbol.
@@ -54,6 +76,12 @@ namespace TD.Models
 
         [Display(ResourceType = typeof(LocalizedStrings), Name = "Symbols")]
         public ICollection<Symbol> Symbols { get; set; }
+
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "Sessions")]
+        public ICollection<Session> Sessions { get; set; }
+
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "Holidays")]
+        public ICollection<Holiday> Holidays { get; set; }
 
         [Display(ResourceType = typeof(LocalizedStrings), Name = "TradingAccounts")]
         public ICollection<TradingAccount> TradingAccounts { get; set; }
@@ -76,7 +104,10 @@ namespace TD.Models
             var clone = new Exchange();
             clone.ExchangeName = this.ExchangeName;
             clone.ExchangeCode = this.ExchangeCode;
+            clone.CountryCode = this.CountryCode;
             clone.DefaultCurrencyId = this.DefaultCurrencyId;
+            clone.Timezone = this.Timezone;
+            clone.IsAlwaysOpen = this.IsAlwaysOpen;
             clone.HasAnySymbol = this.HasAnySymbol;
             clone.DisplayOrder = this.DisplayOrder;
             clone.IsActive = this.IsActive;

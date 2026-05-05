@@ -162,6 +162,48 @@
         </EnumMember>
       </Members>
     </EnumDefinition>
+    <EnumDefinition>
+      <Name>SessionType</Name>
+      <NamespaceName>TD</NamespaceName>
+      <Members>
+        <EnumMember>
+          <Name>Break</Name>
+          <Value>0</Value>
+        </EnumMember>
+        <EnumMember>
+          <Name>Regular</Name>
+          <Value>1</Value>
+        </EnumMember>
+        <EnumMember>
+          <Name>PreMarket</Name>
+          <Value>2</Value>
+        </EnumMember>
+        <EnumMember>
+          <Name>AfterHours</Name>
+          <Value>3</Value>
+        </EnumMember>
+        <EnumMember>
+          <Name>SundayOpen</Name>
+          <Value>5</Value>
+        </EnumMember>
+        <EnumMember>
+          <Name>OpeningAuction</Name>
+          <Value>6</Value>
+        </EnumMember>
+        <EnumMember>
+          <Name>ClosingAuction</Name>
+          <Value>7</Value>
+        </EnumMember>
+        <EnumMember>
+          <Name>RegularTradingHours</Name>
+          <Value>8</Value>
+        </EnumMember>
+        <EnumMember>
+          <Name>ElectronicTradingHours</Name>
+          <Value>9</Value>
+        </EnumMember>
+      </Members>
+    </EnumDefinition>
   </EnumDefinitions>
   <DataModel>
     <EntityDefinition>
@@ -272,7 +314,7 @@
     <EntityDefinition>
       <Name>IUpdatedAt</Name>
       <NamespaceName>TD</NamespaceName>
-      <DisplayOrder>4</DisplayOrder>
+      <DisplayOrder>5</DisplayOrder>
       <Abstract>true</Abstract>
       <DisplayName>IUpdated At</DisplayName>
       <DisplayMember>Id</DisplayMember>
@@ -298,7 +340,7 @@
     <EntityDefinition>
       <Name>ITradeOrder</Name>
       <NamespaceName>TD</NamespaceName>
-      <DisplayOrder>5</DisplayOrder>
+      <DisplayOrder>6</DisplayOrder>
       <Abstract>true</Abstract>
       <DisplayName>ITrade Order</DisplayName>
       <DisplayMember>Id</DisplayMember>
@@ -435,7 +477,7 @@
     <EntityDefinition>
       <Name>Exchange</Name>
       <NamespaceName>TD</NamespaceName>
-      <DisplayOrder>6</DisplayOrder>
+      <DisplayOrder>7</DisplayOrder>
       <Abstract>false</Abstract>
       <DisplayName>Exchange</DisplayName>
       <DisplayMember>ExchangeName</DisplayMember>
@@ -474,9 +516,25 @@
           <IsStoreGenerated>false</IsStoreGenerated>
           <MaxLength>8</MaxLength>
         </BaseProperty>
+        <BaseProperty xsi:type="StringProperty">
+          <Name>CountryCode</Name>
+          <DisplayOrder>10300</DisplayOrder>
+          <DisplayName>Country Code</DisplayName>
+          <TypeName>string</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <RestrictedData>false</RestrictedData>
+          <EnumTypeName />
+          <IsKey>false</IsKey>
+          <IsForeignKey>false</IsForeignKey>
+          <IsImmutable>false</IsImmutable>
+          <IsNullable>false</IsNullable>
+          <IsStoreGenerated>false</IsStoreGenerated>
+          <MaxLength>4</MaxLength>
+        </BaseProperty>
         <BaseProperty xsi:type="SimpleProperty">
           <Name>DefaultCurrencyId</Name>
-          <DisplayOrder>10300</DisplayOrder>
+          <DisplayOrder>10400</DisplayOrder>
           <DisplayName>Default Currency Id</DisplayName>
           <TypeName>int</TypeName>
           <IsClientComputed>false</IsClientComputed>
@@ -491,7 +549,7 @@
         </BaseProperty>
         <BaseProperty xsi:type="ComplexProperty">
           <Name>DefaultCurrency</Name>
-          <DisplayOrder>10400</DisplayOrder>
+          <DisplayOrder>10500</DisplayOrder>
           <DisplayName>Default Currency</DisplayName>
           <TypeName>Currency</TypeName>
           <IsClientComputed>false</IsClientComputed>
@@ -500,10 +558,43 @@
           <DependentPropertyName>DefaultCurrencyId</DependentPropertyName>
           <DependentPropertyType>int</DependentPropertyType>
         </BaseProperty>
+        <BaseProperty xsi:type="StringProperty">
+          <Name>Timezone</Name>
+          <Comment>IANA timezone name</Comment>
+          <DisplayOrder>10600</DisplayOrder>
+          <DisplayName>Timezone</DisplayName>
+          <TypeName>string</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <RestrictedData>false</RestrictedData>
+          <EnumTypeName />
+          <IsKey>false</IsKey>
+          <IsForeignKey>false</IsForeignKey>
+          <IsImmutable>false</IsImmutable>
+          <IsNullable>false</IsNullable>
+          <IsStoreGenerated>false</IsStoreGenerated>
+          <MaxLength>0</MaxLength>
+        </BaseProperty>
+        <BaseProperty xsi:type="SimpleProperty">
+          <Name>IsAlwaysOpen</Name>
+          <Comment>It's true for 24/7 open markets others respect to their related records at Sessions and Holidays</Comment>
+          <DisplayOrder>10700</DisplayOrder>
+          <DisplayName>Is Always Open</DisplayName>
+          <TypeName>bool</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <RestrictedData>false</RestrictedData>
+          <EnumTypeName />
+          <IsKey>false</IsKey>
+          <IsForeignKey>false</IsForeignKey>
+          <IsImmutable>false</IsImmutable>
+          <IsNullable>false</IsNullable>
+          <IsStoreGenerated>false</IsStoreGenerated>
+        </BaseProperty>
         <BaseProperty xsi:type="SimpleProperty">
           <Name>HasAnySymbol</Name>
           <Comment>Determine if the exchange has any symbol.</Comment>
-          <DisplayOrder>10500</DisplayOrder>
+          <DisplayOrder>10800</DisplayOrder>
           <DisplayName>Has Any Symbol</DisplayName>
           <TypeName>bool</TypeName>
           <IsClientComputed>false</IsClientComputed>
@@ -518,7 +609,7 @@
         </BaseProperty>
         <BaseProperty xsi:type="CollectionProperty">
           <Name>Symbols</Name>
-          <DisplayOrder>10600</DisplayOrder>
+          <DisplayOrder>10900</DisplayOrder>
           <DisplayName>Symbols</DisplayName>
           <TypeName>ICollection&lt;Symbol&gt;</TypeName>
           <IsClientComputed>false</IsClientComputed>
@@ -526,8 +617,26 @@
           <RestrictedData>false</RestrictedData>
         </BaseProperty>
         <BaseProperty xsi:type="CollectionProperty">
+          <Name>Sessions</Name>
+          <DisplayOrder>11000</DisplayOrder>
+          <DisplayName>Sessions</DisplayName>
+          <TypeName>ICollection&lt;Session&gt;</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <RestrictedData>false</RestrictedData>
+        </BaseProperty>
+        <BaseProperty xsi:type="CollectionProperty">
+          <Name>Holidays</Name>
+          <DisplayOrder>11100</DisplayOrder>
+          <DisplayName>Holidays</DisplayName>
+          <TypeName>ICollection&lt;Holiday&gt;</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <RestrictedData>false</RestrictedData>
+        </BaseProperty>
+        <BaseProperty xsi:type="CollectionProperty">
           <Name>TradingAccounts</Name>
-          <DisplayOrder>10700</DisplayOrder>
+          <DisplayOrder>11200</DisplayOrder>
           <DisplayName>Trading Accounts</DisplayName>
           <TypeName>ICollection&lt;TradingAccount&gt;</TypeName>
           <IsClientComputed>false</IsClientComputed>
@@ -537,9 +646,227 @@
       </Properties>
     </EntityDefinition>
     <EntityDefinition>
+      <Name>Session</Name>
+      <NamespaceName>TD</NamespaceName>
+      <DisplayOrder>8</DisplayOrder>
+      <Abstract>false</Abstract>
+      <DisplayName>Session</DisplayName>
+      <DisplayMember>Id</DisplayMember>
+      <BaseTypeName>IPrimaryKey</BaseTypeName>
+      <Properties>
+        <BaseProperty xsi:type="SimpleProperty">
+          <Name>ExchangeId</Name>
+          <DisplayOrder>10100</DisplayOrder>
+          <DisplayName>Exchange Id</DisplayName>
+          <TypeName>int</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <RestrictedData>false</RestrictedData>
+          <EnumTypeName />
+          <IsKey>false</IsKey>
+          <IsForeignKey>true</IsForeignKey>
+          <IsImmutable>true</IsImmutable>
+          <IsNullable>false</IsNullable>
+          <IsStoreGenerated>false</IsStoreGenerated>
+        </BaseProperty>
+        <BaseProperty xsi:type="ComplexProperty">
+          <Name>Exchange</Name>
+          <DisplayOrder>10200</DisplayOrder>
+          <DisplayName>Exchange</DisplayName>
+          <TypeName>Exchange</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <RestrictedData>false</RestrictedData>
+          <DependentPropertyName>ExchangeId</DependentPropertyName>
+          <DependentPropertyType>int</DependentPropertyType>
+        </BaseProperty>
+        <BaseProperty xsi:type="SimpleProperty">
+          <Name>SessionType</Name>
+          <DisplayOrder>10300</DisplayOrder>
+          <DisplayName>Session Type</DisplayName>
+          <TypeName>int</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <RestrictedData>false</RestrictedData>
+          <EnumTypeName>SessionType</EnumTypeName>
+          <IsKey>false</IsKey>
+          <IsForeignKey>false</IsForeignKey>
+          <IsImmutable>false</IsImmutable>
+          <IsNullable>false</IsNullable>
+          <IsStoreGenerated>false</IsStoreGenerated>
+        </BaseProperty>
+        <BaseProperty xsi:type="SimpleProperty">
+          <Name>DayOfWeek</Name>
+          <Comment>0=Sunday ... 6=Saturday, NULL=all days</Comment>
+          <DisplayOrder>10400</DisplayOrder>
+          <DisplayName>Day Of Week</DisplayName>
+          <TypeName>int</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <RestrictedData>false</RestrictedData>
+          <EnumTypeName />
+          <IsKey>false</IsKey>
+          <IsForeignKey>false</IsForeignKey>
+          <IsImmutable>false</IsImmutable>
+          <IsNullable>true</IsNullable>
+          <IsStoreGenerated>false</IsStoreGenerated>
+        </BaseProperty>
+        <BaseProperty xsi:type="StringProperty">
+          <Name>LocalOpen</Name>
+          <Comment>-- "HH:mm"</Comment>
+          <DisplayOrder>10500</DisplayOrder>
+          <DisplayName>Local Open</DisplayName>
+          <TypeName>string</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <RestrictedData>false</RestrictedData>
+          <EnumTypeName />
+          <IsKey>false</IsKey>
+          <IsForeignKey>false</IsForeignKey>
+          <IsImmutable>false</IsImmutable>
+          <IsNullable>false</IsNullable>
+          <IsStoreGenerated>false</IsStoreGenerated>
+          <MaxLength>10</MaxLength>
+        </BaseProperty>
+        <BaseProperty xsi:type="StringProperty">
+          <Name>LocalClose</Name>
+          <Comment>-- "HH:mm"</Comment>
+          <DisplayOrder>10600</DisplayOrder>
+          <DisplayName>Local Close</DisplayName>
+          <TypeName>string</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <RestrictedData>false</RestrictedData>
+          <EnumTypeName />
+          <IsKey>false</IsKey>
+          <IsForeignKey>false</IsForeignKey>
+          <IsImmutable>false</IsImmutable>
+          <IsNullable>false</IsNullable>
+          <IsStoreGenerated>false</IsStoreGenerated>
+          <MaxLength>10</MaxLength>
+        </BaseProperty>
+      </Properties>
+    </EntityDefinition>
+    <EntityDefinition>
+      <Name>Holiday</Name>
+      <NamespaceName>TD</NamespaceName>
+      <DisplayOrder>9</DisplayOrder>
+      <Abstract>false</Abstract>
+      <DisplayName>Holiday</DisplayName>
+      <DisplayMember>HolidayName</DisplayMember>
+      <BaseTypeName>IPrimaryKey</BaseTypeName>
+      <Properties>
+        <BaseProperty xsi:type="StringProperty">
+          <Name>HolidayName</Name>
+          <DisplayOrder>10100</DisplayOrder>
+          <DisplayName>Holiday Name</DisplayName>
+          <TypeName>string</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <RestrictedData>false</RestrictedData>
+          <EnumTypeName />
+          <IsKey>false</IsKey>
+          <IsForeignKey>false</IsForeignKey>
+          <IsImmutable>false</IsImmutable>
+          <IsNullable>false</IsNullable>
+          <IsStoreGenerated>false</IsStoreGenerated>
+          <MaxLength>200</MaxLength>
+        </BaseProperty>
+        <BaseProperty xsi:type="SimpleProperty">
+          <Name>ExchangeId</Name>
+          <DisplayOrder>10200</DisplayOrder>
+          <DisplayName>Exchange Id</DisplayName>
+          <TypeName>int</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <RestrictedData>false</RestrictedData>
+          <EnumTypeName />
+          <IsKey>false</IsKey>
+          <IsForeignKey>true</IsForeignKey>
+          <IsImmutable>true</IsImmutable>
+          <IsNullable>false</IsNullable>
+          <IsStoreGenerated>false</IsStoreGenerated>
+        </BaseProperty>
+        <BaseProperty xsi:type="ComplexProperty">
+          <Name>Exchange</Name>
+          <DisplayOrder>10300</DisplayOrder>
+          <DisplayName>Exchange</DisplayName>
+          <TypeName>Exchange</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <RestrictedData>false</RestrictedData>
+          <DependentPropertyName>ExchangeId</DependentPropertyName>
+          <DependentPropertyType>int</DependentPropertyType>
+        </BaseProperty>
+        <BaseProperty xsi:type="SimpleProperty">
+          <Name>Month</Name>
+          <Comment>For fixed-date holidays (e.g., July 4th, April 23rd)</Comment>
+          <DisplayOrder>10400</DisplayOrder>
+          <DisplayName>Month</DisplayName>
+          <TypeName>int</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <RestrictedData>false</RestrictedData>
+          <EnumTypeName />
+          <IsKey>false</IsKey>
+          <IsForeignKey>false</IsForeignKey>
+          <IsImmutable>false</IsImmutable>
+          <IsNullable>true</IsNullable>
+          <IsStoreGenerated>false</IsStoreGenerated>
+        </BaseProperty>
+        <BaseProperty xsi:type="SimpleProperty">
+          <Name>Day</Name>
+          <Comment>For fixed-date holidays (e.g., July 4th, April 23rd)</Comment>
+          <DisplayOrder>10500</DisplayOrder>
+          <DisplayName>Day</DisplayName>
+          <TypeName>int</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <RestrictedData>false</RestrictedData>
+          <EnumTypeName />
+          <IsKey>false</IsKey>
+          <IsForeignKey>false</IsForeignKey>
+          <IsImmutable>false</IsImmutable>
+          <IsNullable>true</IsNullable>
+          <IsStoreGenerated>false</IsStoreGenerated>
+        </BaseProperty>
+        <BaseProperty xsi:type="SimpleProperty">
+          <Name>HolidayDate</Name>
+          <Comment>For floating holidays (e.g., Ramadan Feast, Chinese New Year)</Comment>
+          <DisplayOrder>10600</DisplayOrder>
+          <DisplayName>Holiday Date</DisplayName>
+          <TypeName>DateTime</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <RestrictedData>false</RestrictedData>
+          <EnumTypeName />
+          <IsKey>false</IsKey>
+          <IsForeignKey>false</IsForeignKey>
+          <IsImmutable>false</IsImmutable>
+          <IsNullable>true</IsNullable>
+          <IsStoreGenerated>false</IsStoreGenerated>
+        </BaseProperty>
+        <BaseProperty xsi:type="SimpleProperty">
+          <Name>IsHalfDay</Name>
+          <DisplayOrder>10700</DisplayOrder>
+          <DisplayName>Is Half Day</DisplayName>
+          <TypeName>bool</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <RestrictedData>false</RestrictedData>
+          <EnumTypeName />
+          <IsKey>false</IsKey>
+          <IsForeignKey>false</IsForeignKey>
+          <IsImmutable>false</IsImmutable>
+          <IsNullable>false</IsNullable>
+          <IsStoreGenerated>false</IsStoreGenerated>
+        </BaseProperty>
+      </Properties>
+    </EntityDefinition>
+    <EntityDefinition>
       <Name>TradingAccount</Name>
       <NamespaceName>TD</NamespaceName>
-      <DisplayOrder>7</DisplayOrder>
+      <DisplayOrder>10</DisplayOrder>
       <Abstract>false</Abstract>
       <DisplayName>Trading Account</DisplayName>
       <DisplayMember>Title</DisplayMember>
@@ -610,7 +937,7 @@
     <EntityDefinition>
       <Name>Currency</Name>
       <NamespaceName>TD</NamespaceName>
-      <DisplayOrder>8</DisplayOrder>
+      <DisplayOrder>11</DisplayOrder>
       <Abstract>false</Abstract>
       <DisplayName>Currency</DisplayName>
       <DisplayMember>CurrencyTicker</DisplayMember>
@@ -655,7 +982,7 @@
     <EntityDefinition>
       <Name>Symbol</Name>
       <NamespaceName>TD</NamespaceName>
-      <DisplayOrder>9</DisplayOrder>
+      <DisplayOrder>12</DisplayOrder>
       <Abstract>false</Abstract>
       <DisplayName>Symbol</DisplayName>
       <DisplayMember>TickerFull</DisplayMember>
@@ -803,7 +1130,7 @@
     <EntityDefinition>
       <Name>EntryOrder</Name>
       <NamespaceName>TD</NamespaceName>
-      <DisplayOrder>10</DisplayOrder>
+      <DisplayOrder>13</DisplayOrder>
       <Abstract>false</Abstract>
       <DisplayName>Entry Order</DisplayName>
       <DisplayMember>Id</DisplayMember>
@@ -840,7 +1167,7 @@
     <EntityDefinition>
       <Name>TakeProfitOrder</Name>
       <NamespaceName>TD</NamespaceName>
-      <DisplayOrder>11</DisplayOrder>
+      <DisplayOrder>14</DisplayOrder>
       <Abstract>false</Abstract>
       <DisplayName>Entry Order</DisplayName>
       <DisplayMember>Id</DisplayMember>
@@ -877,7 +1204,7 @@
     <EntityDefinition>
       <Name>StopLossOrder</Name>
       <NamespaceName>TD</NamespaceName>
-      <DisplayOrder>12</DisplayOrder>
+      <DisplayOrder>15</DisplayOrder>
       <Abstract>false</Abstract>
       <DisplayName>Entry Order</DisplayName>
       <DisplayMember>Id</DisplayMember>
@@ -930,7 +1257,7 @@
     <EntityDefinition>
       <Name>TradeImage</Name>
       <NamespaceName>TD</NamespaceName>
-      <DisplayOrder>13</DisplayOrder>
+      <DisplayOrder>16</DisplayOrder>
       <Abstract>false</Abstract>
       <DisplayName>Trade Image</DisplayName>
       <DisplayMember>TradeId</DisplayMember>
@@ -1000,7 +1327,7 @@
     <EntityDefinition>
       <Name>Trade</Name>
       <NamespaceName>TD</NamespaceName>
-      <DisplayOrder>14</DisplayOrder>
+      <DisplayOrder>17</DisplayOrder>
       <Abstract>false</Abstract>
       <DisplayName>Trade</DisplayName>
       <DisplayMember>Id</DisplayMember>

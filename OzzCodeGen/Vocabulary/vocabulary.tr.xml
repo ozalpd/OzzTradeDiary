@@ -45,6 +45,10 @@
     <Translation>Borsa Ekle</Translation>
   </Vocab>
   <Vocab>
+    <Name>AddHoliday</Name>
+    <Translation>Tatil Ekle</Translation>
+  </Vocab>
+  <Vocab>
     <Name>AddIUpdatedAt</Name>
     <Translation>Değişiklik Tarihi Ekle</Translation>
   </Vocab>
@@ -85,6 +89,10 @@
     <Translation>Yeni Borsa Ekle</Translation>
   </Vocab>
   <Vocab>
+    <Name>AddNewHoliday</Name>
+    <Translation>Yeni Tatil Ekle</Translation>
+  </Vocab>
+  <Vocab>
     <Name>AddNewIUpdatedAt</Name>
     <Translation>Yeni Değişiklik Tarihi Ekle</Translation>
   </Vocab>
@@ -107,6 +115,10 @@
   <Vocab>
     <Name>AddNewPurchaseOrder</Name>
     <Translation>Yeni Sipariş Ekle</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddNewSession</Name>
+    <Translation>Yeni Seans Ekle</Translation>
   </Vocab>
   <Vocab>
     <Name>AddNewStopLossOrder</Name>
@@ -177,8 +189,16 @@
     <Translation>Borsa Ekle/Çıkart</Translation>
   </Vocab>
   <Vocab>
+    <Name>AddRemoveHoliday</Name>
+    <Translation>Tatil Ekle/Çıkar</Translation>
+  </Vocab>
+  <Vocab>
     <Name>AddRemoveIUpdatedAt</Name>
     <Translation>Değişiklik Tarihi Ekle/Çıkar</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddRemoveSession</Name>
+    <Translation>Seans Ekle/Çıkar</Translation>
   </Vocab>
   <Vocab>
     <Name>AddRemoveStopLossOrder</Name>
@@ -215,6 +235,10 @@
   <Vocab>
     <Name>Address2</Name>
     <Translation>Adres Satır 2</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddSession</Name>
+    <Translation>Seans Ekle</Translation>
   </Vocab>
   <Vocab>
     <Name>AddStopLossOrder</Name>
@@ -255,6 +279,10 @@
   <Vocab>
     <Name>Admin</Name>
     <Translation>Admin</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AfterHours</Name>
+    <Translation>Seans Sonrası</Translation>
   </Vocab>
   <Vocab>
     <Name>Always</Name>
@@ -303,6 +331,10 @@
   <Vocab>
     <Name>Boolean</Name>
     <Translation>Boolean</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Break</Name>
+    <Translation>Ara</Translation>
   </Vocab>
   <Vocab>
     <Name>Cancel</Name>
@@ -355,6 +387,10 @@
   <Vocab>
     <Name>Clone</Name>
     <Translation>Klonla</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ClosingAuction</Name>
+    <Translation>Kapanış Seansı</Translation>
   </Vocab>
   <Vocab>
     <Name>Code</Name>
@@ -425,6 +461,10 @@
     <Translation>Ülke</Translation>
   </Vocab>
   <Vocab>
+    <Name>CountryCode</Name>
+    <Translation>Ülke Kodu</Translation>
+  </Vocab>
+  <Vocab>
     <Name>CountryId</Name>
     <Translation>Ülke</Translation>
   </Vocab>
@@ -477,6 +517,10 @@
     <Translation>Borsa Oluştur</Translation>
   </Vocab>
   <Vocab>
+    <Name>CreateHoliday</Name>
+    <Translation>Tatil Oluştur</Translation>
+  </Vocab>
+  <Vocab>
     <Name>CreateIUpdatedAt</Name>
     <Translation>Değişiklik Tarihi Oluştur</Translation>
   </Vocab>
@@ -507,6 +551,10 @@
   <Vocab>
     <Name>CreatePurchaseOrder</Name>
     <Translation>Sipariş Oluştur</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CreateSession</Name>
+    <Translation>Seans Oluştur</Translation>
   </Vocab>
   <Vocab>
     <Name>CreateStopLossOrder</Name>
@@ -629,6 +677,14 @@
     <Translation>Tarih/Zaman Dizisi</Translation>
   </Vocab>
   <Vocab>
+    <Name>Day</Name>
+    <Translation>Gün</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>DayOfWeek</Name>
+    <Translation>Haftanın Günü</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Decimal</Name>
     <Translation>Ondalık</Translation>
   </Vocab>
@@ -638,6 +694,10 @@
   </Vocab>
   <Vocab>
     <Name>DefaultCurrency</Name>
+    <Translation>Varsayılan Döviz</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>DefaultCurrencyId</Name>
     <Translation>Varsayılan Döviz</Translation>
   </Vocab>
   <Vocab>
@@ -681,6 +741,10 @@
     <Translation>Borsayı Sil</Translation>
   </Vocab>
   <Vocab>
+    <Name>DeleteHoliday</Name>
+    <Translation>Tatili Sil</Translation>
+  </Vocab>
+  <Vocab>
     <Name>DeleteIUpdatedAt</Name>
     <Translation>Değişiklik Tarihini Sil</Translation>
   </Vocab>
@@ -707,6 +771,10 @@
   <Vocab>
     <Name>DeletePurchaseOrder</Name>
     <Translation>Siparişi Sil</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>DeleteSession</Name>
+    <Translation>Seansı Sil</Translation>
   </Vocab>
   <Vocab>
     <Name>DeleteStopLossOrder</Name>
@@ -829,6 +897,10 @@
     <Translation>Borsayı Düzenle</Translation>
   </Vocab>
   <Vocab>
+    <Name>EditHoliday</Name>
+    <Translation>Tatili Düzenle</Translation>
+  </Vocab>
+  <Vocab>
     <Name>EditIUpdatedAt</Name>
     <Translation>Değişiklik Tarihini Düzenle</Translation>
   </Vocab>
@@ -855,6 +927,10 @@
   <Vocab>
     <Name>EditPurchaseOrder</Name>
     <Translation>Siparişi Düzenle</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>EditSession</Name>
+    <Translation>Seansı Düzenle</Translation>
   </Vocab>
   <Vocab>
     <Name>EditStopLossOrder</Name>
@@ -891,6 +967,10 @@
   <Vocab>
     <Name>EditTradingAccount</Name>
     <Translation>İşlem Hesabını Düzenle</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ElectronicTradingHours</Name>
+    <Translation>Elektronik İşlem Saatleri</Translation>
   </Vocab>
   <Vocab>
     <Name>Email</Name>
@@ -1057,6 +1137,26 @@
     <Translation>Yardım</Translation>
   </Vocab>
   <Vocab>
+    <Name>Holiday</Name>
+    <Translation>Tatil</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>HolidayDate</Name>
+    <Translation>Tatil Tarihi</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>HolidayName</Name>
+    <Translation>Tatil İsmi</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Holidays</Name>
+    <Translation>Tatilller</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>HolidaysList</Name>
+    <Translation>Tatil Listesi</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Home</Name>
     <Translation>Ana Sayfa</Translation>
   </Vocab>
@@ -1105,12 +1205,20 @@
     <Translation>Aktif</Translation>
   </Vocab>
   <Vocab>
+    <Name>IsAlwaysOpen</Name>
+    <Translation>Sürekli Açık</Translation>
+  </Vocab>
+  <Vocab>
     <Name>IsApproved</Name>
     <Translation>Onaylandı</Translation>
   </Vocab>
   <Vocab>
     <Name>IsFullyClosed</Name>
     <Translation>Tamamen Kapandı</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>IsHalfDay</Name>
+    <Translation>Yarım Gün</Translation>
   </Vocab>
   <Vocab>
     <Name>IsPublished</Name>
@@ -1149,6 +1257,14 @@
     <Translation>Yükleniyor</Translation>
   </Vocab>
   <Vocab>
+    <Name>LocalClose</Name>
+    <Translation>Kapanış (Yerel Saat)</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>LocalOpen</Name>
+    <Translation>Açılış (Yerel Saat)</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Location</Name>
     <Translation>Mevkii</Translation>
   </Vocab>
@@ -1185,6 +1301,10 @@
     <Translation>Bakım</Translation>
   </Vocab>
   <Vocab>
+    <Name>MaintenanceBreak</Name>
+    <Translation>Bakım için Ara</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Male</Name>
     <Translation>Erkek</Translation>
   </Vocab>
@@ -1219,6 +1339,10 @@
   <Vocab>
     <Name>ModifyNr</Name>
     <Translation>Değişiklik No</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Month</Name>
+    <Translation>Ay</Translation>
   </Vocab>
   <Vocab>
     <Name>Name</Name>
@@ -1263,6 +1387,10 @@
   <Vocab>
     <Name>OK</Name>
     <Translation>Tamam</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>OpeningAuction</Name>
+    <Translation>Açılış Seansı</Translation>
   </Vocab>
   <Vocab>
     <Name>Option</Name>
@@ -1437,6 +1565,10 @@
     <Translation>Pozitif Ondalık</Translation>
   </Vocab>
   <Vocab>
+    <Name>PreMarket</Name>
+    <Translation>Seans Öncesi</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Price</Name>
     <Translation>Fiyat</Translation>
   </Vocab>
@@ -1545,6 +1677,14 @@
     <Translation>Kayıt ol</Translation>
   </Vocab>
   <Vocab>
+    <Name>Regular</Name>
+    <Translation>Normal Seans</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>RegularTradingHours</Name>
+    <Translation>Normal İşlem Saatleri</Translation>
+  </Vocab>
+  <Vocab>
     <Name>RelatedRecordsExist</Name>
     <Translation>Bu kayıt {0} adet {1} kaydına sahip.</Translation>
   </Vocab>
@@ -1565,8 +1705,16 @@
     <Translation>Borsayı Çıkart</Translation>
   </Vocab>
   <Vocab>
+    <Name>RemoveHoliday</Name>
+    <Translation>Tatil Çıkar</Translation>
+  </Vocab>
+  <Vocab>
     <Name>RemoveIUpdatedAt</Name>
     <Translation>Değişiklik Tarihini Çıkar</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>RemoveSession</Name>
+    <Translation>Seans Çıkar</Translation>
   </Vocab>
   <Vocab>
     <Name>RemoveStopLossOrder</Name>
@@ -1651,6 +1799,22 @@
   <Vocab>
     <Name>SelectPlease</Name>
     <Translation>Lütfen Seçiniz</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Session</Name>
+    <Translation>Seans</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Sessions</Name>
+    <Translation>Seanslar</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>SessionsList</Name>
+    <Translation>Seans Listesi</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>SessionType</Name>
+    <Translation>Seans Türü</Translation>
   </Vocab>
   <Vocab>
     <Name>SettingType</Name>
@@ -1753,6 +1917,10 @@
     <Translation>Özet</Translation>
   </Vocab>
   <Vocab>
+    <Name>SundayOpen</Name>
+    <Translation>Pazar Açılışı</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Supplier</Name>
     <Translation>Tedarikçi</Translation>
   </Vocab>
@@ -1823,6 +1991,10 @@
   <Vocab>
     <Name>TickerFull</Name>
     <Translation>Uzun İşlem Kodu</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Timezone</Name>
+    <Translation>Saat Dilimi</Translation>
   </Vocab>
   <Vocab>
     <Name>Title</Name>
