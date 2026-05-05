@@ -76,8 +76,50 @@
     <data name="NoResults" xml:space="preserve">
         <value>There is no results to display</value>
     </data>
+    <data name="OrderType_Limit_Description" xml:space="preserve">
+        <value>Executes only at the specified price or better.</value>
+    </data>
+    <data name="OrderType_Market_Description" xml:space="preserve">
+        <value>Executes immediately at the best available market price.</value>
+    </data>
+    <data name="OrderType_Stop_Description" xml:space="preserve">
+        <value>Becomes a market order once the stop price is reached.</value>
+    </data>
+    <data name="OrderType_StopLimit_Description" xml:space="preserve">
+        <value>Becomes a limit order once the stop price is triggered.</value>
+    </data>
+    <data name="OrderType_TrailingStop_Description" xml:space="preserve">
+        <value>A stop order that automatically adjusts based on price movement.</value>
+    </data>
     <data name="SaveOperationFailed" xml:space="preserve">
         <value>Save operation failed!</value>
+    </data>
+    <data name="SessionType_AfterHours_Description" xml:space="preserve">
+        <value>Extended trading period after the regular session ends.</value>
+    </data>
+    <data name="SessionType_Break_Description" xml:space="preserve">
+        <value>Temporary intraday pause where trading is halted.</value>
+    </data>
+    <data name="SessionType_ClosingAuction_Description" xml:space="preserve">
+        <value>Closing auction session where official closing prices are determined.</value>
+    </data>
+    <data name="SessionType_ElectronicTradingHours_Description" xml:space="preserve">
+        <value>Extended electronic trading hours on CME Globex.</value>
+    </data>
+    <data name="SessionType_OpeningAuction_Description" xml:space="preserve">
+        <value>Opening auction session where the first prices of the day are determined.</value>
+    </data>
+    <data name="SessionType_PreMarket_Description" xml:space="preserve">
+        <value>Limited trading period before the regular session begins.</value>
+    </data>
+    <data name="SessionType_Regular_Description" xml:space="preserve">
+        <value>The main trading session during standard market hours.</value>
+    </data>
+    <data name="SessionType_RegularTradingHours_Description" xml:space="preserve">
+        <value>Standard CME trading hours known as RTH.</value>
+    </data>
+    <data name="SessionType_SundayOpen_Description" xml:space="preserve">
+        <value>The first opening session of the week, typically starting Sunday night in FX and crypto.</value>
     </data>
     <data name="UnableToDelete" xml:space="preserve">
         <value>Unable to Delete</value>

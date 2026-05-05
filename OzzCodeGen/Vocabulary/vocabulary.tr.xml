@@ -1441,6 +1441,26 @@
     <Translation>Emir Tipi</Translation>
   </Vocab>
   <Vocab>
+    <Name>OrderType_Limit_Description</Name>
+    <Translation>Emir yalnızca belirtilen fiyattan veya daha iyi bir fiyattan gerçekleşir.</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>OrderType_Market_Description</Name>
+    <Translation>Emrin mevcut en iyi piyasa fiyatından hemen gerçekleşmesini sağlar.</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>OrderType_Stop_Description</Name>
+    <Translation>Belirlenen stop fiyatına ulaşıldığında piyasa emrine dönüşür.</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>OrderType_StopLimit_Description</Name>
+    <Translation>Stop fiyatı tetiklendiğinde limit emrine dönüşür.</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>OrderType_TrailingStop_Description</Name>
+    <Translation>Fiyat hareketine göre otomatik ayarlanan dinamik bir stop emri türüdür.</Translation>
+  </Vocab>
+  <Vocab>
     <Name>OrderValue</Name>
     <Translation>Emir Tutarı</Translation>
   </Vocab>
@@ -1815,6 +1835,42 @@
   <Vocab>
     <Name>SessionType</Name>
     <Translation>Seans Türü</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>SessionType_AfterHours_Description</Name>
+    <Translation>Normal seans kapandıktan sonra devam eden genişletilmiş işlem saatleri.</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>SessionType_Break_Description</Name>
+    <Translation>Seans içindeki geçici işlem arası; bu süre boyunca alım satım durdurulur.</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>SessionType_ClosingAuction_Description</Name>
+    <Translation>Günün kapanış fiyatlarının belirlendiği eşleşme seansı.</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>SessionType_ElectronicTradingHours_Description</Name>
+    <Translation>CME Globex üzerinde gerçekleşen geniş elektronik işlem saatleri.</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>SessionType_OpeningAuction_Description</Name>
+    <Translation>Günün ilk fiyatlarının belirlendiği açılış eşleşme seansı.</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>SessionType_PreMarket_Description</Name>
+    <Translation>Normal seans başlamadan önce gerçekleşen sınırlı işlem dönemi.</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>SessionType_Regular_Description</Name>
+    <Translation>Piyasanın standart işlem saatlerindeki ana seansı.</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>SessionType_RegularTradingHours_Description</Name>
+    <Translation>CME ürünlerinin standart işlem saatleri; RTH olarak bilinir.</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>SessionType_SundayOpen_Description</Name>
+    <Translation>Haftanın ilk açılış seansı; Forex ve kripto piyasalarında genellikle Pazar gecesi başlar.</Translation>
   </Vocab>
   <Vocab>
     <Name>SettingType</Name>

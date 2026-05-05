@@ -1441,6 +1441,26 @@
     <Translation>Order Type</Translation>
   </Vocab>
   <Vocab>
+    <Name>OrderType_Limit_Description</Name>
+    <Translation>Executes only at the specified price or better.</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>OrderType_Market_Description</Name>
+    <Translation>Executes immediately at the best available market price.</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>OrderType_Stop_Description</Name>
+    <Translation>Becomes a market order once the stop price is reached.</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>OrderType_StopLimit_Description</Name>
+    <Translation>Becomes a limit order once the stop price is triggered.</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>OrderType_TrailingStop_Description</Name>
+    <Translation>A stop order that automatically adjusts based on price movement.</Translation>
+  </Vocab>
+  <Vocab>
     <Name>OrderValue</Name>
     <Translation>Order Value</Translation>
   </Vocab>
@@ -1815,6 +1835,42 @@
   <Vocab>
     <Name>SessionType</Name>
     <Translation>Session Type</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>SessionType_AfterHours_Description</Name>
+    <Translation>Extended trading period after the regular session ends.</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>SessionType_Break_Description</Name>
+    <Translation>Temporary intraday pause where trading is halted.</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>SessionType_ClosingAuction_Description</Name>
+    <Translation>Closing auction session where official closing prices are determined.</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>SessionType_ElectronicTradingHours_Description</Name>
+    <Translation>Extended electronic trading hours on CME Globex.</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>SessionType_OpeningAuction_Description</Name>
+    <Translation>Opening auction session where the first prices of the day are determined.</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>SessionType_PreMarket_Description</Name>
+    <Translation>Limited trading period before the regular session begins.</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>SessionType_Regular_Description</Name>
+    <Translation>The main trading session during standard market hours.</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>SessionType_RegularTradingHours_Description</Name>
+    <Translation>Standard CME trading hours known as RTH.</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>SessionType_SundayOpen_Description</Name>
+    <Translation>The first opening session of the week, typically starting Sunday night in FX and crypto.</Translation>
   </Vocab>
   <Vocab>
     <Name>SettingType</Name>

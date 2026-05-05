@@ -115,11 +115,137 @@ namespace TD.i18n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Executes only at the specified price or better..
+        /// </summary>
+        public static string OrderType_Limit_Description {
+            get {
+                return ResourceManager.GetString("OrderType_Limit_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Executes immediately at the best available market price..
+        /// </summary>
+        public static string OrderType_Market_Description {
+            get {
+                return ResourceManager.GetString("OrderType_Market_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Becomes a market order once the stop price is reached..
+        /// </summary>
+        public static string OrderType_Stop_Description {
+            get {
+                return ResourceManager.GetString("OrderType_Stop_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Becomes a limit order once the stop price is triggered..
+        /// </summary>
+        public static string OrderType_StopLimit_Description {
+            get {
+                return ResourceManager.GetString("OrderType_StopLimit_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A stop order that automatically adjusts based on price movement..
+        /// </summary>
+        public static string OrderType_TrailingStop_Description {
+            get {
+                return ResourceManager.GetString("OrderType_TrailingStop_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Save operation failed!.
         /// </summary>
         public static string SaveOperationFailed {
             get {
                 return ResourceManager.GetString("SaveOperationFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Extended trading period after the regular session ends..
+        /// </summary>
+        public static string SessionType_AfterHours_Description {
+            get {
+                return ResourceManager.GetString("SessionType_AfterHours_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Temporary intraday pause where trading is halted..
+        /// </summary>
+        public static string SessionType_Break_Description {
+            get {
+                return ResourceManager.GetString("SessionType_Break_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Closing auction session where official closing prices are determined..
+        /// </summary>
+        public static string SessionType_ClosingAuction_Description {
+            get {
+                return ResourceManager.GetString("SessionType_ClosingAuction_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Extended electronic trading hours on CME Globex..
+        /// </summary>
+        public static string SessionType_ElectronicTradingHours_Description {
+            get {
+                return ResourceManager.GetString("SessionType_ElectronicTradingHours_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Opening auction session where the first prices of the day are determined..
+        /// </summary>
+        public static string SessionType_OpeningAuction_Description {
+            get {
+                return ResourceManager.GetString("SessionType_OpeningAuction_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Limited trading period before the regular session begins..
+        /// </summary>
+        public static string SessionType_PreMarket_Description {
+            get {
+                return ResourceManager.GetString("SessionType_PreMarket_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The main trading session during standard market hours..
+        /// </summary>
+        public static string SessionType_Regular_Description {
+            get {
+                return ResourceManager.GetString("SessionType_Regular_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Standard CME trading hours known as RTH..
+        /// </summary>
+        public static string SessionType_RegularTradingHours_Description {
+            get {
+                return ResourceManager.GetString("SessionType_RegularTradingHours_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The first opening session of the week, typically starting Sunday night in FX and crypto..
+        /// </summary>
+        public static string SessionType_SundayOpen_Description {
+            get {
+                return ResourceManager.GetString("SessionType_SundayOpen_Description", resourceCulture);
             }
         }
         

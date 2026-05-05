@@ -35,10 +35,15 @@ namespace TD.Models
 
     public enum OrderType : int
     {
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "Market")]
         Market = 10,
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "Limit")]
         Limit = 20,
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "Stop")]
         Stop = 30,
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "StopLimit")]
         StopLimit = 40,
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "TrailingStop")]
         TrailingStop = 50
     }
 

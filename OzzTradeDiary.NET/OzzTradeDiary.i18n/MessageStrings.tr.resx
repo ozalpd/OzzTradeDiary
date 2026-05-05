@@ -76,8 +76,50 @@
     <data name="NoResults" xml:space="preserve">
         <value>Hiç sonuç bulunamadı</value>
     </data>
+    <data name="OrderType_Limit_Description" xml:space="preserve">
+        <value>Emir yalnızca belirtilen fiyattan veya daha iyi bir fiyattan gerçekleşir.</value>
+    </data>
+    <data name="OrderType_Market_Description" xml:space="preserve">
+        <value>Emrin mevcut en iyi piyasa fiyatından hemen gerçekleşmesini sağlar.</value>
+    </data>
+    <data name="OrderType_Stop_Description" xml:space="preserve">
+        <value>Belirlenen stop fiyatına ulaşıldığında piyasa emrine dönüşür.</value>
+    </data>
+    <data name="OrderType_StopLimit_Description" xml:space="preserve">
+        <value>Stop fiyatı tetiklendiğinde limit emrine dönüşür.</value>
+    </data>
+    <data name="OrderType_TrailingStop_Description" xml:space="preserve">
+        <value>Fiyat hareketine göre otomatik ayarlanan dinamik bir stop emri türüdür.</value>
+    </data>
     <data name="SaveOperationFailed" xml:space="preserve">
         <value>Kaydetme işlemi başarısız oldu!</value>
+    </data>
+    <data name="SessionType_AfterHours_Description" xml:space="preserve">
+        <value>Normal seans kapandıktan sonra devam eden genişletilmiş işlem saatleri.</value>
+    </data>
+    <data name="SessionType_Break_Description" xml:space="preserve">
+        <value>Seans içindeki geçici işlem arası; bu süre boyunca alım satım durdurulur.</value>
+    </data>
+    <data name="SessionType_ClosingAuction_Description" xml:space="preserve">
+        <value>Günün kapanış fiyatlarının belirlendiği eşleşme seansı.</value>
+    </data>
+    <data name="SessionType_ElectronicTradingHours_Description" xml:space="preserve">
+        <value>CME Globex üzerinde gerçekleşen geniş elektronik işlem saatleri.</value>
+    </data>
+    <data name="SessionType_OpeningAuction_Description" xml:space="preserve">
+        <value>Günün ilk fiyatlarının belirlendiği açılış eşleşme seansı.</value>
+    </data>
+    <data name="SessionType_PreMarket_Description" xml:space="preserve">
+        <value>Normal seans başlamadan önce gerçekleşen sınırlı işlem dönemi.</value>
+    </data>
+    <data name="SessionType_Regular_Description" xml:space="preserve">
+        <value>Piyasanın standart işlem saatlerindeki ana seansı.</value>
+    </data>
+    <data name="SessionType_RegularTradingHours_Description" xml:space="preserve">
+        <value>CME ürünlerinin standart işlem saatleri; RTH olarak bilinir.</value>
+    </data>
+    <data name="SessionType_SundayOpen_Description" xml:space="preserve">
+        <value>Haftanın ilk açılış seansı; Forex ve kripto piyasalarında genellikle Pazar gecesi başlar.</value>
     </data>
     <data name="UnableToDelete" xml:space="preserve">
         <value>Silinemez</value>
