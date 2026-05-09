@@ -25,7 +25,7 @@ namespace TD.AppInfra.ViewModels
             base.RaisePropertyChanged(nameof(IsDirty));
         }
     }
-    
+
     public interface IIsDirty
     {
         bool IsDirty { get; }

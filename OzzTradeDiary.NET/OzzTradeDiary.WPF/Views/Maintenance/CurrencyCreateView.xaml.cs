@@ -1,12 +1,10 @@
-﻿using System.Windows;
+using System.Windows;
 using TD.Models;
 using TD.WPF.ViewModels.Maintenance;
 
 namespace TD.WPF.Views.Maintenance
 {
-    /// <summary>
-    /// Interaction logic for CurrencyCreateView.xaml
-    /// </summary>
+    // Codebehind for CurrencyCreateView.xaml
     public partial class CurrencyCreateView : Window
     {
         private readonly CurrencyCreateVM _viewModel;

@@ -1,36 +1,37 @@
-﻿using System.Windows;
+using System.Windows;
 using TD.Models;
-using TD.WPF.ViewModels;
 using TD.WPF.ViewModels.Maintenance;
 
 namespace TD.WPF.Views.Maintenance
 {
-    /// <summary>
-    /// Interaction logic for CurrencyEditView.xaml
-    /// </summary>
-    public partial class CurrencyEditView
+    // Codebehind for CurrencyEditView.xaml
+    public partial class CurrencyEditView : AbstractEditView
     {
-        private CurrencyEditVM _viewModel;
+        private readonly CurrencyEditVM _viewModel;
 
+        public Currency Currency => _viewModel.Currency;
+
+        /// <summary>
+        /// This constructor should not be called, but we need it for the designer to work.
+        /// </summary>
+        /// <remarks>This constructor creates a dummy Currency for the designer.</remarks>
         public CurrencyEditView()
         {
-            // This constructor should not be called, but we need it for the designer to work.
-            // We will create a dummy Currency for the designer.
             InitializeComponent();
+
             _viewModel = new CurrencyEditVM(new Currency());
             _isDirty = _viewModel;
             DataContext = _viewModel;
         }
 
+        /// <summary>
+        /// This constructor should be used at runtime to create the view with a real Currency.
+        /// </summary>
+        /// <param name="currency">The real Currency to be used by the view.</param>
         public CurrencyEditView(Currency currency) : base(new CurrencyEditVM(currency))
         {
             InitializeComponent();
             _viewModel = (CurrencyEditVM)DataContext;
-        }
-
-        public Currency Currency
-        {
-            get { return _viewModel.Currency; }
         }
 
         private void OkButton_Click(object sender, RoutedEventArgs e)

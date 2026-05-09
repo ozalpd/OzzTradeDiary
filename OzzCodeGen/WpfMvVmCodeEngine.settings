@@ -1249,4 +1249,6 @@
   <ViewFolder>Views</ViewFolder>
   <ViewModelFolder>ViewModels</ViewModelFolder>
   <XamlResourcesFolder>Resources</XamlResourcesFolder>
+  <LocalizationAssemblyName>OzzTradeDiary.i18n</LocalizationAssemblyName>
+  <LocalizationNamespaceName>TD.i18n</LocalizationNamespaceName>
 </WpfMvvmCodeEngine>
