@@ -40,7 +40,6 @@ namespace TD.WPF.ViewModels.Maintenance
             }
         }
 
-
         public string Title
         {
             get { return _tradingAccount.Title; }
@@ -69,7 +68,7 @@ namespace TD.WPF.ViewModels.Maintenance
             }
         }
 
-            public Exchange Exchange => _tradingAccount.Exchange;
+        public Exchange Exchange => _tradingAccount.Exchange;
 
         public string? Notes
         {

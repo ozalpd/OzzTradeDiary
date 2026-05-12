@@ -22,7 +22,6 @@ namespace TD.WPF.ViewModels.Maintenance
             IsActive = true;
         }
 
-
         public string CurrencyTicker
         {
             get { return _currency.CurrencyTicker; }

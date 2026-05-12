@@ -1,4 +1,5 @@
 using TD.AppInfra.ViewModels;
+using TD.Extensions;
 using TD.Models;
 //----------------------------------------------------------------------------------
 //
@@ -17,17 +18,24 @@ namespace TD.WPF.ViewModels.Maintenance
 
         public SymbolEditVM(Symbol symbol)
         {
+            MarketTypeValues = EnumExtension.GetValues<MarketType>()
+                                        .Select(x => new EnumValueItem<MarketType> { Value = x, DisplayValue = x.GetDisplayValue() })
+                                        .ToList();
             _symbol = symbol;
         }
 
+        /// <summary>
+        /// Gets the collection of available MarketType enum members for selection or display.
+        /// </summary>
+        public IEnumerable<EnumValueItem<MarketType>> MarketTypeValues { get; }
 
-            public string Ticker => _symbol.Ticker;
+        public string Ticker => _symbol.Ticker;
 
-            public string TickerFull => _symbol.TickerFull;
+        public string TickerFull => _symbol.TickerFull;
 
-            public string? BaseCurrency => _symbol.BaseCurrency;
+        public string? BaseCurrency => _symbol.BaseCurrency;
 
-            public int PriceCurrencyId => _symbol.PriceCurrencyId;
+        public int PriceCurrencyId => _symbol.PriceCurrencyId;
 
         public Currency PriceCurrency
         {
@@ -63,7 +71,7 @@ namespace TD.WPF.ViewModels.Maintenance
             }
         }
 
-            public int ExchangeId => _symbol.ExchangeId;
+        public int ExchangeId => _symbol.ExchangeId;
 
         public Exchange Exchange
         {

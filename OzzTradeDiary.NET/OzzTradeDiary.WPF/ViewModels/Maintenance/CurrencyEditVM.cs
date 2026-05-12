@@ -20,8 +20,7 @@ namespace TD.WPF.ViewModels.Maintenance
             _currency = currency;
         }
 
-
-            public string CurrencyTicker => _currency.CurrencyTicker;
+        public string CurrencyTicker => _currency.CurrencyTicker;
 
         public string? Description
         {

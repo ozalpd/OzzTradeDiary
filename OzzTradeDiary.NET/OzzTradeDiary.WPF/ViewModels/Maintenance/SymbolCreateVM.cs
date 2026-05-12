@@ -17,7 +17,6 @@ namespace TD.WPF.ViewModels.Maintenance
     {
         private readonly ICurrencyLookupService _currencyLookupService;
         private readonly IExchangeLookupService _exchangeLookupService;
-        private readonly IReadOnlyList<EnumValueItem<MarketType>> _marketTypeValues;
         private Symbol _symbol;
         public Symbol Symbol => _symbol;
 
@@ -29,11 +28,9 @@ namespace TD.WPF.ViewModels.Maintenance
             _exchangeLookupService = exchangeLookupService;
             Exchanges = new ObservableCollection<Exchange>();
 
-            _marketTypeValues = EnumExtension
-                .GetValues<MarketType>()
-                .Select(x => new EnumValueItem<MarketType> { Value = x, DisplayValue = x.GetDisplayValue() })
-                .ToList();
-
+            MarketTypeValues = EnumExtension.GetValues<MarketType>()
+                                        .Select(x => new EnumValueItem<MarketType> { Value = x, DisplayValue = x.GetDisplayValue() })
+                                        .ToList();
             _symbol = new Symbol();
             DisplayOrder = 1000;
             IsActive = true;
@@ -63,6 +60,10 @@ namespace TD.WPF.ViewModels.Maintenance
             }
         }
 
+        /// <summary>
+        /// Gets the collection of available MarketType enum members for selection or display.
+        /// </summary>
+        public IEnumerable<EnumValueItem<MarketType>> MarketTypeValues { get; }
 
         public string Ticker
         {
@@ -199,17 +200,6 @@ namespace TD.WPF.ViewModels.Maintenance
                     RaisePropertyChanged(nameof(MarketType));
                     ValidateProperty(_symbol, nameof(MarketType));
                 }
-            }
-        }
-
-        /// <summary>
-        /// Gets the collection of available MarketType enum members for selection or display.
-        /// </summary>
-        public IEnumerable<EnumValueItem<MarketType>> MarketTypeValues
-        {
-            get
-            {
-                return _marketTypeValues;
             }
         }
 

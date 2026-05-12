@@ -40,7 +40,6 @@ namespace TD.WPF.ViewModels.Maintenance
             }
         }
 
-
         public string ExchangeName
         {
             get { return _exchange.ExchangeName; }

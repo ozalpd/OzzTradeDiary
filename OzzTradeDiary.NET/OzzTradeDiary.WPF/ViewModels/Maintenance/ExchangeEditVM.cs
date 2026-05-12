@@ -20,7 +20,6 @@ namespace TD.WPF.ViewModels.Maintenance
             _exchange = exchange;
         }
 
-
         public string ExchangeName
         {
             get { return _exchange.ExchangeName; }
@@ -35,7 +34,7 @@ namespace TD.WPF.ViewModels.Maintenance
             }
         }
 
-            public string ExchangeCode => _exchange.ExchangeCode;
+        public string ExchangeCode => _exchange.ExchangeCode;
 
         public string CountryCode
         {
@@ -51,7 +50,7 @@ namespace TD.WPF.ViewModels.Maintenance
             }
         }
 
-            public int DefaultCurrencyId => _exchange.DefaultCurrencyId;
+        public int DefaultCurrencyId => _exchange.DefaultCurrencyId;
 
         public Currency DefaultCurrency
         {

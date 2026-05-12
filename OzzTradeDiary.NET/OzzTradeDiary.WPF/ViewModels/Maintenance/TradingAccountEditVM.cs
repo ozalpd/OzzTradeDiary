@@ -20,12 +20,11 @@ namespace TD.WPF.ViewModels.Maintenance
             _tradingAccount = tradingAccount;
         }
 
+        public string Title => _tradingAccount.Title;
 
-            public string Title => _tradingAccount.Title;
+        public int ExchangeId => _tradingAccount.ExchangeId;
 
-            public int ExchangeId => _tradingAccount.ExchangeId;
-
-            public Exchange Exchange => _tradingAccount.Exchange;
+        public Exchange Exchange => _tradingAccount.Exchange;
 
         public string? Notes
         {
