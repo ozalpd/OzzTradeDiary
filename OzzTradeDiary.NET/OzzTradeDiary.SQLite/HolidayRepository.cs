@@ -187,7 +187,6 @@ namespace TD.SQLite
             var existingHoliday = await GetByIdAsync(holiday.Id);
             bool noChanges = existingHoliday != null
                           && existingHoliday.HolidayName == holiday.HolidayName
-                          && existingHoliday.ExchangeId == holiday.ExchangeId
                           && existingHoliday.Month == holiday.Month
                           && existingHoliday.Day == holiday.Day
                           && existingHoliday.HolidayDate == holiday.HolidayDate
@@ -197,9 +196,10 @@ namespace TD.SQLite
                 return false;
 
             await using var command = connection.CreateCommand();
+            // ExchangeId is not updated to avoid complications with existing references,
+            // so only HolidayName, Month, Day, HolidayDate, IsHalfDay are updated
             command.CommandText = @$"UPDATE {_tableName} SET
                 HolidayName = @holidayName,
-                ExchangeId = @exchangeId,
                 Month = @month,
                 Day = @day,
                 HolidayDate = @holidayDate,
@@ -208,7 +208,6 @@ namespace TD.SQLite
 
             command.AddParameter("@id", holiday.Id);
             command.AddParameter("@holidayName", holiday.HolidayName);
-            command.AddParameter("@exchangeId", holiday.ExchangeId);
             command.AddParameter("@month", holiday.Month);
             command.AddParameter("@day", holiday.Day);
             command.AddDateTimeToTextParameter("@holidayDate", holiday.HolidayDate);

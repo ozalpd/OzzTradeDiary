@@ -1,34 +1,37 @@
-﻿using System.Windows;
+using System.Windows;
 using TD.Models;
 using TD.WPF.ViewModels.Maintenance;
 
 namespace TD.WPF.Views.Maintenance
 {
-    /// <summary>
-    /// Interaction logic for ExchangeEditView.xaml
-    /// </summary>
-    public partial class ExchangeEditView
+    // Codebehind for ExchangeEditView.xaml
+    public partial class ExchangeEditView : AbstractEditView
     {
-        private ExchangeEditVM _viewModel;
+        private readonly ExchangeEditVM _viewModel;
 
+        public Exchange Exchange => _viewModel.Exchange;
+
+        /// <summary>
+        /// This constructor should not be called, but we need it for the designer to work.
+        /// </summary>
+        /// <remarks>This constructor creates a dummy Exchange for the designer.</remarks>
         public ExchangeEditView()
         {
-            // This constructor should not be called, but we need it for the designer to work.
-            // We will create a dummy Exchange for the designer.
             InitializeComponent();
+
             _viewModel = new ExchangeEditVM(new Exchange());
+            _isDirty = _viewModel;
             DataContext = _viewModel;
         }
 
+        /// <summary>
+        /// This constructor should be used at runtime to create the view with a real Exchange.
+        /// </summary>
+        /// <param name="exchange">The real Exchange to be used by the view.</param>
         public ExchangeEditView(Exchange exchange) : base(new ExchangeEditVM(exchange))
         {
             InitializeComponent();
             _viewModel = (ExchangeEditVM)DataContext;
-        }
-
-        public Exchange Exchange
-        {
-            get { return _viewModel.Exchange; }
         }
 
         private void OkButton_Click(object sender, RoutedEventArgs e)

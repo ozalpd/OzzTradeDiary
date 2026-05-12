@@ -55,4 +55,18 @@ namespace TD.Extensions
             return resourceKey; // Fallback with the key name
         }
     }
+
+    /// <summary>
+    /// Represents a strongly typed enumeration value and its associated display text for use in UI selection or display
+    /// scenarios.
+    /// </summary>
+    /// <remarks>This class is commonly used to bind enumeration values to user interface elements, such as
+    /// dropdown lists or combo boxes, where both the underlying value and a user-friendly display string are
+    /// needed.</remarks>
+    /// <typeparam name="T">The enumeration type represented by this item.</typeparam>
+    public class EnumValueItem<T> where T : Enum
+    {
+        public required T Value { get; set; }
+        public string DisplayValue { get; set; } = string.Empty;
+    }
 }

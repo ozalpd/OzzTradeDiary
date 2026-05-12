@@ -37,19 +37,21 @@ namespace TD.WPF.ViewModels.Maintenance
 
             public string ExchangeCode => _exchange.ExchangeCode;
 
-        public int DefaultCurrencyId
+        public string CountryCode
         {
-            get { return _exchange.DefaultCurrencyId; }
+            get { return _exchange.CountryCode; }
             set
             {
-                if (_exchange.DefaultCurrencyId != value)
+                if (_exchange.CountryCode != value)
                 {
-                    _exchange.DefaultCurrencyId = value;
-                    RaisePropertyChanged(nameof(DefaultCurrencyId));
-                    ValidateProperty(_exchange, nameof(DefaultCurrencyId));
+                    _exchange.CountryCode = value;
+                    RaisePropertyChanged(nameof(CountryCode));
+                    ValidateProperty(_exchange, nameof(CountryCode));
                 }
             }
         }
+
+            public int DefaultCurrencyId => _exchange.DefaultCurrencyId;
 
         public Currency DefaultCurrency
         {
@@ -61,6 +63,34 @@ namespace TD.WPF.ViewModels.Maintenance
                     _exchange.DefaultCurrency = value;
                     RaisePropertyChanged(nameof(DefaultCurrency));
                     ValidateProperty(_exchange, nameof(DefaultCurrency));
+                }
+            }
+        }
+
+        public string Timezone
+        {
+            get { return _exchange.Timezone; }
+            set
+            {
+                if (_exchange.Timezone != value)
+                {
+                    _exchange.Timezone = value;
+                    RaisePropertyChanged(nameof(Timezone));
+                    ValidateProperty(_exchange, nameof(Timezone));
+                }
+            }
+        }
+
+        public bool IsAlwaysOpen
+        {
+            get { return _exchange.IsAlwaysOpen; }
+            set
+            {
+                if (_exchange.IsAlwaysOpen != value)
+                {
+                    _exchange.IsAlwaysOpen = value;
+                    RaisePropertyChanged(nameof(IsAlwaysOpen));
+                    ValidateProperty(_exchange, nameof(IsAlwaysOpen));
                 }
             }
         }

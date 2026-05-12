@@ -1,36 +1,37 @@
-﻿using System.Windows;
+using System.Windows;
 using TD.Models;
 using TD.WPF.ViewModels.Maintenance;
 
 namespace TD.WPF.Views.Maintenance
 {
-    /// <summary>
-    /// Interaction logic for SymbolEditView.xaml
-    /// </summary>
-    public partial class SymbolEditView
+    // Codebehind for SymbolEditView.xaml
+    public partial class SymbolEditView : AbstractEditView
     {
-        private SymbolEditVM _viewModel;
+        private readonly SymbolEditVM _viewModel;
 
+        public Symbol Symbol => _viewModel.Symbol;
+
+        /// <summary>
+        /// This constructor should not be called, but we need it for the designer to work.
+        /// </summary>
+        /// <remarks>This constructor creates a dummy Symbol for the designer.</remarks>
         public SymbolEditView()
         {
-            // This constructor should not be called, but we need it for the designer to work.
-            // We will create a dummy Symbol for the designer.
             InitializeComponent();
+
             _viewModel = new SymbolEditVM(new Symbol());
             _isDirty = _viewModel;
             DataContext = _viewModel;
         }
 
-        public SymbolEditView(Symbol Symbol) : base(new SymbolEditVM(Symbol))
+        /// <summary>
+        /// This constructor should be used at runtime to create the view with a real Symbol.
+        /// </summary>
+        /// <param name="symbol">The real Symbol to be used by the view.</param>
+        public SymbolEditView(Symbol symbol) : base(new SymbolEditVM(symbol))
         {
             InitializeComponent();
-            //_viewModel = new SymbolEditVM(Symbol);
             _viewModel = (SymbolEditVM)DataContext;
-        }
-
-        public Symbol Symbol
-        {
-            get { return _viewModel.Symbol; }
         }
 
         private void OkButton_Click(object sender, RoutedEventArgs e)

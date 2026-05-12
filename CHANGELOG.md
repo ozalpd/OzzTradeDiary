@@ -9,10 +9,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 ### Added
 - Added `Session` and `Holiday` entities, models, and repositories with full CRUD support.
 - Added SQL DDL and seed data for sessions and holidays for major exchanges.
+- Introduce `EnumValueItem<T>` for enum ComboBox binding.
 
 ### Changed
 - Extended `Exchange` with country, timezone, always-open, and navigation collections for sessions and holidays.
 - Updated codegen, localization, and WPF MVVM to support new fields and entities.
+- Standardize <IsMultiLine> in WpfMvVmCodeEngine.settings for codegen UI hints.
+- Add CountryCode, Timezone, and IsAlwaysOpen to Exchange views and VMs.
+- Refactor Symbol and TradingAccount views for layout and multi-line support.
 
 ## [0.0.63] - 2026-05-03
 

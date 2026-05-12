@@ -63,7 +63,8 @@ namespace TD.WPF.Services
         }
 
         /// <inheritdoc />
-        public (bool IsConfirmed, Symbol? Symbol) ShowSymbolCreateDialog(Window owner, ICurrencyLookupService currencyLookupService, IExchangeLookupService exchangeLookupService, Exchange? preselectedExchange)
+        public (bool IsConfirmed, Symbol? Symbol) ShowSymbolCreateDialog(Window owner, ICurrencyLookupService currencyLookupService,
+                                                                         IExchangeLookupService exchangeLookupService, Exchange? preselectedExchange)
         {
             var dialog = new SymbolCreateView(currencyLookupService, exchangeLookupService, preselectedExchange)
             {
@@ -87,7 +88,8 @@ namespace TD.WPF.Services
         }
 
         /// <inheritdoc />
-        public (bool IsConfirmed, TradingAccount? TradingAccount) ShowTradingAccountCreateDialog(Window owner, IExchangeLookupService exchangeLookupService, Exchange? preselectedExchange)
+        public (bool IsConfirmed, TradingAccount? TradingAccount) ShowTradingAccountCreateDialog(Window owner, IExchangeLookupService exchangeLookupService,
+                                                                                                 Exchange? preselectedExchange)
         {
             var dialog = new TradingAccountCreateView(exchangeLookupService, preselectedExchange)
             {

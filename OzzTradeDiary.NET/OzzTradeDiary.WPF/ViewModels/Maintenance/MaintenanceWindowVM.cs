@@ -86,6 +86,8 @@ namespace TD.WPF.ViewModels.Maintenance
 
         private void FilterSymbols()
         {
+            SymbolCreateCommand.PreselectedExchange = SelectedSymbolExchange;
+
             if (SelectedSymbolExchange is null && string.IsNullOrWhiteSpace(SymbolSearchString))
             {
                 ReplaceCollection(FilteredSymbols, Symbols);

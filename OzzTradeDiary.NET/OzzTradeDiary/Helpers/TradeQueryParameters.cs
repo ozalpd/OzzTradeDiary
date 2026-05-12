@@ -65,7 +65,7 @@ namespace TD.Helpers
 
         public override bool HasAnySearchCriteria()
         {
-            _hasAnySearchCriteria = base.HasAnySearchCriteria();        
+            _hasAnySearchCriteria = base.HasAnySearchCriteria();
             if (_hasAnySearchCriteria) return true;
 
             _hasAnySearchCriteria = _hasAnySearchCriteria || TradingAccountId.HasValue;

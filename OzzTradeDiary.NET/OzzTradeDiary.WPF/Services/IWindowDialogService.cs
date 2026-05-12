@@ -66,7 +66,8 @@ namespace TD.WPF.Services
         /// <param name="preselectedExchange">An optional preselected exchange to initialize the dialog with.</param>
         /// <returns>A tuple containing a Boolean value that is <see langword="true"/> if the user confirmed the dialog; otherwise, <see
         /// langword="false"/>. The second item is the created Symbol if confirmed; otherwise, <see langword="null"/>.</returns>
-        (bool IsConfirmed, Symbol? Symbol) ShowSymbolCreateDialog(Window owner, ICurrencyLookupService currencyLookupService, IExchangeLookupService exchangeLookupService, Exchange? preselectedExchange);
+        (bool IsConfirmed, Symbol? Symbol) ShowSymbolCreateDialog(Window owner, ICurrencyLookupService currencyLookupService,
+                                                                  IExchangeLookupService exchangeLookupService, Exchange? preselectedExchange);
 
         /// <summary>
         /// Displays a modal dialog for editing the specified Symbol and returns the result indicating whether the dialog
@@ -89,7 +90,8 @@ namespace TD.WPF.Services
         /// <param name="preselectedExchange">An optional preselected exchange to initialize the dialog with.</param>
         /// <returns>A tuple containing a Boolean value that is <see langword="true"/> if the user confirmed the dialog; otherwise, <see
         /// langword="false"/>. The second item is the created Trading Account if confirmed; otherwise, <see langword="null"/>.</returns>
-        (bool IsConfirmed, TradingAccount? TradingAccount) ShowTradingAccountCreateDialog(Window owner, IExchangeLookupService exchangeLookupService, Exchange? preselectedExchange);
+        (bool IsConfirmed, TradingAccount? TradingAccount) ShowTradingAccountCreateDialog(Window owner, IExchangeLookupService exchangeLookupService,
+                                                                                          Exchange? preselectedExchange);
 
         /// <summary>
         /// Displays a modal dialog for editing the specified Trading Account and returns the result indicating whether the dialog

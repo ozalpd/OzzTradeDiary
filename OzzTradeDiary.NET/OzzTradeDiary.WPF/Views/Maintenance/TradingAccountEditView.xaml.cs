@@ -1,36 +1,37 @@
-﻿using System.Windows;
+using System.Windows;
 using TD.Models;
 using TD.WPF.ViewModels.Maintenance;
 
 namespace TD.WPF.Views.Maintenance
 {
-    /// <summary>
-    /// Interaction logic for TradingAccountEditView.xaml
-    /// </summary>
-    public partial class TradingAccountEditView
+    // Codebehind for TradingAccountEditView.xaml
+    public partial class TradingAccountEditView : AbstractEditView
     {
-        private TradingAccountEditVM _viewModel;
+        private readonly TradingAccountEditVM _viewModel;
 
+        public TradingAccount TradingAccount => _viewModel.TradingAccount;
+
+        /// <summary>
+        /// This constructor should not be called, but we need it for the designer to work.
+        /// </summary>
+        /// <remarks>This constructor creates a dummy TradingAccount for the designer.</remarks>
         public TradingAccountEditView()
         {
-            // This constructor should not be called, but we need it for the designer to work.
-            // We will create a dummy TradingAccount for the designer.
             InitializeComponent();
+
             _viewModel = new TradingAccountEditVM(new TradingAccount());
             _isDirty = _viewModel;
             DataContext = _viewModel;
         }
 
+        /// <summary>
+        /// This constructor should be used at runtime to create the view with a real TradingAccount.
+        /// </summary>
+        /// <param name="tradingAccount">The real TradingAccount to be used by the view.</param>
         public TradingAccountEditView(TradingAccount tradingAccount) : base(new TradingAccountEditVM(tradingAccount))
         {
             InitializeComponent();
-            //_viewModel = new TradingAccountEditVM(tradingAccount);
             _viewModel = (TradingAccountEditVM)DataContext;
-        }
-
-        public TradingAccount TradingAccount
-        {
-            get { return _viewModel.TradingAccount; }
         }
 
         private void OkButton_Click(object sender, RoutedEventArgs e)

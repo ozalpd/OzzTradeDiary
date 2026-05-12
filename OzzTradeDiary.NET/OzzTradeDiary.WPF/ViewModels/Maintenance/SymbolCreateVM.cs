@@ -1,6 +1,7 @@
 using System.Collections.ObjectModel;
 using TD.AppInfra.Services;
 using TD.AppInfra.ViewModels;
+using TD.Extensions;
 using TD.Models;
 //----------------------------------------------------------------------------------
 //
@@ -16,6 +17,7 @@ namespace TD.WPF.ViewModels.Maintenance
     {
         private readonly ICurrencyLookupService _currencyLookupService;
         private readonly IExchangeLookupService _exchangeLookupService;
+        private readonly IReadOnlyList<EnumValueItem<MarketType>> _marketTypeValues;
         private Symbol _symbol;
         public Symbol Symbol => _symbol;
 
@@ -26,6 +28,11 @@ namespace TD.WPF.ViewModels.Maintenance
 
             _exchangeLookupService = exchangeLookupService;
             Exchanges = new ObservableCollection<Exchange>();
+
+            _marketTypeValues = EnumExtension
+                .GetValues<MarketType>()
+                .Select(x => new EnumValueItem<MarketType> { Value = x, DisplayValue = x.GetDisplayValue() })
+                .ToList();
 
             _symbol = new Symbol();
             DisplayOrder = 1000;
@@ -192,6 +199,17 @@ namespace TD.WPF.ViewModels.Maintenance
                     RaisePropertyChanged(nameof(MarketType));
                     ValidateProperty(_symbol, nameof(MarketType));
                 }
+            }
+        }
+
+        /// <summary>
+        /// Gets the collection of available MarketType enum members for selection or display.
+        /// </summary>
+        public IEnumerable<EnumValueItem<MarketType>> MarketTypeValues
+        {
+            get
+            {
+                return _marketTypeValues;
             }
         }
 
