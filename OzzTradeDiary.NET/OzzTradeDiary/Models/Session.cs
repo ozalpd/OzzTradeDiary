@@ -46,7 +46,7 @@ namespace TD.Models
         public int? DayOfWeek { get; set; }
 
         /// <summary>
-        /// -- "HH:mm"
+        /// Opening hour in "HH:mm" format
         /// </summary>
         [StringLength(10, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxStringLength")]
         [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
@@ -54,7 +54,7 @@ namespace TD.Models
         public string LocalOpen { get; set; }
 
         /// <summary>
-        /// -- "HH:mm"
+        /// Closing hour in "HH:mm" format
         /// </summary>
         [StringLength(10, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxStringLength")]
         [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]

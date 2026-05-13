@@ -22,6 +22,7 @@ namespace TD.WPF.Views.Maintenance
             _viewModel = new SymbolEditVM(new Symbol());
             _isDirty = _viewModel;
             DataContext = _viewModel;
+            SourceInitialized += SymbolEditView_SourceInitialized;
         }
 
         /// <summary>
@@ -33,6 +34,12 @@ namespace TD.WPF.Views.Maintenance
             InitializeComponent();
             _viewModel = (SymbolEditVM)DataContext;
         }
+
+        private async void SymbolEditView_SourceInitialized(object? sender, EventArgs e)
+        {
+            OnSourceInitialized();
+        }
+        partial void OnSourceInitialized();
 
         private void OkButton_Click(object sender, RoutedEventArgs e)
         {

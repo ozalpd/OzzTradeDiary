@@ -713,7 +713,7 @@
         </BaseProperty>
         <BaseProperty xsi:type="StringProperty">
           <Name>LocalOpen</Name>
-          <Comment>-- "HH:mm"</Comment>
+          <Comment>Opening hour in "HH:mm" format</Comment>
           <DisplayOrder>10500</DisplayOrder>
           <DisplayName>Local Open</DisplayName>
           <TypeName>string</TypeName>
@@ -730,7 +730,7 @@
         </BaseProperty>
         <BaseProperty xsi:type="StringProperty">
           <Name>LocalClose</Name>
-          <Comment>-- "HH:mm"</Comment>
+          <Comment>Closing hour in "HH:mm" format</Comment>
           <DisplayOrder>10600</DisplayOrder>
           <DisplayName>Local Close</DisplayName>
           <TypeName>string</TypeName>

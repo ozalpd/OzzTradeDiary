@@ -22,6 +22,7 @@ namespace TD.WPF.Views.Maintenance
             _viewModel = new CurrencyEditVM(new Currency());
             _isDirty = _viewModel;
             DataContext = _viewModel;
+            SourceInitialized += CurrencyEditView_SourceInitialized;
         }
 
         /// <summary>
@@ -33,6 +34,12 @@ namespace TD.WPF.Views.Maintenance
             InitializeComponent();
             _viewModel = (CurrencyEditVM)DataContext;
         }
+
+        private async void CurrencyEditView_SourceInitialized(object? sender, EventArgs e)
+        {
+            OnSourceInitialized();
+        }
+        partial void OnSourceInitialized();
 
         private void OkButton_Click(object sender, RoutedEventArgs e)
         {

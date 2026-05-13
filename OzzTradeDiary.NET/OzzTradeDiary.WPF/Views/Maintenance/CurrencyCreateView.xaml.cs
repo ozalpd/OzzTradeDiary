@@ -17,7 +17,14 @@ namespace TD.WPF.Views.Maintenance
 
             _viewModel = new CurrencyCreateVM();
             DataContext = _viewModel;
+            SourceInitialized += CurrencyCreateView_SourceInitialized;
         }
+
+        private async void CurrencyCreateView_SourceInitialized(object? sender, EventArgs e)
+        {
+            OnSourceInitialized();
+        }
+        partial void OnSourceInitialized();
 
         private void OkButton_Click(object sender, RoutedEventArgs e)
         {

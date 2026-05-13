@@ -6,9 +6,8 @@
         xmlns:local="clr-namespace:TD.WPF.Views.Maintenance"
         xmlns:i18n="clr-namespace:TD.i18n;assembly=OzzTradeDiary.i18n"
         Title="{x:Static i18n:LocalizedStrings.CreateCurrency}"
-        Height="340" Width="420" MinHeight="340" MinWidth="420"
+        Height="370" Width="420" MinHeight="370" MinWidth="420"
         WindowStartupLocation="CenterOwner"
-        FocusManager.FocusedElement="{Binding ElementName=CurrencyTickerTextBox}"
         mc:Ignorable="d">
     <Grid Margin="12">
         <Grid.ColumnDefinitions>
@@ -22,27 +21,27 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-                
+        
         <TextBlock Grid.Row="0" Grid.Column="0" Style="{StaticResource RightAlignedTextBlockStyle}"
-                   Text="{x:Static i18n:LocalizedStrings.CurrencyTicker}" />
+                   Text="{x:Static i18n:LocalizedStrings.CurrencyTicker}"/>
         <TextBox x:Name="CurrencyTickerTextBox" Grid.Row="0" Grid.Column="1"
                  Style="{StaticResource ValidationTextBoxStyle}"
-                 Text="{Binding CurrencyTicker, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}" />
+                 Text="{Binding CurrencyTicker, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"/>
         
         <TextBlock Grid.Row="1" Grid.Column="0" Style="{StaticResource RightAlignedTextBlockStyle}"
-                   Text="{x:Static i18n:LocalizedStrings.Description}" />
-        <TextBox Grid.Row="1" Grid.Column="1"
+                   Text="{x:Static i18n:LocalizedStrings.Description}"/>
+        <TextBox x:Name="DescriptionTextBox" Grid.Row="1" Grid.Column="1"
                  Style="{StaticResource ValidationMutliLineTextBoxStyle}"
-                 Text="{Binding Description, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}" />
+                 Text="{Binding Description, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"/>
         
         <TextBlock Grid.Row="2" Grid.Column="0" Style="{StaticResource RightAlignedTextBlockStyle}"
-                   Text="{x:Static i18n:LocalizedStrings.DisplayOrder}" />
-        <TextBox Grid.Row="2" Grid.Column="1"
+                   Text="{x:Static i18n:LocalizedStrings.DisplayOrder}"/>
+        <TextBox x:Name="DisplayOrderTextBox" Grid.Row="2" Grid.Column="1"
                  Style="{StaticResource ValidationTextBoxStyle}"
-                 Text="{Binding DisplayOrder, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}" />
+                 Text="{Binding DisplayOrder, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"/>
         
         <TextBlock Grid.Row="3" Grid.Column="0" Style="{StaticResource RightAlignedTextBlockStyle}"
-                   Text="{x:Static i18n:LocalizedStrings.IsActive}" />
+                   Text="{x:Static i18n:LocalizedStrings.IsActive}"/>
         <CheckBox Grid.Row="3" Grid.Column="1" Margin="0,0,0,8" IsChecked="{Binding IsActive}" />
 
         <StackPanel Grid.Row="4" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,12,0,0">

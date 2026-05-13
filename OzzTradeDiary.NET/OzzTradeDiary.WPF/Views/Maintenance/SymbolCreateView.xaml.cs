@@ -60,7 +60,9 @@ namespace TD.WPF.Views.Maintenance
             {
                 _viewModel.ExchangeId = _preselectedExchange.Id;
             }
+            OnSourceInitialized();
         }
+        partial void OnSourceInitialized();
 
         private void OkButton_Click(object sender, RoutedEventArgs e)
         {

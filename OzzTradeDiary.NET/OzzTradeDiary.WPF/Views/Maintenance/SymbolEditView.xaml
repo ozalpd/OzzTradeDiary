@@ -7,7 +7,7 @@
         xmlns:i18n="clr-namespace:TD.i18n;assembly=OzzTradeDiary.i18n"
         xmlns:base="clr-namespace:TD.WPF.Views"
         Title="{x:Static i18n:LocalizedStrings.EditSymbol}"
-        Height="500" Width="420" MinHeight="500" MinWidth="420"
+        Height="530" Width="420" MinHeight="530" MinWidth="420"
         WindowStartupLocation="CenterOwner"
         mc:Ignorable="d">
     <Grid Margin="12">
@@ -20,54 +20,57 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-                
+        
         <TextBlock Grid.Row="0" Grid.Column="0" Style="{StaticResource RightAlignedTextBlockStyle}"
-                   Text="{x:Static i18n:LocalizedStrings.Ticker}" />
-        <TextBox Grid.Row="0" Grid.Column="1" Style="{StaticResource ReadOnlyTextBoxStyle}" Text="{Binding Ticker, Mode=OneWay}" />
+                   Text="{x:Static i18n:LocalizedStrings.Ticker}"/>
+        <TextBox Grid.Row="0" Grid.Column="1" Style="{StaticResource ReadOnlyTextBoxStyle}" Text="{Binding Ticker, Mode=OneWay}"/>
         
         <TextBlock Grid.Row="1" Grid.Column="0" Style="{StaticResource RightAlignedTextBlockStyle}"
-                   Text="{x:Static i18n:LocalizedStrings.TickerFull}" />
-        <TextBox Grid.Row="1" Grid.Column="1" Style="{StaticResource ReadOnlyTextBoxStyle}" Text="{Binding TickerFull, Mode=OneWay}" />
+                   Text="{x:Static i18n:LocalizedStrings.MarketType}"/>
+        <ComboBox x:Name="MarketTypeComboBox" Grid.Row="1" Grid.Column="1"
+                  Style="{StaticResource ValidationComboBoxStyle}"
+                  ItemsSource="{Binding MarketTypeValues}"
+                  DisplayMemberPath="DisplayValue"
+                  SelectedValuePath="Value"
+                  SelectedValue="{Binding MarketType, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"/>
         
         <TextBlock Grid.Row="2" Grid.Column="0" Style="{StaticResource RightAlignedTextBlockStyle}"
-                   Text="{x:Static i18n:LocalizedStrings.BaseCurrency}" />
-        <TextBox Grid.Row="2" Grid.Column="1" Style="{StaticResource ReadOnlyTextBoxStyle}" Text="{Binding BaseCurrency, Mode=OneWay}" />
+                   Text="{x:Static i18n:LocalizedStrings.Exchange}"/>
+        <TextBox Grid.Row="2" Grid.Column="1" Style="{StaticResource ReadOnlyTextBoxStyle}" Text="{Binding Exchange.ExchangeName, Mode=OneWay}"/>
         
         <TextBlock Grid.Row="3" Grid.Column="0" Style="{StaticResource RightAlignedTextBlockStyle}"
-                   Text="{x:Static i18n:LocalizedStrings.PriceCurrency}" />
-        <TextBox Grid.Row="3" Grid.Column="1" Style="{StaticResource ReadOnlyTextBoxStyle}" Text="{Binding PriceCurrency.CurrencyTicker, Mode=OneWay}" />
+                   Text="{x:Static i18n:LocalizedStrings.TickerFull}"/>
+        <TextBox Grid.Row="3" Grid.Column="1" Style="{StaticResource ReadOnlyTextBoxStyle}" Text="{Binding TickerFull, Mode=OneWay}"/>
         
         <TextBlock Grid.Row="4" Grid.Column="0" Style="{StaticResource RightAlignedTextBlockStyle}"
-                   Text="{x:Static i18n:LocalizedStrings.Description}" />
-        <TextBox Grid.Row="4" Grid.Column="1"
-                 Style="{StaticResource ValidationMutliLineTextBoxStyle}"
-                 Text="{Binding Description, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}" />
+                   Text="{x:Static i18n:LocalizedStrings.PriceCurrency}"/>
+        <TextBox Grid.Row="4" Grid.Column="1" Style="{StaticResource ReadOnlyTextBoxStyle}" Text="{Binding PriceCurrency.CurrencyTicker, Mode=OneWay}"/>
         
         <TextBlock Grid.Row="5" Grid.Column="0" Style="{StaticResource RightAlignedTextBlockStyle}"
-                   Text="{x:Static i18n:LocalizedStrings.Exchange}" />
-        <TextBox Grid.Row="5" Grid.Column="1" Style="{StaticResource ReadOnlyTextBoxStyle}" Text="{Binding Exchange.ExchangeName, Mode=OneWay}" />
+                   Text="{x:Static i18n:LocalizedStrings.BaseCurrency}"/>
+        <TextBox Grid.Row="5" Grid.Column="1" Style="{StaticResource ReadOnlyTextBoxStyle}" Text="{Binding BaseCurrency, Mode=OneWay}"/>
         
         <TextBlock Grid.Row="6" Grid.Column="0" Style="{StaticResource RightAlignedTextBlockStyle}"
-                   Text="{x:Static i18n:LocalizedStrings.MarketType}" />
-        <TextBox Grid.Row="6" Grid.Column="1"
-                 Style="{StaticResource ValidationTextBoxStyle}"
-                 Text="{Binding MarketType, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}" />
+                   Text="{x:Static i18n:LocalizedStrings.Description}"/>
+        <TextBox x:Name="DescriptionTextBox" Grid.Row="6" Grid.Column="1"
+                 Style="{StaticResource ValidationMutliLineTextBoxStyle}"
+                 Text="{Binding Description, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"/>
         
         <TextBlock Grid.Row="7" Grid.Column="0" Style="{StaticResource RightAlignedTextBlockStyle}"
-                   Text="{x:Static i18n:LocalizedStrings.DisplayOrder}" />
-        <TextBox Grid.Row="7" Grid.Column="1"
+                   Text="{x:Static i18n:LocalizedStrings.DisplayOrder}"/>
+        <TextBox x:Name="DisplayOrderTextBox" Grid.Row="7" Grid.Column="1"
                  Style="{StaticResource ValidationTextBoxStyle}"
-                 Text="{Binding DisplayOrder, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}" />
+                 Text="{Binding DisplayOrder, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"/>
         
         <TextBlock Grid.Row="8" Grid.Column="0" Style="{StaticResource RightAlignedTextBlockStyle}"
-                   Text="{x:Static i18n:LocalizedStrings.IsActive}" />
+                   Text="{x:Static i18n:LocalizedStrings.IsActive}"/>
         <CheckBox Grid.Row="8" Grid.Column="1" Margin="0,0,0,8" IsChecked="{Binding IsActive}" />
 
         <StackPanel Grid.Row="9" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,12,0,0">

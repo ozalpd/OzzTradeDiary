@@ -45,7 +45,9 @@ namespace TD.WPF.Views.Maintenance
             {
                 MessageBox.Show($"Load exchanges failed.\n{ex.Message}", "Ozz Trade Diary", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+            OnSourceInitialized();
         }
+        partial void OnSourceInitialized();
 
         private void OkButton_Click(object sender, RoutedEventArgs e)
         {

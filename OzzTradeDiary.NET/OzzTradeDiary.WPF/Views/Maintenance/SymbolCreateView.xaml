@@ -6,9 +6,8 @@
         xmlns:local="clr-namespace:TD.WPF.Views.Maintenance"
         xmlns:i18n="clr-namespace:TD.i18n;assembly=OzzTradeDiary.i18n"
         Title="{x:Static i18n:LocalizedStrings.CreateSymbol}"
-        Height="500" Width="420" MinHeight="500" MinWidth="420"
+        Height="530" Width="420" MinHeight="530" MinWidth="420"
         WindowStartupLocation="CenterOwner"
-        FocusManager.FocusedElement="{Binding ElementName=TickerTextBox}"
         mc:Ignorable="d">
     <Grid Margin="12">
         <Grid.ColumnDefinitions>
@@ -20,74 +19,73 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-                
+        
         <TextBlock Grid.Row="0" Grid.Column="0" Style="{StaticResource RightAlignedTextBlockStyle}"
-                   Text="{x:Static i18n:LocalizedStrings.Ticker}" />
+                   Text="{x:Static i18n:LocalizedStrings.Ticker}"/>
         <TextBox x:Name="TickerTextBox" Grid.Row="0" Grid.Column="1"
                  Style="{StaticResource ValidationTextBoxStyle}"
-                 Text="{Binding Ticker, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}" />
+                 Text="{Binding Ticker, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"/>
         
         <TextBlock Grid.Row="1" Grid.Column="0" Style="{StaticResource RightAlignedTextBlockStyle}"
-                   Text="{x:Static i18n:LocalizedStrings.TickerFull}" />
-        <TextBox Grid.Row="1" Grid.Column="1"
-                 Style="{StaticResource ValidationTextBoxStyle}"
-                 Text="{Binding TickerFull, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}" />
-        
-        <TextBlock Grid.Row="2" Grid.Column="0" Style="{StaticResource RightAlignedTextBlockStyle}"
-                   Text="{x:Static i18n:LocalizedStrings.BaseCurrency}" />
-        <TextBox Grid.Row="2" Grid.Column="1"
-                 Style="{StaticResource ValidationTextBoxStyle}"
-                 Text="{Binding BaseCurrency, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}" />
-        
-        <TextBlock Grid.Row="3" Grid.Column="0" Style="{StaticResource RightAlignedTextBlockStyle}"
-                   Text="{x:Static i18n:LocalizedStrings.PriceCurrency}" />
-        <ComboBox Grid.Row="3" Grid.Column="1"
-                  Style="{StaticResource ValidationComboBoxStyle}"
-                  ItemsSource="{Binding Currencies}"
-                  DisplayMemberPath="CurrencyTicker"
-                  SelectedValuePath="Id"
-                  SelectedValue="{Binding PriceCurrencyId, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}" />
-        
-        <TextBlock Grid.Row="4" Grid.Column="0" Style="{StaticResource RightAlignedTextBlockStyle}"
-                   Text="{x:Static i18n:LocalizedStrings.Description}" />
-        <TextBox Grid.Row="4" Grid.Column="1"
-                 Style="{StaticResource ValidationMutliLineTextBoxStyle}"
-                 Text="{Binding Description, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}" />
-        
-        <TextBlock Grid.Row="5" Grid.Column="0" Style="{StaticResource RightAlignedTextBlockStyle}"
-                   Text="{x:Static i18n:LocalizedStrings.Exchange}" />
-        <ComboBox Grid.Row="5" Grid.Column="1"
-                  Style="{StaticResource ValidationComboBoxStyle}"
-                  ItemsSource="{Binding Exchanges}"
-                  DisplayMemberPath="ExchangeCode"
-                  SelectedValuePath="Id"
-                  SelectedValue="{Binding ExchangeId, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}" />
-        
-        <TextBlock Grid.Row="6" Grid.Column="0" Style="{StaticResource RightAlignedTextBlockStyle}"
-                   Text="{x:Static i18n:LocalizedStrings.MarketType}" />
-        <ComboBox Grid.Row="6" Grid.Column="1"
+                   Text="{x:Static i18n:LocalizedStrings.MarketType}"/>
+        <ComboBox x:Name="MarketTypeComboBox" Grid.Row="1" Grid.Column="1"
                   Style="{StaticResource ValidationComboBoxStyle}"
                   ItemsSource="{Binding MarketTypeValues}"
                   DisplayMemberPath="DisplayValue"
                   SelectedValuePath="Value"
                   SelectedValue="{Binding MarketType, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"/>
-
-
-        <TextBlock Grid.Row="7" Grid.Column="0" Style="{StaticResource RightAlignedTextBlockStyle}"
-                   Text="{x:Static i18n:LocalizedStrings.DisplayOrder}" />
-        <TextBox Grid.Row="7" Grid.Column="1"
+        
+        <TextBlock Grid.Row="2" Grid.Column="0" Style="{StaticResource RightAlignedTextBlockStyle}"
+                   Text="{x:Static i18n:LocalizedStrings.Exchange}"/>
+        <ComboBox x:Name="ExchangeIdComboBox" Grid.Row="2" Grid.Column="1"
+                  Style="{StaticResource ValidationComboBoxStyle}"
+                  ItemsSource="{Binding Exchanges}"
+                  DisplayMemberPath="ExchangeName"
+                  SelectedValuePath="Id"
+                  SelectedValue="{Binding ExchangeId, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"/>
+        
+        <TextBlock Grid.Row="3" Grid.Column="0" Style="{StaticResource RightAlignedTextBlockStyle}"
+                   Text="{x:Static i18n:LocalizedStrings.TickerFull}"/>
+        <TextBox x:Name="TickerFullTextBox" Grid.Row="3" Grid.Column="1"
                  Style="{StaticResource ValidationTextBoxStyle}"
-                 Text="{Binding DisplayOrder, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}" />
+                 Text="{Binding TickerFull, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"/>
+        
+        <TextBlock Grid.Row="4" Grid.Column="0" Style="{StaticResource RightAlignedTextBlockStyle}"
+                   Text="{x:Static i18n:LocalizedStrings.PriceCurrency}"/>
+        <ComboBox x:Name="PriceCurrencyIdComboBox" Grid.Row="4" Grid.Column="1"
+                  Style="{StaticResource ValidationComboBoxStyle}"
+                  ItemsSource="{Binding Currencies}"
+                  DisplayMemberPath="CurrencyTicker"
+                  SelectedValuePath="Id"
+                  SelectedValue="{Binding PriceCurrencyId, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"/>
+        
+        <TextBlock Grid.Row="5" Grid.Column="0" Style="{StaticResource RightAlignedTextBlockStyle}"
+                   Text="{x:Static i18n:LocalizedStrings.BaseCurrency}"/>
+        <TextBox x:Name="BaseCurrencyTextBox" Grid.Row="5" Grid.Column="1"
+                 Style="{StaticResource ValidationTextBoxStyle}"
+                 Text="{Binding BaseCurrency, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"/>
+        
+        <TextBlock Grid.Row="6" Grid.Column="0" Style="{StaticResource RightAlignedTextBlockStyle}"
+                   Text="{x:Static i18n:LocalizedStrings.Description}"/>
+        <TextBox x:Name="DescriptionTextBox" Grid.Row="6" Grid.Column="1"
+                 Style="{StaticResource ValidationMutliLineTextBoxStyle}"
+                 Text="{Binding Description, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"/>
+        
+        <TextBlock Grid.Row="7" Grid.Column="0" Style="{StaticResource RightAlignedTextBlockStyle}"
+                   Text="{x:Static i18n:LocalizedStrings.DisplayOrder}"/>
+        <TextBox x:Name="DisplayOrderTextBox" Grid.Row="7" Grid.Column="1"
+                 Style="{StaticResource ValidationTextBoxStyle}"
+                 Text="{Binding DisplayOrder, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"/>
         
         <TextBlock Grid.Row="8" Grid.Column="0" Style="{StaticResource RightAlignedTextBlockStyle}"
-                   Text="{x:Static i18n:LocalizedStrings.IsActive}" />
+                   Text="{x:Static i18n:LocalizedStrings.IsActive}"/>
         <CheckBox Grid.Row="8" Grid.Column="1" Margin="0,0,0,8" IsChecked="{Binding IsActive}" />
 
         <StackPanel Grid.Row="9" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,12,0,0">

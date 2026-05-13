@@ -12,6 +12,7 @@
         <WpfMvvmPropertySetting>
           <Name>Id</Name>
           <Exclude>false</Exclude>
+          <CreateEditOrder>101</CreateEditOrder>
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
@@ -44,6 +45,7 @@
         <WpfMvvmPropertySetting>
           <Name>DisplayOrder</Name>
           <Exclude>false</Exclude>
+          <CreateEditOrder>100100</CreateEditOrder>
           <DefaultValue>1000</DefaultValue>
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
@@ -76,6 +78,7 @@
         <WpfMvvmPropertySetting>
           <Name>IsActive</Name>
           <Exclude>false</Exclude>
+          <CreateEditOrder>100200</CreateEditOrder>
           <DefaultValue>true</DefaultValue>
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
@@ -108,6 +111,7 @@
         <WpfMvvmPropertySetting>
           <Name>CreatedAt</Name>
           <Exclude>false</Exclude>
+          <CreateEditOrder>2001000</CreateEditOrder>
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
@@ -140,6 +144,7 @@
         <WpfMvvmPropertySetting>
           <Name>UpdatedAt</Name>
           <Exclude>false</Exclude>
+          <CreateEditOrder>2002000</CreateEditOrder>
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
@@ -172,6 +177,7 @@
         <WpfMvvmPropertySetting>
           <Name>OrderType</Name>
           <Exclude>false</Exclude>
+          <CreateEditOrder>20100</CreateEditOrder>
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
@@ -184,6 +190,7 @@
         <WpfMvvmPropertySetting>
           <Name>ExecuteTime</Name>
           <Exclude>false</Exclude>
+          <CreateEditOrder>20200</CreateEditOrder>
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
@@ -196,6 +203,7 @@
         <WpfMvvmPropertySetting>
           <Name>OrderPrice</Name>
           <Exclude>false</Exclude>
+          <CreateEditOrder>20300</CreateEditOrder>
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
@@ -208,6 +216,7 @@
         <WpfMvvmPropertySetting>
           <Name>FilledPrice</Name>
           <Exclude>false</Exclude>
+          <CreateEditOrder>20400</CreateEditOrder>
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
@@ -220,6 +229,7 @@
         <WpfMvvmPropertySetting>
           <Name>OrderQuantity</Name>
           <Exclude>false</Exclude>
+          <CreateEditOrder>20500</CreateEditOrder>
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
@@ -232,6 +242,7 @@
         <WpfMvvmPropertySetting>
           <Name>FilledQuantity</Name>
           <Exclude>false</Exclude>
+          <CreateEditOrder>20600</CreateEditOrder>
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
@@ -244,6 +255,7 @@
         <WpfMvvmPropertySetting>
           <Name>OrderValue</Name>
           <Exclude>false</Exclude>
+          <CreateEditOrder>20700</CreateEditOrder>
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
@@ -256,6 +268,7 @@
         <WpfMvvmPropertySetting>
           <Name>FilledValue</Name>
           <Exclude>false</Exclude>
+          <CreateEditOrder>20800</CreateEditOrder>
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
@@ -288,6 +301,7 @@
         <WpfMvvmPropertySetting>
           <Name>ExchangeName</Name>
           <Exclude>false</Exclude>
+          <CreateEditOrder>10100</CreateEditOrder>
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
@@ -300,6 +314,7 @@
         <WpfMvvmPropertySetting>
           <Name>ExchangeCode</Name>
           <Exclude>false</Exclude>
+          <CreateEditOrder>10200</CreateEditOrder>
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
@@ -312,6 +327,7 @@
         <WpfMvvmPropertySetting>
           <Name>CountryCode</Name>
           <Exclude>false</Exclude>
+          <CreateEditOrder>10300</CreateEditOrder>
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
@@ -324,6 +340,7 @@
         <WpfMvvmPropertySetting>
           <Name>DefaultCurrencyId</Name>
           <Exclude>false</Exclude>
+          <CreateEditOrder>10400</CreateEditOrder>
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
@@ -336,6 +353,7 @@
         <WpfMvvmPropertySetting>
           <Name>DefaultCurrency</Name>
           <Exclude>false</Exclude>
+          <CreateEditOrder>10500</CreateEditOrder>
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
@@ -348,6 +366,7 @@
         <WpfMvvmPropertySetting>
           <Name>Timezone</Name>
           <Exclude>false</Exclude>
+          <CreateEditOrder>10600</CreateEditOrder>
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
@@ -360,6 +379,7 @@
         <WpfMvvmPropertySetting>
           <Name>IsAlwaysOpen</Name>
           <Exclude>false</Exclude>
+          <CreateEditOrder>10700</CreateEditOrder>
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
@@ -372,6 +392,7 @@
         <WpfMvvmPropertySetting>
           <Name>HasAnySymbol</Name>
           <Exclude>false</Exclude>
+          <CreateEditOrder>10800</CreateEditOrder>
           <DefaultValue />
           <IncludeInView>false</IncludeInView>
           <IncludeInViewModel>false</IncludeInViewModel>
@@ -404,6 +425,7 @@
         <WpfMvvmPropertySetting>
           <Name>ExchangeId</Name>
           <Exclude>false</Exclude>
+          <CreateEditOrder>10100</CreateEditOrder>
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
@@ -416,6 +438,7 @@
         <WpfMvvmPropertySetting>
           <Name>Exchange</Name>
           <Exclude>false</Exclude>
+          <CreateEditOrder>10200</CreateEditOrder>
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
@@ -428,6 +451,7 @@
         <WpfMvvmPropertySetting>
           <Name>SessionType</Name>
           <Exclude>false</Exclude>
+          <CreateEditOrder>10300</CreateEditOrder>
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
@@ -440,6 +464,7 @@
         <WpfMvvmPropertySetting>
           <Name>DayOfWeek</Name>
           <Exclude>false</Exclude>
+          <CreateEditOrder>10400</CreateEditOrder>
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
@@ -452,6 +477,7 @@
         <WpfMvvmPropertySetting>
           <Name>LocalOpen</Name>
           <Exclude>false</Exclude>
+          <CreateEditOrder>10500</CreateEditOrder>
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
@@ -464,6 +490,7 @@
         <WpfMvvmPropertySetting>
           <Name>LocalClose</Name>
           <Exclude>false</Exclude>
+          <CreateEditOrder>10600</CreateEditOrder>
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
@@ -496,6 +523,7 @@
         <WpfMvvmPropertySetting>
           <Name>HolidayName</Name>
           <Exclude>false</Exclude>
+          <CreateEditOrder>10100</CreateEditOrder>
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
@@ -508,6 +536,7 @@
         <WpfMvvmPropertySetting>
           <Name>ExchangeId</Name>
           <Exclude>false</Exclude>
+          <CreateEditOrder>10200</CreateEditOrder>
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
@@ -520,6 +549,7 @@
         <WpfMvvmPropertySetting>
           <Name>Exchange</Name>
           <Exclude>false</Exclude>
+          <CreateEditOrder>10300</CreateEditOrder>
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
@@ -532,6 +562,7 @@
         <WpfMvvmPropertySetting>
           <Name>Month</Name>
           <Exclude>false</Exclude>
+          <CreateEditOrder>10400</CreateEditOrder>
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
@@ -544,6 +575,7 @@
         <WpfMvvmPropertySetting>
           <Name>Day</Name>
           <Exclude>false</Exclude>
+          <CreateEditOrder>10500</CreateEditOrder>
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
@@ -556,6 +588,7 @@
         <WpfMvvmPropertySetting>
           <Name>HolidayDate</Name>
           <Exclude>false</Exclude>
+          <CreateEditOrder>10600</CreateEditOrder>
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
@@ -568,6 +601,7 @@
         <WpfMvvmPropertySetting>
           <Name>IsHalfDay</Name>
           <Exclude>false</Exclude>
+          <CreateEditOrder>10700</CreateEditOrder>
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
@@ -600,6 +634,7 @@
         <WpfMvvmPropertySetting>
           <Name>Title</Name>
           <Exclude>false</Exclude>
+          <CreateEditOrder>10300</CreateEditOrder>
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
@@ -612,6 +647,7 @@
         <WpfMvvmPropertySetting>
           <Name>ExchangeId</Name>
           <Exclude>false</Exclude>
+          <CreateEditOrder>10100</CreateEditOrder>
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
@@ -624,6 +660,7 @@
         <WpfMvvmPropertySetting>
           <Name>Exchange</Name>
           <Exclude>false</Exclude>
+          <CreateEditOrder>10200</CreateEditOrder>
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
@@ -636,6 +673,7 @@
         <WpfMvvmPropertySetting>
           <Name>Notes</Name>
           <Exclude>false</Exclude>
+          <CreateEditOrder>10400</CreateEditOrder>
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
@@ -668,6 +706,7 @@
         <WpfMvvmPropertySetting>
           <Name>CurrencyTicker</Name>
           <Exclude>false</Exclude>
+          <CreateEditOrder>10100</CreateEditOrder>
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
@@ -680,6 +719,7 @@
         <WpfMvvmPropertySetting>
           <Name>Description</Name>
           <Exclude>false</Exclude>
+          <CreateEditOrder>10200</CreateEditOrder>
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
@@ -712,6 +752,7 @@
         <WpfMvvmPropertySetting>
           <Name>Ticker</Name>
           <Exclude>false</Exclude>
+          <CreateEditOrder>10100</CreateEditOrder>
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
@@ -724,6 +765,7 @@
         <WpfMvvmPropertySetting>
           <Name>TickerFull</Name>
           <Exclude>false</Exclude>
+          <CreateEditOrder>10500</CreateEditOrder>
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
@@ -736,6 +778,7 @@
         <WpfMvvmPropertySetting>
           <Name>BaseCurrency</Name>
           <Exclude>false</Exclude>
+          <CreateEditOrder>10800</CreateEditOrder>
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
@@ -748,6 +791,7 @@
         <WpfMvvmPropertySetting>
           <Name>PriceCurrencyId</Name>
           <Exclude>false</Exclude>
+          <CreateEditOrder>10600</CreateEditOrder>
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
@@ -760,6 +804,7 @@
         <WpfMvvmPropertySetting>
           <Name>PriceCurrency</Name>
           <Exclude>false</Exclude>
+          <CreateEditOrder>10700</CreateEditOrder>
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
@@ -772,6 +817,7 @@
         <WpfMvvmPropertySetting>
           <Name>Description</Name>
           <Exclude>false</Exclude>
+          <CreateEditOrder>10900</CreateEditOrder>
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
@@ -784,6 +830,7 @@
         <WpfMvvmPropertySetting>
           <Name>ExchangeId</Name>
           <Exclude>false</Exclude>
+          <CreateEditOrder>10300</CreateEditOrder>
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
@@ -796,6 +843,7 @@
         <WpfMvvmPropertySetting>
           <Name>Exchange</Name>
           <Exclude>false</Exclude>
+          <CreateEditOrder>10400</CreateEditOrder>
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
@@ -808,6 +856,7 @@
         <WpfMvvmPropertySetting>
           <Name>MarketType</Name>
           <Exclude>false</Exclude>
+          <CreateEditOrder>10200</CreateEditOrder>
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
@@ -840,6 +889,7 @@
         <WpfMvvmPropertySetting>
           <Name>TradeId</Name>
           <Exclude>false</Exclude>
+          <CreateEditOrder>10100</CreateEditOrder>
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
@@ -852,6 +902,7 @@
         <WpfMvvmPropertySetting>
           <Name>Trade</Name>
           <Exclude>false</Exclude>
+          <CreateEditOrder>10200</CreateEditOrder>
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
@@ -884,6 +935,7 @@
         <WpfMvvmPropertySetting>
           <Name>TradeId</Name>
           <Exclude>false</Exclude>
+          <CreateEditOrder>10100</CreateEditOrder>
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
@@ -896,6 +948,7 @@
         <WpfMvvmPropertySetting>
           <Name>Trade</Name>
           <Exclude>false</Exclude>
+          <CreateEditOrder>10200</CreateEditOrder>
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
@@ -928,6 +981,7 @@
         <WpfMvvmPropertySetting>
           <Name>TradeId</Name>
           <Exclude>false</Exclude>
+          <CreateEditOrder>10100</CreateEditOrder>
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
@@ -940,6 +994,7 @@
         <WpfMvvmPropertySetting>
           <Name>Trade</Name>
           <Exclude>false</Exclude>
+          <CreateEditOrder>10200</CreateEditOrder>
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
@@ -952,6 +1007,7 @@
         <WpfMvvmPropertySetting>
           <Name>StopAll</Name>
           <Exclude>false</Exclude>
+          <CreateEditOrder>10300</CreateEditOrder>
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
@@ -984,6 +1040,7 @@
         <WpfMvvmPropertySetting>
           <Name>TradeId</Name>
           <Exclude>false</Exclude>
+          <CreateEditOrder>10100</CreateEditOrder>
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
@@ -996,6 +1053,7 @@
         <WpfMvvmPropertySetting>
           <Name>Trade</Name>
           <Exclude>false</Exclude>
+          <CreateEditOrder>10200</CreateEditOrder>
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
@@ -1008,6 +1066,7 @@
         <WpfMvvmPropertySetting>
           <Name>ImageURL</Name>
           <Exclude>false</Exclude>
+          <CreateEditOrder>10300</CreateEditOrder>
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
@@ -1020,6 +1079,7 @@
         <WpfMvvmPropertySetting>
           <Name>Notes</Name>
           <Exclude>false</Exclude>
+          <CreateEditOrder>10400</CreateEditOrder>
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
@@ -1052,6 +1112,7 @@
         <WpfMvvmPropertySetting>
           <Name>TradingAccountId</Name>
           <Exclude>false</Exclude>
+          <CreateEditOrder>10100</CreateEditOrder>
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
@@ -1064,6 +1125,7 @@
         <WpfMvvmPropertySetting>
           <Name>TradingAccount</Name>
           <Exclude>false</Exclude>
+          <CreateEditOrder>10200</CreateEditOrder>
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
@@ -1076,6 +1138,7 @@
         <WpfMvvmPropertySetting>
           <Name>SymbolId</Name>
           <Exclude>false</Exclude>
+          <CreateEditOrder>10300</CreateEditOrder>
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
@@ -1088,6 +1151,7 @@
         <WpfMvvmPropertySetting>
           <Name>Symbol</Name>
           <Exclude>false</Exclude>
+          <CreateEditOrder>10400</CreateEditOrder>
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
@@ -1100,6 +1164,7 @@
         <WpfMvvmPropertySetting>
           <Name>EntryTime</Name>
           <Exclude>false</Exclude>
+          <CreateEditOrder>10500</CreateEditOrder>
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
@@ -1112,6 +1177,7 @@
         <WpfMvvmPropertySetting>
           <Name>EntryMethod</Name>
           <Exclude>false</Exclude>
+          <CreateEditOrder>10600</CreateEditOrder>
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
@@ -1124,6 +1190,7 @@
         <WpfMvvmPropertySetting>
           <Name>TradeDirection</Name>
           <Exclude>false</Exclude>
+          <CreateEditOrder>10700</CreateEditOrder>
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
@@ -1136,6 +1203,7 @@
         <WpfMvvmPropertySetting>
           <Name>IsFullyClosed</Name>
           <Exclude>false</Exclude>
+          <CreateEditOrder>10800</CreateEditOrder>
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
@@ -1148,6 +1216,7 @@
         <WpfMvvmPropertySetting>
           <Name>OrderQuantity</Name>
           <Exclude>false</Exclude>
+          <CreateEditOrder>11000</CreateEditOrder>
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
@@ -1160,6 +1229,7 @@
         <WpfMvvmPropertySetting>
           <Name>FilledQuantity</Name>
           <Exclude>false</Exclude>
+          <CreateEditOrder>11100</CreateEditOrder>
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
@@ -1172,6 +1242,7 @@
         <WpfMvvmPropertySetting>
           <Name>PlannedEntryPrice</Name>
           <Exclude>false</Exclude>
+          <CreateEditOrder>11200</CreateEditOrder>
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
@@ -1184,6 +1255,7 @@
         <WpfMvvmPropertySetting>
           <Name>ExecutedEntryPrice</Name>
           <Exclude>false</Exclude>
+          <CreateEditOrder>11300</CreateEditOrder>
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
@@ -1196,6 +1268,7 @@
         <WpfMvvmPropertySetting>
           <Name>PlannedPositionValue</Name>
           <Exclude>false</Exclude>
+          <CreateEditOrder>11400</CreateEditOrder>
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
@@ -1208,6 +1281,7 @@
         <WpfMvvmPropertySetting>
           <Name>ExecutedPositionValue</Name>
           <Exclude>false</Exclude>
+          <CreateEditOrder>11500</CreateEditOrder>
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
@@ -1220,6 +1294,7 @@
         <WpfMvvmPropertySetting>
           <Name>PlannedProfitLoss</Name>
           <Exclude>false</Exclude>
+          <CreateEditOrder>11700</CreateEditOrder>
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
@@ -1232,6 +1307,7 @@
         <WpfMvvmPropertySetting>
           <Name>RealizedProfitLoss</Name>
           <Exclude>false</Exclude>
+          <CreateEditOrder>11800</CreateEditOrder>
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
@@ -1244,6 +1320,7 @@
         <WpfMvvmPropertySetting>
           <Name>PlannedTP</Name>
           <Exclude>false</Exclude>
+          <CreateEditOrder>11900</CreateEditOrder>
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
@@ -1256,6 +1333,7 @@
         <WpfMvvmPropertySetting>
           <Name>ExecutedTP</Name>
           <Exclude>false</Exclude>
+          <CreateEditOrder>12000</CreateEditOrder>
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
@@ -1268,6 +1346,7 @@
         <WpfMvvmPropertySetting>
           <Name>PlannedRiskAmount</Name>
           <Exclude>false</Exclude>
+          <CreateEditOrder>12200</CreateEditOrder>
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
@@ -1280,6 +1359,7 @@
         <WpfMvvmPropertySetting>
           <Name>PlannedSL</Name>
           <Exclude>false</Exclude>
+          <CreateEditOrder>12300</CreateEditOrder>
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
@@ -1292,6 +1372,7 @@
         <WpfMvvmPropertySetting>
           <Name>ExecutedSL</Name>
           <Exclude>false</Exclude>
+          <CreateEditOrder>12400</CreateEditOrder>
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
