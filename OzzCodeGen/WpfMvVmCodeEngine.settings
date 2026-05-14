@@ -634,7 +634,7 @@
         <WpfMvvmPropertySetting>
           <Name>Title</Name>
           <Exclude>false</Exclude>
-          <CreateEditOrder>10300</CreateEditOrder>
+          <CreateEditOrder>10100</CreateEditOrder>
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
@@ -647,7 +647,7 @@
         <WpfMvvmPropertySetting>
           <Name>ExchangeId</Name>
           <Exclude>false</Exclude>
-          <CreateEditOrder>10100</CreateEditOrder>
+          <CreateEditOrder>10200</CreateEditOrder>
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
@@ -660,7 +660,7 @@
         <WpfMvvmPropertySetting>
           <Name>Exchange</Name>
           <Exclude>false</Exclude>
-          <CreateEditOrder>10200</CreateEditOrder>
+          <CreateEditOrder>10300</CreateEditOrder>
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>

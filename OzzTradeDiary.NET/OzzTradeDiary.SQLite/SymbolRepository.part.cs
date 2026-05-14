@@ -13,7 +13,7 @@ namespace TD.SQLite
         {
             try
             {
-                await _exchangeRepository.UpdateHasAnySymbolAsync(exchangeId, true);
+                await ExchangeRepository.UpdateHasAnySymbolAsync(exchangeId, true);
             }
             catch (Exception)
             {

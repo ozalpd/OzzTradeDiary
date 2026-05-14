@@ -18,7 +18,9 @@ namespace TD.WPF.ViewModels.Maintenance
         public ExchangeEditVM(Exchange exchange)
         {
             _exchange = exchange;
+            OnInitialized();
         }
+        partial void OnInitialized();
 
         public string ExchangeName
         {

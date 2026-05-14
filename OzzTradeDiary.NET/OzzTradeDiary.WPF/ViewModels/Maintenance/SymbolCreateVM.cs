@@ -34,7 +34,9 @@ namespace TD.WPF.ViewModels.Maintenance
             _symbol = new Symbol();
             DisplayOrder = 1000;
             IsActive = true;
+            OnInitialized();
         }
+        partial void OnInitialized();
 
         public ObservableCollection<Currency> Currencies { get; }
 

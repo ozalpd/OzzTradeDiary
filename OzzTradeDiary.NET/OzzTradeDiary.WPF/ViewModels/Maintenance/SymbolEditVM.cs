@@ -22,7 +22,9 @@ namespace TD.WPF.ViewModels.Maintenance
                                         .Select(x => new EnumValueItem<MarketType> { Value = x, DisplayValue = x.GetDisplayValue() })
                                         .ToList();
             _symbol = symbol;
+            OnInitialized();
         }
+        partial void OnInitialized();
 
         /// <summary>
         /// Gets the collection of available MarketType enum members for selection or display.

@@ -18,7 +18,9 @@ namespace TD.WPF.ViewModels.Maintenance
         public TradingAccountEditVM(TradingAccount tradingAccount)
         {
             _tradingAccount = tradingAccount;
+            OnInitialized();
         }
+        partial void OnInitialized();
 
         public string Title => _tradingAccount.Title;
 

@@ -26,13 +26,13 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-        
+
         <TextBlock Grid.Row="0" Grid.Column="0" Style="{StaticResource RightAlignedTextBlockStyle}"
                    Text="{x:Static i18n:LocalizedStrings.Ticker}"/>
         <TextBox x:Name="TickerTextBox" Grid.Row="0" Grid.Column="1"
                  Style="{StaticResource ValidationTextBoxStyle}"
                  Text="{Binding Ticker, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"/>
-        
+
         <TextBlock Grid.Row="1" Grid.Column="0" Style="{StaticResource RightAlignedTextBlockStyle}"
                    Text="{x:Static i18n:LocalizedStrings.MarketType}"/>
         <ComboBox x:Name="MarketTypeComboBox" Grid.Row="1" Grid.Column="1"
@@ -41,7 +41,7 @@
                   DisplayMemberPath="DisplayValue"
                   SelectedValuePath="Value"
                   SelectedValue="{Binding MarketType, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"/>
-        
+
         <TextBlock Grid.Row="2" Grid.Column="0" Style="{StaticResource RightAlignedTextBlockStyle}"
                    Text="{x:Static i18n:LocalizedStrings.Exchange}"/>
         <ComboBox x:Name="ExchangeIdComboBox" Grid.Row="2" Grid.Column="1"
@@ -50,13 +50,13 @@
                   DisplayMemberPath="ExchangeName"
                   SelectedValuePath="Id"
                   SelectedValue="{Binding ExchangeId, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"/>
-        
+
         <TextBlock Grid.Row="3" Grid.Column="0" Style="{StaticResource RightAlignedTextBlockStyle}"
                    Text="{x:Static i18n:LocalizedStrings.TickerFull}"/>
         <TextBox x:Name="TickerFullTextBox" Grid.Row="3" Grid.Column="1"
                  Style="{StaticResource ValidationTextBoxStyle}"
                  Text="{Binding TickerFull, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"/>
-        
+
         <TextBlock Grid.Row="4" Grid.Column="0" Style="{StaticResource RightAlignedTextBlockStyle}"
                    Text="{x:Static i18n:LocalizedStrings.PriceCurrency}"/>
         <ComboBox x:Name="PriceCurrencyIdComboBox" Grid.Row="4" Grid.Column="1"
@@ -65,25 +65,25 @@
                   DisplayMemberPath="CurrencyTicker"
                   SelectedValuePath="Id"
                   SelectedValue="{Binding PriceCurrencyId, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"/>
-        
+
         <TextBlock Grid.Row="5" Grid.Column="0" Style="{StaticResource RightAlignedTextBlockStyle}"
                    Text="{x:Static i18n:LocalizedStrings.BaseCurrency}"/>
         <TextBox x:Name="BaseCurrencyTextBox" Grid.Row="5" Grid.Column="1"
                  Style="{StaticResource ValidationTextBoxStyle}"
                  Text="{Binding BaseCurrency, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"/>
-        
+
         <TextBlock Grid.Row="6" Grid.Column="0" Style="{StaticResource RightAlignedTextBlockStyle}"
                    Text="{x:Static i18n:LocalizedStrings.Description}"/>
         <TextBox x:Name="DescriptionTextBox" Grid.Row="6" Grid.Column="1"
                  Style="{StaticResource ValidationMutliLineTextBoxStyle}"
                  Text="{Binding Description, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"/>
-        
+
         <TextBlock Grid.Row="7" Grid.Column="0" Style="{StaticResource RightAlignedTextBlockStyle}"
                    Text="{x:Static i18n:LocalizedStrings.DisplayOrder}"/>
         <TextBox x:Name="DisplayOrderTextBox" Grid.Row="7" Grid.Column="1"
                  Style="{StaticResource ValidationTextBoxStyle}"
                  Text="{Binding DisplayOrder, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"/>
-        
+
         <TextBlock Grid.Row="8" Grid.Column="0" Style="{StaticResource RightAlignedTextBlockStyle}"
                    Text="{x:Static i18n:LocalizedStrings.IsActive}"/>
         <CheckBox Grid.Row="8" Grid.Column="1" Margin="0,0,0,8" IsChecked="{Binding IsActive}" />

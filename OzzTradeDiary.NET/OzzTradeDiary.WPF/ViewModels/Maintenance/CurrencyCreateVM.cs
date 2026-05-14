@@ -20,7 +20,9 @@ namespace TD.WPF.ViewModels.Maintenance
             _currency = new Currency();
             DisplayOrder = 1000;
             IsActive = true;
+            OnInitialized();
         }
+        partial void OnInitialized();
 
         public string CurrencyTicker
         {

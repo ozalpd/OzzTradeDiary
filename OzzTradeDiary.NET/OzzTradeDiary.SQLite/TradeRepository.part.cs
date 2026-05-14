@@ -8,7 +8,7 @@ namespace TD.SQLite
         {
             try
             {
-                var images = await _tradeImageRepository.GetByTradeIdAsync(trade.Id);
+                var images = await TradeImageRepository.GetByTradeIdAsync(trade.Id);
                 trade.TradeImages = images.ToList();
             }
             catch (Exception)
@@ -18,7 +18,7 @@ namespace TD.SQLite
 
             try
             {
-                var entryOrders = await _entryOrderRepository.GetByTradeIdAsync(trade.Id);
+                var entryOrders = await EntryOrderRepository.GetByTradeIdAsync(trade.Id);
                 trade.EntryOrders = entryOrders.ToList();
             }
             catch (Exception)
@@ -28,7 +28,7 @@ namespace TD.SQLite
 
             try
             {
-                var tpOrders = await _takeProfitOrderRepository.GetByTradeIdAsync(trade.Id);
+                var tpOrders = await TakeProfitOrderRepository.GetByTradeIdAsync(trade.Id);
                 trade.TakeProfitOrders = tpOrders.ToList();
             }
             catch (Exception)
@@ -38,7 +38,7 @@ namespace TD.SQLite
 
             try
             {
-                var slOrders = await _stopLossOrderRepository.GetByTradeIdAsync(trade.Id);
+                var slOrders = await StopLossOrderRepository.GetByTradeIdAsync(trade.Id);
                 trade.StopLossOrders = slOrders.ToList();
             }
             catch (Exception)

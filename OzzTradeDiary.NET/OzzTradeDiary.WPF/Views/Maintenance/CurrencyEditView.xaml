@@ -22,23 +22,23 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-        
+
         <TextBlock Grid.Row="0" Grid.Column="0" Style="{StaticResource RightAlignedTextBlockStyle}"
                    Text="{x:Static i18n:LocalizedStrings.CurrencyTicker}"/>
         <TextBox Grid.Row="0" Grid.Column="1" Style="{StaticResource ReadOnlyTextBoxStyle}" Text="{Binding CurrencyTicker, Mode=OneWay}"/>
-        
+
         <TextBlock Grid.Row="1" Grid.Column="0" Style="{StaticResource RightAlignedTextBlockStyle}"
                    Text="{x:Static i18n:LocalizedStrings.Description}"/>
         <TextBox x:Name="DescriptionTextBox" Grid.Row="1" Grid.Column="1"
                  Style="{StaticResource ValidationMutliLineTextBoxStyle}"
                  Text="{Binding Description, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"/>
-        
+
         <TextBlock Grid.Row="2" Grid.Column="0" Style="{StaticResource RightAlignedTextBlockStyle}"
                    Text="{x:Static i18n:LocalizedStrings.DisplayOrder}"/>
         <TextBox x:Name="DisplayOrderTextBox" Grid.Row="2" Grid.Column="1"
                  Style="{StaticResource ValidationTextBoxStyle}"
                  Text="{Binding DisplayOrder, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"/>
-        
+
         <TextBlock Grid.Row="3" Grid.Column="0" Style="{StaticResource RightAlignedTextBlockStyle}"
                    Text="{x:Static i18n:LocalizedStrings.IsActive}"/>
         <CheckBox Grid.Row="3" Grid.Column="1" Margin="0,0,0,8" IsChecked="{Binding IsActive}" />

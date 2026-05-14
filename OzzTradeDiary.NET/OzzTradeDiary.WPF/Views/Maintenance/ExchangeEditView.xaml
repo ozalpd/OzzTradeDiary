@@ -26,43 +26,43 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-        
+
         <TextBlock Grid.Row="0" Grid.Column="0" Style="{StaticResource RightAlignedTextBlockStyle}"
                    Text="{x:Static i18n:LocalizedStrings.ExchangeName}"/>
         <TextBox x:Name="ExchangeNameTextBox" Grid.Row="0" Grid.Column="1"
                  Style="{StaticResource ValidationTextBoxStyle}"
                  Text="{Binding ExchangeName, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"/>
-        
+
         <TextBlock Grid.Row="1" Grid.Column="0" Style="{StaticResource RightAlignedTextBlockStyle}"
                    Text="{x:Static i18n:LocalizedStrings.ExchangeCode}"/>
         <TextBox Grid.Row="1" Grid.Column="1" Style="{StaticResource ReadOnlyTextBoxStyle}" Text="{Binding ExchangeCode, Mode=OneWay}"/>
-        
+
         <TextBlock Grid.Row="2" Grid.Column="0" Style="{StaticResource RightAlignedTextBlockStyle}"
                    Text="{x:Static i18n:LocalizedStrings.CountryCode}"/>
         <TextBox x:Name="CountryCodeTextBox" Grid.Row="2" Grid.Column="1"
                  Style="{StaticResource ValidationTextBoxStyle}"
                  Text="{Binding CountryCode, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"/>
-        
+
         <TextBlock Grid.Row="3" Grid.Column="0" Style="{StaticResource RightAlignedTextBlockStyle}"
                    Text="{x:Static i18n:LocalizedStrings.DefaultCurrency}"/>
         <TextBox Grid.Row="3" Grid.Column="1" Style="{StaticResource ReadOnlyTextBoxStyle}" Text="{Binding DefaultCurrency.CurrencyTicker, Mode=OneWay}"/>
-        
+
         <TextBlock Grid.Row="4" Grid.Column="0" Style="{StaticResource RightAlignedTextBlockStyle}"
                    Text="{x:Static i18n:LocalizedStrings.Timezone}"/>
         <TextBox x:Name="TimezoneTextBox" Grid.Row="4" Grid.Column="1"
                  Style="{StaticResource ValidationTextBoxStyle}"
                  Text="{Binding Timezone, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"/>
-        
+
         <TextBlock Grid.Row="5" Grid.Column="0" Style="{StaticResource RightAlignedTextBlockStyle}"
                    Text="{x:Static i18n:LocalizedStrings.IsAlwaysOpen}"/>
         <CheckBox Grid.Row="5" Grid.Column="1" Margin="0,0,0,8" IsChecked="{Binding IsAlwaysOpen}" />
-        
+
         <TextBlock Grid.Row="6" Grid.Column="0" Style="{StaticResource RightAlignedTextBlockStyle}"
                    Text="{x:Static i18n:LocalizedStrings.DisplayOrder}"/>
         <TextBox x:Name="DisplayOrderTextBox" Grid.Row="6" Grid.Column="1"
                  Style="{StaticResource ValidationTextBoxStyle}"
                  Text="{Binding DisplayOrder, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"/>
-        
+
         <TextBlock Grid.Row="7" Grid.Column="0" Style="{StaticResource RightAlignedTextBlockStyle}"
                    Text="{x:Static i18n:LocalizedStrings.IsActive}"/>
         <CheckBox Grid.Row="7" Grid.Column="1" Margin="0,0,0,8" IsChecked="{Binding IsActive}" />

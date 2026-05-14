@@ -18,7 +18,9 @@ namespace TD.WPF.ViewModels.Maintenance
         public CurrencyEditVM(Currency currency)
         {
             _currency = currency;
+            OnInitialized();
         }
+        partial void OnInitialized();
 
         public string CurrencyTicker => _currency.CurrencyTicker;
 

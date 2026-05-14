@@ -26,7 +26,9 @@ namespace TD.WPF.ViewModels.Maintenance
             _exchange = new Exchange();
             DisplayOrder = 1000;
             IsActive = true;
+            OnInitialized();
         }
+        partial void OnInitialized();
 
         public ObservableCollection<Currency> Currencies { get; }
 

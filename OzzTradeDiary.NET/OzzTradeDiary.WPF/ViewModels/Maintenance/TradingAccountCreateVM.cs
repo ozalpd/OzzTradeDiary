@@ -26,7 +26,9 @@ namespace TD.WPF.ViewModels.Maintenance
             _tradingAccount = new TradingAccount();
             DisplayOrder = 1000;
             IsActive = true;
+            OnInitialized();
         }
+        partial void OnInitialized();
 
         public ObservableCollection<Exchange> Exchanges { get; }
 
