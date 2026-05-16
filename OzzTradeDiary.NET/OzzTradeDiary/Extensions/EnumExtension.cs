@@ -7,7 +7,7 @@ namespace TD.Extensions
     public static class EnumExtension
     {
         /// <summary>
-        ///     A generic extension method that aids in reflecting 
+        ///     A generic extension method that aids in reflecting
         ///     and retrieving any attribute that is applied to an `Enum`.
         /// </summary>
         public static TAttribute? GetAttribute<TAttribute>(this Enum enumValue)
@@ -25,24 +25,35 @@ namespace TD.Extensions
         {
             var fieldInfo = value.GetType().GetField(value.ToString());
 
-            DisplayAttribute[] descriptionAttributes = Array.Empty<DisplayAttribute>();
-            if (fieldInfo != null)
-                descriptionAttributes = fieldInfo.GetCustomAttributes(typeof(DisplayAttribute), false) as DisplayAttribute[]
-                                     ?? Array.Empty<DisplayAttribute>();
+            if (fieldInfo == null)
+                return value.ToString();
+
+            DisplayAttribute[] descriptionAttributes = fieldInfo
+                    .GetCustomAttributes(typeof(DisplayAttribute), false) as DisplayAttribute[]
+                            ?? Array.Empty<DisplayAttribute>();
 
             if (descriptionAttributes.Length > 0 && descriptionAttributes[0].ResourceType != null)
-                return LookupResource(descriptionAttributes[0].ResourceType, descriptionAttributes[0].Name ?? string.Empty);
+            {
+                return LookupResource(descriptionAttributes[0].ResourceType!, descriptionAttributes[0].Name ?? string.Empty);
+            }
 
             return (descriptionAttributes.Length > 0) ? descriptionAttributes[0].Name ?? value.ToString() : value.ToString();
         }
 
-        public static IEnumerable<T> GetValues<T>()
+        public static IEnumerable<EnumValueItem<T>> GetValues<T>() where T : Enum
         {
-            return Enum.GetValues(typeof(T)).Cast<T>();
+            return Enum.GetValues(typeof(T)).Cast<T>().Select(x => new EnumValueItem<T>
+            {
+                Value = x,
+                DisplayValue = x.GetDisplayValue()
+            });
         }
 
-        private static string LookupResource(Type resourceManagerProvider, string resourceKey)
+        private static string LookupResource(Type? resourceManagerProvider, string resourceKey)
         {
+            if (resourceManagerProvider == null)
+                return resourceKey;
+
             foreach (PropertyInfo staticProperty in resourceManagerProvider.GetProperties(BindingFlags.Static | BindingFlags.NonPublic | BindingFlags.Public))
             {
                 if (staticProperty.PropertyType == typeof(ResourceManager))
