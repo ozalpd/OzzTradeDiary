@@ -1,8 +1,8 @@
 using System.Windows;
 using TD.Models;
-using TD.WPF.ViewModels.Maintenance;
+using TD.WPF.ViewModels.Exchanges;
 
-namespace TD.WPF.Views.Maintenance
+namespace TD.WPF.Views.Exchanges
 {
     // Codebehind for ExchangeEditView.xaml
     public partial class ExchangeEditView : AbstractEditView

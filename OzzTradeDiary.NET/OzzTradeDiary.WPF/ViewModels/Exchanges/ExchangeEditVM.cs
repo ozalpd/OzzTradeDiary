@@ -1,5 +1,3 @@
-using System.Collections.ObjectModel;
-using TD.AppInfra.Services;
 using TD.AppInfra.ViewModels;
 using TD.Models;
 //----------------------------------------------------------------------------------
@@ -10,37 +8,19 @@ using TD.Models;
 //
 //----------------------------------------------------------------------------------
 
-namespace TD.WPF.ViewModels.Maintenance
+namespace TD.WPF.ViewModels.Exchanges
 {
-    public partial class ExchangeCreateVM : AbstractCreateEditVM
+    public partial class ExchangeEditVM : AbstractCreateEditVM
     {
-        private readonly ICurrencyLookupService _currencyLookupService;
         private Exchange _exchange;
         public Exchange Exchange => _exchange;
 
-        public ExchangeCreateVM(ICurrencyLookupService currencyLookupService)
+        public ExchangeEditVM(Exchange exchange)
         {
-            _currencyLookupService = currencyLookupService;
-            Currencies = new ObservableCollection<Currency>();
-
-            _exchange = new Exchange();
-            DisplayOrder = 1000;
-            IsActive = true;
+            _exchange = exchange;
             OnInitialized();
         }
         partial void OnInitialized();
-
-        public ObservableCollection<Currency> Currencies { get; }
-
-        public async Task LoadCurrenciesAsync()
-        {
-            var items = await _currencyLookupService.GetCurrenciesAsync(isActive: true);
-            Currencies.Clear();
-            foreach (var item in items)
-            {
-                Currencies.Add(item);
-            }
-        }
 
         public string ExchangeName
         {
@@ -56,19 +36,7 @@ namespace TD.WPF.ViewModels.Maintenance
             }
         }
 
-        public string ExchangeCode
-        {
-            get { return _exchange.ExchangeCode; }
-            set
-            {
-                if (_exchange.ExchangeCode != value)
-                {
-                    _exchange.ExchangeCode = value.ToUpperInvariant();
-                    RaisePropertyChanged(nameof(ExchangeCode));
-                    ValidateProperty(_exchange, nameof(ExchangeCode));
-                }
-            }
-        }
+        public string ExchangeCode => _exchange.ExchangeCode;
 
         public string CountryCode
         {
@@ -84,19 +52,7 @@ namespace TD.WPF.ViewModels.Maintenance
             }
         }
 
-        public int DefaultCurrencyId
-        {
-            get { return _exchange.DefaultCurrencyId; }
-            set
-            {
-                if (_exchange.DefaultCurrencyId != value)
-                {
-                    _exchange.DefaultCurrencyId = value;
-                    RaisePropertyChanged(nameof(DefaultCurrencyId));
-                    ValidateProperty(_exchange, nameof(DefaultCurrencyId));
-                }
-            }
-        }
+        public int DefaultCurrencyId => _exchange.DefaultCurrencyId;
 
         public Currency DefaultCurrency
         {

@@ -12,7 +12,7 @@ using TD.WPF.ViewModels;
 //
 //----------------------------------------------------------------------------------
 
-namespace TD.WPF.Commands.Maintenance
+namespace TD.WPF.Commands.Exchanges
 {
     internal partial class ExchangeCreateCommand : AbstractCommand
     {

@@ -2,9 +2,9 @@ using System.Collections.ObjectModel;
 using System.Windows;
 using TD.AppInfra.Services;
 using TD.Models;
-using TD.WPF.ViewModels.Maintenance;
+using TD.WPF.ViewModels.Exchanges;
 
-namespace TD.WPF.Views.Maintenance
+namespace TD.WPF.Views.Exchanges
 {
     // Codebehind for ExchangeCreateView.xaml
     public partial class ExchangeCreateView : Window

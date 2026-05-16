@@ -2,6 +2,7 @@ using System.Windows;
 using TD.AppInfra.Services;
 using TD.AppInfra.ViewModels;
 using TD.Models;
+using TD.WPF.Views.Exchanges;
 using TD.WPF.Views.Maintenance;
 //----------------------------------------------------------------------------------
 //

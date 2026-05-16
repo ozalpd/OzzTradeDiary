@@ -415,7 +415,7 @@
       <GenModeCreateView>GenerateIfNotExists</GenModeCreateView>
       <GenModeEditView>GenerateIfNotExists</GenModeEditView>
       <RepositoryName>IExchangeRepository</RepositoryName>
-      <SubFolder>Maintenance</SubFolder>
+      <SubFolder>Exchanges</SubFolder>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="WpfMvvmEntitySetting">
       <Name>Session</Name>
@@ -513,7 +513,7 @@
       <GenModeCreateView>DoNotGenerate</GenModeCreateView>
       <GenModeEditView>DoNotGenerate</GenModeEditView>
       <RepositoryName>ISessionRepository</RepositoryName>
-      <SubFolder>Sessions</SubFolder>
+      <SubFolder>Exchanges</SubFolder>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="WpfMvvmEntitySetting">
       <Name>Holiday</Name>
@@ -624,7 +624,7 @@
       <GenModeCreateView>DoNotGenerate</GenModeCreateView>
       <GenModeEditView>DoNotGenerate</GenModeEditView>
       <RepositoryName>IHolidayRepository</RepositoryName>
-      <SubFolder>Holidays</SubFolder>
+      <SubFolder>Exchanges</SubFolder>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="WpfMvvmEntitySetting">
       <Name>TradingAccount</Name>

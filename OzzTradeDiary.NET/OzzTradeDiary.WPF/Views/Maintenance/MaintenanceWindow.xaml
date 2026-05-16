@@ -71,7 +71,7 @@
                             </Viewbox>
                         </Button>
 
-                        <Button Style="{StaticResource IconButtonStyle-28x24}" 
+                        <Button Style="{StaticResource IconButtonStyle-28x24}"
                                 ToolTip="{x:Static i18n:LocalizedStrings.DeleteTradingAccount}"
                                 Background="#C80000"
                                 Command="{Binding TradingAccountDeleteCommand}"
@@ -96,7 +96,7 @@
                                 </Path>
                             </Viewbox>
                         </Button>
-                        
+
                         <Border Width="32" Background="Transparent" />
                         <Button Style="{StaticResource IconButtonStyle-28x24}"
                                 ToolTip="{x:Static i18n:ActionStrings.Refresh}"
@@ -130,9 +130,9 @@
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.Id}" Binding="{Binding Id}" IsReadOnly="True" Width="70" />
                             <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.Title}" Binding="{Binding Title}" Width="220" />
-                            <DataGridCheckBoxColumn Header="{x:Static i18n:LocalizedStrings.IsActive}" Binding="{Binding IsActive}" Width="120" />
+                            <DataGridCheckBoxColumn Header="{x:Static i18n:LocalizedStrings.IsActive}" Binding="{Binding IsActive}" Width="64" />
                             <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.ExchangeCode}" Binding="{Binding Exchange.ExchangeCode}" IsReadOnly="True" Width="130" />
-                            <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.DisplayOrder}" Binding="{Binding DisplayOrder}" Width="130" />
+                            <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.DisplayOrder}" Binding="{Binding DisplayOrder}" Width="96" />
                             <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.Notes}" Binding="{Binding Notes}" Width="*" />
                         </DataGrid.Columns>
                     </DataGrid>
@@ -189,7 +189,7 @@
                             </Viewbox>
                         </Button>
 
-                        <Button Style="{StaticResource IconButtonStyle-28x24}" 
+                        <Button Style="{StaticResource IconButtonStyle-28x24}"
                                 ToolTip="{x:Static i18n:LocalizedStrings.DeleteExchange}"
                                 Background="#C80000"
                                 Command="{Binding ExchangeDeleteCommand}"
@@ -214,7 +214,7 @@
                                 </Path>
                             </Viewbox>
                         </Button>
-                        
+
                         <Border Width="32" Background="Transparent" />
                         <Button Style="{StaticResource IconButtonStyle-28x24}"
                                 ToolTip="{x:Static i18n:ActionStrings.Refresh}"
@@ -249,10 +249,13 @@
                             <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.Id}" Binding="{Binding Id}" IsReadOnly="True" Width="70" />
                             <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.ExchangeName}" Binding="{Binding ExchangeName}" Width="260" />
                             <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.ExchangeCode}" Binding="{Binding ExchangeCode}" Width="180" />
-                            <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.DefaultCurrency}" Binding="{Binding DefaultCurrency}" Width="180" />
-                            <DataGridCheckBoxColumn Header="{x:Static i18n:LocalizedStrings.HasAnySymbol}" Binding="{Binding HasAnySymbol}" Width="120" />
-                            <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.DisplayOrder}" Binding="{Binding DisplayOrder}" Width="130" />
-                            <DataGridCheckBoxColumn Header="{x:Static i18n:LocalizedStrings.IsActive}" Binding="{Binding IsActive}" Width="120" />
+                            <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.CountryCode}" Binding="{Binding CountryCode}" Width="60" />
+                            <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.DefaultCurrency}" Binding="{Binding DefaultCurrency.CurrencyTicker}" Width="64" />
+                            <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.Timezone}" Binding="{Binding Timezone}" Width="120" />
+                            <DataGridCheckBoxColumn Header="{x:Static i18n:LocalizedStrings.IsAlwaysOpen}" Binding="{Binding IsAlwaysOpen}" Width="60" />
+                            <DataGridCheckBoxColumn Header="{x:Static i18n:LocalizedStrings.HasAnySymbol}" Binding="{Binding HasAnySymbol}" Width="60" />
+                            <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.DisplayOrder}" Binding="{Binding DisplayOrder}" Width="96" />
+                            <DataGridCheckBoxColumn Header="{x:Static i18n:LocalizedStrings.IsActive}" Binding="{Binding IsActive}" Width="64" />
                         </DataGrid.Columns>
                     </DataGrid>
                 </DockPanel>
@@ -308,7 +311,7 @@
                             </Viewbox>
                         </Button>
 
-                        <Button Style="{StaticResource IconButtonStyle-28x24}" 
+                        <Button Style="{StaticResource IconButtonStyle-28x24}"
                                 ToolTip="{x:Static i18n:LocalizedStrings.DeleteCurrency}"
                                 Background="#C80000"
                                 Command="{Binding CurrencyDeleteCommand}"
@@ -333,7 +336,7 @@
                                 </Path>
                             </Viewbox>
                         </Button>
-                        
+
                         <Border Width="32" Background="Transparent" />
                         <Button Style="{StaticResource IconButtonStyle-28x24}"
                                 ToolTip="{x:Static i18n:ActionStrings.Refresh}"
@@ -366,10 +369,10 @@
                               IsReadOnly="False">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.Id}" Binding="{Binding Id}" IsReadOnly="True" Width="70" />
-                            <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.CurrencyTicker}" Binding="{Binding CurrencyTicker}" Width="180" />
+                            <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.CurrencyTicker}" Binding="{Binding CurrencyTicker}" Width="64" />
                             <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.Description}" Binding="{Binding Description}" Width="*" />
-                            <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.DisplayOrder}" Binding="{Binding DisplayOrder}" Width="130" />
-                            <DataGridCheckBoxColumn Header="{x:Static i18n:LocalizedStrings.IsActive}" Binding="{Binding IsActive}" Width="120" />
+                            <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.DisplayOrder}" Binding="{Binding DisplayOrder}" Width="96" />
+                            <DataGridCheckBoxColumn Header="{x:Static i18n:LocalizedStrings.IsActive}" Binding="{Binding IsActive}" Width="64" />
                         </DataGrid.Columns>
                     </DataGrid>
                 </DockPanel>
@@ -424,7 +427,7 @@
                             </Viewbox>
                         </Button>
 
-                        <Button Style="{StaticResource IconButtonStyle-28x24}" 
+                        <Button Style="{StaticResource IconButtonStyle-28x24}"
                                 ToolTip="{x:Static i18n:LocalizedStrings.DeleteSymbol}"
                                 Background="#C80000"
                                 Command="{Binding SymbolDeleteCommand}"
@@ -449,7 +452,7 @@
                                 </Path>
                             </Viewbox>
                         </Button>
-                        
+
                         <Border Width="32" Background="Transparent" />
                         <Button Style="{StaticResource IconButtonStyle-28x24}"
                                 ToolTip="{x:Static i18n:ActionStrings.Refresh}"
@@ -532,11 +535,11 @@
                             <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.Ticker}" Binding="{Binding Ticker}" Width="120" />
                             <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.Description}" Binding="{Binding Description}" Width="*" />
                             <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.BaseCurrency}" Binding="{Binding BaseCurrency}" Width="64" />
-                            <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.PriceCurrency}" Binding="{Binding PriceCurrency}" Width="64" />
+                            <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.PriceCurrency}" Binding="{Binding PriceCurrency.CurrencyTicker}" Width="64" />
                             <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.ExchangeCode}" Binding="{Binding Exchange.ExchangeCode}" IsReadOnly="True" Width="64" />
                             <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.MarketType}" Binding="{Binding MarketType}" Width="112" />
                             <DataGridCheckBoxColumn Header="{x:Static i18n:LocalizedStrings.IsActive}" Binding="{Binding IsActive}" Width="64" />
-                            <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.DisplayOrder}" Binding="{Binding DisplayOrder}" Width="64" />
+                            <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.DisplayOrder}" Binding="{Binding DisplayOrder}" Width="96" />
                         </DataGrid.Columns>
                     </DataGrid>
                 </DockPanel>
