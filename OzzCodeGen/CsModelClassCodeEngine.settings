@@ -285,7 +285,7 @@
     <BaseEntitySetting xsi:type="ModelClassEntitySetting">
       <Name>Session</Name>
       <Exclude>false</Exclude>
-      <OverwriteExisting>false</OverwriteExisting>
+      <OverwriteExisting>true</OverwriteExisting>
       <Properties>
         <ModelPropertySetting>
           <Name>ExchangeId</Name>
@@ -346,7 +346,7 @@
     <BaseEntitySetting xsi:type="ModelClassEntitySetting">
       <Name>Holiday</Name>
       <Exclude>false</Exclude>
-      <OverwriteExisting>false</OverwriteExisting>
+      <OverwriteExisting>true</OverwriteExisting>
       <Properties>
         <ModelPropertySetting>
           <Name>HolidayName</Name>
@@ -937,7 +937,10 @@
   <CustomAttribNamespace>TD.Validation</CustomAttribNamespace>
   <GenerateForDTO>false</GenerateForDTO>
   <UseResourceFiles>true</UseResourceFiles>
+  <ExtensionsFolder>..\OzzTradeDiary.NET\OzzTradeDiary\Extensions</ExtensionsFolder>
+  <ExtensionsNamespaceName>TD.Extensions</ExtensionsNamespaceName>
   <GenAnnotations>true</GenAnnotations>
+  <GenerateEnumExtension>true</GenerateEnumExtension>
   <GenerateValidator>true</GenerateValidator>
   <GenerateXmlDoc>true</GenerateXmlDoc>
   <QueryParamFolder>..\OzzTradeDiary.NET\OzzTradeDiary\Helpers</QueryParamFolder>
