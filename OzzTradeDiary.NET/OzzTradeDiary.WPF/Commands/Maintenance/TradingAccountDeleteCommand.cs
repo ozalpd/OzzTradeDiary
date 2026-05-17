@@ -13,7 +13,7 @@ using TD.WPF.ViewModels;
 
 namespace TD.WPF.Commands.Maintenance
 {
-    internal partial class TradingAccountDeleteCommand : AbstractCommand
+    public partial class TradingAccountDeleteCommand : AbstractCommand
     {
         private readonly AbstractDiaryVM _viewModel;
 

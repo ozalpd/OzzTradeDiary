@@ -31,6 +31,7 @@
       <GenModeDeleteCommand>DoNotGenerate</GenModeDeleteCommand>
       <GenModeCreateVM>DoNotGenerate</GenModeCreateVM>
       <GenModeEditVM>DoNotGenerate</GenModeEditVM>
+      <GenerateGetPaged>false</GenerateGetPaged>
       <GenModeCollectionVM>DoNotGenerate</GenModeCollectionVM>
       <GenModeLookupService>DoNotGenerate</GenModeLookupService>
       <GenModeCreateView>DoNotGenerate</GenModeCreateView>
@@ -64,6 +65,7 @@
       <GenModeDeleteCommand>DoNotGenerate</GenModeDeleteCommand>
       <GenModeCreateVM>DoNotGenerate</GenModeCreateVM>
       <GenModeEditVM>DoNotGenerate</GenModeEditVM>
+      <GenerateGetPaged>false</GenerateGetPaged>
       <GenModeCollectionVM>DoNotGenerate</GenModeCollectionVM>
       <GenModeLookupService>DoNotGenerate</GenModeLookupService>
       <GenModeCreateView>DoNotGenerate</GenModeCreateView>
@@ -97,6 +99,7 @@
       <GenModeDeleteCommand>DoNotGenerate</GenModeDeleteCommand>
       <GenModeCreateVM>DoNotGenerate</GenModeCreateVM>
       <GenModeEditVM>DoNotGenerate</GenModeEditVM>
+      <GenerateGetPaged>false</GenerateGetPaged>
       <GenModeCollectionVM>DoNotGenerate</GenModeCollectionVM>
       <GenModeLookupService>DoNotGenerate</GenModeLookupService>
       <GenModeCreateView>DoNotGenerate</GenModeCreateView>
@@ -130,6 +133,7 @@
       <GenModeDeleteCommand>DoNotGenerate</GenModeDeleteCommand>
       <GenModeCreateVM>DoNotGenerate</GenModeCreateVM>
       <GenModeEditVM>DoNotGenerate</GenModeEditVM>
+      <GenerateGetPaged>false</GenerateGetPaged>
       <GenModeCollectionVM>DoNotGenerate</GenModeCollectionVM>
       <GenModeLookupService>DoNotGenerate</GenModeLookupService>
       <GenModeCreateView>DoNotGenerate</GenModeCreateView>
@@ -163,6 +167,7 @@
       <GenModeDeleteCommand>DoNotGenerate</GenModeDeleteCommand>
       <GenModeCreateVM>DoNotGenerate</GenModeCreateVM>
       <GenModeEditVM>DoNotGenerate</GenModeEditVM>
+      <GenerateGetPaged>false</GenerateGetPaged>
       <GenModeCollectionVM>DoNotGenerate</GenModeCollectionVM>
       <GenModeLookupService>DoNotGenerate</GenModeLookupService>
       <GenModeCreateView>DoNotGenerate</GenModeCreateView>
@@ -287,6 +292,7 @@
       <GenModeDeleteCommand>DoNotGenerate</GenModeDeleteCommand>
       <GenModeCreateVM>DoNotGenerate</GenModeCreateVM>
       <GenModeEditVM>DoNotGenerate</GenModeEditVM>
+      <GenerateGetPaged>false</GenerateGetPaged>
       <GenModeCollectionVM>DoNotGenerate</GenModeCollectionVM>
       <GenModeLookupService>DoNotGenerate</GenModeLookupService>
       <GenModeCreateView>DoNotGenerate</GenModeCreateView>
@@ -411,6 +417,7 @@
       <GenModeDeleteCommand>GenerateIfNotExists</GenModeDeleteCommand>
       <GenModeCreateVM>GenerateIfNotExists</GenModeCreateVM>
       <GenModeEditVM>GenerateIfNotExists</GenModeEditVM>
+      <GenerateGetPaged>false</GenerateGetPaged>
       <GenModeCollectionVM>DoNotGenerate</GenModeCollectionVM>
       <GenModeLookupService>GenerateIfNotExists</GenModeLookupService>
       <GenModeCreateView>GenerateIfNotExists</GenModeCreateView>
@@ -509,6 +516,7 @@
       <GenModeDeleteCommand>GenerateIfNotExists</GenModeDeleteCommand>
       <GenModeCreateVM>GenerateIfNotExists</GenModeCreateVM>
       <GenModeEditVM>GenerateIfNotExists</GenModeEditVM>
+      <GenerateGetPaged>false</GenerateGetPaged>
       <GenModeCollectionVM>GenerateIfNotExists</GenModeCollectionVM>
       <GenModeLookupService>DoNotGenerate</GenModeLookupService>
       <GenModeCreateView>DoNotGenerate</GenModeCreateView>
@@ -620,6 +628,7 @@
       <GenModeDeleteCommand>GenerateIfNotExists</GenModeDeleteCommand>
       <GenModeCreateVM>GenerateIfNotExists</GenModeCreateVM>
       <GenModeEditVM>GenerateIfNotExists</GenModeEditVM>
+      <GenerateGetPaged>false</GenerateGetPaged>
       <GenModeCollectionVM>GenerateIfNotExists</GenModeCollectionVM>
       <GenModeLookupService>DoNotGenerate</GenModeLookupService>
       <GenModeCreateView>DoNotGenerate</GenModeCreateView>
@@ -692,6 +701,7 @@
       <GenModeDeleteCommand>GenerateIfNotExists</GenModeDeleteCommand>
       <GenModeCreateVM>GenerateIfNotExists</GenModeCreateVM>
       <GenModeEditVM>GenerateIfNotExists</GenModeEditVM>
+      <GenerateGetPaged>false</GenerateGetPaged>
       <GenModeCollectionVM>DoNotGenerate</GenModeCollectionVM>
       <GenModeLookupService>GenerateIfNotExists</GenModeLookupService>
       <GenModeCreateView>GenerateIfNotExists</GenModeCreateView>
@@ -738,6 +748,7 @@
       <GenModeDeleteCommand>GenerateIfNotExists</GenModeDeleteCommand>
       <GenModeCreateVM>GenerateIfNotExists</GenModeCreateVM>
       <GenModeEditVM>GenerateIfNotExists</GenModeEditVM>
+      <GenerateGetPaged>false</GenerateGetPaged>
       <GenModeCollectionVM>DoNotGenerate</GenModeCollectionVM>
       <GenModeLookupService>GenerateIfNotExists</GenModeLookupService>
       <GenModeCreateView>GenerateIfNotExists</GenModeCreateView>
@@ -875,6 +886,7 @@
       <GenModeDeleteCommand>GenerateIfNotExists</GenModeDeleteCommand>
       <GenModeCreateVM>GenerateIfNotExists</GenModeCreateVM>
       <GenModeEditVM>GenerateIfNotExists</GenModeEditVM>
+      <GenerateGetPaged>false</GenerateGetPaged>
       <GenModeCollectionVM>DoNotGenerate</GenModeCollectionVM>
       <GenModeLookupService>GenerateIfNotExists</GenModeLookupService>
       <GenModeCreateView>GenerateIfNotExists</GenModeCreateView>
@@ -921,6 +933,7 @@
       <GenModeDeleteCommand>GenerateIfNotExists</GenModeDeleteCommand>
       <GenModeCreateVM>GenerateIfNotExists</GenModeCreateVM>
       <GenModeEditVM>GenerateIfNotExists</GenModeEditVM>
+      <GenerateGetPaged>false</GenerateGetPaged>
       <GenModeCollectionVM>DoNotGenerate</GenModeCollectionVM>
       <GenModeLookupService>DoNotGenerate</GenModeLookupService>
       <GenModeCreateView>DoNotGenerate</GenModeCreateView>
@@ -967,6 +980,7 @@
       <GenModeDeleteCommand>GenerateIfNotExists</GenModeDeleteCommand>
       <GenModeCreateVM>GenerateIfNotExists</GenModeCreateVM>
       <GenModeEditVM>GenerateIfNotExists</GenModeEditVM>
+      <GenerateGetPaged>false</GenerateGetPaged>
       <GenModeCollectionVM>DoNotGenerate</GenModeCollectionVM>
       <GenModeLookupService>DoNotGenerate</GenModeLookupService>
       <GenModeCreateView>DoNotGenerate</GenModeCreateView>
@@ -1026,6 +1040,7 @@
       <GenModeDeleteCommand>GenerateIfNotExists</GenModeDeleteCommand>
       <GenModeCreateVM>GenerateIfNotExists</GenModeCreateVM>
       <GenModeEditVM>GenerateIfNotExists</GenModeEditVM>
+      <GenerateGetPaged>false</GenerateGetPaged>
       <GenModeCollectionVM>DoNotGenerate</GenModeCollectionVM>
       <GenModeLookupService>DoNotGenerate</GenModeLookupService>
       <GenModeCreateView>DoNotGenerate</GenModeCreateView>
@@ -1098,6 +1113,7 @@
       <GenModeDeleteCommand>GenerateIfNotExists</GenModeDeleteCommand>
       <GenModeCreateVM>GenerateIfNotExists</GenModeCreateVM>
       <GenModeEditVM>GenerateIfNotExists</GenModeEditVM>
+      <GenerateGetPaged>false</GenerateGetPaged>
       <GenModeCollectionVM>DoNotGenerate</GenModeCollectionVM>
       <GenModeLookupService>DoNotGenerate</GenModeLookupService>
       <GenModeCreateView>DoNotGenerate</GenModeCreateView>
@@ -1384,17 +1400,18 @@
         </WpfMvvmPropertySetting>
       </Properties>
       <SubFolder>Trades</SubFolder>
-      <CommandVmNamespace />
-      <CommandVmTypeName>TradesVM</CommandVmTypeName>
+      <CommandVmNamespace>TD.WPF.ViewModels.Trades</CommandVmNamespace>
+      <CommandVmTypeName>TradeListVM</CommandVmTypeName>
       <GenModeCreateCommand>GenerateIfNotExists</GenModeCreateCommand>
       <GenModeEditCommand>GenerateIfNotExists</GenModeEditCommand>
       <GenModeDeleteCommand>GenerateIfNotExists</GenModeDeleteCommand>
       <GenModeCreateVM>GenerateIfNotExists</GenModeCreateVM>
       <GenModeEditVM>GenerateIfNotExists</GenModeEditVM>
-      <GenModeCollectionVM>DoNotGenerate</GenModeCollectionVM>
+      <GenerateGetPaged>true</GenerateGetPaged>
+      <GenModeCollectionVM>GenerateAndOverwrite</GenModeCollectionVM>
       <GenModeLookupService>DoNotGenerate</GenModeLookupService>
-      <GenModeCreateView>DoNotGenerate</GenModeCreateView>
-      <GenModeEditView>DoNotGenerate</GenModeEditView>
+      <GenModeCreateView>GenerateIfNotExists</GenModeCreateView>
+      <GenModeEditView>GenerateIfNotExists</GenModeEditView>
       <RepositoryName>ITradeRepository</RepositoryName>
     </BaseEntitySetting>
   </EntitySettings>
@@ -1403,6 +1420,7 @@
   <InfrastructureNamespaceName>TD.AppInfra</InfrastructureNamespaceName>
   <InfrastructureFolder>..\OzzTradeDiary.NET\OzzTradeDiary.AppInfra\</InfrastructureFolder>
   <CommandFolder>Commands</CommandFolder>
+  <AppSettingsFolder>Models</AppSettingsFolder>
   <RepoContractNamespaceName>TD.RepositoryContracts</RepoContractNamespaceName>
   <RepositoryNamespaceName>TD.SQLite</RepositoryNamespaceName>
   <LookupFolder>Services</LookupFolder>

@@ -13,7 +13,7 @@ using TD.WPF.ViewModels;
 
 namespace TD.WPF.Commands.Exchanges
 {
-    internal partial class ExchangeEditCommand : AbstractCommand
+    public partial class ExchangeEditCommand : AbstractCommand
     {
         private readonly AbstractDiaryVM _viewModel;
         private readonly IWindowDialogService _windowDialogService;

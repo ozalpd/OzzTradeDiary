@@ -19,9 +19,9 @@ namespace TD.AppInfra.ViewModels
         public ObservableCollection<T> Collection { get; }
         public ObservableCollection<T> CollectionFiltered { get; protected set; }
 
-        protected abstract void OnSearchStringChanged();
-        protected abstract void OnSelectedItemChanging(T? newSelectedItem);
-        protected abstract void OnSelectedItemChanged(T? oldSelectedItem);
+        protected virtual void OnSearchStringChanged() { }
+        protected virtual void OnSelectedItemChanging(T? newSelectedItem) { }
+        protected virtual void OnSelectedItemChanged(T? oldSelectedItem) { }
 
         public T? SelectedItem
         {
@@ -59,5 +59,14 @@ namespace TD.AppInfra.ViewModels
             }
         }
         private string? _searchString;
+        
+        protected void ReplaceCollection<T>(ObservableCollection<T> target, IEnumerable<T> source)
+        {
+            target.Clear();
+            foreach (var item in source)
+            {
+                target.Add(item);
+            }
+        }
     }
 }

@@ -5,8 +5,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [0.1.1] - 2026-05-17
+### Added
+- Added `TradeListVM` view model for paginated trade listing with filtering and sorting support.
+- Added `TradeCreateView` and `TradeEditView` dialogs with validation and bindings
+- Implement TradeCreate/Edit/DeleteCommand and `TradeListVM`, `TradeCreateVM`, `TradeEditVM` for full Trade CRUD in WPF
+### Changed
+- Extend `IWindowDialogService`/`WindowDialogService` for Trade dialogs
+- Update `MainWindowVM` to use new `TradeHistoryVM` and inject services
+- Make `AbstractCollectionVM` hooks virtual, add `ReplaceCollection` helper
+- Change command/service visibility to public for broader access
+
 ### Fixed
 - Replaced underscore/camelCase repository references with lazy loading repository properties.
+
 
 ## [0.1.0] - 2026-05-05
 

@@ -15,7 +15,7 @@ using TD.WPF.ViewModels;
 
 namespace TD.WPF.Commands.Maintenance
 {
-    internal partial class TradingAccountCreateCommand : AbstractCommand
+    public partial class TradingAccountCreateCommand : AbstractCommand
     {
         private readonly AbstractDiaryVM _viewModel;
         private readonly IWindowDialogService _windowDialogService;

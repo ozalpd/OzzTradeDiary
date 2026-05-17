@@ -11,7 +11,7 @@ using TD.Models;
 //----------------------------------------------------------------------------------
 namespace TD.WPF.Services
 {
-    internal partial interface IWindowDialogService
+    public partial interface IWindowDialogService
     {
         /// <summary>
         /// Displays the Currency creation dialog and returns the result indicating whether the user confirmed the dialog
@@ -80,6 +80,31 @@ namespace TD.WPF.Services
         /// otherwise, <see langword="false"/>. IsDirty is <see langword="true"/> if any changes were made to the symbol
         /// during editing; otherwise, <see langword="false"/>.</returns>
         (bool IsConfirmed, bool IsDirty) ShowSymbolEditDialog(Window owner, Symbol symbol);
+
+        /// <summary>
+        /// Displays the Trade creation dialog and returns the result indicating whether the user confirmed the dialog
+        /// and the created Trade, if any.
+        /// </summary>
+        /// <param name="owner">The window that will own the dialog. This determines the dialog's parent window for modality and positioning.</param>
+        /// <param name="symbolLookupService">The symbol lookup service used to provide symbol selection options within the dialog.</param>
+        /// <param name="tradingAccountLookupService">The tradingAccount lookup service used to provide tradingAccount selection options within the dialog.</param>
+        /// <param name="preselectedTradingAccount">An optional preselected tradingAccount to initialize the dialog with.</param>
+        /// <returns>A tuple containing a Boolean value that is <see langword="true"/> if the user confirmed the dialog; otherwise, <see
+        /// langword="false"/>. The second item is the created Trade if confirmed; otherwise, <see langword="null"/>.</returns>
+        (bool IsConfirmed, Trade? Trade) ShowTradeCreateDialog(Window owner, ISymbolLookupService symbolLookupService,
+                                                               ITradingAccountLookupService tradingAccountLookupService, TradingAccount? preselectedTradingAccount);
+
+        /// <summary>
+        /// Displays a modal dialog for editing the specified Trade and returns the result indicating whether the dialog
+        /// was confirmed and if any changes were made.
+        /// </summary>
+        /// <param name="owner">The window that will own the dialog. This parameter determines the parent window for modal behavior and dialog
+        /// positioning.</param>
+        /// <param name="trade">The Trade entity to edit. The dialog will display and allow editing of this trade's properties.</param>
+        /// <returns>A tuple containing two values: IsConfirmed is <see langword="true"/> if the user confirmed the dialog;
+        /// otherwise, <see langword="false"/>. IsDirty is <see langword="true"/> if any changes were made to the trade
+        /// during editing; otherwise, <see langword="false"/>.</returns>
+        (bool IsConfirmed, bool IsDirty) ShowTradeEditDialog(Window owner, Trade trade);
 
         /// <summary>
         /// Displays the Trading Account creation dialog and returns the result indicating whether the user confirmed the dialog

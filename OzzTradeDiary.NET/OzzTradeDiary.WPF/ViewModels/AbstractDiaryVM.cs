@@ -7,7 +7,7 @@ using TD.WPF.Models;
 
 namespace TD.WPF.ViewModels
 {
-    internal class AbstractDiaryVM : AbstractDataErrorInfoVM, ISymbolCreationContext
+    public class AbstractDiaryVM : AbstractDataErrorInfoVM, ISymbolCreationContext
     {
         public AbstractDiaryVM()
         {
