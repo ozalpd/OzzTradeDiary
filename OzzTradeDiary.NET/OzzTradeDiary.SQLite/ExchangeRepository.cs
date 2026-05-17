@@ -407,7 +407,7 @@ namespace TD.SQLite
 
         private async Task LoadCurrencyAsync(Exchange exchange)
         {
-            exchange.DefaultCurrency = await _currencyRepository.GetByIdAsync(exchange.DefaultCurrencyId)
+            exchange.DefaultCurrency = await CurrencyRepository.GetByIdAsync(exchange.DefaultCurrencyId)
                             ?? new Currency { Id = exchange.DefaultCurrencyId };
         }
 

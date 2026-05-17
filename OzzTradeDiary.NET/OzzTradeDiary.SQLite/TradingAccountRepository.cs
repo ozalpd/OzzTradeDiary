@@ -316,7 +316,7 @@ namespace TD.SQLite
 
         private async Task LoadExchangeAsync(TradingAccount tradingAccount)
         {
-            tradingAccount.Exchange = await _exchangeRepository.GetByIdAsync(tradingAccount.ExchangeId)
+            tradingAccount.Exchange = await ExchangeRepository.GetByIdAsync(tradingAccount.ExchangeId)
                             ?? new Exchange { Id = tradingAccount.ExchangeId };
         }
 

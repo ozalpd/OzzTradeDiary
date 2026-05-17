@@ -624,14 +624,14 @@ namespace TD.SQLite
 
         private async Task LoadSymbolAsync(Trade trade)
         {
-            trade.Symbol = await _symbolRepository.GetByIdAsync(trade.SymbolId)
+            trade.Symbol = await SymbolRepository.GetByIdAsync(trade.SymbolId)
                             ?? new Symbol { Id = trade.SymbolId };
         }
 
 
         private async Task LoadTradingAccountAsync(Trade trade)
         {
-            trade.TradingAccount = await _tradingAccountRepository.GetByIdAsync(trade.TradingAccountId)
+            trade.TradingAccount = await TradingAccountRepository.GetByIdAsync(trade.TradingAccountId)
                             ?? new TradingAccount { Id = trade.TradingAccountId };
         }
 

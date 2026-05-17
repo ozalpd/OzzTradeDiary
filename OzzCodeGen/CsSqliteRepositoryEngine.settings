@@ -312,7 +312,7 @@
     <BaseEntitySetting xsi:type="SqliteRepositoryEntitySetting">
       <Name>Session</Name>
       <Exclude>false</Exclude>
-      <OverwriteExisting>false</OverwriteExisting>
+      <OverwriteExisting>true</OverwriteExisting>
       <Properties>
         <SqliteRepositoryPropertySetting>
           <Name>ExchangeId</Name>
@@ -378,7 +378,7 @@
     <BaseEntitySetting xsi:type="SqliteRepositoryEntitySetting">
       <Name>Holiday</Name>
       <Exclude>false</Exclude>
-      <OverwriteExisting>false</OverwriteExisting>
+      <OverwriteExisting>true</OverwriteExisting>
       <Properties>
         <SqliteRepositoryPropertySetting>
           <Name>HolidayName</Name>

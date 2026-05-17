@@ -23,6 +23,7 @@
           <ValueConstraint />
         </WpfMvvmPropertySetting>
       </Properties>
+      <SubFolder />
       <CommandVmNamespace />
       <CommandVmTypeName />
       <GenModeCreateCommand>DoNotGenerate</GenModeCreateCommand>
@@ -35,7 +36,6 @@
       <GenModeCreateView>DoNotGenerate</GenModeCreateView>
       <GenModeEditView>DoNotGenerate</GenModeEditView>
       <RepositoryName />
-      <SubFolder />
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="WpfMvvmEntitySetting">
       <Name>IDisplayOrder</Name>
@@ -56,6 +56,7 @@
           <ValueConstraint />
         </WpfMvvmPropertySetting>
       </Properties>
+      <SubFolder />
       <CommandVmNamespace />
       <CommandVmTypeName />
       <GenModeCreateCommand>DoNotGenerate</GenModeCreateCommand>
@@ -68,7 +69,6 @@
       <GenModeCreateView>DoNotGenerate</GenModeCreateView>
       <GenModeEditView>DoNotGenerate</GenModeEditView>
       <RepositoryName />
-      <SubFolder />
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="WpfMvvmEntitySetting">
       <Name>IIsActive</Name>
@@ -89,6 +89,7 @@
           <ValueConstraint />
         </WpfMvvmPropertySetting>
       </Properties>
+      <SubFolder />
       <CommandVmNamespace />
       <CommandVmTypeName />
       <GenModeCreateCommand>DoNotGenerate</GenModeCreateCommand>
@@ -101,7 +102,6 @@
       <GenModeCreateView>DoNotGenerate</GenModeCreateView>
       <GenModeEditView>DoNotGenerate</GenModeEditView>
       <RepositoryName />
-      <SubFolder />
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="WpfMvvmEntitySetting">
       <Name>ICreatedAt</Name>
@@ -122,6 +122,7 @@
           <ValueConstraint />
         </WpfMvvmPropertySetting>
       </Properties>
+      <SubFolder />
       <CommandVmNamespace />
       <CommandVmTypeName />
       <GenModeCreateCommand>DoNotGenerate</GenModeCreateCommand>
@@ -134,7 +135,6 @@
       <GenModeCreateView>DoNotGenerate</GenModeCreateView>
       <GenModeEditView>DoNotGenerate</GenModeEditView>
       <RepositoryName />
-      <SubFolder />
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="WpfMvvmEntitySetting">
       <Name>IUpdatedAt</Name>
@@ -155,6 +155,7 @@
           <ValueConstraint />
         </WpfMvvmPropertySetting>
       </Properties>
+      <SubFolder />
       <CommandVmNamespace />
       <CommandVmTypeName />
       <GenModeCreateCommand>DoNotGenerate</GenModeCreateCommand>
@@ -167,7 +168,6 @@
       <GenModeCreateView>DoNotGenerate</GenModeCreateView>
       <GenModeEditView>DoNotGenerate</GenModeEditView>
       <RepositoryName />
-      <SubFolder />
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="WpfMvvmEntitySetting">
       <Name>ITradeOrder</Name>
@@ -279,6 +279,7 @@
           <ValueConstraint />
         </WpfMvvmPropertySetting>
       </Properties>
+      <SubFolder />
       <CommandVmNamespace />
       <CommandVmTypeName />
       <GenModeCreateCommand>DoNotGenerate</GenModeCreateCommand>
@@ -291,7 +292,6 @@
       <GenModeCreateView>DoNotGenerate</GenModeCreateView>
       <GenModeEditView>DoNotGenerate</GenModeEditView>
       <RepositoryName />
-      <SubFolder />
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="WpfMvvmEntitySetting">
       <Name>Exchange</Name>
@@ -403,6 +403,7 @@
           <ValueConstraint />
         </WpfMvvmPropertySetting>
       </Properties>
+      <SubFolder>Exchanges</SubFolder>
       <CommandVmNamespace>TD.WPF.ViewModels</CommandVmNamespace>
       <CommandVmTypeName>AbstractDiaryVM</CommandVmTypeName>
       <GenModeCreateCommand>GenerateIfNotExists</GenModeCreateCommand>
@@ -415,12 +416,11 @@
       <GenModeCreateView>GenerateIfNotExists</GenModeCreateView>
       <GenModeEditView>GenerateIfNotExists</GenModeEditView>
       <RepositoryName>IExchangeRepository</RepositoryName>
-      <SubFolder>Exchanges</SubFolder>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="WpfMvvmEntitySetting">
       <Name>Session</Name>
       <Exclude>false</Exclude>
-      <OverwriteExisting>false</OverwriteExisting>
+      <OverwriteExisting>true</OverwriteExisting>
       <Properties>
         <WpfMvvmPropertySetting>
           <Name>ExchangeId</Name>
@@ -501,6 +501,7 @@
           <ValueConstraint />
         </WpfMvvmPropertySetting>
       </Properties>
+      <SubFolder>Exchanges</SubFolder>
       <CommandVmNamespace />
       <CommandVmTypeName>ISessionsVM</CommandVmTypeName>
       <GenModeCreateCommand>GenerateIfNotExists</GenModeCreateCommand>
@@ -513,12 +514,11 @@
       <GenModeCreateView>DoNotGenerate</GenModeCreateView>
       <GenModeEditView>DoNotGenerate</GenModeEditView>
       <RepositoryName>ISessionRepository</RepositoryName>
-      <SubFolder>Exchanges</SubFolder>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="WpfMvvmEntitySetting">
       <Name>Holiday</Name>
       <Exclude>false</Exclude>
-      <OverwriteExisting>false</OverwriteExisting>
+      <OverwriteExisting>true</OverwriteExisting>
       <Properties>
         <WpfMvvmPropertySetting>
           <Name>HolidayName</Name>
@@ -612,6 +612,7 @@
           <ValueConstraint />
         </WpfMvvmPropertySetting>
       </Properties>
+      <SubFolder>Exchanges</SubFolder>
       <CommandVmNamespace />
       <CommandVmTypeName>IHolidaysVM</CommandVmTypeName>
       <GenModeCreateCommand>GenerateIfNotExists</GenModeCreateCommand>
@@ -624,7 +625,6 @@
       <GenModeCreateView>DoNotGenerate</GenModeCreateView>
       <GenModeEditView>DoNotGenerate</GenModeEditView>
       <RepositoryName>IHolidayRepository</RepositoryName>
-      <SubFolder>Exchanges</SubFolder>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="WpfMvvmEntitySetting">
       <Name>TradingAccount</Name>
@@ -684,6 +684,7 @@
           <ValueConstraint />
         </WpfMvvmPropertySetting>
       </Properties>
+      <SubFolder>Maintenance</SubFolder>
       <CommandVmNamespace>TD.WPF.ViewModels</CommandVmNamespace>
       <CommandVmTypeName>AbstractDiaryVM</CommandVmTypeName>
       <GenModeCreateCommand>GenerateIfNotExists</GenModeCreateCommand>
@@ -696,7 +697,6 @@
       <GenModeCreateView>GenerateIfNotExists</GenModeCreateView>
       <GenModeEditView>GenerateIfNotExists</GenModeEditView>
       <RepositoryName>ITradingAccountRepository</RepositoryName>
-      <SubFolder>Maintenance</SubFolder>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="WpfMvvmEntitySetting">
       <Name>Currency</Name>
@@ -730,6 +730,7 @@
           <ValueConstraint />
         </WpfMvvmPropertySetting>
       </Properties>
+      <SubFolder>Maintenance</SubFolder>
       <CommandVmNamespace>TD.WPF.ViewModels</CommandVmNamespace>
       <CommandVmTypeName>AbstractDiaryVM</CommandVmTypeName>
       <GenModeCreateCommand>GenerateIfNotExists</GenModeCreateCommand>
@@ -742,7 +743,6 @@
       <GenModeCreateView>GenerateIfNotExists</GenModeCreateView>
       <GenModeEditView>GenerateIfNotExists</GenModeEditView>
       <RepositoryName>ICurrencyRepository</RepositoryName>
-      <SubFolder>Maintenance</SubFolder>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="WpfMvvmEntitySetting">
       <Name>Symbol</Name>
@@ -867,6 +867,7 @@
           <ValueConstraint />
         </WpfMvvmPropertySetting>
       </Properties>
+      <SubFolder>Maintenance</SubFolder>
       <CommandVmNamespace>TD.AppInfra.ViewModels</CommandVmNamespace>
       <CommandVmTypeName>ISymbolCreationContext</CommandVmTypeName>
       <GenModeCreateCommand>GenerateIfNotExists</GenModeCreateCommand>
@@ -879,7 +880,6 @@
       <GenModeCreateView>GenerateIfNotExists</GenModeCreateView>
       <GenModeEditView>GenerateIfNotExists</GenModeEditView>
       <RepositoryName>ISymbolRepository</RepositoryName>
-      <SubFolder>Maintenance</SubFolder>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="WpfMvvmEntitySetting">
       <Name>EntryOrder</Name>
@@ -906,13 +906,14 @@
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
-          <IsPreselectedInCreate>false</IsPreselectedInCreate>
+          <IsPreselectedInCreate>true</IsPreselectedInCreate>
           <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
           <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <IsMultiLine>false</IsMultiLine>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
       </Properties>
+      <SubFolder>Trades</SubFolder>
       <CommandVmNamespace />
       <CommandVmTypeName>TradeHistoryVM</CommandVmTypeName>
       <GenModeCreateCommand>GenerateIfNotExists</GenModeCreateCommand>
@@ -925,7 +926,6 @@
       <GenModeCreateView>DoNotGenerate</GenModeCreateView>
       <GenModeEditView>DoNotGenerate</GenModeEditView>
       <RepositoryName>IEntryOrderRepository</RepositoryName>
-      <SubFolder>Trades</SubFolder>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="WpfMvvmEntitySetting">
       <Name>TakeProfitOrder</Name>
@@ -952,13 +952,14 @@
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
-          <IsPreselectedInCreate>false</IsPreselectedInCreate>
+          <IsPreselectedInCreate>true</IsPreselectedInCreate>
           <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
           <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <IsMultiLine>false</IsMultiLine>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
       </Properties>
+      <SubFolder>Trades</SubFolder>
       <CommandVmNamespace />
       <CommandVmTypeName>TradeHistoryVM</CommandVmTypeName>
       <GenModeCreateCommand>GenerateIfNotExists</GenModeCreateCommand>
@@ -971,7 +972,6 @@
       <GenModeCreateView>DoNotGenerate</GenModeCreateView>
       <GenModeEditView>DoNotGenerate</GenModeEditView>
       <RepositoryName>ITakeProfitOrderRepository</RepositoryName>
-      <SubFolder>Trades</SubFolder>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="WpfMvvmEntitySetting">
       <Name>StopLossOrder</Name>
@@ -998,7 +998,7 @@
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
-          <IsPreselectedInCreate>false</IsPreselectedInCreate>
+          <IsPreselectedInCreate>true</IsPreselectedInCreate>
           <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
           <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <IsMultiLine>false</IsMultiLine>
@@ -1018,6 +1018,7 @@
           <ValueConstraint />
         </WpfMvvmPropertySetting>
       </Properties>
+      <SubFolder>Trades</SubFolder>
       <CommandVmNamespace />
       <CommandVmTypeName>TradeHistoryVM</CommandVmTypeName>
       <GenModeCreateCommand>GenerateIfNotExists</GenModeCreateCommand>
@@ -1030,7 +1031,6 @@
       <GenModeCreateView>DoNotGenerate</GenModeCreateView>
       <GenModeEditView>DoNotGenerate</GenModeEditView>
       <RepositoryName>IStopLossOrderRepository</RepositoryName>
-      <SubFolder>Trades</SubFolder>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="WpfMvvmEntitySetting">
       <Name>TradeImage</Name>
@@ -1057,7 +1057,7 @@
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
-          <IsPreselectedInCreate>false</IsPreselectedInCreate>
+          <IsPreselectedInCreate>true</IsPreselectedInCreate>
           <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
           <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <IsMultiLine>false</IsMultiLine>
@@ -1090,6 +1090,7 @@
           <ValueConstraint />
         </WpfMvvmPropertySetting>
       </Properties>
+      <SubFolder>Trades</SubFolder>
       <CommandVmNamespace />
       <CommandVmTypeName>TradeHistoryVM</CommandVmTypeName>
       <GenModeCreateCommand>GenerateIfNotExists</GenModeCreateCommand>
@@ -1102,7 +1103,6 @@
       <GenModeCreateView>DoNotGenerate</GenModeCreateView>
       <GenModeEditView>DoNotGenerate</GenModeEditView>
       <RepositoryName>ITradeImageRepository</RepositoryName>
-      <SubFolder>Trades</SubFolder>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="WpfMvvmEntitySetting">
       <Name>Trade</Name>
@@ -1129,7 +1129,7 @@
           <DefaultValue />
           <IncludeInView>true</IncludeInView>
           <IncludeInViewModel>true</IncludeInViewModel>
-          <IsPreselectedInCreate>false</IsPreselectedInCreate>
+          <IsPreselectedInCreate>true</IsPreselectedInCreate>
           <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
           <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <IsMultiLine>false</IsMultiLine>
@@ -1383,6 +1383,7 @@
           <ValueConstraint />
         </WpfMvvmPropertySetting>
       </Properties>
+      <SubFolder>Trades</SubFolder>
       <CommandVmNamespace />
       <CommandVmTypeName>TradesVM</CommandVmTypeName>
       <GenModeCreateCommand>GenerateIfNotExists</GenModeCreateCommand>
@@ -1395,7 +1396,6 @@
       <GenModeCreateView>DoNotGenerate</GenModeCreateView>
       <GenModeEditView>DoNotGenerate</GenModeEditView>
       <RepositoryName>ITradeRepository</RepositoryName>
-      <SubFolder>Trades</SubFolder>
     </BaseEntitySetting>
   </EntitySettings>
   <RenderAllEntities>false</RenderAllEntities>

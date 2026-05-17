@@ -444,14 +444,14 @@ namespace TD.SQLite
 
         private async Task LoadExchangeAsync(Symbol symbol)
         {
-            symbol.Exchange = await _exchangeRepository.GetByIdAsync(symbol.ExchangeId)
+            symbol.Exchange = await ExchangeRepository.GetByIdAsync(symbol.ExchangeId)
                             ?? new Exchange { Id = symbol.ExchangeId };
         }
 
 
         private async Task LoadCurrencyAsync(Symbol symbol)
         {
-            symbol.PriceCurrency = await _currencyRepository.GetByIdAsync(symbol.PriceCurrencyId)
+            symbol.PriceCurrency = await CurrencyRepository.GetByIdAsync(symbol.PriceCurrencyId)
                             ?? new Currency { Id = symbol.PriceCurrencyId };
         }
 
