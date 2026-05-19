@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using TD.AppInfra.DesignTime;
 using TD.AppInfra.Services;
 using TD.i18n;
 using TD.WPF.Extensions;

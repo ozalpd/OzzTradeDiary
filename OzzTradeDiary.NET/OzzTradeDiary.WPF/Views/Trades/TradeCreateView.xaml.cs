@@ -1,5 +1,6 @@
 using System.Collections.ObjectModel;
 using System.Windows;
+using TD.AppInfra.DesignTime;
 using TD.AppInfra.Services;
 using TD.Models;
 using TD.WPF.ViewModels.Trades;

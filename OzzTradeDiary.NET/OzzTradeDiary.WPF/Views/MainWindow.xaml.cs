@@ -1,18 +1,23 @@
 ﻿using System.Windows;
+using TD.AppInfra.DesignTime;
 using TD.RepositoryContracts;
 using TD.WPF.Models;
 using TD.WPF.ViewModels;
 
 namespace TD.WPF.Views
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         private readonly AppSettings _appSettings = AppSettings.GetAppSettings();
         private readonly ITradeRepository _tradeRepository;
         private MainWindowVM _viewModel;
+
+        /// <summary>
+        /// Parameterless constructor for the XAML designer.
+        /// </summary>
+        public MainWindow() : this(new TradeMockRepository())
+        {
+        }
 
         public MainWindow(ITradeRepository tradeRepository)
         {

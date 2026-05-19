@@ -1,3 +1,4 @@
+using TD.AppInfra.Services;
 using TD.Models;
 //----------------------------------------------------------------------------------
 //
@@ -6,7 +7,7 @@ using TD.Models;
 //     so manual changes should be made in another partial class file.
 //
 //----------------------------------------------------------------------------------
-namespace TD.AppInfra.Services
+namespace TD.AppInfra.DesignTime
 {
     /// <summary>
     /// Provides a no-op implementation of the IExchangeLookupService interface that returns an empty or

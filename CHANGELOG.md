@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.1.2] - 2026-05-19
+### Added
+- Introduced `TradeMockRepository` for in-memory demo trades.
+
+### Changed
+- Move mock lookup services to `TD.AppInfra.DesignTime` and add codegen warning headers.
+- Update `MainWindow` and WPF views to support design-time data via mock services, including a parameterless `MainWindow` constructor for XAML designer support.
+
 ## [0.1.1] - 2026-05-17
 ### Added
 - Added `TradeListVM` view model for paginated trade listing with filtering and sorting support.
