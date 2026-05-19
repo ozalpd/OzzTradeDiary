@@ -21,18 +21,27 @@ namespace TD.WPF
                 Thread.CurrentThread.CurrentUICulture = culture;
                 Thread.CurrentThread.CurrentCulture = culture;
             }
+
             string databasePath = settings.DatabasePath;
+
             var currencyRepository = new CurrencyRepository(databasePath);
+            var symbolRepository = new SymbolRepository(databasePath, currencyRepository: currencyRepository);
             var exchangeRepository = new ExchangeRepository(databasePath,
-                                     currencyRepository: currencyRepository);
+                                     currencyRepository: currencyRepository,
+                                     symbolRepository: symbolRepository);
+            var tradingAccountRepository = new TradingAccountRepository(databasePath, exchangeRepository: exchangeRepository);
             var tradeRepository = new TradeRepository(databasePath,
                                   entryOrderRepository: new EntryOrderRepository(databasePath),
                                   stopLossOrderRepository: new StopLossOrderRepository(databasePath),
-                                  symbolRepository: new SymbolRepository(databasePath, exchangeRepository: exchangeRepository, currencyRepository: currencyRepository),
+                                  symbolRepository: symbolRepository,
                                   takeProfitOrderRepository: new TakeProfitOrderRepository(databasePath),
                                   tradeImageRepository: new TradeImageRepository(databasePath),
-                                  tradingAccountRepository: new TradingAccountRepository(databasePath, exchangeRepository: exchangeRepository));
-            new MainWindow(tradeRepository).Show();
+                                  tradingAccountRepository: tradingAccountRepository);
+
+            new MainWindow(tradeRepository,
+                           currencyRepository, exchangeRepository,
+                           symbolRepository, tradingAccountRepository).Show();
         }
     }
 }
+

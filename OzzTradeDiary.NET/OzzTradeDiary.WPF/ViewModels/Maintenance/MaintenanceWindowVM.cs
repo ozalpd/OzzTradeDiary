@@ -2,6 +2,7 @@
 using System.Collections.Specialized;
 using TD.AppInfra.Services;
 using TD.Models;
+using TD.RepositoryContracts;
 using TD.WPF.Commands.Exchanges;
 using TD.WPF.Commands.Maintenance;
 using TD.WPF.Services;
@@ -10,7 +11,12 @@ namespace TD.WPF.ViewModels.Maintenance
 {
     internal class MaintenanceWindowVM : AbstractDiaryVM
     {
-        public MaintenanceWindowVM(IWindowDialogService windowDialogService)
+        public MaintenanceWindowVM(IWindowDialogService windowDialogService,
+                                   ICurrencyRepository currencyRepository,
+                                   IExchangeRepository exchangeRepository,
+                                   ISymbolRepository symbolRepository,
+                                   ITradingAccountRepository tradingAccountRepository)
+            : base(currencyRepository, exchangeRepository, symbolRepository, tradingAccountRepository)
         {
             var exchangeLookupService = new ExchangeLookupService(ExchangeRepository);
             var currencyLookupService = new CurrencyLookupService(CurrencyRepository);

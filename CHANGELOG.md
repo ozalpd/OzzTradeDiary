@@ -5,14 +5,23 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [0.1.2] - 2026-05-19
+
 ### Added
 - Introduced `TradeMockRepository` for in-memory demo trades.
+- Centralized mock repositories for XAML designer in MaintenanceMockRepositories.cs
 
 ### Changed
+- All repositories are now created in App.OnStartup and injected into MainWindow, MainWindowVM, MaintenanceWindow, and MaintenanceWindowVM
+- AbstractDiaryVM now requires repositories via constructor injection
+- ShowMaintenanceCommand updated to pass repositories to MaintenanceWindow
+- Lookup services are instantiated in ViewModels from injected repositories
+- Updated README and project docs to reflect DI/composition root pattern
+- Removed direct repository instantiation from ViewModels and windows for improved testability and MVVM alignment
 - Move mock lookup services to `TD.AppInfra.DesignTime` and add codegen warning headers.
 - Update `MainWindow` and WPF views to support design-time data via mock services, including a parameterless `MainWindow` constructor for XAML designer support.
 
 ## [0.1.1] - 2026-05-17
+
 ### Added
 - Added `TradeListVM` view model for paginated trade listing with filtering and sorting support.
 - Added `TradeCreateView` and `TradeEditView` dialogs with validation and bindings

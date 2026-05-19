@@ -2,22 +2,21 @@
 using TD.AppInfra.ViewModels;
 using TD.Models;
 using TD.RepositoryContracts;
-using TD.SQLite;
 using TD.WPF.Models;
 
 namespace TD.WPF.ViewModels
 {
     public class AbstractDiaryVM : AbstractDataErrorInfoVM, ISymbolCreationContext
     {
-        public AbstractDiaryVM()
+        public AbstractDiaryVM(ICurrencyRepository currencyRepository,
+                               IExchangeRepository exchangeRepository,
+                               ISymbolRepository symbolRepository,
+                               ITradingAccountRepository tradingAccountRepository)
         {
-            var appSettings = AppSettings.GetAppSettings();
-            var databasePath = appSettings.DatabasePath;
-
-            CurrencyRepository = new CurrencyRepository(databasePath);
-            SymbolRepository = new SymbolRepository(databasePath, currencyRepository: CurrencyRepository);
-            ExchangeRepository = new ExchangeRepository(databasePath, currencyRepository: CurrencyRepository, symbolRepository: SymbolRepository);
-            TradingAccountRepository = new TradingAccountRepository(databasePath, exchangeRepository: ExchangeRepository);
+            CurrencyRepository = currencyRepository ?? throw new ArgumentNullException(nameof(currencyRepository));
+            ExchangeRepository = exchangeRepository ?? throw new ArgumentNullException(nameof(exchangeRepository));
+            SymbolRepository = symbolRepository ?? throw new ArgumentNullException(nameof(symbolRepository));
+            TradingAccountRepository = tradingAccountRepository ?? throw new ArgumentNullException(nameof(tradingAccountRepository));
 
             Currencies = new ObservableCollection<Currency>();
             Exchanges = new ObservableCollection<Exchange>();

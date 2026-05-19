@@ -79,8 +79,10 @@ Internal tracking versions: `OzzTradeDiary` `0.0.60`, `OzzTradeDiary.AppInfra` `
 - Inherit from `AbstractViewModel` (provides `INotifyPropertyChanged` via `RaisePropertyChanged()`)
 - Validation: extend `AbstractDataErrorInfoVM` (implements `INotifyDataErrorInfo`); for dialog ViewModels expose `IsValid => !HasErrors`, subscribe to `ErrorsChanged` to raise it, and call `ValidateModel` in the constructor so the OK button starts disabled
 - Collections: extend `AbstractCollectionVM<T>` (provides `ObservableCollection<T>`, filtering, selection)
-- Data access: extend `AbstractDiaryVM` (provides repository instances and CRUD operations for Currency, Exchange, TradingAccount, Symbol — use as base when a ViewModel needs direct repository access)
-- **ViewModels must not instantiate repositories directly**; instead, use data-source abstraction for lookup data such as exchanges and currencies.
+- Data access: extend `AbstractDiaryVM` (accepts 4 injected repositories via constructor: `ICurrencyRepository`, `IExchangeRepository`, `ISymbolRepository`, `ITradingAccountRepository`; provides CRUD operations for those entities)
+- **ViewModels must not instantiate repositories directly**; all repositories are injected from the composition root (`App.OnStartup`).
+- **Lookup services** (`ExchangeLookupService`, `CurrencyLookupService`, etc.) are instantiated inside the ViewModel constructor from the already-injected repositories — not injected as separate constructor parameters and not created inside command `Execute` methods.
+- **`App.OnStartup` is the single composition root**: it creates all repositories as named variables and passes them into `MainWindow`, which forwards them to `MainWindowVM`. `MaintenanceWindow` receives the same 4 maintenance repositories via constructor and forwards them to `MaintenanceWindowVM`.
 - Commands: extend `AbstractCommand` (or `AbstractAsyncCommand` for async workflows)
 - Feature-specific ViewModels are grouped in subfolders matching their feature area (e.g., `ViewModels/Maintenance/` → namespace `TD.WPF.ViewModels.Maintenance`)
 - Follow entity-first naming: `TradingAccountCreateVM` (not `CreateTradingAccountVM`).

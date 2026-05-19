@@ -10,15 +10,21 @@ namespace TD.WPF.ViewModels
     internal class MainWindowVM : AbstractDiaryVM
     {
         private readonly IWindowDialogService _windowDialogService = new WindowDialogService();
-        private ISymbolLookupService _symbolLookupService = new SymbolMockLookupService();
-        private ITradingAccountLookupService _tradingAccountLookupService = new TradingAccountMockLookupService();
 
-        public MainWindowVM(ITradeRepository tradeRepository)
+        public MainWindowVM(ITradeRepository tradeRepository,
+                            ICurrencyRepository currencyRepository,
+                            IExchangeRepository exchangeRepository,
+                            ISymbolRepository symbolRepository,
+                            ITradingAccountRepository tradingAccountRepository)
+            : base(currencyRepository, exchangeRepository, symbolRepository, tradingAccountRepository)
         {
             TradeRepository = tradeRepository ?? throw new ArgumentNullException(nameof(tradeRepository));
 
-            TradeHistory = new TradeHistoryVM(tradeRepository, _windowDialogService, _symbolLookupService, _tradingAccountLookupService);
-            ShowMaintenanceCommand = new ShowMaintenanceCommand();
+            var symbolLookupService = new SymbolLookupService(symbolRepository);
+            var tradingAccountLookupService = new TradingAccountLookupService(tradingAccountRepository);
+
+            TradeHistory = new TradeHistoryVM(tradeRepository, _windowDialogService, symbolLookupService, tradingAccountLookupService);
+            ShowMaintenanceCommand = new ShowMaintenanceCommand(currencyRepository, exchangeRepository, symbolRepository, tradingAccountRepository);
             ShowAboutCommand = new ShowAboutCommand();
             ExitCommand = new ExitCommand();
         }
