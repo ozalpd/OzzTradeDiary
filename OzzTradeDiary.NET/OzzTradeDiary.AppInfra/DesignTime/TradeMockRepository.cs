@@ -108,7 +108,7 @@ namespace TD.AppInfra.DesignTime
             throw new NotImplementedException();
         }
 
-        public Task LoadNavigationCollections(Trade trade)
+        public Task LoadNavigationCollectionsAsync(Trade trade)
         {
             throw new NotImplementedException();
         }
@@ -116,6 +116,11 @@ namespace TD.AppInfra.DesignTime
         public Task<bool> UpdateAsync(Trade trade)
         {
             throw new NotImplementedException();
+        }
+
+        public Task<int> GetCountAsync(TradeQueryParameters queryParameters)
+        {
+            return Task.FromResult(5);
         }
     }
 }

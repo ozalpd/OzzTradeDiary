@@ -59,7 +59,6 @@ namespace TD.WPF.ViewModels.Trades
         }
         public bool LoadTradesInProgress { get; private set; } = false;
         protected virtual void OnTradesLoaded() { /* For override in derived classes */ }
-        
 
         public async Task SaveTradeAsync(Trade trade)
         {

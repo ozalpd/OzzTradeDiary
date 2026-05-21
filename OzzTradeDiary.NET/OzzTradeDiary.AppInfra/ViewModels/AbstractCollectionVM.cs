@@ -59,7 +59,7 @@ namespace TD.AppInfra.ViewModels
             }
         }
         private string? _searchString;
-        
+
         protected void ReplaceCollection<T>(ObservableCollection<T> target, IEnumerable<T> source)
         {
             target.Clear();

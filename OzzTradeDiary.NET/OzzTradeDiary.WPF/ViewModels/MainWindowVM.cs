@@ -1,22 +1,18 @@
 ﻿using TD.AppInfra.Models;
 using TD.AppInfra.Services;
-using TD.RepositoryContracts;
+using TD.AppInfra.ViewModels;
 using TD.WPF.Commands;
 using TD.WPF.Services;
 using TD.WPF.ViewModels.Trades;
 
 namespace TD.WPF.ViewModels
 {
-    internal class MainWindowVM : AbstractDiaryVM
+    internal class MainWindowVM : AbstractDataErrorInfoVM
     {
         private readonly IWindowDialogService _windowDialogService = new WindowDialogService();
 
         public MainWindowVM(AppDataSources dataSources)
-            : base(dataSources.CurrencyRepository, dataSources.ExchangeRepository,
-                   dataSources.SymbolRepository, dataSources.TradingAccountRepository)
         {
-            TradeRepository = dataSources.TradeRepository;
-
             var symbolLookupService = new SymbolLookupService(dataSources.SymbolRepository);
             var tradingAccountLookupService = new TradingAccountLookupService(dataSources.TradingAccountRepository);
 
@@ -26,7 +22,7 @@ namespace TD.WPF.ViewModels
             ExitCommand = new ExitCommand();
         }
 
-        public ITradeRepository TradeRepository { get; }
+
         public TradeHistoryVM TradeHistory { get; }
         public ShowMaintenanceCommand ShowMaintenanceCommand { get; }
         public ShowAboutCommand ShowAboutCommand { get; }

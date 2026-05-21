@@ -4,7 +4,7 @@ namespace TD.SQLite
 {
     public partial class TradeRepository
     {
-        public async Task LoadNavigationCollections(Trade trade)
+        public async Task LoadNavigationCollectionsAsync(Trade trade)
         {
             try
             {
@@ -46,9 +46,10 @@ namespace TD.SQLite
                 // handle/log as needed
             }
         }
+
         partial void OnLoaded(Trade trade)
         {
-            _ = LoadNavigationCollections(trade);
+            _ = LoadNavigationCollectionsAsync(trade);
         }
     }
 }

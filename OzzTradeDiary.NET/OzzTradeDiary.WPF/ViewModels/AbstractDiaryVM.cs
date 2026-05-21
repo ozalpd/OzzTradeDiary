@@ -2,7 +2,6 @@
 using TD.AppInfra.ViewModels;
 using TD.Models;
 using TD.RepositoryContracts;
-using TD.WPF.Models;
 
 namespace TD.WPF.ViewModels
 {

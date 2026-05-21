@@ -4,6 +4,17 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.1.3] - 2026-05-22
+
+### Added
+- Added filter properties, lookup collections, and TradesLoadCommand for filtered loading.
+
+### Changed
+- Refactored MainWindow to use TradeHistoryVM with filterable toolbar and DataGrid for trades, plus detail pane.
+- Updated repository methods to async naming.
+- Menu commands now use new command structure.
+- Navigation collections load for selected trade. Lookup data initializes on window load.
+
 ## [0.1.2] - 2026-05-21
 
 ### Added
