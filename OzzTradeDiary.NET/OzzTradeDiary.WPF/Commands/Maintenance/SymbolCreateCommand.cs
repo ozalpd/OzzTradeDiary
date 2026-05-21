@@ -15,7 +15,7 @@ using TD.WPF.Services;
 
 namespace TD.WPF.Commands.Maintenance
 {
-    internal partial class SymbolCreateCommand : AbstractCommand
+    public partial class SymbolCreateCommand : AbstractCommand
     {
         private readonly ISymbolCreationContext _viewModel;
         private readonly IWindowDialogService _windowDialogService;

@@ -13,7 +13,7 @@ using TD.WPF.ViewModels;
 
 namespace TD.WPF.Commands.Maintenance
 {
-    internal partial class CurrencyDeleteCommand : AbstractCommand
+    public partial class CurrencyDeleteCommand : AbstractCommand
     {
         private readonly AbstractDiaryVM _viewModel;
 

@@ -19,6 +19,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - Removed direct repository instantiation from ViewModels and windows for improved testability and MVVM alignment
 - Move mock lookup services to `TD.AppInfra.DesignTime` and add codegen warning headers.
 - Update `MainWindow` and WPF views to support design-time data via mock services, including a parameterless `MainWindow` constructor for XAML designer support.
+- Refactored `AppSettings:` platform-agnostic `AppSettings.part.cs` renamed to `AppSettings.cs` and file has WPF-specific properties moved to `AppSettings.wpf.cs`.
+- Updated TD.Tools.SeedDemoData to link to new AppSettings.cs.
+- Increased bottom margin of "IsActive"/"IsFullyClosed" CheckBoxes in various XAML views for better spacing.
 
 ## [0.1.1] - 2026-05-17
 

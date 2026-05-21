@@ -13,7 +13,7 @@ using TD.WPF.Services;
 
 namespace TD.WPF.Commands.Maintenance
 {
-    internal partial class SymbolDeleteCommand : AbstractCommand
+    public partial class SymbolDeleteCommand : AbstractCommand
     {
         private readonly ISymbolCreationContext _viewModel;
 

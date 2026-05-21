@@ -5,122 +5,130 @@ namespace TD.WPF.Models;
 
 public partial class AppSettings
 {
-    public AppSettings() { }
-
-
-    /// <summary>
-    /// Gets or sets a value indicating whether automatic backups are enabled.
-    /// </summary>
-    /// <remarks>When set to <see langword="true"/>, the system performs backups automatically at
-    /// scheduled intervals. Ensure that backup settings are properly configured to prevent data loss.</remarks>
-    public bool AutoBackupEnabled { get; set; }
+    private static AppSettings? _instance;
+    private static readonly object _syncRoot = new();
 
     /// <summary>
-    /// Gets or sets the interval, in minutes, at which automatic backups are performed. The minimum allowed value
-    /// is 10 minutes.
+    /// Gets or sets the file path to the database used by the application. If the path is not set, a default path
+    /// is generated.
     /// </summary>
-    /// <remarks>If a value less than 10 is specified, the interval is automatically adjusted to 10
-    /// minutes to ensure backups occur at a reasonable frequency and to help prevent data loss.</remarks>
-    public uint AutoBackupIntervalMinutes
+    /// <remarks>The database path is automatically created if it does not exist when accessed. The
+    /// default path is located in the application's default database folder and is named 'trades.db'.</remarks>
+    public string DatabasePath
     {
         get
         {
-            if (backupInterval < 10)
+            if (string.IsNullOrWhiteSpace(_dbPath))
             {
-                backupInterval = 10;
+                _dbPath = Path.Combine(GetDefaultDatabaseFolderPath(), "trades.db");
             }
-            return backupInterval;
+
+            var dbDirPath = Path.GetDirectoryName(_dbPath);
+            if (!string.IsNullOrWhiteSpace(dbDirPath) && !Directory.Exists(dbDirPath))
+            {
+                Directory.CreateDirectory(dbDirPath);
+            }
+
+            return _dbPath;
         }
 
-        set => backupInterval = value;
+        set => _dbPath = value;
     }
-    uint backupInterval = 10;
+    string _dbPath = string.Empty;
 
-    /// <summary>
-    /// Gets or sets the path to the folder where backups are stored. If the folder does not exist, it is created
-    /// automatically.
-    /// </summary>
-    /// <remarks>The backup folder path can be set to a custom location. If not set, the default
-    /// backup folder path is used. Ensure that the specified path has the necessary permissions for creating
-    /// directories.</remarks>
-    public string BackupFolder
+    private static string GetDefaultDatabaseFolderPath()
     {
-        get
+#if DEBUG
+        var sampleDataPath = TryGetDebugSampleDataFolderPath();
+        if (!string.IsNullOrWhiteSpace(sampleDataPath))
         {
-            if (string.IsNullOrWhiteSpace(_backupDir))
-            {
-                _backupDir = GetDefaultBackupFolderPath();
-            }
-
-            if (!string.IsNullOrWhiteSpace(_backupDir) && !Directory.Exists(_backupDir))
-            {
-                Directory.CreateDirectory(_backupDir);
-            }
-            return _backupDir;
+            return sampleDataPath;
         }
-        set => _backupDir = value;
+#endif
+
+        string dbFolderPath = Path.Combine(
+            Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
+            "OzzTradeDiary");
+        return dbFolderPath;
     }
-    string _backupDir = string.Empty;
 
-    private static string GetDefaultBackupFolderPath() => Path.Combine(
-        Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
-        "OzzTradeDiary",
-        "BackUp");
-
-
-    /// <summary>
-    /// Gets or sets the time of the last backup in Coordinated Universal Time (UTC).
-    /// </summary>
-    /// <remarks>This property is null if no backup has been performed.</remarks>
-    public DateTime? LastBackupTimeUtc { get; set; }
-
-    /// <summary>
-    /// Number of most recent backups to keep
-    /// </summary>
-    public uint MaxBackupFiles
+    private static string? TryGetDebugSampleDataFolderPath()
     {
-        get
+        var current = new DirectoryInfo(AppContext.BaseDirectory);
+        while (current is not null)
         {
-            if (backupFilesToKeep < 10)
+            var hasGitFolder = Directory.Exists(Path.Combine(current.FullName, ".git"));
+            var hasSolution = File.Exists(Path.Combine(current.FullName, "OzzTradeDiary.slnx"));
+
+            if (hasGitFolder || hasSolution)
             {
-                backupFilesToKeep = 10;
+                return Path.Combine(current.FullName, "SampleData");
             }
-            return backupFilesToKeep;
+
+            current = current.Parent;
         }
 
-        set => backupFilesToKeep = value;
+        return null;
     }
-    uint backupFilesToKeep = 10;
 
-    /// <summary>
-    /// Gets or sets the position and size of the main application window.
-    /// </summary>
-    public WindowPosition MainWindowPosition { get; set; } = new WindowPosition();
-    
-    /// <summary>
-    /// Gets or sets the position and size of the maintenance window.
-    /// </summary>
-    public WindowPosition MaintenanceWindowPosition { get; set; } = new WindowPosition();
+    public string GetDatabaseFolderPath() => Path.GetDirectoryName(DatabasePath) ?? string.Empty;
 
-    /// <summary>
-    /// Gets or sets a value indicating whether audio playback is muted.
-    /// </summary>
-    /// <remarks>When set to <see langword="true"/>, audio output is silenced. Use this property to
-    /// control audio playback in scenarios where muting is required, such as user preferences or application
-    /// settings.</remarks>
-    public bool MuteAudio { get; set; } = false;
-
-    /// <summary>
-    /// Gets or sets the BCP-47 culture name used for the application UI (e.g. <c>"en-US"</c>, <c>"tr-TR"</c>).
-    /// </summary>
-    /// <remarks>When empty, the operating system's current culture is used.</remarks>
-    public string UiCulture { get; set; } = string.Empty;
-
-
-    public void Save()
+    public static AppSettings GetAppSettings()
     {
-        var settingsFilePath = GetSettingsFilePath();
-        var settingsJson = JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
-        File.WriteAllText(settingsFilePath, settingsJson);
+        if (_instance is not null)
+        {
+            return _instance;
+        }
+
+        lock (_syncRoot)
+        {
+            if (_instance is not null)
+            {
+                return _instance;
+            }
+
+            var settingsFilePath = GetSettingsFilePath();
+            if (File.Exists(settingsFilePath))
+            {
+                var settingsJson = File.ReadAllText(settingsFilePath);
+                if (!string.IsNullOrWhiteSpace(settingsJson))
+                {
+                    try
+                    {
+                        _instance = JsonSerializer.Deserialize<AppSettings>(settingsJson);
+                    }
+                    catch (JsonException)
+                    {
+                    }
+                    catch (NotSupportedException)
+                    {
+                    }
+                }
+            }
+
+            _instance ??= new AppSettings();
+            return _instance;
+        }
     }
+
+    private static string GetSettingsFilePath()
+    {
+#if DEBUG
+        var sampleDataPath = TryGetDebugSampleDataFolderPath();
+        if (!string.IsNullOrWhiteSpace(sampleDataPath))
+        {
+            Directory.CreateDirectory(sampleDataPath);
+            return Path.Combine(sampleDataPath, settingsFileName);
+        }
+#endif
+        var settingsFolder = Path.Combine(
+        Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
+            "OzzTradeDiary");
+        Directory.CreateDirectory(settingsFolder);
+
+        return Path.Combine(settingsFolder, settingsFileName);
+    }
+    private static string settingsFileName = "tdsettings.json";
+
 }
+

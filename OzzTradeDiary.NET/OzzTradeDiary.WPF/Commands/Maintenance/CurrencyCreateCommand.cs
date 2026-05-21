@@ -13,7 +13,7 @@ using TD.WPF.ViewModels;
 
 namespace TD.WPF.Commands.Maintenance
 {
-    internal partial class CurrencyCreateCommand : AbstractCommand
+    public partial class CurrencyCreateCommand : AbstractCommand
     {
         private readonly AbstractDiaryVM _viewModel;
         private readonly IWindowDialogService _windowDialogService;

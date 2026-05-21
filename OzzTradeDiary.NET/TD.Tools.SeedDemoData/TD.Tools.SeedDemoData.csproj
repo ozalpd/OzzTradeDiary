@@ -14,7 +14,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<Compile Include="..\OzzTradeDiary.WPF\Models\AppSettings.part.cs" Link="AppSettings.part.cs" />
+		<Compile Include="..\OzzTradeDiary.WPF\Models\AppSettings.cs" Link="AppSettings.cs" />
 	</ItemGroup>
 
 	<ItemGroup>

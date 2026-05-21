@@ -13,7 +13,7 @@ using TD.WPF.Services;
 
 namespace TD.WPF.Commands.Maintenance
 {
-    internal partial class SymbolEditCommand : AbstractCommand
+    public partial class SymbolEditCommand : AbstractCommand
     {
         private readonly ISymbolCreationContext _viewModel;
         private readonly IWindowDialogService _windowDialogService;
