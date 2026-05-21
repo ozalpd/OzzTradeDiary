@@ -68,8 +68,8 @@ See [`CHANGELOG.md`](CHANGELOG.md) for release history.
 - DPI-aware multi-monitor window positioning
 - App version displayed in title bar; Bootstrap Icons for window title bar icons
 - UI culture configurable via `AppSettings.UiCulture` (BCP-47); falls back to OS culture when empty
-- Shared platform-agnostic MVVM base classes (`AbstractViewModel`, `AbstractCommand`, `AbstractDataErrorInfoVM`, `AbstractCreateEditVM`, `AbstractDiaryVM`) in `TD.AppInfra` for reuse by WPF and future MAUI frontends
-- `App.OnStartup` is the single composition root: all repositories are created as named variables and injected into `MainWindow` → `MainWindowVM` and on-demand into `MaintenanceWindow` → `MaintenanceWindowVM` via `ShowMaintenanceCommand`
+- Shared platform-agnostic MVVM base classes (`AbstractViewModel`, `AbstractCommand`, `AbstractDataErrorInfoVM`, `AbstractCreateEditVM`, `AbstractDiaryVM`) and `AppDataSources` dependency container in `TD.AppInfra` for reuse by WPF and future MAUI frontends
+- `App.OnStartup` is the single composition root: all repositories are created as named variables, wrapped in `AppDataSources` (`TD.AppInfra.Models`), and passed as a single object into `MainWindow` → `MainWindowVM`; `ShowMaintenanceCommand` forwards the same `AppDataSources` to `MaintenanceWindow` → `MaintenanceWindowVM`
 - Lookup services (`ExchangeLookupService`, `CurrencyLookupService`, etc.) are instantiated inside ViewModel constructors from injected repositories — keeping `App.OnStartup` clean and ViewModels free of repository construction logic
 - Design-time mock implementations for all repositories and lookup services live in `TD.AppInfra/DesignTime/` for use by parameterless XAML designer constructors
 

@@ -2,8 +2,8 @@
 using System.Windows.Controls;
 using System.Windows.Input;
 using TD.AppInfra.DesignTime;
+using TD.AppInfra.Models;
 using TD.i18n;
-using TD.RepositoryContracts;
 using TD.WPF.Extensions;
 using TD.WPF.Models;
 using TD.WPF.Services;
@@ -19,29 +19,16 @@ namespace TD.WPF.Views.Maintenance
         private MaintenanceWindowVM _viewModel;
         private readonly AppSettings _appSettings = AppSettings.GetAppSettings();
         private readonly IWindowDialogService _windowDialogService = new WindowDialogService();
-        private readonly ICurrencyRepository _currencyRepository;
-        private readonly IExchangeRepository _exchangeRepository;
-        private readonly ISymbolRepository _symbolRepository;
-        private readonly ITradingAccountRepository _tradingAccountRepository;
+        private readonly AppDataSources _dataSources;
 
         /// <summary>
         /// Parameterless constructor for the XAML designer.
         /// </summary>
-        public MaintenanceWindow()
-            : this(new CurrencyMockRepository(), new ExchangeMockRepository(),
-                   new SymbolMockRepository(), new TradingAccountMockRepository())
-        {
-        }
+        public MaintenanceWindow() : this(new MockDataSources()) { }
 
-        internal MaintenanceWindow(ICurrencyRepository currencyRepository,
-                                   IExchangeRepository exchangeRepository,
-                                   ISymbolRepository symbolRepository,
-                                   ITradingAccountRepository tradingAccountRepository)
+        internal MaintenanceWindow(AppDataSources dataSources)
         {
-            _currencyRepository = currencyRepository;
-            _exchangeRepository = exchangeRepository;
-            _symbolRepository = symbolRepository;
-            _tradingAccountRepository = tradingAccountRepository;
+            _dataSources = dataSources;
             InitializeComponent();
             this.SetIconFromGeometryResource("gear-wide-connected", "#0044D7", "#E8FFFFFF", 48);
             SourceInitialized += Window_SourceInitialized;
@@ -52,8 +39,8 @@ namespace TD.WPF.Views.Maintenance
         private async void Window_SourceInitialized(object? sender, EventArgs e)
         {
             _viewModel = new MaintenanceWindowVM(_windowDialogService,
-                                                 _currencyRepository, _exchangeRepository,
-                                                 _symbolRepository, _tradingAccountRepository);
+                                                 _dataSources.CurrencyRepository, _dataSources.ExchangeRepository,
+                                                 _dataSources.SymbolRepository, _dataSources.TradingAccountRepository);
             DataContext = _viewModel;
             _appSettings.MaintenanceWindowPosition.SetWindowPositions(this);
             await ExecuteUiActionAsync(_viewModel.LoadAllAsync, "Load data");

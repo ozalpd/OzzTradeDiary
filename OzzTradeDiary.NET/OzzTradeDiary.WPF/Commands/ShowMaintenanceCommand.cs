@@ -1,35 +1,25 @@
 using System.Windows;
 using TD.AppInfra.Commands;
-using TD.RepositoryContracts;
+using TD.AppInfra.Models;
 using TD.WPF.Views.Maintenance;
 
 namespace TD.WPF.Commands;
 
 internal class ShowMaintenanceCommand : AbstractCommand
 {
-    private readonly ICurrencyRepository _currencyRepository;
-    private readonly IExchangeRepository _exchangeRepository;
-    private readonly ISymbolRepository _symbolRepository;
-    private readonly ITradingAccountRepository _tradingAccountRepository;
+    private readonly AppDataSources _dataSources;
     private MaintenanceWindow? _maintenanceWindow;
 
-    public ShowMaintenanceCommand(ICurrencyRepository currencyRepository,
-                                  IExchangeRepository exchangeRepository,
-                                  ISymbolRepository symbolRepository,
-                                  ITradingAccountRepository tradingAccountRepository)
+    public ShowMaintenanceCommand(AppDataSources dataSources)
     {
-        _currencyRepository = currencyRepository;
-        _exchangeRepository = exchangeRepository;
-        _symbolRepository = symbolRepository;
-        _tradingAccountRepository = tradingAccountRepository;
+        _dataSources = dataSources;
     }
 
     public override void Execute(object? parameter)
     {
         if (_maintenanceWindow == null || !_maintenanceWindow.IsLoaded)
         {
-            _maintenanceWindow = new MaintenanceWindow(_currencyRepository, _exchangeRepository,
-                                                       _symbolRepository, _tradingAccountRepository);
+            _maintenanceWindow = new MaintenanceWindow(_dataSources);
             _maintenanceWindow.Closed += (s, e) => _maintenanceWindow = null;
             _maintenanceWindow.Show();
         }

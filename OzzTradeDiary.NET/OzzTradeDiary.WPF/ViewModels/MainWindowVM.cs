@@ -1,4 +1,4 @@
-﻿using TD.AppInfra.DesignTime;
+﻿using TD.AppInfra.Models;
 using TD.AppInfra.Services;
 using TD.RepositoryContracts;
 using TD.WPF.Commands;
@@ -11,20 +11,17 @@ namespace TD.WPF.ViewModels
     {
         private readonly IWindowDialogService _windowDialogService = new WindowDialogService();
 
-        public MainWindowVM(ITradeRepository tradeRepository,
-                            ICurrencyRepository currencyRepository,
-                            IExchangeRepository exchangeRepository,
-                            ISymbolRepository symbolRepository,
-                            ITradingAccountRepository tradingAccountRepository)
-            : base(currencyRepository, exchangeRepository, symbolRepository, tradingAccountRepository)
+        public MainWindowVM(AppDataSources dataSources)
+            : base(dataSources.CurrencyRepository, dataSources.ExchangeRepository,
+                   dataSources.SymbolRepository, dataSources.TradingAccountRepository)
         {
-            TradeRepository = tradeRepository ?? throw new ArgumentNullException(nameof(tradeRepository));
+            TradeRepository = dataSources.TradeRepository;
 
-            var symbolLookupService = new SymbolLookupService(symbolRepository);
-            var tradingAccountLookupService = new TradingAccountLookupService(tradingAccountRepository);
+            var symbolLookupService = new SymbolLookupService(dataSources.SymbolRepository);
+            var tradingAccountLookupService = new TradingAccountLookupService(dataSources.TradingAccountRepository);
 
-            TradeHistory = new TradeHistoryVM(tradeRepository, _windowDialogService, symbolLookupService, tradingAccountLookupService);
-            ShowMaintenanceCommand = new ShowMaintenanceCommand(currencyRepository, exchangeRepository, symbolRepository, tradingAccountRepository);
+            TradeHistory = new TradeHistoryVM(dataSources.TradeRepository, _windowDialogService, symbolLookupService, tradingAccountLookupService);
+            ShowMaintenanceCommand = new ShowMaintenanceCommand(dataSources);
             ShowAboutCommand = new ShowAboutCommand();
             ExitCommand = new ExitCommand();
         }

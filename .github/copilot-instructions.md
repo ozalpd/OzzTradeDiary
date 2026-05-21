@@ -15,7 +15,7 @@ Internal tracking versions: `OzzTradeDiary` `0.0.60`, `OzzTradeDiary.AppInfra` `
 | Project | Namespace | Role | Platform |
 |---------|-----------|------|----------|
 | `OzzTradeDiary` | `TD` | Core data models, shared helpers (`TD.Helpers`), and shared validation utilities (`TD.Validation`) | Platform-independent |
-| `OzzTradeDiary.AppInfra` | `TD.AppInfra` | Shared ViewModel/Command base classes (`AbstractViewModel`, `AbstractCommand`, `AbstractAsyncCommand`, `AbstractDataErrorInfoVM`, `AbstractCreateEditVM`, etc.) | Platform-independent |
+| `OzzTradeDiary.AppInfra` | `TD.AppInfra` | Shared ViewModel/Command base classes (`AbstractViewModel`, `AbstractCommand`, `AbstractAsyncCommand`, `AbstractDataErrorInfoVM`, `AbstractCreateEditVM`, etc.), `AppDataSources` dependency container, and design-time mock repositories (`DesignTime/`) | Platform-independent |
 | `TD.RepositoryContracts` | `TD.RepositoryContracts` | Shared repository contract interfaces (`ITradeRepository`, `IExchangeRepository`, etc.) | Platform-independent |
 | `OzzTradeDiary.i18n` | `TD.i18n` | Localization resources (`ActionStrings`, `CommonStrings`, `ErrorStrings`, `LocalizedStrings`, `MessageStrings`) | Platform-independent |
 | `OzzTradeDiary.SQLite` | `TD.SQLite` | Data access — raw SQLite via Microsoft.Data.Sqlite; implements repository contracts | Platform-independent |
@@ -81,8 +81,9 @@ Internal tracking versions: `OzzTradeDiary` `0.0.60`, `OzzTradeDiary.AppInfra` `
 - Collections: extend `AbstractCollectionVM<T>` (provides `ObservableCollection<T>`, filtering, selection)
 - Data access: extend `AbstractDiaryVM` (accepts 4 injected repositories via constructor: `ICurrencyRepository`, `IExchangeRepository`, `ISymbolRepository`, `ITradingAccountRepository`; provides CRUD operations for those entities)
 - **ViewModels must not instantiate repositories directly**; all repositories are injected from the composition root (`App.OnStartup`).
+- **`AppDataSources`** (`TD.AppInfra.Models.AppDataSources`) is the parameter object that carries all data-source dependencies through the composition chain. It lives in `TD.AppInfra` so a future MAUI frontend can reference it without taking a WPF dependency. Designer constructors for WPF windows wrap mock repositories in an `AppDataSources` instance — do not add a static factory or empty constructor to `AppDataSources` itself.
 - **Lookup services** (`ExchangeLookupService`, `CurrencyLookupService`, etc.) are instantiated inside the ViewModel constructor from the already-injected repositories — not injected as separate constructor parameters and not created inside command `Execute` methods.
-- **`App.OnStartup` is the single composition root**: it creates all repositories as named variables and passes them into `MainWindow`, which forwards them to `MainWindowVM`. `MaintenanceWindow` receives the same 4 maintenance repositories via constructor and forwards them to `MaintenanceWindowVM`.
+- **`App.OnStartup` is the single composition root**: it creates all repositories as named variables, wraps them in a single `AppDataSources` instance (`TD.AppInfra.Models`), and passes it into `MainWindow` → `MainWindowVM`. `ShowMaintenanceCommand` forwards the same `AppDataSources` to `MaintenanceWindow` → `MaintenanceWindowVM`. Add new data sources (repositories, future API clients) to `AppDataSources` — never add them as separate constructor parameters down the chain.
 - Commands: extend `AbstractCommand` (or `AbstractAsyncCommand` for async workflows)
 - Feature-specific ViewModels are grouped in subfolders matching their feature area (e.g., `ViewModels/Maintenance/` → namespace `TD.WPF.ViewModels.Maintenance`)
 - Follow entity-first naming: `TradingAccountCreateVM` (not `CreateTradingAccountVM`).

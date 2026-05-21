@@ -4,23 +4,24 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
-## [0.1.2] - 2026-05-19
+## [0.1.2] - 2026-05-21
 
 ### Added
 - Introduced `TradeMockRepository` for in-memory demo trades.
 - Centralized mock repositories for XAML designer in MaintenanceMockRepositories.cs
+- Introduced `AppDataSources` (`TD.AppInfra.Models`) as a parameter object that bundles all data-source dependencies; placed in `TD.AppInfra` for future MAUI reuse also added `MockDataSources` for design-time support.
 
 ### Changed
-- All repositories are now created in App.OnStartup and injected into MainWindow, MainWindowVM, MaintenanceWindow, and MaintenanceWindowVM
+- All repositories are now created in App.OnStartup, wrapped in a single `AppDataSources` instance, and injected into `MainWindow` → `MainWindowVM`; `ShowMaintenanceCommand` forwards the same `AppDataSources` to `MaintenanceWindow` → `MaintenanceWindowVM`
 - AbstractDiaryVM now requires repositories via constructor injection
-- ShowMaintenanceCommand updated to pass repositories to MaintenanceWindow
+- ShowMaintenanceCommand updated to accept and forward `AppDataSources` to MaintenanceWindow
 - Lookup services are instantiated in ViewModels from injected repositories
 - Updated README and project docs to reflect DI/composition root pattern
 - Removed direct repository instantiation from ViewModels and windows for improved testability and MVVM alignment
 - Move mock lookup services to `TD.AppInfra.DesignTime` and add codegen warning headers.
 - Update `MainWindow` and WPF views to support design-time data via mock services, including a parameterless `MainWindow` constructor for XAML designer support.
 - Refactored `AppSettings:` platform-agnostic `AppSettings.part.cs` renamed to `AppSettings.cs` and file has WPF-specific properties moved to `AppSettings.wpf.cs`.
-- Updated TD.Tools.SeedDemoData to link to new AppSettings.cs.
+- Updated `TD.Tools.SeedDemoData` to link to new `AppSettings.cs`.
 - Increased bottom margin of "IsActive"/"IsFullyClosed" CheckBoxes in various XAML views for better spacing.
 
 ## [0.1.1] - 2026-05-17

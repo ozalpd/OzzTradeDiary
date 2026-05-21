@@ -1,5 +1,6 @@
 ﻿using System.Globalization;
 using System.Windows;
+using TD.AppInfra.Models;
 using TD.SQLite;
 using TD.WPF.Models;
 using TD.WPF.Views;
@@ -38,9 +39,10 @@ namespace TD.WPF
                                   tradeImageRepository: new TradeImageRepository(databasePath),
                                   tradingAccountRepository: tradingAccountRepository);
 
-            new MainWindow(tradeRepository,
-                           currencyRepository, exchangeRepository,
-                           symbolRepository, tradingAccountRepository).Show();
+            var dataSources = new AppDataSources(currencyRepository, exchangeRepository,
+                                                  symbolRepository, tradingAccountRepository,
+                                                  tradeRepository);
+            new MainWindow(dataSources).Show();
         }
     }
 }
