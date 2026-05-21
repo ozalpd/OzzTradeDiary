@@ -14,69 +14,97 @@ namespace TD.WPF.ViewModels.Trades
                               ISymbolLookupService symbolLookupService, ITradingAccountLookupService tradingAccountLookupService)
             : base(tradeRepository, windowDialogService, symbolLookupService, tradingAccountLookupService)
         {
-            SymbolLookup = symbolLookupService;
-            TradingAccountLookup = tradingAccountLookupService;
+            _allSymbols = new List<Symbol>();
+            _symbolLookup = symbolLookupService;
+            _tradingAccountLookup = tradingAccountLookupService;
             TradesLoadCommand = new TradesLoadCommand(this);
         }
 
-        public ISymbolLookupService SymbolLookup { get; }
-        public ITradingAccountLookupService TradingAccountLookup { get; }
+        private IReadOnlyList<Symbol> _allSymbols;
+        private ISymbolLookupService _symbolLookup { get; }
+        private ITradingAccountLookupService _tradingAccountLookup { get; }
         public TradesLoadCommand TradesLoadCommand { get; }
 
         public ObservableCollection<Symbol> Symbols { get; } = new();
         public ObservableCollection<TradingAccount> TradingAccounts { get; } = new();
 
-        private int? _filterTradingAccountId;
+
         public int? FilterTradingAccountId
         {
-            get => _filterTradingAccountId;
-            set { _filterTradingAccountId = value; RaisePropertyChanged(nameof(FilterTradingAccountId)); }
+            get => QueryParams.TradingAccountId;
+            set
+            {
+                QueryParams.TradingAccountId = value;
+                RaisePropertyChanged(nameof(FilterTradingAccountId));
+            }
         }
 
-        private int? _filterSymbolId;
         public int? FilterSymbolId
         {
-            get => _filterSymbolId;
-            set { _filterSymbolId = value; RaisePropertyChanged(nameof(FilterSymbolId)); }
+            get => QueryParams.SymbolId;
+            set
+            {
+                QueryParams.SymbolId = value;
+                RaisePropertyChanged(nameof(FilterSymbolId));
+            }
         }
 
-        private DateTime? _entryTimeMin;
         public DateTime? EntryTimeMin
         {
-            get => _entryTimeMin;
-            set { _entryTimeMin = value; RaisePropertyChanged(nameof(EntryTimeMin)); }
+            get => QueryParams.EntryTimeMin;
+            set
+            {
+                QueryParams.EntryTimeMin = value;
+                RaisePropertyChanged(nameof(EntryTimeMin));
+            }
         }
 
-        private DateTime? _entryTimeMax;
         public DateTime? EntryTimeMax
         {
-            get => _entryTimeMax;
-            set { _entryTimeMax = value; RaisePropertyChanged(nameof(EntryTimeMax)); }
+            get => QueryParams.EntryTimeMax;
+            set
+            {
+                QueryParams.EntryTimeMax = value;
+                RaisePropertyChanged(nameof(EntryTimeMax));
+            }
         }
+
+        public TradingAccount? SelectedTradingAccount
+        {
+            get => _selectedTradingAccount;
+            set
+            {
+                _selectedTradingAccount = value;
+                if (_selectedTradingAccount == null)
+                {
+                    ReplaceCollection(Symbols, _allSymbols);
+                    FilterTradingAccountId = null;
+                }
+                else
+                {
+                    int exchangeId = _selectedTradingAccount.ExchangeId;
+                    var symbols = _allSymbols.Where(s => s.ExchangeId == exchangeId)
+                                             .ToList();
+                    ReplaceCollection(Symbols, symbols);
+                    FilterTradingAccountId = _selectedTradingAccount.Id;
+                }
+                RaisePropertyChanged(nameof(SelectedTradingAccount));
+            }
+        }
+        private TradingAccount? _selectedTradingAccount;
 
         public async Task InitializeAsync()
         {
-            var symbols = await SymbolLookup.GetSymbolsAsync(isActive: true);
-            Symbols.Clear();
-            foreach (var s in symbols)
-                Symbols.Add(s);
+            _allSymbols = await _symbolLookup.GetSymbolsAsync(isActive: true);
+            ReplaceCollection(Symbols, _allSymbols);
 
-            var accounts = await TradingAccountLookup.GetTradingAccountsAsync(isActive: true);
-            TradingAccounts.Clear();
-            foreach (var a in accounts)
-                TradingAccounts.Add(a);
+            var accounts = await _tradingAccountLookup.GetTradingAccountsAsync(isActive: true);
+            ReplaceCollection(TradingAccounts, accounts);
         }
 
         public async Task LoadTradesWithFilterAsync()
         {
-            var qp = new TradeQueryParameters
-            {
-                TradingAccountId = FilterTradingAccountId,
-                SymbolId = FilterSymbolId,
-                EntryTimeMin = EntryTimeMin,
-                EntryTimeMax = EntryTimeMax,
-            };
-            await LoadTradesAsync(qp);
+            await LoadTradesAsync();
         }
     }
 }

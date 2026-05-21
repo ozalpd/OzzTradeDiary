@@ -30,6 +30,7 @@ namespace TD.WPF.ViewModels.Trades
             TradeCreateCommand = new TradeCreateCommand (this, windowDialogService, symbolLookupService, tradingAccountLookupService);
             TradeDeleteCommand = new TradeDeleteCommand (this);
             TradeEditCommand = new TradeEditCommand (this, windowDialogService);
+            QueryParams = new TradeQueryParameters();
         }
 
         public ITradeRepository TradeRepository { get; }
@@ -39,20 +40,21 @@ namespace TD.WPF.ViewModels.Trades
         public TradeDeleteCommand TradeDeleteCommand { get; }
         public TradeEditCommand TradeEditCommand { get; }
 
-        public TradeQueryParameters? LastQueryParams { get; private set; }
+        protected TradeQueryParameters QueryParams { get; private set; }
 
         public async Task LoadTradesAsync()
         {
-            await LoadTradesAsync(LastQueryParams ?? new TradeQueryParameters());
+            await LoadTradesAsync(QueryParams);
         }
 
-        public async Task LoadTradesAsync(TradeQueryParameters queryParams)
+        protected async Task LoadTradesAsync(TradeQueryParameters queryParams)
         {
             if (LoadTradesInProgress)
                 return;
             LoadTradesInProgress = true;
             var items = await TradeRepository.GetPagedAsync(queryParams);
-            LastQueryParams = queryParams;
+            QueryParams = queryParams;
+            RaisePropertyChanged(nameof(QueryParams));
             ReplaceCollection(Trades, items);
             LoadTradesInProgress = false;
             OnTradesLoaded();
