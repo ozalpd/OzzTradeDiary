@@ -1,9 +1,9 @@
 using TD.Helpers;
 using TD.Models;
 
-namespace TD.AppInfra.ViewModels
+namespace TD.AppInfra.ViewModels.Trades
 {
-    public class TradeQueryParametersVM : QueryParametersVM
+    public partial class TradeQueryParametersVM : QueryParametersVM
     {
         public TradeQueryParametersVM() : this(new TradeQueryParameters()) { }
         public TradeQueryParametersVM(TradeQueryParameters parameters) : base(parameters)
@@ -33,13 +33,23 @@ namespace TD.AppInfra.ViewModels
             }
         }
 
-        public TradeDirection? ByDirection
+        public EntryMethod? ByEntryMethod
+        {
+            get => Parameters.EntryMethod;
+            set
+            {
+                Parameters.EntryMethod = value;
+                RaisePropertyChanged(nameof(ByEntryMethod));
+            }
+        }
+
+        public TradeDirection? ByTradeDirection
         {
             get => Parameters.TradeDirection;
             set
             {
                 Parameters.TradeDirection = value;
-                RaisePropertyChanged(nameof(ByDirection));
+                RaisePropertyChanged(nameof(ByTradeDirection));
             }
         }
 
@@ -84,26 +94,6 @@ namespace TD.AppInfra.ViewModels
             }
         }
 
-        public DateTime? UpdatedAtMin
-        {
-            get => Parameters.UpdatedAtMin;
-            set
-            {
-                Parameters.UpdatedAtMin = value;
-                RaisePropertyChanged(nameof(UpdatedAtMin));
-            }
-        }
-
-        public DateTime? UpdatedAtMax
-        {
-            get => Parameters.UpdatedAtMax;
-            set
-            {
-                Parameters.UpdatedAtMax = value;
-                RaisePropertyChanged(nameof(UpdatedAtMax));
-            }
-        }
-
         public decimal? RealizedProfitLossMin
         {
             get => Parameters.RealizedProfitLossMin;
@@ -124,11 +114,31 @@ namespace TD.AppInfra.ViewModels
             }
         }
 
+        public DateTime? UpdatedAtMin
+        {
+            get => Parameters.UpdatedAtMin;
+            set
+            {
+                Parameters.UpdatedAtMin = value;
+                RaisePropertyChanged(nameof(UpdatedAtMin));
+            }
+        }
+
+        public DateTime? UpdatedAtMax
+        {
+            get => Parameters.UpdatedAtMax;
+            set
+            {
+                Parameters.UpdatedAtMax = value;
+                RaisePropertyChanged(nameof(UpdatedAtMax));
+            }
+        }
+
         public void Reset()
         {
             ByTradingAccountId = null;
             BySymbolId = null;
-            ByDirection = null;
+            ByTradeDirection = null;
             IsFullyClosed = null;
             EntryTimeMin = null;
             EntryTimeMax = null;

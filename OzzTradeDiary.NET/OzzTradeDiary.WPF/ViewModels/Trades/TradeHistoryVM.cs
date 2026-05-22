@@ -1,6 +1,6 @@
 using System.Collections.ObjectModel;
 using TD.AppInfra.Services;
-using TD.AppInfra.ViewModels;
+using TD.AppInfra.ViewModels.Trades;
 using TD.Models;
 using TD.RepositoryContracts;
 using TD.WPF.Commands.Trades;
