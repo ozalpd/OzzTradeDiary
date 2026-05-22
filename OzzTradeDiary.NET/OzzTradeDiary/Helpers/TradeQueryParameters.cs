@@ -27,7 +27,9 @@ namespace TD.Helpers
             {
                 TradingAccountId = tradeQueryParams.TradingAccountId;
                 SymbolId = tradeQueryParams.SymbolId;
+                EntryMethod = tradeQueryParams.EntryMethod;
                 TradeDirection = tradeQueryParams.TradeDirection;
+                IsFullyClosed = tradeQueryParams.IsFullyClosed;
                 EntryTimeMin = tradeQueryParams.EntryTimeMin;
                 EntryTimeMax = tradeQueryParams.EntryTimeMax;
                 PlannedPositionValueMin = tradeQueryParams.PlannedPositionValueMin;
@@ -47,7 +49,9 @@ namespace TD.Helpers
 
         public int? TradingAccountId { get; set; }
         public int? SymbolId { get; set; }
+        public EntryMethod? EntryMethod { get; set; }
         public TradeDirection? TradeDirection { get; set; }
+        public bool? IsFullyClosed { get; set; }
         public DateTime? EntryTimeMin { get; set; }
         public DateTime? EntryTimeMax { get; set; }
         public decimal? PlannedPositionValueMin { get; set; }
@@ -70,7 +74,9 @@ namespace TD.Helpers
 
             _hasAnySearchCriteria = _hasAnySearchCriteria || TradingAccountId.HasValue;
             _hasAnySearchCriteria = _hasAnySearchCriteria || SymbolId.HasValue;
+            _hasAnySearchCriteria = _hasAnySearchCriteria || EntryMethod.HasValue;
             _hasAnySearchCriteria = _hasAnySearchCriteria || TradeDirection.HasValue;
+            _hasAnySearchCriteria = _hasAnySearchCriteria || IsFullyClosed.HasValue;
             _hasAnySearchCriteria = _hasAnySearchCriteria || EntryTimeMin.HasValue || EntryTimeMax.HasValue;
             _hasAnySearchCriteria = _hasAnySearchCriteria || PlannedPositionValueMin.HasValue || PlannedPositionValueMax.HasValue;
             _hasAnySearchCriteria = _hasAnySearchCriteria || ExecutedPositionValueMin.HasValue || ExecutedPositionValueMax.HasValue;

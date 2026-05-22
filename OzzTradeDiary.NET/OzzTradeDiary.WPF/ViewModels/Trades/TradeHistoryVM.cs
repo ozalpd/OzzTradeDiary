@@ -1,6 +1,6 @@
 using System.Collections.ObjectModel;
 using TD.AppInfra.Services;
-using TD.Helpers;
+using TD.AppInfra.ViewModels;
 using TD.Models;
 using TD.RepositoryContracts;
 using TD.WPF.Commands.Trades;
@@ -17,6 +17,7 @@ namespace TD.WPF.ViewModels.Trades
             _allSymbols = new List<Symbol>();
             _symbolLookup = symbolLookupService;
             _tradingAccountLookup = tradingAccountLookupService;
+            Filter = new TradeQueryParametersVM();
             TradesLoadCommand = new TradesLoadCommand(this);
         }
 
@@ -24,50 +25,10 @@ namespace TD.WPF.ViewModels.Trades
         private ISymbolLookupService _symbolLookup { get; }
         private ITradingAccountLookupService _tradingAccountLookup { get; }
         public TradesLoadCommand TradesLoadCommand { get; }
+        public TradeQueryParametersVM Filter { get; }
 
         public ObservableCollection<Symbol> Symbols { get; } = new();
         public ObservableCollection<TradingAccount> TradingAccounts { get; } = new();
-
-
-        public int? FilterTradingAccountId
-        {
-            get => QueryParams.TradingAccountId;
-            set
-            {
-                QueryParams.TradingAccountId = value;
-                RaisePropertyChanged(nameof(FilterTradingAccountId));
-            }
-        }
-
-        public int? FilterSymbolId
-        {
-            get => QueryParams.SymbolId;
-            set
-            {
-                QueryParams.SymbolId = value;
-                RaisePropertyChanged(nameof(FilterSymbolId));
-            }
-        }
-
-        public DateTime? EntryTimeMin
-        {
-            get => QueryParams.EntryTimeMin;
-            set
-            {
-                QueryParams.EntryTimeMin = value;
-                RaisePropertyChanged(nameof(EntryTimeMin));
-            }
-        }
-
-        public DateTime? EntryTimeMax
-        {
-            get => QueryParams.EntryTimeMax;
-            set
-            {
-                QueryParams.EntryTimeMax = value;
-                RaisePropertyChanged(nameof(EntryTimeMax));
-            }
-        }
 
         public TradingAccount? SelectedTradingAccount
         {
@@ -78,7 +39,7 @@ namespace TD.WPF.ViewModels.Trades
                 if (_selectedTradingAccount == null)
                 {
                     ReplaceCollection(Symbols, _allSymbols);
-                    FilterTradingAccountId = null;
+                    Filter.ByTradingAccountId = null;
                 }
                 else
                 {
@@ -86,7 +47,7 @@ namespace TD.WPF.ViewModels.Trades
                     var symbols = _allSymbols.Where(s => s.ExchangeId == exchangeId)
                                              .ToList();
                     ReplaceCollection(Symbols, symbols);
-                    FilterTradingAccountId = _selectedTradingAccount.Id;
+                    Filter.ByTradingAccountId = _selectedTradingAccount.Id;
                 }
                 RaisePropertyChanged(nameof(SelectedTradingAccount));
             }
@@ -104,7 +65,8 @@ namespace TD.WPF.ViewModels.Trades
 
         public async Task LoadTradesWithFilterAsync()
         {
-            await LoadTradesAsync();
+            await LoadTradesAsync(Filter.Parameters);
+            RaisePropertyChanged(nameof(Filter));
         }
     }
 }

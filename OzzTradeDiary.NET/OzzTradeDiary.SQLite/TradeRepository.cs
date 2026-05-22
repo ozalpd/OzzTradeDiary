@@ -289,7 +289,35 @@ namespace TD.SQLite
             await using var connection = await GetOpenConnectionAsync();
             await using var command = connection.CreateCommand();
             command.CommandText = _selectStatement;
+            AppendWhere(queryParameters, command);
 
+            command.CommandText += " ORDER BY UpdatedAt DESC, EntryTime DESC LIMIT @pageSize OFFSET @skip";
+            command.Parameters.AddWithValue("@pageSize", queryParameters.PageSize);
+            command.Parameters.AddWithValue("@skip", queryParameters.Skip);
+
+            await using var reader = await command.ExecuteReaderAsync();
+            while (await reader.ReadAsync())
+            {
+                var trade = MapTrade(reader);
+                if (symbolsById.TryGetValue(trade.SymbolId, out var symbol))
+                    trade.Symbol = symbol;
+
+                if (tradingAccountsById.TryGetValue(trade.TradingAccountId, out var tradingAccount))
+                    trade.TradingAccount = tradingAccount;
+
+                result.Add(trade);
+            }
+
+            await using var countCommand = connection.CreateCommand();
+            countCommand.CommandText = $"SELECT COUNT(1) FROM {_tableName}";
+            AppendWhere(queryParameters, countCommand);
+            queryParameters.TotalCount = Convert.ToInt64(await countCommand.ExecuteScalarAsync());
+
+            return result;
+        }
+
+        private static void AppendWhere(TradeQueryParameters queryParameters, SqliteCommand command)
+        {
             var whereClauses = new List<string>();
             if (queryParameters.TradingAccountId.HasValue)
             {
@@ -400,27 +428,9 @@ namespace TD.SQLite
             if (whereClauses.Count > 0)
             {
                 var whereClause = string.Join(" AND ", whereClauses);
-                command.CommandText = _selectStatement + " WHERE " + whereClause;
+                command.CommandText += " WHERE ";
+                command.CommandText += whereClause;
             }
-
-            command.CommandText += " ORDER BY Id LIMIT @pageSize OFFSET @skip";
-            command.Parameters.AddWithValue("@pageSize", queryParameters.PageSize);
-            command.Parameters.AddWithValue("@skip", queryParameters.Skip);
-
-            await using var reader = await command.ExecuteReaderAsync();
-            while (await reader.ReadAsync())
-            {
-                var trade = MapTrade(reader);
-                if (symbolsById.TryGetValue(trade.SymbolId, out var symbol))
-                    trade.Symbol = symbol;
-
-                if (tradingAccountsById.TryGetValue(trade.TradingAccountId, out var tradingAccount))
-                    trade.TradingAccount = tradingAccount;
-
-                result.Add(trade);
-            }
-
-            return result;
         }
 
         public async Task<int> CreateAsync(Trade trade)

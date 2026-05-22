@@ -1419,8 +1419,9 @@
   <BaseClassNamespaceName>TD.Models.Infra</BaseClassNamespaceName>
   <InfrastructureNamespaceName>TD.AppInfra</InfrastructureNamespaceName>
   <InfrastructureFolder>..\OzzTradeDiary.NET\OzzTradeDiary.AppInfra\</InfrastructureFolder>
-  <CommandFolder>Commands</CommandFolder>
   <AppSettingsFolder>Models</AppSettingsFolder>
+  <CommandFolder>Commands</CommandFolder>
+  <DesignTimeFolder>DesignTime</DesignTimeFolder>
   <RepoContractNamespaceName>TD.RepositoryContracts</RepoContractNamespaceName>
   <RepositoryNamespaceName>TD.SQLite</RepositoryNamespaceName>
   <LookupFolder>Services</LookupFolder>

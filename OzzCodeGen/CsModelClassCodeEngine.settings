@@ -760,7 +760,7 @@
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
-          <IsSearchParameter>false</IsSearchParameter>
+          <IsSearchParameter>true</IsSearchParameter>
         </ModelPropertySetting>
         <ModelPropertySetting>
           <Name>TradeDirection</Name>
@@ -778,7 +778,7 @@
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required />
-          <IsSearchParameter>false</IsSearchParameter>
+          <IsSearchParameter>true</IsSearchParameter>
         </ModelPropertySetting>
         <ModelPropertySetting>
           <Name>EntryOrders</Name>

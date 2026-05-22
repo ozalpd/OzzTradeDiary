@@ -70,7 +70,7 @@ namespace TD.Helpers
         /// <summary>
         /// Gets or sets the total number of items.
         /// </summary>
-        public int TotalCount
+        public long TotalCount
         {
             get { return _totalCount; }
             set
@@ -78,10 +78,10 @@ namespace TD.Helpers
                 _totalCount = value;
                 if (Page < 1) Page = 1;
                 if (Page > PageCount) Page = PageCount;
-                int skip = (Page - 1) * PageSize;
+                long skip = (Page - 1) * PageSize;
             }
         }
-        int _totalCount;
+        long _totalCount;
 
         public virtual bool HasAnySearchCriteria()
         {

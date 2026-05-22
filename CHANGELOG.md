@@ -7,13 +7,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 ## [0.1.3] - 2026-05-22
 
 ### Added
-- Added filter properties, lookup collections, and TradesLoadCommand for filtered loading.
+- Added filter properties, lookup collections, and `TradesLoadCommand` for filtered loading.
+- Introduce `TradeQueryParametersVM` to encapsulate all trade filter parameters for the UI, replacing individual filter properties in `TradeHistoryVM` and `MainWindow.xaml`.
 
 ### Changed
-- Refactored MainWindow to use TradeHistoryVM with filterable toolbar and DataGrid for trades, plus detail pane.
+- Refactored `MainWindow` to use `TradeHistoryVM` with filterable toolbar and `DataGrid` for trades, plus detail pane.
 - Updated repository methods to async naming.
 - Menu commands now use new command structure.
 - Navigation collections load for selected trade. Lookup data initializes on window load.
+- Refactor `TradeRepository` to improve paging/filtering logic and add support for new search parameters (`EntryMethod`, `IsFullyClosed`).
+- Change `QueryParameters.TotalCount` to `long`.
 
 ## [0.1.2] - 2026-05-21
 
