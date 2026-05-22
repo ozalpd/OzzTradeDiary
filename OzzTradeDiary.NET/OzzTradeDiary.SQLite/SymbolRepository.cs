@@ -280,21 +280,14 @@ namespace TD.SQLite
             await using var connection = await GetOpenConnectionAsync();
             await using var command = connection.CreateCommand();
             command.CommandText = _selectStatement;
-
-            var whereClauses = new List<string>();
             if (isActive.HasValue)
             {
-                whereClauses.Add("IsActive = @isActive");
-                command.AddParameter("@isActive", isActive.Value);
+                command.CommandText += " WHERE IsActive = @isActive";
+                command.Parameters.AddWithValue("@isActive", isActive.Value);
             }
 
-            if (whereClauses.Count > 0)
-            {
-                var whereClause = string.Join(" AND ", whereClauses);
-                command.CommandText = _selectStatement + " WHERE " + whereClause;
-            }
-
-            command.CommandText += " ORDER BY Id LIMIT @pageSize OFFSET @skip";
+            command.CommandText += " ORDER BY DisplayOrder, TickerFull";
+            command.CommandText += " LIMIT @pageSize OFFSET @skip";
             command.Parameters.AddWithValue("@pageSize", queryParameters.PageSize);
             command.Parameters.AddWithValue("@skip", queryParameters.Skip);
 
@@ -310,6 +303,15 @@ namespace TD.SQLite
 
                 result.Add(symbol);
             }
+            
+            await using var countCommand = connection.CreateCommand();
+            countCommand.CommandText = $"SELECT COUNT(1) FROM {_tableName}";
+            if (isActive.HasValue)
+            {
+                countCommand.CommandText += " WHERE IsActive = @isActive";
+                countCommand.Parameters.AddWithValue("@isActive", isActive.Value);
+            }
+            queryParameters.TotalCount = Convert.ToInt64(await countCommand.ExecuteScalarAsync());
 
             return result;
         }

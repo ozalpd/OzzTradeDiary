@@ -68,7 +68,7 @@ namespace TD.Helpers
         }
 
         /// <summary>
-        /// Gets or sets the total number of items.
+        /// Gets or sets the total number of records that match the query criteria.
         /// </summary>
         public long TotalCount
         {

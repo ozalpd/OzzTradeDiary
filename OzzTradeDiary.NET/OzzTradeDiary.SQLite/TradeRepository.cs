@@ -291,7 +291,8 @@ namespace TD.SQLite
             command.CommandText = _selectStatement;
             AppendWhere(queryParameters, command);
 
-            command.CommandText += " ORDER BY UpdatedAt DESC, EntryTime DESC LIMIT @pageSize OFFSET @skip";
+            command.CommandText += " ORDER BY UpdatedAt DESC, EntryTime DESC";
+            command.CommandText += " LIMIT @pageSize OFFSET @skip";
             command.Parameters.AddWithValue("@pageSize", queryParameters.PageSize);
             command.Parameters.AddWithValue("@skip", queryParameters.Skip);
 
@@ -307,7 +308,7 @@ namespace TD.SQLite
 
                 result.Add(trade);
             }
-
+            
             await using var countCommand = connection.CreateCommand();
             countCommand.CommandText = $"SELECT COUNT(1) FROM {_tableName}";
             AppendWhere(queryParameters, countCommand);
@@ -319,6 +320,7 @@ namespace TD.SQLite
         private static void AppendWhere(TradeQueryParameters queryParameters, SqliteCommand command)
         {
             var whereClauses = new List<string>();
+
             if (queryParameters.TradingAccountId.HasValue)
             {
                 whereClauses.Add("TradingAccountId = @tradingAccountId");
@@ -329,10 +331,20 @@ namespace TD.SQLite
                 whereClauses.Add("SymbolId = @symbolId");
                 command.AddParameter("@symbolId", queryParameters.SymbolId.Value);
             }
+            if (queryParameters.EntryMethod.HasValue)
+            {
+                whereClauses.Add("EntryMethod = @entryMethod");
+                command.AddParameter("@entryMethod", (int)queryParameters.EntryMethod.Value);
+            }
             if (queryParameters.TradeDirection.HasValue)
             {
                 whereClauses.Add("TradeDirection = @tradeDirection");
                 command.AddParameter("@tradeDirection", (int)queryParameters.TradeDirection.Value);
+            }
+            if (queryParameters.IsFullyClosed.HasValue)
+            {
+                whereClauses.Add("IsFullyClosed = @isFullyClosed");
+                command.AddParameter("@isFullyClosed", queryParameters.IsFullyClosed.Value);
             }
             if (queryParameters.EntryTimeMin.HasValue)
             {

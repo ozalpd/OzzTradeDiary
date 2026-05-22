@@ -8,6 +8,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ### Added
 - Added filter properties, lookup collections, and `TradesLoadCommand` for filtered loading.
+- Added generated `QueryParametersVM` as a base class for consolidating paging and search properties.
 - Introduce `TradeQueryParametersVM` to encapsulate all trade filter parameters for the UI, replacing individual filter properties in `TradeHistoryVM` and `MainWindow.xaml`.
 
 ### Changed
