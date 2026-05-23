@@ -19,11 +19,9 @@ namespace TD.WPF.ViewModels.Trades
 
         public TradeEditVM(Trade trade)
         {
-            EntryMethodValues = GetValues<EntryMethod>();
-
-            TradeDirectionValues = GetValues<TradeDirection>();
-
             _trade = trade;
+            EntryMethodValues = GetValues<EntryMethod>();
+            TradeDirectionValues = GetValues<TradeDirection>();
             OnInitialized();
         }
         partial void OnInitialized();

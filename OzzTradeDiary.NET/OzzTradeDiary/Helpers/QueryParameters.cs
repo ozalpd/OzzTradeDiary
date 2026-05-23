@@ -34,6 +34,16 @@ namespace TD.Helpers
         }
 
         /// <summary>
+        /// Gets a value indicating whether there is a next page available.
+        /// </summary>
+        public bool HasNextPage => Page < PageCount;
+
+        /// <summary>
+        /// Gets a value indicating whether there is a previous page available.
+        /// </summary>
+        public bool HasPrevPage => Page > 1;
+
+        /// <summary>
         /// Gets or sets the current page number.
         /// </summary>
         public int Page { get; set; }

@@ -18,8 +18,24 @@ namespace TD.AppInfra.ViewModels
 
         public QueryParameters QueryParameters { get; }
         
+        /// <summary>
+        /// Gets a value indicating whether there is a next page available.
+        /// </summary>
+        public bool HasNextPage => QueryParameters.HasNextPage;
+
+        /// <summary>
+        /// Gets a value indicating whether there is a previous page available.
+        /// </summary>
+        public bool HasPrevPage => QueryParameters.HasPrevPage;
+        
+        /// <summary>
+        /// Gets the total number of pages based on the total count and page size.
+        /// </summary>
         public int PageCount => QueryParameters.PageCount;
         
+        /// <summary>
+        /// Gets or sets the current page number.
+        /// </summary>
         public int Page
         {
             get => QueryParameters.Page;
@@ -30,6 +46,9 @@ namespace TD.AppInfra.ViewModels
             }
         }
         
+        /// <summary>
+        /// Gets or sets the number of items per page.
+        /// </summary>
         public int PageSize
         {
             get => QueryParameters.PageSize;
@@ -50,14 +69,9 @@ namespace TD.AppInfra.ViewModels
             }
         }
         
-        public long TotalCount
-        {
-            get => QueryParameters.TotalCount;
-            set
-            {
-                QueryParameters.TotalCount = value;
-                RaisePropertyChanged(nameof(TotalCount));
-            }
-        }
+        /// <summary>
+        /// Gets the total number of records that match the query criteria.
+        /// </summary>
+        public long TotalCount => QueryParameters.TotalCount;
     }
 }

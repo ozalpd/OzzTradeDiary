@@ -1,9 +1,7 @@
 using System.Collections.ObjectModel;
 using TD.AppInfra.Services;
-using TD.AppInfra.ViewModels.Trades;
 using TD.Models;
 using TD.RepositoryContracts;
-using TD.WPF.Commands.Trades;
 using TD.WPF.Services;
 
 namespace TD.WPF.ViewModels.Trades
@@ -17,15 +15,11 @@ namespace TD.WPF.ViewModels.Trades
             _allSymbols = new List<Symbol>();
             _symbolLookup = symbolLookupService;
             _tradingAccountLookup = tradingAccountLookupService;
-            Filter = new TradeQueryParametersVM();
-            TradesLoadCommand = new TradesLoadCommand(this);
         }
 
         private IReadOnlyList<Symbol> _allSymbols;
         private ISymbolLookupService _symbolLookup { get; }
         private ITradingAccountLookupService _tradingAccountLookup { get; }
-        public TradesLoadCommand TradesLoadCommand { get; }
-        public TradeQueryParametersVM Filter { get; }
 
         public ObservableCollection<Symbol> Symbols { get; } = new();
         public ObservableCollection<TradingAccount> TradingAccounts { get; } = new();
@@ -39,7 +33,7 @@ namespace TD.WPF.ViewModels.Trades
                 if (_selectedTradingAccount == null)
                 {
                     ReplaceCollection(Symbols, _allSymbols);
-                    Filter.ByTradingAccountId = null;
+                    QueryVM.ByTradingAccountId = null;
                 }
                 else
                 {
@@ -47,7 +41,7 @@ namespace TD.WPF.ViewModels.Trades
                     var symbols = _allSymbols.Where(s => s.ExchangeId == exchangeId)
                                              .ToList();
                     ReplaceCollection(Symbols, symbols);
-                    Filter.ByTradingAccountId = _selectedTradingAccount.Id;
+                    QueryVM.ByTradingAccountId = _selectedTradingAccount.Id;
                 }
                 RaisePropertyChanged(nameof(SelectedTradingAccount));
             }
@@ -61,12 +55,6 @@ namespace TD.WPF.ViewModels.Trades
 
             var accounts = await _tradingAccountLookup.GetTradingAccountsAsync(isActive: true);
             ReplaceCollection(TradingAccounts, accounts);
-        }
-
-        public async Task LoadTradesWithFilterAsync()
-        {
-            await LoadTradesAsync(Filter.Parameters);
-            RaisePropertyChanged(nameof(Filter));
         }
     }
 }

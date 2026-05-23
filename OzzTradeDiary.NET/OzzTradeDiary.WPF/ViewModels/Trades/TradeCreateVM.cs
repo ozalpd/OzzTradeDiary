@@ -29,11 +29,9 @@ namespace TD.WPF.ViewModels.Trades
             _tradingAccountLookupService = tradingAccountLookupService;
             TradingAccounts = new ObservableCollection<TradingAccount>();
 
-            EntryMethodValues = GetValues<EntryMethod>();
-
-            TradeDirectionValues = GetValues<TradeDirection>();
-
             _trade = new Trade();
+            EntryMethodValues = GetValues<EntryMethod>();
+            TradeDirectionValues = GetValues<TradeDirection>();
             OnInitialized();
         }
         partial void OnInitialized();

@@ -10,18 +10,13 @@ using TD.WPF.ViewModels.Trades;
 
 namespace TD.WPF.Commands.Trades
 {
-    public partial class TradesLoadCommand : AbstractCommand
+    public partial class TradesPrevPageCommand : TradesLoadCommand
     {
-        protected readonly TradeListVM _viewModel;
-        
-        public TradesLoadCommand(TradeListVM viewModel)
-        {
-            _viewModel = viewModel;
-        }
+        public TradesPrevPageCommand(TradeListVM viewModel) : base(viewModel) { }
 
         public override bool CanExecute(object? parameter)
         {
-            return !_viewModel.LoadTradesInProgress;
+            return base.CanExecute(parameter) && _viewModel.QueryVM.HasPrevPage;
         }
 
         public override async void Execute(object? parameter)
@@ -29,7 +24,7 @@ namespace TD.WPF.Commands.Trades
             if (!CanExecute(parameter))
                 return;
 
-            _viewModel.QueryVM.Page = 1;
+            _viewModel.QueryVM.Page--;
             await _viewModel.LoadTradesAsync();
             RaiseCanExecuteChanged();
         }

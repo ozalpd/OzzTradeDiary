@@ -1,11 +1,11 @@
 using System.Collections.ObjectModel;
 using TD.AppInfra.Services;
 using TD.AppInfra.ViewModels;
+using TD.AppInfra.ViewModels.Trades;
 using TD.Extensions;
 using TD.Helpers;
 using TD.Models;
 using TD.RepositoryContracts;
-using TD.SQLite;
 using TD.WPF.Commands.Trades;
 using TD.WPF.Services;
 using static TD.Extensions.EnumExtension;
@@ -26,37 +26,63 @@ namespace TD.WPF.ViewModels.Trades
         {
             TradeRepository = tradeRepository;
             Trades = new ObservableCollection<Trade>();
+            QueryVM = new TradeQueryParametersVM();
 
-            TradeCreateCommand = new TradeCreateCommand (this, windowDialogService, symbolLookupService, tradingAccountLookupService);
-            TradeDeleteCommand = new TradeDeleteCommand (this);
-            TradeEditCommand = new TradeEditCommand (this, windowDialogService);
-            QueryParams = new TradeQueryParameters();
+            EntryMethodValues = GetValues<EntryMethod>();
+            TradeDirectionValues = GetValues<TradeDirection>();
+            TradeCreateCommand = new TradeCreateCommand(this, windowDialogService, symbolLookupService, tradingAccountLookupService);
+            TradeDeleteCommand = new TradeDeleteCommand(this);
+            TradeEditCommand = new TradeEditCommand(this, windowDialogService);
+            TradesLoadCommand = new TradesLoadCommand(this);
+            TradesNextPageCommand = new TradesNextPageCommand(this);
+            TradesPrevPageCommand = new TradesPrevPageCommand(this);
         }
 
         public ITradeRepository TradeRepository { get; }
         public ObservableCollection<Trade> Trades { get; }
 
+        /// <summary>
+        /// Gets the collection of available EntryMethod enum members for selection or display.
+        /// </summary>
+        public IEnumerable<EnumValueItem<EntryMethod>> EntryMethodValues { get; }
+
+        /// <summary>
+        /// Gets the collection of available TradeDirection enum members for selection or display.
+        /// </summary>
+        public IEnumerable<EnumValueItem<TradeDirection>> TradeDirectionValues { get; }
+
         public TradeCreateCommand TradeCreateCommand { get; }
         public TradeDeleteCommand TradeDeleteCommand { get; }
         public TradeEditCommand TradeEditCommand { get; }
+        public TradesLoadCommand TradesLoadCommand { get; }
+        public TradesNextPageCommand TradesNextPageCommand { get; }
+        public TradesPrevPageCommand TradesPrevPageCommand { get; }
 
-        protected TradeQueryParameters QueryParams { get; private set; }
+        public TradeQueryParametersVM QueryVM { get; }
 
         public async Task LoadTradesAsync()
         {
-            await LoadTradesAsync(QueryParams);
+            await LoadTradesAsync(QueryVM);
         }
 
-        protected async Task LoadTradesAsync(TradeQueryParameters queryParams)
+        protected async Task LoadTradesAsync(TradeQueryParametersVM queryVM)
         {
             if (LoadTradesInProgress)
                 return;
+
             LoadTradesInProgress = true;
-            var items = await TradeRepository.GetPagedAsync(queryParams);
-            QueryParams = queryParams;
-            RaisePropertyChanged(nameof(QueryParams));
+            TradesLoadCommand.RaiseCanExecuteChanged();
+            TradesPrevPageCommand.RaiseCanExecuteChanged();
+            TradesNextPageCommand.RaiseCanExecuteChanged();
+
+            var items = await TradeRepository.GetPagedAsync(queryVM.Parameters);
+            RaisePropertyChanged(nameof(QueryVM));
             ReplaceCollection(Trades, items);
+
             LoadTradesInProgress = false;
+            TradesLoadCommand.RaiseCanExecuteChanged();
+            TradesPrevPageCommand.RaiseCanExecuteChanged();
+            TradesNextPageCommand.RaiseCanExecuteChanged();
             OnTradesLoaded();
         }
         public bool LoadTradesInProgress { get; private set; } = false;

@@ -29,6 +29,7 @@
       <GenModeCreateCommand>DoNotGenerate</GenModeCreateCommand>
       <GenModeEditCommand>DoNotGenerate</GenModeEditCommand>
       <GenModeDeleteCommand>DoNotGenerate</GenModeDeleteCommand>
+      <GenModeLoadCommand>DoNotGenerate</GenModeLoadCommand>
       <GenModeCreateVM>DoNotGenerate</GenModeCreateVM>
       <GenModeEditVM>DoNotGenerate</GenModeEditVM>
       <GenerateGetPaged>false</GenerateGetPaged>
@@ -63,6 +64,7 @@
       <GenModeCreateCommand>DoNotGenerate</GenModeCreateCommand>
       <GenModeEditCommand>DoNotGenerate</GenModeEditCommand>
       <GenModeDeleteCommand>DoNotGenerate</GenModeDeleteCommand>
+      <GenModeLoadCommand>DoNotGenerate</GenModeLoadCommand>
       <GenModeCreateVM>DoNotGenerate</GenModeCreateVM>
       <GenModeEditVM>DoNotGenerate</GenModeEditVM>
       <GenerateGetPaged>false</GenerateGetPaged>
@@ -97,6 +99,7 @@
       <GenModeCreateCommand>DoNotGenerate</GenModeCreateCommand>
       <GenModeEditCommand>DoNotGenerate</GenModeEditCommand>
       <GenModeDeleteCommand>DoNotGenerate</GenModeDeleteCommand>
+      <GenModeLoadCommand>DoNotGenerate</GenModeLoadCommand>
       <GenModeCreateVM>DoNotGenerate</GenModeCreateVM>
       <GenModeEditVM>DoNotGenerate</GenModeEditVM>
       <GenerateGetPaged>false</GenerateGetPaged>
@@ -131,6 +134,7 @@
       <GenModeCreateCommand>DoNotGenerate</GenModeCreateCommand>
       <GenModeEditCommand>DoNotGenerate</GenModeEditCommand>
       <GenModeDeleteCommand>DoNotGenerate</GenModeDeleteCommand>
+      <GenModeLoadCommand>DoNotGenerate</GenModeLoadCommand>
       <GenModeCreateVM>DoNotGenerate</GenModeCreateVM>
       <GenModeEditVM>DoNotGenerate</GenModeEditVM>
       <GenerateGetPaged>false</GenerateGetPaged>
@@ -165,6 +169,7 @@
       <GenModeCreateCommand>DoNotGenerate</GenModeCreateCommand>
       <GenModeEditCommand>DoNotGenerate</GenModeEditCommand>
       <GenModeDeleteCommand>DoNotGenerate</GenModeDeleteCommand>
+      <GenModeLoadCommand>DoNotGenerate</GenModeLoadCommand>
       <GenModeCreateVM>DoNotGenerate</GenModeCreateVM>
       <GenModeEditVM>DoNotGenerate</GenModeEditVM>
       <GenerateGetPaged>false</GenerateGetPaged>
@@ -290,6 +295,7 @@
       <GenModeCreateCommand>DoNotGenerate</GenModeCreateCommand>
       <GenModeEditCommand>DoNotGenerate</GenModeEditCommand>
       <GenModeDeleteCommand>DoNotGenerate</GenModeDeleteCommand>
+      <GenModeLoadCommand>DoNotGenerate</GenModeLoadCommand>
       <GenModeCreateVM>DoNotGenerate</GenModeCreateVM>
       <GenModeEditVM>DoNotGenerate</GenModeEditVM>
       <GenerateGetPaged>false</GenerateGetPaged>
@@ -415,6 +421,7 @@
       <GenModeCreateCommand>GenerateIfNotExists</GenModeCreateCommand>
       <GenModeEditCommand>GenerateIfNotExists</GenModeEditCommand>
       <GenModeDeleteCommand>GenerateIfNotExists</GenModeDeleteCommand>
+      <GenModeLoadCommand>DoNotGenerate</GenModeLoadCommand>
       <GenModeCreateVM>GenerateIfNotExists</GenModeCreateVM>
       <GenModeEditVM>GenerateIfNotExists</GenModeEditVM>
       <GenerateGetPaged>false</GenerateGetPaged>
@@ -514,6 +521,7 @@
       <GenModeCreateCommand>GenerateIfNotExists</GenModeCreateCommand>
       <GenModeEditCommand>GenerateIfNotExists</GenModeEditCommand>
       <GenModeDeleteCommand>GenerateIfNotExists</GenModeDeleteCommand>
+      <GenModeLoadCommand>DoNotGenerate</GenModeLoadCommand>
       <GenModeCreateVM>GenerateIfNotExists</GenModeCreateVM>
       <GenModeEditVM>GenerateIfNotExists</GenModeEditVM>
       <GenerateGetPaged>false</GenerateGetPaged>
@@ -626,6 +634,7 @@
       <GenModeCreateCommand>GenerateIfNotExists</GenModeCreateCommand>
       <GenModeEditCommand>GenerateIfNotExists</GenModeEditCommand>
       <GenModeDeleteCommand>GenerateIfNotExists</GenModeDeleteCommand>
+      <GenModeLoadCommand>DoNotGenerate</GenModeLoadCommand>
       <GenModeCreateVM>GenerateIfNotExists</GenModeCreateVM>
       <GenModeEditVM>GenerateIfNotExists</GenModeEditVM>
       <GenerateGetPaged>false</GenerateGetPaged>
@@ -699,6 +708,7 @@
       <GenModeCreateCommand>GenerateIfNotExists</GenModeCreateCommand>
       <GenModeEditCommand>GenerateIfNotExists</GenModeEditCommand>
       <GenModeDeleteCommand>GenerateIfNotExists</GenModeDeleteCommand>
+      <GenModeLoadCommand>DoNotGenerate</GenModeLoadCommand>
       <GenModeCreateVM>GenerateIfNotExists</GenModeCreateVM>
       <GenModeEditVM>GenerateIfNotExists</GenModeEditVM>
       <GenerateGetPaged>false</GenerateGetPaged>
@@ -746,6 +756,7 @@
       <GenModeCreateCommand>GenerateIfNotExists</GenModeCreateCommand>
       <GenModeEditCommand>GenerateIfNotExists</GenModeEditCommand>
       <GenModeDeleteCommand>GenerateIfNotExists</GenModeDeleteCommand>
+      <GenModeLoadCommand>DoNotGenerate</GenModeLoadCommand>
       <GenModeCreateVM>GenerateIfNotExists</GenModeCreateVM>
       <GenModeEditVM>GenerateIfNotExists</GenModeEditVM>
       <GenerateGetPaged>false</GenerateGetPaged>
@@ -884,6 +895,7 @@
       <GenModeCreateCommand>GenerateIfNotExists</GenModeCreateCommand>
       <GenModeEditCommand>GenerateIfNotExists</GenModeEditCommand>
       <GenModeDeleteCommand>GenerateIfNotExists</GenModeDeleteCommand>
+      <GenModeLoadCommand>DoNotGenerate</GenModeLoadCommand>
       <GenModeCreateVM>GenerateIfNotExists</GenModeCreateVM>
       <GenModeEditVM>GenerateIfNotExists</GenModeEditVM>
       <GenerateGetPaged>false</GenerateGetPaged>
@@ -931,6 +943,7 @@
       <GenModeCreateCommand>GenerateIfNotExists</GenModeCreateCommand>
       <GenModeEditCommand>GenerateIfNotExists</GenModeEditCommand>
       <GenModeDeleteCommand>GenerateIfNotExists</GenModeDeleteCommand>
+      <GenModeLoadCommand>DoNotGenerate</GenModeLoadCommand>
       <GenModeCreateVM>GenerateIfNotExists</GenModeCreateVM>
       <GenModeEditVM>GenerateIfNotExists</GenModeEditVM>
       <GenerateGetPaged>false</GenerateGetPaged>
@@ -978,6 +991,7 @@
       <GenModeCreateCommand>GenerateIfNotExists</GenModeCreateCommand>
       <GenModeEditCommand>GenerateIfNotExists</GenModeEditCommand>
       <GenModeDeleteCommand>GenerateIfNotExists</GenModeDeleteCommand>
+      <GenModeLoadCommand>DoNotGenerate</GenModeLoadCommand>
       <GenModeCreateVM>GenerateIfNotExists</GenModeCreateVM>
       <GenModeEditVM>GenerateIfNotExists</GenModeEditVM>
       <GenerateGetPaged>false</GenerateGetPaged>
@@ -1038,6 +1052,7 @@
       <GenModeCreateCommand>GenerateIfNotExists</GenModeCreateCommand>
       <GenModeEditCommand>GenerateIfNotExists</GenModeEditCommand>
       <GenModeDeleteCommand>GenerateIfNotExists</GenModeDeleteCommand>
+      <GenModeLoadCommand>DoNotGenerate</GenModeLoadCommand>
       <GenModeCreateVM>GenerateIfNotExists</GenModeCreateVM>
       <GenModeEditVM>GenerateIfNotExists</GenModeEditVM>
       <GenerateGetPaged>false</GenerateGetPaged>
@@ -1111,6 +1126,7 @@
       <GenModeCreateCommand>GenerateIfNotExists</GenModeCreateCommand>
       <GenModeEditCommand>GenerateIfNotExists</GenModeEditCommand>
       <GenModeDeleteCommand>GenerateIfNotExists</GenModeDeleteCommand>
+      <GenModeLoadCommand>DoNotGenerate</GenModeLoadCommand>
       <GenModeCreateVM>GenerateIfNotExists</GenModeCreateVM>
       <GenModeEditVM>GenerateIfNotExists</GenModeEditVM>
       <GenerateGetPaged>false</GenerateGetPaged>
@@ -1405,6 +1421,7 @@
       <GenModeCreateCommand>GenerateIfNotExists</GenModeCreateCommand>
       <GenModeEditCommand>GenerateIfNotExists</GenModeEditCommand>
       <GenModeDeleteCommand>GenerateIfNotExists</GenModeDeleteCommand>
+      <GenModeLoadCommand>GenerateIfNotExists</GenModeLoadCommand>
       <GenModeCreateVM>GenerateIfNotExists</GenModeCreateVM>
       <GenModeEditVM>GenerateIfNotExists</GenModeEditVM>
       <GenerateGetPaged>true</GenerateGetPaged>

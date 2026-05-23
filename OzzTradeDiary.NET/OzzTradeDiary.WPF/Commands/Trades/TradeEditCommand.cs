@@ -15,9 +15,9 @@ namespace TD.WPF.Commands.Trades
 {
     public partial class TradeEditCommand : AbstractCommand
     {
-        private readonly TradeListVM _viewModel;
+        protected readonly TradeListVM _viewModel;
         private readonly IWindowDialogService _windowDialogService;
-
+        
         public TradeEditCommand(TradeListVM viewModel, IWindowDialogService windowDialogService)
         {
             _viewModel = viewModel;
