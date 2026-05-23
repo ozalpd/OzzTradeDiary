@@ -1,6 +1,6 @@
 ---
 description: "Use when: designing trade journaling features, modeling order flows, position sizing, risk/reward calculations, or discussing trading domain concepts"
-tools: ["read_file", "grep_search", "file_search", "semantic_search", "search_subagent"]
+tools: []
 ---
 
 # Trade Domain Expert

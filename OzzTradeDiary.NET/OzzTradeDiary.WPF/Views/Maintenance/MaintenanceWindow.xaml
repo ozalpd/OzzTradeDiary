@@ -478,7 +478,7 @@
                         </Button>
 
                         <Border Width="32" Background="Transparent" />
-                        <!-- TODO: Replace with a delete button -->
+                        
                         <Grid Margin="8,1,0,0">
                             <TextBox x:Name="SymbolSearchTextBox"  Width="120"
                                      Text="{Binding SymbolSearchString, UpdateSourceTrigger=PropertyChanged}" />

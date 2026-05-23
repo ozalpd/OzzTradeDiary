@@ -15,6 +15,8 @@ namespace TD.WPF.ViewModels.Trades
             _allSymbols = new List<Symbol>();
             _symbolLookup = symbolLookupService;
             _tradingAccountLookup = tradingAccountLookupService;
+
+            QueryVM.PageSize = 50;
         }
 
         private IReadOnlyList<Symbol> _allSymbols;
