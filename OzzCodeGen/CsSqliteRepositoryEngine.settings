@@ -815,6 +815,15 @@
           <DecimalToIntegerScale>0</DecimalToIntegerScale>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
+          <Name>ExitTime</Name>
+          <Exclude>false</Exclude>
+          <AutoLoad>false</AutoLoad>
+          <CheckIfAltered>false</CheckIfAltered>
+          <ColumnName>ExitTime</ColumnName>
+          <SingleColumnUpdate>false</SingleColumnUpdate>
+          <DecimalToIntegerScale>0</DecimalToIntegerScale>
+        </SqliteRepositoryPropertySetting>
+        <SqliteRepositoryPropertySetting>
           <Name>EntryMethod</Name>
           <Exclude>false</Exclude>
           <AutoLoad>false</AutoLoad>
@@ -968,6 +977,15 @@
           <DecimalToIntegerScale>4</DecimalToIntegerScale>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
+          <Name>RealizedRiskAmount</Name>
+          <Exclude>false</Exclude>
+          <AutoLoad>false</AutoLoad>
+          <CheckIfAltered>false</CheckIfAltered>
+          <ColumnName>RealizedRiskAmount</ColumnName>
+          <SingleColumnUpdate>false</SingleColumnUpdate>
+          <DecimalToIntegerScale>4</DecimalToIntegerScale>
+        </SqliteRepositoryPropertySetting>
+        <SqliteRepositoryPropertySetting>
           <Name>PlannedSL</Name>
           <Exclude>false</Exclude>
           <AutoLoad>false</AutoLoad>
@@ -982,6 +1000,42 @@
           <AutoLoad>false</AutoLoad>
           <CheckIfAltered>true</CheckIfAltered>
           <ColumnName>ExecutedSL</ColumnName>
+          <SingleColumnUpdate>false</SingleColumnUpdate>
+          <DecimalToIntegerScale>0</DecimalToIntegerScale>
+        </SqliteRepositoryPropertySetting>
+        <SqliteRepositoryPropertySetting>
+          <Name>PlannedRiskRewardRatio</Name>
+          <Exclude>false</Exclude>
+          <AutoLoad>false</AutoLoad>
+          <CheckIfAltered>false</CheckIfAltered>
+          <ColumnName>PlannedRiskRewardRatio</ColumnName>
+          <SingleColumnUpdate>false</SingleColumnUpdate>
+          <DecimalToIntegerScale>0</DecimalToIntegerScale>
+        </SqliteRepositoryPropertySetting>
+        <SqliteRepositoryPropertySetting>
+          <Name>RealizedR</Name>
+          <Exclude>false</Exclude>
+          <AutoLoad>false</AutoLoad>
+          <CheckIfAltered>false</CheckIfAltered>
+          <ColumnName>RealizedR</ColumnName>
+          <SingleColumnUpdate>false</SingleColumnUpdate>
+          <DecimalToIntegerScale>0</DecimalToIntegerScale>
+        </SqliteRepositoryPropertySetting>
+        <SqliteRepositoryPropertySetting>
+          <Name>ReviewNotes</Name>
+          <Exclude>false</Exclude>
+          <AutoLoad>false</AutoLoad>
+          <CheckIfAltered>false</CheckIfAltered>
+          <ColumnName>ReviewNotes</ColumnName>
+          <SingleColumnUpdate>false</SingleColumnUpdate>
+          <DecimalToIntegerScale>0</DecimalToIntegerScale>
+        </SqliteRepositoryPropertySetting>
+        <SqliteRepositoryPropertySetting>
+          <Name>SetupNotes</Name>
+          <Exclude>false</Exclude>
+          <AutoLoad>false</AutoLoad>
+          <CheckIfAltered>false</CheckIfAltered>
+          <ColumnName>SetupNotes</ColumnName>
           <SingleColumnUpdate>false</SingleColumnUpdate>
           <DecimalToIntegerScale>0</DecimalToIntegerScale>
         </SqliteRepositoryPropertySetting>

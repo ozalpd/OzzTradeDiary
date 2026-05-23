@@ -754,6 +754,15 @@
           <IsSearchParameter>true</IsSearchParameter>
         </ModelPropertySetting>
         <ModelPropertySetting>
+          <Name>ExitTime</Name>
+          <Exclude>false</Exclude>
+          <DataType />
+          <DTOExclusion>false</DTOExclusion>
+          <HtmlEncode xsi:nil="true" />
+          <Required />
+          <IsSearchParameter>false</IsSearchParameter>
+        </ModelPropertySetting>
+        <ModelPropertySetting>
           <Name>EntryMethod</Name>
           <Exclude>false</Exclude>
           <DataType />
@@ -773,7 +782,7 @@
         </ModelPropertySetting>
         <ModelPropertySetting>
           <Name>IsFullyClosed</Name>
-          <Exclude>false</Exclude>
+          <Exclude>true</Exclude>
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
@@ -904,6 +913,15 @@
           <IsSearchParameter>true</IsSearchParameter>
         </ModelPropertySetting>
         <ModelPropertySetting>
+          <Name>RealizedRiskAmount</Name>
+          <Exclude>true</Exclude>
+          <DataType />
+          <DTOExclusion>false</DTOExclusion>
+          <HtmlEncode xsi:nil="true" />
+          <Required />
+          <IsSearchParameter>false</IsSearchParameter>
+        </ModelPropertySetting>
+        <ModelPropertySetting>
           <Name>PlannedSL</Name>
           <Exclude>false</Exclude>
           <DataType />
@@ -916,6 +934,42 @@
           <Name>ExecutedSL</Name>
           <Exclude>false</Exclude>
           <DataType />
+          <DTOExclusion>false</DTOExclusion>
+          <HtmlEncode xsi:nil="true" />
+          <Required />
+          <IsSearchParameter>false</IsSearchParameter>
+        </ModelPropertySetting>
+        <ModelPropertySetting>
+          <Name>PlannedRiskRewardRatio</Name>
+          <Exclude>true</Exclude>
+          <DataType />
+          <DTOExclusion>false</DTOExclusion>
+          <HtmlEncode xsi:nil="true" />
+          <Required />
+          <IsSearchParameter>false</IsSearchParameter>
+        </ModelPropertySetting>
+        <ModelPropertySetting>
+          <Name>RealizedR</Name>
+          <Exclude>true</Exclude>
+          <DataType />
+          <DTOExclusion>false</DTOExclusion>
+          <HtmlEncode xsi:nil="true" />
+          <Required />
+          <IsSearchParameter>false</IsSearchParameter>
+        </ModelPropertySetting>
+        <ModelPropertySetting>
+          <Name>ReviewNotes</Name>
+          <Exclude>false</Exclude>
+          <DataType>MultilineText</DataType>
+          <DTOExclusion>false</DTOExclusion>
+          <HtmlEncode xsi:nil="true" />
+          <Required />
+          <IsSearchParameter>false</IsSearchParameter>
+        </ModelPropertySetting>
+        <ModelPropertySetting>
+          <Name>SetupNotes</Name>
+          <Exclude>false</Exclude>
+          <DataType>MultilineText</DataType>
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required />

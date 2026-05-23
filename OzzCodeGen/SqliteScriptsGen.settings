@@ -933,7 +933,7 @@
         <StorageColumnSetting>
           <Name>EntryTime</Name>
           <Exclude>false</Exclude>
-          <DataType>INTEGER</DataType>
+          <DataType>TEXT</DataType>
           <Length>0</Length>
           <PrimaryKey>false</PrimaryKey>
           <Indexed>true</Indexed>
@@ -941,6 +941,19 @@
           <SortDesc>true</SortDesc>
           <Nullable>true</Nullable>
           <CheckIfAltered>true</CheckIfAltered>
+          <DoNotLog>false</DoNotLog>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>ExitTime</Name>
+          <Exclude>false</Exclude>
+          <DataType>TEXT</DataType>
+          <Length>0</Length>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <Unique>false</Unique>
+          <SortDesc>false</SortDesc>
+          <Nullable>true</Nullable>
+          <CheckIfAltered>false</CheckIfAltered>
           <DoNotLog>false</DoNotLog>
         </StorageColumnSetting>
         <StorageColumnSetting>
@@ -1133,6 +1146,19 @@
           <DoNotLog>false</DoNotLog>
         </StorageColumnSetting>
         <StorageColumnSetting>
+          <Name>RealizedRiskAmount</Name>
+          <Exclude>false</Exclude>
+          <DataType>INTEGER</DataType>
+          <Length>0</Length>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <Unique>false</Unique>
+          <SortDesc>false</SortDesc>
+          <Nullable>true</Nullable>
+          <CheckIfAltered>false</CheckIfAltered>
+          <DoNotLog>false</DoNotLog>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
           <Name>PlannedSL</Name>
           <Exclude>false</Exclude>
           <DataType>TEXT</DataType>
@@ -1156,6 +1182,58 @@
           <SortDesc>false</SortDesc>
           <Nullable>true</Nullable>
           <CheckIfAltered>true</CheckIfAltered>
+          <DoNotLog>false</DoNotLog>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>PlannedRiskRewardRatio</Name>
+          <Exclude>false</Exclude>
+          <DataType>TEXT</DataType>
+          <Length>0</Length>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <Unique>false</Unique>
+          <SortDesc>false</SortDesc>
+          <Nullable>true</Nullable>
+          <CheckIfAltered>false</CheckIfAltered>
+          <DoNotLog>false</DoNotLog>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>RealizedR</Name>
+          <Exclude>false</Exclude>
+          <DataType>TEXT</DataType>
+          <Length>0</Length>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <Unique>false</Unique>
+          <SortDesc>false</SortDesc>
+          <Nullable>true</Nullable>
+          <CheckIfAltered>false</CheckIfAltered>
+          <DoNotLog>false</DoNotLog>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>ReviewNotes</Name>
+          <Exclude>false</Exclude>
+          <DataType>TEXT</DataType>
+          <Length>0</Length>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <Unique>false</Unique>
+          <SortDesc>false</SortDesc>
+          <Nullable>true</Nullable>
+          <CheckIfAltered>false</CheckIfAltered>
+          <DoNotLog>false</DoNotLog>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>SetupNotes</Name>
+          <Exclude>false</Exclude>
+          <DataType>TEXT</DataType>
+          <Length>0</Length>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <Unique>false</Unique>
+          <SortDesc>false</SortDesc>
+          <Nullable>true</Nullable>
+          <CheckIfAltered>false</CheckIfAltered>
           <DoNotLog>false</DoNotLog>
         </StorageColumnSetting>
       </Properties>

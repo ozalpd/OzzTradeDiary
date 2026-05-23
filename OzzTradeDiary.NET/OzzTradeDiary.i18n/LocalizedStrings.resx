@@ -409,6 +409,9 @@
     <data name="ExecuteTime" xml:space="preserve">
         <value>Execute Time</value>
     </data>
+    <data name="ExitTime" xml:space="preserve">
+        <value>Exit Time</value>
+    </data>
     <data name="FilledPrice" xml:space="preserve">
         <value>Filled Price</value>
     </data>
@@ -538,6 +541,9 @@
     <data name="PlannedRiskAmount" xml:space="preserve">
         <value>Planned Risk Amount</value>
     </data>
+    <data name="PlannedRiskRewardRatio" xml:space="preserve">
+        <value>Planned Risk Reward Ratio</value>
+    </data>
     <data name="PlannedSL" xml:space="preserve">
         <value>Planned SL</value>
     </data>
@@ -555,6 +561,12 @@
     </data>
     <data name="RealizedProfitLoss" xml:space="preserve">
         <value>Realized Profit Loss</value>
+    </data>
+    <data name="RealizedR" xml:space="preserve">
+        <value>Realized R</value>
+    </data>
+    <data name="RealizedRiskAmount" xml:space="preserve">
+        <value>Realized Risk Amount</value>
     </data>
     <data name="Regular" xml:space="preserve">
         <value>Regular</value>
@@ -601,6 +613,9 @@
     <data name="ReportTypes" xml:space="preserve">
         <value>Report Types</value>
     </data>
+    <data name="ReviewNotes" xml:space="preserve">
+        <value>Review Notes</value>
+    </data>
     <data name="Session" xml:space="preserve">
         <value>Session</value>
     </data>
@@ -615,6 +630,9 @@
     </data>
     <data name="SettingType" xml:space="preserve">
         <value>Setting Type</value>
+    </data>
+    <data name="SetupNotes" xml:space="preserve">
+        <value>Setup Notes</value>
     </data>
     <data name="Stock" xml:space="preserve">
         <value>Stock</value>

@@ -50,6 +50,9 @@ namespace TD.Models
         [Display(ResourceType = typeof(LocalizedStrings), Name = "EntryTime")]
         public DateTime? EntryTime { get; set; }
 
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "ExitTime")]
+        public DateTime? ExitTime { get; set; }
+
         [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
         [Display(ResourceType = typeof(LocalizedStrings), Name = "EntryMethod")]
         public EntryMethod EntryMethod { get; set; }
@@ -57,9 +60,6 @@ namespace TD.Models
         [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
         [Display(ResourceType = typeof(LocalizedStrings), Name = "TradeDirection")]
         public TradeDirection TradeDirection { get; set; }
-
-        [Display(ResourceType = typeof(LocalizedStrings), Name = "IsFullyClosed")]
-        public bool IsFullyClosed { get; set; }
 
         [Display(ResourceType = typeof(LocalizedStrings), Name = "EntryOrders")]
         public ICollection<EntryOrder> EntryOrders { get; set; }
@@ -118,6 +118,16 @@ namespace TD.Models
         [Display(ResourceType = typeof(LocalizedStrings), Name = "ExecutedSL")]
         public decimal? ExecutedSL { get; set; }
 
+        [StringLength(2048, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxStringLength")]
+        [DataType(DataType.MultilineText)]
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "ReviewNotes")]
+        public string? ReviewNotes { get; set; }
+
+        [StringLength(2048, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxStringLength")]
+        [DataType(DataType.MultilineText)]
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "SetupNotes")]
+        public string? SetupNotes { get; set; }
+
         /// <summary>
         /// Keeps Web URL or local file path of the images associated with the trade, along with optional notes. This collection allows for multiple images to be linked to a single trade, providing visual documentation or evidence of the trade setup, execution, or outcome. Each TradeImage instance contains details about the image and its relation to the trade, facilitating better organization and reference within the trading diary.
         /// </summary>
@@ -141,9 +151,9 @@ namespace TD.Models
             clone.TradingAccountId = this.TradingAccountId;
             clone.SymbolId = this.SymbolId;
             clone.EntryTime = this.EntryTime;
+            clone.ExitTime = this.ExitTime;
             clone.EntryMethod = this.EntryMethod;
             clone.TradeDirection = this.TradeDirection;
-            clone.IsFullyClosed = this.IsFullyClosed;
             clone.OrderQuantity = this.OrderQuantity;
             clone.FilledQuantity = this.FilledQuantity;
             clone.PlannedEntryPrice = this.PlannedEntryPrice;
@@ -152,6 +162,8 @@ namespace TD.Models
             clone.ExecutedTP = this.ExecutedTP;
             clone.PlannedSL = this.PlannedSL;
             clone.ExecutedSL = this.ExecutedSL;
+            clone.ReviewNotes = this.ReviewNotes;
+            clone.SetupNotes = this.SetupNotes;
             clone.UpdatedAt = this.UpdatedAt;
 
             Cloning(clone);

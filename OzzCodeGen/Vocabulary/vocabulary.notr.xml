@@ -1065,6 +1065,10 @@
     <Translation>Exit</Translation>
   </Vocab>
   <Vocab>
+    <Name>ExitTime</Name>
+    <Translation>Exit Time</Translation>
+  </Vocab>
+  <Vocab>
     <Name>ExpireDate</Name>
     <Translation>Expire Date</Translation>
   </Vocab>
@@ -1251,6 +1255,10 @@
   <Vocab>
     <Name>Limit</Name>
     <Translation>Limit</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Load</Name>
+    <Translation>Load</Translation>
   </Vocab>
   <Vocab>
     <Name>Loading</Name>
@@ -1557,6 +1565,10 @@
     <Translation>Planned Risk Amount</Translation>
   </Vocab>
   <Vocab>
+    <Name>PlannedRiskRewardRatio</Name>
+    <Translation>Planned Risk Reward Ratio</Translation>
+  </Vocab>
+  <Vocab>
     <Name>PlannedSL</Name>
     <Translation>Planned SL</Translation>
   </Vocab>
@@ -1685,6 +1697,14 @@
     <Translation>Realized Profit Loss</Translation>
   </Vocab>
   <Vocab>
+    <Name>RealizedR</Name>
+    <Translation>Realized R</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>RealizedRiskAmount</Name>
+    <Translation>Realized Risk Amount</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Record</Name>
     <Translation>Record</Translation>
   </Vocab>
@@ -1781,6 +1801,10 @@
     <Translation>Please enter your password to {0} field.</Translation>
   </Vocab>
   <Vocab>
+    <Name>ReviewNotes</Name>
+    <Translation>Review Notes</Translation>
+  </Vocab>
+  <Vocab>
     <Name>RotationX</Name>
     <Translation>Rotation X</Translation>
   </Vocab>
@@ -1875,6 +1899,10 @@
   <Vocab>
     <Name>SettingType</Name>
     <Translation>Setting Type</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>SetupNotes</Name>
+    <Translation>Setup Notes</Translation>
   </Vocab>
   <Vocab>
     <Name>Show</Name>

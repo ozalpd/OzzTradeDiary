@@ -4,6 +4,20 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.1.4] - 2026-05-24
+
+### Added
+- Added `ExitTime`, `PlannedRiskRewardRatio`, `RealizedR`, `RealizedRiskAmount`, `ReviewNotes`, and `SetupNotes` to Trade model and database schema
+
+### Changed
+- Made `IsFullyClosed` a calculated property (not persisted)
+- Update repository, codegen, and SQL scripts for new fields
+- Improve planned/realized P/L, risk, and R-multiple calculations
+- Update WPF `MainWindow` to show new fields with localization
+- Add resource strings and Turkish translations for new fields
+- Bump all project versions to 0.1.4
+- Minor: update "Load" button label and tooltip
+
 ## [0.1.3] - 2026-05-22
 
 ### Added

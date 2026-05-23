@@ -127,6 +127,9 @@
     <data name="Import" xml:space="preserve">
         <value>İçe Al</value>
     </data>
+    <data name="Load" xml:space="preserve">
+        <value>Yükle</value>
+    </data>
     <data name="Login" xml:space="preserve">
         <value>Giriş Yap</value>
     </data>

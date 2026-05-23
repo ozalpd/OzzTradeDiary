@@ -1207,6 +1207,19 @@
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
+          <Name>ExitTime</Name>
+          <Exclude>false</Exclude>
+          <CreateEditOrder>10600</CreateEditOrder>
+          <DefaultValue />
+          <IncludeInView>true</IncludeInView>
+          <IncludeInViewModel>true</IncludeInViewModel>
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
+          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
+          <IsReadOnlyInEdit>true</IsReadOnlyInEdit>
+          <IsMultiLine>false</IsMultiLine>
+          <ValueConstraint />
+        </WpfMvvmPropertySetting>
+        <WpfMvvmPropertySetting>
           <Name>EntryMethod</Name>
           <Exclude>false</Exclude>
           <CreateEditOrder>10600</CreateEditOrder>
@@ -1389,6 +1402,19 @@
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
+          <Name>RealizedRiskAmount</Name>
+          <Exclude>false</Exclude>
+          <CreateEditOrder>12400</CreateEditOrder>
+          <DefaultValue />
+          <IncludeInView>true</IncludeInView>
+          <IncludeInViewModel>true</IncludeInViewModel>
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
+          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
+          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
+          <IsMultiLine>false</IsMultiLine>
+          <ValueConstraint />
+        </WpfMvvmPropertySetting>
+        <WpfMvvmPropertySetting>
           <Name>PlannedSL</Name>
           <Exclude>false</Exclude>
           <CreateEditOrder>12300</CreateEditOrder>
@@ -1412,6 +1438,58 @@
           <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
           <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <IsMultiLine>false</IsMultiLine>
+          <ValueConstraint />
+        </WpfMvvmPropertySetting>
+        <WpfMvvmPropertySetting>
+          <Name>PlannedRiskRewardRatio</Name>
+          <Exclude>false</Exclude>
+          <CreateEditOrder>12700</CreateEditOrder>
+          <DefaultValue />
+          <IncludeInView>true</IncludeInView>
+          <IncludeInViewModel>true</IncludeInViewModel>
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
+          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
+          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
+          <IsMultiLine>false</IsMultiLine>
+          <ValueConstraint />
+        </WpfMvvmPropertySetting>
+        <WpfMvvmPropertySetting>
+          <Name>RealizedR</Name>
+          <Exclude>false</Exclude>
+          <CreateEditOrder>12800</CreateEditOrder>
+          <DefaultValue />
+          <IncludeInView>true</IncludeInView>
+          <IncludeInViewModel>true</IncludeInViewModel>
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
+          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
+          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
+          <IsMultiLine>false</IsMultiLine>
+          <ValueConstraint />
+        </WpfMvvmPropertySetting>
+        <WpfMvvmPropertySetting>
+          <Name>ReviewNotes</Name>
+          <Exclude>false</Exclude>
+          <CreateEditOrder>12900</CreateEditOrder>
+          <DefaultValue />
+          <IncludeInView>true</IncludeInView>
+          <IncludeInViewModel>true</IncludeInViewModel>
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
+          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
+          <IsReadOnlyInEdit>true</IsReadOnlyInEdit>
+          <IsMultiLine>true</IsMultiLine>
+          <ValueConstraint />
+        </WpfMvvmPropertySetting>
+        <WpfMvvmPropertySetting>
+          <Name>SetupNotes</Name>
+          <Exclude>false</Exclude>
+          <CreateEditOrder>13000</CreateEditOrder>
+          <DefaultValue />
+          <IncludeInView>true</IncludeInView>
+          <IncludeInViewModel>true</IncludeInViewModel>
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
+          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
+          <IsReadOnlyInEdit>true</IsReadOnlyInEdit>
+          <IsMultiLine>true</IsMultiLine>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
       </Properties>

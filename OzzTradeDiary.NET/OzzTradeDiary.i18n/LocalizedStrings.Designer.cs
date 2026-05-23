@@ -1114,6 +1114,15 @@ namespace TD.i18n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Exit Time.
+        /// </summary>
+        public static string ExitTime {
+            get {
+                return ResourceManager.GetString("ExitTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Filled Price.
         /// </summary>
         public static string FilledPrice {
@@ -1501,6 +1510,15 @@ namespace TD.i18n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Planned Risk Reward Ratio.
+        /// </summary>
+        public static string PlannedRiskRewardRatio {
+            get {
+                return ResourceManager.GetString("PlannedRiskRewardRatio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Planned SL.
         /// </summary>
         public static string PlannedSL {
@@ -1551,6 +1569,24 @@ namespace TD.i18n {
         public static string RealizedProfitLoss {
             get {
                 return ResourceManager.GetString("RealizedProfitLoss", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Realized R.
+        /// </summary>
+        public static string RealizedR {
+            get {
+                return ResourceManager.GetString("RealizedR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Realized Risk Amount.
+        /// </summary>
+        public static string RealizedRiskAmount {
+            get {
+                return ResourceManager.GetString("RealizedRiskAmount", resourceCulture);
             }
         }
         
@@ -1690,6 +1726,15 @@ namespace TD.i18n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Review Notes.
+        /// </summary>
+        public static string ReviewNotes {
+            get {
+                return ResourceManager.GetString("ReviewNotes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Session.
         /// </summary>
         public static string Session {
@@ -1731,6 +1776,15 @@ namespace TD.i18n {
         public static string SettingType {
             get {
                 return ResourceManager.GetString("SettingType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Setup Notes.
+        /// </summary>
+        public static string SetupNotes {
+            get {
+                return ResourceManager.GetString("SetupNotes", resourceCulture);
             }
         }
         

@@ -1010,7 +1010,7 @@
   </Vocab>
   <Vocab>
     <Name>EntryTime</Name>
-    <Translation>İşlem Zamanı</Translation>
+    <Translation>Pozisyona Giriş</Translation>
   </Vocab>
   <Vocab>
     <Name>Erase</Name>
@@ -1063,6 +1063,10 @@
   <Vocab>
     <Name>Exit</Name>
     <Translation>Kapat</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ExitTime</Name>
+    <Translation>Pozisyondan Çıkış</Translation>
   </Vocab>
   <Vocab>
     <Name>ExpireDate</Name>
@@ -1251,6 +1255,10 @@
   <Vocab>
     <Name>Limit</Name>
     <Translation>Limit</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Load</Name>
+    <Translation>Yükle</Translation>
   </Vocab>
   <Vocab>
     <Name>Loading</Name>
@@ -1557,6 +1565,10 @@
     <Translation>Planlanan Risk Miktarı</Translation>
   </Vocab>
   <Vocab>
+    <Name>PlannedRiskRewardRatio</Name>
+    <Translation>Planlanan Risk Ödül Oranı</Translation>
+  </Vocab>
+  <Vocab>
     <Name>PlannedSL</Name>
     <Translation>Planlanan Zarar Kes</Translation>
   </Vocab>
@@ -1685,6 +1697,14 @@
     <Translation>Gerçekleşen Kazanç/Kayıp</Translation>
   </Vocab>
   <Vocab>
+    <Name>RealizedR</Name>
+    <Translation>Gerçekleşen R</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>RealizedRiskAmount</Name>
+    <Translation>Gerçekleşen Risk Tutarı</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Record</Name>
     <Translation>Kayıt</Translation>
   </Vocab>
@@ -1781,6 +1801,10 @@
     <Translation>Lütfen {0} sahasına parolanızı giriniz.</Translation>
   </Vocab>
   <Vocab>
+    <Name>ReviewNotes</Name>
+    <Translation>Değerlendirme Notu</Translation>
+  </Vocab>
+  <Vocab>
     <Name>RotationX</Name>
     <Translation>X Dönüşü</Translation>
   </Vocab>
@@ -1875,6 +1899,10 @@
   <Vocab>
     <Name>SettingType</Name>
     <Translation>Ayar Tipi</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>SetupNotes</Name>
+    <Translation>Setup Notu</Translation>
   </Vocab>
   <Vocab>
     <Name>Show</Name>

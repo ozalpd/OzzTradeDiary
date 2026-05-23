@@ -374,7 +374,7 @@
         <value>Giriş Emir Listesi</value>
     </data>
     <data name="EntryTime" xml:space="preserve">
-        <value>İşlem Zamanı</value>
+        <value>Pozisyona Giriş</value>
     </data>
     <data name="Exchange" xml:space="preserve">
         <value>Borsa</value>
@@ -408,6 +408,9 @@
     </data>
     <data name="ExecuteTime" xml:space="preserve">
         <value>Gerçekleşme Zamanı</value>
+    </data>
+    <data name="ExitTime" xml:space="preserve">
+        <value>Pozisyondan Çıkış</value>
     </data>
     <data name="FilledPrice" xml:space="preserve">
         <value>Gerçekleşen Fiyat</value>
@@ -538,6 +541,9 @@
     <data name="PlannedRiskAmount" xml:space="preserve">
         <value>Planlanan Risk Miktarı</value>
     </data>
+    <data name="PlannedRiskRewardRatio" xml:space="preserve">
+        <value>Planlanan Risk Ödül Oranı</value>
+    </data>
     <data name="PlannedSL" xml:space="preserve">
         <value>Planlanan Zarar Kes</value>
     </data>
@@ -555,6 +561,12 @@
     </data>
     <data name="RealizedProfitLoss" xml:space="preserve">
         <value>Gerçekleşen Kazanç/Kayıp</value>
+    </data>
+    <data name="RealizedR" xml:space="preserve">
+        <value>Gerçekleşen R</value>
+    </data>
+    <data name="RealizedRiskAmount" xml:space="preserve">
+        <value>Gerçekleşen Risk Tutarı</value>
     </data>
     <data name="Regular" xml:space="preserve">
         <value>Normal Seans</value>
@@ -601,6 +613,9 @@
     <data name="ReportTypes" xml:space="preserve">
         <value>Rapor Tipi</value>
     </data>
+    <data name="ReviewNotes" xml:space="preserve">
+        <value>Değerlendirme Notu</value>
+    </data>
     <data name="Session" xml:space="preserve">
         <value>Seans</value>
     </data>
@@ -615,6 +630,9 @@
     </data>
     <data name="SettingType" xml:space="preserve">
         <value>Ayar Tipi</value>
+    </data>
+    <data name="SetupNotes" xml:space="preserve">
+        <value>Setup Notu</value>
     </data>
     <data name="Stock" xml:space="preserve">
         <value>Hisse Senedi</value>

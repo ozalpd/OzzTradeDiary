@@ -2,7 +2,8 @@ CREATE TABLE IF NOT EXISTS Trades(
     Id INTEGER PRIMARY KEY,
 	TradingAccountId INTEGER Not Null, 
 	SymbolId INTEGER Not Null, 
-	EntryTime INTEGER, 
+	EntryTime TEXT, 
+	ExitTime TEXT, 
 	EntryMethod INTEGER Not Null, 
 	TradeDirection INTEGER Not Null, 
 	IsFullyClosed INTEGER Not Null, 
@@ -17,8 +18,13 @@ CREATE TABLE IF NOT EXISTS Trades(
 	PlannedTP TEXT, 
 	ExecutedTP TEXT, 
 	PlannedRiskAmount INTEGER, 
+	RealizedRiskAmount INTEGER, 
 	PlannedSL TEXT, 
 	ExecutedSL TEXT, 
+	PlannedRiskRewardRatio TEXT, 
+	RealizedR TEXT, 
+	ReviewNotes TEXT, 
+	SetupNotes TEXT, 
 	UpdatedAt TEXT Not Null 
 );
 Create Index If Not Exists idx_Trades_TradingAccountId on Trades(TradingAccountId, UpdatedAt DESC, EntryTime DESC);
