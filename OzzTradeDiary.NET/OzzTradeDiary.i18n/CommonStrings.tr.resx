@@ -67,8 +67,29 @@
     <data name="Home" xml:space="preserve">
         <value>Ana Sayfa</value>
     </data>
+    <data name="Page" xml:space="preserve">
+        <value>Sayfa</value>
+    </data>
+    <data name="Pages" xml:space="preserve">
+        <value>Sayfalar</value>
+    </data>
+    <data name="PageSize" xml:space="preserve">
+        <value>Sayfa Kayıt Sayısı</value>
+    </data>
+    <data name="PerPage" xml:space="preserve">
+        <value>Sayfa Başına</value>
+    </data>
     <data name="Record" xml:space="preserve">
         <value>Kayıt</value>
+    </data>
+    <data name="Records" xml:space="preserve">
+        <value>Kayıtlat</value>
+    </data>
+    <data name="TotalPages" xml:space="preserve">
+        <value>Toplam Sayfa</value>
+    </data>
+    <data name="TotalRecords" xml:space="preserve">
+        <value>Toplam Kayıt</value>
     </data>
     <data name="Version" xml:space="preserve">
         <value>Sürüm:</value>

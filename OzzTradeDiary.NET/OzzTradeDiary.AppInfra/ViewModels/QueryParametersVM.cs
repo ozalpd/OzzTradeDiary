@@ -56,9 +56,22 @@ namespace TD.AppInfra.ViewModels
             {
                 QueryParameters.PageSize = value;
                 RaisePropertyChanged(nameof(PageSize));
+                RaisePropertyChanged(nameof(PageInfo));
+                RaisePropertyChanged(nameof(PageCount));
+                RaisePropertyChanged(nameof(RecordsInfo));
             }
         }
         
+        /// <summary>
+        /// Gets a localized string displaying pagination information including current page, total pages.
+        /// </summary>
+        public string PageInfo => QueryParameters.PageInfo;
+
+        /// <summary>       
+        /// Gets a localized string displaying the total number of records.
+        /// </summary>
+        public string RecordsInfo => QueryParameters.RecordsInfo;
+
         public string? SearchString
         {
             get => QueryParameters.SearchString;

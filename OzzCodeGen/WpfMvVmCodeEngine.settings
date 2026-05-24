@@ -119,8 +119,8 @@
           <Exclude>false</Exclude>
           <CreateEditOrder>2001000</CreateEditOrder>
           <DefaultValue />
-          <IncludeInView>true</IncludeInView>
-          <IncludeInViewModel>true</IncludeInViewModel>
+          <IncludeInView>false</IncludeInView>
+          <IncludeInViewModel>false</IncludeInViewModel>
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
           <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
@@ -154,8 +154,8 @@
           <Exclude>false</Exclude>
           <CreateEditOrder>2002000</CreateEditOrder>
           <DefaultValue />
-          <IncludeInView>true</IncludeInView>
-          <IncludeInViewModel>true</IncludeInViewModel>
+          <IncludeInView>false</IncludeInView>
+          <IncludeInViewModel>false</IncludeInViewModel>
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
           <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
@@ -1211,8 +1211,8 @@
           <Exclude>false</Exclude>
           <CreateEditOrder>10600</CreateEditOrder>
           <DefaultValue />
-          <IncludeInView>true</IncludeInView>
-          <IncludeInViewModel>true</IncludeInViewModel>
+          <IncludeInView>false</IncludeInView>
+          <IncludeInViewModel>false</IncludeInViewModel>
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
           <IsReadOnlyInEdit>true</IsReadOnlyInEdit>
@@ -1241,7 +1241,7 @@
           <IncludeInViewModel>true</IncludeInViewModel>
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
-          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
+          <IsReadOnlyInEdit>true</IsReadOnlyInEdit>
           <IsMultiLine>false</IsMultiLine>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
@@ -1250,8 +1250,8 @@
           <Exclude>false</Exclude>
           <CreateEditOrder>10800</CreateEditOrder>
           <DefaultValue />
-          <IncludeInView>true</IncludeInView>
-          <IncludeInViewModel>true</IncludeInViewModel>
+          <IncludeInView>false</IncludeInView>
+          <IncludeInViewModel>false</IncludeInViewModel>
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
           <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
@@ -1315,8 +1315,8 @@
           <Exclude>false</Exclude>
           <CreateEditOrder>11400</CreateEditOrder>
           <DefaultValue />
-          <IncludeInView>true</IncludeInView>
-          <IncludeInViewModel>true</IncludeInViewModel>
+          <IncludeInView>false</IncludeInView>
+          <IncludeInViewModel>false</IncludeInViewModel>
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
           <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
@@ -1328,8 +1328,8 @@
           <Exclude>false</Exclude>
           <CreateEditOrder>11500</CreateEditOrder>
           <DefaultValue />
-          <IncludeInView>true</IncludeInView>
-          <IncludeInViewModel>true</IncludeInViewModel>
+          <IncludeInView>false</IncludeInView>
+          <IncludeInViewModel>false</IncludeInViewModel>
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
           <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
@@ -1341,8 +1341,8 @@
           <Exclude>false</Exclude>
           <CreateEditOrder>11700</CreateEditOrder>
           <DefaultValue />
-          <IncludeInView>true</IncludeInView>
-          <IncludeInViewModel>true</IncludeInViewModel>
+          <IncludeInView>false</IncludeInView>
+          <IncludeInViewModel>false</IncludeInViewModel>
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
           <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
@@ -1354,8 +1354,8 @@
           <Exclude>false</Exclude>
           <CreateEditOrder>11800</CreateEditOrder>
           <DefaultValue />
-          <IncludeInView>true</IncludeInView>
-          <IncludeInViewModel>true</IncludeInViewModel>
+          <IncludeInView>false</IncludeInView>
+          <IncludeInViewModel>false</IncludeInViewModel>
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
           <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
@@ -1393,8 +1393,8 @@
           <Exclude>false</Exclude>
           <CreateEditOrder>12200</CreateEditOrder>
           <DefaultValue />
-          <IncludeInView>true</IncludeInView>
-          <IncludeInViewModel>true</IncludeInViewModel>
+          <IncludeInView>false</IncludeInView>
+          <IncludeInViewModel>false</IncludeInViewModel>
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
           <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
@@ -1406,8 +1406,8 @@
           <Exclude>false</Exclude>
           <CreateEditOrder>12400</CreateEditOrder>
           <DefaultValue />
-          <IncludeInView>true</IncludeInView>
-          <IncludeInViewModel>true</IncludeInViewModel>
+          <IncludeInView>false</IncludeInView>
+          <IncludeInViewModel>false</IncludeInViewModel>
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
           <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
@@ -1445,8 +1445,8 @@
           <Exclude>false</Exclude>
           <CreateEditOrder>12700</CreateEditOrder>
           <DefaultValue />
-          <IncludeInView>true</IncludeInView>
-          <IncludeInViewModel>true</IncludeInViewModel>
+          <IncludeInView>false</IncludeInView>
+          <IncludeInViewModel>false</IncludeInViewModel>
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
           <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
@@ -1458,8 +1458,8 @@
           <Exclude>false</Exclude>
           <CreateEditOrder>12800</CreateEditOrder>
           <DefaultValue />
-          <IncludeInView>true</IncludeInView>
-          <IncludeInViewModel>true</IncludeInViewModel>
+          <IncludeInView>false</IncludeInView>
+          <IncludeInViewModel>false</IncludeInViewModel>
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
           <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
@@ -1471,8 +1471,8 @@
           <Exclude>false</Exclude>
           <CreateEditOrder>12900</CreateEditOrder>
           <DefaultValue />
-          <IncludeInView>true</IncludeInView>
-          <IncludeInViewModel>true</IncludeInViewModel>
+          <IncludeInView>false</IncludeInView>
+          <IncludeInViewModel>false</IncludeInViewModel>
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
           <IsReadOnlyInEdit>true</IsReadOnlyInEdit>

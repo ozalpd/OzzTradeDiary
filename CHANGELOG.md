@@ -8,6 +8,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ### Added
 - Added `ExitTime`, `PlannedRiskRewardRatio`, `RealizedR`, `RealizedRiskAmount`, `ReviewNotes`, and `SetupNotes` to Trade model and database schema
+- Localized pagination and record count display in `QueryParametersVM` and `TradeListVM`; added `PageInfo` and `RecordsInfo` properties.
+- Updated pager bar and page size selector in `MainWindow` to use resource-based strings and expanded page size options to 500 and 1000.
+- Refactored toolbar to use icon-based action buttons for trade actions in `MainWindow`.
+- Improved command state updates in TradeListVM for page navigation.
+- Added new pagination-related resource strings (EN/TR).
 
 ### Changed
 - Made `IsFullyClosed` a calculated property (not persisted)

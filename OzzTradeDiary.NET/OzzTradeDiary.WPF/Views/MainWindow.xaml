@@ -50,23 +50,99 @@
             </MenuItem>
         </Menu>
 
-        <!-- Toolbar 1 -->
-        <ToolBar Grid.Row="1" DataContext="{Binding TradeHistory}">
-            <!-- Entry date range -->
-            <TextBlock Text="{x:Static i18n:LocalizedStrings.EntryTime}"
-                       VerticalAlignment="Center" Margin="4,0,4,0"/>
-            <DatePicker Width="120" SelectedDate="{Binding QueryVM.EntryTimeMin, Mode=TwoWay}"
-                        ToolTip="From"/>
-            <Viewbox Width="12" Height="12" Margin="2,0,4,0">
-                <Path Fill="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"
-                      Data="{StaticResource arrow-right}"/>
-            </Viewbox>
-            <DatePicker Width="120" SelectedDate="{Binding QueryVM.EntryTimeMax, Mode=TwoWay}"
-                        ToolTip="To"/>
+        <!-- Upper Toolbars -->
+        <StackPanel Grid.Row="1" DataContext="{Binding TradeHistory}" Orientation="Horizontal" VerticalAlignment="Center">
+            <ToolBar>
+                <Button Style="{StaticResource IconButtonStyle-28x24}"
+                                ToolTip="{x:Static i18n:LocalizedStrings.AddTrade}"
+                                Command="{Binding TradeCreateCommand}"
+                                CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}">
+                    <Viewbox Width="14" Height="14">
+                        <Path>
+                            <Path.Style>
+                                <Style TargetType="Path">
+                                    <Setter Property="Fill" Value="#0044D7"/>
+                                    <Setter Property="Data" Value="{StaticResource plus-circle}"/>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding IsEnabled, RelativeSource={RelativeSource AncestorType=Button}}" Value="False">
+                                            <Setter Property="Fill" Value="#A0A0A0"/>
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding IsMouseOver, RelativeSource={RelativeSource AncestorType=Button}}" Value="True">
+                                            <Setter Property="Fill" Value="#000000"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Path.Style>
+                        </Path>
+                    </Viewbox>
+                </Button>
+                <Button Style="{StaticResource IconButtonStyle-28x24}"
+                                ToolTip="{x:Static i18n:LocalizedStrings.EditTrade}"
+                                Command="{Binding TradeEditCommand}"
+                                CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}">
+                    <Viewbox Width="14" Height="14">
+                        <Path>
+                            <Path.Style>
+                                <Style TargetType="Path">
+                                    <Setter Property="Fill" Value="#0044D7"/>
+                                    <Setter Property="Data" Value="{StaticResource pencil-square}"/>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding IsEnabled, RelativeSource={RelativeSource AncestorType=Button}}" Value="False">
+                                            <Setter Property="Fill" Value="#A0A0A0"/>
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding IsMouseOver, RelativeSource={RelativeSource AncestorType=Button}}" Value="True">
+                                            <Setter Property="Fill" Value="#000000"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Path.Style>
+                        </Path>
+                    </Viewbox>
+                </Button>
 
-            <Separator/>
+                <Separator/>
+                <Button Style="{StaticResource IconButtonStyle-28x24}"
+                                ToolTip="{x:Static i18n:LocalizedStrings.DeleteTrade}"
+                                Background="#C80000"
+                                Command="{Binding TradeDeleteCommand}"
+                                CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}">
+                    <Viewbox Width="14" Height="14">
+                        <Path>
+                            <Path.Style>
+                                <Style TargetType="Path">
+                                    <Setter Property="Fill" Value="#F8F8F8"/>
+                                    <Setter Property="Data" Value="{StaticResource trash3}"/>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding IsEnabled, RelativeSource={RelativeSource AncestorType=Button}}" Value="False">
+                                            <Setter Property="Fill" Value="#A0A0A0"/>
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding IsMouseOver, RelativeSource={RelativeSource AncestorType=Button}}" Value="True">
+                                            <Setter Property="Fill" Value="#C80000"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Path.Style>
+                        </Path>
+                    </Viewbox>
+                </Button>
+            </ToolBar>
 
-        </ToolBar>
+            <ToolBar>
+                <!-- Entry date range -->
+                <TextBlock Text="{x:Static i18n:LocalizedStrings.EntryTime}"
+                           VerticalAlignment="Center" Margin="4,0,4,0"/>
+                <DatePicker Width="120" SelectedDate="{Binding QueryVM.EntryTimeMin, Mode=TwoWay}"
+                            ToolTip="From"/>
+                <Viewbox Width="12" Height="12" Margin="2,0,4,0">
+                    <Path Fill="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"
+                          Data="{StaticResource arrow-right}"/>
+                </Viewbox>
+                <DatePicker Width="120" SelectedDate="{Binding QueryVM.EntryTimeMax, Mode=TwoWay}"
+                            ToolTip="To"/>
+
+                <Separator/>
+            </ToolBar>
+        </StackPanel>
 
         <!-- Filter Toolbar -->
         <ToolBar Grid.Row="2" DataContext="{Binding TradeHistory}">
@@ -77,9 +153,9 @@
                       SelectedValuePath="Id"
                       SelectedItem="{Binding SelectedTradingAccount}"
                       SelectedValue="{Binding QueryVM.ByTradingAccountId, Mode=TwoWay}">
-                    <ComboBox.Resources>
-                        <CollectionViewSource x:Key="cvs" Source="{Binding TradingAccounts}"/>
-                    </ComboBox.Resources>
+                <ComboBox.Resources>
+                    <CollectionViewSource x:Key="cvs" Source="{Binding TradingAccounts}"/>
+                </ComboBox.Resources>
             </ComboBox>
             <TextBlock Text="{x:Static i18n:LocalizedStrings.TradingAccount}"
                        VerticalAlignment="Stretch" Margin="-154,3,18,3"
@@ -100,7 +176,7 @@
                     </Style>
                 </TextBlock.Style>
             </TextBlock>
-           
+
             <Separator/>
 
             <!-- Symbol filter -->
@@ -211,36 +287,35 @@
                 <Border Grid.Row="1"
                         BorderThickness="0,1,0,0"
                         BorderBrush="{DynamicResource {x:Static SystemColors.ControlDarkBrushKey}}"
-                        Padding="4,3">
+                        Padding="6,2">
                     <Grid>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="180"/>
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="180"/>
                         </Grid.ColumnDefinitions>
 
-                        <!-- Total count -->
-                        <StackPanel Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Center">
-                            <TextBlock Text="Total: " FontSize="12"/>
-                            <TextBlock Text="{Binding QueryVM.TotalCount}" FontSize="12" FontWeight="SemiBold"/>
-                        </StackPanel>
-
+                        <TextBlock Grid.Column="0" Text="{Binding QueryVM.RecordsInfo}" VerticalAlignment="Center" FontSize="12" FontWeight="SemiBold"/>
                         <!-- Page navigation (centred) -->
                         <StackPanel Grid.Column="1" Orientation="Horizontal"
-                                    HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <Button Command="{Binding TradesPrevPageCommand}" Width="24" Height="24"
-                                    Padding="2" ToolTip="Previous page">
+                                    HorizontalAlignment="Left" VerticalAlignment="Center">
+                            <Button Command="{Binding TradesPrevPageCommand}"
+                                    Style="{StaticResource IconButtonStyle-28x24}"
+                                    ToolTip="Previous page">
                                 <Viewbox Width="12" Height="12">
                                     <Path Fill="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"
                                           Data="{StaticResource chevron-left}"/>
                                 </Viewbox>
                             </Button>
-                            <TextBlock VerticalAlignment="Center" Margin="8,0" FontSize="12">
-                                <Run Text="Page "/>
-                                <Run Text="{Binding QueryVM.Page}" FontWeight="SemiBold"/>
-                            </TextBlock>
-                            <Button Command="{Binding TradesNextPageCommand}" Width="24" Height="24"
-                                    Padding="2" ToolTip="Next page">
+                            
+                            <TextBlock Grid.Column="0" Text="{Binding QueryVM.PageInfo}"
+                                       VerticalAlignment="Center" Margin="8,0,8,0"
+                                       FontSize="12" FontWeight="SemiBold"/>
+
+                            <Button Command="{Binding TradesNextPageCommand}"
+                                    Style="{StaticResource IconButtonStyle-28x24}"
+                                    ToolTip="Next page">
                                 <Viewbox Width="12" Height="12">
                                     <Path Fill="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"
                                           Data="{StaticResource chevron-right}"/>
@@ -250,13 +325,20 @@
 
                         <!-- Page size selector -->
                         <StackPanel Grid.Column="2" Orientation="Horizontal" VerticalAlignment="Center">
-                            <TextBlock Text="Per page: " FontSize="12" VerticalAlignment="Center"/>
+                            <TextBlock Text="{x:Static i18n:CommonStrings.PerPage}"
+                                       VerticalAlignment="Center" Margin="2,0"
+                                       FontSize="12"/>
+                            <TextBlock Text=":"
+                                       VerticalAlignment="Center" Margin="0,0,8,0"
+                                       FontSize="12"/>
                             <ComboBox SelectedValue="{Binding QueryVM.PageSize, Mode=TwoWay}"
                                       FontSize="12" Width="55" Height="22" Padding="4,1">
                                 <sys:Int32>20</sys:Int32>
                                 <sys:Int32>50</sys:Int32>
                                 <sys:Int32>100</sys:Int32>
                                 <sys:Int32>200</sys:Int32>
+                                <sys:Int32>500</sys:Int32>
+                                <sys:Int32>1000</sys:Int32>
                             </ComboBox>
                         </StackPanel>
                     </Grid>
@@ -328,11 +410,11 @@
                         <!-- Notes -->
                         <RowDefinition Height="Auto"/>
                         <!-- 21: SetupNotes label -->
-                        <RowDefinition Height="Auto" MinHeight="64"/>
+                        <RowDefinition Height="Auto" MinHeight="48"/>
                         <!-- 22: SetupNotes value -->
                         <RowDefinition Height="Auto"/>
                         <!-- 23: ReviewNotes label -->
-                        <RowDefinition Height="Auto" MinHeight="64"/>
+                        <RowDefinition Height="Auto" MinHeight="48"/>
                         <!-- 24: ReviewNotes value -->
                     </Grid.RowDefinitions>
 

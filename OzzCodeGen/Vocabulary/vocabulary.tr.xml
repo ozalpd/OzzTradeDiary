@@ -1473,6 +1473,18 @@
     <Translation>Emir Tutarı</Translation>
   </Vocab>
   <Vocab>
+    <Name>Page</Name>
+    <Translation>Sayfa</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Pages</Name>
+    <Translation>Sayfalar</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>PageSize</Name>
+    <Translation>Sayfa Kayıt Sayısı</Translation>
+  </Vocab>
+  <Vocab>
     <Name>ParentCategories</Name>
     <Translation>Üst Kategoriler</Translation>
   </Vocab>
@@ -1495,6 +1507,10 @@
   <Vocab>
     <Name>Performance</Name>
     <Translation>Performans</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>PerPage</Name>
+    <Translation>Sayfa Başına</Translation>
   </Vocab>
   <Vocab>
     <Name>Person</Name>
@@ -1707,6 +1723,10 @@
   <Vocab>
     <Name>Record</Name>
     <Translation>Kayıt</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Records</Name>
+    <Translation>Kayıtlat</Translation>
   </Vocab>
   <Vocab>
     <Name>Refresh</Name>
@@ -2083,6 +2103,14 @@
   <Vocab>
     <Name>Title</Name>
     <Translation>Başlık</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>TotalPages</Name>
+    <Translation>Toplam Sayfa</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>TotalRecords</Name>
+    <Translation>Toplam Kayıt</Translation>
   </Vocab>
   <Vocab>
     <Name>Township</Name>

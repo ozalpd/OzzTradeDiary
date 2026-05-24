@@ -1473,6 +1473,18 @@
     <Translation>Order Value</Translation>
   </Vocab>
   <Vocab>
+    <Name>Page</Name>
+    <Translation>Page</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Pages</Name>
+    <Translation>Pages</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>PageSize</Name>
+    <Translation>Page Size</Translation>
+  </Vocab>
+  <Vocab>
     <Name>ParentCategories</Name>
     <Translation>Parent Categories</Translation>
   </Vocab>
@@ -1495,6 +1507,10 @@
   <Vocab>
     <Name>Performance</Name>
     <Translation>Performance</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>PerPage</Name>
+    <Translation>Per Page</Translation>
   </Vocab>
   <Vocab>
     <Name>Person</Name>
@@ -1707,6 +1723,10 @@
   <Vocab>
     <Name>Record</Name>
     <Translation>Record</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Records</Name>
+    <Translation>Records</Translation>
   </Vocab>
   <Vocab>
     <Name>Refresh</Name>
@@ -2083,6 +2103,14 @@
   <Vocab>
     <Name>Title</Name>
     <Translation>Title</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>TotalPages</Name>
+    <Translation>Total Pages</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>TotalRecords</Name>
+    <Translation>Total Records</Translation>
   </Vocab>
   <Vocab>
     <Name>Township</Name>

@@ -67,8 +67,29 @@
     <data name="Home" xml:space="preserve">
         <value>Home</value>
     </data>
+    <data name="Page" xml:space="preserve">
+        <value>Page</value>
+    </data>
+    <data name="Pages" xml:space="preserve">
+        <value>Pages</value>
+    </data>
+    <data name="PageSize" xml:space="preserve">
+        <value>Page Size</value>
+    </data>
+    <data name="PerPage" xml:space="preserve">
+        <value>Per Page</value>
+    </data>
     <data name="Record" xml:space="preserve">
         <value>Record</value>
+    </data>
+    <data name="Records" xml:space="preserve">
+        <value>Records</value>
+    </data>
+    <data name="TotalPages" xml:space="preserve">
+        <value>Total Pages</value>
+    </data>
+    <data name="TotalRecords" xml:space="preserve">
+        <value>Total Records</value>
     </data>
     <data name="Version" xml:space="preserve">
         <value>Version:</value>

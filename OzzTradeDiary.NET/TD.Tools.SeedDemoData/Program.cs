@@ -20,11 +20,11 @@ if (options.Reset && File.Exists(databasePath))
     Console.WriteLine("Existing debug database deleted.");
 }
 
-await SeedDemoDataAsync(databasePath, options.DaysAgo ?? 60);
+await SeedDemoDataAsync(databasePath, options.DaysAgo ?? 60, options.NoImages);
 Console.WriteLine("Demo data seeding completed.");
 return 0;
 
-static async Task SeedDemoDataAsync(string databasePath, int daysAgoStart)
+static async Task SeedDemoDataAsync(string databasePath, int daysAgoStart, bool noImages)
 {
     Directory.CreateDirectory(Path.GetDirectoryName(databasePath)!);
 
@@ -61,13 +61,13 @@ static async Task SeedDemoDataAsync(string databasePath, int daysAgoStart)
     for (int i = daysAgoStart / 2; i > 0; i--)
     {
         int daysAgo = (i * 2) - 1;
-        await seedTrades(tradingAccount1, tradeRepository, tradeImageRepository, exchange1, daysAgo);
+        await seedTrades(tradingAccount1, tradeRepository, tradeImageRepository, exchange1, daysAgo, noImages);
         if (tradingAccount2 != null)
-            await seedTrades(tradingAccount2, tradeRepository, tradeImageRepository, exchange2, daysAgo, "USDT.P");
+            await seedTrades(tradingAccount2, tradeRepository, tradeImageRepository, exchange2, daysAgo, noImages, "USDT.P");
         Console.WriteLine($"{daysAgo} days ago trades seeded for both exchanges.");
     }
 
-    static async Task<bool> seedTrades(TradingAccount tradingAccount, ITradeRepository tradeRepository, TradeImageRepository tradeImageRepository, Exchange? exchange, int daysAgo, string suffix = "")
+    static async Task<bool> seedTrades(TradingAccount tradingAccount, ITradeRepository tradeRepository, TradeImageRepository tradeImageRepository, Exchange? exchange, int daysAgo, bool noImages, string suffix = "")
     {
         if (exchange == null)
             return false;
@@ -83,7 +83,7 @@ static async Task SeedDemoDataAsync(string databasePath, int daysAgoStart)
         {
             for (int j = 0; j < tradesCount; j++)
             {
-                var trade = await EnsureDemoTradeAsync(tradeRepository, tradeImageRepository, tradingAccount.Id, symbol, daysAgo + tradesCount - j - 1);
+                var trade = await EnsureDemoTradeAsync(tradeRepository, tradeImageRepository, tradingAccount.Id, symbol, daysAgo + tradesCount - j - 1, noImages);
             }
 
             tradesCount = tradesCount - 1; // Decrease the number of trades for each subsequent symbol to create variety, starting from 15 for the first symbol.
@@ -177,7 +177,7 @@ static async Task<TradingAccount> EnsureDemoTradingAccountAsync(ITradingAccountR
     return tradingAccount;
 }
 
-static async Task<Trade> EnsureDemoTradeAsync(ITradeRepository tradeRepository, TradeImageRepository tradeImageRepository, int tradingAccountId, Symbol symbol, int daysAgo)
+static async Task<Trade> EnsureDemoTradeAsync(ITradeRepository tradeRepository, TradeImageRepository tradeImageRepository, int tradingAccountId, Symbol symbol, int daysAgo, bool noImages)
 {
     var random = new Random();
     var priceDict = GetCryptoPriceDict();
@@ -236,6 +236,8 @@ static async Task<Trade> EnsureDemoTradeAsync(ITradeRepository tradeRepository, 
 
     trade.Id = await tradeRepository.CreateAsync(trade);
     Console.WriteLine($"Created trade: {trade.Id} for {symbol.TickerFull} at {trade.EntryTime}");
+    if (noImages)
+        return trade;
 
     var randomInt = random.Next(1, 5);
     for (int i = 0; i < randomInt; i++)
@@ -304,6 +306,7 @@ sealed class SeedOptions
     public string? DatabasePath { get; private set; }
 
     public int? DaysAgo { get; private set; }
+    public bool NoImages { get; private set; }
     public bool Reset { get; private set; }
     public bool ShowHelp { get; private set; }
 
@@ -330,6 +333,15 @@ sealed class SeedOptions
                 case "--reset":
                     options.Reset = true;
                     break;
+
+                case "--noimg":
+                    options.NoImages = true;
+                    break;
+
+                case "--noimage":
+                    options.NoImages = true;
+                    break;
+
                 case "--help":
                 case "-h":
                 case "/?":

@@ -27,6 +27,8 @@ namespace TD.WPF.ViewModels.Trades
             TradeRepository = tradeRepository;
             Trades = new ObservableCollection<Trade>();
             QueryVM = new TradeQueryParametersVM();
+            QueryVM.PropertyChanged += OnPropertyChanged;
+            PropertyChanged += OnPropertyChanged;
 
             EntryMethodValues = GetValues<EntryMethod>();
             TradeDirectionValues = GetValues<TradeDirection>();
@@ -102,7 +104,19 @@ namespace TD.WPF.ViewModels.Trades
             set
             {
                 SelectedItem = value;
+                TradeEditCommand.RaiseCanExecuteChanged();
+                TradeDeleteCommand.RaiseCanExecuteChanged();
                 RaisePropertyChanged(nameof(SelectedTrade));
+            }
+        }
+
+        protected virtual void OnPropertyChanged(object? sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName == nameof(QueryVM.PageSize))
+            {
+                TradesLoadCommand.RaiseCanExecuteChanged();
+                TradesPrevPageCommand.RaiseCanExecuteChanged();
+                TradesNextPageCommand.RaiseCanExecuteChanged();
             }
         }
     }

@@ -88,11 +88,74 @@ namespace TD.i18n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Page.
+        /// </summary>
+        public static string Page {
+            get {
+                return ResourceManager.GetString("Page", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pages.
+        /// </summary>
+        public static string Pages {
+            get {
+                return ResourceManager.GetString("Pages", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Page Size.
+        /// </summary>
+        public static string PageSize {
+            get {
+                return ResourceManager.GetString("PageSize", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Per Page.
+        /// </summary>
+        public static string PerPage {
+            get {
+                return ResourceManager.GetString("PerPage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Record.
         /// </summary>
         public static string Record {
             get {
                 return ResourceManager.GetString("Record", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Records.
+        /// </summary>
+        public static string Records {
+            get {
+                return ResourceManager.GetString("Records", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Total Pages.
+        /// </summary>
+        public static string TotalPages {
+            get {
+                return ResourceManager.GetString("TotalPages", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Total Records.
+        /// </summary>
+        public static string TotalRecords {
+            get {
+                return ResourceManager.GetString("TotalRecords", resourceCulture);
             }
         }
         
