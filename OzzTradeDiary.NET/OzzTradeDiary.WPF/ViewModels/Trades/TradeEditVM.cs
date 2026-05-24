@@ -54,33 +54,7 @@ namespace TD.WPF.ViewModels.Trades
 
         public int SymbolId => _trade.SymbolId;
 
-        public Symbol Symbol
-        {
-            get { return _trade.Symbol; }
-            set
-            {
-                if (_trade.Symbol != value)
-                {
-                    _trade.Symbol = value;
-                    RaisePropertyChanged(nameof(Symbol));
-                    ValidateProperty(_trade, nameof(Symbol));
-                }
-            }
-        }
-
-        public DateTime? EntryTime
-        {
-            get { return _trade.EntryTime; }
-            set
-            {
-                if (_trade.EntryTime != value)
-                {
-                    _trade.EntryTime = value;
-                    RaisePropertyChanged(nameof(EntryTime));
-                    ValidateProperty(_trade, nameof(EntryTime));
-                }
-            }
-        }
+        public Symbol Symbol => _trade.Symbol;
 
         public EntryMethod EntryMethod
         {
@@ -96,58 +70,32 @@ namespace TD.WPF.ViewModels.Trades
             }
         }
 
-        public TradeDirection TradeDirection
+        public TradeDirection TradeDirection => _trade.TradeDirection;
+
+        public DateTime? EntryTime
         {
-            get { return _trade.TradeDirection; }
+            get { return _trade.EntryTime; }
             set
             {
-                if (_trade.TradeDirection != value)
+                if (_trade.EntryTime != value)
                 {
-                    _trade.TradeDirection = value;
-                    RaisePropertyChanged(nameof(TradeDirection));
-                    ValidateProperty(_trade, nameof(TradeDirection));
+                    _trade.EntryTime = value;
+                    RaisePropertyChanged(nameof(EntryTime));
+                    ValidateProperty(_trade, nameof(EntryTime));
                 }
             }
         }
 
-        public bool IsFullyClosed
+        public DateTime? ExitTime
         {
-            get { return _trade.IsFullyClosed; }
+            get { return _trade.ExitTime; }
             set
             {
-                if (_trade.IsFullyClosed != value)
+                if (_trade.ExitTime != value)
                 {
-                    _trade.IsFullyClosed = value;
-                    RaisePropertyChanged(nameof(IsFullyClosed));
-                    ValidateProperty(_trade, nameof(IsFullyClosed));
-                }
-            }
-        }
-
-        public decimal? OrderQuantity
-        {
-            get { return _trade.OrderQuantity; }
-            set
-            {
-                if (_trade.OrderQuantity != value)
-                {
-                    _trade.OrderQuantity = value;
-                    RaisePropertyChanged(nameof(OrderQuantity));
-                    ValidateProperty(_trade, nameof(OrderQuantity));
-                }
-            }
-        }
-
-        public decimal? FilledQuantity
-        {
-            get { return _trade.FilledQuantity; }
-            set
-            {
-                if (_trade.FilledQuantity != value)
-                {
-                    _trade.FilledQuantity = value;
-                    RaisePropertyChanged(nameof(FilledQuantity));
-                    ValidateProperty(_trade, nameof(FilledQuantity));
+                    _trade.ExitTime = value;
+                    RaisePropertyChanged(nameof(ExitTime));
+                    ValidateProperty(_trade, nameof(ExitTime));
                 }
             }
         }
@@ -180,61 +128,37 @@ namespace TD.WPF.ViewModels.Trades
             }
         }
 
-        public decimal? PlannedPositionValue
+        public decimal? OrderQuantity
         {
-            get { return _trade.PlannedPositionValue; }
+            get { return _trade.OrderQuantity; }
             set
             {
-                if (_trade.PlannedPositionValue != value)
+                if (_trade.OrderQuantity != value)
                 {
-                    _trade.PlannedPositionValue = value;
-                    RaisePropertyChanged(nameof(PlannedPositionValue));
-                    ValidateProperty(_trade, nameof(PlannedPositionValue));
+                    _trade.OrderQuantity = value;
+                    RaisePropertyChanged(nameof(OrderQuantity));
+                    ValidateProperty(_trade, nameof(OrderQuantity));
                 }
             }
         }
 
-        public decimal? ExecutedPositionValue
+        public decimal? FilledQuantity
         {
-            get { return _trade.ExecutedPositionValue; }
+            get { return _trade.FilledQuantity; }
             set
             {
-                if (_trade.ExecutedPositionValue != value)
+                if (_trade.FilledQuantity != value)
                 {
-                    _trade.ExecutedPositionValue = value;
-                    RaisePropertyChanged(nameof(ExecutedPositionValue));
-                    ValidateProperty(_trade, nameof(ExecutedPositionValue));
+                    _trade.FilledQuantity = value;
+                    RaisePropertyChanged(nameof(FilledQuantity));
+                    ValidateProperty(_trade, nameof(FilledQuantity));
                 }
             }
         }
 
-        public decimal? PlannedProfitLoss
-        {
-            get { return _trade.PlannedProfitLoss; }
-            set
-            {
-                if (_trade.PlannedProfitLoss != value)
-                {
-                    _trade.PlannedProfitLoss = value;
-                    RaisePropertyChanged(nameof(PlannedProfitLoss));
-                    ValidateProperty(_trade, nameof(PlannedProfitLoss));
-                }
-            }
-        }
+        public decimal? PlannedPositionValue => _trade.PlannedPositionValue;
 
-        public decimal? RealizedProfitLoss
-        {
-            get { return _trade.RealizedProfitLoss; }
-            set
-            {
-                if (_trade.RealizedProfitLoss != value)
-                {
-                    _trade.RealizedProfitLoss = value;
-                    RaisePropertyChanged(nameof(RealizedProfitLoss));
-                    ValidateProperty(_trade, nameof(RealizedProfitLoss));
-                }
-            }
-        }
+        public decimal? ExecutedPositionValue => _trade.ExecutedPositionValue;
 
         public decimal? PlannedTP
         {
@@ -260,20 +184,6 @@ namespace TD.WPF.ViewModels.Trades
                     _trade.ExecutedTP = value;
                     RaisePropertyChanged(nameof(ExecutedTP));
                     ValidateProperty(_trade, nameof(ExecutedTP));
-                }
-            }
-        }
-
-        public decimal? PlannedRiskAmount
-        {
-            get { return _trade.PlannedRiskAmount; }
-            set
-            {
-                if (_trade.PlannedRiskAmount != value)
-                {
-                    _trade.PlannedRiskAmount = value;
-                    RaisePropertyChanged(nameof(PlannedRiskAmount));
-                    ValidateProperty(_trade, nameof(PlannedRiskAmount));
                 }
             }
         }
@@ -306,19 +216,7 @@ namespace TD.WPF.ViewModels.Trades
             }
         }
 
-        public DateTime UpdatedAt
-        {
-            get { return _trade.UpdatedAt; }
-            set
-            {
-                if (_trade.UpdatedAt != value)
-                {
-                    _trade.UpdatedAt = value;
-                    RaisePropertyChanged(nameof(UpdatedAt));
-                    ValidateProperty(_trade, nameof(UpdatedAt));
-                }
-            }
-        }
+        public string? SetupNotes => _trade.SetupNotes;
 
         public bool ValidateModel()
         {

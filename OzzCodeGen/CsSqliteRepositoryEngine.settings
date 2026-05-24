@@ -806,24 +806,6 @@
           <DecimalToIntegerScale>0</DecimalToIntegerScale>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
-          <Name>EntryTime</Name>
-          <Exclude>false</Exclude>
-          <AutoLoad>false</AutoLoad>
-          <CheckIfAltered>true</CheckIfAltered>
-          <ColumnName>EntryTime</ColumnName>
-          <SingleColumnUpdate>false</SingleColumnUpdate>
-          <DecimalToIntegerScale>0</DecimalToIntegerScale>
-        </SqliteRepositoryPropertySetting>
-        <SqliteRepositoryPropertySetting>
-          <Name>ExitTime</Name>
-          <Exclude>false</Exclude>
-          <AutoLoad>false</AutoLoad>
-          <CheckIfAltered>false</CheckIfAltered>
-          <ColumnName>ExitTime</ColumnName>
-          <SingleColumnUpdate>false</SingleColumnUpdate>
-          <DecimalToIntegerScale>0</DecimalToIntegerScale>
-        </SqliteRepositoryPropertySetting>
-        <SqliteRepositoryPropertySetting>
           <Name>EntryMethod</Name>
           <Exclude>false</Exclude>
           <AutoLoad>false</AutoLoad>
@@ -838,6 +820,24 @@
           <AutoLoad>false</AutoLoad>
           <CheckIfAltered>true</CheckIfAltered>
           <ColumnName>TradeDirection</ColumnName>
+          <SingleColumnUpdate>false</SingleColumnUpdate>
+          <DecimalToIntegerScale>0</DecimalToIntegerScale>
+        </SqliteRepositoryPropertySetting>
+        <SqliteRepositoryPropertySetting>
+          <Name>EntryTime</Name>
+          <Exclude>false</Exclude>
+          <AutoLoad>false</AutoLoad>
+          <CheckIfAltered>true</CheckIfAltered>
+          <ColumnName>EntryTime</ColumnName>
+          <SingleColumnUpdate>false</SingleColumnUpdate>
+          <DecimalToIntegerScale>0</DecimalToIntegerScale>
+        </SqliteRepositoryPropertySetting>
+        <SqliteRepositoryPropertySetting>
+          <Name>ExitTime</Name>
+          <Exclude>false</Exclude>
+          <AutoLoad>false</AutoLoad>
+          <CheckIfAltered>false</CheckIfAltered>
+          <ColumnName>ExitTime</ColumnName>
           <SingleColumnUpdate>false</SingleColumnUpdate>
           <DecimalToIntegerScale>0</DecimalToIntegerScale>
         </SqliteRepositoryPropertySetting>
@@ -860,24 +860,6 @@
           <DecimalToIntegerScale>0</DecimalToIntegerScale>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
-          <Name>OrderQuantity</Name>
-          <Exclude>false</Exclude>
-          <AutoLoad>false</AutoLoad>
-          <CheckIfAltered>false</CheckIfAltered>
-          <ColumnName>OrderQuantity</ColumnName>
-          <SingleColumnUpdate>false</SingleColumnUpdate>
-          <DecimalToIntegerScale>0</DecimalToIntegerScale>
-        </SqliteRepositoryPropertySetting>
-        <SqliteRepositoryPropertySetting>
-          <Name>FilledQuantity</Name>
-          <Exclude>false</Exclude>
-          <AutoLoad>false</AutoLoad>
-          <CheckIfAltered>false</CheckIfAltered>
-          <ColumnName>FilledQuantity</ColumnName>
-          <SingleColumnUpdate>false</SingleColumnUpdate>
-          <DecimalToIntegerScale>0</DecimalToIntegerScale>
-        </SqliteRepositoryPropertySetting>
-        <SqliteRepositoryPropertySetting>
           <Name>PlannedEntryPrice</Name>
           <Exclude>false</Exclude>
           <AutoLoad>false</AutoLoad>
@@ -892,6 +874,24 @@
           <AutoLoad>false</AutoLoad>
           <CheckIfAltered>true</CheckIfAltered>
           <ColumnName>ExecutedEntryPrice</ColumnName>
+          <SingleColumnUpdate>false</SingleColumnUpdate>
+          <DecimalToIntegerScale>0</DecimalToIntegerScale>
+        </SqliteRepositoryPropertySetting>
+        <SqliteRepositoryPropertySetting>
+          <Name>OrderQuantity</Name>
+          <Exclude>false</Exclude>
+          <AutoLoad>false</AutoLoad>
+          <CheckIfAltered>false</CheckIfAltered>
+          <ColumnName>OrderQuantity</ColumnName>
+          <SingleColumnUpdate>false</SingleColumnUpdate>
+          <DecimalToIntegerScale>0</DecimalToIntegerScale>
+        </SqliteRepositoryPropertySetting>
+        <SqliteRepositoryPropertySetting>
+          <Name>FilledQuantity</Name>
+          <Exclude>false</Exclude>
+          <AutoLoad>false</AutoLoad>
+          <CheckIfAltered>false</CheckIfAltered>
+          <ColumnName>FilledQuantity</ColumnName>
           <SingleColumnUpdate>false</SingleColumnUpdate>
           <DecimalToIntegerScale>0</DecimalToIntegerScale>
         </SqliteRepositoryPropertySetting>
@@ -1022,20 +1022,20 @@
           <DecimalToIntegerScale>0</DecimalToIntegerScale>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
-          <Name>ReviewNotes</Name>
-          <Exclude>false</Exclude>
-          <AutoLoad>false</AutoLoad>
-          <CheckIfAltered>false</CheckIfAltered>
-          <ColumnName>ReviewNotes</ColumnName>
-          <SingleColumnUpdate>false</SingleColumnUpdate>
-          <DecimalToIntegerScale>0</DecimalToIntegerScale>
-        </SqliteRepositoryPropertySetting>
-        <SqliteRepositoryPropertySetting>
           <Name>SetupNotes</Name>
           <Exclude>false</Exclude>
           <AutoLoad>false</AutoLoad>
           <CheckIfAltered>false</CheckIfAltered>
           <ColumnName>SetupNotes</ColumnName>
+          <SingleColumnUpdate>false</SingleColumnUpdate>
+          <DecimalToIntegerScale>0</DecimalToIntegerScale>
+        </SqliteRepositoryPropertySetting>
+        <SqliteRepositoryPropertySetting>
+          <Name>ReviewNotes</Name>
+          <Exclude>false</Exclude>
+          <AutoLoad>false</AutoLoad>
+          <CheckIfAltered>false</CheckIfAltered>
+          <ColumnName>ReviewNotes</ColumnName>
           <SingleColumnUpdate>false</SingleColumnUpdate>
           <DecimalToIntegerScale>0</DecimalToIntegerScale>
         </SqliteRepositoryPropertySetting>

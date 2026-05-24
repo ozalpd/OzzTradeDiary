@@ -14,18 +14,17 @@
           <Exclude>false</Exclude>
           <CreateEditOrder>101</CreateEditOrder>
           <DefaultValue />
-          <IncludeInView>true</IncludeInView>
-          <IncludeInViewModel>true</IncludeInViewModel>
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
-          <IsReadOnlyInCreate>true</IsReadOnlyInCreate>
-          <IsReadOnlyInEdit>true</IsReadOnlyInEdit>
           <IsMultiLine>false</IsMultiLine>
+          <CreateViewMode>ReadOnly</CreateViewMode>
+          <EditViewMode>ReadOnly</EditViewMode>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
       </Properties>
       <SubFolder />
       <CommandVmNamespace />
       <CommandVmTypeName />
+      <InputColumnLayout>OneColumn</InputColumnLayout>
       <GenModeCreateCommand>DoNotGenerate</GenModeCreateCommand>
       <GenModeEditCommand>DoNotGenerate</GenModeEditCommand>
       <GenModeDeleteCommand>DoNotGenerate</GenModeDeleteCommand>
@@ -49,18 +48,17 @@
           <Exclude>false</Exclude>
           <CreateEditOrder>100100</CreateEditOrder>
           <DefaultValue>1000</DefaultValue>
-          <IncludeInView>true</IncludeInView>
-          <IncludeInViewModel>true</IncludeInViewModel>
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
-          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
-          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <IsMultiLine>false</IsMultiLine>
+          <CreateViewMode>Editable</CreateViewMode>
+          <EditViewMode>Editable</EditViewMode>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
       </Properties>
       <SubFolder />
       <CommandVmNamespace />
       <CommandVmTypeName />
+      <InputColumnLayout>OneColumn</InputColumnLayout>
       <GenModeCreateCommand>DoNotGenerate</GenModeCreateCommand>
       <GenModeEditCommand>DoNotGenerate</GenModeEditCommand>
       <GenModeDeleteCommand>DoNotGenerate</GenModeDeleteCommand>
@@ -84,18 +82,17 @@
           <Exclude>false</Exclude>
           <CreateEditOrder>100200</CreateEditOrder>
           <DefaultValue>true</DefaultValue>
-          <IncludeInView>true</IncludeInView>
-          <IncludeInViewModel>true</IncludeInViewModel>
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
-          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
-          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <IsMultiLine>false</IsMultiLine>
+          <CreateViewMode>Editable</CreateViewMode>
+          <EditViewMode>Editable</EditViewMode>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
       </Properties>
       <SubFolder />
       <CommandVmNamespace />
       <CommandVmTypeName />
+      <InputColumnLayout>OneColumn</InputColumnLayout>
       <GenModeCreateCommand>DoNotGenerate</GenModeCreateCommand>
       <GenModeEditCommand>DoNotGenerate</GenModeEditCommand>
       <GenModeDeleteCommand>DoNotGenerate</GenModeDeleteCommand>
@@ -119,18 +116,17 @@
           <Exclude>false</Exclude>
           <CreateEditOrder>2001000</CreateEditOrder>
           <DefaultValue />
-          <IncludeInView>false</IncludeInView>
-          <IncludeInViewModel>false</IncludeInViewModel>
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
-          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
-          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <IsMultiLine>false</IsMultiLine>
+          <CreateViewMode>Exclude</CreateViewMode>
+          <EditViewMode>Exclude</EditViewMode>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
       </Properties>
       <SubFolder />
       <CommandVmNamespace />
       <CommandVmTypeName />
+      <InputColumnLayout>OneColumn</InputColumnLayout>
       <GenModeCreateCommand>DoNotGenerate</GenModeCreateCommand>
       <GenModeEditCommand>DoNotGenerate</GenModeEditCommand>
       <GenModeDeleteCommand>DoNotGenerate</GenModeDeleteCommand>
@@ -154,18 +150,17 @@
           <Exclude>false</Exclude>
           <CreateEditOrder>2002000</CreateEditOrder>
           <DefaultValue />
-          <IncludeInView>false</IncludeInView>
-          <IncludeInViewModel>false</IncludeInViewModel>
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
-          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
-          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <IsMultiLine>false</IsMultiLine>
+          <CreateViewMode>Exclude</CreateViewMode>
+          <EditViewMode>Exclude</EditViewMode>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
       </Properties>
       <SubFolder />
       <CommandVmNamespace />
       <CommandVmTypeName />
+      <InputColumnLayout>OneColumn</InputColumnLayout>
       <GenModeCreateCommand>DoNotGenerate</GenModeCreateCommand>
       <GenModeEditCommand>DoNotGenerate</GenModeEditCommand>
       <GenModeDeleteCommand>DoNotGenerate</GenModeDeleteCommand>
@@ -189,12 +184,10 @@
           <Exclude>false</Exclude>
           <CreateEditOrder>20100</CreateEditOrder>
           <DefaultValue />
-          <IncludeInView>true</IncludeInView>
-          <IncludeInViewModel>true</IncludeInViewModel>
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
-          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
-          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <IsMultiLine>false</IsMultiLine>
+          <CreateViewMode>Editable</CreateViewMode>
+          <EditViewMode>Editable</EditViewMode>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
@@ -202,12 +195,10 @@
           <Exclude>false</Exclude>
           <CreateEditOrder>20200</CreateEditOrder>
           <DefaultValue />
-          <IncludeInView>true</IncludeInView>
-          <IncludeInViewModel>true</IncludeInViewModel>
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
-          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
-          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <IsMultiLine>false</IsMultiLine>
+          <CreateViewMode>Editable</CreateViewMode>
+          <EditViewMode>Editable</EditViewMode>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
@@ -215,12 +206,10 @@
           <Exclude>false</Exclude>
           <CreateEditOrder>20300</CreateEditOrder>
           <DefaultValue />
-          <IncludeInView>true</IncludeInView>
-          <IncludeInViewModel>true</IncludeInViewModel>
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
-          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
-          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <IsMultiLine>false</IsMultiLine>
+          <CreateViewMode>Editable</CreateViewMode>
+          <EditViewMode>Editable</EditViewMode>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
@@ -228,12 +217,10 @@
           <Exclude>false</Exclude>
           <CreateEditOrder>20400</CreateEditOrder>
           <DefaultValue />
-          <IncludeInView>true</IncludeInView>
-          <IncludeInViewModel>true</IncludeInViewModel>
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
-          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
-          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <IsMultiLine>false</IsMultiLine>
+          <CreateViewMode>Editable</CreateViewMode>
+          <EditViewMode>Editable</EditViewMode>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
@@ -241,12 +228,10 @@
           <Exclude>false</Exclude>
           <CreateEditOrder>20500</CreateEditOrder>
           <DefaultValue />
-          <IncludeInView>true</IncludeInView>
-          <IncludeInViewModel>true</IncludeInViewModel>
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
-          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
-          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <IsMultiLine>false</IsMultiLine>
+          <CreateViewMode>Editable</CreateViewMode>
+          <EditViewMode>Editable</EditViewMode>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
@@ -254,12 +239,10 @@
           <Exclude>false</Exclude>
           <CreateEditOrder>20600</CreateEditOrder>
           <DefaultValue />
-          <IncludeInView>true</IncludeInView>
-          <IncludeInViewModel>true</IncludeInViewModel>
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
-          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
-          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <IsMultiLine>false</IsMultiLine>
+          <CreateViewMode>Editable</CreateViewMode>
+          <EditViewMode>Editable</EditViewMode>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
@@ -267,12 +250,10 @@
           <Exclude>false</Exclude>
           <CreateEditOrder>20700</CreateEditOrder>
           <DefaultValue />
-          <IncludeInView>true</IncludeInView>
-          <IncludeInViewModel>true</IncludeInViewModel>
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
-          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
-          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <IsMultiLine>false</IsMultiLine>
+          <CreateViewMode>Editable</CreateViewMode>
+          <EditViewMode>Editable</EditViewMode>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
@@ -280,18 +261,17 @@
           <Exclude>false</Exclude>
           <CreateEditOrder>20800</CreateEditOrder>
           <DefaultValue />
-          <IncludeInView>true</IncludeInView>
-          <IncludeInViewModel>true</IncludeInViewModel>
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
-          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
-          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <IsMultiLine>false</IsMultiLine>
+          <CreateViewMode>Editable</CreateViewMode>
+          <EditViewMode>Editable</EditViewMode>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
       </Properties>
       <SubFolder />
       <CommandVmNamespace />
       <CommandVmTypeName />
+      <InputColumnLayout>OneColumn</InputColumnLayout>
       <GenModeCreateCommand>DoNotGenerate</GenModeCreateCommand>
       <GenModeEditCommand>DoNotGenerate</GenModeEditCommand>
       <GenModeDeleteCommand>DoNotGenerate</GenModeDeleteCommand>
@@ -315,12 +295,10 @@
           <Exclude>false</Exclude>
           <CreateEditOrder>10100</CreateEditOrder>
           <DefaultValue />
-          <IncludeInView>true</IncludeInView>
-          <IncludeInViewModel>true</IncludeInViewModel>
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
-          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
-          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <IsMultiLine>false</IsMultiLine>
+          <CreateViewMode>Editable</CreateViewMode>
+          <EditViewMode>Editable</EditViewMode>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
@@ -328,12 +306,10 @@
           <Exclude>false</Exclude>
           <CreateEditOrder>10200</CreateEditOrder>
           <DefaultValue />
-          <IncludeInView>true</IncludeInView>
-          <IncludeInViewModel>true</IncludeInViewModel>
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
-          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
-          <IsReadOnlyInEdit>true</IsReadOnlyInEdit>
           <IsMultiLine>false</IsMultiLine>
+          <CreateViewMode>Editable</CreateViewMode>
+          <EditViewMode>ReadOnly</EditViewMode>
           <ValueConstraint>.ToUpperInvariant()</ValueConstraint>
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
@@ -341,12 +317,10 @@
           <Exclude>false</Exclude>
           <CreateEditOrder>10300</CreateEditOrder>
           <DefaultValue />
-          <IncludeInView>true</IncludeInView>
-          <IncludeInViewModel>true</IncludeInViewModel>
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
-          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
-          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <IsMultiLine>false</IsMultiLine>
+          <CreateViewMode>Editable</CreateViewMode>
+          <EditViewMode>Editable</EditViewMode>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
@@ -354,12 +328,10 @@
           <Exclude>false</Exclude>
           <CreateEditOrder>10400</CreateEditOrder>
           <DefaultValue />
-          <IncludeInView>true</IncludeInView>
-          <IncludeInViewModel>true</IncludeInViewModel>
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
-          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
-          <IsReadOnlyInEdit>true</IsReadOnlyInEdit>
           <IsMultiLine>false</IsMultiLine>
+          <CreateViewMode>Editable</CreateViewMode>
+          <EditViewMode>ReadOnly</EditViewMode>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
@@ -367,12 +339,10 @@
           <Exclude>false</Exclude>
           <CreateEditOrder>10500</CreateEditOrder>
           <DefaultValue />
-          <IncludeInView>true</IncludeInView>
-          <IncludeInViewModel>true</IncludeInViewModel>
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
-          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
-          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <IsMultiLine>false</IsMultiLine>
+          <CreateViewMode>Editable</CreateViewMode>
+          <EditViewMode>Editable</EditViewMode>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
@@ -380,12 +350,10 @@
           <Exclude>false</Exclude>
           <CreateEditOrder>10600</CreateEditOrder>
           <DefaultValue />
-          <IncludeInView>true</IncludeInView>
-          <IncludeInViewModel>true</IncludeInViewModel>
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
-          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
-          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <IsMultiLine>false</IsMultiLine>
+          <CreateViewMode>Editable</CreateViewMode>
+          <EditViewMode>Editable</EditViewMode>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
@@ -393,12 +361,10 @@
           <Exclude>false</Exclude>
           <CreateEditOrder>10700</CreateEditOrder>
           <DefaultValue />
-          <IncludeInView>true</IncludeInView>
-          <IncludeInViewModel>true</IncludeInViewModel>
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
-          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
-          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <IsMultiLine>false</IsMultiLine>
+          <CreateViewMode>Editable</CreateViewMode>
+          <EditViewMode>Editable</EditViewMode>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
@@ -406,18 +372,17 @@
           <Exclude>false</Exclude>
           <CreateEditOrder>10800</CreateEditOrder>
           <DefaultValue />
-          <IncludeInView>false</IncludeInView>
-          <IncludeInViewModel>false</IncludeInViewModel>
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
-          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
-          <IsReadOnlyInEdit>true</IsReadOnlyInEdit>
           <IsMultiLine>false</IsMultiLine>
+          <CreateViewMode>Exclude</CreateViewMode>
+          <EditViewMode>Exclude</EditViewMode>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
       </Properties>
       <SubFolder>Exchanges</SubFolder>
       <CommandVmNamespace>TD.WPF.ViewModels</CommandVmNamespace>
       <CommandVmTypeName>AbstractDiaryVM</CommandVmTypeName>
+      <InputColumnLayout>OneColumn</InputColumnLayout>
       <GenModeCreateCommand>GenerateIfNotExists</GenModeCreateCommand>
       <GenModeEditCommand>GenerateIfNotExists</GenModeEditCommand>
       <GenModeDeleteCommand>GenerateIfNotExists</GenModeDeleteCommand>
@@ -441,12 +406,10 @@
           <Exclude>false</Exclude>
           <CreateEditOrder>10100</CreateEditOrder>
           <DefaultValue />
-          <IncludeInView>true</IncludeInView>
-          <IncludeInViewModel>true</IncludeInViewModel>
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
-          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
-          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <IsMultiLine>false</IsMultiLine>
+          <CreateViewMode>Editable</CreateViewMode>
+          <EditViewMode>Editable</EditViewMode>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
@@ -454,12 +417,10 @@
           <Exclude>false</Exclude>
           <CreateEditOrder>10200</CreateEditOrder>
           <DefaultValue />
-          <IncludeInView>true</IncludeInView>
-          <IncludeInViewModel>true</IncludeInViewModel>
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
-          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
-          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <IsMultiLine>false</IsMultiLine>
+          <CreateViewMode>Editable</CreateViewMode>
+          <EditViewMode>Editable</EditViewMode>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
@@ -467,12 +428,10 @@
           <Exclude>false</Exclude>
           <CreateEditOrder>10300</CreateEditOrder>
           <DefaultValue />
-          <IncludeInView>true</IncludeInView>
-          <IncludeInViewModel>true</IncludeInViewModel>
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
-          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
-          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <IsMultiLine>false</IsMultiLine>
+          <CreateViewMode>Editable</CreateViewMode>
+          <EditViewMode>Editable</EditViewMode>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
@@ -480,12 +439,10 @@
           <Exclude>false</Exclude>
           <CreateEditOrder>10400</CreateEditOrder>
           <DefaultValue />
-          <IncludeInView>true</IncludeInView>
-          <IncludeInViewModel>true</IncludeInViewModel>
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
-          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
-          <IsReadOnlyInEdit>true</IsReadOnlyInEdit>
           <IsMultiLine>false</IsMultiLine>
+          <CreateViewMode>Editable</CreateViewMode>
+          <EditViewMode>ReadOnly</EditViewMode>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
@@ -493,12 +450,10 @@
           <Exclude>false</Exclude>
           <CreateEditOrder>10500</CreateEditOrder>
           <DefaultValue />
-          <IncludeInView>true</IncludeInView>
-          <IncludeInViewModel>true</IncludeInViewModel>
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
-          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
-          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <IsMultiLine>false</IsMultiLine>
+          <CreateViewMode>Editable</CreateViewMode>
+          <EditViewMode>Editable</EditViewMode>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
@@ -506,18 +461,17 @@
           <Exclude>false</Exclude>
           <CreateEditOrder>10600</CreateEditOrder>
           <DefaultValue />
-          <IncludeInView>true</IncludeInView>
-          <IncludeInViewModel>true</IncludeInViewModel>
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
-          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
-          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <IsMultiLine>false</IsMultiLine>
+          <CreateViewMode>Editable</CreateViewMode>
+          <EditViewMode>Editable</EditViewMode>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
       </Properties>
       <SubFolder>Exchanges</SubFolder>
       <CommandVmNamespace />
       <CommandVmTypeName>ISessionsVM</CommandVmTypeName>
+      <InputColumnLayout>OneColumn</InputColumnLayout>
       <GenModeCreateCommand>GenerateIfNotExists</GenModeCreateCommand>
       <GenModeEditCommand>GenerateIfNotExists</GenModeEditCommand>
       <GenModeDeleteCommand>GenerateIfNotExists</GenModeDeleteCommand>
@@ -541,12 +495,10 @@
           <Exclude>false</Exclude>
           <CreateEditOrder>10100</CreateEditOrder>
           <DefaultValue />
-          <IncludeInView>true</IncludeInView>
-          <IncludeInViewModel>true</IncludeInViewModel>
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
-          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
-          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <IsMultiLine>false</IsMultiLine>
+          <CreateViewMode>Editable</CreateViewMode>
+          <EditViewMode>Editable</EditViewMode>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
@@ -554,12 +506,10 @@
           <Exclude>false</Exclude>
           <CreateEditOrder>10200</CreateEditOrder>
           <DefaultValue />
-          <IncludeInView>true</IncludeInView>
-          <IncludeInViewModel>true</IncludeInViewModel>
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
-          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
-          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <IsMultiLine>false</IsMultiLine>
+          <CreateViewMode>Editable</CreateViewMode>
+          <EditViewMode>Editable</EditViewMode>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
@@ -567,12 +517,10 @@
           <Exclude>false</Exclude>
           <CreateEditOrder>10300</CreateEditOrder>
           <DefaultValue />
-          <IncludeInView>true</IncludeInView>
-          <IncludeInViewModel>true</IncludeInViewModel>
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
-          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
-          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <IsMultiLine>false</IsMultiLine>
+          <CreateViewMode>Editable</CreateViewMode>
+          <EditViewMode>Editable</EditViewMode>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
@@ -580,12 +528,10 @@
           <Exclude>false</Exclude>
           <CreateEditOrder>10400</CreateEditOrder>
           <DefaultValue />
-          <IncludeInView>true</IncludeInView>
-          <IncludeInViewModel>true</IncludeInViewModel>
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
-          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
-          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <IsMultiLine>false</IsMultiLine>
+          <CreateViewMode>Editable</CreateViewMode>
+          <EditViewMode>Editable</EditViewMode>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
@@ -593,12 +539,10 @@
           <Exclude>false</Exclude>
           <CreateEditOrder>10500</CreateEditOrder>
           <DefaultValue />
-          <IncludeInView>true</IncludeInView>
-          <IncludeInViewModel>true</IncludeInViewModel>
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
-          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
-          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <IsMultiLine>false</IsMultiLine>
+          <CreateViewMode>Editable</CreateViewMode>
+          <EditViewMode>Editable</EditViewMode>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
@@ -606,12 +550,10 @@
           <Exclude>false</Exclude>
           <CreateEditOrder>10600</CreateEditOrder>
           <DefaultValue />
-          <IncludeInView>true</IncludeInView>
-          <IncludeInViewModel>true</IncludeInViewModel>
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
-          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
-          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <IsMultiLine>false</IsMultiLine>
+          <CreateViewMode>Editable</CreateViewMode>
+          <EditViewMode>Editable</EditViewMode>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
@@ -619,18 +561,17 @@
           <Exclude>false</Exclude>
           <CreateEditOrder>10700</CreateEditOrder>
           <DefaultValue />
-          <IncludeInView>true</IncludeInView>
-          <IncludeInViewModel>true</IncludeInViewModel>
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
-          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
-          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <IsMultiLine>false</IsMultiLine>
+          <CreateViewMode>Editable</CreateViewMode>
+          <EditViewMode>Editable</EditViewMode>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
       </Properties>
       <SubFolder>Exchanges</SubFolder>
       <CommandVmNamespace />
       <CommandVmTypeName>IHolidaysVM</CommandVmTypeName>
+      <InputColumnLayout>OneColumn</InputColumnLayout>
       <GenModeCreateCommand>GenerateIfNotExists</GenModeCreateCommand>
       <GenModeEditCommand>GenerateIfNotExists</GenModeEditCommand>
       <GenModeDeleteCommand>GenerateIfNotExists</GenModeDeleteCommand>
@@ -654,12 +595,10 @@
           <Exclude>false</Exclude>
           <CreateEditOrder>10100</CreateEditOrder>
           <DefaultValue />
-          <IncludeInView>true</IncludeInView>
-          <IncludeInViewModel>true</IncludeInViewModel>
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
-          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
-          <IsReadOnlyInEdit>true</IsReadOnlyInEdit>
           <IsMultiLine>false</IsMultiLine>
+          <CreateViewMode>Editable</CreateViewMode>
+          <EditViewMode>ReadOnly</EditViewMode>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
@@ -667,12 +606,10 @@
           <Exclude>false</Exclude>
           <CreateEditOrder>10200</CreateEditOrder>
           <DefaultValue />
-          <IncludeInView>true</IncludeInView>
-          <IncludeInViewModel>true</IncludeInViewModel>
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
-          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
-          <IsReadOnlyInEdit>true</IsReadOnlyInEdit>
           <IsMultiLine>false</IsMultiLine>
+          <CreateViewMode>Editable</CreateViewMode>
+          <EditViewMode>ReadOnly</EditViewMode>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
@@ -680,12 +617,10 @@
           <Exclude>false</Exclude>
           <CreateEditOrder>10300</CreateEditOrder>
           <DefaultValue />
-          <IncludeInView>true</IncludeInView>
-          <IncludeInViewModel>true</IncludeInViewModel>
           <IsPreselectedInCreate>true</IsPreselectedInCreate>
-          <IsReadOnlyInCreate>true</IsReadOnlyInCreate>
-          <IsReadOnlyInEdit>true</IsReadOnlyInEdit>
           <IsMultiLine>false</IsMultiLine>
+          <CreateViewMode>ReadOnly</CreateViewMode>
+          <EditViewMode>ReadOnly</EditViewMode>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
@@ -693,18 +628,17 @@
           <Exclude>false</Exclude>
           <CreateEditOrder>10400</CreateEditOrder>
           <DefaultValue />
-          <IncludeInView>true</IncludeInView>
-          <IncludeInViewModel>true</IncludeInViewModel>
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
-          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
-          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <IsMultiLine>true</IsMultiLine>
+          <CreateViewMode>Editable</CreateViewMode>
+          <EditViewMode>Editable</EditViewMode>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
       </Properties>
       <SubFolder>Maintenance</SubFolder>
       <CommandVmNamespace>TD.WPF.ViewModels</CommandVmNamespace>
       <CommandVmTypeName>AbstractDiaryVM</CommandVmTypeName>
+      <InputColumnLayout>OneColumn</InputColumnLayout>
       <GenModeCreateCommand>GenerateIfNotExists</GenModeCreateCommand>
       <GenModeEditCommand>GenerateIfNotExists</GenModeEditCommand>
       <GenModeDeleteCommand>GenerateIfNotExists</GenModeDeleteCommand>
@@ -728,12 +662,10 @@
           <Exclude>false</Exclude>
           <CreateEditOrder>10100</CreateEditOrder>
           <DefaultValue />
-          <IncludeInView>true</IncludeInView>
-          <IncludeInViewModel>true</IncludeInViewModel>
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
-          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
-          <IsReadOnlyInEdit>true</IsReadOnlyInEdit>
           <IsMultiLine>false</IsMultiLine>
+          <CreateViewMode>Editable</CreateViewMode>
+          <EditViewMode>ReadOnly</EditViewMode>
           <ValueConstraint>.ToUpperInvariant()</ValueConstraint>
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
@@ -741,18 +673,17 @@
           <Exclude>false</Exclude>
           <CreateEditOrder>10200</CreateEditOrder>
           <DefaultValue />
-          <IncludeInView>true</IncludeInView>
-          <IncludeInViewModel>true</IncludeInViewModel>
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
-          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
-          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <IsMultiLine>true</IsMultiLine>
+          <CreateViewMode>Editable</CreateViewMode>
+          <EditViewMode>Editable</EditViewMode>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
       </Properties>
       <SubFolder>Maintenance</SubFolder>
       <CommandVmNamespace>TD.WPF.ViewModels</CommandVmNamespace>
       <CommandVmTypeName>AbstractDiaryVM</CommandVmTypeName>
+      <InputColumnLayout>OneColumn</InputColumnLayout>
       <GenModeCreateCommand>GenerateIfNotExists</GenModeCreateCommand>
       <GenModeEditCommand>GenerateIfNotExists</GenModeEditCommand>
       <GenModeDeleteCommand>GenerateIfNotExists</GenModeDeleteCommand>
@@ -776,12 +707,10 @@
           <Exclude>false</Exclude>
           <CreateEditOrder>10100</CreateEditOrder>
           <DefaultValue />
-          <IncludeInView>true</IncludeInView>
-          <IncludeInViewModel>true</IncludeInViewModel>
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
-          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
-          <IsReadOnlyInEdit>true</IsReadOnlyInEdit>
           <IsMultiLine>false</IsMultiLine>
+          <CreateViewMode>Editable</CreateViewMode>
+          <EditViewMode>ReadOnly</EditViewMode>
           <ValueConstraint>.ToUpperInvariant()</ValueConstraint>
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
@@ -789,12 +718,10 @@
           <Exclude>false</Exclude>
           <CreateEditOrder>10500</CreateEditOrder>
           <DefaultValue />
-          <IncludeInView>true</IncludeInView>
-          <IncludeInViewModel>true</IncludeInViewModel>
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
-          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
-          <IsReadOnlyInEdit>true</IsReadOnlyInEdit>
           <IsMultiLine>false</IsMultiLine>
+          <CreateViewMode>Editable</CreateViewMode>
+          <EditViewMode>ReadOnly</EditViewMode>
           <ValueConstraint>.ToUpperInvariant()</ValueConstraint>
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
@@ -802,12 +729,10 @@
           <Exclude>false</Exclude>
           <CreateEditOrder>10800</CreateEditOrder>
           <DefaultValue />
-          <IncludeInView>true</IncludeInView>
-          <IncludeInViewModel>true</IncludeInViewModel>
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
-          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
-          <IsReadOnlyInEdit>true</IsReadOnlyInEdit>
           <IsMultiLine>false</IsMultiLine>
+          <CreateViewMode>Editable</CreateViewMode>
+          <EditViewMode>ReadOnly</EditViewMode>
           <ValueConstraint>.ToUpperInvariant()</ValueConstraint>
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
@@ -815,12 +740,10 @@
           <Exclude>false</Exclude>
           <CreateEditOrder>10600</CreateEditOrder>
           <DefaultValue />
-          <IncludeInView>true</IncludeInView>
-          <IncludeInViewModel>true</IncludeInViewModel>
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
-          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
-          <IsReadOnlyInEdit>true</IsReadOnlyInEdit>
           <IsMultiLine>false</IsMultiLine>
+          <CreateViewMode>Editable</CreateViewMode>
+          <EditViewMode>ReadOnly</EditViewMode>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
@@ -828,12 +751,10 @@
           <Exclude>false</Exclude>
           <CreateEditOrder>10700</CreateEditOrder>
           <DefaultValue />
-          <IncludeInView>true</IncludeInView>
-          <IncludeInViewModel>true</IncludeInViewModel>
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
-          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
-          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <IsMultiLine>false</IsMultiLine>
+          <CreateViewMode>Editable</CreateViewMode>
+          <EditViewMode>Editable</EditViewMode>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
@@ -841,12 +762,10 @@
           <Exclude>false</Exclude>
           <CreateEditOrder>10900</CreateEditOrder>
           <DefaultValue />
-          <IncludeInView>true</IncludeInView>
-          <IncludeInViewModel>true</IncludeInViewModel>
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
-          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
-          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <IsMultiLine>true</IsMultiLine>
+          <CreateViewMode>Editable</CreateViewMode>
+          <EditViewMode>Editable</EditViewMode>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
@@ -854,12 +773,10 @@
           <Exclude>false</Exclude>
           <CreateEditOrder>10300</CreateEditOrder>
           <DefaultValue />
-          <IncludeInView>true</IncludeInView>
-          <IncludeInViewModel>true</IncludeInViewModel>
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
-          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
-          <IsReadOnlyInEdit>true</IsReadOnlyInEdit>
           <IsMultiLine>false</IsMultiLine>
+          <CreateViewMode>Editable</CreateViewMode>
+          <EditViewMode>ReadOnly</EditViewMode>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
@@ -867,12 +784,10 @@
           <Exclude>false</Exclude>
           <CreateEditOrder>10400</CreateEditOrder>
           <DefaultValue />
-          <IncludeInView>true</IncludeInView>
-          <IncludeInViewModel>true</IncludeInViewModel>
           <IsPreselectedInCreate>true</IsPreselectedInCreate>
-          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
-          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <IsMultiLine>false</IsMultiLine>
+          <CreateViewMode>Editable</CreateViewMode>
+          <EditViewMode>Editable</EditViewMode>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
@@ -880,18 +795,17 @@
           <Exclude>false</Exclude>
           <CreateEditOrder>10200</CreateEditOrder>
           <DefaultValue />
-          <IncludeInView>true</IncludeInView>
-          <IncludeInViewModel>true</IncludeInViewModel>
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
-          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
-          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <IsMultiLine>false</IsMultiLine>
+          <CreateViewMode>Editable</CreateViewMode>
+          <EditViewMode>Editable</EditViewMode>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
       </Properties>
       <SubFolder>Maintenance</SubFolder>
       <CommandVmNamespace>TD.AppInfra.ViewModels</CommandVmNamespace>
       <CommandVmTypeName>ISymbolCreationContext</CommandVmTypeName>
+      <InputColumnLayout>OneColumn</InputColumnLayout>
       <GenModeCreateCommand>GenerateIfNotExists</GenModeCreateCommand>
       <GenModeEditCommand>GenerateIfNotExists</GenModeEditCommand>
       <GenModeDeleteCommand>GenerateIfNotExists</GenModeDeleteCommand>
@@ -915,12 +829,10 @@
           <Exclude>false</Exclude>
           <CreateEditOrder>10100</CreateEditOrder>
           <DefaultValue />
-          <IncludeInView>true</IncludeInView>
-          <IncludeInViewModel>true</IncludeInViewModel>
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
-          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
-          <IsReadOnlyInEdit>true</IsReadOnlyInEdit>
           <IsMultiLine>false</IsMultiLine>
+          <CreateViewMode>Editable</CreateViewMode>
+          <EditViewMode>ReadOnly</EditViewMode>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
@@ -928,18 +840,17 @@
           <Exclude>false</Exclude>
           <CreateEditOrder>10200</CreateEditOrder>
           <DefaultValue />
-          <IncludeInView>true</IncludeInView>
-          <IncludeInViewModel>true</IncludeInViewModel>
           <IsPreselectedInCreate>true</IsPreselectedInCreate>
-          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
-          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <IsMultiLine>false</IsMultiLine>
+          <CreateViewMode>Editable</CreateViewMode>
+          <EditViewMode>Editable</EditViewMode>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
       </Properties>
       <SubFolder>Trades</SubFolder>
       <CommandVmNamespace />
       <CommandVmTypeName>TradeHistoryVM</CommandVmTypeName>
+      <InputColumnLayout>OneColumn</InputColumnLayout>
       <GenModeCreateCommand>GenerateIfNotExists</GenModeCreateCommand>
       <GenModeEditCommand>GenerateIfNotExists</GenModeEditCommand>
       <GenModeDeleteCommand>GenerateIfNotExists</GenModeDeleteCommand>
@@ -963,12 +874,10 @@
           <Exclude>false</Exclude>
           <CreateEditOrder>10100</CreateEditOrder>
           <DefaultValue />
-          <IncludeInView>true</IncludeInView>
-          <IncludeInViewModel>true</IncludeInViewModel>
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
-          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
-          <IsReadOnlyInEdit>true</IsReadOnlyInEdit>
           <IsMultiLine>false</IsMultiLine>
+          <CreateViewMode>Editable</CreateViewMode>
+          <EditViewMode>ReadOnly</EditViewMode>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
@@ -976,18 +885,17 @@
           <Exclude>false</Exclude>
           <CreateEditOrder>10200</CreateEditOrder>
           <DefaultValue />
-          <IncludeInView>true</IncludeInView>
-          <IncludeInViewModel>true</IncludeInViewModel>
           <IsPreselectedInCreate>true</IsPreselectedInCreate>
-          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
-          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <IsMultiLine>false</IsMultiLine>
+          <CreateViewMode>Editable</CreateViewMode>
+          <EditViewMode>Editable</EditViewMode>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
       </Properties>
       <SubFolder>Trades</SubFolder>
       <CommandVmNamespace />
       <CommandVmTypeName>TradeHistoryVM</CommandVmTypeName>
+      <InputColumnLayout>OneColumn</InputColumnLayout>
       <GenModeCreateCommand>GenerateIfNotExists</GenModeCreateCommand>
       <GenModeEditCommand>GenerateIfNotExists</GenModeEditCommand>
       <GenModeDeleteCommand>GenerateIfNotExists</GenModeDeleteCommand>
@@ -1011,12 +919,10 @@
           <Exclude>false</Exclude>
           <CreateEditOrder>10100</CreateEditOrder>
           <DefaultValue />
-          <IncludeInView>true</IncludeInView>
-          <IncludeInViewModel>true</IncludeInViewModel>
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
-          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
-          <IsReadOnlyInEdit>true</IsReadOnlyInEdit>
           <IsMultiLine>false</IsMultiLine>
+          <CreateViewMode>Editable</CreateViewMode>
+          <EditViewMode>ReadOnly</EditViewMode>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
@@ -1024,12 +930,10 @@
           <Exclude>false</Exclude>
           <CreateEditOrder>10200</CreateEditOrder>
           <DefaultValue />
-          <IncludeInView>true</IncludeInView>
-          <IncludeInViewModel>true</IncludeInViewModel>
           <IsPreselectedInCreate>true</IsPreselectedInCreate>
-          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
-          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <IsMultiLine>false</IsMultiLine>
+          <CreateViewMode>Editable</CreateViewMode>
+          <EditViewMode>Editable</EditViewMode>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
@@ -1037,18 +941,17 @@
           <Exclude>false</Exclude>
           <CreateEditOrder>10300</CreateEditOrder>
           <DefaultValue />
-          <IncludeInView>true</IncludeInView>
-          <IncludeInViewModel>true</IncludeInViewModel>
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
-          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
-          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <IsMultiLine>false</IsMultiLine>
+          <CreateViewMode>Editable</CreateViewMode>
+          <EditViewMode>Editable</EditViewMode>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
       </Properties>
       <SubFolder>Trades</SubFolder>
       <CommandVmNamespace />
       <CommandVmTypeName>TradeHistoryVM</CommandVmTypeName>
+      <InputColumnLayout>OneColumn</InputColumnLayout>
       <GenModeCreateCommand>GenerateIfNotExists</GenModeCreateCommand>
       <GenModeEditCommand>GenerateIfNotExists</GenModeEditCommand>
       <GenModeDeleteCommand>GenerateIfNotExists</GenModeDeleteCommand>
@@ -1072,12 +975,10 @@
           <Exclude>false</Exclude>
           <CreateEditOrder>10100</CreateEditOrder>
           <DefaultValue />
-          <IncludeInView>true</IncludeInView>
-          <IncludeInViewModel>true</IncludeInViewModel>
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
-          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
-          <IsReadOnlyInEdit>true</IsReadOnlyInEdit>
           <IsMultiLine>false</IsMultiLine>
+          <CreateViewMode>Editable</CreateViewMode>
+          <EditViewMode>ReadOnly</EditViewMode>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
@@ -1085,12 +986,10 @@
           <Exclude>false</Exclude>
           <CreateEditOrder>10200</CreateEditOrder>
           <DefaultValue />
-          <IncludeInView>true</IncludeInView>
-          <IncludeInViewModel>true</IncludeInViewModel>
           <IsPreselectedInCreate>true</IsPreselectedInCreate>
-          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
-          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <IsMultiLine>false</IsMultiLine>
+          <CreateViewMode>Editable</CreateViewMode>
+          <EditViewMode>Editable</EditViewMode>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
@@ -1098,12 +997,10 @@
           <Exclude>false</Exclude>
           <CreateEditOrder>10300</CreateEditOrder>
           <DefaultValue />
-          <IncludeInView>true</IncludeInView>
-          <IncludeInViewModel>true</IncludeInViewModel>
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
-          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
-          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <IsMultiLine>false</IsMultiLine>
+          <CreateViewMode>Editable</CreateViewMode>
+          <EditViewMode>Editable</EditViewMode>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
@@ -1111,18 +1008,17 @@
           <Exclude>false</Exclude>
           <CreateEditOrder>10400</CreateEditOrder>
           <DefaultValue />
-          <IncludeInView>true</IncludeInView>
-          <IncludeInViewModel>true</IncludeInViewModel>
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
-          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
-          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <IsMultiLine>true</IsMultiLine>
+          <CreateViewMode>Editable</CreateViewMode>
+          <EditViewMode>Editable</EditViewMode>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
       </Properties>
       <SubFolder>Trades</SubFolder>
       <CommandVmNamespace />
       <CommandVmTypeName>TradeHistoryVM</CommandVmTypeName>
+      <InputColumnLayout>OneColumn</InputColumnLayout>
       <GenModeCreateCommand>GenerateIfNotExists</GenModeCreateCommand>
       <GenModeEditCommand>GenerateIfNotExists</GenModeEditCommand>
       <GenModeDeleteCommand>GenerateIfNotExists</GenModeDeleteCommand>
@@ -1144,358 +1040,305 @@
         <WpfMvvmPropertySetting>
           <Name>TradingAccountId</Name>
           <Exclude>false</Exclude>
-          <CreateEditOrder>10100</CreateEditOrder>
+          <CreateEditOrder>100100</CreateEditOrder>
           <DefaultValue />
-          <IncludeInView>true</IncludeInView>
-          <IncludeInViewModel>true</IncludeInViewModel>
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
-          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
-          <IsReadOnlyInEdit>true</IsReadOnlyInEdit>
           <IsMultiLine>false</IsMultiLine>
+          <CreateViewMode>Editable</CreateViewMode>
+          <EditViewMode>ReadOnly</EditViewMode>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
           <Name>TradingAccount</Name>
           <Exclude>false</Exclude>
-          <CreateEditOrder>10200</CreateEditOrder>
+          <CreateEditOrder>100200</CreateEditOrder>
           <DefaultValue />
-          <IncludeInView>true</IncludeInView>
-          <IncludeInViewModel>true</IncludeInViewModel>
           <IsPreselectedInCreate>true</IsPreselectedInCreate>
-          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
-          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <IsMultiLine>false</IsMultiLine>
+          <CreateViewMode>Editable</CreateViewMode>
+          <EditViewMode>Editable</EditViewMode>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
           <Name>SymbolId</Name>
           <Exclude>false</Exclude>
-          <CreateEditOrder>10300</CreateEditOrder>
+          <CreateEditOrder>100300</CreateEditOrder>
           <DefaultValue />
-          <IncludeInView>true</IncludeInView>
-          <IncludeInViewModel>true</IncludeInViewModel>
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
-          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
-          <IsReadOnlyInEdit>true</IsReadOnlyInEdit>
           <IsMultiLine>false</IsMultiLine>
+          <CreateViewMode>Editable</CreateViewMode>
+          <EditViewMode>ReadOnly</EditViewMode>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
           <Name>Symbol</Name>
           <Exclude>false</Exclude>
-          <CreateEditOrder>10400</CreateEditOrder>
+          <CreateEditOrder>100400</CreateEditOrder>
           <DefaultValue />
-          <IncludeInView>true</IncludeInView>
-          <IncludeInViewModel>true</IncludeInViewModel>
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
-          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
-          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <IsMultiLine>false</IsMultiLine>
-          <ValueConstraint />
-        </WpfMvvmPropertySetting>
-        <WpfMvvmPropertySetting>
-          <Name>EntryTime</Name>
-          <Exclude>false</Exclude>
-          <CreateEditOrder>10500</CreateEditOrder>
-          <DefaultValue />
-          <IncludeInView>true</IncludeInView>
-          <IncludeInViewModel>true</IncludeInViewModel>
-          <IsPreselectedInCreate>false</IsPreselectedInCreate>
-          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
-          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
-          <IsMultiLine>false</IsMultiLine>
-          <ValueConstraint />
-        </WpfMvvmPropertySetting>
-        <WpfMvvmPropertySetting>
-          <Name>ExitTime</Name>
-          <Exclude>false</Exclude>
-          <CreateEditOrder>10600</CreateEditOrder>
-          <DefaultValue />
-          <IncludeInView>false</IncludeInView>
-          <IncludeInViewModel>false</IncludeInViewModel>
-          <IsPreselectedInCreate>false</IsPreselectedInCreate>
-          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
-          <IsReadOnlyInEdit>true</IsReadOnlyInEdit>
-          <IsMultiLine>false</IsMultiLine>
+          <CreateViewMode>Editable</CreateViewMode>
+          <EditViewMode>ReadOnly</EditViewMode>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
           <Name>EntryMethod</Name>
           <Exclude>false</Exclude>
-          <CreateEditOrder>10600</CreateEditOrder>
+          <CreateEditOrder>100500</CreateEditOrder>
           <DefaultValue />
-          <IncludeInView>true</IncludeInView>
-          <IncludeInViewModel>true</IncludeInViewModel>
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
-          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
-          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <IsMultiLine>false</IsMultiLine>
+          <CreateViewMode>Editable</CreateViewMode>
+          <EditViewMode>Editable</EditViewMode>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
           <Name>TradeDirection</Name>
           <Exclude>false</Exclude>
-          <CreateEditOrder>10700</CreateEditOrder>
+          <CreateEditOrder>100600</CreateEditOrder>
           <DefaultValue />
-          <IncludeInView>true</IncludeInView>
-          <IncludeInViewModel>true</IncludeInViewModel>
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
-          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
-          <IsReadOnlyInEdit>true</IsReadOnlyInEdit>
           <IsMultiLine>false</IsMultiLine>
+          <CreateViewMode>Editable</CreateViewMode>
+          <EditViewMode>ReadOnly</EditViewMode>
+          <ValueConstraint />
+        </WpfMvvmPropertySetting>
+        <WpfMvvmPropertySetting>
+          <Name>EntryTime</Name>
+          <Exclude>false</Exclude>
+          <CreateEditOrder>101300</CreateEditOrder>
+          <DefaultValue />
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
+          <IsMultiLine>false</IsMultiLine>
+          <CreateViewMode>Editable</CreateViewMode>
+          <EditViewMode>Editable</EditViewMode>
+          <ValueConstraint />
+        </WpfMvvmPropertySetting>
+        <WpfMvvmPropertySetting>
+          <Name>ExitTime</Name>
+          <Exclude>false</Exclude>
+          <CreateEditOrder>101400</CreateEditOrder>
+          <DefaultValue />
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
+          <IsMultiLine>false</IsMultiLine>
+          <CreateViewMode>Exclude</CreateViewMode>
+          <EditViewMode>Editable</EditViewMode>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
           <Name>IsFullyClosed</Name>
           <Exclude>false</Exclude>
-          <CreateEditOrder>10800</CreateEditOrder>
+          <CreateEditOrder>101500</CreateEditOrder>
           <DefaultValue />
-          <IncludeInView>false</IncludeInView>
-          <IncludeInViewModel>false</IncludeInViewModel>
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
-          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
-          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <IsMultiLine>false</IsMultiLine>
-          <ValueConstraint />
-        </WpfMvvmPropertySetting>
-        <WpfMvvmPropertySetting>
-          <Name>OrderQuantity</Name>
-          <Exclude>false</Exclude>
-          <CreateEditOrder>11000</CreateEditOrder>
-          <DefaultValue />
-          <IncludeInView>true</IncludeInView>
-          <IncludeInViewModel>true</IncludeInViewModel>
-          <IsPreselectedInCreate>false</IsPreselectedInCreate>
-          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
-          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
-          <IsMultiLine>false</IsMultiLine>
-          <ValueConstraint />
-        </WpfMvvmPropertySetting>
-        <WpfMvvmPropertySetting>
-          <Name>FilledQuantity</Name>
-          <Exclude>false</Exclude>
-          <CreateEditOrder>11100</CreateEditOrder>
-          <DefaultValue />
-          <IncludeInView>true</IncludeInView>
-          <IncludeInViewModel>true</IncludeInViewModel>
-          <IsPreselectedInCreate>false</IsPreselectedInCreate>
-          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
-          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
-          <IsMultiLine>false</IsMultiLine>
+          <CreateViewMode>Exclude</CreateViewMode>
+          <EditViewMode>Exclude</EditViewMode>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
           <Name>PlannedEntryPrice</Name>
           <Exclude>false</Exclude>
-          <CreateEditOrder>11200</CreateEditOrder>
+          <CreateEditOrder>100700</CreateEditOrder>
           <DefaultValue />
-          <IncludeInView>true</IncludeInView>
-          <IncludeInViewModel>true</IncludeInViewModel>
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
-          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
-          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <IsMultiLine>false</IsMultiLine>
+          <CreateViewMode>Editable</CreateViewMode>
+          <EditViewMode>Editable</EditViewMode>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
           <Name>ExecutedEntryPrice</Name>
           <Exclude>false</Exclude>
-          <CreateEditOrder>11300</CreateEditOrder>
+          <CreateEditOrder>100800</CreateEditOrder>
           <DefaultValue />
-          <IncludeInView>true</IncludeInView>
-          <IncludeInViewModel>true</IncludeInViewModel>
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
-          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
-          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <IsMultiLine>false</IsMultiLine>
+          <CreateViewMode>Exclude</CreateViewMode>
+          <EditViewMode>Editable</EditViewMode>
+          <ValueConstraint />
+        </WpfMvvmPropertySetting>
+        <WpfMvvmPropertySetting>
+          <Name>OrderQuantity</Name>
+          <Exclude>false</Exclude>
+          <CreateEditOrder>100900</CreateEditOrder>
+          <DefaultValue />
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
+          <IsMultiLine>false</IsMultiLine>
+          <CreateViewMode>Editable</CreateViewMode>
+          <EditViewMode>Editable</EditViewMode>
+          <ValueConstraint />
+        </WpfMvvmPropertySetting>
+        <WpfMvvmPropertySetting>
+          <Name>FilledQuantity</Name>
+          <Exclude>false</Exclude>
+          <CreateEditOrder>101000</CreateEditOrder>
+          <DefaultValue />
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
+          <IsMultiLine>false</IsMultiLine>
+          <CreateViewMode>Exclude</CreateViewMode>
+          <EditViewMode>Editable</EditViewMode>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
           <Name>PlannedPositionValue</Name>
           <Exclude>false</Exclude>
-          <CreateEditOrder>11400</CreateEditOrder>
+          <CreateEditOrder>101100</CreateEditOrder>
           <DefaultValue />
-          <IncludeInView>false</IncludeInView>
-          <IncludeInViewModel>false</IncludeInViewModel>
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
-          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
-          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <IsMultiLine>false</IsMultiLine>
+          <CreateViewMode>ReadOnly</CreateViewMode>
+          <EditViewMode>ReadOnly</EditViewMode>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
           <Name>ExecutedPositionValue</Name>
           <Exclude>false</Exclude>
-          <CreateEditOrder>11500</CreateEditOrder>
+          <CreateEditOrder>101200</CreateEditOrder>
           <DefaultValue />
-          <IncludeInView>false</IncludeInView>
-          <IncludeInViewModel>false</IncludeInViewModel>
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
-          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
-          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <IsMultiLine>false</IsMultiLine>
+          <CreateViewMode>Exclude</CreateViewMode>
+          <EditViewMode>ReadOnly</EditViewMode>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
           <Name>PlannedProfitLoss</Name>
           <Exclude>false</Exclude>
-          <CreateEditOrder>11700</CreateEditOrder>
+          <CreateEditOrder>101600</CreateEditOrder>
           <DefaultValue />
-          <IncludeInView>false</IncludeInView>
-          <IncludeInViewModel>false</IncludeInViewModel>
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
-          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
-          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <IsMultiLine>false</IsMultiLine>
+          <CreateViewMode>Exclude</CreateViewMode>
+          <EditViewMode>Exclude</EditViewMode>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
           <Name>RealizedProfitLoss</Name>
           <Exclude>false</Exclude>
-          <CreateEditOrder>11800</CreateEditOrder>
+          <CreateEditOrder>101700</CreateEditOrder>
           <DefaultValue />
-          <IncludeInView>false</IncludeInView>
-          <IncludeInViewModel>false</IncludeInViewModel>
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
-          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
-          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <IsMultiLine>false</IsMultiLine>
+          <CreateViewMode>Exclude</CreateViewMode>
+          <EditViewMode>Exclude</EditViewMode>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
           <Name>PlannedTP</Name>
           <Exclude>false</Exclude>
-          <CreateEditOrder>11900</CreateEditOrder>
+          <CreateEditOrder>101800</CreateEditOrder>
           <DefaultValue />
-          <IncludeInView>true</IncludeInView>
-          <IncludeInViewModel>true</IncludeInViewModel>
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
-          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
-          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <IsMultiLine>false</IsMultiLine>
+          <CreateViewMode>Editable</CreateViewMode>
+          <EditViewMode>Editable</EditViewMode>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
           <Name>ExecutedTP</Name>
           <Exclude>false</Exclude>
-          <CreateEditOrder>12000</CreateEditOrder>
+          <CreateEditOrder>101900</CreateEditOrder>
           <DefaultValue />
-          <IncludeInView>true</IncludeInView>
-          <IncludeInViewModel>true</IncludeInViewModel>
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
-          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
-          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <IsMultiLine>false</IsMultiLine>
+          <CreateViewMode>Exclude</CreateViewMode>
+          <EditViewMode>Editable</EditViewMode>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
           <Name>PlannedRiskAmount</Name>
           <Exclude>false</Exclude>
-          <CreateEditOrder>12200</CreateEditOrder>
+          <CreateEditOrder>102000</CreateEditOrder>
           <DefaultValue />
-          <IncludeInView>false</IncludeInView>
-          <IncludeInViewModel>false</IncludeInViewModel>
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
-          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
-          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <IsMultiLine>false</IsMultiLine>
+          <CreateViewMode>Exclude</CreateViewMode>
+          <EditViewMode>Exclude</EditViewMode>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
           <Name>RealizedRiskAmount</Name>
           <Exclude>false</Exclude>
-          <CreateEditOrder>12400</CreateEditOrder>
+          <CreateEditOrder>102100</CreateEditOrder>
           <DefaultValue />
-          <IncludeInView>false</IncludeInView>
-          <IncludeInViewModel>false</IncludeInViewModel>
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
-          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
-          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <IsMultiLine>false</IsMultiLine>
+          <CreateViewMode>Exclude</CreateViewMode>
+          <EditViewMode>Exclude</EditViewMode>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
           <Name>PlannedSL</Name>
           <Exclude>false</Exclude>
-          <CreateEditOrder>12300</CreateEditOrder>
+          <CreateEditOrder>102200</CreateEditOrder>
           <DefaultValue />
-          <IncludeInView>true</IncludeInView>
-          <IncludeInViewModel>true</IncludeInViewModel>
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
-          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
-          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <IsMultiLine>false</IsMultiLine>
+          <CreateViewMode>Editable</CreateViewMode>
+          <EditViewMode>Editable</EditViewMode>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
           <Name>ExecutedSL</Name>
           <Exclude>false</Exclude>
-          <CreateEditOrder>12400</CreateEditOrder>
+          <CreateEditOrder>102300</CreateEditOrder>
           <DefaultValue />
-          <IncludeInView>true</IncludeInView>
-          <IncludeInViewModel>true</IncludeInViewModel>
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
-          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
-          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <IsMultiLine>false</IsMultiLine>
+          <CreateViewMode>Exclude</CreateViewMode>
+          <EditViewMode>Editable</EditViewMode>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
           <Name>PlannedRiskRewardRatio</Name>
           <Exclude>false</Exclude>
-          <CreateEditOrder>12700</CreateEditOrder>
+          <CreateEditOrder>102400</CreateEditOrder>
           <DefaultValue />
-          <IncludeInView>false</IncludeInView>
-          <IncludeInViewModel>false</IncludeInViewModel>
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
-          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
-          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <IsMultiLine>false</IsMultiLine>
+          <CreateViewMode>Exclude</CreateViewMode>
+          <EditViewMode>Exclude</EditViewMode>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
           <Name>RealizedR</Name>
           <Exclude>false</Exclude>
-          <CreateEditOrder>12800</CreateEditOrder>
+          <CreateEditOrder>102500</CreateEditOrder>
           <DefaultValue />
-          <IncludeInView>false</IncludeInView>
-          <IncludeInViewModel>false</IncludeInViewModel>
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
-          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
-          <IsReadOnlyInEdit>false</IsReadOnlyInEdit>
           <IsMultiLine>false</IsMultiLine>
-          <ValueConstraint />
-        </WpfMvvmPropertySetting>
-        <WpfMvvmPropertySetting>
-          <Name>ReviewNotes</Name>
-          <Exclude>false</Exclude>
-          <CreateEditOrder>12900</CreateEditOrder>
-          <DefaultValue />
-          <IncludeInView>false</IncludeInView>
-          <IncludeInViewModel>false</IncludeInViewModel>
-          <IsPreselectedInCreate>false</IsPreselectedInCreate>
-          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
-          <IsReadOnlyInEdit>true</IsReadOnlyInEdit>
-          <IsMultiLine>true</IsMultiLine>
+          <CreateViewMode>Exclude</CreateViewMode>
+          <EditViewMode>Exclude</EditViewMode>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
           <Name>SetupNotes</Name>
           <Exclude>false</Exclude>
-          <CreateEditOrder>13000</CreateEditOrder>
+          <CreateEditOrder>102600</CreateEditOrder>
           <DefaultValue />
-          <IncludeInView>true</IncludeInView>
-          <IncludeInViewModel>true</IncludeInViewModel>
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
-          <IsReadOnlyInCreate>false</IsReadOnlyInCreate>
-          <IsReadOnlyInEdit>true</IsReadOnlyInEdit>
           <IsMultiLine>true</IsMultiLine>
+          <CreateViewMode>Editable</CreateViewMode>
+          <EditViewMode>ReadOnly</EditViewMode>
+          <ValueConstraint />
+        </WpfMvvmPropertySetting>
+        <WpfMvvmPropertySetting>
+          <Name>ReviewNotes</Name>
+          <Exclude>false</Exclude>
+          <CreateEditOrder>102700</CreateEditOrder>
+          <DefaultValue />
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
+          <IsMultiLine>true</IsMultiLine>
+          <CreateViewMode>Exclude</CreateViewMode>
+          <EditViewMode>Exclude</EditViewMode>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
       </Properties>
       <SubFolder>Trades</SubFolder>
       <CommandVmNamespace>TD.WPF.ViewModels.Trades</CommandVmNamespace>
       <CommandVmTypeName>TradeListVM</CommandVmTypeName>
+      <InputColumnLayout>TwoColumns</InputColumnLayout>
       <GenModeCreateCommand>GenerateIfNotExists</GenModeCreateCommand>
       <GenModeEditCommand>GenerateIfNotExists</GenModeEditCommand>
       <GenModeDeleteCommand>GenerateIfNotExists</GenModeDeleteCommand>

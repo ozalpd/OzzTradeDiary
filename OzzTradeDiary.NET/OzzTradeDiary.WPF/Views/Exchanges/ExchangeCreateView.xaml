@@ -6,12 +6,12 @@
         xmlns:local="clr-namespace:TD.WPF.Views.Exchanges"
         xmlns:i18n="clr-namespace:TD.i18n;assembly=OzzTradeDiary.i18n"
         Title="{x:Static i18n:LocalizedStrings.CreateExchange}"
-        Height="450" Width="420" MinHeight="450" MinWidth="420"
+        Height="420" Width="420" MinHeight="420" MinWidth="420"
         WindowStartupLocation="CenterOwner"
         mc:Ignorable="d">
-    <Grid Margin="12">
+    <Grid Margin="8,12">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="120" />
+            <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
@@ -23,7 +23,7 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
         <TextBlock Grid.Row="0" Grid.Column="0" Style="{StaticResource RightAlignedTextBlockStyle}"
@@ -61,7 +61,7 @@
 
         <TextBlock Grid.Row="5" Grid.Column="0" Style="{StaticResource RightAlignedTextBlockStyle}"
                    Text="{x:Static i18n:LocalizedStrings.IsAlwaysOpen}"/>
-        <CheckBox Grid.Row="5" Grid.Column="1" Margin="0,0,0,18" IsChecked="{Binding IsAlwaysOpen}" />
+        <CheckBox Grid.Row="5" Grid.Column="1" Margin="0,0,0,20" IsChecked="{Binding IsAlwaysOpen}" />
 
         <TextBlock Grid.Row="6" Grid.Column="0" Style="{StaticResource RightAlignedTextBlockStyle}"
                    Text="{x:Static i18n:LocalizedStrings.DisplayOrder}"/>
@@ -71,10 +71,10 @@
 
         <TextBlock Grid.Row="7" Grid.Column="0" Style="{StaticResource RightAlignedTextBlockStyle}"
                    Text="{x:Static i18n:LocalizedStrings.IsActive}"/>
-        <CheckBox Grid.Row="7" Grid.Column="1" Margin="0,0,0,18" IsChecked="{Binding IsActive}" />
+        <CheckBox Grid.Row="7" Grid.Column="1" Margin="0,0,0,20" IsChecked="{Binding IsActive}" />
 
-        <StackPanel Grid.Row="8" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,12,0,0">
-            <Button Content="{x:Static i18n:ActionStrings.OK}" Width="90" Margin="0,0,8,0" IsDefault="True" IsEnabled="{Binding IsValid}" Click="OkButton_Click" />
+        <StackPanel Grid.Row="9" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,6" VerticalAlignment="Bottom">
+            <Button Content="{x:Static i18n:ActionStrings.OK}" Width="90" Margin="0,0,18,0" IsDefault="True" IsEnabled="{Binding IsValid}" Click="OkButton_Click" />
             <Button Content="{x:Static i18n:ActionStrings.Cancel}" Width="90" IsCancel="True" />
         </StackPanel>
     </Grid>

@@ -744,6 +744,24 @@
           <IsSearchParameter>false</IsSearchParameter>
         </ModelPropertySetting>
         <ModelPropertySetting>
+          <Name>EntryMethod</Name>
+          <Exclude>false</Exclude>
+          <DataType />
+          <DTOExclusion>false</DTOExclusion>
+          <HtmlEncode xsi:nil="true" />
+          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
+          <IsSearchParameter>true</IsSearchParameter>
+        </ModelPropertySetting>
+        <ModelPropertySetting>
+          <Name>TradeDirection</Name>
+          <Exclude>false</Exclude>
+          <DataType />
+          <DTOExclusion>false</DTOExclusion>
+          <HtmlEncode xsi:nil="true" />
+          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
+          <IsSearchParameter>true</IsSearchParameter>
+        </ModelPropertySetting>
+        <ModelPropertySetting>
           <Name>EntryTime</Name>
           <Exclude>false</Exclude>
           <DataType />
@@ -763,24 +781,6 @@
           <IsSearchParameter>false</IsSearchParameter>
         </ModelPropertySetting>
         <ModelPropertySetting>
-          <Name>EntryMethod</Name>
-          <Exclude>false</Exclude>
-          <DataType />
-          <DTOExclusion>false</DTOExclusion>
-          <HtmlEncode xsi:nil="true" />
-          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
-          <IsSearchParameter>true</IsSearchParameter>
-        </ModelPropertySetting>
-        <ModelPropertySetting>
-          <Name>TradeDirection</Name>
-          <Exclude>false</Exclude>
-          <DataType />
-          <DTOExclusion>false</DTOExclusion>
-          <HtmlEncode xsi:nil="true" />
-          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
-          <IsSearchParameter>true</IsSearchParameter>
-        </ModelPropertySetting>
-        <ModelPropertySetting>
           <Name>IsFullyClosed</Name>
           <Exclude>true</Exclude>
           <DataType />
@@ -798,24 +798,6 @@
           <IsSearchParameter>false</IsSearchParameter>
         </ModelPropertySetting>
         <ModelPropertySetting>
-          <Name>OrderQuantity</Name>
-          <Exclude>false</Exclude>
-          <DataType />
-          <DTOExclusion>false</DTOExclusion>
-          <HtmlEncode xsi:nil="true" />
-          <Required />
-          <IsSearchParameter>false</IsSearchParameter>
-        </ModelPropertySetting>
-        <ModelPropertySetting>
-          <Name>FilledQuantity</Name>
-          <Exclude>false</Exclude>
-          <DataType />
-          <DTOExclusion>false</DTOExclusion>
-          <HtmlEncode xsi:nil="true" />
-          <Required />
-          <IsSearchParameter>false</IsSearchParameter>
-        </ModelPropertySetting>
-        <ModelPropertySetting>
           <Name>PlannedEntryPrice</Name>
           <Exclude>false</Exclude>
           <DataType />
@@ -826,6 +808,24 @@
         </ModelPropertySetting>
         <ModelPropertySetting>
           <Name>ExecutedEntryPrice</Name>
+          <Exclude>false</Exclude>
+          <DataType />
+          <DTOExclusion>false</DTOExclusion>
+          <HtmlEncode xsi:nil="true" />
+          <Required />
+          <IsSearchParameter>false</IsSearchParameter>
+        </ModelPropertySetting>
+        <ModelPropertySetting>
+          <Name>OrderQuantity</Name>
+          <Exclude>false</Exclude>
+          <DataType />
+          <DTOExclusion>false</DTOExclusion>
+          <HtmlEncode xsi:nil="true" />
+          <Required />
+          <IsSearchParameter>false</IsSearchParameter>
+        </ModelPropertySetting>
+        <ModelPropertySetting>
+          <Name>FilledQuantity</Name>
           <Exclude>false</Exclude>
           <DataType />
           <DTOExclusion>false</DTOExclusion>
@@ -958,7 +958,7 @@
           <IsSearchParameter>false</IsSearchParameter>
         </ModelPropertySetting>
         <ModelPropertySetting>
-          <Name>ReviewNotes</Name>
+          <Name>SetupNotes</Name>
           <Exclude>false</Exclude>
           <DataType>MultilineText</DataType>
           <DTOExclusion>false</DTOExclusion>
@@ -967,7 +967,7 @@
           <IsSearchParameter>false</IsSearchParameter>
         </ModelPropertySetting>
         <ModelPropertySetting>
-          <Name>SetupNotes</Name>
+          <Name>ReviewNotes</Name>
           <Exclude>false</Exclude>
           <DataType>MultilineText</DataType>
           <DTOExclusion>false</DTOExclusion>
