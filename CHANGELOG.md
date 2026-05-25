@@ -23,6 +23,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - Bump all project versions to 0.1.4
 - Minor: update "Load" button label and tooltip
 - Update demo seeding logic to use `RoundToQuantum` for entry price, quantity, TP, and SL, ensuring realistic precision. Increase demo trade position size to $1000.
+- Reordered trade create/edit dialog fields and updated tab order via codegen settings.
+- Made `PlannedPositionValue` settable in `TradeCreateVM` for two-way binding.
+- Rounded trade model calculated fields to 4 decimals.
+- Added `SetQuantity` method to `Trade` for position value-based quantity calculation.
+- Synced calculated fields in create/edit VMs; added quantity setters.
+- Switched entry/exit time fields to DatePicker; reorganized field layout.
+- Added decimal input validation and paste handling for numeric fields.
+- Made planned position value editable when entry price is set; toggled textbox style.
 
 ## [0.1.3] - 2026-05-22
 

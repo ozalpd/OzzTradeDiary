@@ -66,37 +66,41 @@
                    Text="{x:Static i18n:LocalizedStrings.PlannedEntryPrice}"/>
         <TextBox x:Name="PlannedEntryPriceTextBox" Grid.Row="2" Grid.Column="1"
                  Style="{StaticResource ValidationTextBoxStyle}"
-                 Text="{Binding PlannedEntryPrice, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"/>
+                 PreviewTextInput="DecimalTextBox_PreviewTextInput"
+                 Text="{Binding PlannedEntryPrice, UpdateSourceTrigger=LostFocus, ValidatesOnNotifyDataErrors=True}"/>
 
         <TextBlock Grid.Row="2" Grid.Column="2" Style="{StaticResource RightAlignedTextBlockStyle}"
-                   Text="{x:Static i18n:LocalizedStrings.OrderQuantity}"/>
-        <TextBox x:Name="OrderQuantityTextBox" Grid.Row="2" Grid.Column="3"
-                 Style="{StaticResource ValidationTextBoxStyle}"
-                 Text="{Binding OrderQuantity, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"/>
+                   Text="{x:Static i18n:LocalizedStrings.EntryTime}"/>
+        <DatePicker x:Name="EntryTimeDatePicker" Grid.Row="2" Grid.Column="3" Margin="0,-2,0,16"
+                    SelectedDate="{Binding EntryTime, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"/>
 
         <TextBlock Grid.Row="3" Grid.Column="0" Style="{StaticResource RightAlignedTextBlockStyle}"
                    Text="{x:Static i18n:LocalizedStrings.PlannedPositionValue}"/>
-        <TextBox Grid.Row="3" Grid.Column="1"
-                 Style="{StaticResource ReadOnlyTextBoxStyle}"
-                 Text="{Binding PlannedPositionValue, Mode=OneWay}"/>
+        <TextBox x:Name="PlannedPositionValueTextBox" Grid.Row="3" Grid.Column="1"
+                 Style="{StaticResource ValidationTextBoxStyle}"
+                 PreviewTextInput="DecimalTextBox_PreviewTextInput"
+                 Text="{Binding PlannedPositionValue, UpdateSourceTrigger=LostFocus, ValidatesOnNotifyDataErrors=True}"/>
 
         <TextBlock Grid.Row="3" Grid.Column="2" Style="{StaticResource RightAlignedTextBlockStyle}"
-                   Text="{x:Static i18n:LocalizedStrings.EntryTime}"/>
-        <TextBox x:Name="EntryTimeDatePicker" Grid.Row="3" Grid.Column="3"
+                   Text="{x:Static i18n:LocalizedStrings.OrderQuantity}"/>
+        <TextBox x:Name="OrderQuantityTextBox" Grid.Row="3" Grid.Column="3"
                  Style="{StaticResource ValidationTextBoxStyle}"
-                 Text="{Binding EntryTime, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"/>
+                 PreviewTextInput="DecimalTextBox_PreviewTextInput"
+                 Text="{Binding OrderQuantity, UpdateSourceTrigger=LostFocus, ValidatesOnNotifyDataErrors=True}"/>
 
         <TextBlock Grid.Row="4" Grid.Column="0" Style="{StaticResource RightAlignedTextBlockStyle}"
-                   Text="{x:Static i18n:LocalizedStrings.PlannedTP}"/>
-        <TextBox x:Name="PlannedTPTextBox" Grid.Row="4" Grid.Column="1"
+                   Text="{x:Static i18n:LocalizedStrings.PlannedSL}"/>
+        <TextBox x:Name="PlannedSLTextBox" Grid.Row="4" Grid.Column="1"
                  Style="{StaticResource ValidationTextBoxStyle}"
-                 Text="{Binding PlannedTP, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"/>
+                 PreviewTextInput="DecimalTextBox_PreviewTextInput"
+                 Text="{Binding PlannedSL, UpdateSourceTrigger=LostFocus, ValidatesOnNotifyDataErrors=True}"/>
 
         <TextBlock Grid.Row="4" Grid.Column="2" Style="{StaticResource RightAlignedTextBlockStyle}"
-                   Text="{x:Static i18n:LocalizedStrings.PlannedSL}"/>
-        <TextBox x:Name="PlannedSLTextBox" Grid.Row="4" Grid.Column="3"
+                   Text="{x:Static i18n:LocalizedStrings.PlannedTP}"/>
+        <TextBox x:Name="PlannedTPTextBox" Grid.Row="4" Grid.Column="3"
                  Style="{StaticResource ValidationTextBoxStyle}"
-                 Text="{Binding PlannedSL, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"/>
+                 PreviewTextInput="DecimalTextBox_PreviewTextInput"
+                 Text="{Binding PlannedTP, UpdateSourceTrigger=LostFocus, ValidatesOnNotifyDataErrors=True}"/>
 
         <TextBlock Grid.Row="5" Grid.Column="0" Style="{StaticResource RightAlignedTextBlockStyle}"
                    Text="{x:Static i18n:LocalizedStrings.SetupNotes}"/>

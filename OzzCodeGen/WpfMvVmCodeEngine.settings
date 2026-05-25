@@ -1106,7 +1106,7 @@
         <WpfMvvmPropertySetting>
           <Name>EntryTime</Name>
           <Exclude>false</Exclude>
-          <CreateEditOrder>101300</CreateEditOrder>
+          <CreateEditOrder>100900</CreateEditOrder>
           <DefaultValue />
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsMultiLine>false</IsMultiLine>
@@ -1117,7 +1117,7 @@
         <WpfMvvmPropertySetting>
           <Name>ExitTime</Name>
           <Exclude>false</Exclude>
-          <CreateEditOrder>101400</CreateEditOrder>
+          <CreateEditOrder>101000</CreateEditOrder>
           <DefaultValue />
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsMultiLine>false</IsMultiLine>
@@ -1128,7 +1128,7 @@
         <WpfMvvmPropertySetting>
           <Name>IsFullyClosed</Name>
           <Exclude>false</Exclude>
-          <CreateEditOrder>101500</CreateEditOrder>
+          <CreateEditOrder>101100</CreateEditOrder>
           <DefaultValue />
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsMultiLine>false</IsMultiLine>
@@ -1161,7 +1161,7 @@
         <WpfMvvmPropertySetting>
           <Name>OrderQuantity</Name>
           <Exclude>false</Exclude>
-          <CreateEditOrder>100900</CreateEditOrder>
+          <CreateEditOrder>101400</CreateEditOrder>
           <DefaultValue />
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsMultiLine>false</IsMultiLine>
@@ -1172,7 +1172,7 @@
         <WpfMvvmPropertySetting>
           <Name>FilledQuantity</Name>
           <Exclude>false</Exclude>
-          <CreateEditOrder>101000</CreateEditOrder>
+          <CreateEditOrder>101500</CreateEditOrder>
           <DefaultValue />
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsMultiLine>false</IsMultiLine>
@@ -1183,18 +1183,18 @@
         <WpfMvvmPropertySetting>
           <Name>PlannedPositionValue</Name>
           <Exclude>false</Exclude>
-          <CreateEditOrder>101100</CreateEditOrder>
+          <CreateEditOrder>101200</CreateEditOrder>
           <DefaultValue />
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsMultiLine>false</IsMultiLine>
-          <CreateViewMode>ReadOnly</CreateViewMode>
+          <CreateViewMode>Editable</CreateViewMode>
           <EditViewMode>ReadOnly</EditViewMode>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
           <Name>ExecutedPositionValue</Name>
           <Exclude>false</Exclude>
-          <CreateEditOrder>101200</CreateEditOrder>
+          <CreateEditOrder>101300</CreateEditOrder>
           <DefaultValue />
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsMultiLine>false</IsMultiLine>
@@ -1205,7 +1205,7 @@
         <WpfMvvmPropertySetting>
           <Name>PlannedProfitLoss</Name>
           <Exclude>false</Exclude>
-          <CreateEditOrder>101600</CreateEditOrder>
+          <CreateEditOrder>101800</CreateEditOrder>
           <DefaultValue />
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsMultiLine>false</IsMultiLine>
@@ -1216,7 +1216,7 @@
         <WpfMvvmPropertySetting>
           <Name>RealizedProfitLoss</Name>
           <Exclude>false</Exclude>
-          <CreateEditOrder>101700</CreateEditOrder>
+          <CreateEditOrder>101900</CreateEditOrder>
           <DefaultValue />
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsMultiLine>false</IsMultiLine>
@@ -1227,7 +1227,7 @@
         <WpfMvvmPropertySetting>
           <Name>PlannedTP</Name>
           <Exclude>false</Exclude>
-          <CreateEditOrder>101800</CreateEditOrder>
+          <CreateEditOrder>102000</CreateEditOrder>
           <DefaultValue />
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsMultiLine>false</IsMultiLine>
@@ -1238,7 +1238,7 @@
         <WpfMvvmPropertySetting>
           <Name>ExecutedTP</Name>
           <Exclude>false</Exclude>
-          <CreateEditOrder>101900</CreateEditOrder>
+          <CreateEditOrder>102100</CreateEditOrder>
           <DefaultValue />
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsMultiLine>false</IsMultiLine>
@@ -1249,7 +1249,7 @@
         <WpfMvvmPropertySetting>
           <Name>PlannedRiskAmount</Name>
           <Exclude>false</Exclude>
-          <CreateEditOrder>102000</CreateEditOrder>
+          <CreateEditOrder>102200</CreateEditOrder>
           <DefaultValue />
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsMultiLine>false</IsMultiLine>
@@ -1260,7 +1260,7 @@
         <WpfMvvmPropertySetting>
           <Name>RealizedRiskAmount</Name>
           <Exclude>false</Exclude>
-          <CreateEditOrder>102100</CreateEditOrder>
+          <CreateEditOrder>102300</CreateEditOrder>
           <DefaultValue />
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsMultiLine>false</IsMultiLine>
@@ -1271,7 +1271,7 @@
         <WpfMvvmPropertySetting>
           <Name>PlannedSL</Name>
           <Exclude>false</Exclude>
-          <CreateEditOrder>102200</CreateEditOrder>
+          <CreateEditOrder>101600</CreateEditOrder>
           <DefaultValue />
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsMultiLine>false</IsMultiLine>
@@ -1282,7 +1282,7 @@
         <WpfMvvmPropertySetting>
           <Name>ExecutedSL</Name>
           <Exclude>false</Exclude>
-          <CreateEditOrder>102300</CreateEditOrder>
+          <CreateEditOrder>101700</CreateEditOrder>
           <DefaultValue />
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsMultiLine>false</IsMultiLine>
@@ -1346,7 +1346,7 @@
       <GenModeCreateVM>GenerateIfNotExists</GenModeCreateVM>
       <GenModeEditVM>GenerateIfNotExists</GenModeEditVM>
       <GenerateGetPaged>true</GenerateGetPaged>
-      <GenModeCollectionVM>GenerateAndOverwrite</GenModeCollectionVM>
+      <GenModeCollectionVM>GenerateIfNotExists</GenModeCollectionVM>
       <GenModeLookupService>DoNotGenerate</GenModeLookupService>
       <GenModeCreateView>GenerateIfNotExists</GenModeCreateView>
       <GenModeEditView>GenerateIfNotExists</GenModeEditView>

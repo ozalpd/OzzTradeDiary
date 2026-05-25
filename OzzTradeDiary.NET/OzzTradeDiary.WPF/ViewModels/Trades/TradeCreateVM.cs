@@ -196,7 +196,19 @@ namespace TD.WPF.ViewModels.Trades
             }
         }
 
-        public decimal? PlannedPositionValue => _trade.PlannedPositionValue;
+        public decimal? PlannedPositionValue
+        {
+            get { return _trade.PlannedPositionValue; }
+            set
+            {
+                if (_trade.PlannedPositionValue != value)
+                {
+                    _trade.PlannedPositionValue = value;
+                    RaisePropertyChanged(nameof(PlannedPositionValue));
+                    ValidateProperty(_trade, nameof(PlannedPositionValue));
+                }
+            }
+        }
 
         public decimal? PlannedTP
         {

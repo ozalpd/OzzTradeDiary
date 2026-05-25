@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using TD.Extensions;
 using TD.i18n;
 
 namespace TD.Models
@@ -15,7 +16,13 @@ namespace TD.Models
         [Display(ResourceType = typeof(LocalizedStrings), Name = "ExecutedPositionValue")]
         public decimal? ExecutedPositionValue
         {
-            get { return ExecutedEntryPrice * FilledQuantity; }
+            get
+            {
+                if (ExecutedEntryPrice.HasValue && FilledQuantity.HasValue)
+                    return Math.Round(ExecutedEntryPrice.Value * FilledQuantity.Value, 4);
+
+                return null;
+            }
             //This is a calculated property, so we don't want to set it directly. However, we need to have a setter to satisfy the requirements of the data binding in the UI and database.
             //The setter will simply store the value in a private field, but it won't be used in any calculations.
             set { _filledValue = value; }
@@ -47,12 +54,36 @@ namespace TD.Models
         [Display(ResourceType = typeof(LocalizedStrings), Name = "PlannedPositionValue")]
         public decimal? PlannedPositionValue
         {
-            get { return PlannedEntryPrice * OrderQuantity; }
+            get
+            {
+                if (PlannedEntryPrice.HasValue && OrderQuantity.HasValue)
+                    return Math.Round(PlannedEntryPrice.Value * OrderQuantity.Value, 4);
+
+                return null;
+            }
             //This is a calculated property, so we don't want to set it directly. However, we need to have a setter to satisfy the requirements of the data binding in the UI and database.
             //The setter will simply store the value in a private field, but it won't be used in any calculations.
             set { _orderValue = value; }
         }
         decimal? _filledValue;
+
+        /// <summary>
+        /// Calculates and sets the order or filled quantity by dividing the position value by the entry price.
+        /// </summary>
+        /// <param name="positionValue">The total position value to convert to quantity.</param>
+        /// <param name="planned">If <c>true</c>, sets <see cref="OrderQuantity"/> using <see cref="PlannedEntryPrice"/>; otherwise, sets <see
+        /// cref="FilledQuantity"/> using <see cref="ExecutedEntryPrice"/>.</param>
+        public void SetQuantity(decimal positionValue, bool planned = true)
+        {
+            if (planned && PlannedEntryPrice.HasValue)
+            {
+                OrderQuantity = (positionValue / PlannedEntryPrice.Value).RoundToQuantum();
+            }
+            else if (ExecutedEntryPrice.HasValue)
+            {
+                FilledQuantity = (positionValue / ExecutedEntryPrice.Value).RoundToQuantum();
+            }
+        }
 
         /// <summary>
         /// Gets or sets the planned profit or loss for the trade based on the planned entry price, take profit price,
@@ -76,7 +107,7 @@ namespace TD.Models
                     // Long profits when price rises, Short profits when price falls.
                     // directionMultiplier normalises both into: positive = profit, negative = loss.
                     decimal directionMultiplier = TradeDirection == TradeDirection.Long ? 1m : -1m;
-                    return (PlannedTP.Value - PlannedEntryPrice.Value) * directionMultiplier * OrderQuantity.Value;
+                    return Math.Round((PlannedTP.Value - PlannedEntryPrice.Value) * directionMultiplier * OrderQuantity.Value, 4);
                 }
                 return null;
             }
@@ -107,7 +138,7 @@ namespace TD.Models
                     // Long profits when price rises, Short profits when price falls.
                     // directionMultiplier normalises both into: positive = profit, negative = loss.
                     decimal directionMultiplier = TradeDirection == TradeDirection.Long ? 1m : -1m;
-                    return (exitPrice - ExecutedEntryPrice.Value) * directionMultiplier * FilledQuantity.Value;
+                    return Math.Round((exitPrice - ExecutedEntryPrice.Value) * directionMultiplier * FilledQuantity.Value, 4);
                 }
                 return null;
             }
@@ -140,7 +171,7 @@ namespace TD.Models
                     if (riskPerUnit <= 0)
                         return null;
 
-                    return riskPerUnit * OrderQuantity.Value;
+                    return Math.Round(riskPerUnit * OrderQuantity.Value, 4);
                 }
                 return null;
             }
@@ -209,9 +240,9 @@ namespace TD.Models
         {
             get
             {
-                if (PlannedRiskAmount.HasValue && PlannedRiskAmount != 0)
+                if (PlannedRiskAmount.HasValue && RealizedProfitLoss.HasValue && PlannedRiskAmount != 0)
                 {
-                    return RealizedProfitLoss / PlannedRiskAmount;
+                    return Math.Round(RealizedProfitLoss.Value / PlannedRiskAmount.Value, 4);
                 }
                 return null;
             }
