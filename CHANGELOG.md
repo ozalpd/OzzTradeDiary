@@ -8,20 +8,21 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ### Added
 - Added `ExitTime`, `PlannedRiskRewardRatio`, `RealizedR`, `RealizedRiskAmount`, `ReviewNotes`, and `SetupNotes` to Trade model and database schema
-- Localized pagination and record count display in `QueryParametersVM` and `TradeListVM`; added `PageInfo` and `RecordsInfo` properties.
-- Updated pager bar and page size selector in `MainWindow` to use resource-based strings and expanded page size options to 500 and 1000.
-- Refactored toolbar to use icon-based action buttons for trade actions in `MainWindow`.
-- Improved command state updates in TradeListVM for page navigation.
-- Added new pagination-related resource strings (EN/TR).
+- Introduced `Numeric` extension with `RoundToQuantum` methods for decimal rounding.
 
 ### Changed
 - Made `IsFullyClosed` a calculated property (not persisted)
 - Update repository, codegen, and SQL scripts for new fields
 - Improve planned/realized P/L, risk, and R-multiple calculations
 - Update WPF `MainWindow` to show new fields with localization
-- Add resource strings and Turkish translations for new fields
+- Added new pagination-related resource strings (EN/TR)
+- Localized pagination and record count display in `QueryParametersVM` and `TradeListVM`; added `PageInfo` and `RecordsInfo` properties.
+- Updated pager bar and page size selector in `MainWindow` to use resource-based strings and expanded page size options to 500 and 1000.
+- Refactored toolbar to use icon-based action buttons for trade actions in `MainWindow`.
+- Improved command state updates in TradeListVM for page navigation.
 - Bump all project versions to 0.1.4
 - Minor: update "Load" button label and tooltip
+- Update demo seeding logic to use `RoundToQuantum` for entry price, quantity, TP, and SL, ensuring realistic precision. Increase demo trade position size to $1000.
 
 ## [0.1.3] - 2026-05-22
 

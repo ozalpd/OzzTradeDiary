@@ -1,4 +1,5 @@
-﻿using TD.Models;
+﻿using TD.Extensions;
+using TD.Models;
 using TD.RepositoryContracts;
 using TD.SQLite;
 using TD.WPF.Models;
@@ -195,9 +196,11 @@ static async Task<Trade> EnsureDemoTradeAsync(ITradeRepository tradeRepository, 
         entryPrice = 100m * (decimal)(1 + (random.NextDouble() * 0.9 - 0.45)); // Default price with random variation if not found in the dictionary
     }
 
+    entryPrice = entryPrice.RoundToQuantum();
     decimal tpMultiplier = direction == TradeDirection.Long ? 1.04m : 0.96m; // Take profit multiplier based on trade direction
     decimal slMultiplier = direction == TradeDirection.Long ? 0.98m : 1.02m; // Stop loss multiplier based on trade direction
-    decimal quantity = 100m / entryPrice; // Fixed $100 position size for demo purposes, so the quantity will vary based on entry price.
+    decimal quantity = (1000m / entryPrice).RoundToQuantum(); // Fixed $1000 position size for demo purposes, so the quantity will vary based on entry price.
+
     var trade = new Trade
     {
         TradingAccountId = tradingAccountId,
@@ -205,8 +208,8 @@ static async Task<Trade> EnsureDemoTradeAsync(ITradeRepository tradeRepository, 
         EntryMethod = EntryMethod.Market,
         TradeDirection = direction,
         PlannedEntryPrice = entryPrice,
-        PlannedTP = entryPrice * tpMultiplier,
-        PlannedSL = entryPrice * slMultiplier,
+        PlannedTP = (entryPrice * tpMultiplier).RoundToQuantum(),
+        PlannedSL = (entryPrice * slMultiplier).RoundToQuantum(),
         OrderQuantity = quantity,
         UpdatedAt = DateTime.UtcNow,
     };
