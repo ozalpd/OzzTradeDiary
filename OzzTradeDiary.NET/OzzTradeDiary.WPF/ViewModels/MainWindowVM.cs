@@ -9,10 +9,13 @@ namespace TD.WPF.ViewModels
 {
     internal class MainWindowVM : AbstractDataErrorInfoVM
     {
-        private readonly IWindowDialogService _windowDialogService = new WindowDialogService();
+        private readonly IWindowDialogService _windowDialogService;
 
-        public MainWindowVM(AppDataSources dataSources)
+        public MainWindowVM(AppDataSources dataSources) : this(dataSources, new WindowDialogService()) { }
+
+        public MainWindowVM(AppDataSources dataSources, IWindowDialogService windowDialogService)
         {
+            _windowDialogService = windowDialogService;
             var symbolLookupService = new SymbolLookupService(dataSources.SymbolRepository);
             var tradingAccountLookupService = new TradingAccountLookupService(dataSources.TradingAccountRepository);
 

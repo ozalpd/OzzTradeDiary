@@ -34,6 +34,7 @@ namespace TD.WPF.ViewModels.Trades
             TradeDirectionValues = GetValues<TradeDirection>();
             TradeCreateCommand = new TradeCreateCommand(this, windowDialogService, symbolLookupService, tradingAccountLookupService);
             TradeDeleteCommand = new TradeDeleteCommand(this);
+            TradeDetailCommand = new TradeDetailCommand(this, windowDialogService);
             TradeEditCommand = new TradeEditCommand(this, windowDialogService);
             TradesLoadCommand = new TradesLoadCommand(this);
             TradesNextPageCommand = new TradesNextPageCommand(this);
@@ -55,6 +56,7 @@ namespace TD.WPF.ViewModels.Trades
 
         public TradeCreateCommand TradeCreateCommand { get; }
         public TradeDeleteCommand TradeDeleteCommand { get; }
+        public TradeDetailCommand TradeDetailCommand { get; }
         public TradeEditCommand TradeEditCommand { get; }
         public TradesLoadCommand TradesLoadCommand { get; }
         public TradesNextPageCommand TradesNextPageCommand { get; }
@@ -106,6 +108,7 @@ namespace TD.WPF.ViewModels.Trades
                 SelectedItem = value;
                 TradeEditCommand.RaiseCanExecuteChanged();
                 TradeDeleteCommand.RaiseCanExecuteChanged();
+                TradeDetailCommand.RaiseCanExecuteChanged();
                 RaisePropertyChanged(nameof(SelectedTrade));
             }
         }

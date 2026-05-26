@@ -18,16 +18,20 @@
           <IsMultiLine>false</IsMultiLine>
           <CreateViewMode>ReadOnly</CreateViewMode>
           <EditViewMode>ReadOnly</EditViewMode>
+          <ShowInCollection>true</ShowInCollection>
+          <ShowInDetail>true</ShowInDetail>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
       </Properties>
       <SubFolder />
       <CommandVmNamespace />
       <CommandVmTypeName />
+      <DetailColumnLayout>OneColumn</DetailColumnLayout>
       <InputColumnLayout>OneColumn</InputColumnLayout>
       <GenModeCreateCommand>DoNotGenerate</GenModeCreateCommand>
       <GenModeEditCommand>DoNotGenerate</GenModeEditCommand>
       <GenModeDeleteCommand>DoNotGenerate</GenModeDeleteCommand>
+      <GenModeDetailCommand>DoNotGenerate</GenModeDetailCommand>
       <GenModeLoadCommand>DoNotGenerate</GenModeLoadCommand>
       <GenModeCreateVM>DoNotGenerate</GenModeCreateVM>
       <GenModeEditVM>DoNotGenerate</GenModeEditVM>
@@ -36,6 +40,7 @@
       <GenModeLookupService>DoNotGenerate</GenModeLookupService>
       <GenModeCreateView>DoNotGenerate</GenModeCreateView>
       <GenModeEditView>DoNotGenerate</GenModeEditView>
+      <GenModeDetailView>DoNotGenerate</GenModeDetailView>
       <RepositoryName />
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="WpfMvvmEntitySetting">
@@ -52,16 +57,20 @@
           <IsMultiLine>false</IsMultiLine>
           <CreateViewMode>Editable</CreateViewMode>
           <EditViewMode>Editable</EditViewMode>
+          <ShowInCollection>true</ShowInCollection>
+          <ShowInDetail>true</ShowInDetail>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
       </Properties>
       <SubFolder />
       <CommandVmNamespace />
       <CommandVmTypeName />
+      <DetailColumnLayout>OneColumn</DetailColumnLayout>
       <InputColumnLayout>OneColumn</InputColumnLayout>
       <GenModeCreateCommand>DoNotGenerate</GenModeCreateCommand>
       <GenModeEditCommand>DoNotGenerate</GenModeEditCommand>
       <GenModeDeleteCommand>DoNotGenerate</GenModeDeleteCommand>
+      <GenModeDetailCommand>DoNotGenerate</GenModeDetailCommand>
       <GenModeLoadCommand>DoNotGenerate</GenModeLoadCommand>
       <GenModeCreateVM>DoNotGenerate</GenModeCreateVM>
       <GenModeEditVM>DoNotGenerate</GenModeEditVM>
@@ -70,6 +79,7 @@
       <GenModeLookupService>DoNotGenerate</GenModeLookupService>
       <GenModeCreateView>DoNotGenerate</GenModeCreateView>
       <GenModeEditView>DoNotGenerate</GenModeEditView>
+      <GenModeDetailView>DoNotGenerate</GenModeDetailView>
       <RepositoryName />
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="WpfMvvmEntitySetting">
@@ -86,16 +96,20 @@
           <IsMultiLine>false</IsMultiLine>
           <CreateViewMode>Editable</CreateViewMode>
           <EditViewMode>Editable</EditViewMode>
+          <ShowInCollection>true</ShowInCollection>
+          <ShowInDetail>true</ShowInDetail>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
       </Properties>
       <SubFolder />
       <CommandVmNamespace />
       <CommandVmTypeName />
+      <DetailColumnLayout>OneColumn</DetailColumnLayout>
       <InputColumnLayout>OneColumn</InputColumnLayout>
       <GenModeCreateCommand>DoNotGenerate</GenModeCreateCommand>
       <GenModeEditCommand>DoNotGenerate</GenModeEditCommand>
       <GenModeDeleteCommand>DoNotGenerate</GenModeDeleteCommand>
+      <GenModeDetailCommand>DoNotGenerate</GenModeDetailCommand>
       <GenModeLoadCommand>DoNotGenerate</GenModeLoadCommand>
       <GenModeCreateVM>DoNotGenerate</GenModeCreateVM>
       <GenModeEditVM>DoNotGenerate</GenModeEditVM>
@@ -104,6 +118,7 @@
       <GenModeLookupService>DoNotGenerate</GenModeLookupService>
       <GenModeCreateView>DoNotGenerate</GenModeCreateView>
       <GenModeEditView>DoNotGenerate</GenModeEditView>
+      <GenModeDetailView>DoNotGenerate</GenModeDetailView>
       <RepositoryName />
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="WpfMvvmEntitySetting">
@@ -120,16 +135,20 @@
           <IsMultiLine>false</IsMultiLine>
           <CreateViewMode>Exclude</CreateViewMode>
           <EditViewMode>Exclude</EditViewMode>
+          <ShowInCollection>true</ShowInCollection>
+          <ShowInDetail>true</ShowInDetail>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
       </Properties>
       <SubFolder />
       <CommandVmNamespace />
       <CommandVmTypeName />
+      <DetailColumnLayout>OneColumn</DetailColumnLayout>
       <InputColumnLayout>OneColumn</InputColumnLayout>
       <GenModeCreateCommand>DoNotGenerate</GenModeCreateCommand>
       <GenModeEditCommand>DoNotGenerate</GenModeEditCommand>
       <GenModeDeleteCommand>DoNotGenerate</GenModeDeleteCommand>
+      <GenModeDetailCommand>DoNotGenerate</GenModeDetailCommand>
       <GenModeLoadCommand>DoNotGenerate</GenModeLoadCommand>
       <GenModeCreateVM>DoNotGenerate</GenModeCreateVM>
       <GenModeEditVM>DoNotGenerate</GenModeEditVM>
@@ -138,6 +157,7 @@
       <GenModeLookupService>DoNotGenerate</GenModeLookupService>
       <GenModeCreateView>DoNotGenerate</GenModeCreateView>
       <GenModeEditView>DoNotGenerate</GenModeEditView>
+      <GenModeDetailView>DoNotGenerate</GenModeDetailView>
       <RepositoryName />
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="WpfMvvmEntitySetting">
@@ -154,16 +174,20 @@
           <IsMultiLine>false</IsMultiLine>
           <CreateViewMode>Exclude</CreateViewMode>
           <EditViewMode>Exclude</EditViewMode>
+          <ShowInCollection>true</ShowInCollection>
+          <ShowInDetail>true</ShowInDetail>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
       </Properties>
       <SubFolder />
       <CommandVmNamespace />
       <CommandVmTypeName />
+      <DetailColumnLayout>OneColumn</DetailColumnLayout>
       <InputColumnLayout>OneColumn</InputColumnLayout>
       <GenModeCreateCommand>DoNotGenerate</GenModeCreateCommand>
       <GenModeEditCommand>DoNotGenerate</GenModeEditCommand>
       <GenModeDeleteCommand>DoNotGenerate</GenModeDeleteCommand>
+      <GenModeDetailCommand>DoNotGenerate</GenModeDetailCommand>
       <GenModeLoadCommand>DoNotGenerate</GenModeLoadCommand>
       <GenModeCreateVM>DoNotGenerate</GenModeCreateVM>
       <GenModeEditVM>DoNotGenerate</GenModeEditVM>
@@ -172,6 +196,7 @@
       <GenModeLookupService>DoNotGenerate</GenModeLookupService>
       <GenModeCreateView>DoNotGenerate</GenModeCreateView>
       <GenModeEditView>DoNotGenerate</GenModeEditView>
+      <GenModeDetailView>DoNotGenerate</GenModeDetailView>
       <RepositoryName />
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="WpfMvvmEntitySetting">
@@ -188,6 +213,8 @@
           <IsMultiLine>false</IsMultiLine>
           <CreateViewMode>Editable</CreateViewMode>
           <EditViewMode>Editable</EditViewMode>
+          <ShowInCollection>true</ShowInCollection>
+          <ShowInDetail>true</ShowInDetail>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
@@ -199,6 +226,8 @@
           <IsMultiLine>false</IsMultiLine>
           <CreateViewMode>Editable</CreateViewMode>
           <EditViewMode>Editable</EditViewMode>
+          <ShowInCollection>true</ShowInCollection>
+          <ShowInDetail>true</ShowInDetail>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
@@ -210,6 +239,8 @@
           <IsMultiLine>false</IsMultiLine>
           <CreateViewMode>Editable</CreateViewMode>
           <EditViewMode>Editable</EditViewMode>
+          <ShowInCollection>true</ShowInCollection>
+          <ShowInDetail>true</ShowInDetail>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
@@ -221,6 +252,8 @@
           <IsMultiLine>false</IsMultiLine>
           <CreateViewMode>Editable</CreateViewMode>
           <EditViewMode>Editable</EditViewMode>
+          <ShowInCollection>true</ShowInCollection>
+          <ShowInDetail>true</ShowInDetail>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
@@ -232,6 +265,8 @@
           <IsMultiLine>false</IsMultiLine>
           <CreateViewMode>Editable</CreateViewMode>
           <EditViewMode>Editable</EditViewMode>
+          <ShowInCollection>true</ShowInCollection>
+          <ShowInDetail>true</ShowInDetail>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
@@ -243,6 +278,8 @@
           <IsMultiLine>false</IsMultiLine>
           <CreateViewMode>Editable</CreateViewMode>
           <EditViewMode>Editable</EditViewMode>
+          <ShowInCollection>true</ShowInCollection>
+          <ShowInDetail>true</ShowInDetail>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
@@ -254,6 +291,8 @@
           <IsMultiLine>false</IsMultiLine>
           <CreateViewMode>Editable</CreateViewMode>
           <EditViewMode>Editable</EditViewMode>
+          <ShowInCollection>true</ShowInCollection>
+          <ShowInDetail>true</ShowInDetail>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
@@ -265,16 +304,20 @@
           <IsMultiLine>false</IsMultiLine>
           <CreateViewMode>Editable</CreateViewMode>
           <EditViewMode>Editable</EditViewMode>
+          <ShowInCollection>true</ShowInCollection>
+          <ShowInDetail>true</ShowInDetail>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
       </Properties>
       <SubFolder />
       <CommandVmNamespace />
       <CommandVmTypeName />
+      <DetailColumnLayout>OneColumn</DetailColumnLayout>
       <InputColumnLayout>OneColumn</InputColumnLayout>
       <GenModeCreateCommand>DoNotGenerate</GenModeCreateCommand>
       <GenModeEditCommand>DoNotGenerate</GenModeEditCommand>
       <GenModeDeleteCommand>DoNotGenerate</GenModeDeleteCommand>
+      <GenModeDetailCommand>DoNotGenerate</GenModeDetailCommand>
       <GenModeLoadCommand>DoNotGenerate</GenModeLoadCommand>
       <GenModeCreateVM>DoNotGenerate</GenModeCreateVM>
       <GenModeEditVM>DoNotGenerate</GenModeEditVM>
@@ -283,6 +326,7 @@
       <GenModeLookupService>DoNotGenerate</GenModeLookupService>
       <GenModeCreateView>DoNotGenerate</GenModeCreateView>
       <GenModeEditView>DoNotGenerate</GenModeEditView>
+      <GenModeDetailView>DoNotGenerate</GenModeDetailView>
       <RepositoryName />
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="WpfMvvmEntitySetting">
@@ -299,6 +343,8 @@
           <IsMultiLine>false</IsMultiLine>
           <CreateViewMode>Editable</CreateViewMode>
           <EditViewMode>Editable</EditViewMode>
+          <ShowInCollection>true</ShowInCollection>
+          <ShowInDetail>true</ShowInDetail>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
@@ -310,6 +356,8 @@
           <IsMultiLine>false</IsMultiLine>
           <CreateViewMode>Editable</CreateViewMode>
           <EditViewMode>ReadOnly</EditViewMode>
+          <ShowInCollection>true</ShowInCollection>
+          <ShowInDetail>true</ShowInDetail>
           <ValueConstraint>.ToUpperInvariant()</ValueConstraint>
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
@@ -321,6 +369,8 @@
           <IsMultiLine>false</IsMultiLine>
           <CreateViewMode>Editable</CreateViewMode>
           <EditViewMode>Editable</EditViewMode>
+          <ShowInCollection>true</ShowInCollection>
+          <ShowInDetail>true</ShowInDetail>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
@@ -332,6 +382,8 @@
           <IsMultiLine>false</IsMultiLine>
           <CreateViewMode>Editable</CreateViewMode>
           <EditViewMode>ReadOnly</EditViewMode>
+          <ShowInCollection>true</ShowInCollection>
+          <ShowInDetail>true</ShowInDetail>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
@@ -343,6 +395,8 @@
           <IsMultiLine>false</IsMultiLine>
           <CreateViewMode>Editable</CreateViewMode>
           <EditViewMode>Editable</EditViewMode>
+          <ShowInCollection>true</ShowInCollection>
+          <ShowInDetail>true</ShowInDetail>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
@@ -354,6 +408,8 @@
           <IsMultiLine>false</IsMultiLine>
           <CreateViewMode>Editable</CreateViewMode>
           <EditViewMode>Editable</EditViewMode>
+          <ShowInCollection>true</ShowInCollection>
+          <ShowInDetail>true</ShowInDetail>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
@@ -365,6 +421,8 @@
           <IsMultiLine>false</IsMultiLine>
           <CreateViewMode>Editable</CreateViewMode>
           <EditViewMode>Editable</EditViewMode>
+          <ShowInCollection>true</ShowInCollection>
+          <ShowInDetail>true</ShowInDetail>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
@@ -376,16 +434,20 @@
           <IsMultiLine>false</IsMultiLine>
           <CreateViewMode>Exclude</CreateViewMode>
           <EditViewMode>Exclude</EditViewMode>
+          <ShowInCollection>true</ShowInCollection>
+          <ShowInDetail>true</ShowInDetail>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
       </Properties>
       <SubFolder>Exchanges</SubFolder>
       <CommandVmNamespace>TD.WPF.ViewModels</CommandVmNamespace>
       <CommandVmTypeName>AbstractDiaryVM</CommandVmTypeName>
+      <DetailColumnLayout>OneColumn</DetailColumnLayout>
       <InputColumnLayout>OneColumn</InputColumnLayout>
       <GenModeCreateCommand>GenerateIfNotExists</GenModeCreateCommand>
       <GenModeEditCommand>GenerateIfNotExists</GenModeEditCommand>
       <GenModeDeleteCommand>GenerateIfNotExists</GenModeDeleteCommand>
+      <GenModeDetailCommand>DoNotGenerate</GenModeDetailCommand>
       <GenModeLoadCommand>DoNotGenerate</GenModeLoadCommand>
       <GenModeCreateVM>GenerateIfNotExists</GenModeCreateVM>
       <GenModeEditVM>GenerateIfNotExists</GenModeEditVM>
@@ -394,6 +456,7 @@
       <GenModeLookupService>GenerateIfNotExists</GenModeLookupService>
       <GenModeCreateView>GenerateIfNotExists</GenModeCreateView>
       <GenModeEditView>GenerateIfNotExists</GenModeEditView>
+      <GenModeDetailView>DoNotGenerate</GenModeDetailView>
       <RepositoryName>IExchangeRepository</RepositoryName>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="WpfMvvmEntitySetting">
@@ -410,6 +473,8 @@
           <IsMultiLine>false</IsMultiLine>
           <CreateViewMode>Editable</CreateViewMode>
           <EditViewMode>Editable</EditViewMode>
+          <ShowInCollection>true</ShowInCollection>
+          <ShowInDetail>true</ShowInDetail>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
@@ -421,6 +486,8 @@
           <IsMultiLine>false</IsMultiLine>
           <CreateViewMode>Editable</CreateViewMode>
           <EditViewMode>Editable</EditViewMode>
+          <ShowInCollection>true</ShowInCollection>
+          <ShowInDetail>true</ShowInDetail>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
@@ -432,6 +499,8 @@
           <IsMultiLine>false</IsMultiLine>
           <CreateViewMode>Editable</CreateViewMode>
           <EditViewMode>Editable</EditViewMode>
+          <ShowInCollection>true</ShowInCollection>
+          <ShowInDetail>true</ShowInDetail>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
@@ -443,6 +512,8 @@
           <IsMultiLine>false</IsMultiLine>
           <CreateViewMode>Editable</CreateViewMode>
           <EditViewMode>ReadOnly</EditViewMode>
+          <ShowInCollection>true</ShowInCollection>
+          <ShowInDetail>true</ShowInDetail>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
@@ -454,6 +525,8 @@
           <IsMultiLine>false</IsMultiLine>
           <CreateViewMode>Editable</CreateViewMode>
           <EditViewMode>Editable</EditViewMode>
+          <ShowInCollection>true</ShowInCollection>
+          <ShowInDetail>true</ShowInDetail>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
@@ -465,16 +538,20 @@
           <IsMultiLine>false</IsMultiLine>
           <CreateViewMode>Editable</CreateViewMode>
           <EditViewMode>Editable</EditViewMode>
+          <ShowInCollection>true</ShowInCollection>
+          <ShowInDetail>true</ShowInDetail>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
       </Properties>
       <SubFolder>Exchanges</SubFolder>
       <CommandVmNamespace />
       <CommandVmTypeName>ISessionsVM</CommandVmTypeName>
+      <DetailColumnLayout>OneColumn</DetailColumnLayout>
       <InputColumnLayout>OneColumn</InputColumnLayout>
       <GenModeCreateCommand>GenerateIfNotExists</GenModeCreateCommand>
       <GenModeEditCommand>GenerateIfNotExists</GenModeEditCommand>
       <GenModeDeleteCommand>GenerateIfNotExists</GenModeDeleteCommand>
+      <GenModeDetailCommand>DoNotGenerate</GenModeDetailCommand>
       <GenModeLoadCommand>DoNotGenerate</GenModeLoadCommand>
       <GenModeCreateVM>GenerateIfNotExists</GenModeCreateVM>
       <GenModeEditVM>GenerateIfNotExists</GenModeEditVM>
@@ -483,6 +560,7 @@
       <GenModeLookupService>DoNotGenerate</GenModeLookupService>
       <GenModeCreateView>DoNotGenerate</GenModeCreateView>
       <GenModeEditView>DoNotGenerate</GenModeEditView>
+      <GenModeDetailView>DoNotGenerate</GenModeDetailView>
       <RepositoryName>ISessionRepository</RepositoryName>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="WpfMvvmEntitySetting">
@@ -499,6 +577,8 @@
           <IsMultiLine>false</IsMultiLine>
           <CreateViewMode>Editable</CreateViewMode>
           <EditViewMode>Editable</EditViewMode>
+          <ShowInCollection>true</ShowInCollection>
+          <ShowInDetail>true</ShowInDetail>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
@@ -510,6 +590,8 @@
           <IsMultiLine>false</IsMultiLine>
           <CreateViewMode>Editable</CreateViewMode>
           <EditViewMode>Editable</EditViewMode>
+          <ShowInCollection>true</ShowInCollection>
+          <ShowInDetail>true</ShowInDetail>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
@@ -521,6 +603,8 @@
           <IsMultiLine>false</IsMultiLine>
           <CreateViewMode>Editable</CreateViewMode>
           <EditViewMode>Editable</EditViewMode>
+          <ShowInCollection>true</ShowInCollection>
+          <ShowInDetail>true</ShowInDetail>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
@@ -532,6 +616,8 @@
           <IsMultiLine>false</IsMultiLine>
           <CreateViewMode>Editable</CreateViewMode>
           <EditViewMode>Editable</EditViewMode>
+          <ShowInCollection>true</ShowInCollection>
+          <ShowInDetail>true</ShowInDetail>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
@@ -543,6 +629,8 @@
           <IsMultiLine>false</IsMultiLine>
           <CreateViewMode>Editable</CreateViewMode>
           <EditViewMode>Editable</EditViewMode>
+          <ShowInCollection>true</ShowInCollection>
+          <ShowInDetail>true</ShowInDetail>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
@@ -554,6 +642,8 @@
           <IsMultiLine>false</IsMultiLine>
           <CreateViewMode>Editable</CreateViewMode>
           <EditViewMode>Editable</EditViewMode>
+          <ShowInCollection>true</ShowInCollection>
+          <ShowInDetail>true</ShowInDetail>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
@@ -565,16 +655,20 @@
           <IsMultiLine>false</IsMultiLine>
           <CreateViewMode>Editable</CreateViewMode>
           <EditViewMode>Editable</EditViewMode>
+          <ShowInCollection>true</ShowInCollection>
+          <ShowInDetail>true</ShowInDetail>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
       </Properties>
       <SubFolder>Exchanges</SubFolder>
       <CommandVmNamespace />
       <CommandVmTypeName>IHolidaysVM</CommandVmTypeName>
+      <DetailColumnLayout>OneColumn</DetailColumnLayout>
       <InputColumnLayout>OneColumn</InputColumnLayout>
       <GenModeCreateCommand>GenerateIfNotExists</GenModeCreateCommand>
       <GenModeEditCommand>GenerateIfNotExists</GenModeEditCommand>
       <GenModeDeleteCommand>GenerateIfNotExists</GenModeDeleteCommand>
+      <GenModeDetailCommand>DoNotGenerate</GenModeDetailCommand>
       <GenModeLoadCommand>DoNotGenerate</GenModeLoadCommand>
       <GenModeCreateVM>GenerateIfNotExists</GenModeCreateVM>
       <GenModeEditVM>GenerateIfNotExists</GenModeEditVM>
@@ -583,6 +677,7 @@
       <GenModeLookupService>DoNotGenerate</GenModeLookupService>
       <GenModeCreateView>DoNotGenerate</GenModeCreateView>
       <GenModeEditView>DoNotGenerate</GenModeEditView>
+      <GenModeDetailView>DoNotGenerate</GenModeDetailView>
       <RepositoryName>IHolidayRepository</RepositoryName>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="WpfMvvmEntitySetting">
@@ -599,6 +694,8 @@
           <IsMultiLine>false</IsMultiLine>
           <CreateViewMode>Editable</CreateViewMode>
           <EditViewMode>ReadOnly</EditViewMode>
+          <ShowInCollection>true</ShowInCollection>
+          <ShowInDetail>true</ShowInDetail>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
@@ -610,6 +707,8 @@
           <IsMultiLine>false</IsMultiLine>
           <CreateViewMode>Editable</CreateViewMode>
           <EditViewMode>ReadOnly</EditViewMode>
+          <ShowInCollection>true</ShowInCollection>
+          <ShowInDetail>true</ShowInDetail>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
@@ -621,6 +720,8 @@
           <IsMultiLine>false</IsMultiLine>
           <CreateViewMode>ReadOnly</CreateViewMode>
           <EditViewMode>ReadOnly</EditViewMode>
+          <ShowInCollection>true</ShowInCollection>
+          <ShowInDetail>true</ShowInDetail>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
@@ -632,16 +733,20 @@
           <IsMultiLine>true</IsMultiLine>
           <CreateViewMode>Editable</CreateViewMode>
           <EditViewMode>Editable</EditViewMode>
+          <ShowInCollection>true</ShowInCollection>
+          <ShowInDetail>true</ShowInDetail>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
       </Properties>
       <SubFolder>Maintenance</SubFolder>
       <CommandVmNamespace>TD.WPF.ViewModels</CommandVmNamespace>
       <CommandVmTypeName>AbstractDiaryVM</CommandVmTypeName>
+      <DetailColumnLayout>OneColumn</DetailColumnLayout>
       <InputColumnLayout>OneColumn</InputColumnLayout>
       <GenModeCreateCommand>GenerateIfNotExists</GenModeCreateCommand>
       <GenModeEditCommand>GenerateIfNotExists</GenModeEditCommand>
       <GenModeDeleteCommand>GenerateIfNotExists</GenModeDeleteCommand>
+      <GenModeDetailCommand>DoNotGenerate</GenModeDetailCommand>
       <GenModeLoadCommand>DoNotGenerate</GenModeLoadCommand>
       <GenModeCreateVM>GenerateIfNotExists</GenModeCreateVM>
       <GenModeEditVM>GenerateIfNotExists</GenModeEditVM>
@@ -650,6 +755,7 @@
       <GenModeLookupService>GenerateIfNotExists</GenModeLookupService>
       <GenModeCreateView>GenerateIfNotExists</GenModeCreateView>
       <GenModeEditView>GenerateIfNotExists</GenModeEditView>
+      <GenModeDetailView>DoNotGenerate</GenModeDetailView>
       <RepositoryName>ITradingAccountRepository</RepositoryName>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="WpfMvvmEntitySetting">
@@ -666,6 +772,8 @@
           <IsMultiLine>false</IsMultiLine>
           <CreateViewMode>Editable</CreateViewMode>
           <EditViewMode>ReadOnly</EditViewMode>
+          <ShowInCollection>true</ShowInCollection>
+          <ShowInDetail>true</ShowInDetail>
           <ValueConstraint>.ToUpperInvariant()</ValueConstraint>
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
@@ -677,16 +785,20 @@
           <IsMultiLine>true</IsMultiLine>
           <CreateViewMode>Editable</CreateViewMode>
           <EditViewMode>Editable</EditViewMode>
+          <ShowInCollection>true</ShowInCollection>
+          <ShowInDetail>true</ShowInDetail>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
       </Properties>
       <SubFolder>Maintenance</SubFolder>
       <CommandVmNamespace>TD.WPF.ViewModels</CommandVmNamespace>
       <CommandVmTypeName>AbstractDiaryVM</CommandVmTypeName>
+      <DetailColumnLayout>OneColumn</DetailColumnLayout>
       <InputColumnLayout>OneColumn</InputColumnLayout>
       <GenModeCreateCommand>GenerateIfNotExists</GenModeCreateCommand>
       <GenModeEditCommand>GenerateIfNotExists</GenModeEditCommand>
       <GenModeDeleteCommand>GenerateIfNotExists</GenModeDeleteCommand>
+      <GenModeDetailCommand>DoNotGenerate</GenModeDetailCommand>
       <GenModeLoadCommand>DoNotGenerate</GenModeLoadCommand>
       <GenModeCreateVM>GenerateIfNotExists</GenModeCreateVM>
       <GenModeEditVM>GenerateIfNotExists</GenModeEditVM>
@@ -695,6 +807,7 @@
       <GenModeLookupService>GenerateIfNotExists</GenModeLookupService>
       <GenModeCreateView>GenerateIfNotExists</GenModeCreateView>
       <GenModeEditView>GenerateIfNotExists</GenModeEditView>
+      <GenModeDetailView>DoNotGenerate</GenModeDetailView>
       <RepositoryName>ICurrencyRepository</RepositoryName>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="WpfMvvmEntitySetting">
@@ -711,6 +824,8 @@
           <IsMultiLine>false</IsMultiLine>
           <CreateViewMode>Editable</CreateViewMode>
           <EditViewMode>ReadOnly</EditViewMode>
+          <ShowInCollection>true</ShowInCollection>
+          <ShowInDetail>true</ShowInDetail>
           <ValueConstraint>.ToUpperInvariant()</ValueConstraint>
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
@@ -722,6 +837,8 @@
           <IsMultiLine>false</IsMultiLine>
           <CreateViewMode>Editable</CreateViewMode>
           <EditViewMode>ReadOnly</EditViewMode>
+          <ShowInCollection>true</ShowInCollection>
+          <ShowInDetail>true</ShowInDetail>
           <ValueConstraint>.ToUpperInvariant()</ValueConstraint>
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
@@ -733,6 +850,8 @@
           <IsMultiLine>false</IsMultiLine>
           <CreateViewMode>Editable</CreateViewMode>
           <EditViewMode>ReadOnly</EditViewMode>
+          <ShowInCollection>true</ShowInCollection>
+          <ShowInDetail>true</ShowInDetail>
           <ValueConstraint>.ToUpperInvariant()</ValueConstraint>
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
@@ -744,6 +863,8 @@
           <IsMultiLine>false</IsMultiLine>
           <CreateViewMode>Editable</CreateViewMode>
           <EditViewMode>ReadOnly</EditViewMode>
+          <ShowInCollection>true</ShowInCollection>
+          <ShowInDetail>true</ShowInDetail>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
@@ -755,6 +876,8 @@
           <IsMultiLine>false</IsMultiLine>
           <CreateViewMode>Editable</CreateViewMode>
           <EditViewMode>Editable</EditViewMode>
+          <ShowInCollection>true</ShowInCollection>
+          <ShowInDetail>true</ShowInDetail>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
@@ -766,6 +889,8 @@
           <IsMultiLine>true</IsMultiLine>
           <CreateViewMode>Editable</CreateViewMode>
           <EditViewMode>Editable</EditViewMode>
+          <ShowInCollection>true</ShowInCollection>
+          <ShowInDetail>true</ShowInDetail>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
@@ -777,6 +902,8 @@
           <IsMultiLine>false</IsMultiLine>
           <CreateViewMode>Editable</CreateViewMode>
           <EditViewMode>ReadOnly</EditViewMode>
+          <ShowInCollection>true</ShowInCollection>
+          <ShowInDetail>true</ShowInDetail>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
@@ -788,6 +915,8 @@
           <IsMultiLine>false</IsMultiLine>
           <CreateViewMode>Editable</CreateViewMode>
           <EditViewMode>Editable</EditViewMode>
+          <ShowInCollection>true</ShowInCollection>
+          <ShowInDetail>true</ShowInDetail>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
@@ -799,16 +928,20 @@
           <IsMultiLine>false</IsMultiLine>
           <CreateViewMode>Editable</CreateViewMode>
           <EditViewMode>Editable</EditViewMode>
+          <ShowInCollection>true</ShowInCollection>
+          <ShowInDetail>true</ShowInDetail>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
       </Properties>
       <SubFolder>Maintenance</SubFolder>
       <CommandVmNamespace>TD.AppInfra.ViewModels</CommandVmNamespace>
       <CommandVmTypeName>ISymbolCreationContext</CommandVmTypeName>
+      <DetailColumnLayout>OneColumn</DetailColumnLayout>
       <InputColumnLayout>OneColumn</InputColumnLayout>
       <GenModeCreateCommand>GenerateIfNotExists</GenModeCreateCommand>
       <GenModeEditCommand>GenerateIfNotExists</GenModeEditCommand>
       <GenModeDeleteCommand>GenerateIfNotExists</GenModeDeleteCommand>
+      <GenModeDetailCommand>DoNotGenerate</GenModeDetailCommand>
       <GenModeLoadCommand>DoNotGenerate</GenModeLoadCommand>
       <GenModeCreateVM>GenerateIfNotExists</GenModeCreateVM>
       <GenModeEditVM>GenerateIfNotExists</GenModeEditVM>
@@ -817,6 +950,7 @@
       <GenModeLookupService>GenerateIfNotExists</GenModeLookupService>
       <GenModeCreateView>GenerateIfNotExists</GenModeCreateView>
       <GenModeEditView>GenerateIfNotExists</GenModeEditView>
+      <GenModeDetailView>DoNotGenerate</GenModeDetailView>
       <RepositoryName>ISymbolRepository</RepositoryName>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="WpfMvvmEntitySetting">
@@ -833,6 +967,8 @@
           <IsMultiLine>false</IsMultiLine>
           <CreateViewMode>Editable</CreateViewMode>
           <EditViewMode>ReadOnly</EditViewMode>
+          <ShowInCollection>true</ShowInCollection>
+          <ShowInDetail>true</ShowInDetail>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
@@ -844,16 +980,20 @@
           <IsMultiLine>false</IsMultiLine>
           <CreateViewMode>Editable</CreateViewMode>
           <EditViewMode>Editable</EditViewMode>
+          <ShowInCollection>true</ShowInCollection>
+          <ShowInDetail>true</ShowInDetail>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
       </Properties>
       <SubFolder>Trades</SubFolder>
       <CommandVmNamespace />
       <CommandVmTypeName>TradeHistoryVM</CommandVmTypeName>
+      <DetailColumnLayout>OneColumn</DetailColumnLayout>
       <InputColumnLayout>OneColumn</InputColumnLayout>
       <GenModeCreateCommand>GenerateIfNotExists</GenModeCreateCommand>
       <GenModeEditCommand>GenerateIfNotExists</GenModeEditCommand>
       <GenModeDeleteCommand>GenerateIfNotExists</GenModeDeleteCommand>
+      <GenModeDetailCommand>DoNotGenerate</GenModeDetailCommand>
       <GenModeLoadCommand>DoNotGenerate</GenModeLoadCommand>
       <GenModeCreateVM>GenerateIfNotExists</GenModeCreateVM>
       <GenModeEditVM>GenerateIfNotExists</GenModeEditVM>
@@ -862,6 +1002,7 @@
       <GenModeLookupService>DoNotGenerate</GenModeLookupService>
       <GenModeCreateView>DoNotGenerate</GenModeCreateView>
       <GenModeEditView>DoNotGenerate</GenModeEditView>
+      <GenModeDetailView>DoNotGenerate</GenModeDetailView>
       <RepositoryName>IEntryOrderRepository</RepositoryName>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="WpfMvvmEntitySetting">
@@ -878,6 +1019,8 @@
           <IsMultiLine>false</IsMultiLine>
           <CreateViewMode>Editable</CreateViewMode>
           <EditViewMode>ReadOnly</EditViewMode>
+          <ShowInCollection>true</ShowInCollection>
+          <ShowInDetail>true</ShowInDetail>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
@@ -889,16 +1032,20 @@
           <IsMultiLine>false</IsMultiLine>
           <CreateViewMode>Editable</CreateViewMode>
           <EditViewMode>Editable</EditViewMode>
+          <ShowInCollection>true</ShowInCollection>
+          <ShowInDetail>true</ShowInDetail>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
       </Properties>
       <SubFolder>Trades</SubFolder>
       <CommandVmNamespace />
       <CommandVmTypeName>TradeHistoryVM</CommandVmTypeName>
+      <DetailColumnLayout>OneColumn</DetailColumnLayout>
       <InputColumnLayout>OneColumn</InputColumnLayout>
       <GenModeCreateCommand>GenerateIfNotExists</GenModeCreateCommand>
       <GenModeEditCommand>GenerateIfNotExists</GenModeEditCommand>
       <GenModeDeleteCommand>GenerateIfNotExists</GenModeDeleteCommand>
+      <GenModeDetailCommand>DoNotGenerate</GenModeDetailCommand>
       <GenModeLoadCommand>DoNotGenerate</GenModeLoadCommand>
       <GenModeCreateVM>GenerateIfNotExists</GenModeCreateVM>
       <GenModeEditVM>GenerateIfNotExists</GenModeEditVM>
@@ -907,6 +1054,7 @@
       <GenModeLookupService>DoNotGenerate</GenModeLookupService>
       <GenModeCreateView>DoNotGenerate</GenModeCreateView>
       <GenModeEditView>DoNotGenerate</GenModeEditView>
+      <GenModeDetailView>DoNotGenerate</GenModeDetailView>
       <RepositoryName>ITakeProfitOrderRepository</RepositoryName>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="WpfMvvmEntitySetting">
@@ -923,6 +1071,8 @@
           <IsMultiLine>false</IsMultiLine>
           <CreateViewMode>Editable</CreateViewMode>
           <EditViewMode>ReadOnly</EditViewMode>
+          <ShowInCollection>true</ShowInCollection>
+          <ShowInDetail>true</ShowInDetail>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
@@ -934,6 +1084,8 @@
           <IsMultiLine>false</IsMultiLine>
           <CreateViewMode>Editable</CreateViewMode>
           <EditViewMode>Editable</EditViewMode>
+          <ShowInCollection>true</ShowInCollection>
+          <ShowInDetail>true</ShowInDetail>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
@@ -945,16 +1097,20 @@
           <IsMultiLine>false</IsMultiLine>
           <CreateViewMode>Editable</CreateViewMode>
           <EditViewMode>Editable</EditViewMode>
+          <ShowInCollection>true</ShowInCollection>
+          <ShowInDetail>true</ShowInDetail>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
       </Properties>
       <SubFolder>Trades</SubFolder>
       <CommandVmNamespace />
       <CommandVmTypeName>TradeHistoryVM</CommandVmTypeName>
+      <DetailColumnLayout>OneColumn</DetailColumnLayout>
       <InputColumnLayout>OneColumn</InputColumnLayout>
       <GenModeCreateCommand>GenerateIfNotExists</GenModeCreateCommand>
       <GenModeEditCommand>GenerateIfNotExists</GenModeEditCommand>
       <GenModeDeleteCommand>GenerateIfNotExists</GenModeDeleteCommand>
+      <GenModeDetailCommand>DoNotGenerate</GenModeDetailCommand>
       <GenModeLoadCommand>DoNotGenerate</GenModeLoadCommand>
       <GenModeCreateVM>GenerateIfNotExists</GenModeCreateVM>
       <GenModeEditVM>GenerateIfNotExists</GenModeEditVM>
@@ -963,6 +1119,7 @@
       <GenModeLookupService>DoNotGenerate</GenModeLookupService>
       <GenModeCreateView>DoNotGenerate</GenModeCreateView>
       <GenModeEditView>DoNotGenerate</GenModeEditView>
+      <GenModeDetailView>DoNotGenerate</GenModeDetailView>
       <RepositoryName>IStopLossOrderRepository</RepositoryName>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="WpfMvvmEntitySetting">
@@ -979,6 +1136,8 @@
           <IsMultiLine>false</IsMultiLine>
           <CreateViewMode>Editable</CreateViewMode>
           <EditViewMode>ReadOnly</EditViewMode>
+          <ShowInCollection>true</ShowInCollection>
+          <ShowInDetail>true</ShowInDetail>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
@@ -990,6 +1149,8 @@
           <IsMultiLine>false</IsMultiLine>
           <CreateViewMode>Editable</CreateViewMode>
           <EditViewMode>Editable</EditViewMode>
+          <ShowInCollection>true</ShowInCollection>
+          <ShowInDetail>true</ShowInDetail>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
@@ -1001,6 +1162,8 @@
           <IsMultiLine>false</IsMultiLine>
           <CreateViewMode>Editable</CreateViewMode>
           <EditViewMode>Editable</EditViewMode>
+          <ShowInCollection>true</ShowInCollection>
+          <ShowInDetail>true</ShowInDetail>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
@@ -1012,16 +1175,20 @@
           <IsMultiLine>true</IsMultiLine>
           <CreateViewMode>Editable</CreateViewMode>
           <EditViewMode>Editable</EditViewMode>
+          <ShowInCollection>true</ShowInCollection>
+          <ShowInDetail>true</ShowInDetail>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
       </Properties>
       <SubFolder>Trades</SubFolder>
       <CommandVmNamespace />
       <CommandVmTypeName>TradeHistoryVM</CommandVmTypeName>
+      <DetailColumnLayout>OneColumn</DetailColumnLayout>
       <InputColumnLayout>OneColumn</InputColumnLayout>
       <GenModeCreateCommand>GenerateIfNotExists</GenModeCreateCommand>
       <GenModeEditCommand>GenerateIfNotExists</GenModeEditCommand>
       <GenModeDeleteCommand>GenerateIfNotExists</GenModeDeleteCommand>
+      <GenModeDetailCommand>DoNotGenerate</GenModeDetailCommand>
       <GenModeLoadCommand>DoNotGenerate</GenModeLoadCommand>
       <GenModeCreateVM>GenerateIfNotExists</GenModeCreateVM>
       <GenModeEditVM>GenerateIfNotExists</GenModeEditVM>
@@ -1030,6 +1197,7 @@
       <GenModeLookupService>DoNotGenerate</GenModeLookupService>
       <GenModeCreateView>DoNotGenerate</GenModeCreateView>
       <GenModeEditView>DoNotGenerate</GenModeEditView>
+      <GenModeDetailView>DoNotGenerate</GenModeDetailView>
       <RepositoryName>ITradeImageRepository</RepositoryName>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="WpfMvvmEntitySetting">
@@ -1046,6 +1214,8 @@
           <IsMultiLine>false</IsMultiLine>
           <CreateViewMode>Editable</CreateViewMode>
           <EditViewMode>ReadOnly</EditViewMode>
+          <ShowInCollection>true</ShowInCollection>
+          <ShowInDetail>true</ShowInDetail>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
@@ -1057,6 +1227,8 @@
           <IsMultiLine>false</IsMultiLine>
           <CreateViewMode>Editable</CreateViewMode>
           <EditViewMode>Editable</EditViewMode>
+          <ShowInCollection>false</ShowInCollection>
+          <ShowInDetail>false</ShowInDetail>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
@@ -1068,6 +1240,8 @@
           <IsMultiLine>false</IsMultiLine>
           <CreateViewMode>Editable</CreateViewMode>
           <EditViewMode>ReadOnly</EditViewMode>
+          <ShowInCollection>true</ShowInCollection>
+          <ShowInDetail>true</ShowInDetail>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
@@ -1079,6 +1253,8 @@
           <IsMultiLine>false</IsMultiLine>
           <CreateViewMode>Editable</CreateViewMode>
           <EditViewMode>ReadOnly</EditViewMode>
+          <ShowInCollection>false</ShowInCollection>
+          <ShowInDetail>false</ShowInDetail>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
@@ -1090,6 +1266,8 @@
           <IsMultiLine>false</IsMultiLine>
           <CreateViewMode>Editable</CreateViewMode>
           <EditViewMode>Editable</EditViewMode>
+          <ShowInCollection>true</ShowInCollection>
+          <ShowInDetail>true</ShowInDetail>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
@@ -1101,6 +1279,8 @@
           <IsMultiLine>false</IsMultiLine>
           <CreateViewMode>Editable</CreateViewMode>
           <EditViewMode>ReadOnly</EditViewMode>
+          <ShowInCollection>true</ShowInCollection>
+          <ShowInDetail>true</ShowInDetail>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
@@ -1112,6 +1292,8 @@
           <IsMultiLine>false</IsMultiLine>
           <CreateViewMode>Editable</CreateViewMode>
           <EditViewMode>Editable</EditViewMode>
+          <ShowInCollection>true</ShowInCollection>
+          <ShowInDetail>true</ShowInDetail>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
@@ -1123,10 +1305,25 @@
           <IsMultiLine>false</IsMultiLine>
           <CreateViewMode>Exclude</CreateViewMode>
           <EditViewMode>Editable</EditViewMode>
+          <ShowInCollection>true</ShowInCollection>
+          <ShowInDetail>true</ShowInDetail>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
           <Name>IsFullyClosed</Name>
+          <Exclude>false</Exclude>
+          <CreateEditOrder>101200</CreateEditOrder>
+          <DefaultValue />
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
+          <IsMultiLine>false</IsMultiLine>
+          <CreateViewMode>Exclude</CreateViewMode>
+          <EditViewMode>Exclude</EditViewMode>
+          <ShowInCollection>true</ShowInCollection>
+          <ShowInDetail>true</ShowInDetail>
+          <ValueConstraint />
+        </WpfMvvmPropertySetting>
+        <WpfMvvmPropertySetting>
+          <Name>RealizedR</Name>
           <Exclude>false</Exclude>
           <CreateEditOrder>101100</CreateEditOrder>
           <DefaultValue />
@@ -1134,6 +1331,8 @@
           <IsMultiLine>false</IsMultiLine>
           <CreateViewMode>Exclude</CreateViewMode>
           <EditViewMode>Exclude</EditViewMode>
+          <ShowInCollection>true</ShowInCollection>
+          <ShowInDetail>true</ShowInDetail>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
@@ -1145,6 +1344,8 @@
           <IsMultiLine>false</IsMultiLine>
           <CreateViewMode>Editable</CreateViewMode>
           <EditViewMode>Editable</EditViewMode>
+          <ShowInCollection>true</ShowInCollection>
+          <ShowInDetail>true</ShowInDetail>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
@@ -1156,65 +1357,64 @@
           <IsMultiLine>false</IsMultiLine>
           <CreateViewMode>Exclude</CreateViewMode>
           <EditViewMode>Editable</EditViewMode>
+          <ShowInCollection>true</ShowInCollection>
+          <ShowInDetail>true</ShowInDetail>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
           <Name>OrderQuantity</Name>
           <Exclude>false</Exclude>
-          <CreateEditOrder>101400</CreateEditOrder>
+          <CreateEditOrder>101500</CreateEditOrder>
           <DefaultValue />
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsMultiLine>false</IsMultiLine>
           <CreateViewMode>Editable</CreateViewMode>
           <EditViewMode>Editable</EditViewMode>
+          <ShowInCollection>true</ShowInCollection>
+          <ShowInDetail>true</ShowInDetail>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
           <Name>FilledQuantity</Name>
           <Exclude>false</Exclude>
-          <CreateEditOrder>101500</CreateEditOrder>
+          <CreateEditOrder>101600</CreateEditOrder>
           <DefaultValue />
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsMultiLine>false</IsMultiLine>
           <CreateViewMode>Exclude</CreateViewMode>
           <EditViewMode>Editable</EditViewMode>
+          <ShowInCollection>true</ShowInCollection>
+          <ShowInDetail>true</ShowInDetail>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
           <Name>PlannedPositionValue</Name>
           <Exclude>false</Exclude>
-          <CreateEditOrder>101200</CreateEditOrder>
+          <CreateEditOrder>101300</CreateEditOrder>
           <DefaultValue />
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsMultiLine>false</IsMultiLine>
           <CreateViewMode>Editable</CreateViewMode>
           <EditViewMode>ReadOnly</EditViewMode>
+          <ShowInCollection>true</ShowInCollection>
+          <ShowInDetail>true</ShowInDetail>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
           <Name>ExecutedPositionValue</Name>
           <Exclude>false</Exclude>
-          <CreateEditOrder>101300</CreateEditOrder>
+          <CreateEditOrder>101400</CreateEditOrder>
           <DefaultValue />
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsMultiLine>false</IsMultiLine>
           <CreateViewMode>Exclude</CreateViewMode>
           <EditViewMode>ReadOnly</EditViewMode>
+          <ShowInCollection>true</ShowInCollection>
+          <ShowInDetail>true</ShowInDetail>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
           <Name>PlannedProfitLoss</Name>
-          <Exclude>false</Exclude>
-          <CreateEditOrder>101800</CreateEditOrder>
-          <DefaultValue />
-          <IsPreselectedInCreate>false</IsPreselectedInCreate>
-          <IsMultiLine>false</IsMultiLine>
-          <CreateViewMode>Exclude</CreateViewMode>
-          <EditViewMode>Exclude</EditViewMode>
-          <ValueConstraint />
-        </WpfMvvmPropertySetting>
-        <WpfMvvmPropertySetting>
-          <Name>RealizedProfitLoss</Name>
           <Exclude>false</Exclude>
           <CreateEditOrder>101900</CreateEditOrder>
           <DefaultValue />
@@ -1222,43 +1422,51 @@
           <IsMultiLine>false</IsMultiLine>
           <CreateViewMode>Exclude</CreateViewMode>
           <EditViewMode>Exclude</EditViewMode>
+          <ShowInCollection>true</ShowInCollection>
+          <ShowInDetail>true</ShowInDetail>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
-          <Name>PlannedTP</Name>
+          <Name>RealizedProfitLoss</Name>
           <Exclude>false</Exclude>
           <CreateEditOrder>102000</CreateEditOrder>
           <DefaultValue />
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsMultiLine>false</IsMultiLine>
-          <CreateViewMode>Editable</CreateViewMode>
-          <EditViewMode>Editable</EditViewMode>
+          <CreateViewMode>Exclude</CreateViewMode>
+          <EditViewMode>Exclude</EditViewMode>
+          <ShowInCollection>true</ShowInCollection>
+          <ShowInDetail>true</ShowInDetail>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
-          <Name>ExecutedTP</Name>
+          <Name>PlannedTP</Name>
           <Exclude>false</Exclude>
           <CreateEditOrder>102100</CreateEditOrder>
           <DefaultValue />
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsMultiLine>false</IsMultiLine>
-          <CreateViewMode>Exclude</CreateViewMode>
+          <CreateViewMode>Editable</CreateViewMode>
           <EditViewMode>Editable</EditViewMode>
+          <ShowInCollection>true</ShowInCollection>
+          <ShowInDetail>true</ShowInDetail>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
-          <Name>PlannedRiskAmount</Name>
+          <Name>ExecutedTP</Name>
           <Exclude>false</Exclude>
           <CreateEditOrder>102200</CreateEditOrder>
           <DefaultValue />
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsMultiLine>false</IsMultiLine>
           <CreateViewMode>Exclude</CreateViewMode>
-          <EditViewMode>Exclude</EditViewMode>
+          <EditViewMode>Editable</EditViewMode>
+          <ShowInCollection>true</ShowInCollection>
+          <ShowInDetail>true</ShowInDetail>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
-          <Name>RealizedRiskAmount</Name>
+          <Name>PlannedRiskAmount</Name>
           <Exclude>false</Exclude>
           <CreateEditOrder>102300</CreateEditOrder>
           <DefaultValue />
@@ -1266,32 +1474,12 @@
           <IsMultiLine>false</IsMultiLine>
           <CreateViewMode>Exclude</CreateViewMode>
           <EditViewMode>Exclude</EditViewMode>
+          <ShowInCollection>true</ShowInCollection>
+          <ShowInDetail>true</ShowInDetail>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
-          <Name>PlannedSL</Name>
-          <Exclude>false</Exclude>
-          <CreateEditOrder>101600</CreateEditOrder>
-          <DefaultValue />
-          <IsPreselectedInCreate>false</IsPreselectedInCreate>
-          <IsMultiLine>false</IsMultiLine>
-          <CreateViewMode>Editable</CreateViewMode>
-          <EditViewMode>Editable</EditViewMode>
-          <ValueConstraint />
-        </WpfMvvmPropertySetting>
-        <WpfMvvmPropertySetting>
-          <Name>ExecutedSL</Name>
-          <Exclude>false</Exclude>
-          <CreateEditOrder>101700</CreateEditOrder>
-          <DefaultValue />
-          <IsPreselectedInCreate>false</IsPreselectedInCreate>
-          <IsMultiLine>false</IsMultiLine>
-          <CreateViewMode>Exclude</CreateViewMode>
-          <EditViewMode>Editable</EditViewMode>
-          <ValueConstraint />
-        </WpfMvvmPropertySetting>
-        <WpfMvvmPropertySetting>
-          <Name>PlannedRiskRewardRatio</Name>
+          <Name>RealizedRiskAmount</Name>
           <Exclude>false</Exclude>
           <CreateEditOrder>102400</CreateEditOrder>
           <DefaultValue />
@@ -1299,10 +1487,38 @@
           <IsMultiLine>false</IsMultiLine>
           <CreateViewMode>Exclude</CreateViewMode>
           <EditViewMode>Exclude</EditViewMode>
+          <ShowInCollection>true</ShowInCollection>
+          <ShowInDetail>true</ShowInDetail>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
-          <Name>RealizedR</Name>
+          <Name>PlannedSL</Name>
+          <Exclude>false</Exclude>
+          <CreateEditOrder>101700</CreateEditOrder>
+          <DefaultValue />
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
+          <IsMultiLine>false</IsMultiLine>
+          <CreateViewMode>Editable</CreateViewMode>
+          <EditViewMode>Editable</EditViewMode>
+          <ShowInCollection>true</ShowInCollection>
+          <ShowInDetail>true</ShowInDetail>
+          <ValueConstraint />
+        </WpfMvvmPropertySetting>
+        <WpfMvvmPropertySetting>
+          <Name>ExecutedSL</Name>
+          <Exclude>false</Exclude>
+          <CreateEditOrder>101800</CreateEditOrder>
+          <DefaultValue />
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
+          <IsMultiLine>false</IsMultiLine>
+          <CreateViewMode>Exclude</CreateViewMode>
+          <EditViewMode>Editable</EditViewMode>
+          <ShowInCollection>true</ShowInCollection>
+          <ShowInDetail>true</ShowInDetail>
+          <ValueConstraint />
+        </WpfMvvmPropertySetting>
+        <WpfMvvmPropertySetting>
+          <Name>PlannedRiskRewardRatio</Name>
           <Exclude>false</Exclude>
           <CreateEditOrder>102500</CreateEditOrder>
           <DefaultValue />
@@ -1310,38 +1526,46 @@
           <IsMultiLine>false</IsMultiLine>
           <CreateViewMode>Exclude</CreateViewMode>
           <EditViewMode>Exclude</EditViewMode>
+          <ShowInCollection>true</ShowInCollection>
+          <ShowInDetail>true</ShowInDetail>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
           <Name>SetupNotes</Name>
           <Exclude>false</Exclude>
-          <CreateEditOrder>102600</CreateEditOrder>
+          <CreateEditOrder>2002100</CreateEditOrder>
           <DefaultValue />
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsMultiLine>true</IsMultiLine>
           <CreateViewMode>Editable</CreateViewMode>
           <EditViewMode>ReadOnly</EditViewMode>
+          <ShowInCollection>true</ShowInCollection>
+          <ShowInDetail>true</ShowInDetail>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
           <Name>ReviewNotes</Name>
           <Exclude>false</Exclude>
-          <CreateEditOrder>102700</CreateEditOrder>
+          <CreateEditOrder>2002200</CreateEditOrder>
           <DefaultValue />
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsMultiLine>true</IsMultiLine>
           <CreateViewMode>Exclude</CreateViewMode>
           <EditViewMode>Exclude</EditViewMode>
+          <ShowInCollection>true</ShowInCollection>
+          <ShowInDetail>true</ShowInDetail>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
       </Properties>
       <SubFolder>Trades</SubFolder>
       <CommandVmNamespace>TD.WPF.ViewModels.Trades</CommandVmNamespace>
       <CommandVmTypeName>TradeListVM</CommandVmTypeName>
+      <DetailColumnLayout>TwoColumns</DetailColumnLayout>
       <InputColumnLayout>TwoColumns</InputColumnLayout>
       <GenModeCreateCommand>GenerateIfNotExists</GenModeCreateCommand>
       <GenModeEditCommand>GenerateIfNotExists</GenModeEditCommand>
       <GenModeDeleteCommand>GenerateIfNotExists</GenModeDeleteCommand>
+      <GenModeDetailCommand>GenerateIfNotExists</GenModeDetailCommand>
       <GenModeLoadCommand>GenerateIfNotExists</GenModeLoadCommand>
       <GenModeCreateVM>GenerateIfNotExists</GenModeCreateVM>
       <GenModeEditVM>GenerateIfNotExists</GenModeEditVM>
@@ -1350,6 +1574,7 @@
       <GenModeLookupService>DoNotGenerate</GenModeLookupService>
       <GenModeCreateView>GenerateIfNotExists</GenModeCreateView>
       <GenModeEditView>GenerateIfNotExists</GenModeEditView>
+      <GenModeDetailView>SkipManuallyEdited</GenModeDetailView>
       <RepositoryName>ITradeRepository</RepositoryName>
     </BaseEntitySetting>
   </EntitySettings>

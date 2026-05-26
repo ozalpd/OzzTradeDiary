@@ -1460,9 +1460,24 @@
           <IsNullable>false</IsNullable>
           <IsStoreGenerated>false</IsStoreGenerated>
         </BaseProperty>
+        <BaseProperty xsi:type="SimpleProperty">
+          <Name>RealizedR</Name>
+          <DisplayOrder>101000</DisplayOrder>
+          <DisplayName>Realized R</DisplayName>
+          <TypeName>decimal</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <RestrictedData>false</RestrictedData>
+          <EnumTypeName />
+          <IsKey>false</IsKey>
+          <IsForeignKey>false</IsForeignKey>
+          <IsImmutable>false</IsImmutable>
+          <IsNullable>true</IsNullable>
+          <IsStoreGenerated>false</IsStoreGenerated>
+        </BaseProperty>
         <BaseProperty xsi:type="CollectionProperty">
           <Name>EntryOrders</Name>
-          <DisplayOrder>101000</DisplayOrder>
+          <DisplayOrder>101100</DisplayOrder>
           <DisplayName>Entry Orders</DisplayName>
           <TypeName>ICollection&lt;EntryOrder&gt;</TypeName>
           <IsClientComputed>false</IsClientComputed>
@@ -1472,7 +1487,7 @@
         <BaseProperty xsi:type="SimpleProperty">
           <Name>PlannedEntryPrice</Name>
           <Comment>Planned Entry Price, calculated from EntryOrders</Comment>
-          <DisplayOrder>101100</DisplayOrder>
+          <DisplayOrder>101200</DisplayOrder>
           <DisplayName>Planned Entry Price</DisplayName>
           <TypeName>decimal</TypeName>
           <IsClientComputed>false</IsClientComputed>
@@ -1488,7 +1503,7 @@
         <BaseProperty xsi:type="SimpleProperty">
           <Name>ExecutedEntryPrice</Name>
           <Comment>Executed Entry Price, calculated from EntryOrders</Comment>
-          <DisplayOrder>101200</DisplayOrder>
+          <DisplayOrder>101300</DisplayOrder>
           <DisplayName>Executed Entry Price</DisplayName>
           <TypeName>decimal</TypeName>
           <IsClientComputed>false</IsClientComputed>
@@ -1504,7 +1519,7 @@
         <BaseProperty xsi:type="SimpleProperty">
           <Name>OrderQuantity</Name>
           <Comment>Planned contract quantity of order</Comment>
-          <DisplayOrder>101300</DisplayOrder>
+          <DisplayOrder>101400</DisplayOrder>
           <DisplayName>Order Quantity</DisplayName>
           <TypeName>decimal</TypeName>
           <IsClientComputed>false</IsClientComputed>
@@ -1520,7 +1535,7 @@
         <BaseProperty xsi:type="SimpleProperty">
           <Name>FilledQuantity</Name>
           <Comment>Realized contract quantity of order</Comment>
-          <DisplayOrder>101400</DisplayOrder>
+          <DisplayOrder>101500</DisplayOrder>
           <DisplayName>Filled Quantity</DisplayName>
           <TypeName>decimal</TypeName>
           <IsClientComputed>false</IsClientComputed>
@@ -1535,7 +1550,7 @@
         </BaseProperty>
         <BaseProperty xsi:type="SimpleProperty">
           <Name>PlannedPositionValue</Name>
-          <DisplayOrder>101500</DisplayOrder>
+          <DisplayOrder>101600</DisplayOrder>
           <DisplayName>Planned Position Value</DisplayName>
           <TypeName>decimal</TypeName>
           <IsClientComputed>false</IsClientComputed>
@@ -1550,7 +1565,7 @@
         </BaseProperty>
         <BaseProperty xsi:type="SimpleProperty">
           <Name>ExecutedPositionValue</Name>
-          <DisplayOrder>101600</DisplayOrder>
+          <DisplayOrder>101700</DisplayOrder>
           <DisplayName>Executed Position Value</DisplayName>
           <TypeName>decimal</TypeName>
           <IsClientComputed>false</IsClientComputed>
@@ -1565,7 +1580,7 @@
         </BaseProperty>
         <BaseProperty xsi:type="CollectionProperty">
           <Name>TakeProfitOrders</Name>
-          <DisplayOrder>101700</DisplayOrder>
+          <DisplayOrder>101800</DisplayOrder>
           <DisplayName>Take Profit Orders</DisplayName>
           <TypeName>ICollection&lt;TakeProfitOrder&gt;</TypeName>
           <IsClientComputed>false</IsClientComputed>
@@ -1574,7 +1589,7 @@
         </BaseProperty>
         <BaseProperty xsi:type="SimpleProperty">
           <Name>PlannedProfitLoss</Name>
-          <DisplayOrder>101800</DisplayOrder>
+          <DisplayOrder>101900</DisplayOrder>
           <DisplayName>Planned P/L</DisplayName>
           <TypeName>decimal</TypeName>
           <IsClientComputed>false</IsClientComputed>
@@ -1589,7 +1604,7 @@
         </BaseProperty>
         <BaseProperty xsi:type="SimpleProperty">
           <Name>RealizedProfitLoss</Name>
-          <DisplayOrder>101900</DisplayOrder>
+          <DisplayOrder>102000</DisplayOrder>
           <DisplayName>Realized P/L</DisplayName>
           <TypeName>decimal</TypeName>
           <IsClientComputed>false</IsClientComputed>
@@ -1605,7 +1620,7 @@
         <BaseProperty xsi:type="SimpleProperty">
           <Name>PlannedTP</Name>
           <Comment>Planned Take Profit Price, calculated from TakeProfitOrders</Comment>
-          <DisplayOrder>102000</DisplayOrder>
+          <DisplayOrder>102100</DisplayOrder>
           <DisplayName>Planned Take Profit</DisplayName>
           <TypeName>decimal</TypeName>
           <IsClientComputed>false</IsClientComputed>
@@ -1621,7 +1636,7 @@
         <BaseProperty xsi:type="SimpleProperty">
           <Name>ExecutedTP</Name>
           <Comment>Executed Take Profit Price, calculated from TakeProfitOrders</Comment>
-          <DisplayOrder>102100</DisplayOrder>
+          <DisplayOrder>102200</DisplayOrder>
           <DisplayName>Executed Take Profit</DisplayName>
           <TypeName>decimal</TypeName>
           <IsClientComputed>false</IsClientComputed>
@@ -1636,7 +1651,7 @@
         </BaseProperty>
         <BaseProperty xsi:type="CollectionProperty">
           <Name>StopLossOrders</Name>
-          <DisplayOrder>102200</DisplayOrder>
+          <DisplayOrder>102300</DisplayOrder>
           <DisplayName>Stop Loss Orders</DisplayName>
           <TypeName>ICollection&lt;StopLossOrder&gt;</TypeName>
           <IsClientComputed>false</IsClientComputed>
@@ -1645,7 +1660,7 @@
         </BaseProperty>
         <BaseProperty xsi:type="SimpleProperty">
           <Name>PlannedRiskAmount</Name>
-          <DisplayOrder>102300</DisplayOrder>
+          <DisplayOrder>102400</DisplayOrder>
           <DisplayName>Planned Risk Amount</DisplayName>
           <TypeName>decimal</TypeName>
           <IsClientComputed>false</IsClientComputed>
@@ -1660,7 +1675,7 @@
         </BaseProperty>
         <BaseProperty xsi:type="SimpleProperty">
           <Name>RealizedRiskAmount</Name>
-          <DisplayOrder>102400</DisplayOrder>
+          <DisplayOrder>102500</DisplayOrder>
           <DisplayName>Realized Risk Amount</DisplayName>
           <TypeName>decimal</TypeName>
           <IsClientComputed>false</IsClientComputed>
@@ -1676,7 +1691,7 @@
         <BaseProperty xsi:type="SimpleProperty">
           <Name>PlannedSL</Name>
           <Comment>Planned Stop Loss Price, calculated from StopLossOrders</Comment>
-          <DisplayOrder>102500</DisplayOrder>
+          <DisplayOrder>102600</DisplayOrder>
           <DisplayName>Planned Stop Loss</DisplayName>
           <TypeName>decimal</TypeName>
           <IsClientComputed>false</IsClientComputed>
@@ -1692,7 +1707,7 @@
         <BaseProperty xsi:type="SimpleProperty">
           <Name>ExecutedSL</Name>
           <Comment>Executed Stop Loss Price, calculated from StopLossOrders</Comment>
-          <DisplayOrder>102600</DisplayOrder>
+          <DisplayOrder>102700</DisplayOrder>
           <DisplayName>Executed Stop Loss</DisplayName>
           <TypeName>decimal</TypeName>
           <IsClientComputed>false</IsClientComputed>
@@ -1707,23 +1722,8 @@
         </BaseProperty>
         <BaseProperty xsi:type="SimpleProperty">
           <Name>PlannedRiskRewardRatio</Name>
-          <DisplayOrder>102700</DisplayOrder>
-          <DisplayName>Planned Risk Reward Ratio</DisplayName>
-          <TypeName>decimal</TypeName>
-          <IsClientComputed>false</IsClientComputed>
-          <IsServerComputed>false</IsServerComputed>
-          <RestrictedData>false</RestrictedData>
-          <EnumTypeName />
-          <IsKey>false</IsKey>
-          <IsForeignKey>false</IsForeignKey>
-          <IsImmutable>false</IsImmutable>
-          <IsNullable>true</IsNullable>
-          <IsStoreGenerated>false</IsStoreGenerated>
-        </BaseProperty>
-        <BaseProperty xsi:type="SimpleProperty">
-          <Name>RealizedR</Name>
           <DisplayOrder>102800</DisplayOrder>
-          <DisplayName>Realized R</DisplayName>
+          <DisplayName>Planned Risk Reward Ratio</DisplayName>
           <TypeName>decimal</TypeName>
           <IsClientComputed>false</IsClientComputed>
           <IsServerComputed>false</IsServerComputed>

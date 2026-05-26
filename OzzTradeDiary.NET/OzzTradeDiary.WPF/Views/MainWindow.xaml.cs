@@ -1,6 +1,8 @@
 ﻿using System.Windows;
 using TD.AppInfra.DesignTime;
 using TD.AppInfra.Models;
+using TD.Models;
+using TD.WPF.DesignTime;
 using TD.WPF.Models;
 using TD.WPF.ViewModels;
 

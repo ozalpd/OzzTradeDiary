@@ -115,6 +115,17 @@ namespace TD.WPF.Services
         }
 
         /// <inheritdoc />
+        public void ShowTradeDetailDialog(Window owner, Trade trade)
+        {
+            var dialog = new TradeDetailView(trade)
+            {
+                Owner = owner
+            };
+
+            dialog.ShowDialog();
+        }
+
+        /// <inheritdoc />
         public (bool IsConfirmed, TradingAccount? TradingAccount) ShowTradingAccountCreateDialog(Window owner, IExchangeLookupService exchangeLookupService,
                                                                                                  Exchange? preselectedExchange)
         {

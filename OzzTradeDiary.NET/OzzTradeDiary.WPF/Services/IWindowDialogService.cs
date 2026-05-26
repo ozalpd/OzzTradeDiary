@@ -107,6 +107,14 @@ namespace TD.WPF.Services
         (bool IsConfirmed, bool IsDirty) ShowTradeEditDialog(Window owner, Trade trade);
 
         /// <summary>
+        /// Displays a dialog showing detailed information for the specified trade.
+        /// </summary>
+        /// <param name="owner">The window that will own the dialog. This parameter determines the parent window for modal behavior and dialog
+        /// positioning.</param>
+        /// <param name="trade">The trade entity to display in the detail dialog.</param>
+        void ShowTradeDetailDialog(Window owner, Trade trade);
+
+        /// <summary>
         /// Displays the Trading Account creation dialog and returns the result indicating whether the user confirmed the dialog
         /// and the created Trading Account, if any.
         /// </summary>

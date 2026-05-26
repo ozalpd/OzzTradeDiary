@@ -790,6 +790,15 @@
           <IsSearchParameter>true</IsSearchParameter>
         </ModelPropertySetting>
         <ModelPropertySetting>
+          <Name>RealizedR</Name>
+          <Exclude>true</Exclude>
+          <DataType />
+          <DTOExclusion>false</DTOExclusion>
+          <HtmlEncode xsi:nil="true" />
+          <Required />
+          <IsSearchParameter>false</IsSearchParameter>
+        </ModelPropertySetting>
+        <ModelPropertySetting>
           <Name>EntryOrders</Name>
           <Exclude>false</Exclude>
           <DTOExclusion>false</DTOExclusion>
@@ -941,15 +950,6 @@
         </ModelPropertySetting>
         <ModelPropertySetting>
           <Name>PlannedRiskRewardRatio</Name>
-          <Exclude>true</Exclude>
-          <DataType />
-          <DTOExclusion>false</DTOExclusion>
-          <HtmlEncode xsi:nil="true" />
-          <Required />
-          <IsSearchParameter>false</IsSearchParameter>
-        </ModelPropertySetting>
-        <ModelPropertySetting>
-          <Name>RealizedR</Name>
           <Exclude>true</Exclude>
           <DataType />
           <DTOExclusion>false</DTOExclusion>

@@ -1,7 +1,6 @@
 using System.Windows;
 using TD.AppInfra.Commands;
 using TD.i18n;
-using TD.WPF.Services;
 using TD.WPF.ViewModels.Trades;
 //----------------------------------------------------------------------------------
 //
