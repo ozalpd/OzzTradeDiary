@@ -11,12 +11,18 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - Added `TradeDetailCommand` and toolbar button for quick access.
 - Extended `IWindowDialogService` and `WindowDialogService` with `ShowTradeDetailDialog`.
 - Added `TradeDetailView.xaml` and code-behind. Improved design-time support with `MockTradeHistoryVM` and `MockWindowDialogService`.
+- Added `ToRoundedString` extension for decimal/nullable decimal
+- Added `Rounded*` properties to `Trade` model for UI-friendly values
 
 ### Changed
 - Refactored `MainWindowVM` for dialog service injection.
 - Updated main window layout and detail pane for better alignment and consistency.
 - Applied consistent label styling in trade create/edit views.
 - Updated codegen settings to include `RealizedR` and improve property visibility in generated views.
+- Updated `Numeric.RoundToQuantum` thresholds for better scaling
+- Updated `MainWindow.xaml` and `TradeDetailView.xaml` to use new rounded string properties for numeric fields
+- Adjusted icon margins and detail pane padding for improved UI alignment
+- Tweaked mock `ReviewNotes` formatting for sample data
 
 ## [0.1.4] - 2026-05-24
 

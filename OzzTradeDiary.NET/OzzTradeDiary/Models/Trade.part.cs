@@ -251,5 +251,28 @@ namespace TD.Models
         }
         decimal? _realizedR;
 
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "FilledQuantity")]
+        public string RoundedFilledQuantity => FilledQuantity.ToRoundedString();
+
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "OrderQuantity")]
+        public string RoundedOrderQuantity => OrderQuantity.ToRoundedString();
+
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "PlannedEntryPrice")]
+        public string RoundedPlannedEntryPrice => PlannedEntryPrice.ToRoundedString();
+        
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "ExecutedEntryPrice")]
+        public string RoundedExecutedEntryPrice => ExecutedEntryPrice.ToRoundedString();
+
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "PlannedSL")]
+        public string RoundedPlannedSL => PlannedSL.ToRoundedString();
+
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "ExecutedSL")]
+        public string RoundedExecutedSL => ExecutedSL.ToRoundedString();
+
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "PlannedTP")]
+        public string RoundedPlannedTP => PlannedTP.ToRoundedString();
+
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "ExecutedTP")]
+        public string RoundedExecutedTP => ExecutedTP.ToRoundedString();
     }
 }

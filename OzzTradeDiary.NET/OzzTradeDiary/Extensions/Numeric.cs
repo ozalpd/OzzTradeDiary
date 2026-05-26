@@ -18,27 +18,31 @@
         /// decimal places.
         /// </summary>
         /// <param name="value">The decimal value to round.</param>
-        /// <returns>The rounded value with 1-6 decimal places depending on magnitude: 1 place for values > 10000, 2 for > 1000,
-        /// 3 for > 100, 4 for > 10, 5 for > 1, and 6 for values ≤ 1.</returns>
+        /// <returns>The rounded value with 1-6 decimal places depending on magnitude: 1 place for values > 20000, 2 for > 2000,
+        /// 3 for > 200, 4 for > 20, 5 for > 2, and 6 for values ≤ 1.</returns>
         public static decimal RoundToQuantum(this decimal value)
         {
-            if (value > 10000)
+            if (value > 200000)
+            {
+                value = Math.Round(value, 0);
+            }
+            else if (value > 20000)
             {
                 value = Math.Round(value, 1);
             }
-            else if (value > 1000)
+            else if (value > 2000)
             {
                 value = Math.Round(value, 2);
             }
-            else if (value > 100)
+            else if (value > 200)
             {
                 value = Math.Round(value, 3);
             }
-            else if (value > 10)
+            else if (value > 20)
             {
                 value = Math.Round(value, 4);
             }
-            else if (value > 1)
+            else if (value > 2)
             {
                 value = Math.Round(value, 5);
             }
@@ -48,6 +52,49 @@
             }
 
             return value;
+        }
+
+        public static string ToRoundedString(this decimal value)
+        {
+            string s;
+            if (value > 200000)
+            {
+                s = value.RoundToQuantum().ToString("N0");
+            }
+            else if (value > 20000)
+            {
+                s = value.RoundToQuantum().ToString("N1");
+            }
+            else if (value > 2000)
+            {
+                s = value.RoundToQuantum().ToString("N2");
+            }
+            else if (value > 200)
+            {
+                s = value.RoundToQuantum().ToString("N3");
+            }
+            else if (value > 20)
+            {
+                s = value.RoundToQuantum().ToString("N4");
+            }
+            else if (value > 2)
+            {
+                s = value.RoundToQuantum().ToString("N5");
+            }
+            else
+            {
+                s = value.RoundToQuantum().ToString("N6");
+            }
+            return s;
+        }
+
+        public static string ToRoundedString(this decimal? value)
+        {
+            if (value.HasValue)
+            {
+                return value.Value.ToRoundedString();
+            }
+            return string.Empty;
         }
     }
 }
