@@ -1573,6 +1573,10 @@
     <Translation>Planned Position Value</Translation>
   </Vocab>
   <Vocab>
+    <Name>PlannedProfit</Name>
+    <Translation>Planned Profit</Translation>
+  </Vocab>
+  <Vocab>
     <Name>PlannedProfitLoss</Name>
     <Translation>Planned Profit Loss</Translation>
   </Vocab>
@@ -1747,6 +1751,10 @@
   <Vocab>
     <Name>RelatedRecordsExist</Name>
     <Translation>This record has {0} related {1}.</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>RemainingPositionValue</Name>
+    <Translation>Remaining Position Value</Translation>
   </Vocab>
   <Vocab>
     <Name>Remove</Name>

@@ -6,6 +6,129 @@ namespace TD.Models
 {
     public partial class Trade
     {
+        public void CalculateFromOrders()
+        {
+            decimal totalExecutedValue = 0;
+            decimal totalPlannedValue = 0;
+            decimal totalFilledQuantity = 0;
+            decimal totalOrderQuantity = 0;
+            foreach (var entry in EntryOrders)
+            {
+                if (entry.FilledPrice.HasValue && entry.FilledQuantity.HasValue)
+                {
+                    totalExecutedValue += entry.FilledPrice.Value * entry.FilledQuantity.Value;
+                    totalFilledQuantity += entry.FilledQuantity.Value;
+                }
+
+                if (entry.OrderPrice > 0 && entry.OrderQuantity.HasValue)
+                {
+                    totalPlannedValue += entry.OrderPrice * entry.OrderQuantity.Value;
+                    totalOrderQuantity += entry.OrderQuantity.Value;
+                }
+            }
+
+            if (totalFilledQuantity > 0)
+            {
+                //Some prices are less than a tenth of a cent, so we don't round prices here
+                ExecutedEntryPrice = totalExecutedValue / totalFilledQuantity;
+                FilledQuantity = totalFilledQuantity;
+            }
+            else
+            {
+                ExecutedEntryPrice = null;
+                FilledQuantity = null;
+            }
+
+            if (totalOrderQuantity > 0)
+            {
+                //Some prices are less than a tenth of a cent, so we don't round prices here
+                PlannedEntryPrice = totalPlannedValue / totalOrderQuantity;
+                OrderQuantity = totalOrderQuantity;
+            }
+            else
+            {
+                PlannedEntryPrice = null;
+                OrderQuantity = null;
+            }
+
+
+            totalExecutedValue = 0;
+            totalPlannedValue = 0;
+            totalFilledQuantity = 0;
+            totalOrderQuantity = 0;
+            foreach (var tpOrder in TakeProfitOrders)
+            {
+                if (tpOrder.FilledPrice.HasValue && tpOrder.FilledQuantity.HasValue)
+                {
+                    totalExecutedValue += tpOrder.FilledPrice.Value * tpOrder.FilledQuantity.Value;
+                    totalFilledQuantity += tpOrder.FilledQuantity.Value;
+                }
+
+                if (tpOrder.OrderPrice > 0 && tpOrder.OrderQuantity.HasValue)
+                {
+                    totalPlannedValue += tpOrder.OrderPrice * tpOrder.OrderQuantity.Value;
+                    totalOrderQuantity += tpOrder.OrderQuantity.Value;
+                }
+            }
+
+            if (totalFilledQuantity > 0)
+            {
+                ExecutedTP = totalExecutedValue / totalFilledQuantity;
+            }
+            else
+            {
+                ExecutedTP = null;
+            }
+
+            if (totalOrderQuantity > 0)
+            {
+                PlannedTP = totalPlannedValue / totalOrderQuantity;
+            }
+            else
+            {
+                PlannedTP = null;
+            }
+
+
+            totalExecutedValue = 0;
+            totalPlannedValue = 0;
+            totalFilledQuantity = 0;
+            totalOrderQuantity = 0;
+            foreach (var slOrder in StopLossOrders)
+            {
+                if (slOrder.FilledPrice.HasValue && slOrder.FilledQuantity.HasValue)
+                {
+                    totalExecutedValue += slOrder.FilledPrice.Value * slOrder.FilledQuantity.Value;
+                    totalFilledQuantity += slOrder.FilledQuantity.Value;
+                }
+
+                if (slOrder.OrderPrice > 0 && slOrder.OrderQuantity.HasValue)
+                {
+                    totalPlannedValue += slOrder.OrderPrice * slOrder.OrderQuantity.Value;
+                    totalOrderQuantity += slOrder.OrderQuantity.Value;
+                }
+            }
+
+            if (totalFilledQuantity > 0)
+            {
+                ExecutedSL = totalExecutedValue / totalFilledQuantity;
+            }
+            else
+            {
+                ExecutedSL = null;
+            }
+
+            if (totalOrderQuantity > 0)
+            {
+                PlannedSL = totalPlannedValue / totalOrderQuantity;
+            }
+            else
+            {
+                PlannedSL = null;
+            }
+        }
+
+
         /// <summary>
         /// Gets or sets the executed position value, representing the product of the executed entry price and the
         /// filled quantity for the trade.
@@ -94,8 +217,8 @@ namespace TD.Models
         /// - PlannedTP) multiplied by OrderQuantity. If either PlannedEntryPrice or PlannedTP is not specified, the
         /// value is null. The setter exists to support data binding scenarios but does not affect the calculated
         /// value.</remarks>
-        [Display(ResourceType = typeof(LocalizedStrings), Name = "PlannedProfitLoss")]
-        public decimal? PlannedProfitLoss
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "PlannedProfit")]
+        public decimal? PlannedProfit
         {
             get
             {
@@ -113,9 +236,9 @@ namespace TD.Models
             }
             //This is a calculated property, so we don't want to set it directly. However, we need to have a setter to satisfy the requirements of the data binding in the UI and database.
             //The setter will simply store the value in a private field, but it won't be used in any calculations.
-            set { _plannedProfitLoss = value; }
+            set { _plannedProfit = value; }
         }
-        decimal? _plannedProfitLoss;
+        decimal? _plannedProfit;
 
         /// <summary>
         /// Gets or sets the realized profit or loss for the trade based on executed entry and exit prices.
@@ -193,7 +316,7 @@ namespace TD.Models
             {
                 if (PlannedRiskAmount.HasValue && PlannedRiskAmount != 0)
                 {
-                    return PlannedProfitLoss / PlannedRiskAmount;
+                    return PlannedProfit / PlannedRiskAmount;
                 }
                 return null;
             }
@@ -229,6 +352,25 @@ namespace TD.Models
         }
         decimal? _realizedRiskAmount;
 
+        public decimal? RemainingPositionValue
+        {
+            get
+            {
+                if (!ExecutedEntryPrice.HasValue || !FilledQuantity.HasValue)
+                    return null;
+
+                // Sum quantities already exited via TP and SL fills
+                decimal exitedQty = TakeProfitOrders.Sum(o => o.FilledQuantity ?? 0)
+                                  + StopLossOrders.Sum(o => o.FilledQuantity ?? 0);
+
+                decimal remainingQty = FilledQuantity.Value - exitedQty;
+                return remainingQty > 0 ? remainingQty * ExecutedEntryPrice.Value : 0;
+            }
+            set { _remainingPositionValue = value; }
+        }
+        decimal? _remainingPositionValue;
+
+
         /// <summary>
         /// Gets the realized R multiple for the trade — how many units of planned risk were actually made or lost.
         /// </summary>
@@ -259,7 +401,7 @@ namespace TD.Models
 
         [Display(ResourceType = typeof(LocalizedStrings), Name = "PlannedEntryPrice")]
         public string RoundedPlannedEntryPrice => PlannedEntryPrice.ToRoundedString();
-        
+
         [Display(ResourceType = typeof(LocalizedStrings), Name = "ExecutedEntryPrice")]
         public string RoundedExecutedEntryPrice => ExecutedEntryPrice.ToRoundedString();
 

@@ -23,5 +23,9 @@ namespace TD.RepositoryContracts
         Task<bool> CanDeleteAsync(int id);
         Task<bool> DeleteAsync(int id);
         Task<bool> UpdateAsync(Trade trade);
+        Task<bool> UpdateEntryTimeAsync(int id, DateTime entryTime);
+        Task<bool> UpdateExitTimeAsync(int id, DateTime exitTime);
+        Task<bool> UpdateReviewNotesAsync(int id, string reviewNotes);
+        Task<bool> UpdateSetupNotesAsync(int id, string setupNotes);
     }
 }

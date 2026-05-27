@@ -129,23 +129,43 @@ namespace TD.AppInfra.ViewModels.Trades
             }
         }
         
-        public decimal? PlannedProfitLossMin
+        public decimal? RemainingPositionValueMin
         {
-            get => Parameters.PlannedProfitLossMin;
+            get => Parameters.RemainingPositionValueMin;
             set
             {
-                Parameters.PlannedProfitLossMin = value;
-                RaisePropertyChanged(nameof(PlannedProfitLossMin));
+                Parameters.RemainingPositionValueMin = value;
+                RaisePropertyChanged(nameof(RemainingPositionValueMin));
             }
         }
 
-        public decimal? PlannedProfitLossMax
+        public decimal? RemainingPositionValueMax
         {
-            get => Parameters.PlannedProfitLossMax;
+            get => Parameters.RemainingPositionValueMax;
             set
             {
-                Parameters.PlannedProfitLossMax = value;
-                RaisePropertyChanged(nameof(PlannedProfitLossMax));
+                Parameters.RemainingPositionValueMax = value;
+                RaisePropertyChanged(nameof(RemainingPositionValueMax));
+            }
+        }
+        
+        public decimal? PlannedProfitMin
+        {
+            get => Parameters.PlannedProfitMin;
+            set
+            {
+                Parameters.PlannedProfitMin = value;
+                RaisePropertyChanged(nameof(PlannedProfitMin));
+            }
+        }
+
+        public decimal? PlannedProfitMax
+        {
+            get => Parameters.PlannedProfitMax;
+            set
+            {
+                Parameters.PlannedProfitMax = value;
+                RaisePropertyChanged(nameof(PlannedProfitMax));
             }
         }
         
@@ -222,8 +242,10 @@ namespace TD.AppInfra.ViewModels.Trades
             PlannedPositionValueMax = null;
             ExecutedPositionValueMin = null;
             ExecutedPositionValueMax = null;
-            PlannedProfitLossMin = null;
-            PlannedProfitLossMax = null;
+            RemainingPositionValueMin = null;
+            RemainingPositionValueMax = null;
+            PlannedProfitMin = null;
+            PlannedProfitMax = null;
             RealizedProfitLossMin = null;
             RealizedProfitLossMax = null;
             PlannedRiskAmountMin = null;

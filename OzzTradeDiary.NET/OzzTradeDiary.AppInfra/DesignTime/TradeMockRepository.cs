@@ -122,5 +122,30 @@ namespace TD.AppInfra.DesignTime
         {
             return Task.FromResult(5);
         }
+
+        public Task SaveNavigationCollectionsAsync(Trade trade)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<bool> UpdateEntryTimeAsync(int id, DateTime entryTime)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<bool> UpdateExitTimeAsync(int id, DateTime exitTime)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<bool> UpdateReviewNotesAsync(int id, string reviewNotes)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<bool> UpdateSetupNotesAsync(int id, string setupNotes)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

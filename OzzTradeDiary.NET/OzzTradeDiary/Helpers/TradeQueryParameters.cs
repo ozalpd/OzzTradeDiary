@@ -38,8 +38,10 @@ namespace TD.Helpers
                 PlannedPositionValueMax = tradeQueryParams.PlannedPositionValueMax;
                 ExecutedPositionValueMin = tradeQueryParams.ExecutedPositionValueMin;
                 ExecutedPositionValueMax = tradeQueryParams.ExecutedPositionValueMax;
-                PlannedProfitLossMin = tradeQueryParams.PlannedProfitLossMin;
-                PlannedProfitLossMax = tradeQueryParams.PlannedProfitLossMax;
+                RemainingPositionValueMin = tradeQueryParams.RemainingPositionValueMin;
+                RemainingPositionValueMax = tradeQueryParams.RemainingPositionValueMax;
+                PlannedProfitMin = tradeQueryParams.PlannedProfitMin;
+                PlannedProfitMax = tradeQueryParams.PlannedProfitMax;
                 RealizedProfitLossMin = tradeQueryParams.RealizedProfitLossMin;
                 RealizedProfitLossMax = tradeQueryParams.RealizedProfitLossMax;
                 PlannedRiskAmountMin = tradeQueryParams.PlannedRiskAmountMin;
@@ -60,8 +62,10 @@ namespace TD.Helpers
         public decimal? PlannedPositionValueMax { get; set; }
         public decimal? ExecutedPositionValueMin { get; set; }
         public decimal? ExecutedPositionValueMax { get; set; }
-        public decimal? PlannedProfitLossMin { get; set; }
-        public decimal? PlannedProfitLossMax { get; set; }
+        public decimal? RemainingPositionValueMin { get; set; }
+        public decimal? RemainingPositionValueMax { get; set; }
+        public decimal? PlannedProfitMin { get; set; }
+        public decimal? PlannedProfitMax { get; set; }
         public decimal? RealizedProfitLossMin { get; set; }
         public decimal? RealizedProfitLossMax { get; set; }
         public decimal? PlannedRiskAmountMin { get; set; }
@@ -82,7 +86,8 @@ namespace TD.Helpers
             _hasAnySearchCriteria = _hasAnySearchCriteria || EntryTimeMin.HasValue || EntryTimeMax.HasValue;
             _hasAnySearchCriteria = _hasAnySearchCriteria || PlannedPositionValueMin.HasValue || PlannedPositionValueMax.HasValue;
             _hasAnySearchCriteria = _hasAnySearchCriteria || ExecutedPositionValueMin.HasValue || ExecutedPositionValueMax.HasValue;
-            _hasAnySearchCriteria = _hasAnySearchCriteria || PlannedProfitLossMin.HasValue || PlannedProfitLossMax.HasValue;
+            _hasAnySearchCriteria = _hasAnySearchCriteria || RemainingPositionValueMin.HasValue || RemainingPositionValueMax.HasValue;
+            _hasAnySearchCriteria = _hasAnySearchCriteria || PlannedProfitMin.HasValue || PlannedProfitMax.HasValue;
             _hasAnySearchCriteria = _hasAnySearchCriteria || RealizedProfitLossMin.HasValue || RealizedProfitLossMax.HasValue;
             _hasAnySearchCriteria = _hasAnySearchCriteria || PlannedRiskAmountMin.HasValue || PlannedRiskAmountMax.HasValue;
             _hasAnySearchCriteria = _hasAnySearchCriteria || UpdatedAtMin.HasValue || UpdatedAtMax.HasValue;

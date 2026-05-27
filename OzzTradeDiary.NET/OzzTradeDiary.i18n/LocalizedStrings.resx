@@ -535,8 +535,8 @@
     <data name="PlannedPositionValue" xml:space="preserve">
         <value>Planned Position Value</value>
     </data>
-    <data name="PlannedProfitLoss" xml:space="preserve">
-        <value>Planned Profit Loss</value>
+    <data name="PlannedProfit" xml:space="preserve">
+        <value>Planned Profit</value>
     </data>
     <data name="PlannedRiskAmount" xml:space="preserve">
         <value>Planned Risk Amount</value>
@@ -573,6 +573,9 @@
     </data>
     <data name="RegularTradingHours" xml:space="preserve">
         <value>Regular Trading Hours</value>
+    </data>
+    <data name="RemainingPositionValue" xml:space="preserve">
+        <value>Remaining Position Value</value>
     </data>
     <data name="RemoveCurrency" xml:space="preserve">
         <value>Remove Currency</value>

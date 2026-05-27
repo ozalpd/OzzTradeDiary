@@ -160,6 +160,8 @@ namespace TD.WPF.ViewModels.Trades
 
         public decimal? ExecutedPositionValue => _trade.ExecutedPositionValue;
 
+        public decimal? RemainingPositionValue => _trade.RemainingPositionValue;
+
         public decimal? PlannedTP
         {
             get { return _trade.PlannedTP; }

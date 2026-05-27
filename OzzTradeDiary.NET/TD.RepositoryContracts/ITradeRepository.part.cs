@@ -5,5 +5,6 @@ namespace TD.RepositoryContracts
     public partial interface ITradeRepository
     {
         Task LoadNavigationCollectionsAsync(Trade trade);
+        Task SaveNavigationCollectionsAsync(Trade trade);
     }
 }

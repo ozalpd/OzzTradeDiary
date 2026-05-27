@@ -46,13 +46,6 @@ namespace TD.Models
         [Display(ResourceType = typeof(LocalizedStrings), Name = "Symbol")]
         public Symbol Symbol { get; set; }
 
-        [Range(typeof(DateTime), "1/1/2000", "12/31/2220", ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName ="RangeDateTime")]
-        [Display(ResourceType = typeof(LocalizedStrings), Name = "EntryTime")]
-        public DateTime? EntryTime { get; set; }
-
-        [Display(ResourceType = typeof(LocalizedStrings), Name = "ExitTime")]
-        public DateTime? ExitTime { get; set; }
-
         [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
         [Display(ResourceType = typeof(LocalizedStrings), Name = "EntryMethod")]
         public EntryMethod EntryMethod { get; set; }
@@ -61,20 +54,15 @@ namespace TD.Models
         [Display(ResourceType = typeof(LocalizedStrings), Name = "TradeDirection")]
         public TradeDirection TradeDirection { get; set; }
 
+        [Range(typeof(DateTime), "1/1/2000", "12/31/2220", ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName ="RangeDateTime")]
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "EntryTime")]
+        public DateTime? EntryTime { get; set; }
+
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "ExitTime")]
+        public DateTime? ExitTime { get; set; }
+
         [Display(ResourceType = typeof(LocalizedStrings), Name = "EntryOrders")]
         public ICollection<EntryOrder> EntryOrders { get; set; }
-
-        /// <summary>
-        /// Planned contract quantity of order
-        /// </summary>
-        [Display(ResourceType = typeof(LocalizedStrings), Name = "OrderQuantity")]
-        public decimal? OrderQuantity { get; set; }
-
-        /// <summary>
-        /// Realized contract quantity of order
-        /// </summary>
-        [Display(ResourceType = typeof(LocalizedStrings), Name = "FilledQuantity")]
-        public decimal? FilledQuantity { get; set; }
 
         /// <summary>
         /// Planned Entry Price, calculated from EntryOrders
@@ -87,6 +75,18 @@ namespace TD.Models
         /// </summary>
         [Display(ResourceType = typeof(LocalizedStrings), Name = "ExecutedEntryPrice")]
         public decimal? ExecutedEntryPrice { get; set; }
+
+        /// <summary>
+        /// Planned contract quantity of order
+        /// </summary>
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "OrderQuantity")]
+        public decimal? OrderQuantity { get; set; }
+
+        /// <summary>
+        /// Realized contract quantity of order
+        /// </summary>
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "FilledQuantity")]
+        public decimal? FilledQuantity { get; set; }
 
         [Display(ResourceType = typeof(LocalizedStrings), Name = "TakeProfitOrders")]
         public ICollection<TakeProfitOrder> TakeProfitOrders { get; set; }
@@ -120,13 +120,13 @@ namespace TD.Models
 
         [StringLength(2048, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxStringLength")]
         [DataType(DataType.MultilineText)]
-        [Display(ResourceType = typeof(LocalizedStrings), Name = "ReviewNotes")]
-        public string? ReviewNotes { get; set; }
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "SetupNotes")]
+        public string? SetupNotes { get; set; }
 
         [StringLength(2048, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxStringLength")]
         [DataType(DataType.MultilineText)]
-        [Display(ResourceType = typeof(LocalizedStrings), Name = "SetupNotes")]
-        public string? SetupNotes { get; set; }
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "ReviewNotes")]
+        public string? ReviewNotes { get; set; }
 
         /// <summary>
         /// Keeps Web URL or local file path of the images associated with the trade, along with optional notes. This collection allows for multiple images to be linked to a single trade, providing visual documentation or evidence of the trade setup, execution, or outcome. Each TradeImage instance contains details about the image and its relation to the trade, facilitating better organization and reference within the trading diary.
@@ -150,20 +150,20 @@ namespace TD.Models
             var clone = new Trade();
             clone.TradingAccountId = this.TradingAccountId;
             clone.SymbolId = this.SymbolId;
-            clone.EntryTime = this.EntryTime;
-            clone.ExitTime = this.ExitTime;
             clone.EntryMethod = this.EntryMethod;
             clone.TradeDirection = this.TradeDirection;
-            clone.OrderQuantity = this.OrderQuantity;
-            clone.FilledQuantity = this.FilledQuantity;
+            clone.EntryTime = this.EntryTime;
+            clone.ExitTime = this.ExitTime;
             clone.PlannedEntryPrice = this.PlannedEntryPrice;
             clone.ExecutedEntryPrice = this.ExecutedEntryPrice;
+            clone.OrderQuantity = this.OrderQuantity;
+            clone.FilledQuantity = this.FilledQuantity;
             clone.PlannedTP = this.PlannedTP;
             clone.ExecutedTP = this.ExecutedTP;
             clone.PlannedSL = this.PlannedSL;
             clone.ExecutedSL = this.ExecutedSL;
-            clone.ReviewNotes = this.ReviewNotes;
             clone.SetupNotes = this.SetupNotes;
+            clone.ReviewNotes = this.ReviewNotes;
             clone.UpdatedAt = this.UpdatedAt;
 
             Cloning(clone);

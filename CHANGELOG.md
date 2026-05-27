@@ -4,10 +4,20 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.1.6] - 2026-05-27
+
+### Added
+- Introduced `RemainingPositionValue` to `Trade` model and persist it in the database.
+
+### Changed
+- Renamed `PlannedProfitLoss` to `PlannedProfit` across all layers, including model, repository, query parameters, localization, and UI. Update query/view models and filters to use the new fields.
+- Added single-column update methods for `EntryTime`, `ExitTime`, `ReviewNotes`, and `SetupNotes`.
+- Enhanced `Trade.CalculateFromOrders` to recalculate all derived fields.
+
 ## [0.1.5] - 2026-05-26
 
 ### Added
-- Introduce a modal Trade Detail dialog in the WPF UI for viewing all trade properties, including RealizedR, in a read-only format.
+- Introduced a modal Trade Detail dialog in the WPF UI for viewing all trade properties, including RealizedR, in a read-only format.
 - Added `TradeDetailCommand` and toolbar button for quick access.
 - Extended `IWindowDialogService` and `WindowDialogService` with `ShowTradeDetailDialog`.
 - Added `TradeDetailView.xaml` and code-behind. Improved design-time support with `MockTradeHistoryVM` and `MockWindowDialogService`.

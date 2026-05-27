@@ -1573,6 +1573,10 @@
     <Translation>Planlanan Pozisyon Büyüklüğü</Translation>
   </Vocab>
   <Vocab>
+    <Name>PlannedProfit</Name>
+    <Translation>Planlanan Kazanç</Translation>
+  </Vocab>
+  <Vocab>
     <Name>PlannedProfitLoss</Name>
     <Translation>Planlanan Kazanç/Kayıp</Translation>
   </Vocab>
@@ -1747,6 +1751,10 @@
   <Vocab>
     <Name>RelatedRecordsExist</Name>
     <Translation>Bu kayıt {0} adet {1} kaydına sahip.</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>RemainingPositionValue</Name>
+    <Translation>Kalan Pozisyon Büyüklüğü</Translation>
   </Vocab>
   <Vocab>
     <Name>Remove</Name>

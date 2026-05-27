@@ -954,7 +954,7 @@
           <SortDesc>false</SortDesc>
           <CompositeIndexColumns>UpdatedAt DESC; EntryTime DESC</CompositeIndexColumns>
           <Nullable>false</Nullable>
-          <CheckIfAltered>true</CheckIfAltered>
+          <CheckIfAltered>false</CheckIfAltered>
           <DoNotLog>false</DoNotLog>
         </StorageColumnSetting>
         <StorageColumnSetting>
@@ -980,7 +980,7 @@
           <Unique>false</Unique>
           <SortDesc>false</SortDesc>
           <Nullable>true</Nullable>
-          <CheckIfAltered>false</CheckIfAltered>
+          <CheckIfAltered>true</CheckIfAltered>
           <DoNotLog>false</DoNotLog>
         </StorageColumnSetting>
         <StorageColumnSetting>
@@ -1007,7 +1007,7 @@
           <Unique>false</Unique>
           <SortDesc>false</SortDesc>
           <Nullable>true</Nullable>
-          <CheckIfAltered>false</CheckIfAltered>
+          <CheckIfAltered>true</CheckIfAltered>
           <DoNotLog>false</DoNotLog>
         </StorageColumnSetting>
         <StorageColumnSetting>
@@ -1046,7 +1046,7 @@
           <Unique>false</Unique>
           <SortDesc>false</SortDesc>
           <Nullable>true</Nullable>
-          <CheckIfAltered>false</CheckIfAltered>
+          <CheckIfAltered>true</CheckIfAltered>
           <DoNotLog>false</DoNotLog>
         </StorageColumnSetting>
         <StorageColumnSetting>
@@ -1059,7 +1059,7 @@
           <Unique>false</Unique>
           <SortDesc>false</SortDesc>
           <Nullable>true</Nullable>
-          <CheckIfAltered>false</CheckIfAltered>
+          <CheckIfAltered>true</CheckIfAltered>
           <DoNotLog>false</DoNotLog>
         </StorageColumnSetting>
         <StorageColumnSetting>
@@ -1073,7 +1073,7 @@
           <SortDesc>false</SortDesc>
           <CompositeIndexColumns>UpdatedAt DESC; EntryTime DESC</CompositeIndexColumns>
           <Nullable>true</Nullable>
-          <CheckIfAltered>false</CheckIfAltered>
+          <CheckIfAltered>true</CheckIfAltered>
           <DoNotLog>false</DoNotLog>
         </StorageColumnSetting>
         <StorageColumnSetting>
@@ -1087,11 +1087,25 @@
           <SortDesc>false</SortDesc>
           <CompositeIndexColumns>EntryTime DESC</CompositeIndexColumns>
           <Nullable>true</Nullable>
-          <CheckIfAltered>false</CheckIfAltered>
+          <CheckIfAltered>true</CheckIfAltered>
           <DoNotLog>false</DoNotLog>
         </StorageColumnSetting>
         <StorageColumnSetting>
-          <Name>PlannedProfitLoss</Name>
+          <Name>RemainingPositionValue</Name>
+          <Exclude>false</Exclude>
+          <DataType>INTEGER</DataType>
+          <Length>0</Length>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>true</Indexed>
+          <Unique>false</Unique>
+          <SortDesc>false</SortDesc>
+          <CompositeIndexColumns>EntryTime DESC</CompositeIndexColumns>
+          <Nullable>true</Nullable>
+          <CheckIfAltered>true</CheckIfAltered>
+          <DoNotLog>false</DoNotLog>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>PlannedProfit</Name>
           <Exclude>false</Exclude>
           <DataType>INTEGER</DataType>
           <Length>0</Length>
@@ -1101,7 +1115,7 @@
           <SortDesc>false</SortDesc>
           <CompositeIndexColumns>UpdatedAt DESC; EntryTime DESC</CompositeIndexColumns>
           <Nullable>true</Nullable>
-          <CheckIfAltered>false</CheckIfAltered>
+          <CheckIfAltered>true</CheckIfAltered>
           <DoNotLog>false</DoNotLog>
         </StorageColumnSetting>
         <StorageColumnSetting>
@@ -1115,7 +1129,7 @@
           <SortDesc>false</SortDesc>
           <CompositeIndexColumns>EntryTime DESC</CompositeIndexColumns>
           <Nullable>true</Nullable>
-          <CheckIfAltered>false</CheckIfAltered>
+          <CheckIfAltered>true</CheckIfAltered>
           <DoNotLog>false</DoNotLog>
         </StorageColumnSetting>
         <StorageColumnSetting>
@@ -1155,7 +1169,7 @@
           <SortDesc>false</SortDesc>
           <CompositeIndexColumns>UpdatedAt DESC; EntryTime DESC</CompositeIndexColumns>
           <Nullable>true</Nullable>
-          <CheckIfAltered>false</CheckIfAltered>
+          <CheckIfAltered>true</CheckIfAltered>
           <DoNotLog>false</DoNotLog>
         </StorageColumnSetting>
         <StorageColumnSetting>
@@ -1168,7 +1182,7 @@
           <Unique>false</Unique>
           <SortDesc>false</SortDesc>
           <Nullable>true</Nullable>
-          <CheckIfAltered>false</CheckIfAltered>
+          <CheckIfAltered>true</CheckIfAltered>
           <DoNotLog>false</DoNotLog>
         </StorageColumnSetting>
         <StorageColumnSetting>
@@ -1207,7 +1221,7 @@
           <Unique>false</Unique>
           <SortDesc>false</SortDesc>
           <Nullable>true</Nullable>
-          <CheckIfAltered>false</CheckIfAltered>
+          <CheckIfAltered>true</CheckIfAltered>
           <DoNotLog>false</DoNotLog>
         </StorageColumnSetting>
         <StorageColumnSetting>

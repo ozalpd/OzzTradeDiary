@@ -535,8 +535,8 @@
     <data name="PlannedPositionValue" xml:space="preserve">
         <value>Planlanan Pozisyon Büyüklüğü</value>
     </data>
-    <data name="PlannedProfitLoss" xml:space="preserve">
-        <value>Planlanan Kazanç/Kayıp</value>
+    <data name="PlannedProfit" xml:space="preserve">
+        <value>Planlanan Kazanç</value>
     </data>
     <data name="PlannedRiskAmount" xml:space="preserve">
         <value>Planlanan Risk Miktarı</value>
@@ -573,6 +573,9 @@
     </data>
     <data name="RegularTradingHours" xml:space="preserve">
         <value>Normal İşlem Saatleri</value>
+    </data>
+    <data name="RemainingPositionValue" xml:space="preserve">
+        <value>Kalan Pozisyon Büyüklüğü</value>
     </data>
     <data name="RemoveCurrency" xml:space="preserve">
         <value>Dövizi Çıkart</value>

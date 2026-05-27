@@ -293,7 +293,7 @@
                         <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.ExecutedEntryPrice}" Width="80"
                                             Binding="{Binding RoundedExecutedEntryPrice}"
                                             ElementStyle="{StaticResource RightAlignedTextBlockStyle}"/>
-                        <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.PlannedProfitLoss}" Width="80"
+                        <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.PlannedProfit}" Width="80"
                                             Binding="{Binding PlannedProfitLoss, StringFormat=\{0:N2\}}"
                                             ElementStyle="{StaticResource RightAlignedTextBlockStyle}"/>
                         <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.RealizedProfitLoss}" Width="80"
@@ -523,7 +523,7 @@
 
                     <TextBlock Grid.Column="0" Grid.Row="9" FontWeight="Bold"
                                Style="{StaticResource RightAlignedTextBlockStyle}"
-							   Text="{x:Static i18n:LocalizedStrings.PlannedProfitLoss}"/>
+							   Text="{x:Static i18n:LocalizedStrings.PlannedProfit}"/>
                     <TextBlock Grid.Column="1" Grid.Row="9"
                                Text="{Binding PlannedProfitLoss, StringFormat=\{0:N2\}, Mode=OneWay}"
                                Style="{StaticResource RightAlignedTextBlockStyle}" Margin="0,0,0,8"/>

@@ -1492,11 +1492,11 @@ namespace TD.i18n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Planned Profit Loss.
+        ///   Looks up a localized string similar to Planned Profit.
         /// </summary>
-        public static string PlannedProfitLoss {
+        public static string PlannedProfit {
             get {
-                return ResourceManager.GetString("PlannedProfitLoss", resourceCulture);
+                return ResourceManager.GetString("PlannedProfit", resourceCulture);
             }
         }
         
@@ -1605,6 +1605,15 @@ namespace TD.i18n {
         public static string RegularTradingHours {
             get {
                 return ResourceManager.GetString("RegularTradingHours", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Remaining Position Value.
+        /// </summary>
+        public static string RemainingPositionValue {
+            get {
+                return ResourceManager.GetString("RemainingPositionValue", resourceCulture);
             }
         }
         

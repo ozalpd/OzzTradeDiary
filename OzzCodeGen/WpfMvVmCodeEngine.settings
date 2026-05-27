@@ -1414,7 +1414,20 @@
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
-          <Name>PlannedProfitLoss</Name>
+          <Name>RemainingPositionValue</Name>
+          <Exclude>false</Exclude>
+          <CreateEditOrder>101800</CreateEditOrder>
+          <DefaultValue />
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
+          <IsMultiLine>false</IsMultiLine>
+          <CreateViewMode>Exclude</CreateViewMode>
+          <EditViewMode>ReadOnly</EditViewMode>
+          <ShowInCollection>true</ShowInCollection>
+          <ShowInDetail>true</ShowInDetail>
+          <ValueConstraint />
+        </WpfMvvmPropertySetting>
+        <WpfMvvmPropertySetting>
+          <Name>PlannedProfit</Name>
           <Exclude>false</Exclude>
           <CreateEditOrder>101900</CreateEditOrder>
           <DefaultValue />

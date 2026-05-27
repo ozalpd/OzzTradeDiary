@@ -141,9 +141,9 @@
                    Margin="0,0,0,8"/>
 
         <TextBlock Grid.Column="0" Grid.Row="8" FontWeight="Bold"
-                   Style="{StaticResource RightAlignedTextBlockStyle}" Text="{x:Static i18n:LocalizedStrings.PlannedProfitLoss}"/>
+                   Style="{StaticResource RightAlignedTextBlockStyle}" Text="{x:Static i18n:LocalizedStrings.PlannedProfit}"/>
         <TextBlock Grid.Column="1" Grid.Row="8"
-                   Text="{Binding PlannedProfitLoss, StringFormat=\{0:N2\}, Mode=OneWay}"
+                   Text="{Binding PlannedProfit, StringFormat=\{0:N2\}, Mode=OneWay}"
                    Style="{StaticResource RightAlignedTextBlockStyle}"
                    Margin="0,0,0,8"/>
 
