@@ -197,43 +197,105 @@ static async Task<Trade> EnsureDemoTradeAsync(ITradeRepository tradeRepository, 
     }
 
     entryPrice = entryPrice.RoundToQuantum();
-    decimal tpMultiplier = direction == TradeDirection.Long ? 1.04m : 0.96m; // Take profit multiplier based on trade direction
+    decimal tp1Multiplier = direction == TradeDirection.Long ? 1.02m : 0.98m; // Take profit multiplier based on trade direction
+    decimal tp2Multiplier = direction == TradeDirection.Long ? 1.04m : 0.96m; // Take profit multiplier based on trade direction
+    decimal tp3Multiplier = direction == TradeDirection.Long ? 1.06m : 0.94m; // Take profit multiplier based on trade direction
     decimal slMultiplier = direction == TradeDirection.Long ? 0.98m : 1.02m; // Stop loss multiplier based on trade direction
     decimal quantity = (1000m / entryPrice).RoundToQuantum(); // Fixed $1000 position size for demo purposes, so the quantity will vary based on entry price.
+    var entryOrder = new EntryOrder
+    {
+        OrderPrice = entryPrice,
+        OrderQuantity = quantity
+    };
+    var slOrder = new StopLossOrder
+    {
+        OrderPrice = (entryPrice * slMultiplier).RoundToQuantum(),
+        OrderQuantity = quantity
+    };
+    var tp1 = new TakeProfitOrder
+    {
+        OrderPrice = (entryPrice * tp1Multiplier).RoundToQuantum(),
+        OrderQuantity = quantity * 0.4m // 40% of the quantity for TP1
+    };
+    var tp2 = new TakeProfitOrder
+    {
+        OrderPrice = (entryPrice * tp2Multiplier).RoundToQuantum(),
+        OrderQuantity = quantity * 0.3m // 30% of the quantity for TP2
+    };
+    var tp3 = new TakeProfitOrder
+    {
+        OrderPrice = (entryPrice * tp3Multiplier).RoundToQuantum(),
+        OrderQuantity = quantity * 0.3m // 30% of the quantity for TP3
+    };
 
     var trade = new Trade
     {
         TradingAccountId = tradingAccountId,
         SymbolId = symbol.Id,
-        EntryMethod = EntryMethod.Market,
+        EntryMethod = random.Next(0, 4) != 0 ? EntryMethod.Market : EntryMethod.Limit,
         TradeDirection = direction,
-        PlannedEntryPrice = entryPrice,
-        PlannedTP = (entryPrice * tpMultiplier).RoundToQuantum(),
-        PlannedSL = (entryPrice * slMultiplier).RoundToQuantum(),
-        OrderQuantity = quantity,
         UpdatedAt = DateTime.UtcNow,
     };
+    trade.EntryOrders.Add(entryOrder);
+    trade.StopLossOrders.Add(slOrder);
+    trade.TakeProfitOrders.Add(tp1);
+    trade.TakeProfitOrders.Add(tp2);
+    trade.TakeProfitOrders.Add(tp3);
 
     bool isExecuted = random.Next(0, 4) != 0; // 75% chance the trade is executed
+    DateTime entryTime = DateTime.UtcNow.AddDays(-daysAgo).AddHours(random.Next(0, 12)).AddMinutes(random.Next(0, 60));
     if (isExecuted)
     {
-        trade.EntryTime = DateTime.UtcNow.AddDays(-daysAgo).AddHours(random.Next(0, 12)).AddMinutes(random.Next(0, 60));
-        trade.ExecutedEntryPrice = entryPrice;
-        trade.FilledQuantity = quantity;
+        trade.EntryTime = entryTime;
+        entryOrder.FilledPrice = entryPrice;
+        entryOrder.FilledQuantity = quantity;
     }
 
-    bool isClosed = isExecuted && random.Next(0, 4) == 0; // 25% chance the trade is closed
+
+    bool isClosed = isExecuted && (daysAgo > 7 || random.Next(0, 4) == 0); // 25% chance the if trade is not older than 7 days
     if (isClosed)
     {
-        trade.IsFullyClosed = true;
+        trade.ExitTime = entryTime.AddHours(random.Next(1, 72)); // Random exit time between 1 hour and 3 days after entry
         bool isWin = random.Next(0, 2) == 0; // 50% chance of winning trade if it's closed
+        bool hitTp2 = random.Next(0, 2) == 0; // 50% chance to hit TP2
+        bool hitTp3 = hitTp2 && random.Next(0, 2) == 0; // 50% chance to hit TP3 if TP2 is hit
+        decimal remainingQuantity = quantity;
         if (isWin)
         {
-            trade.ExecutedTP = trade.PlannedTP;
+            tp1.FilledPrice = tp1.OrderPrice;
+            tp1.FilledQuantity = tp1.OrderQuantity;
+            remainingQuantity = quantity - tp1.FilledQuantity.Value;
+            if (hitTp2)
+            {
+                tp2.FilledPrice = tp2.OrderPrice;
+                tp2.FilledQuantity = tp2.OrderQuantity;
+                remainingQuantity -= tp2.FilledQuantity.Value;
+                if (hitTp3) // 50% chance to hit TP3 only
+                {
+                    tp3.FilledPrice = random.Next(0, 5) == 0
+                                    ? tp3.OrderPrice * tp2Multiplier // 20% chance that TP3 is hit at a better price than the order price, by applying the same multiplier again
+                                    : random.Next(0, 10) == 0
+                                    ? tp3.OrderPrice * tp3Multiplier // 10% chance that TP3 is hit at a much better price than the order price, by applying the TP3 multiplier
+                                    : tp3.OrderPrice;
+                    tp3.FilledQuantity = tp3.OrderQuantity;
+                }
+            }
         }
-        else
+
+        if (!isWin)
         {
-            trade.ExecutedSL = trade.PlannedSL;
+            slOrder.FilledPrice = slOrder.OrderPrice;
+            slOrder.FilledQuantity = remainingQuantity;
+        }
+        else if (!hitTp2) //If tp1 is hit but not tp2, we can assume executed SL price is between entry price and tp1
+        {
+            slOrder.FilledPrice = (tp1.FilledPrice + slOrder.OrderPrice) / 2;
+            slOrder.FilledQuantity = remainingQuantity;
+        }
+        else if (!hitTp3) //If tp2 is hit but not tp3, we can assume executed SL price is between tp2 and tp3
+        {
+            slOrder.FilledPrice = (tp2.FilledPrice + tp3.OrderPrice) / 2;
+            slOrder.FilledQuantity = remainingQuantity;
         }
     }
 
