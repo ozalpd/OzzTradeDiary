@@ -1105,15 +1105,6 @@ namespace TD.i18n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Execute Time.
-        /// </summary>
-        public static string ExecuteTime {
-            get {
-                return ResourceManager.GetString("ExecuteTime", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Exit Time.
         /// </summary>
         public static string ExitTime {
@@ -1137,6 +1128,15 @@ namespace TD.i18n {
         public static string FilledQuantity {
             get {
                 return ResourceManager.GetString("FilledQuantity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Filled Time.
+        /// </summary>
+        public static string FilledTime {
+            get {
+                return ResourceManager.GetString("FilledTime", resourceCulture);
             }
         }
         
@@ -1573,15 +1573,6 @@ namespace TD.i18n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Realized R.
-        /// </summary>
-        public static string RealizedR {
-            get {
-                return ResourceManager.GetString("RealizedR", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Realized Risk Amount.
         /// </summary>
         public static string RealizedRiskAmount {
@@ -1911,6 +1902,15 @@ namespace TD.i18n {
         public static string SymbolsList {
             get {
                 return ResourceManager.GetString("SymbolsList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tags.
+        /// </summary>
+        public static string Tags {
+            get {
+                return ResourceManager.GetString("Tags", resourceCulture);
             }
         }
         

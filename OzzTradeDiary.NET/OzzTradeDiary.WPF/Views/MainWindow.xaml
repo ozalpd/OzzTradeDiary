@@ -299,9 +299,6 @@
                         <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.RealizedProfitLoss}" Width="80"
                                             Binding="{Binding RealizedProfitLoss, StringFormat=\{0:N2\}}"
                                             ElementStyle="{StaticResource RightAlignedTextBlockStyle}"/>
-                        <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.RealizedR}" Width="60"
-                                            Binding="{Binding RealizedR, StringFormat=\{0:N2\}}"
-                                            ElementStyle="{StaticResource RightAlignedTextBlockStyle}"/>
                         <DataGridCheckBoxColumn Header="{x:Static i18n:LocalizedStrings.IsFullyClosed}" Width="70"
                                                 Binding="{Binding IsFullyClosed}"/>
                     </DataGrid.Columns>
@@ -464,34 +461,34 @@
 							   Text="{x:Static i18n:LocalizedStrings.ExitTime}"/>
                     <TextBlock Grid.Column="4" Grid.Row="4"
                                Text="{Binding ExitTime, StringFormat=\{0:yyyy-MM-dd HH:mm\}, Mode=OneWay}"
-                   Margin="0,0,0,8"/>
+                               Margin="0,0,0,8"/>
 
                     <TextBlock Grid.Column="0" Grid.Row="5" FontWeight="Bold"
                                Style="{StaticResource RightAlignedTextBlockStyle}"
-							   Text="{x:Static i18n:LocalizedStrings.RealizedR}"/>
+							   Text="{x:Static i18n:LocalizedStrings.PlannedPositionValue}"/>
                     <TextBlock Grid.Column="1" Grid.Row="5"
-                               Text="{Binding RealizedR, StringFormat=\{0:N2\}, Mode=OneWay}"
+                               Text="{Binding PlannedPositionValue, StringFormat=\{0:N2\}, Mode=OneWay}"
                                Style="{StaticResource RightAlignedTextBlockStyle}" Margin="0,0,0,8"/>
 
                     <TextBlock Grid.Column="3" Grid.Row="5" FontWeight="Bold"
                                Style="{StaticResource RightAlignedTextBlockStyle}"
-							   Text="{x:Static i18n:LocalizedStrings.IsFullyClosed}"/>
-                    <CheckBox Grid.Row="5" Grid.Column="4" Margin="0,0,0,8"
-                  IsEnabled="False" IsChecked="{Binding IsFullyClosed, Mode=OneWay}" />
-
-                    <TextBlock Grid.Column="0" Grid.Row="6" FontWeight="Bold"
-                               Style="{StaticResource RightAlignedTextBlockStyle}"
-							   Text="{x:Static i18n:LocalizedStrings.PlannedPositionValue}"/>
-                    <TextBlock Grid.Column="1" Grid.Row="6"
-                               Text="{Binding PlannedPositionValue, StringFormat=\{0:N2\}, Mode=OneWay}"
+							   Text="{x:Static i18n:LocalizedStrings.ExecutedPositionValue}"/>
+                    <TextBlock Grid.Column="4" Grid.Row="5"
+                               Text="{Binding ExecutedPositionValue, StringFormat=\{0:N2\}, Mode=OneWay}"
                                Style="{StaticResource RightAlignedTextBlockStyle}" Margin="0,0,0,8"/>
 
                     <TextBlock Grid.Column="3" Grid.Row="6" FontWeight="Bold"
                                Style="{StaticResource RightAlignedTextBlockStyle}"
-							   Text="{x:Static i18n:LocalizedStrings.ExecutedPositionValue}"/>
+							   Text="{x:Static i18n:LocalizedStrings.RemainingPositionValue}"/>
                     <TextBlock Grid.Column="4" Grid.Row="6"
-                               Text="{Binding ExecutedPositionValue, StringFormat=\{0:N2\}, Mode=OneWay}"
+                               Text="{Binding RemainingPositionValue, StringFormat=\{0:N2\}, Mode=OneWay}"
                                Style="{StaticResource RightAlignedTextBlockStyle}" Margin="0,0,0,8"/>
+
+                    <TextBlock Grid.Column="0" Grid.Row="6" FontWeight="Bold"
+                               Style="{StaticResource RightAlignedTextBlockStyle}"
+							   Text="{x:Static i18n:LocalizedStrings.IsFullyClosed}"/>
+                    <CheckBox Grid.Column="1" Grid.Row="6" Margin="0,4,0,4"
+                              IsEnabled="False" IsChecked="{Binding IsFullyClosed, Mode=OneWay}" />
 
                     <TextBlock Grid.Column="0" Grid.Row="7" FontWeight="Bold"
                                Style="{StaticResource RightAlignedTextBlockStyle}"

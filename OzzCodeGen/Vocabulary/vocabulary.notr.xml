@@ -1101,6 +1101,10 @@
     <Translation>Filled Quantity</Translation>
   </Vocab>
   <Vocab>
+    <Name>FilledTime</Name>
+    <Translation>Filled Time</Translation>
+  </Vocab>
+  <Vocab>
     <Name>FilledValue</Name>
     <Translation>Filled Value</Translation>
   </Vocab>
@@ -2067,6 +2071,10 @@
   <Vocab>
     <Name>SymbolsList</Name>
     <Translation>Symbols List</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Tags</Name>
+    <Translation>Tags</Translation>
   </Vocab>
   <Vocab>
     <Name>TakeProfit</Name>

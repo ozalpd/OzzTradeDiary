@@ -1101,6 +1101,10 @@
     <Translation>Gerçekleşen Miktar</Translation>
   </Vocab>
   <Vocab>
+    <Name>FilledTime</Name>
+    <Translation>Gerçekleşme Zamanı</Translation>
+  </Vocab>
+  <Vocab>
     <Name>FilledValue</Name>
     <Translation>Gerçekleşen Tutar</Translation>
   </Vocab>
@@ -2067,6 +2071,10 @@
   <Vocab>
     <Name>SymbolsList</Name>
     <Translation>Sembol Listesi</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Tags</Name>
+    <Translation>Taglar</Translation>
   </Vocab>
   <Vocab>
     <Name>TakeProfit</Name>

@@ -406,9 +406,6 @@
     <data name="ExecutedTP" xml:space="preserve">
         <value>Executed TP</value>
     </data>
-    <data name="ExecuteTime" xml:space="preserve">
-        <value>Execute Time</value>
-    </data>
     <data name="ExitTime" xml:space="preserve">
         <value>Exit Time</value>
     </data>
@@ -417,6 +414,9 @@
     </data>
     <data name="FilledQuantity" xml:space="preserve">
         <value>Filled Quantity</value>
+    </data>
+    <data name="FilledTime" xml:space="preserve">
+        <value>Filled Time</value>
     </data>
     <data name="FilledValue" xml:space="preserve">
         <value>Filled Value</value>
@@ -562,9 +562,6 @@
     <data name="RealizedProfitLoss" xml:space="preserve">
         <value>Realized Profit Loss</value>
     </data>
-    <data name="RealizedR" xml:space="preserve">
-        <value>Realized R</value>
-    </data>
     <data name="RealizedRiskAmount" xml:space="preserve">
         <value>Realized Risk Amount</value>
     </data>
@@ -675,6 +672,9 @@
     </data>
     <data name="SymbolsList" xml:space="preserve">
         <value>Symbols List</value>
+    </data>
+    <data name="Tags" xml:space="preserve">
+        <value>Tags</value>
     </data>
     <data name="TakeProfit" xml:space="preserve">
         <value>Take Profit</value>

@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
-## [0.1.6] - 2026-05-27
+## [0.1.6] - 2026-05-28
 
 ### Added
 - Introduced `RemainingPositionValue` to `Trade` model and persist it in the database.
@@ -13,6 +13,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - Renamed `PlannedProfitLoss` to `PlannedProfit` across all layers, including model, repository, query parameters, localization, and UI. Update query/view models and filters to use the new fields.
 - Added single-column update methods for `EntryTime`, `ExitTime`, `ReviewNotes`, and `SetupNotes`.
 - Enhanced `Trade.CalculateFromOrders` to recalculate all derived fields.
+- Renamed `ExecuteTime` to `FilledTime` in order models; added `Notes` and `UpdatedAt`, removed `DisplayOrder`
+- Added `Tags` and `MarketType` to `Trade`; reordered and clarified persisted/calculated fields (moved to `Trade.calc.cs`)
+- Updated query/viewmodel property order and search logic for consistency
+- Revised SQLite schema, repositories, and codegen for new fields and column order
+- Updated WPF UI to support new fields and layout; adjusted bindings and enum sources
+- Added localization for new fields; removed unused resources (`ExecuteTime`, `RealizedR`)
+- Aligned all changes with MVVM and repository guidelines
 
 ## [0.1.5] - 2026-05-26
 

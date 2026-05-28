@@ -44,8 +44,8 @@ namespace TD.Models
         public OrderType OrderType { get; set; }
 
         [Range(typeof(DateTime), "1/1/2000", "12/31/2220", ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName ="RangeDateTime")]
-        [Display(ResourceType = typeof(LocalizedStrings), Name = "ExecuteTime")]
-        public DateTime? ExecuteTime { get; set; }
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "FilledTime")]
+        public DateTime? FilledTime { get; set; }
 
         /// <summary>
         /// Planned Entry Price
@@ -73,9 +73,15 @@ namespace TD.Models
         [Display(ResourceType = typeof(LocalizedStrings), Name = "FilledQuantity")]
         public decimal? FilledQuantity { get; set; }
 
+        [StringLength(512, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxStringLength")]
+        [DataType(DataType.MultilineText)]
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "Notes")]
+        public string? Notes { get; set; }
+
         [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
-        [Display(ResourceType = typeof(LocalizedStrings), Name = "DisplayOrder")]
-        public int DisplayOrder { get; set; }
+        [DataType(DataType.Date)]
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "UpdatedAt")]
+        public DateTime UpdatedAt { get; set; }
 
 
         /// <summary>
@@ -89,12 +95,13 @@ namespace TD.Models
             clone.TradeId = this.TradeId;
             clone.StopAll = this.StopAll;
             clone.OrderType = this.OrderType;
-            clone.ExecuteTime = this.ExecuteTime;
+            clone.FilledTime = this.FilledTime;
             clone.OrderPrice = this.OrderPrice;
             clone.FilledPrice = this.FilledPrice;
             clone.OrderQuantity = this.OrderQuantity;
             clone.FilledQuantity = this.FilledQuantity;
-            clone.DisplayOrder = this.DisplayOrder;
+            clone.Notes = this.Notes;
+            clone.UpdatedAt = this.UpdatedAt;
 
             Cloning(clone);
             return clone;

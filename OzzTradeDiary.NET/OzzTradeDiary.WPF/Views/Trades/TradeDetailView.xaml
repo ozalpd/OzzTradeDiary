@@ -85,14 +85,14 @@
         <TextBlock Grid.Column="4" Grid.Row="3"
                    Text="{Binding ExitTime, StringFormat=\{0:yyyy-MM-dd HH:mm\}, Mode=OneWay}"
                    Margin="0,0,0,8"/>
-
+<!--
         <TextBlock Grid.Column="0" Grid.Row="4" FontWeight="Bold"
                    Style="{StaticResource RightAlignedTextBlockStyle}" Text="{x:Static i18n:LocalizedStrings.RealizedR}"/>
         <TextBlock Grid.Column="1" Grid.Row="4"
                    Text="{Binding RealizedR, StringFormat=\{0:N2\}, Mode=OneWay}"
                    Style="{StaticResource RightAlignedTextBlockStyle}"
                    Margin="0,0,0,8"/>
-
+-->
         <TextBlock Grid.Column="3" Grid.Row="4" FontWeight="Bold"
                    Style="{StaticResource RightAlignedTextBlockStyle}" Text="{x:Static i18n:LocalizedStrings.IsFullyClosed}"/>
         <CheckBox Grid.Row="4" Grid.Column="4" Margin="0,0,0,8"

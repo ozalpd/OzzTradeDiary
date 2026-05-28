@@ -20,11 +20,17 @@ namespace TD.WPF.ViewModels.Trades
         public TradeEditVM(Trade trade)
         {
             _trade = trade;
-            EntryMethodValues = GetValues<EntryMethod>();
             TradeDirectionValues = GetValues<TradeDirection>();
+            EntryMethodValues = GetValues<EntryMethod>();
+            MarketTypeValues = GetValues<MarketType>();
             OnInitialized();
         }
         partial void OnInitialized();
+
+        /// <summary>
+        /// Gets the collection of available TradeDirection enum members for selection or display.
+        /// </summary>
+        public IEnumerable<EnumValueItem<TradeDirection>> TradeDirectionValues { get; }
 
         /// <summary>
         /// Gets the collection of available EntryMethod enum members for selection or display.
@@ -32,9 +38,9 @@ namespace TD.WPF.ViewModels.Trades
         public IEnumerable<EnumValueItem<EntryMethod>> EntryMethodValues { get; }
 
         /// <summary>
-        /// Gets the collection of available TradeDirection enum members for selection or display.
+        /// Gets the collection of available MarketType enum members for selection or display.
         /// </summary>
-        public IEnumerable<EnumValueItem<TradeDirection>> TradeDirectionValues { get; }
+        public IEnumerable<EnumValueItem<MarketType>> MarketTypeValues { get; }
 
         public int TradingAccountId => _trade.TradingAccountId;
 
@@ -56,6 +62,8 @@ namespace TD.WPF.ViewModels.Trades
 
         public Symbol Symbol => _trade.Symbol;
 
+        public TradeDirection TradeDirection => _trade.TradeDirection;
+
         public EntryMethod EntryMethod
         {
             get { return _trade.EntryMethod; }
@@ -70,7 +78,39 @@ namespace TD.WPF.ViewModels.Trades
             }
         }
 
-        public TradeDirection TradeDirection => _trade.TradeDirection;
+        public string? Tags
+        {
+            get { return _trade.Tags; }
+            set
+            {
+                if (!string.IsNullOrWhiteSpace(value) && _trade.Tags != value)
+                {
+                    _trade.Tags = value;
+                    RaisePropertyChanged(nameof(Tags));
+                    ValidateProperty(_trade, nameof(Tags));
+                }
+                else if (string.IsNullOrWhiteSpace(value))
+                {
+                    _trade.Tags = null;
+                    RaisePropertyChanged(nameof(Tags));
+                    ValidateProperty(_trade, nameof(Tags));
+                }
+            }
+        }
+
+        public MarketType MarketType
+        {
+            get { return _trade.MarketType; }
+            set
+            {
+                if (_trade.MarketType != value)
+                {
+                    _trade.MarketType = value;
+                    RaisePropertyChanged(nameof(MarketType));
+                    ValidateProperty(_trade, nameof(MarketType));
+                }
+            }
+        }
 
         public DateTime? EntryTime
         {
@@ -99,6 +139,10 @@ namespace TD.WPF.ViewModels.Trades
                 }
             }
         }
+
+        public decimal? PlannedPositionValue => _trade.PlannedPositionValue;
+
+        public decimal? ExecutedPositionValue => _trade.ExecutedPositionValue;
 
         public decimal? PlannedEntryPrice
         {
@@ -155,10 +199,6 @@ namespace TD.WPF.ViewModels.Trades
                 }
             }
         }
-
-        public decimal? PlannedPositionValue => _trade.PlannedPositionValue;
-
-        public decimal? ExecutedPositionValue => _trade.ExecutedPositionValue;
 
         public decimal? RemainingPositionValue => _trade.RemainingPositionValue;
 

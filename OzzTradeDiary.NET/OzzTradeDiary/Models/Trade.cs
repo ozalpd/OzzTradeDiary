@@ -47,12 +47,20 @@ namespace TD.Models
         public Symbol Symbol { get; set; }
 
         [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "TradeDirection")]
+        public TradeDirection TradeDirection { get; set; }
+
+        [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
         [Display(ResourceType = typeof(LocalizedStrings), Name = "EntryMethod")]
         public EntryMethod EntryMethod { get; set; }
 
+        [StringLength(255, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxStringLength")]
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "Tags")]
+        public string? Tags { get; set; }
+
         [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
-        [Display(ResourceType = typeof(LocalizedStrings), Name = "TradeDirection")]
-        public TradeDirection TradeDirection { get; set; }
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "MarketType")]
+        public MarketType MarketType { get; set; }
 
         [Range(typeof(DateTime), "1/1/2000", "12/31/2220", ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName ="RangeDateTime")]
         [Display(ResourceType = typeof(LocalizedStrings), Name = "EntryTime")]
@@ -61,35 +69,29 @@ namespace TD.Models
         [Display(ResourceType = typeof(LocalizedStrings), Name = "ExitTime")]
         public DateTime? ExitTime { get; set; }
 
-        [Display(ResourceType = typeof(LocalizedStrings), Name = "EntryOrders")]
-        public ICollection<EntryOrder> EntryOrders { get; set; }
-
         /// <summary>
-        /// Planned Entry Price, calculated from EntryOrders
+        /// Planned Entry Price, calculated from EntryOrders, also persisted for using in SQL queries.
         /// </summary>
         [Display(ResourceType = typeof(LocalizedStrings), Name = "PlannedEntryPrice")]
         public decimal? PlannedEntryPrice { get; set; }
 
         /// <summary>
-        /// Executed Entry Price, calculated from EntryOrders
+        /// Executed Entry Price, calculated from EntryOrders, also persisted for using in SQL queries.
         /// </summary>
         [Display(ResourceType = typeof(LocalizedStrings), Name = "ExecutedEntryPrice")]
         public decimal? ExecutedEntryPrice { get; set; }
 
         /// <summary>
-        /// Planned contract quantity of order
+        /// Planned contract quantity of entry orders, calculated from EntryOrders. Also persisted for using in SQL queries.
         /// </summary>
         [Display(ResourceType = typeof(LocalizedStrings), Name = "OrderQuantity")]
         public decimal? OrderQuantity { get; set; }
 
         /// <summary>
-        /// Realized contract quantity of order
+        /// Realized contract quantity of entry orders, calculated from EntryOrders. Also persisted for using in SQL queries.
         /// </summary>
         [Display(ResourceType = typeof(LocalizedStrings), Name = "FilledQuantity")]
         public decimal? FilledQuantity { get; set; }
-
-        [Display(ResourceType = typeof(LocalizedStrings), Name = "TakeProfitOrders")]
-        public ICollection<TakeProfitOrder> TakeProfitOrders { get; set; }
 
         /// <summary>
         /// Planned Take Profit Price, calculated from TakeProfitOrders
@@ -103,9 +105,6 @@ namespace TD.Models
         [Display(ResourceType = typeof(LocalizedStrings), Name = "ExecutedTP")]
         public decimal? ExecutedTP { get; set; }
 
-        [Display(ResourceType = typeof(LocalizedStrings), Name = "StopLossOrders")]
-        public ICollection<StopLossOrder> StopLossOrders { get; set; }
-
         /// <summary>
         /// Planned Stop Loss Price, calculated from StopLossOrders
         /// </summary>
@@ -117,6 +116,15 @@ namespace TD.Models
         /// </summary>
         [Display(ResourceType = typeof(LocalizedStrings), Name = "ExecutedSL")]
         public decimal? ExecutedSL { get; set; }
+
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "EntryOrders")]
+        public ICollection<EntryOrder> EntryOrders { get; set; }
+
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "TakeProfitOrders")]
+        public ICollection<TakeProfitOrder> TakeProfitOrders { get; set; }
+
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "StopLossOrders")]
+        public ICollection<StopLossOrder> StopLossOrders { get; set; }
 
         [StringLength(2048, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxStringLength")]
         [DataType(DataType.MultilineText)]
@@ -150,8 +158,10 @@ namespace TD.Models
             var clone = new Trade();
             clone.TradingAccountId = this.TradingAccountId;
             clone.SymbolId = this.SymbolId;
-            clone.EntryMethod = this.EntryMethod;
             clone.TradeDirection = this.TradeDirection;
+            clone.EntryMethod = this.EntryMethod;
+            clone.Tags = this.Tags;
+            clone.MarketType = this.MarketType;
             clone.EntryTime = this.EntryTime;
             clone.ExitTime = this.ExitTime;
             clone.PlannedEntryPrice = this.PlannedEntryPrice;

@@ -406,9 +406,6 @@
     <data name="ExecutedTP" xml:space="preserve">
         <value>Gerçekleşen Kar Al</value>
     </data>
-    <data name="ExecuteTime" xml:space="preserve">
-        <value>Gerçekleşme Zamanı</value>
-    </data>
     <data name="ExitTime" xml:space="preserve">
         <value>Pozisyondan Çıkış</value>
     </data>
@@ -417,6 +414,9 @@
     </data>
     <data name="FilledQuantity" xml:space="preserve">
         <value>Gerçekleşen Miktar</value>
+    </data>
+    <data name="FilledTime" xml:space="preserve">
+        <value>Gerçekleşme Zamanı</value>
     </data>
     <data name="FilledValue" xml:space="preserve">
         <value>Gerçekleşen Tutar</value>
@@ -562,9 +562,6 @@
     <data name="RealizedProfitLoss" xml:space="preserve">
         <value>Gerçekleşen Kazanç/Kayıp</value>
     </data>
-    <data name="RealizedR" xml:space="preserve">
-        <value>Gerçekleşen R</value>
-    </data>
     <data name="RealizedRiskAmount" xml:space="preserve">
         <value>Gerçekleşen Risk Tutarı</value>
     </data>
@@ -675,6 +672,9 @@
     </data>
     <data name="SymbolsList" xml:space="preserve">
         <value>Sembol Listesi</value>
+    </data>
+    <data name="Tags" xml:space="preserve">
+        <value>Taglar</value>
     </data>
     <data name="TakeProfit" xml:space="preserve">
         <value>Kar Al</value>

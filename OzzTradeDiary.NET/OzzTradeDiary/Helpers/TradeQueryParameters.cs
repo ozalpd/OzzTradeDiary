@@ -29,8 +29,8 @@ namespace TD.Helpers
             {
                 TradingAccountId = tradeQueryParams.TradingAccountId;
                 SymbolId = tradeQueryParams.SymbolId;
-                EntryMethod = tradeQueryParams.EntryMethod;
                 TradeDirection = tradeQueryParams.TradeDirection;
+                EntryMethod = tradeQueryParams.EntryMethod;
                 IsFullyClosed = tradeQueryParams.IsFullyClosed;
                 EntryTimeMin = tradeQueryParams.EntryTimeMin;
                 EntryTimeMax = tradeQueryParams.EntryTimeMax;
@@ -42,10 +42,10 @@ namespace TD.Helpers
                 RemainingPositionValueMax = tradeQueryParams.RemainingPositionValueMax;
                 PlannedProfitMin = tradeQueryParams.PlannedProfitMin;
                 PlannedProfitMax = tradeQueryParams.PlannedProfitMax;
-                RealizedProfitLossMin = tradeQueryParams.RealizedProfitLossMin;
-                RealizedProfitLossMax = tradeQueryParams.RealizedProfitLossMax;
                 PlannedRiskAmountMin = tradeQueryParams.PlannedRiskAmountMin;
                 PlannedRiskAmountMax = tradeQueryParams.PlannedRiskAmountMax;
+                RealizedProfitLossMin = tradeQueryParams.RealizedProfitLossMin;
+                RealizedProfitLossMax = tradeQueryParams.RealizedProfitLossMax;
                 UpdatedAtMin = tradeQueryParams.UpdatedAtMin;
                 UpdatedAtMax = tradeQueryParams.UpdatedAtMax;
             }
@@ -53,8 +53,8 @@ namespace TD.Helpers
 
         public int? TradingAccountId { get; set; }
         public int? SymbolId { get; set; }
-        public EntryMethod? EntryMethod { get; set; }
         public TradeDirection? TradeDirection { get; set; }
+        public EntryMethod? EntryMethod { get; set; }
         public bool? IsFullyClosed { get; set; }
         public DateTime? EntryTimeMin { get; set; }
         public DateTime? EntryTimeMax { get; set; }
@@ -66,10 +66,10 @@ namespace TD.Helpers
         public decimal? RemainingPositionValueMax { get; set; }
         public decimal? PlannedProfitMin { get; set; }
         public decimal? PlannedProfitMax { get; set; }
-        public decimal? RealizedProfitLossMin { get; set; }
-        public decimal? RealizedProfitLossMax { get; set; }
         public decimal? PlannedRiskAmountMin { get; set; }
         public decimal? PlannedRiskAmountMax { get; set; }
+        public decimal? RealizedProfitLossMin { get; set; }
+        public decimal? RealizedProfitLossMax { get; set; }
         public DateTime? UpdatedAtMin { get; set; }
         public DateTime? UpdatedAtMax { get; set; }
 
@@ -80,16 +80,16 @@ namespace TD.Helpers
 
             _hasAnySearchCriteria = _hasAnySearchCriteria || TradingAccountId.HasValue;
             _hasAnySearchCriteria = _hasAnySearchCriteria || SymbolId.HasValue;
-            _hasAnySearchCriteria = _hasAnySearchCriteria || EntryMethod.HasValue;
             _hasAnySearchCriteria = _hasAnySearchCriteria || TradeDirection.HasValue;
+            _hasAnySearchCriteria = _hasAnySearchCriteria || EntryMethod.HasValue;
             _hasAnySearchCriteria = _hasAnySearchCriteria || IsFullyClosed.HasValue;
             _hasAnySearchCriteria = _hasAnySearchCriteria || EntryTimeMin.HasValue || EntryTimeMax.HasValue;
             _hasAnySearchCriteria = _hasAnySearchCriteria || PlannedPositionValueMin.HasValue || PlannedPositionValueMax.HasValue;
             _hasAnySearchCriteria = _hasAnySearchCriteria || ExecutedPositionValueMin.HasValue || ExecutedPositionValueMax.HasValue;
             _hasAnySearchCriteria = _hasAnySearchCriteria || RemainingPositionValueMin.HasValue || RemainingPositionValueMax.HasValue;
             _hasAnySearchCriteria = _hasAnySearchCriteria || PlannedProfitMin.HasValue || PlannedProfitMax.HasValue;
-            _hasAnySearchCriteria = _hasAnySearchCriteria || RealizedProfitLossMin.HasValue || RealizedProfitLossMax.HasValue;
             _hasAnySearchCriteria = _hasAnySearchCriteria || PlannedRiskAmountMin.HasValue || PlannedRiskAmountMax.HasValue;
+            _hasAnySearchCriteria = _hasAnySearchCriteria || RealizedProfitLossMin.HasValue || RealizedProfitLossMax.HasValue;
             _hasAnySearchCriteria = _hasAnySearchCriteria || UpdatedAtMin.HasValue || UpdatedAtMax.HasValue;
 
             OnHasAnySearchCriteria();

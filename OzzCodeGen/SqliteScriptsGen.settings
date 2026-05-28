@@ -158,7 +158,7 @@
           <DoNotLog>false</DoNotLog>
         </StorageColumnSetting>
         <StorageColumnSetting>
-          <Name>ExecuteTime</Name>
+          <Name>FilledTime</Name>
           <Exclude>false</Exclude>
           <DataType>INTEGER</DataType>
           <Length>0</Length>
@@ -246,6 +246,19 @@
           <SortDesc>false</SortDesc>
           <Nullable>true</Nullable>
           <CheckIfAltered>true</CheckIfAltered>
+          <DoNotLog>false</DoNotLog>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>Notes</Name>
+          <Exclude>false</Exclude>
+          <DataType>TEXT</DataType>
+          <Length>0</Length>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <Unique>false</Unique>
+          <SortDesc>false</SortDesc>
+          <Nullable>true</Nullable>
+          <CheckIfAltered>false</CheckIfAltered>
           <DoNotLog>false</DoNotLog>
         </StorageColumnSetting>
       </Properties>
@@ -931,6 +944,20 @@
           <ForeignKeyTable>Symbols</ForeignKeyTable>
         </StorageColumnSetting>
         <StorageColumnSetting>
+          <Name>TradeDirection</Name>
+          <Exclude>false</Exclude>
+          <DataType>INTEGER</DataType>
+          <Length>0</Length>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>true</Indexed>
+          <Unique>false</Unique>
+          <SortDesc>false</SortDesc>
+          <CompositeIndexColumns>UpdatedAt DESC; EntryTime DESC</CompositeIndexColumns>
+          <Nullable>false</Nullable>
+          <CheckIfAltered>false</CheckIfAltered>
+          <DoNotLog>false</DoNotLog>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
           <Name>EntryMethod</Name>
           <Exclude>false</Exclude>
           <DataType>INTEGER</DataType>
@@ -944,15 +971,27 @@
           <DoNotLog>false</DoNotLog>
         </StorageColumnSetting>
         <StorageColumnSetting>
-          <Name>TradeDirection</Name>
+          <Name>Tags</Name>
+          <Exclude>false</Exclude>
+          <DataType>TEXT</DataType>
+          <Length>0</Length>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <Unique>false</Unique>
+          <SortDesc>false</SortDesc>
+          <Nullable>true</Nullable>
+          <CheckIfAltered>false</CheckIfAltered>
+          <DoNotLog>false</DoNotLog>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>MarketType</Name>
           <Exclude>false</Exclude>
           <DataType>INTEGER</DataType>
           <Length>0</Length>
           <PrimaryKey>false</PrimaryKey>
-          <Indexed>true</Indexed>
+          <Indexed>false</Indexed>
           <Unique>false</Unique>
           <SortDesc>false</SortDesc>
-          <CompositeIndexColumns>UpdatedAt DESC; EntryTime DESC</CompositeIndexColumns>
           <Nullable>false</Nullable>
           <CheckIfAltered>false</CheckIfAltered>
           <DoNotLog>false</DoNotLog>
@@ -984,6 +1023,34 @@
           <DoNotLog>false</DoNotLog>
         </StorageColumnSetting>
         <StorageColumnSetting>
+          <Name>PlannedPositionValue</Name>
+          <Exclude>false</Exclude>
+          <DataType>INTEGER</DataType>
+          <Length>0</Length>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>true</Indexed>
+          <Unique>false</Unique>
+          <SortDesc>false</SortDesc>
+          <CompositeIndexColumns>UpdatedAt DESC; EntryTime DESC</CompositeIndexColumns>
+          <Nullable>true</Nullable>
+          <CheckIfAltered>true</CheckIfAltered>
+          <DoNotLog>false</DoNotLog>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>ExecutedPositionValue</Name>
+          <Exclude>false</Exclude>
+          <DataType>INTEGER</DataType>
+          <Length>0</Length>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>true</Indexed>
+          <Unique>false</Unique>
+          <SortDesc>false</SortDesc>
+          <CompositeIndexColumns>EntryTime DESC</CompositeIndexColumns>
+          <Nullable>true</Nullable>
+          <CheckIfAltered>true</CheckIfAltered>
+          <DoNotLog>false</DoNotLog>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
           <Name>IsFullyClosed</Name>
           <Exclude>false</Exclude>
           <DataType>INTEGER</DataType>
@@ -995,19 +1062,6 @@
           <CompositeIndexColumns>EntryTime DESC</CompositeIndexColumns>
           <Nullable>false</Nullable>
           <CheckIfAltered>false</CheckIfAltered>
-          <DoNotLog>false</DoNotLog>
-        </StorageColumnSetting>
-        <StorageColumnSetting>
-          <Name>RealizedR</Name>
-          <Exclude>false</Exclude>
-          <DataType>TEXT</DataType>
-          <Length>0</Length>
-          <PrimaryKey>false</PrimaryKey>
-          <Indexed>false</Indexed>
-          <Unique>false</Unique>
-          <SortDesc>false</SortDesc>
-          <Nullable>true</Nullable>
-          <CheckIfAltered>true</CheckIfAltered>
           <DoNotLog>false</DoNotLog>
         </StorageColumnSetting>
         <StorageColumnSetting>
@@ -1063,34 +1117,6 @@
           <DoNotLog>false</DoNotLog>
         </StorageColumnSetting>
         <StorageColumnSetting>
-          <Name>PlannedPositionValue</Name>
-          <Exclude>false</Exclude>
-          <DataType>INTEGER</DataType>
-          <Length>0</Length>
-          <PrimaryKey>false</PrimaryKey>
-          <Indexed>true</Indexed>
-          <Unique>false</Unique>
-          <SortDesc>false</SortDesc>
-          <CompositeIndexColumns>UpdatedAt DESC; EntryTime DESC</CompositeIndexColumns>
-          <Nullable>true</Nullable>
-          <CheckIfAltered>true</CheckIfAltered>
-          <DoNotLog>false</DoNotLog>
-        </StorageColumnSetting>
-        <StorageColumnSetting>
-          <Name>ExecutedPositionValue</Name>
-          <Exclude>false</Exclude>
-          <DataType>INTEGER</DataType>
-          <Length>0</Length>
-          <PrimaryKey>false</PrimaryKey>
-          <Indexed>true</Indexed>
-          <Unique>false</Unique>
-          <SortDesc>false</SortDesc>
-          <CompositeIndexColumns>EntryTime DESC</CompositeIndexColumns>
-          <Nullable>true</Nullable>
-          <CheckIfAltered>true</CheckIfAltered>
-          <DoNotLog>false</DoNotLog>
-        </StorageColumnSetting>
-        <StorageColumnSetting>
           <Name>RemainingPositionValue</Name>
           <Exclude>false</Exclude>
           <DataType>INTEGER</DataType>
@@ -1119,20 +1145,6 @@
           <DoNotLog>false</DoNotLog>
         </StorageColumnSetting>
         <StorageColumnSetting>
-          <Name>RealizedProfitLoss</Name>
-          <Exclude>false</Exclude>
-          <DataType>INTEGER</DataType>
-          <Length>0</Length>
-          <PrimaryKey>false</PrimaryKey>
-          <Indexed>true</Indexed>
-          <Unique>false</Unique>
-          <SortDesc>false</SortDesc>
-          <CompositeIndexColumns>EntryTime DESC</CompositeIndexColumns>
-          <Nullable>true</Nullable>
-          <CheckIfAltered>true</CheckIfAltered>
-          <DoNotLog>false</DoNotLog>
-        </StorageColumnSetting>
-        <StorageColumnSetting>
           <Name>PlannedTP</Name>
           <Exclude>false</Exclude>
           <DataType>TEXT</DataType>
@@ -1149,33 +1161,6 @@
           <Name>ExecutedTP</Name>
           <Exclude>false</Exclude>
           <DataType>TEXT</DataType>
-          <Length>0</Length>
-          <PrimaryKey>false</PrimaryKey>
-          <Indexed>false</Indexed>
-          <Unique>false</Unique>
-          <SortDesc>false</SortDesc>
-          <Nullable>true</Nullable>
-          <CheckIfAltered>true</CheckIfAltered>
-          <DoNotLog>false</DoNotLog>
-        </StorageColumnSetting>
-        <StorageColumnSetting>
-          <Name>PlannedRiskAmount</Name>
-          <Exclude>false</Exclude>
-          <DataType>INTEGER</DataType>
-          <Length>0</Length>
-          <PrimaryKey>false</PrimaryKey>
-          <Indexed>false</Indexed>
-          <Unique>false</Unique>
-          <SortDesc>false</SortDesc>
-          <CompositeIndexColumns>UpdatedAt DESC; EntryTime DESC</CompositeIndexColumns>
-          <Nullable>true</Nullable>
-          <CheckIfAltered>true</CheckIfAltered>
-          <DoNotLog>false</DoNotLog>
-        </StorageColumnSetting>
-        <StorageColumnSetting>
-          <Name>RealizedRiskAmount</Name>
-          <Exclude>false</Exclude>
-          <DataType>INTEGER</DataType>
           <Length>0</Length>
           <PrimaryKey>false</PrimaryKey>
           <Indexed>false</Indexed>
@@ -1212,9 +1197,50 @@
           <DoNotLog>false</DoNotLog>
         </StorageColumnSetting>
         <StorageColumnSetting>
+          <Name>PlannedRiskAmount</Name>
+          <Exclude>false</Exclude>
+          <DataType>INTEGER</DataType>
+          <Length>0</Length>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <Unique>false</Unique>
+          <SortDesc>false</SortDesc>
+          <CompositeIndexColumns>UpdatedAt DESC; EntryTime DESC</CompositeIndexColumns>
+          <Nullable>true</Nullable>
+          <CheckIfAltered>true</CheckIfAltered>
+          <DoNotLog>false</DoNotLog>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
           <Name>PlannedRiskRewardRatio</Name>
           <Exclude>false</Exclude>
           <DataType>TEXT</DataType>
+          <Length>0</Length>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <Unique>false</Unique>
+          <SortDesc>false</SortDesc>
+          <Nullable>true</Nullable>
+          <CheckIfAltered>true</CheckIfAltered>
+          <DoNotLog>false</DoNotLog>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>RealizedProfitLoss</Name>
+          <Exclude>false</Exclude>
+          <DataType>INTEGER</DataType>
+          <Length>0</Length>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>true</Indexed>
+          <Unique>false</Unique>
+          <SortDesc>false</SortDesc>
+          <CompositeIndexColumns>EntryTime DESC</CompositeIndexColumns>
+          <Nullable>true</Nullable>
+          <CheckIfAltered>true</CheckIfAltered>
+          <DoNotLog>false</DoNotLog>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>RealizedRiskAmount</Name>
+          <Exclude>false</Exclude>
+          <DataType>INTEGER</DataType>
           <Length>0</Length>
           <PrimaryKey>false</PrimaryKey>
           <Indexed>false</Indexed>

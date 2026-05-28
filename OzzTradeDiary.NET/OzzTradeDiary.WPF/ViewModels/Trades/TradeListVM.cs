@@ -30,8 +30,9 @@ namespace TD.WPF.ViewModels.Trades
             QueryVM.PropertyChanged += OnPropertyChanged;
             PropertyChanged += OnPropertyChanged;
 
-            EntryMethodValues = GetValues<EntryMethod>();
             TradeDirectionValues = GetValues<TradeDirection>();
+            EntryMethodValues = GetValues<EntryMethod>();
+            MarketTypeValues = GetValues<MarketType>();
             TradeCreateCommand = new TradeCreateCommand(this, windowDialogService, symbolLookupService, tradingAccountLookupService);
             TradeDeleteCommand = new TradeDeleteCommand(this);
             TradeDetailCommand = new TradeDetailCommand(this, windowDialogService);
@@ -45,14 +46,19 @@ namespace TD.WPF.ViewModels.Trades
         public ObservableCollection<Trade> Trades { get; }
 
         /// <summary>
+        /// Gets the collection of available TradeDirection enum members for selection or display.
+        /// </summary>
+        public IEnumerable<EnumValueItem<TradeDirection>> TradeDirectionValues { get; }
+
+        /// <summary>
         /// Gets the collection of available EntryMethod enum members for selection or display.
         /// </summary>
         public IEnumerable<EnumValueItem<EntryMethod>> EntryMethodValues { get; }
 
         /// <summary>
-        /// Gets the collection of available TradeDirection enum members for selection or display.
+        /// Gets the collection of available MarketType enum members for selection or display.
         /// </summary>
-        public IEnumerable<EnumValueItem<TradeDirection>> TradeDirectionValues { get; }
+        public IEnumerable<EnumValueItem<MarketType>> MarketTypeValues { get; }
 
         public TradeCreateCommand TradeCreateCommand { get; }
         public TradeDeleteCommand TradeDeleteCommand { get; }

@@ -44,7 +44,7 @@ namespace TD.SQLite
             await using var connection = await GetOpenConnectionAsync();
             await using var command = connection.CreateCommand();
             command.CommandText = _selectStatement;
-            command.CommandText += " ORDER BY DisplayOrder, Id";
+            command.CommandText += " ORDER BY UpdatedAt DESC, Id";
 
             await using var reader = await command.ExecuteReaderAsync();
             while (await reader.ReadAsync())
@@ -79,7 +79,7 @@ namespace TD.SQLite
             command.CommandText = _selectStatement;
             command.CommandText += " WHERE TradeId = @tradeId";
             command.AddParameter("@tradeId", tradeId);
-            command.CommandText += " ORDER BY DisplayOrder, Id";
+            command.CommandText += " ORDER BY UpdatedAt DESC, Id";
 
             await using var reader = await command.ExecuteReaderAsync();
             while (await reader.ReadAsync())
@@ -123,14 +123,14 @@ namespace TD.SQLite
 
             await using var command = connection.CreateCommand();
             command.CommandText = @$"INSERT INTO {_tableName} ({string.Join(", ", ColumnNames[1..])})
-            VALUES (@tradeId, @stopAll, @orderType, @executeTime, @orderPrice, @filledPrice,
-                    @orderQuantity, @filledQuantity, @orderValue, @filledValue, @displayOrder);
+            VALUES (@tradeId, @stopAll, @orderType, @filledTime, @orderPrice, @filledPrice,
+                    @orderQuantity, @filledQuantity, @orderValue, @filledValue, @notes, @updatedAt);
             SELECT last_insert_rowid();";
 
             command.AddParameter("@tradeId", stopLossOrder.TradeId);
             command.AddParameter("@stopAll", stopLossOrder.StopAll);
             command.AddParameter("@orderType", (int)stopLossOrder.OrderType);
-            command.AddDateTimeToTextParameter("@executeTime", stopLossOrder.ExecuteTime);
+            command.AddDateTimeToTextParameter("@filledTime", stopLossOrder.FilledTime);
             command.AddDecimalToTextParameter("@orderPrice", stopLossOrder.OrderPrice);
             command.AddDecimalToTextParameter("@filledPrice", stopLossOrder.FilledPrice);
             command.AddDecimalToTextParameter("@orderQuantity", stopLossOrder.OrderQuantity);
@@ -141,7 +141,8 @@ namespace TD.SQLite
             command.AddDecimalToIntegerParameter("@filledValue",
                                                 stopLossOrder.FilledValue,
                                                 DecimalToIntegerScale.FilledValue);
-            command.AddParameter("@displayOrder", stopLossOrder.DisplayOrder);
+            command.AddNullableParameter("@notes", stopLossOrder.Notes);
+            command.AddDateTimeToTextParameter("@updatedAt", DateTime.Now);
 
             var id = Convert.ToInt32((long)(await command.ExecuteScalarAsync() ?? 0));
 
@@ -197,38 +198,40 @@ namespace TD.SQLite
             bool noChanges = existingStopLossOrder != null
                           && existingStopLossOrder.StopAll == stopLossOrder.StopAll
                           && existingStopLossOrder.OrderType == stopLossOrder.OrderType
-                          && existingStopLossOrder.ExecuteTime == stopLossOrder.ExecuteTime
+                          && existingStopLossOrder.FilledTime == stopLossOrder.FilledTime
                           && existingStopLossOrder.OrderPrice == stopLossOrder.OrderPrice
                           && existingStopLossOrder.FilledPrice == stopLossOrder.FilledPrice
                           && existingStopLossOrder.OrderQuantity == stopLossOrder.OrderQuantity
                           && existingStopLossOrder.FilledQuantity == stopLossOrder.FilledQuantity
                           && existingStopLossOrder.OrderValue == stopLossOrder.OrderValue
                           && existingStopLossOrder.FilledValue == stopLossOrder.FilledValue
-                          && existingStopLossOrder.DisplayOrder == stopLossOrder.DisplayOrder;
+                          && existingStopLossOrder.Notes == stopLossOrder.Notes
+                          && existingStopLossOrder.UpdatedAt == stopLossOrder.UpdatedAt;
 
             if (noChanges)
                 return false;
 
             await using var command = connection.CreateCommand();
             // TradeId is not updated to avoid complications with existing references,
-            // so only StopAll, OrderType, ExecuteTime, OrderPrice, FilledPrice, OrderQuantity, FilledQuantity, OrderValue, FilledValue, DisplayOrder are updated
+            // so only StopAll, OrderType, FilledTime, OrderPrice, FilledPrice, OrderQuantity, FilledQuantity, OrderValue, FilledValue, Notes, UpdatedAt are updated
             command.CommandText = @$"UPDATE {_tableName} SET
                 StopAll = @stopAll,
                 OrderType = @orderType,
-                ExecuteTime = @executeTime,
+                FilledTime = @filledTime,
                 OrderPrice = @orderPrice,
                 FilledPrice = @filledPrice,
                 OrderQuantity = @orderQuantity,
                 FilledQuantity = @filledQuantity,
                 OrderValue = @orderValue,
                 FilledValue = @filledValue,
-                DisplayOrder = @displayOrder
+                Notes = @notes,
+                UpdatedAt = @updatedAt
             WHERE Id = @id";
 
             command.AddParameter("@id", stopLossOrder.Id);
             command.AddParameter("@stopAll", stopLossOrder.StopAll);
             command.AddParameter("@orderType", (int)stopLossOrder.OrderType);
-            command.AddDateTimeToTextParameter("@executeTime", stopLossOrder.ExecuteTime);
+            command.AddDateTimeToTextParameter("@filledTime", stopLossOrder.FilledTime);
             command.AddDecimalToTextParameter("@orderPrice", stopLossOrder.OrderPrice);
             command.AddDecimalToTextParameter("@filledPrice", stopLossOrder.FilledPrice);
             command.AddDecimalToTextParameter("@orderQuantity", stopLossOrder.OrderQuantity);
@@ -239,7 +242,8 @@ namespace TD.SQLite
             command.AddDecimalToIntegerParameter("@filledValue",
                                                 stopLossOrder.FilledValue,
                                                 DecimalToIntegerScale.FilledValue);
-            command.AddParameter("@displayOrder", stopLossOrder.DisplayOrder);
+            command.AddNullableParameter("@notes", stopLossOrder.Notes);
+            command.AddDateTimeToTextParameter("@updatedAt", DateTime.Now);
 
             var affectedRows = await command.ExecuteNonQueryAsync();
             if (affectedRows > 0)
@@ -260,8 +264,8 @@ namespace TD.SQLite
                 TradeId = reader.GetInt32(ColNrs.TradeId),
                 StopAll = reader.GetInt64(ColNrs.StopAll) == 1,
                 OrderType = (OrderType)reader.GetInt32(ColNrs.OrderType),
-                ExecuteTime = reader.IsDBNull(ColNrs.ExecuteTime) ? null
-                            : ToLocalDateTime(reader.GetString(ColNrs.ExecuteTime)),
+                FilledTime = reader.IsDBNull(ColNrs.FilledTime) ? null
+                           : ToLocalDateTime(reader.GetString(ColNrs.FilledTime)),
                 OrderPrice = reader.GetDecimalFromText(ColNrs.OrderPrice) ?? 0m,
                 FilledPrice = reader.IsDBNull(ColNrs.FilledPrice) ? null
                             : reader.GetDecimalFromText(ColNrs.FilledPrice),
@@ -275,7 +279,9 @@ namespace TD.SQLite
                 FilledValue = reader.IsDBNull(ColNrs.FilledValue) ? null
                             : reader.GetDecimalFromInteger(ColNrs.FilledValue,
                                             DecimalToIntegerScale.FilledValue),
-                DisplayOrder = reader.GetInt32(ColNrs.DisplayOrder)
+                Notes = reader.IsDBNull(ColNrs.Notes) ? null
+                      : reader.GetString(ColNrs.Notes),
+                UpdatedAt = ToLocalDateTime(reader.GetString(ColNrs.UpdatedAt)) ?? DateTime.MinValue
             };
 
             return stopLossOrder;
@@ -290,14 +296,15 @@ namespace TD.SQLite
             public readonly static int TradeId = 1;
             public readonly static int StopAll = 2;
             public readonly static int OrderType = 3;
-            public readonly static int ExecuteTime = 4;
+            public readonly static int FilledTime = 4;
             public readonly static int OrderPrice = 5;
             public readonly static int FilledPrice = 6;
             public readonly static int OrderQuantity = 7;
             public readonly static int FilledQuantity = 8;
             public readonly static int OrderValue = 9;
             public readonly static int FilledValue = 10;
-            public readonly static int DisplayOrder = 11;
+            public readonly static int Notes = 11;
+            public readonly static int UpdatedAt = 12;
         }
 
         /// <summary>
@@ -308,14 +315,15 @@ namespace TD.SQLite
             "TradeId",
             "StopAll",
             "OrderType",
-            "ExecuteTime",
+            "FilledTime",
             "OrderPrice",
             "FilledPrice",
             "OrderQuantity",
             "FilledQuantity",
             "OrderValue",
             "FilledValue",
-            "DisplayOrder"
+            "Notes",
+            "UpdatedAt"
         };
 
         /// <summary>
