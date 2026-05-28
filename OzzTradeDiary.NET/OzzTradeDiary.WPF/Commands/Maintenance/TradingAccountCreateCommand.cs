@@ -17,10 +17,10 @@ namespace TD.WPF.Commands.Maintenance
 {
     public partial class TradingAccountCreateCommand : AbstractCommand
     {
-        private readonly AbstractDiaryVM _viewModel;
+        protected readonly AbstractDiaryVM _viewModel;
         private readonly IWindowDialogService _windowDialogService;
         private readonly IExchangeLookupService _exchangeLookupService;
-
+        
         public TradingAccountCreateCommand(AbstractDiaryVM viewModel, IWindowDialogService windowDialogService,
                                            IExchangeLookupService exchangeLookupService)
         {

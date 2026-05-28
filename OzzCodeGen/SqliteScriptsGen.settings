@@ -602,7 +602,7 @@
         <StorageColumnSetting>
           <Name>MakerFeeRate</Name>
           <Exclude>false</Exclude>
-          <DataType>REAL</DataType>
+          <DataType>TEXT</DataType>
           <Length>0</Length>
           <PrimaryKey>false</PrimaryKey>
           <Indexed>false</Indexed>
@@ -615,7 +615,7 @@
         <StorageColumnSetting>
           <Name>TakerFeeRate</Name>
           <Exclude>false</Exclude>
-          <DataType>REAL</DataType>
+          <DataType>TEXT</DataType>
           <Length>0</Length>
           <PrimaryKey>false</PrimaryKey>
           <Indexed>false</Indexed>

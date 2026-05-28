@@ -3,6 +3,8 @@ CREATE TABLE IF NOT EXISTS TradingAccounts(
 	Title TEXT Not Null, 
 	ExchangeId INTEGER Not Null, 
 	Notes TEXT, 
+	MakerFeeRate TEXT, 
+	TakerFeeRate TEXT, 
 	DisplayOrder INTEGER Not Null, 
 	IsActive INTEGER Not Null 
 );

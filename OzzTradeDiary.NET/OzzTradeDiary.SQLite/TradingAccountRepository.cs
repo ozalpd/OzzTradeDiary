@@ -207,12 +207,15 @@ namespace TD.SQLite
 
             await using var command = connection.CreateCommand();
             command.CommandText = @$"INSERT INTO {_tableName} ({string.Join(", ", ColumnNames[1..])})
-            VALUES (@title, @exchangeId, @notes, @displayOrder, @isActive);
+            VALUES (@title, @exchangeId, @notes, @makerFeeRate, @takerFeeRate, @displayOrder,
+                    @isActive);
             SELECT last_insert_rowid();";
 
             command.AddParameter("@title", tradingAccount.Title);
             command.AddParameter("@exchangeId", tradingAccount.ExchangeId);
             command.AddNullableParameter("@notes", tradingAccount.Notes);
+            command.AddDecimalToTextParameter("@makerFeeRate", tradingAccount.MakerFeeRate);
+            command.AddDecimalToTextParameter("@takerFeeRate", tradingAccount.TakerFeeRate);
             command.AddParameter("@displayOrder", tradingAccount.DisplayOrder);
             command.AddParameter("@isActive", tradingAccount.IsActive);
 
@@ -281,6 +284,8 @@ namespace TD.SQLite
             bool noChanges = existingTradingAccount != null
                           && existingTradingAccount.Title == tradingAccount.Title
                           && existingTradingAccount.Notes == tradingAccount.Notes
+                          && existingTradingAccount.MakerFeeRate == tradingAccount.MakerFeeRate
+                          && existingTradingAccount.TakerFeeRate == tradingAccount.TakerFeeRate
                           && existingTradingAccount.DisplayOrder == tradingAccount.DisplayOrder
                           && existingTradingAccount.IsActive == tradingAccount.IsActive;
 
@@ -289,10 +294,12 @@ namespace TD.SQLite
 
             await using var command = connection.CreateCommand();
             // ExchangeId is not updated to avoid complications with existing references,
-            // so only Title, Notes, DisplayOrder, IsActive are updated
+            // so only Title, Notes, MakerFeeRate, TakerFeeRate, DisplayOrder, IsActive are updated
             command.CommandText = @$"UPDATE {_tableName} SET
                 Title = @title,
                 Notes = @notes,
+                MakerFeeRate = @makerFeeRate,
+                TakerFeeRate = @takerFeeRate,
                 DisplayOrder = @displayOrder,
                 IsActive = @isActive
             WHERE Id = @id";
@@ -300,6 +307,8 @@ namespace TD.SQLite
             command.AddParameter("@id", tradingAccount.Id);
             command.AddParameter("@title", tradingAccount.Title);
             command.AddNullableParameter("@notes", tradingAccount.Notes);
+            command.AddDecimalToTextParameter("@makerFeeRate", tradingAccount.MakerFeeRate);
+            command.AddDecimalToTextParameter("@takerFeeRate", tradingAccount.TakerFeeRate);
             command.AddParameter("@displayOrder", tradingAccount.DisplayOrder);
             command.AddParameter("@isActive", tradingAccount.IsActive);
 
@@ -330,6 +339,10 @@ namespace TD.SQLite
                 ExchangeId = reader.GetInt32(ColNrs.ExchangeId),
                 Notes = reader.IsDBNull(ColNrs.Notes) ? null
                       : reader.GetString(ColNrs.Notes),
+                MakerFeeRate = reader.IsDBNull(ColNrs.MakerFeeRate) ? null
+                             : reader.GetDecimalFromText(ColNrs.MakerFeeRate),
+                TakerFeeRate = reader.IsDBNull(ColNrs.TakerFeeRate) ? null
+                             : reader.GetDecimalFromText(ColNrs.TakerFeeRate),
                 DisplayOrder = reader.GetInt32(ColNrs.DisplayOrder),
                 IsActive = reader.GetInt64(ColNrs.IsActive) == 1
             };
@@ -346,8 +359,10 @@ namespace TD.SQLite
             public readonly static int Title = 1;
             public readonly static int ExchangeId = 2;
             public readonly static int Notes = 3;
-            public readonly static int DisplayOrder = 4;
-            public readonly static int IsActive = 5;
+            public readonly static int MakerFeeRate = 4;
+            public readonly static int TakerFeeRate = 5;
+            public readonly static int DisplayOrder = 6;
+            public readonly static int IsActive = 7;
         }
 
         /// <summary>
@@ -358,8 +373,19 @@ namespace TD.SQLite
             "Title",
             "ExchangeId",
             "Notes",
+            "MakerFeeRate",
+            "TakerFeeRate",
             "DisplayOrder",
             "IsActive"
         };
+
+        /// <summary>
+        /// Contains the scale values used for converting decimal properties to integer storage.
+        /// </summary>
+        public readonly struct DecimalToIntegerScale
+        {
+            public readonly static int MakerFeeRate = 0;
+            public readonly static int TakerFeeRate = 0;
+        }
     }
 }

@@ -461,7 +461,7 @@
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required />
-          <IsSearchParameter>true</IsSearchParameter>
+          <IsSearchParameter>false</IsSearchParameter>
         </ModelPropertySetting>
         <ModelPropertySetting>
           <Name>MakerFeeRate</Name>

@@ -505,7 +505,7 @@
           <Name>MakerFeeRate</Name>
           <Exclude>false</Exclude>
           <AutoLoad>false</AutoLoad>
-          <CheckIfAltered>false</CheckIfAltered>
+          <CheckIfAltered>true</CheckIfAltered>
           <ColumnName>MakerFeeRate</ColumnName>
           <SingleColumnUpdate>false</SingleColumnUpdate>
           <DecimalToIntegerScale>0</DecimalToIntegerScale>
@@ -514,7 +514,7 @@
           <Name>TakerFeeRate</Name>
           <Exclude>false</Exclude>
           <AutoLoad>false</AutoLoad>
-          <CheckIfAltered>false</CheckIfAltered>
+          <CheckIfAltered>true</CheckIfAltered>
           <ColumnName>TakerFeeRate</ColumnName>
           <SingleColumnUpdate>false</SingleColumnUpdate>
           <DecimalToIntegerScale>0</DecimalToIntegerScale>

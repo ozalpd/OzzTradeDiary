@@ -49,6 +49,12 @@ namespace TD.Models
         [Display(ResourceType = typeof(LocalizedStrings), Name = "Notes")]
         public string? Notes { get; set; }
 
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "MakerFeeRate")]
+        public decimal? MakerFeeRate { get; set; }
+
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "TakerFeeRate")]
+        public decimal? TakerFeeRate { get; set; }
+
         [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
         [Display(ResourceType = typeof(LocalizedStrings), Name = "DisplayOrder")]
         public int DisplayOrder { get; set; }
@@ -68,6 +74,8 @@ namespace TD.Models
             clone.Title = this.Title;
             clone.ExchangeId = this.ExchangeId;
             clone.Notes = this.Notes;
+            clone.MakerFeeRate = this.MakerFeeRate;
+            clone.TakerFeeRate = this.TakerFeeRate;
             clone.DisplayOrder = this.DisplayOrder;
             clone.IsActive = this.IsActive;
 

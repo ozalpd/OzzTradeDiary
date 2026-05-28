@@ -79,12 +79,13 @@ static async Task SeedDemoDataAsync(string databasePath, int daysAgoStart, bool 
         if (symbolSet == null || symbolSet.Count == 0)
             return false;
 
+        var random = new Random();
         int tradesCount = 5; // max 5 trades per symbol
         foreach (var symbol in symbolSet)
         {
             for (int j = 0; j < tradesCount; j++)
             {
-                var trade = await EnsureDemoTradeAsync(tradeRepository, tradeImageRepository, tradingAccount.Id, symbol, daysAgo + tradesCount - j - 1, noImages);
+                var trade = await EnsureDemoTradeAsync(tradeRepository, tradeImageRepository, tradingAccount.Id, symbol, daysAgo + tradesCount - j - 1, noImages, random);
             }
 
             tradesCount = tradesCount - 1; // Decrease the number of trades for each subsequent symbol to create variety, starting from 15 for the first symbol.
@@ -170,6 +171,8 @@ static async Task<TradingAccount> EnsureDemoTradingAccountAsync(ITradingAccountR
         ExchangeId = exchange.Id,
         Notes = "Local debug/demo account",
         DisplayOrder = 9990,
+        MakerFeeRate = 0.0002m,
+        TakerFeeRate = 0.0005m,
         IsActive = true
     };
 
@@ -178,9 +181,9 @@ static async Task<TradingAccount> EnsureDemoTradingAccountAsync(ITradingAccountR
     return tradingAccount;
 }
 
-static async Task<Trade> EnsureDemoTradeAsync(ITradeRepository tradeRepository, TradeImageRepository tradeImageRepository, int tradingAccountId, Symbol symbol, int daysAgo, bool noImages)
+static async Task<Trade> EnsureDemoTradeAsync(ITradeRepository tradeRepository, TradeImageRepository tradeImageRepository, int tradingAccountId, Symbol symbol, int daysAgo, bool noImages, Random? rng = null)
 {
-    var random = new Random();
+    var random = rng ?? new Random();
     var priceDict = GetCryptoPriceDict();
     var direction = random.Next(0, 3) == 0 //In real world, long trades are more common than short,
                   ? TradeDirection.Short   //so we can weight it a bit. 1/3 chance for short, 2/3 for long.
@@ -201,42 +204,63 @@ static async Task<Trade> EnsureDemoTradeAsync(ITradeRepository tradeRepository, 
     decimal tp2Multiplier = direction == TradeDirection.Long ? 1.04m : 0.96m; // Take profit multiplier based on trade direction
     decimal tp3Multiplier = direction == TradeDirection.Long ? 1.06m : 0.94m; // Take profit multiplier based on trade direction
     decimal slMultiplier = direction == TradeDirection.Long ? 0.98m : 1.02m; // Stop loss multiplier based on trade direction
-    decimal quantity = (1000m / entryPrice).RoundToQuantum(); // Fixed $1000 position size for demo purposes, so the quantity will vary based on entry price.
-    var entryOrder = new EntryOrder
+    // 20% chance 3 entry orders, 40% chance 2, 40% chance 1
+    int entryOrderCount = random.Next(0, 10) switch { < 2 => 3, < 6 => 2, _ => 1 };
+
+    // For multi-entry DCA, each subsequent order is placed slightly better (lower for Long, higher for Short)
+    decimal dcaStep = direction == TradeDirection.Long ? -0.01m : 0.01m;
+    decimal totalQuantity = (1000m / entryPrice).RoundToQuantum(); // Total $1000 position across all entry orders
+    decimal perOrderQuantity = (totalQuantity / entryOrderCount).RoundToQuantum();
+
+    var entryOrders = new List<EntryOrder>();
+    for (int e = 0; e < entryOrderCount; e++)
     {
-        OrderPrice = entryPrice,
-        OrderQuantity = quantity
-    };
+        decimal orderPrice = (entryPrice * (1m + dcaStep * e)).RoundToQuantum();
+        entryOrders.Add(new EntryOrder
+        {
+            OrderPrice = orderPrice,
+            OrderQuantity = perOrderQuantity,
+            UpdatedAt = DateTime.UtcNow
+        });
+    }
+    decimal quantity = perOrderQuantity * entryOrderCount; // Total planned quantity across all entry orders
+
     var slOrder = new StopLossOrder
     {
         OrderPrice = (entryPrice * slMultiplier).RoundToQuantum(),
-        OrderQuantity = quantity
+        OrderQuantity = quantity,
+        UpdatedAt = DateTime.UtcNow
     };
     var tp1 = new TakeProfitOrder
     {
         OrderPrice = (entryPrice * tp1Multiplier).RoundToQuantum(),
-        OrderQuantity = quantity * 0.4m // 40% of the quantity for TP1
+        OrderQuantity = quantity * 0.4m, // 40% of the quantity for TP1
+        UpdatedAt = DateTime.UtcNow
     };
     var tp2 = new TakeProfitOrder
     {
         OrderPrice = (entryPrice * tp2Multiplier).RoundToQuantum(),
-        OrderQuantity = quantity * 0.3m // 30% of the quantity for TP2
+        OrderQuantity = quantity * 0.3m, // 30% of the quantity for TP2
+        UpdatedAt = DateTime.UtcNow
     };
     var tp3 = new TakeProfitOrder
     {
         OrderPrice = (entryPrice * tp3Multiplier).RoundToQuantum(),
-        OrderQuantity = quantity * 0.3m // 30% of the quantity for TP3
+        OrderQuantity = quantity * 0.3m, // 30% of the quantity for TP3
+        UpdatedAt = DateTime.UtcNow
     };
 
     var trade = new Trade
     {
         TradingAccountId = tradingAccountId,
         SymbolId = symbol.Id,
+        MarketType = symbol.MarketType,
         EntryMethod = random.Next(0, 4) != 0 ? EntryMethod.Market : EntryMethod.Limit,
         TradeDirection = direction,
         UpdatedAt = DateTime.UtcNow,
     };
-    trade.EntryOrders.Add(entryOrder);
+    foreach (var eo in entryOrders)
+        trade.EntryOrders.Add(eo);
     trade.StopLossOrders.Add(slOrder);
     trade.TakeProfitOrders.Add(tp1);
     trade.TakeProfitOrders.Add(tp2);
@@ -247,10 +271,14 @@ static async Task<Trade> EnsureDemoTradeAsync(ITradeRepository tradeRepository, 
     if (isExecuted)
     {
         trade.EntryTime = entryTime;
-        entryOrder.FilledPrice = entryPrice;
-        entryOrder.FilledQuantity = quantity;
+        // Fill entry orders with a slight time spread for multi-order trades
+        for (int e = 0; e < entryOrders.Count; e++)
+        {
+            entryOrders[e].FilledPrice = entryOrders[e].OrderPrice;
+            entryOrders[e].FilledQuantity = entryOrders[e].OrderQuantity;
+            entryOrders[e].FilledTime = entryTime.AddMinutes(e * random.Next(1, 30));
+        }
     }
-
 
     bool isClosed = isExecuted && (daysAgo > 7 || random.Next(0, 4) == 0); // 25% chance the if trade is not older than 7 days
     if (isClosed)
@@ -266,13 +294,15 @@ static async Task<Trade> EnsureDemoTradeAsync(ITradeRepository tradeRepository, 
         {
             tp1.FilledPrice = tp1.OrderPrice;
             tp1.FilledQuantity = tp1.OrderQuantity;
+            tp1.FilledTime = entryTime.AddHours(random.Next(1, 24));
             remainingQuantity = quantity - tp1.FilledQuantity.Value;
             if (hitTp2)
             {
                 tp2.FilledPrice = tp2.OrderPrice;
                 tp2.FilledQuantity = tp2.OrderQuantity;
+                tp2.FilledTime = tp1.FilledTime.Value.AddHours(random.Next(1, 24));
                 remainingQuantity -= tp2.FilledQuantity.Value;
-                if (hitTp3) // 50% chance to hit TP3 only
+                if (hitTp3)
                 {
                     tp3.FilledPrice = random.Next(0, 5) == 0
                                     ? tp3.OrderPrice * tp2Multiplier // 20% chance that TP3 is hit at a better price than the order price, by applying the same multiplier again
@@ -280,6 +310,7 @@ static async Task<Trade> EnsureDemoTradeAsync(ITradeRepository tradeRepository, 
                                     ? tp3.OrderPrice * tp3Multiplier // 10% chance that TP3 is hit at a much better price than the order price, by applying the TP3 multiplier
                                     : tp3.OrderPrice;
                     tp3.FilledQuantity = tp3.OrderQuantity;
+                    tp3.FilledTime = tp2.FilledTime.Value.AddHours(random.Next(1, 24));
                 }
             }
         }
@@ -288,16 +319,19 @@ static async Task<Trade> EnsureDemoTradeAsync(ITradeRepository tradeRepository, 
         {
             slOrder.FilledPrice = slOrder.OrderPrice;
             slOrder.FilledQuantity = remainingQuantity;
+            slOrder.FilledTime = trade.ExitTime;
         }
         else if (!hitTp2) //If tp1 is hit but not tp2, we can assume executed SL price is between entry price and tp1
         {
             slOrder.FilledPrice = (tp1.FilledPrice + slOrder.OrderPrice) / 2;
             slOrder.FilledQuantity = remainingQuantity;
+            slOrder.FilledTime = trade.ExitTime;
         }
         else if (!hitTp3) //If tp2 is hit but not tp3, we can assume executed SL price is between tp2 and tp3
         {
             slOrder.FilledPrice = (tp2.FilledPrice + tp3.OrderPrice) / 2;
             slOrder.FilledQuantity = remainingQuantity;
+            slOrder.FilledTime = trade.ExitTime;
         }
     }
     else if (isExecuted)
@@ -309,7 +343,15 @@ static async Task<Trade> EnsureDemoTradeAsync(ITradeRepository tradeRepository, 
         trade.TradeStatus = daysAgo < 7
                           ? random.Next(0, 2) == 0 ? TradeStatus.Pending : TradeStatus.Planned
                           : random.Next(0, 3) == 0 ? TradeStatus.Missed : TradeStatus.Cancelled;
+        if (trade.TradeStatus == TradeStatus.Cancelled)
+            trade.CancellationTime = DateTime.UtcNow.AddDays(-daysAgo).AddHours(random.Next(1, 6));
     }
+
+    // Assign sample tags for variety
+    var tagSets = new[] { "breakout", "pullback", "reversal", "trend", "scalp", "swing", "news", "fomo", "missed-entry", "high-rr" };
+    trade.Tags = tagSets[random.Next(tagSets.Length)];
+
+    trade.CalculateFromOrders();
 
     trade.Id = await tradeRepository.CreateAsync(trade);
     Console.WriteLine($"Created trade: {trade.Id} for {symbol.TickerFull} at {trade.EntryTime}");

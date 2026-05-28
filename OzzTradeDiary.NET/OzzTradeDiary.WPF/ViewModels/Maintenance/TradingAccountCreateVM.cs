@@ -92,6 +92,34 @@ namespace TD.WPF.ViewModels.Maintenance
             }
         }
 
+        public decimal? MakerFeeRate
+        {
+            get { return _tradingAccount.MakerFeeRate; }
+            set
+            {
+                if (_tradingAccount.MakerFeeRate != value)
+                {
+                    _tradingAccount.MakerFeeRate = value;
+                    RaisePropertyChanged(nameof(MakerFeeRate));
+                    ValidateProperty(_tradingAccount, nameof(MakerFeeRate));
+                }
+            }
+        }
+
+        public decimal? TakerFeeRate
+        {
+            get { return _tradingAccount.TakerFeeRate; }
+            set
+            {
+                if (_tradingAccount.TakerFeeRate != value)
+                {
+                    _tradingAccount.TakerFeeRate = value;
+                    RaisePropertyChanged(nameof(TakerFeeRate));
+                    ValidateProperty(_tradingAccount, nameof(TakerFeeRate));
+                }
+            }
+        }
+
         public int DisplayOrder
         {
             get { return _tradingAccount.DisplayOrder; }

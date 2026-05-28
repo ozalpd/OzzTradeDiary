@@ -19,8 +19,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - Added persisted fields for `CancellationTime`, `NetProfitLoss`, `TotalFeesCalculated`, `TotalFeesCorrected`, and `FundingFeeTotal`.
 - Updated repositories, query/filtering, and WPF UI to support new fields.
 - Extended localization and codegen settings.
-- Updated demo seeding logic.
-- Refactored property ordering and validation for consistency.
+- TradingAccount now supports `MakerFeeRate` and `TakerFeeRate` (nullable decimals), persisted as TEXT in SQLite and exposed in create/edit dialogs with input validation.
+- `MainWindow` trade detail pane refactored to tabbed layout with more fields and related orders.
+- Demo data and design-time data updated for new fields.
+- Trade list columns reorganized and expanded. Improved decimal/integer input validation.
 - Updated query/viewmodel property order and search logic for consistency
 - Revised SQLite schema, repositories, and codegen for new fields and column order
 - Updated WPF UI to support new fields and layout; adjusted bindings and enum sources

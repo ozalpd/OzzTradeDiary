@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:TD.WPF.Views.Maintenance"
         xmlns:i18n="clr-namespace:TD.i18n;assembly=OzzTradeDiary.i18n"
         Title="{x:Static i18n:LocalizedStrings.CreateTradingAccount}"
-        Height="330" Width="420" MinHeight="330" MinWidth="420"
+        Height="410" Width="420" MinHeight="410" MinWidth="420"
         WindowStartupLocation="CenterOwner"
         mc:Ignorable="d">
     <Grid Margin="8,12">
@@ -21,16 +21,18 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <TextBlock Grid.Row="0" Grid.Column="0" Style="{StaticResource RightAlignedTextBlockStyle}"
-                   Text="{x:Static i18n:LocalizedStrings.Title}"/>
+        <TextBlock Grid.Column="0" Grid.Row="0" FontWeight="Bold"
+                   Style="{StaticResource RightAlignedTextBlockStyle}" Text="{x:Static i18n:LocalizedStrings.Title}"/>
         <TextBox x:Name="TitleTextBox" Grid.Row="0" Grid.Column="1"
-                 Style="{StaticResource ValidationTextBoxStyle}"
-                 Text="{Binding Title, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"/>
+                 Text="{Binding Title, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"
+                 Style="{StaticResource ValidationTextBoxStyle}"/>
 
-        <TextBlock Grid.Row="1" Grid.Column="0" Style="{StaticResource RightAlignedTextBlockStyle}"
-                   Text="{x:Static i18n:LocalizedStrings.Exchange}"/>
+        <TextBlock Grid.Column="0" Grid.Row="1" FontWeight="Bold"
+                   Style="{StaticResource RightAlignedTextBlockStyle}" Text="{x:Static i18n:LocalizedStrings.Exchange}"/>
         <ComboBox x:Name="ExchangeIdComboBox" Grid.Row="1" Grid.Column="1"
                   Style="{StaticResource ValidationComboBoxStyle}"
                   ItemsSource="{Binding Exchanges}"
@@ -38,23 +40,39 @@
                   SelectedValuePath="Id"
                   SelectedValue="{Binding ExchangeId, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"/>
 
-        <TextBlock Grid.Row="2" Grid.Column="0" Style="{StaticResource RightAlignedTextBlockStyle}"
-                   Text="{x:Static i18n:LocalizedStrings.Notes}"/>
+        <TextBlock Grid.Column="0" Grid.Row="2" FontWeight="Bold"
+                   Style="{StaticResource RightAlignedTextBlockStyle}" Text="{x:Static i18n:LocalizedStrings.Notes}"/>
         <TextBox x:Name="NotesTextBox" Grid.Row="2" Grid.Column="1"
                  Style="{StaticResource ValidationMutliLineTextBoxStyle}"
                  Text="{Binding Notes, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"/>
 
-        <TextBlock Grid.Row="3" Grid.Column="0" Style="{StaticResource RightAlignedTextBlockStyle}"
-                   Text="{x:Static i18n:LocalizedStrings.DisplayOrder}"/>
-        <TextBox x:Name="DisplayOrderTextBox" Grid.Row="3" Grid.Column="1"
-                 Style="{StaticResource ValidationTextBoxStyle}"
-                 Text="{Binding DisplayOrder, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"/>
+        <TextBlock Grid.Column="0" Grid.Row="3" FontWeight="Bold"
+                   Style="{StaticResource RightAlignedTextBlockStyle}" Text="{x:Static i18n:LocalizedStrings.MakerFeeRate}"/>
+        <TextBox x:Name="MakerFeeRateTextBox" Grid.Row="3" Grid.Column="1"
+                 PreviewTextInput="DecimalTextBox_PreviewTextInput"
+                 Text="{Binding MakerFeeRate, UpdateSourceTrigger=LostFocus, ValidatesOnNotifyDataErrors=True}"
+                 Style="{StaticResource ValidationTextBoxStyle}"/>
 
-        <TextBlock Grid.Row="4" Grid.Column="0" Style="{StaticResource RightAlignedTextBlockStyle}"
-                   Text="{x:Static i18n:LocalizedStrings.IsActive}"/>
-        <CheckBox Grid.Row="4" Grid.Column="1" Margin="0,0,0,20" IsChecked="{Binding IsActive}" />
+        <TextBlock Grid.Column="0" Grid.Row="4" FontWeight="Bold"
+                   Style="{StaticResource RightAlignedTextBlockStyle}" Text="{x:Static i18n:LocalizedStrings.TakerFeeRate}"/>
+        <TextBox x:Name="TakerFeeRateTextBox" Grid.Row="4" Grid.Column="1"
+                 PreviewTextInput="DecimalTextBox_PreviewTextInput"
+                 Text="{Binding TakerFeeRate, UpdateSourceTrigger=LostFocus, ValidatesOnNotifyDataErrors=True}"
+                 Style="{StaticResource ValidationTextBoxStyle}"/>
 
-        <StackPanel Grid.Row="6" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,6" VerticalAlignment="Bottom">
+        <TextBlock Grid.Column="0" Grid.Row="5" FontWeight="Bold"
+                   Style="{StaticResource RightAlignedTextBlockStyle}" Text="{x:Static i18n:LocalizedStrings.DisplayOrder}"/>
+        <TextBox x:Name="DisplayOrderTextBox" Grid.Row="5" Grid.Column="1"
+                 PreviewTextInput="IntegerTextBox_PreviewTextInput"
+                 Text="{Binding DisplayOrder, UpdateSourceTrigger=LostFocus, ValidatesOnNotifyDataErrors=True}"
+                 Style="{StaticResource ValidationTextBoxStyle}"/>
+
+        <TextBlock Grid.Column="0" Grid.Row="6" FontWeight="Bold"
+                   Style="{StaticResource RightAlignedTextBlockStyle}" Text="{x:Static i18n:LocalizedStrings.IsActive}"/>
+        <CheckBox Grid.Row="6" Grid.Column="1" Margin="0,0,0,22"
+                  IsChecked="{Binding IsActive}" />
+
+        <StackPanel Grid.Row="8" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,6" VerticalAlignment="Bottom">
             <Button Content="{x:Static i18n:ActionStrings.OK}" Width="90" Margin="0,0,18,0" IsDefault="True" IsEnabled="{Binding IsValid}" Click="OkButton_Click" />
             <Button Content="{x:Static i18n:ActionStrings.Cancel}" Width="90" IsCancel="True" />
         </StackPanel>
