@@ -6,6 +6,13 @@ namespace TD.Models
 {
     public partial class Trade
     {
+        /// <summary>
+        /// Calculates planned and executed entry prices, take-profit levels, stop-loss levels, and quantities by
+        /// aggregating data from associated entry, take-profit, and stop-loss orders.
+        /// </summary>
+        /// <remarks>Must be called after navigation collections (EntryOrders, TakeProfitOrders,
+        /// StopLossOrders) are loaded to ensure accurate calculations. Prices are computed as weighted averages and are
+        /// not rounded to preserve precision for assets with very small unit prices.</remarks>
         public void CalculateFromOrders()
         {
             decimal totalExecutedValue = 0;
@@ -152,7 +159,12 @@ namespace TD.Models
         }
         decimal? _orderValue;
 
-
+        /// <summary>
+        /// Gets or sets a value indicating whether the trade position is fully closed.
+        /// </summary>
+        /// <remarks>This is a calculated property based on <see cref="ExitTime"/>, <see cref="FilledQuantity"/>, and <see
+        /// cref="OrderQuantity"/>. The setter is provided for data binding and persistence compatibility but does not affect
+        /// calculations.</remarks>
         [Display(ResourceType = typeof(LocalizedStrings), Name = "IsFullyClosed")]
         public bool IsFullyClosed
         {
