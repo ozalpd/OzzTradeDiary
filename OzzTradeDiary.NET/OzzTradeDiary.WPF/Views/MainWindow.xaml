@@ -275,6 +275,8 @@
                           GridLinesVisibility="Horizontal"
                           AlternatingRowBackground="{DynamicResource {x:Static SystemColors.ControlBrushKey}}">
                     <DataGrid.Columns>
+                        <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.TradeStatus}" Width="100"
+                                            Binding="{Binding TradeStatus}"/>
                         <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.EntryTime}" Width="80"
                                             Binding="{Binding EntryTime, StringFormat=\{0:yyyy-MM-dd\}}"/>
                         <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.ExitTime}" Width="80"

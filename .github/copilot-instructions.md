@@ -67,9 +67,15 @@ Internal tracking versions: `OzzTradeDiary` `0.0.60`, `OzzTradeDiary.AppInfra` `
 - `Trade` quantity fields (`OrderQuantity`, `FilledQuantity`) are part of the persisted domain contract and should be kept aligned across model, repository mapping, and generated schema.
 - `Trade` position-value fields (`PlannedPositionValue`, `ExecutedPositionValue`) are **calculated** properties in `Trade.part.cs` (product of price × quantity); they are also persisted to perform queries and must be included in repository insert/update mappings and schema.
 - `Trade` entry-price fields use `PlannedEntryPrice` and `ExecutedEntryPrice` (not `PlannedEntry`/`ExecutedEntry`) and must be kept aligned across model, repository mapping, and generated schema.
-- `Trade` P/L, risk, and closed-state fields (`PlannedProfit`, `RealizedProfitLoss`, `PlannedRiskAmount`, `PlannedRiskRewardRatio`, `RealizedR`, `RealizedRiskAmount`, `RemainingPositionValue`, `IsFullyClosed`) are all **calculated** properties defined in `Trade.part.cs`; they are also persisted to perform queries and must be included in repository insert/update mappings and DDL. `IsFullyClosed` is `true` when `ExitTime` is set and `FilledQuantity >= OrderQuantity`. `CalculateFromOrders()` must be called after adding, removing or altering any objects of navigation collections to populate price/quantity aggregates (`PlannedEntryPrice`, `ExecutedEntryPrice`, `OrderQuantity`, `FilledQuantity`, `PlannedTP`, `ExecutedTP`, `PlannedSL`, `ExecutedSL`).
+- `Trade` calculated+persisted fields live in `Trade.calc.cs` (not `Trade.part.cs`). Fields: `PlannedProfit`, `RealizedProfitLoss`, `PlannedRiskAmount`, `PlannedRiskRewardRatio`, `RealizedR`, `RealizedRiskAmount`, `RemainingPositionValue`, `IsFullyClosed`, `NetProfitLoss`, `TotalFeesCalculated`, `TotalFeesCorrected`, `FundingFeeTotal`, `TradeStatus`, `CancellationTime`. All must be included in repository insert/update mappings and DDL except `EffectiveFees` (calculated-only, not persisted). `IsFullyClosed` is `true` when `Status == TradeStatus.Closed` (aligned with `ExitTime` set and `FilledQuantity >= OrderQuantity`). `CalculateFromOrders()` must be called after adding, removing or altering any objects of navigation collections to populate price/quantity aggregates (`PlannedEntryPrice`, `ExecutedEntryPrice`, `OrderQuantity`, `FilledQuantity`, `PlannedTP`, `ExecutedTP`, `PlannedSL`, `ExecutedSL`). `NetProfitLoss` must be computed after `TotalFeesCalculated` is set: `NetProfitLoss = RealizedProfitLoss - EffectiveFees - (FundingFeeTotal ?? 0)`. `EffectiveFees` is `TotalFeesCorrected ?? TotalFeesCalculated ?? 0` — never persist it, use `COALESCE(TotalFeesCorrected, TotalFeesCalculated)` in SQL instead.
+- `Trade` non-calculated persisted fields include: `TradingAccountId`, `SymbolId`, `TradeDirection`, `EntryMethod`, `TradeStatus`, `Tags` (255 chars), `MarketType`, `EntryTime`, `ExitTime`, `CancellationTime`, `SetupNotes` (2048 chars), `ReviewNotes` (2048 chars), `UpdatedAt`. These are plain persisted columns and must be included in repository insert/update mappings and DDL.
+- `Trade.CancellationTime` is a timestamp set when `TradeStatus` is set to `TradeStatus.Cancelled`; it is `null` for all other statuses.
+- `Trade.Tags` is a plain string (max 255 chars) for free-form comma-separated or structured tags; persisted as `TEXT`.
+- `Trade.RemainingPositionValue` is calculated from `ExecutedPositionValue` minus the sum of `OrderValue` from closed `TakeProfitOrders` and `StopLossOrders`; it is also persisted.
 - Order entities should expose calculated `OrderValue` and `FilledValue` partial properties instead of persisted `OrderAmount` / `FilledAmount` fields.
 - Calculated order value properties for `EntryOrder`, `StopLossOrder`, and `TakeProfitOrder` should stay aligned with their related price/quantity fields.
+- Order entities (`EntryOrder`, `StopLossOrder`, `TakeProfitOrder`) use `FilledTime` (not `ExecuteTime`) for the broker-confirmed fill timestamp. `DisplayOrder` has been removed; use `UpdatedAt` for sorting instead.
+- Fee rates on `TradingAccount`: `MakerFeeRate Nullable<decimal>` (limit order rate) and `TakerFeeRate Nullable<decimal>` (market order rate) are per-account because fee tiers vary by account VIP level, not just by exchange.
 
 ### ViewModels (TD.AppInfra and TD.WPF namespaces)
 
@@ -119,7 +125,8 @@ Internal tracking versions: `OzzTradeDiary` `0.0.60`, `OzzTradeDiary.AppInfra` `
 - Generated repository files should not be edited manually; custom behavior should be implemented in companion partial files (for example `SymbolRepository.part.cs` or `TradeRepository.part.cs`).
 - Use the `SingleColumnUpdate` property in `SqliteRepositoryGen.settings` to generate targeted single-column update methods (e.g. `UpdateHasAnySymbolAsync`).
 - Ensure generated single-column update methods that implement repository interfaces (for example `UpdateExchangeHasAnySymbolAsync`) are `public`.
-- `TradeRepository.GetPagedAsync` should support paging (`ORDER BY` + `LIMIT/OFFSET`) with combined typed filtering from `TradeQueryParameters`, including range filters (`EntryTime`, `UpdatedAt`) and planned/executed position-value filters.
+- `TradeRepository.GetPagedAsync` should support paging (`ORDER BY` + `LIMIT/OFFSET`) with combined typed filtering from `TradeQueryParameters`, including range filters (`EntryTime`, `UpdatedAt`), `TradeStatus` range filter (e.g. `status > Pending`), and planned/executed position-value filters.
+- `EffectiveFees` must never be persisted as a column; use `COALESCE(TotalFeesCorrected, TotalFeesCalculated)` directly in SQL when querying effective fee values.
 - `Trade` persisted position-value fields should be included in repository create/update/select mappings and keep generated column ordering aligned.
 - SQLite date/time columns should use `TEXT` when the data is intended to preserve readable ISO-style values, and `UpdatedAt` columns should follow that convention in generated scripts.
 - SQLite repository code generation has its own settings file; keep repository regeneration aligned with `SqliteRepositoryGen.settings`.
@@ -192,8 +199,9 @@ Internal tracking versions: `OzzTradeDiary` `0.0.60`, `OzzTradeDiary.AppInfra` `
 
 ## Key Entities
 
-- **Trade**: Core trade record with entry/exit details, market type, direction
+- **Trade**: Core trade record with entry/exit details, market type, direction, status, and fee/P&L tracking
 - **TradeImage**: Image attachments and notes associated with a trade (web URLs or local file paths)
+- **TradingAccount**: Holds `MakerFeeRate` and `TakerFeeRate` for per-account fee calculation
 
 ## Key Enums
 
@@ -201,6 +209,7 @@ Internal tracking versions: `OzzTradeDiary` `0.0.60`, `OzzTradeDiary.AppInfra` `
 - `TradeDirection`: Long (200), Short (100)
 - `EntryMethod`: Market, Limit
 - `OrderType`: Market, Limit, Stop, StopLimit, TrailingStop
+- `TradeStatus`: Missed (-10), Cancelled (-20), Planned (10), Pending (20), Active (30), Closed (40). Negative values = never opened; use range queries: `status < 0` (abandoned), `status <= Pending` (no position opened), `status > Pending` (active or closed, may have execution results). `Cancelled` uses -20 to align with the convention used in other enums in this codebase.
 
 ## UI Guidelines
 

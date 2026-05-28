@@ -8,6 +8,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ### Added
 - Introduced `RemainingPositionValue` to `Trade` model and persist it in the database.
+- Introduced `TradeStatus` enum and persist it in `Trade`.
 
 ### Changed
 - Renamed `PlannedProfitLoss` to `PlannedProfit` across all layers, including model, repository, query parameters, localization, and UI. Update query/view models and filters to use the new fields.
@@ -15,6 +16,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - Enhanced `Trade.CalculateFromOrders` to recalculate all derived fields.
 - Renamed `ExecuteTime` to `FilledTime` in order models; added `Notes` and `UpdatedAt`, removed `DisplayOrder`
 - Added `Tags` and `MarketType` to `Trade`; reordered and clarified persisted/calculated fields (moved to `Trade.calc.cs`)
+- Added persisted fields for `CancellationTime`, `NetProfitLoss`, `TotalFeesCalculated`, `TotalFeesCorrected`, and `FundingFeeTotal`.
+- Updated repositories, query/filtering, and WPF UI to support new fields.
+- Extended localization and codegen settings.
+- Updated demo seeding logic.
+- Refactored property ordering and validation for consistency.
 - Updated query/viewmodel property order and search logic for consistency
 - Revised SQLite schema, repositories, and codegen for new fields and column order
 - Updated WPF UI to support new fields and layout; adjusted bindings and enum sources

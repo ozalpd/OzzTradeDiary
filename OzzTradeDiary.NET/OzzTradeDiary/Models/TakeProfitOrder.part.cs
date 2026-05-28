@@ -36,5 +36,18 @@ namespace TD.Models
             set { _orderValue = value; }
         }
         decimal? _orderValue;
+
+        /// <summary>
+        /// Gets or sets the calculated fees for the trade.
+        /// </summary>
+        /// <remarks>The fees are computed based on the trade details. The setter exists to support data binding scenarios but does not affect the calculation of the fees.</remarks>
+        public decimal? FeesCalculated => CalculateFees();
+
+        private decimal? CalculateFees()
+        {
+            var account = Trade?.TradingAccount;
+            // Implement the logic to calculate fees based on trade details
+            return null; // Placeholder
+        }
     }
 }

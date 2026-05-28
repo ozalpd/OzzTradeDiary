@@ -341,10 +341,15 @@ namespace TD.SQLite
                 whereClauses.Add("EntryMethod = @entryMethod");
                 command.AddParameter("@entryMethod", (int)queryParameters.EntryMethod.Value);
             }
-            if (queryParameters.IsFullyClosed.HasValue)
+            if (queryParameters.TradeStatus.HasValue)
             {
-                whereClauses.Add("IsFullyClosed = @isFullyClosed");
-                command.AddParameter("@isFullyClosed", queryParameters.IsFullyClosed.Value);
+                whereClauses.Add("TradeStatus = @tradeStatus");
+                command.AddParameter("@tradeStatus", (int)queryParameters.TradeStatus.Value);
+            }
+            if (queryParameters.MarketType.HasValue)
+            {
+                whereClauses.Add("MarketType = @marketType");
+                command.AddParameter("@marketType", (int)queryParameters.MarketType.Value);
             }
             if (queryParameters.EntryTimeMin.HasValue)
             {
@@ -355,6 +360,16 @@ namespace TD.SQLite
             {
                 whereClauses.Add("EntryTime <= @entryTimeMax");
                 command.AddDateTimeToTextParameter("@entryTimeMax", queryParameters.EntryTimeMax.Value);
+            }
+            if (queryParameters.ExitTimeMin.HasValue)
+            {
+                whereClauses.Add("ExitTime >= @exitTimeMin");
+                command.AddDateTimeToTextParameter("@exitTimeMin", queryParameters.ExitTimeMin.Value);
+            }
+            if (queryParameters.ExitTimeMax.HasValue)
+            {
+                whereClauses.Add("ExitTime <= @exitTimeMax");
+                command.AddDateTimeToTextParameter("@exitTimeMax", queryParameters.ExitTimeMax.Value);
             }
             if (queryParameters.PlannedPositionValueMin.HasValue)
             {
@@ -426,6 +441,16 @@ namespace TD.SQLite
                                                     queryParameters.PlannedRiskAmountMax.Value,
                                                     DecimalToIntegerScale.PlannedRiskAmount);
             }
+            if (queryParameters.PlannedRiskRewardRatioMin.HasValue)
+            {
+                whereClauses.Add("PlannedRiskRewardRatio >= @plannedRiskRewardRatioMin");
+                command.AddDecimalToTextParameter("@plannedRiskRewardRatioMin", queryParameters.PlannedRiskRewardRatioMin.Value);
+            }
+            if (queryParameters.PlannedRiskRewardRatioMax.HasValue)
+            {
+                whereClauses.Add("PlannedRiskRewardRatio <= @plannedRiskRewardRatioMax");
+                command.AddDecimalToTextParameter("@plannedRiskRewardRatioMax", queryParameters.PlannedRiskRewardRatioMax.Value);
+            }
             if (queryParameters.RealizedProfitLossMin.HasValue)
             {
                 whereClauses.Add("RealizedProfitLoss >= @realizedProfitLossMin");
@@ -439,6 +464,34 @@ namespace TD.SQLite
                 command.AddDecimalToIntegerParameter("@realizedProfitLossMax",
                                                     queryParameters.RealizedProfitLossMax.Value,
                                                     DecimalToIntegerScale.RealizedProfitLoss);
+            }
+            if (queryParameters.NetProfitLossMin.HasValue)
+            {
+                whereClauses.Add("NetProfitLoss >= @netProfitLossMin");
+                command.AddDecimalToIntegerParameter("@netProfitLossMin",
+                                                    queryParameters.NetProfitLossMin.Value,
+                                                    DecimalToIntegerScale.NetProfitLoss);
+            }
+            if (queryParameters.NetProfitLossMax.HasValue)
+            {
+                whereClauses.Add("NetProfitLoss <= @netProfitLossMax");
+                command.AddDecimalToIntegerParameter("@netProfitLossMax",
+                                                    queryParameters.NetProfitLossMax.Value,
+                                                    DecimalToIntegerScale.NetProfitLoss);
+            }
+            if (queryParameters.RealizedRiskAmountMin.HasValue)
+            {
+                whereClauses.Add("RealizedRiskAmount >= @realizedRiskAmountMin");
+                command.AddDecimalToIntegerParameter("@realizedRiskAmountMin",
+                                                    queryParameters.RealizedRiskAmountMin.Value,
+                                                    DecimalToIntegerScale.RealizedRiskAmount);
+            }
+            if (queryParameters.RealizedRiskAmountMax.HasValue)
+            {
+                whereClauses.Add("RealizedRiskAmount <= @realizedRiskAmountMax");
+                command.AddDecimalToIntegerParameter("@realizedRiskAmountMax",
+                                                    queryParameters.RealizedRiskAmountMax.Value,
+                                                    DecimalToIntegerScale.RealizedRiskAmount);
             }
             if (queryParameters.UpdatedAtMin.HasValue)
             {
@@ -468,35 +521,38 @@ namespace TD.SQLite
 
             await using var command = connection.CreateCommand();
             command.CommandText = @$"INSERT INTO {_tableName} ({string.Join(", ", ColumnNames[1..])})
-            VALUES (@tradingAccountId, @symbolId, @tradeDirection, @entryMethod, @tags, @marketType,
-                    @entryTime, @exitTime, @plannedPositionValue, @executedPositionValue, @isFullyClosed, @plannedEntryPrice,
-                    @executedEntryPrice, @orderQuantity, @filledQuantity, @remainingPositionValue, @plannedProfit, @plannedTP,
-                    @executedTP, @plannedSL, @executedSL, @plannedRiskAmount, @plannedRiskRewardRatio, @realizedProfitLoss,
-                    @realizedRiskAmount, @setupNotes, @reviewNotes, @updatedAt);
+            VALUES (@tradingAccountId, @symbolId, @tradeDirection, @entryMethod, @tradeStatus, @tags,
+                    @marketType, @entryTime, @exitTime, @cancellationTime, @plannedPositionValue, @executedPositionValue,
+                    @remainingPositionValue, @isFullyClosed, @plannedEntryPrice, @executedEntryPrice, @orderQuantity, @filledQuantity,
+                    @plannedProfit, @plannedTP, @executedTP, @plannedSL, @executedSL, @plannedRiskAmount,
+                    @plannedRiskRewardRatio, @realizedProfitLoss, @netProfitLoss, @realizedRiskAmount, @totalFeesCalculated, @totalFeesCorrected,
+                    @fundingFeeTotal, @setupNotes, @reviewNotes, @updatedAt);
             SELECT last_insert_rowid();";
 
             command.AddParameter("@tradingAccountId", trade.TradingAccountId);
             command.AddParameter("@symbolId", trade.SymbolId);
             command.AddParameter("@tradeDirection", (int)trade.TradeDirection);
             command.AddParameter("@entryMethod", (int)trade.EntryMethod);
+            command.AddParameter("@tradeStatus", (int)trade.TradeStatus);
             command.AddNullableParameter("@tags", trade.Tags);
             command.AddParameter("@marketType", (int)trade.MarketType);
             command.AddDateTimeToTextParameter("@entryTime", trade.EntryTime);
             command.AddDateTimeToTextParameter("@exitTime", trade.ExitTime);
+            command.AddDateTimeToTextParameter("@cancellationTime", trade.CancellationTime);
             command.AddDecimalToIntegerParameter("@plannedPositionValue",
                                                 trade.PlannedPositionValue,
                                                 DecimalToIntegerScale.PlannedPositionValue);
             command.AddDecimalToIntegerParameter("@executedPositionValue",
                                                 trade.ExecutedPositionValue,
                                                 DecimalToIntegerScale.ExecutedPositionValue);
+            command.AddDecimalToIntegerParameter("@remainingPositionValue",
+                                                trade.RemainingPositionValue,
+                                                DecimalToIntegerScale.RemainingPositionValue);
             command.AddParameter("@isFullyClosed", trade.IsFullyClosed);
             command.AddDecimalToTextParameter("@plannedEntryPrice", trade.PlannedEntryPrice);
             command.AddDecimalToTextParameter("@executedEntryPrice", trade.ExecutedEntryPrice);
             command.AddDecimalToTextParameter("@orderQuantity", trade.OrderQuantity);
             command.AddDecimalToTextParameter("@filledQuantity", trade.FilledQuantity);
-            command.AddDecimalToIntegerParameter("@remainingPositionValue",
-                                                trade.RemainingPositionValue,
-                                                DecimalToIntegerScale.RemainingPositionValue);
             command.AddDecimalToIntegerParameter("@plannedProfit",
                                                 trade.PlannedProfit,
                                                 DecimalToIntegerScale.PlannedProfit);
@@ -511,9 +567,21 @@ namespace TD.SQLite
             command.AddDecimalToIntegerParameter("@realizedProfitLoss",
                                                 trade.RealizedProfitLoss,
                                                 DecimalToIntegerScale.RealizedProfitLoss);
+            command.AddDecimalToIntegerParameter("@netProfitLoss",
+                                                trade.NetProfitLoss,
+                                                DecimalToIntegerScale.NetProfitLoss);
             command.AddDecimalToIntegerParameter("@realizedRiskAmount",
                                                 trade.RealizedRiskAmount,
                                                 DecimalToIntegerScale.RealizedRiskAmount);
+            command.AddDecimalToIntegerParameter("@totalFeesCalculated",
+                                                trade.TotalFeesCalculated,
+                                                DecimalToIntegerScale.TotalFeesCalculated);
+            command.AddDecimalToIntegerParameter("@totalFeesCorrected",
+                                                trade.TotalFeesCorrected,
+                                                DecimalToIntegerScale.TotalFeesCorrected);
+            command.AddDecimalToIntegerParameter("@fundingFeeTotal",
+                                                trade.FundingFeeTotal,
+                                                DecimalToIntegerScale.FundingFeeTotal);
             command.AddNullableParameter("@setupNotes", trade.SetupNotes);
             command.AddNullableParameter("@reviewNotes", trade.ReviewNotes);
             command.AddDateTimeToTextParameter("@updatedAt", DateTime.Now);
@@ -589,12 +657,12 @@ namespace TD.SQLite
                           && existingTrade.MarketType == trade.MarketType
                           && existingTrade.PlannedPositionValue == trade.PlannedPositionValue
                           && existingTrade.ExecutedPositionValue == trade.ExecutedPositionValue
+                          && existingTrade.RemainingPositionValue == trade.RemainingPositionValue
                           && existingTrade.IsFullyClosed == trade.IsFullyClosed
                           && existingTrade.PlannedEntryPrice == trade.PlannedEntryPrice
                           && existingTrade.ExecutedEntryPrice == trade.ExecutedEntryPrice
                           && existingTrade.OrderQuantity == trade.OrderQuantity
                           && existingTrade.FilledQuantity == trade.FilledQuantity
-                          && existingTrade.RemainingPositionValue == trade.RemainingPositionValue
                           && existingTrade.PlannedProfit == trade.PlannedProfit
                           && existingTrade.PlannedTP == trade.PlannedTP
                           && existingTrade.ExecutedTP == trade.ExecutedTP
@@ -603,27 +671,31 @@ namespace TD.SQLite
                           && existingTrade.PlannedRiskAmount == trade.PlannedRiskAmount
                           && existingTrade.PlannedRiskRewardRatio == trade.PlannedRiskRewardRatio
                           && existingTrade.RealizedProfitLoss == trade.RealizedProfitLoss
+                          && existingTrade.NetProfitLoss == trade.NetProfitLoss
                           && existingTrade.RealizedRiskAmount == trade.RealizedRiskAmount
+                          && existingTrade.TotalFeesCalculated == trade.TotalFeesCalculated
+                          && existingTrade.TotalFeesCorrected == trade.TotalFeesCorrected
+                          && existingTrade.FundingFeeTotal == trade.FundingFeeTotal
                           && existingTrade.UpdatedAt == trade.UpdatedAt;
 
             if (noChanges)
                 return false;
 
             await using var command = connection.CreateCommand();
-            // TradingAccountId, SymbolId, TradeDirection, EntryTime, ExitTime, SetupNotes, ReviewNotes are not updated to avoid complications with existing references,
-            // so only EntryMethod, Tags, MarketType, PlannedPositionValue, ExecutedPositionValue, IsFullyClosed, PlannedEntryPrice, ExecutedEntryPrice, OrderQuantity, FilledQuantity, RemainingPositionValue, PlannedProfit, PlannedTP, ExecutedTP, PlannedSL, ExecutedSL, PlannedRiskAmount, PlannedRiskRewardRatio, RealizedProfitLoss, RealizedRiskAmount, UpdatedAt are updated
+            // TradingAccountId, SymbolId, TradeDirection, TradeStatus, EntryTime, ExitTime, CancellationTime, SetupNotes, ReviewNotes are not updated to avoid complications with existing references,
+            // so only EntryMethod, Tags, MarketType, PlannedPositionValue, ExecutedPositionValue, RemainingPositionValue, IsFullyClosed, PlannedEntryPrice, ExecutedEntryPrice, OrderQuantity, FilledQuantity, PlannedProfit, PlannedTP, ExecutedTP, PlannedSL, ExecutedSL, PlannedRiskAmount, PlannedRiskRewardRatio, RealizedProfitLoss, NetProfitLoss, RealizedRiskAmount, TotalFeesCalculated, TotalFeesCorrected, FundingFeeTotal, UpdatedAt are updated
             command.CommandText = @$"UPDATE {_tableName} SET
                 EntryMethod = @entryMethod,
                 Tags = @tags,
                 MarketType = @marketType,
                 PlannedPositionValue = @plannedPositionValue,
                 ExecutedPositionValue = @executedPositionValue,
+                RemainingPositionValue = @remainingPositionValue,
                 IsFullyClosed = @isFullyClosed,
                 PlannedEntryPrice = @plannedEntryPrice,
                 ExecutedEntryPrice = @executedEntryPrice,
                 OrderQuantity = @orderQuantity,
                 FilledQuantity = @filledQuantity,
-                RemainingPositionValue = @remainingPositionValue,
                 PlannedProfit = @plannedProfit,
                 PlannedTP = @plannedTP,
                 ExecutedTP = @executedTP,
@@ -632,7 +704,11 @@ namespace TD.SQLite
                 PlannedRiskAmount = @plannedRiskAmount,
                 PlannedRiskRewardRatio = @plannedRiskRewardRatio,
                 RealizedProfitLoss = @realizedProfitLoss,
+                NetProfitLoss = @netProfitLoss,
                 RealizedRiskAmount = @realizedRiskAmount,
+                TotalFeesCalculated = @totalFeesCalculated,
+                TotalFeesCorrected = @totalFeesCorrected,
+                FundingFeeTotal = @fundingFeeTotal,
                 UpdatedAt = @updatedAt
             WHERE Id = @id";
 
@@ -646,14 +722,14 @@ namespace TD.SQLite
             command.AddDecimalToIntegerParameter("@executedPositionValue",
                                                 trade.ExecutedPositionValue,
                                                 DecimalToIntegerScale.ExecutedPositionValue);
+            command.AddDecimalToIntegerParameter("@remainingPositionValue",
+                                                trade.RemainingPositionValue,
+                                                DecimalToIntegerScale.RemainingPositionValue);
             command.AddParameter("@isFullyClosed", trade.IsFullyClosed);
             command.AddDecimalToTextParameter("@plannedEntryPrice", trade.PlannedEntryPrice);
             command.AddDecimalToTextParameter("@executedEntryPrice", trade.ExecutedEntryPrice);
             command.AddDecimalToTextParameter("@orderQuantity", trade.OrderQuantity);
             command.AddDecimalToTextParameter("@filledQuantity", trade.FilledQuantity);
-            command.AddDecimalToIntegerParameter("@remainingPositionValue",
-                                                trade.RemainingPositionValue,
-                                                DecimalToIntegerScale.RemainingPositionValue);
             command.AddDecimalToIntegerParameter("@plannedProfit",
                                                 trade.PlannedProfit,
                                                 DecimalToIntegerScale.PlannedProfit);
@@ -668,9 +744,21 @@ namespace TD.SQLite
             command.AddDecimalToIntegerParameter("@realizedProfitLoss",
                                                 trade.RealizedProfitLoss,
                                                 DecimalToIntegerScale.RealizedProfitLoss);
+            command.AddDecimalToIntegerParameter("@netProfitLoss",
+                                                trade.NetProfitLoss,
+                                                DecimalToIntegerScale.NetProfitLoss);
             command.AddDecimalToIntegerParameter("@realizedRiskAmount",
                                                 trade.RealizedRiskAmount,
                                                 DecimalToIntegerScale.RealizedRiskAmount);
+            command.AddDecimalToIntegerParameter("@totalFeesCalculated",
+                                                trade.TotalFeesCalculated,
+                                                DecimalToIntegerScale.TotalFeesCalculated);
+            command.AddDecimalToIntegerParameter("@totalFeesCorrected",
+                                                trade.TotalFeesCorrected,
+                                                DecimalToIntegerScale.TotalFeesCorrected);
+            command.AddDecimalToIntegerParameter("@fundingFeeTotal",
+                                                trade.FundingFeeTotal,
+                                                DecimalToIntegerScale.FundingFeeTotal);
             command.AddDateTimeToTextParameter("@updatedAt", DateTime.Now);
 
             var affectedRows = await command.ExecuteNonQueryAsync();
@@ -792,6 +880,7 @@ namespace TD.SQLite
                 SymbolId = reader.GetInt32(ColNrs.SymbolId),
                 TradeDirection = (TradeDirection)reader.GetInt32(ColNrs.TradeDirection),
                 EntryMethod = (EntryMethod)reader.GetInt32(ColNrs.EntryMethod),
+                TradeStatus = (TradeStatus)reader.GetInt32(ColNrs.TradeStatus),
                 Tags = reader.IsDBNull(ColNrs.Tags) ? null
                      : reader.GetString(ColNrs.Tags),
                 MarketType = (MarketType)reader.GetInt32(ColNrs.MarketType),
@@ -799,12 +888,17 @@ namespace TD.SQLite
                           : ToLocalDateTime(reader.GetString(ColNrs.EntryTime)),
                 ExitTime = reader.IsDBNull(ColNrs.ExitTime) ? null
                          : ToLocalDateTime(reader.GetString(ColNrs.ExitTime)),
+                CancellationTime = reader.IsDBNull(ColNrs.CancellationTime) ? null
+                                 : ToLocalDateTime(reader.GetString(ColNrs.CancellationTime)),
                 PlannedPositionValue = reader.IsDBNull(ColNrs.PlannedPositionValue) ? null
                                      : reader.GetDecimalFromInteger(ColNrs.PlannedPositionValue,
                                                      DecimalToIntegerScale.PlannedPositionValue),
                 ExecutedPositionValue = reader.IsDBNull(ColNrs.ExecutedPositionValue) ? null
                                       : reader.GetDecimalFromInteger(ColNrs.ExecutedPositionValue,
                                                       DecimalToIntegerScale.ExecutedPositionValue),
+                RemainingPositionValue = reader.IsDBNull(ColNrs.RemainingPositionValue) ? null
+                                       : reader.GetDecimalFromInteger(ColNrs.RemainingPositionValue,
+                                                       DecimalToIntegerScale.RemainingPositionValue),
                 IsFullyClosed = reader.GetInt64(ColNrs.IsFullyClosed) == 1,
                 PlannedEntryPrice = reader.IsDBNull(ColNrs.PlannedEntryPrice) ? null
                                   : reader.GetDecimalFromText(ColNrs.PlannedEntryPrice),
@@ -814,9 +908,6 @@ namespace TD.SQLite
                               : reader.GetDecimalFromText(ColNrs.OrderQuantity),
                 FilledQuantity = reader.IsDBNull(ColNrs.FilledQuantity) ? null
                                : reader.GetDecimalFromText(ColNrs.FilledQuantity),
-                RemainingPositionValue = reader.IsDBNull(ColNrs.RemainingPositionValue) ? null
-                                       : reader.GetDecimalFromInteger(ColNrs.RemainingPositionValue,
-                                                       DecimalToIntegerScale.RemainingPositionValue),
                 PlannedProfit = reader.IsDBNull(ColNrs.PlannedProfit) ? null
                               : reader.GetDecimalFromInteger(ColNrs.PlannedProfit,
                                               DecimalToIntegerScale.PlannedProfit),
@@ -836,9 +927,21 @@ namespace TD.SQLite
                 RealizedProfitLoss = reader.IsDBNull(ColNrs.RealizedProfitLoss) ? null
                                    : reader.GetDecimalFromInteger(ColNrs.RealizedProfitLoss,
                                                    DecimalToIntegerScale.RealizedProfitLoss),
+                NetProfitLoss = reader.IsDBNull(ColNrs.NetProfitLoss) ? null
+                              : reader.GetDecimalFromInteger(ColNrs.NetProfitLoss,
+                                              DecimalToIntegerScale.NetProfitLoss),
                 RealizedRiskAmount = reader.IsDBNull(ColNrs.RealizedRiskAmount) ? null
                                    : reader.GetDecimalFromInteger(ColNrs.RealizedRiskAmount,
                                                    DecimalToIntegerScale.RealizedRiskAmount),
+                TotalFeesCalculated = reader.IsDBNull(ColNrs.TotalFeesCalculated) ? null
+                                    : reader.GetDecimalFromInteger(ColNrs.TotalFeesCalculated,
+                                                    DecimalToIntegerScale.TotalFeesCalculated),
+                TotalFeesCorrected = reader.IsDBNull(ColNrs.TotalFeesCorrected) ? null
+                                   : reader.GetDecimalFromInteger(ColNrs.TotalFeesCorrected,
+                                                   DecimalToIntegerScale.TotalFeesCorrected),
+                FundingFeeTotal = reader.IsDBNull(ColNrs.FundingFeeTotal) ? null
+                                : reader.GetDecimalFromInteger(ColNrs.FundingFeeTotal,
+                                                DecimalToIntegerScale.FundingFeeTotal),
                 SetupNotes = reader.IsDBNull(ColNrs.SetupNotes) ? null
                            : reader.GetString(ColNrs.SetupNotes),
                 ReviewNotes = reader.IsDBNull(ColNrs.ReviewNotes) ? null
@@ -859,30 +962,36 @@ namespace TD.SQLite
             public readonly static int SymbolId = 2;
             public readonly static int TradeDirection = 3;
             public readonly static int EntryMethod = 4;
-            public readonly static int Tags = 5;
-            public readonly static int MarketType = 6;
-            public readonly static int EntryTime = 7;
-            public readonly static int ExitTime = 8;
-            public readonly static int PlannedPositionValue = 9;
-            public readonly static int ExecutedPositionValue = 10;
-            public readonly static int IsFullyClosed = 11;
-            public readonly static int PlannedEntryPrice = 12;
-            public readonly static int ExecutedEntryPrice = 13;
-            public readonly static int OrderQuantity = 14;
-            public readonly static int FilledQuantity = 15;
-            public readonly static int RemainingPositionValue = 16;
-            public readonly static int PlannedProfit = 17;
-            public readonly static int PlannedTP = 18;
-            public readonly static int ExecutedTP = 19;
-            public readonly static int PlannedSL = 20;
-            public readonly static int ExecutedSL = 21;
-            public readonly static int PlannedRiskAmount = 22;
-            public readonly static int PlannedRiskRewardRatio = 23;
-            public readonly static int RealizedProfitLoss = 24;
-            public readonly static int RealizedRiskAmount = 25;
-            public readonly static int SetupNotes = 26;
-            public readonly static int ReviewNotes = 27;
-            public readonly static int UpdatedAt = 28;
+            public readonly static int TradeStatus = 5;
+            public readonly static int Tags = 6;
+            public readonly static int MarketType = 7;
+            public readonly static int EntryTime = 8;
+            public readonly static int ExitTime = 9;
+            public readonly static int CancellationTime = 10;
+            public readonly static int PlannedPositionValue = 11;
+            public readonly static int ExecutedPositionValue = 12;
+            public readonly static int RemainingPositionValue = 13;
+            public readonly static int IsFullyClosed = 14;
+            public readonly static int PlannedEntryPrice = 15;
+            public readonly static int ExecutedEntryPrice = 16;
+            public readonly static int OrderQuantity = 17;
+            public readonly static int FilledQuantity = 18;
+            public readonly static int PlannedProfit = 19;
+            public readonly static int PlannedTP = 20;
+            public readonly static int ExecutedTP = 21;
+            public readonly static int PlannedSL = 22;
+            public readonly static int ExecutedSL = 23;
+            public readonly static int PlannedRiskAmount = 24;
+            public readonly static int PlannedRiskRewardRatio = 25;
+            public readonly static int RealizedProfitLoss = 26;
+            public readonly static int NetProfitLoss = 27;
+            public readonly static int RealizedRiskAmount = 28;
+            public readonly static int TotalFeesCalculated = 29;
+            public readonly static int TotalFeesCorrected = 30;
+            public readonly static int FundingFeeTotal = 31;
+            public readonly static int SetupNotes = 32;
+            public readonly static int ReviewNotes = 33;
+            public readonly static int UpdatedAt = 34;
         }
 
         /// <summary>
@@ -894,18 +1003,20 @@ namespace TD.SQLite
             "SymbolId",
             "TradeDirection",
             "EntryMethod",
+            "TradeStatus",
             "Tags",
             "MarketType",
             "EntryTime",
             "ExitTime",
+            "CancellationTime",
             "PlannedPositionValue",
             "ExecutedPositionValue",
+            "RemainingPositionValue",
             "IsFullyClosed",
             "PlannedEntryPrice",
             "ExecutedEntryPrice",
             "OrderQuantity",
             "FilledQuantity",
-            "RemainingPositionValue",
             "PlannedProfit",
             "PlannedTP",
             "ExecutedTP",
@@ -914,7 +1025,11 @@ namespace TD.SQLite
             "PlannedRiskAmount",
             "PlannedRiskRewardRatio",
             "RealizedProfitLoss",
+            "NetProfitLoss",
             "RealizedRiskAmount",
+            "TotalFeesCalculated",
+            "TotalFeesCorrected",
+            "FundingFeeTotal",
             "SetupNotes",
             "ReviewNotes",
             "UpdatedAt"
@@ -927,11 +1042,11 @@ namespace TD.SQLite
         {
             public readonly static int PlannedPositionValue = 4;
             public readonly static int ExecutedPositionValue = 4;
+            public readonly static int RemainingPositionValue = 4;
             public readonly static int PlannedEntryPrice = 0;
             public readonly static int ExecutedEntryPrice = 0;
             public readonly static int OrderQuantity = 0;
             public readonly static int FilledQuantity = 0;
-            public readonly static int RemainingPositionValue = 4;
             public readonly static int PlannedProfit = 4;
             public readonly static int PlannedTP = 0;
             public readonly static int ExecutedTP = 0;
@@ -940,7 +1055,11 @@ namespace TD.SQLite
             public readonly static int PlannedRiskAmount = 4;
             public readonly static int PlannedRiskRewardRatio = 0;
             public readonly static int RealizedProfitLoss = 4;
+            public readonly static int NetProfitLoss = 4;
             public readonly static int RealizedRiskAmount = 4;
+            public readonly static int TotalFeesCalculated = 4;
+            public readonly static int TotalFeesCorrected = 4;
+            public readonly static int FundingFeeTotal = 4;
         }
     }
 }

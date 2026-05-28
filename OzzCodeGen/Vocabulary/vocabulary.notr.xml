@@ -13,6 +13,10 @@
     <Translation>Action</Translation>
   </Vocab>
   <Vocab>
+    <Name>Active</Name>
+    <Translation>Active</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Add</Name>
     <Translation>Add</Translation>
   </Vocab>
@@ -341,6 +345,14 @@
     <Translation>Cancel</Translation>
   </Vocab>
   <Vocab>
+    <Name>CancellationTime</Name>
+    <Translation>Cancellation Time</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Cancelled</Name>
+    <Translation>Cancelled</Translation>
+  </Vocab>
+  <Vocab>
     <Name>CanNotDelete</Name>
     <Translation>Can not delete</Translation>
   </Vocab>
@@ -387,6 +399,10 @@
   <Vocab>
     <Name>Clone</Name>
     <Translation>Clone</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Closed</Name>
+    <Translation>Closed</Translation>
   </Vocab>
   <Vocab>
     <Name>ClosingAuction</Name>
@@ -1129,6 +1145,10 @@
     <Translation>Fund</Translation>
   </Vocab>
   <Vocab>
+    <Name>FundingFeeTotal</Name>
+    <Translation>Funding Fee Total</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Futures</Name>
     <Translation>Futures</Translation>
   </Vocab>
@@ -1317,6 +1337,10 @@
     <Translation>Maintenance Break</Translation>
   </Vocab>
   <Vocab>
+    <Name>MakerFeeRate</Name>
+    <Translation>Maker Fee Rate</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Male</Name>
     <Translation>Male</Translation>
   </Vocab>
@@ -1341,6 +1365,10 @@
     <Translation>The {0} must be at least {2} characters long.</Translation>
   </Vocab>
   <Vocab>
+    <Name>Missed</Name>
+    <Translation>Missed</Translation>
+  </Vocab>
+  <Vocab>
     <Name>ModifierId</Name>
     <Translation>Modifier</Translation>
   </Vocab>
@@ -1359,6 +1387,10 @@
   <Vocab>
     <Name>Name</Name>
     <Translation>Name</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>NetProfitLoss</Name>
+    <Translation>Net Profit Loss</Translation>
   </Vocab>
   <Vocab>
     <Name>NetResult</Name>
@@ -1509,6 +1541,10 @@
     <Translation>The password and confirmation password do not match.</Translation>
   </Vocab>
   <Vocab>
+    <Name>Pending</Name>
+    <Translation>Pending</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Performance</Name>
     <Translation>Performance</Translation>
   </Vocab>
@@ -1567,6 +1603,10 @@
   <Vocab>
     <Name>PhoneWork2</Name>
     <Translation>Phone Work2</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Planned</Name>
+    <Translation>Planned</Translation>
   </Vocab>
   <Vocab>
     <Name>PlannedEntryPrice</Name>
@@ -2093,6 +2133,10 @@
     <Translation>Take Profit Orders List</Translation>
   </Vocab>
   <Vocab>
+    <Name>TakerFeeRate</Name>
+    <Translation>Taker Fee Rate</Translation>
+  </Vocab>
+  <Vocab>
     <Name>TaxNr</Name>
     <Translation>Tax Nr</Translation>
   </Vocab>
@@ -2119,6 +2163,14 @@
   <Vocab>
     <Name>Title</Name>
     <Translation>Title</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>TotalFeesCalculated</Name>
+    <Translation>Total Fees Calculated</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>TotalFeesCorrected</Name>
+    <Translation>Total Fees Corrected</Translation>
   </Vocab>
   <Vocab>
     <Name>TotalPages</Name>
@@ -2175,6 +2227,10 @@
   <Vocab>
     <Name>TradesList</Name>
     <Translation>Trades List</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>TradeStatus</Name>
+    <Translation>Trade Status</Translation>
   </Vocab>
   <Vocab>
     <Name>TradingAccount</Name>

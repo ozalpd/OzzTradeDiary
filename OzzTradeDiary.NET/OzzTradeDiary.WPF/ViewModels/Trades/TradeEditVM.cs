@@ -22,6 +22,7 @@ namespace TD.WPF.ViewModels.Trades
             _trade = trade;
             TradeDirectionValues = GetValues<TradeDirection>();
             EntryMethodValues = GetValues<EntryMethod>();
+            TradeStatusValues = GetValues<TradeStatus>();
             MarketTypeValues = GetValues<MarketType>();
             OnInitialized();
         }
@@ -36,6 +37,11 @@ namespace TD.WPF.ViewModels.Trades
         /// Gets the collection of available EntryMethod enum members for selection or display.
         /// </summary>
         public IEnumerable<EnumValueItem<EntryMethod>> EntryMethodValues { get; }
+
+        /// <summary>
+        /// Gets the collection of available TradeStatus enum members for selection or display.
+        /// </summary>
+        public IEnumerable<EnumValueItem<TradeStatus>> TradeStatusValues { get; }
 
         /// <summary>
         /// Gets the collection of available MarketType enum members for selection or display.
@@ -78,6 +84,8 @@ namespace TD.WPF.ViewModels.Trades
             }
         }
 
+        public TradeStatus TradeStatus => _trade.TradeStatus;
+
         public string? Tags
         {
             get { return _trade.Tags; }
@@ -98,19 +106,7 @@ namespace TD.WPF.ViewModels.Trades
             }
         }
 
-        public MarketType MarketType
-        {
-            get { return _trade.MarketType; }
-            set
-            {
-                if (_trade.MarketType != value)
-                {
-                    _trade.MarketType = value;
-                    RaisePropertyChanged(nameof(MarketType));
-                    ValidateProperty(_trade, nameof(MarketType));
-                }
-            }
-        }
+        public MarketType MarketType => _trade.MarketType;
 
         public DateTime? EntryTime
         {
@@ -143,6 +139,8 @@ namespace TD.WPF.ViewModels.Trades
         public decimal? PlannedPositionValue => _trade.PlannedPositionValue;
 
         public decimal? ExecutedPositionValue => _trade.ExecutedPositionValue;
+
+        public decimal? RemainingPositionValue => _trade.RemainingPositionValue;
 
         public decimal? PlannedEntryPrice
         {
@@ -200,7 +198,7 @@ namespace TD.WPF.ViewModels.Trades
             }
         }
 
-        public decimal? RemainingPositionValue => _trade.RemainingPositionValue;
+        public decimal? PlannedProfit => _trade.PlannedProfit;
 
         public decimal? PlannedTP
         {
@@ -258,7 +256,45 @@ namespace TD.WPF.ViewModels.Trades
             }
         }
 
+        public decimal? PlannedRiskRewardRatio => _trade.PlannedRiskRewardRatio;
+
+        public decimal? RealizedProfitLoss => _trade.RealizedProfitLoss;
+
+        public decimal? NetProfitLoss => _trade.NetProfitLoss;
+
+        public decimal? TotalFeesCalculated => _trade.TotalFeesCalculated;
+
+        public decimal? TotalFeesCorrected
+        {
+            get { return _trade.TotalFeesCorrected; }
+            set
+            {
+                if (_trade.TotalFeesCorrected != value)
+                {
+                    _trade.TotalFeesCorrected = value;
+                    RaisePropertyChanged(nameof(TotalFeesCorrected));
+                    ValidateProperty(_trade, nameof(TotalFeesCorrected));
+                }
+            }
+        }
+
+        public decimal? FundingFeeTotal
+        {
+            get { return _trade.FundingFeeTotal; }
+            set
+            {
+                if (_trade.FundingFeeTotal != value)
+                {
+                    _trade.FundingFeeTotal = value;
+                    RaisePropertyChanged(nameof(FundingFeeTotal));
+                    ValidateProperty(_trade, nameof(FundingFeeTotal));
+                }
+            }
+        }
+
         public string? SetupNotes => _trade.SetupNotes;
+
+        public string? ReviewNotes => _trade.ReviewNotes;
 
         public bool ValidateModel()
         {

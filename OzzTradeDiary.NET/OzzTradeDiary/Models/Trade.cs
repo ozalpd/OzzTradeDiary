@@ -54,6 +54,13 @@ namespace TD.Models
         [Display(ResourceType = typeof(LocalizedStrings), Name = "EntryMethod")]
         public EntryMethod EntryMethod { get; set; }
 
+        /// <summary>
+        /// Missed (-10), Cancelled (-20), Planned (10), Pending (20), Active (30), Closed (40). Negative values mean never opened. TradeStatus > TradeStatus.Pending means trade active or closed and may have a result
+        /// </summary>
+        [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "TradeStatus")]
+        public TradeStatus TradeStatus { get; set; }
+
         [StringLength(255, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxStringLength")]
         [Display(ResourceType = typeof(LocalizedStrings), Name = "Tags")]
         public string? Tags { get; set; }
@@ -68,6 +75,12 @@ namespace TD.Models
 
         [Display(ResourceType = typeof(LocalizedStrings), Name = "ExitTime")]
         public DateTime? ExitTime { get; set; }
+
+        /// <summary>
+        /// Time stamp, when TradeStatus is set to TradeStatus.Cancelled
+        /// </summary>
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "CancellationTime")]
+        public DateTime? CancellationTime { get; set; }
 
         /// <summary>
         /// Planned Entry Price, calculated from EntryOrders, also persisted for using in SQL queries.
@@ -117,6 +130,15 @@ namespace TD.Models
         [Display(ResourceType = typeof(LocalizedStrings), Name = "ExecutedSL")]
         public decimal? ExecutedSL { get; set; }
 
+        /// <summary>
+        /// User override; used if set
+        /// </summary>
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "TotalFeesCorrected")]
+        public decimal? TotalFeesCorrected { get; set; }
+
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "FundingFeeTotal")]
+        public decimal? FundingFeeTotal { get; set; }
+
         [Display(ResourceType = typeof(LocalizedStrings), Name = "EntryOrders")]
         public ICollection<EntryOrder> EntryOrders { get; set; }
 
@@ -160,10 +182,12 @@ namespace TD.Models
             clone.SymbolId = this.SymbolId;
             clone.TradeDirection = this.TradeDirection;
             clone.EntryMethod = this.EntryMethod;
+            clone.TradeStatus = this.TradeStatus;
             clone.Tags = this.Tags;
             clone.MarketType = this.MarketType;
             clone.EntryTime = this.EntryTime;
             clone.ExitTime = this.ExitTime;
+            clone.CancellationTime = this.CancellationTime;
             clone.PlannedEntryPrice = this.PlannedEntryPrice;
             clone.ExecutedEntryPrice = this.ExecutedEntryPrice;
             clone.OrderQuantity = this.OrderQuantity;
@@ -172,6 +196,8 @@ namespace TD.Models
             clone.ExecutedTP = this.ExecutedTP;
             clone.PlannedSL = this.PlannedSL;
             clone.ExecutedSL = this.ExecutedSL;
+            clone.TotalFeesCorrected = this.TotalFeesCorrected;
+            clone.FundingFeeTotal = this.FundingFeeTotal;
             clone.SetupNotes = this.SetupNotes;
             clone.ReviewNotes = this.ReviewNotes;
             clone.UpdatedAt = this.UpdatedAt;

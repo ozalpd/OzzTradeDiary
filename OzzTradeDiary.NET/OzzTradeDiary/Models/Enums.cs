@@ -92,4 +92,20 @@ namespace TD.Models
         Long = 200,
         Short = 100
     }
+
+    public enum TradeStatus
+    {
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "Planned")]
+        Planned = 10,
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "Pending")]
+        Pending = 20,
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "Active")]
+        Active = 30,
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "Closed")]
+        Closed = 40,
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "Missed")]
+        Missed = -10,
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "Cancelled")]
+        Cancelled = -20
+    }
 }

@@ -61,6 +61,15 @@ namespace TD.i18n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Active.
+        /// </summary>
+        public static string Active {
+            get {
+                return ResourceManager.GetString("Active", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add Currency.
         /// </summary>
         public static string AddCurrency {
@@ -426,6 +435,33 @@ namespace TD.i18n {
         public static string Break {
             get {
                 return ResourceManager.GetString("Break", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cancellation Time.
+        /// </summary>
+        public static string CancellationTime {
+            get {
+                return ResourceManager.GetString("CancellationTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cancelled.
+        /// </summary>
+        public static string Cancelled {
+            get {
+                return ResourceManager.GetString("Cancelled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Closed.
+        /// </summary>
+        public static string Closed {
+            get {
+                return ResourceManager.GetString("Closed", resourceCulture);
             }
         }
         
@@ -1168,6 +1204,15 @@ namespace TD.i18n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Funding Fee Total.
+        /// </summary>
+        public static string FundingFeeTotal {
+            get {
+                return ResourceManager.GetString("FundingFeeTotal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Futures.
         /// </summary>
         public static string Futures {
@@ -1366,6 +1411,15 @@ namespace TD.i18n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Maker Fee Rate.
+        /// </summary>
+        public static string MakerFeeRate {
+            get {
+                return ResourceManager.GetString("MakerFeeRate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Market.
         /// </summary>
         public static string Market {
@@ -1384,11 +1438,29 @@ namespace TD.i18n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Missed.
+        /// </summary>
+        public static string Missed {
+            get {
+                return ResourceManager.GetString("Missed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Month.
         /// </summary>
         public static string Month {
             get {
                 return ResourceManager.GetString("Month", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Net Profit Loss.
+        /// </summary>
+        public static string NetProfitLoss {
+            get {
+                return ResourceManager.GetString("NetProfitLoss", resourceCulture);
             }
         }
         
@@ -1465,11 +1537,29 @@ namespace TD.i18n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Pending.
+        /// </summary>
+        public static string Pending {
+            get {
+                return ResourceManager.GetString("Pending", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Performance.
         /// </summary>
         public static string Performance {
             get {
                 return ResourceManager.GetString("Performance", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Planned.
+        /// </summary>
+        public static string Planned {
+            get {
+                return ResourceManager.GetString("Planned", resourceCulture);
             }
         }
         
@@ -1951,6 +2041,15 @@ namespace TD.i18n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Taker Fee Rate.
+        /// </summary>
+        public static string TakerFeeRate {
+            get {
+                return ResourceManager.GetString("TakerFeeRate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ticker.
         /// </summary>
         public static string Ticker {
@@ -1983,6 +2082,24 @@ namespace TD.i18n {
         public static string Title {
             get {
                 return ResourceManager.GetString("Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Total Fees Calculated.
+        /// </summary>
+        public static string TotalFeesCalculated {
+            get {
+                return ResourceManager.GetString("TotalFeesCalculated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Total Fees Corrected.
+        /// </summary>
+        public static string TotalFeesCorrected {
+            get {
+                return ResourceManager.GetString("TotalFeesCorrected", resourceCulture);
             }
         }
         
@@ -2064,6 +2181,15 @@ namespace TD.i18n {
         public static string TradesList {
             get {
                 return ResourceManager.GetString("TradesList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Trade Status.
+        /// </summary>
+        public static string TradeStatus {
+            get {
+                return ResourceManager.GetString("TradeStatus", resourceCulture);
             }
         }
         

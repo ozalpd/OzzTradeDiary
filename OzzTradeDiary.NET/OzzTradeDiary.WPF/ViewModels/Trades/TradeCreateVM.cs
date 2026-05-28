@@ -32,6 +32,7 @@ namespace TD.WPF.ViewModels.Trades
             _trade = new Trade();
             TradeDirectionValues = GetValues<TradeDirection>();
             EntryMethodValues = GetValues<EntryMethod>();
+            TradeStatusValues = GetValues<TradeStatus>();
             MarketTypeValues = GetValues<MarketType>();
             OnInitialized();
         }
@@ -70,6 +71,11 @@ namespace TD.WPF.ViewModels.Trades
         /// Gets the collection of available EntryMethod enum members for selection or display.
         /// </summary>
         public IEnumerable<EnumValueItem<EntryMethod>> EntryMethodValues { get; }
+
+        /// <summary>
+        /// Gets the collection of available TradeStatus enum members for selection or display.
+        /// </summary>
+        public IEnumerable<EnumValueItem<TradeStatus>> TradeStatusValues { get; }
 
         /// <summary>
         /// Gets the collection of available MarketType enum members for selection or display.
@@ -160,6 +166,20 @@ namespace TD.WPF.ViewModels.Trades
             }
         }
 
+        public TradeStatus TradeStatus
+        {
+            get { return _trade.TradeStatus; }
+            set
+            {
+                if (_trade.TradeStatus != value)
+                {
+                    _trade.TradeStatus = value;
+                    RaisePropertyChanged(nameof(TradeStatus));
+                    ValidateProperty(_trade, nameof(TradeStatus));
+                }
+            }
+        }
+
         public string? Tags
         {
             get { return _trade.Tags; }
@@ -180,19 +200,7 @@ namespace TD.WPF.ViewModels.Trades
             }
         }
 
-        public MarketType MarketType
-        {
-            get { return _trade.MarketType; }
-            set
-            {
-                if (_trade.MarketType != value)
-                {
-                    _trade.MarketType = value;
-                    RaisePropertyChanged(nameof(MarketType));
-                    ValidateProperty(_trade, nameof(MarketType));
-                }
-            }
-        }
+        public MarketType MarketType => _trade.MarketType;
 
         public DateTime? EntryTime
         {
@@ -250,6 +258,8 @@ namespace TD.WPF.ViewModels.Trades
             }
         }
 
+        public decimal? PlannedProfit => _trade.PlannedProfit;
+
         public decimal? PlannedTP
         {
             get { return _trade.PlannedTP; }
@@ -277,6 +287,8 @@ namespace TD.WPF.ViewModels.Trades
                 }
             }
         }
+
+        public decimal? PlannedRiskRewardRatio => _trade.PlannedRiskRewardRatio;
 
         public string? SetupNotes
         {

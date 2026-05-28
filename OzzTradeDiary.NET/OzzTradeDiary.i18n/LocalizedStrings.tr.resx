@@ -58,6 +58,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+    <data name="Active" xml:space="preserve">
+        <value>Aktif</value>
+    </data>
     <data name="AddCurrency" xml:space="preserve">
         <value>Döviz Ekle</value>
     </data>
@@ -180,6 +183,15 @@
     </data>
     <data name="Break" xml:space="preserve">
         <value>Ara</value>
+    </data>
+    <data name="CancellationTime" xml:space="preserve">
+        <value>İptal Zamanı</value>
+    </data>
+    <data name="Cancelled" xml:space="preserve">
+        <value>İptal Edildi</value>
+    </data>
+    <data name="Closed" xml:space="preserve">
+        <value>Kapandı</value>
     </data>
     <data name="ClosingAuction" xml:space="preserve">
         <value>Kapanış Seansı</value>
@@ -427,6 +439,9 @@
     <data name="Fund" xml:space="preserve">
         <value>Fon</value>
     </data>
+    <data name="FundingFeeTotal" xml:space="preserve">
+        <value>Fonlama Ücret Toplamı</value>
+    </data>
     <data name="Futures" xml:space="preserve">
         <value>Vadeli İşlem</value>
     </data>
@@ -493,14 +508,23 @@
     <data name="LocalOpen" xml:space="preserve">
         <value>Açılış (Yerel Saat)</value>
     </data>
+    <data name="MakerFeeRate" xml:space="preserve">
+        <value>Maker Ücret Oranı</value>
+    </data>
     <data name="Market" xml:space="preserve">
         <value>Market</value>
     </data>
     <data name="MarketType" xml:space="preserve">
         <value>Piyasa Tipi</value>
     </data>
+    <data name="Missed" xml:space="preserve">
+        <value>Kaçırıldı</value>
+    </data>
     <data name="Month" xml:space="preserve">
         <value>Ay</value>
+    </data>
+    <data name="NetProfitLoss" xml:space="preserve">
+        <value>Net  Kazanç/Kayıp</value>
     </data>
     <data name="NetResult" xml:space="preserve">
         <value>Net Sonuç</value>
@@ -526,8 +550,14 @@
     <data name="OrderValue" xml:space="preserve">
         <value>Emir Tutarı</value>
     </data>
+    <data name="Pending" xml:space="preserve">
+        <value>Beklemede</value>
+    </data>
     <data name="Performance" xml:space="preserve">
         <value>Performans</value>
+    </data>
+    <data name="Planned" xml:space="preserve">
+        <value>Planlandı</value>
     </data>
     <data name="PlannedEntryPrice" xml:space="preserve">
         <value>Planlanan İşlem Fiyatı</value>
@@ -688,6 +718,9 @@
     <data name="TakeProfitOrdersList" xml:space="preserve">
         <value>Kar Al Emir Listesi</value>
     </data>
+    <data name="TakerFeeRate" xml:space="preserve">
+        <value>Taker Ücret Oranı</value>
+    </data>
     <data name="Ticker" xml:space="preserve">
         <value>İşlem Kodu</value>
     </data>
@@ -699,6 +732,12 @@
     </data>
     <data name="Title" xml:space="preserve">
         <value>Başlık</value>
+    </data>
+    <data name="TotalFeesCalculated" xml:space="preserve">
+        <value>Toplam Hesaplanmış Ücretler</value>
+    </data>
+    <data name="TotalFeesCorrected" xml:space="preserve">
+        <value>Toplam Düzeltilmiş Ücretler</value>
     </data>
     <data name="Trade" xml:space="preserve">
         <value>İşlem</value>
@@ -726,6 +765,9 @@
     </data>
     <data name="TradesList" xml:space="preserve">
         <value>İşlem Listesi</value>
+    </data>
+    <data name="TradeStatus" xml:space="preserve">
+        <value>İşlem Durumu </value>
     </data>
     <data name="TradingAccount" xml:space="preserve">
         <value>İşlem Hesabı</value>

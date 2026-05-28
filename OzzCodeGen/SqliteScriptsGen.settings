@@ -599,6 +599,32 @@
           <CheckIfAltered>true</CheckIfAltered>
           <DoNotLog>false</DoNotLog>
         </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>MakerFeeRate</Name>
+          <Exclude>false</Exclude>
+          <DataType>REAL</DataType>
+          <Length>0</Length>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <Unique>false</Unique>
+          <SortDesc>false</SortDesc>
+          <Nullable>true</Nullable>
+          <CheckIfAltered>false</CheckIfAltered>
+          <DoNotLog>false</DoNotLog>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>TakerFeeRate</Name>
+          <Exclude>false</Exclude>
+          <DataType>REAL</DataType>
+          <Length>0</Length>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <Unique>false</Unique>
+          <SortDesc>false</SortDesc>
+          <Nullable>true</Nullable>
+          <CheckIfAltered>false</CheckIfAltered>
+          <DoNotLog>false</DoNotLog>
+        </StorageColumnSetting>
       </Properties>
       <InheritedEntity>IIsActive</InheritedEntity>
       <UseInheritance>false</UseInheritance>
@@ -971,6 +997,19 @@
           <DoNotLog>false</DoNotLog>
         </StorageColumnSetting>
         <StorageColumnSetting>
+          <Name>TradeStatus</Name>
+          <Exclude>false</Exclude>
+          <DataType>INTEGER</DataType>
+          <Length>0</Length>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <Unique>false</Unique>
+          <SortDesc>false</SortDesc>
+          <Nullable>false</Nullable>
+          <CheckIfAltered>false</CheckIfAltered>
+          <DoNotLog>false</DoNotLog>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
           <Name>Tags</Name>
           <Exclude>false</Exclude>
           <DataType>TEXT</DataType>
@@ -1023,6 +1062,19 @@
           <DoNotLog>false</DoNotLog>
         </StorageColumnSetting>
         <StorageColumnSetting>
+          <Name>CancellationTime</Name>
+          <Exclude>false</Exclude>
+          <DataType>TEXT</DataType>
+          <Length>0</Length>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <Unique>false</Unique>
+          <SortDesc>false</SortDesc>
+          <Nullable>true</Nullable>
+          <CheckIfAltered>false</CheckIfAltered>
+          <DoNotLog>false</DoNotLog>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
           <Name>PlannedPositionValue</Name>
           <Exclude>false</Exclude>
           <DataType>INTEGER</DataType>
@@ -1038,6 +1090,20 @@
         </StorageColumnSetting>
         <StorageColumnSetting>
           <Name>ExecutedPositionValue</Name>
+          <Exclude>false</Exclude>
+          <DataType>INTEGER</DataType>
+          <Length>0</Length>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>true</Indexed>
+          <Unique>false</Unique>
+          <SortDesc>false</SortDesc>
+          <CompositeIndexColumns>EntryTime DESC</CompositeIndexColumns>
+          <Nullable>true</Nullable>
+          <CheckIfAltered>true</CheckIfAltered>
+          <DoNotLog>false</DoNotLog>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>RemainingPositionValue</Name>
           <Exclude>false</Exclude>
           <DataType>INTEGER</DataType>
           <Length>0</Length>
@@ -1112,20 +1178,6 @@
           <Indexed>false</Indexed>
           <Unique>false</Unique>
           <SortDesc>false</SortDesc>
-          <Nullable>true</Nullable>
-          <CheckIfAltered>true</CheckIfAltered>
-          <DoNotLog>false</DoNotLog>
-        </StorageColumnSetting>
-        <StorageColumnSetting>
-          <Name>RemainingPositionValue</Name>
-          <Exclude>false</Exclude>
-          <DataType>INTEGER</DataType>
-          <Length>0</Length>
-          <PrimaryKey>false</PrimaryKey>
-          <Indexed>true</Indexed>
-          <Unique>false</Unique>
-          <SortDesc>false</SortDesc>
-          <CompositeIndexColumns>EntryTime DESC</CompositeIndexColumns>
           <Nullable>true</Nullable>
           <CheckIfAltered>true</CheckIfAltered>
           <DoNotLog>false</DoNotLog>
@@ -1238,6 +1290,19 @@
           <DoNotLog>false</DoNotLog>
         </StorageColumnSetting>
         <StorageColumnSetting>
+          <Name>NetProfitLoss</Name>
+          <Exclude>false</Exclude>
+          <DataType>INTEGER</DataType>
+          <Length>0</Length>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <Unique>false</Unique>
+          <SortDesc>false</SortDesc>
+          <Nullable>true</Nullable>
+          <CheckIfAltered>false</CheckIfAltered>
+          <DoNotLog>false</DoNotLog>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
           <Name>RealizedRiskAmount</Name>
           <Exclude>false</Exclude>
           <DataType>INTEGER</DataType>
@@ -1248,6 +1313,45 @@
           <SortDesc>false</SortDesc>
           <Nullable>true</Nullable>
           <CheckIfAltered>true</CheckIfAltered>
+          <DoNotLog>false</DoNotLog>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>TotalFeesCalculated</Name>
+          <Exclude>false</Exclude>
+          <DataType>INTEGER</DataType>
+          <Length>0</Length>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <Unique>false</Unique>
+          <SortDesc>false</SortDesc>
+          <Nullable>true</Nullable>
+          <CheckIfAltered>false</CheckIfAltered>
+          <DoNotLog>false</DoNotLog>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>TotalFeesCorrected</Name>
+          <Exclude>false</Exclude>
+          <DataType>INTEGER</DataType>
+          <Length>0</Length>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <Unique>false</Unique>
+          <SortDesc>false</SortDesc>
+          <Nullable>true</Nullable>
+          <CheckIfAltered>false</CheckIfAltered>
+          <DoNotLog>false</DoNotLog>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>FundingFeeTotal</Name>
+          <Exclude>false</Exclude>
+          <DataType>INTEGER</DataType>
+          <Length>0</Length>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <Unique>false</Unique>
+          <SortDesc>false</SortDesc>
+          <Nullable>true</Nullable>
+          <CheckIfAltered>false</CheckIfAltered>
           <DoNotLog>false</DoNotLog>
         </StorageColumnSetting>
         <StorageColumnSetting>

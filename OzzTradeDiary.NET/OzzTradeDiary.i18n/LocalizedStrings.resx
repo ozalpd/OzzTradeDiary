@@ -58,6 +58,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+    <data name="Active" xml:space="preserve">
+        <value>Active</value>
+    </data>
     <data name="AddCurrency" xml:space="preserve">
         <value>Add Currency</value>
     </data>
@@ -180,6 +183,15 @@
     </data>
     <data name="Break" xml:space="preserve">
         <value>Break</value>
+    </data>
+    <data name="CancellationTime" xml:space="preserve">
+        <value>Cancellation Time</value>
+    </data>
+    <data name="Cancelled" xml:space="preserve">
+        <value>Cancelled</value>
+    </data>
+    <data name="Closed" xml:space="preserve">
+        <value>Closed</value>
     </data>
     <data name="ClosingAuction" xml:space="preserve">
         <value>Closing Auction</value>
@@ -427,6 +439,9 @@
     <data name="Fund" xml:space="preserve">
         <value>Fund</value>
     </data>
+    <data name="FundingFeeTotal" xml:space="preserve">
+        <value>Funding Fee Total</value>
+    </data>
     <data name="Futures" xml:space="preserve">
         <value>Futures</value>
     </data>
@@ -493,14 +508,23 @@
     <data name="LocalOpen" xml:space="preserve">
         <value>Local Open</value>
     </data>
+    <data name="MakerFeeRate" xml:space="preserve">
+        <value>Maker Fee Rate</value>
+    </data>
     <data name="Market" xml:space="preserve">
         <value>Market</value>
     </data>
     <data name="MarketType" xml:space="preserve">
         <value>Market Type</value>
     </data>
+    <data name="Missed" xml:space="preserve">
+        <value>Missed</value>
+    </data>
     <data name="Month" xml:space="preserve">
         <value>Month</value>
+    </data>
+    <data name="NetProfitLoss" xml:space="preserve">
+        <value>Net Profit Loss</value>
     </data>
     <data name="NetResult" xml:space="preserve">
         <value>Net Result</value>
@@ -526,8 +550,14 @@
     <data name="OrderValue" xml:space="preserve">
         <value>Order Value</value>
     </data>
+    <data name="Pending" xml:space="preserve">
+        <value>Pending</value>
+    </data>
     <data name="Performance" xml:space="preserve">
         <value>Performance</value>
+    </data>
+    <data name="Planned" xml:space="preserve">
+        <value>Planned</value>
     </data>
     <data name="PlannedEntryPrice" xml:space="preserve">
         <value>Planned Entry Price</value>
@@ -688,6 +718,9 @@
     <data name="TakeProfitOrdersList" xml:space="preserve">
         <value>Take Profit Orders List</value>
     </data>
+    <data name="TakerFeeRate" xml:space="preserve">
+        <value>Taker Fee Rate</value>
+    </data>
     <data name="Ticker" xml:space="preserve">
         <value>Ticker</value>
     </data>
@@ -699,6 +732,12 @@
     </data>
     <data name="Title" xml:space="preserve">
         <value>Title</value>
+    </data>
+    <data name="TotalFeesCalculated" xml:space="preserve">
+        <value>Total Fees Calculated</value>
+    </data>
+    <data name="TotalFeesCorrected" xml:space="preserve">
+        <value>Total Fees Corrected</value>
     </data>
     <data name="Trade" xml:space="preserve">
         <value>Trade</value>
@@ -726,6 +765,9 @@
     </data>
     <data name="TradesList" xml:space="preserve">
         <value>Trades List</value>
+    </data>
+    <data name="TradeStatus" xml:space="preserve">
+        <value>Trade Status</value>
     </data>
     <data name="TradingAccount" xml:space="preserve">
         <value>Trading Account</value>

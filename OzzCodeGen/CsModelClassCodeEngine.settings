@@ -463,6 +463,24 @@
           <Required />
           <IsSearchParameter>true</IsSearchParameter>
         </ModelPropertySetting>
+        <ModelPropertySetting>
+          <Name>MakerFeeRate</Name>
+          <Exclude>false</Exclude>
+          <DataType />
+          <DTOExclusion>false</DTOExclusion>
+          <HtmlEncode xsi:nil="true" />
+          <Required />
+          <IsSearchParameter>false</IsSearchParameter>
+        </ModelPropertySetting>
+        <ModelPropertySetting>
+          <Name>TakerFeeRate</Name>
+          <Exclude>false</Exclude>
+          <DataType />
+          <DTOExclusion>false</DTOExclusion>
+          <HtmlEncode xsi:nil="true" />
+          <Required />
+          <IsSearchParameter>false</IsSearchParameter>
+        </ModelPropertySetting>
       </Properties>
       <GenerateQueryParam>false</GenerateQueryParam>
     </BaseEntitySetting>
@@ -771,6 +789,15 @@
           <IsSearchParameter>true</IsSearchParameter>
         </ModelPropertySetting>
         <ModelPropertySetting>
+          <Name>TradeStatus</Name>
+          <Exclude>false</Exclude>
+          <DataType />
+          <DTOExclusion>false</DTOExclusion>
+          <HtmlEncode xsi:nil="true" />
+          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
+          <IsSearchParameter>true</IsSearchParameter>
+        </ModelPropertySetting>
+        <ModelPropertySetting>
           <Name>Tags</Name>
           <Exclude>false</Exclude>
           <DataType />
@@ -786,7 +813,7 @@
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
-          <IsSearchParameter>false</IsSearchParameter>
+          <IsSearchParameter>true</IsSearchParameter>
         </ModelPropertySetting>
         <ModelPropertySetting>
           <Name>EntryTime</Name>
@@ -800,6 +827,15 @@
         </ModelPropertySetting>
         <ModelPropertySetting>
           <Name>ExitTime</Name>
+          <Exclude>false</Exclude>
+          <DataType />
+          <DTOExclusion>false</DTOExclusion>
+          <HtmlEncode xsi:nil="true" />
+          <Required />
+          <IsSearchParameter>true</IsSearchParameter>
+        </ModelPropertySetting>
+        <ModelPropertySetting>
+          <Name>CancellationTime</Name>
           <Exclude>false</Exclude>
           <DataType />
           <DTOExclusion>false</DTOExclusion>
@@ -826,13 +862,22 @@
           <IsSearchParameter>true</IsSearchParameter>
         </ModelPropertySetting>
         <ModelPropertySetting>
+          <Name>RemainingPositionValue</Name>
+          <Exclude>true</Exclude>
+          <DataType />
+          <DTOExclusion>false</DTOExclusion>
+          <HtmlEncode xsi:nil="true" />
+          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
+          <IsSearchParameter>true</IsSearchParameter>
+        </ModelPropertySetting>
+        <ModelPropertySetting>
           <Name>IsFullyClosed</Name>
           <Exclude>true</Exclude>
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required />
-          <IsSearchParameter>true</IsSearchParameter>
+          <IsSearchParameter>false</IsSearchParameter>
         </ModelPropertySetting>
         <ModelPropertySetting>
           <Name>PlannedEntryPrice</Name>
@@ -869,15 +914,6 @@
           <HtmlEncode xsi:nil="true" />
           <Required />
           <IsSearchParameter>false</IsSearchParameter>
-        </ModelPropertySetting>
-        <ModelPropertySetting>
-          <Name>RemainingPositionValue</Name>
-          <Exclude>true</Exclude>
-          <DataType />
-          <DTOExclusion>false</DTOExclusion>
-          <HtmlEncode xsi:nil="true" />
-          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
-          <IsSearchParameter>true</IsSearchParameter>
         </ModelPropertySetting>
         <ModelPropertySetting>
           <Name>PlannedProfit</Name>
@@ -940,7 +976,7 @@
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required />
-          <IsSearchParameter>false</IsSearchParameter>
+          <IsSearchParameter>true</IsSearchParameter>
         </ModelPropertySetting>
         <ModelPropertySetting>
           <Name>RealizedProfitLoss</Name>
@@ -952,8 +988,44 @@
           <IsSearchParameter>true</IsSearchParameter>
         </ModelPropertySetting>
         <ModelPropertySetting>
+          <Name>NetProfitLoss</Name>
+          <Exclude>true</Exclude>
+          <DataType />
+          <DTOExclusion>false</DTOExclusion>
+          <HtmlEncode xsi:nil="true" />
+          <Required />
+          <IsSearchParameter>true</IsSearchParameter>
+        </ModelPropertySetting>
+        <ModelPropertySetting>
           <Name>RealizedRiskAmount</Name>
           <Exclude>true</Exclude>
+          <DataType />
+          <DTOExclusion>false</DTOExclusion>
+          <HtmlEncode xsi:nil="true" />
+          <Required />
+          <IsSearchParameter>true</IsSearchParameter>
+        </ModelPropertySetting>
+        <ModelPropertySetting>
+          <Name>TotalFeesCalculated</Name>
+          <Exclude>true</Exclude>
+          <DataType />
+          <DTOExclusion>false</DTOExclusion>
+          <HtmlEncode xsi:nil="true" />
+          <Required />
+          <IsSearchParameter>false</IsSearchParameter>
+        </ModelPropertySetting>
+        <ModelPropertySetting>
+          <Name>TotalFeesCorrected</Name>
+          <Exclude>false</Exclude>
+          <DataType />
+          <DTOExclusion>false</DTOExclusion>
+          <HtmlEncode xsi:nil="true" />
+          <Required />
+          <IsSearchParameter>false</IsSearchParameter>
+        </ModelPropertySetting>
+        <ModelPropertySetting>
+          <Name>FundingFeeTotal</Name>
+          <Exclude>false</Exclude>
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />

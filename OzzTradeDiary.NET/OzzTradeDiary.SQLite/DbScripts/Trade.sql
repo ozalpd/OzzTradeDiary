@@ -4,18 +4,20 @@ CREATE TABLE IF NOT EXISTS Trades(
 	SymbolId INTEGER Not Null, 
 	TradeDirection INTEGER Not Null, 
 	EntryMethod INTEGER Not Null, 
+	TradeStatus INTEGER Not Null, 
 	Tags TEXT, 
 	MarketType INTEGER Not Null, 
 	EntryTime TEXT, 
 	ExitTime TEXT, 
+	CancellationTime TEXT, 
 	PlannedPositionValue INTEGER, 
 	ExecutedPositionValue INTEGER, 
+	RemainingPositionValue INTEGER, 
 	IsFullyClosed INTEGER Not Null, 
 	PlannedEntryPrice TEXT, 
 	ExecutedEntryPrice TEXT, 
 	OrderQuantity TEXT, 
 	FilledQuantity TEXT, 
-	RemainingPositionValue INTEGER, 
 	PlannedProfit INTEGER, 
 	PlannedTP TEXT, 
 	ExecutedTP TEXT, 
@@ -24,7 +26,11 @@ CREATE TABLE IF NOT EXISTS Trades(
 	PlannedRiskAmount INTEGER, 
 	PlannedRiskRewardRatio TEXT, 
 	RealizedProfitLoss INTEGER, 
+	NetProfitLoss REAL, 
 	RealizedRiskAmount INTEGER, 
+	TotalFeesCalculated REAL, 
+	TotalFeesCorrected REAL, 
+	FundingFeeTotal REAL, 
 	SetupNotes TEXT, 
 	ReviewNotes TEXT, 
 	UpdatedAt TEXT Not Null 
@@ -36,8 +42,8 @@ Create Index If Not Exists idx_Trades_EntryMethod on Trades(EntryMethod);
 Create Index If Not Exists idx_Trades_EntryTime on Trades(EntryTime DESC);
 Create Index If Not Exists idx_Trades_PlannedPositionValue on Trades(PlannedPositionValue, UpdatedAt DESC, EntryTime DESC);
 Create Index If Not Exists idx_Trades_ExecutedPositionValue on Trades(ExecutedPositionValue, EntryTime DESC);
-Create Index If Not Exists idx_Trades_IsFullyClosed on Trades(IsFullyClosed, EntryTime DESC);
 Create Index If Not Exists idx_Trades_RemainingPositionValue on Trades(RemainingPositionValue, EntryTime DESC);
+Create Index If Not Exists idx_Trades_IsFullyClosed on Trades(IsFullyClosed, EntryTime DESC);
 Create Index If Not Exists idx_Trades_PlannedProfit on Trades(PlannedProfit, UpdatedAt DESC, EntryTime DESC);
 Create Index If Not Exists idx_Trades_RealizedProfitLoss on Trades(RealizedProfitLoss, EntryTime DESC);
 Create Index If Not Exists idx_Trades_UpdatedAt on Trades(UpdatedAt DESC, Id);

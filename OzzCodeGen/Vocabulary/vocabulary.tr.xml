@@ -13,6 +13,10 @@
     <Translation>Eylem</Translation>
   </Vocab>
   <Vocab>
+    <Name>Active</Name>
+    <Translation>Aktif</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Add</Name>
     <Translation>Ekle</Translation>
   </Vocab>
@@ -341,6 +345,14 @@
     <Translation>Vazgeç</Translation>
   </Vocab>
   <Vocab>
+    <Name>CancellationTime</Name>
+    <Translation>İptal Zamanı</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Cancelled</Name>
+    <Translation>İptal Edildi</Translation>
+  </Vocab>
+  <Vocab>
     <Name>CanNotDelete</Name>
     <Translation>Silinemiyor</Translation>
   </Vocab>
@@ -387,6 +399,10 @@
   <Vocab>
     <Name>Clone</Name>
     <Translation>Klonla</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Closed</Name>
+    <Translation>Kapandı</Translation>
   </Vocab>
   <Vocab>
     <Name>ClosingAuction</Name>
@@ -1129,6 +1145,10 @@
     <Translation>Fon</Translation>
   </Vocab>
   <Vocab>
+    <Name>FundingFeeTotal</Name>
+    <Translation>Fonlama Ücret Toplamı</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Futures</Name>
     <Translation>Vadeli İşlem</Translation>
   </Vocab>
@@ -1317,6 +1337,10 @@
     <Translation>Bakım için Ara</Translation>
   </Vocab>
   <Vocab>
+    <Name>MakerFeeRate</Name>
+    <Translation>Maker Ücret Oranı</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Male</Name>
     <Translation>Erkek</Translation>
   </Vocab>
@@ -1341,6 +1365,10 @@
     <Translation>{0} sahasına en az {2} karakter girmelisiniz.</Translation>
   </Vocab>
   <Vocab>
+    <Name>Missed</Name>
+    <Translation>Kaçırıldı</Translation>
+  </Vocab>
+  <Vocab>
     <Name>ModifierId</Name>
     <Translation>Değiştiren</Translation>
   </Vocab>
@@ -1359,6 +1387,10 @@
   <Vocab>
     <Name>Name</Name>
     <Translation>İsim</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>NetProfitLoss</Name>
+    <Translation>Net  Kazanç/Kayıp</Translation>
   </Vocab>
   <Vocab>
     <Name>NetResult</Name>
@@ -1509,6 +1541,10 @@
     <Translation>Parola ve Parola Doğrulaması aynı değil.</Translation>
   </Vocab>
   <Vocab>
+    <Name>Pending</Name>
+    <Translation>Beklemede</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Performance</Name>
     <Translation>Performans</Translation>
   </Vocab>
@@ -1567,6 +1603,10 @@
   <Vocab>
     <Name>PhoneWork2</Name>
     <Translation>İş Telefonu 2</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Planned</Name>
+    <Translation>Planlandı</Translation>
   </Vocab>
   <Vocab>
     <Name>PlannedEntryPrice</Name>
@@ -2093,6 +2133,10 @@
     <Translation>Kar Al Emir Listesi</Translation>
   </Vocab>
   <Vocab>
+    <Name>TakerFeeRate</Name>
+    <Translation>Taker Ücret Oranı</Translation>
+  </Vocab>
+  <Vocab>
     <Name>TaxNr</Name>
     <Translation>Vergi</Translation>
   </Vocab>
@@ -2119,6 +2163,14 @@
   <Vocab>
     <Name>Title</Name>
     <Translation>Başlık</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>TotalFeesCalculated</Name>
+    <Translation>Toplam Hesaplanmış Ücretler</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>TotalFeesCorrected</Name>
+    <Translation>Toplam Düzeltilmiş Ücretler</Translation>
   </Vocab>
   <Vocab>
     <Name>TotalPages</Name>
@@ -2175,6 +2227,10 @@
   <Vocab>
     <Name>TradesList</Name>
     <Translation>İşlem Listesi</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>TradeStatus</Name>
+    <Translation>İşlem Durumu </Translation>
   </Vocab>
   <Vocab>
     <Name>TradingAccount</Name>

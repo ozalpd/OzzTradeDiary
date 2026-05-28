@@ -55,6 +55,21 @@ public partial class Trade
     bool _isFullyClosed;
 
     /// <summary>
+    /// Gets or sets the net profit or loss after deducting all trading fees and funding fees from the realized
+    /// profit/loss.
+    /// </summary>
+    /// <remarks>This is a calculated property based on <see cref="RealizedProfitLoss"/>, <see cref="FundingFeeTotal"/>,
+    /// and <see cref="TotalFeesCorrected"/> or <see cref="TotalFeesCalculated"/>. The setter is provided for
+    /// data binding and persistence compatibility but does not affect calculations.</remarks>
+    [Display(ResourceType = typeof(LocalizedStrings), Name = "NetProfitLoss")]
+    public decimal? NetProfitLoss
+    {
+        get { return RealizedProfitLoss - (FundingFeeTotal ?? 0) - (TotalFeesCorrected ?? TotalFeesCalculated ?? 0); }
+        set { _netProfitLoss = value; }
+    }
+    decimal? _netProfitLoss;
+
+    /// <summary>
     /// Gets or sets the planned position value for the trade, calculated as the product of the planned entry price
     /// and the order quantity.
     /// </summary>
@@ -247,5 +262,44 @@ public partial class Trade
         set { _realizedRiskAmount = value; }
     }
     decimal? _realizedRiskAmount;
-}
 
+    [Display(ResourceType = typeof(LocalizedStrings), Name = "TotalFeesCalculated")]
+    public decimal? TotalFeesCalculated
+    {
+        get
+        {
+            if (TotalFeesCorrected.HasValue)
+            {
+                return TotalFeesCorrected;
+            }
+            else
+            {
+                decimal totalFees = 0;
+                if (EntryOrders != null)
+                {
+                    foreach (var order in EntryOrders)
+                    {
+                        totalFees += order.FeesCalculated ?? 0;
+                    }
+                }
+                if (TakeProfitOrders != null)
+                {
+                    foreach (var order in TakeProfitOrders)
+                    {
+                        totalFees += order.FeesCalculated ?? 0;
+                    }
+                }
+                if (StopLossOrders != null)
+                {
+                    foreach (var order in StopLossOrders)
+                    {
+                        totalFees += order.FeesCalculated ?? 0;
+                    }
+                }
+                return totalFees;
+            }
+        }
+        set { _totalFeesCalculated = value; }
+    }
+    decimal? _totalFeesCalculated;
+}

@@ -32,6 +32,7 @@ namespace TD.WPF.ViewModels.Trades
 
             TradeDirectionValues = GetValues<TradeDirection>();
             EntryMethodValues = GetValues<EntryMethod>();
+            TradeStatusValues = GetValues<TradeStatus>();
             MarketTypeValues = GetValues<MarketType>();
             TradeCreateCommand = new TradeCreateCommand(this, windowDialogService, symbolLookupService, tradingAccountLookupService);
             TradeDeleteCommand = new TradeDeleteCommand(this);
@@ -54,6 +55,11 @@ namespace TD.WPF.ViewModels.Trades
         /// Gets the collection of available EntryMethod enum members for selection or display.
         /// </summary>
         public IEnumerable<EnumValueItem<EntryMethod>> EntryMethodValues { get; }
+
+        /// <summary>
+        /// Gets the collection of available TradeStatus enum members for selection or display.
+        /// </summary>
+        public IEnumerable<EnumValueItem<TradeStatus>> TradeStatusValues { get; }
 
         /// <summary>
         /// Gets the collection of available MarketType enum members for selection or display.

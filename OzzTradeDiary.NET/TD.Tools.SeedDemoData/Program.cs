@@ -256,6 +256,8 @@ static async Task<Trade> EnsureDemoTradeAsync(ITradeRepository tradeRepository, 
     if (isClosed)
     {
         trade.ExitTime = entryTime.AddHours(random.Next(1, 72)); // Random exit time between 1 hour and 3 days after entry
+        trade.TradeStatus = TradeStatus.Closed;
+
         bool isWin = random.Next(0, 2) == 0; // 50% chance of winning trade if it's closed
         bool hitTp2 = random.Next(0, 2) == 0; // 50% chance to hit TP2
         bool hitTp3 = hitTp2 && random.Next(0, 2) == 0; // 50% chance to hit TP3 if TP2 is hit
@@ -297,6 +299,16 @@ static async Task<Trade> EnsureDemoTradeAsync(ITradeRepository tradeRepository, 
             slOrder.FilledPrice = (tp2.FilledPrice + tp3.OrderPrice) / 2;
             slOrder.FilledQuantity = remainingQuantity;
         }
+    }
+    else if (isExecuted)
+    {
+        trade.TradeStatus = TradeStatus.Active;
+    }
+    else
+    {
+        trade.TradeStatus = daysAgo < 7
+                          ? random.Next(0, 2) == 0 ? TradeStatus.Pending : TradeStatus.Planned
+                          : random.Next(0, 3) == 0 ? TradeStatus.Missed : TradeStatus.Cancelled;
     }
 
     trade.Id = await tradeRepository.CreateAsync(trade);

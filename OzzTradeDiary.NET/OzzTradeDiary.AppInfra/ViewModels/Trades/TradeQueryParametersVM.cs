@@ -59,13 +59,23 @@ namespace TD.AppInfra.ViewModels.Trades
             }
         }
         
-        public bool? IsFullyClosed
+        public TradeStatus? ByTradeStatus
         {
-            get => Parameters.IsFullyClosed;
+            get => Parameters.TradeStatus;
             set
             {
-                Parameters.IsFullyClosed = value;
-                RaisePropertyChanged(nameof(IsFullyClosed));
+                Parameters.TradeStatus = value;
+                RaisePropertyChanged(nameof(ByTradeStatus));
+            }
+        }
+        
+        public MarketType? ByMarketType
+        {
+            get => Parameters.MarketType;
+            set
+            {
+                Parameters.MarketType = value;
+                RaisePropertyChanged(nameof(ByMarketType));
             }
         }
         
@@ -86,6 +96,26 @@ namespace TD.AppInfra.ViewModels.Trades
             {
                 Parameters.EntryTimeMax = value;
                 RaisePropertyChanged(nameof(EntryTimeMax));
+            }
+        }
+        
+        public DateTime? ExitTimeMin
+        {
+            get => Parameters.ExitTimeMin;
+            set
+            {
+                Parameters.ExitTimeMin = value;
+                RaisePropertyChanged(nameof(ExitTimeMin));
+            }
+        }
+
+        public DateTime? ExitTimeMax
+        {
+            get => Parameters.ExitTimeMax;
+            set
+            {
+                Parameters.ExitTimeMax = value;
+                RaisePropertyChanged(nameof(ExitTimeMax));
             }
         }
         
@@ -189,6 +219,26 @@ namespace TD.AppInfra.ViewModels.Trades
             }
         }
         
+        public decimal? PlannedRiskRewardRatioMin
+        {
+            get => Parameters.PlannedRiskRewardRatioMin;
+            set
+            {
+                Parameters.PlannedRiskRewardRatioMin = value;
+                RaisePropertyChanged(nameof(PlannedRiskRewardRatioMin));
+            }
+        }
+
+        public decimal? PlannedRiskRewardRatioMax
+        {
+            get => Parameters.PlannedRiskRewardRatioMax;
+            set
+            {
+                Parameters.PlannedRiskRewardRatioMax = value;
+                RaisePropertyChanged(nameof(PlannedRiskRewardRatioMax));
+            }
+        }
+        
         public decimal? RealizedProfitLossMin
         {
             get => Parameters.RealizedProfitLossMin;
@@ -206,6 +256,46 @@ namespace TD.AppInfra.ViewModels.Trades
             {
                 Parameters.RealizedProfitLossMax = value;
                 RaisePropertyChanged(nameof(RealizedProfitLossMax));
+            }
+        }
+        
+        public decimal? NetProfitLossMin
+        {
+            get => Parameters.NetProfitLossMin;
+            set
+            {
+                Parameters.NetProfitLossMin = value;
+                RaisePropertyChanged(nameof(NetProfitLossMin));
+            }
+        }
+
+        public decimal? NetProfitLossMax
+        {
+            get => Parameters.NetProfitLossMax;
+            set
+            {
+                Parameters.NetProfitLossMax = value;
+                RaisePropertyChanged(nameof(NetProfitLossMax));
+            }
+        }
+        
+        public decimal? RealizedRiskAmountMin
+        {
+            get => Parameters.RealizedRiskAmountMin;
+            set
+            {
+                Parameters.RealizedRiskAmountMin = value;
+                RaisePropertyChanged(nameof(RealizedRiskAmountMin));
+            }
+        }
+
+        public decimal? RealizedRiskAmountMax
+        {
+            get => Parameters.RealizedRiskAmountMax;
+            set
+            {
+                Parameters.RealizedRiskAmountMax = value;
+                RaisePropertyChanged(nameof(RealizedRiskAmountMax));
             }
         }
         
@@ -235,9 +325,12 @@ namespace TD.AppInfra.ViewModels.Trades
             BySymbolId = null;
             ByTradeDirection = null;
             ByEntryMethod = null;
-            IsFullyClosed = null;
+            ByTradeStatus = null;
+            ByMarketType = null;
             EntryTimeMin = null;
             EntryTimeMax = null;
+            ExitTimeMin = null;
+            ExitTimeMax = null;
             PlannedPositionValueMin = null;
             PlannedPositionValueMax = null;
             ExecutedPositionValueMin = null;
@@ -248,8 +341,14 @@ namespace TD.AppInfra.ViewModels.Trades
             PlannedProfitMax = null;
             PlannedRiskAmountMin = null;
             PlannedRiskAmountMax = null;
+            PlannedRiskRewardRatioMin = null;
+            PlannedRiskRewardRatioMax = null;
             RealizedProfitLossMin = null;
             RealizedProfitLossMax = null;
+            NetProfitLossMin = null;
+            NetProfitLossMax = null;
+            RealizedRiskAmountMin = null;
+            RealizedRiskAmountMax = null;
             UpdatedAtMin = null;
             UpdatedAtMax = null;
         }
