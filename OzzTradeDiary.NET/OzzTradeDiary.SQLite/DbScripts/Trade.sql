@@ -26,11 +26,11 @@ CREATE TABLE IF NOT EXISTS Trades(
 	PlannedRiskAmount INTEGER, 
 	PlannedRiskRewardRatio TEXT, 
 	RealizedProfitLoss INTEGER, 
-	NetProfitLoss REAL, 
+	NetProfitLoss INTEGER, 
 	RealizedRiskAmount INTEGER, 
-	TotalFeesCalculated REAL, 
-	TotalFeesCorrected REAL, 
-	FundingFeeTotal REAL, 
+	TotalFeesCalculated INTEGER, 
+	TotalFeesCorrected INTEGER, 
+	FundingFeeTotal INTEGER, 
 	SetupNotes TEXT, 
 	ReviewNotes TEXT, 
 	UpdatedAt TEXT Not Null 
@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS Trades(
 Create Index If Not Exists idx_Trades_TradingAccountId on Trades(TradingAccountId, UpdatedAt DESC, EntryTime DESC);
 Create Index If Not Exists idx_Trades_SymbolId on Trades(SymbolId, UpdatedAt DESC, EntryTime DESC);
 Create Index If Not Exists idx_Trades_TradeDirection on Trades(TradeDirection, UpdatedAt DESC, EntryTime DESC);
-Create Index If Not Exists idx_Trades_EntryMethod on Trades(EntryMethod);
+Create Index If Not Exists idx_Trades_EntryMethod on Trades(EntryMethod, UpdatedAt DESC, EntryTime DESC);
 Create Index If Not Exists idx_Trades_EntryTime on Trades(EntryTime DESC);
 Create Index If Not Exists idx_Trades_PlannedPositionValue on Trades(PlannedPositionValue, UpdatedAt DESC, EntryTime DESC);
 Create Index If Not Exists idx_Trades_ExecutedPositionValue on Trades(ExecutedPositionValue, EntryTime DESC);

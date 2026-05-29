@@ -6,7 +6,8 @@
         xmlns:models="clr-namespace:TD.Models;assembly=OzzTradeDiary"
         xmlns:sys="clr-namespace:System;assembly=System.Runtime"
         xmlns:i18n="clr-namespace:TD.i18n;assembly=OzzTradeDiary.i18n"
-        xmlns:designTime="clr-namespace:TD.WPF.DesignTime;assembly=OzzTradeDiary.WPF"
+        xmlns:converters="clr-namespace:TD.WPF.Converters"
+        xmlns:designTime="clr-namespace:TD.WPF.DesignTime"
         mc:Ignorable="d"
         Title="Ozz Trade Diary"
         Height="1020" Width="1440" MinHeight="540" MinWidth="1280">
@@ -380,7 +381,7 @@
                 </Border>
             </Grid>
 
-            <!-- Splitter 
+            <!-- Splitter
             <GridSplitter Grid.Column="1" Width="5"
                           HorizontalAlignment="Stretch"
                           Background="{DynamicResource {x:Static SystemColors.ControlDarkBrushKey}}"/>
@@ -405,16 +406,42 @@
                     </Grid.RowDefinitions>
 
                     <!-- Header: Account + Symbol -->
-                    <Border Grid.Row="0" Background="#FF468DFF">
-                        <TextBlock FontWeight="Bold" Foreground="#FFFFF8F8"
+                    <Grid Grid.Row="0" Background="#FF468DFF">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="4*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Margin="4,8,4,4"
+                                   FontWeight="Bold" FontSize="16" Foreground="#FFFFF8F8"
                                    Text="{Binding TradingAccount.Title, Mode=OneWay}"
-                                   Margin="4,8,4,4" FontSize="16" HorizontalAlignment="Center"/>
-                    </Border>
-                    <Border Grid.Row="1" Background="#FF468DFF" Margin="0,0,0,4">
-                        <TextBlock FontWeight="Bold" Foreground="#FFFFF8F8"
+                                   HorizontalAlignment="Center"/>
+
+                        <Border Grid.Column="1" Grid.Row="0" Margin="4"
+                                BorderThickness="2" CornerRadius="4"
+                                Background="{Binding TradeStatus, Converter={StaticResource tradeStatusColor}}">
+                            <TextBlock Margin="2" HorizontalAlignment="Center"
+                                       FontWeight="Bold" FontSize="12"
+                                       Text="{Binding TradeStatus, Mode=OneWay}"/>
+                        </Border>
+
+                        <TextBlock Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" Margin="4,4,4,8"
+                                   FontWeight="Bold" FontSize="14" Foreground="#FFFFF8F8"
                                    Text="{Binding Symbol.TickerFull, Mode=OneWay}"
-                                   Margin="4,4,4,8" FontSize="14" HorizontalAlignment="Center"/>
-                    </Border>
+                                   HorizontalAlignment="Center"/>
+
+                        <Border Grid.Column="1" Grid.Row="1" Margin="4"
+                                BorderThickness="2" CornerRadius="4"
+                                Background="{Binding TradeDirection, Converter={StaticResource tradeDirectionForLightText}}">
+                            <TextBlock Margin="2" HorizontalAlignment="Center"
+                                       FontWeight="Bold" FontSize="12" Foreground="#FFFFF8F8"
+                                       Text="{Binding TradeDirection, Mode=OneWay}"/>
+                        </Border>
+                    </Grid>
+
                     <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Auto" MaxWidth="640">
                         <Grid Margin="4,4,4,8">
                             <Grid.ColumnDefinitions>
@@ -781,7 +808,7 @@
                             </Border>
 
                             <!-- ═══ Setup Notes ═══ -->
-                            <TextBlock Grid.Row="22" Grid.ColumnSpan="2" Margin="0,8,8,0"
+                            <TextBlock Grid.Row="22" Grid.ColumnSpan="2" Margin="-4,8,8,0"
                                        Text="{x:Static i18n:LocalizedStrings.SetupNotes}" FontWeight="Bold"/>
                             <Border Grid.Row="23" Grid.ColumnSpan="6" Margin="-4,0">
                                 <TextBlock TextWrapping="Wrap" Text="{Binding SetupNotes, Mode=OneWay}" Margin="0,0,4,8"/>
@@ -789,7 +816,7 @@
 
 
                             <!-- ═══ Review Notes ═══ -->
-                            <TextBlock Grid.Row="24" Grid.ColumnSpan="2" Margin="0,8,8,0"
+                            <TextBlock Grid.Row="24" Grid.ColumnSpan="2" Margin="-4,8,8,0"
                                        Text="{x:Static i18n:LocalizedStrings.ReviewNotes}" FontWeight="Bold"/>
                             <Border Grid.Row="25" Grid.ColumnSpan="6" Margin="-4,0">
                                 <TextBlock TextWrapping="Wrap" Text="{Binding ReviewNotes, Mode=OneWay}" Margin="0,0,4,8"/>

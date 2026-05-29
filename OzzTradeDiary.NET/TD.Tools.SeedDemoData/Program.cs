@@ -51,13 +51,13 @@ static async Task SeedDemoDataAsync(string databasePath, int daysAgoStart, bool 
         await EnsureDemoSymbolAsync(symbolRepository, currencyRepository, exchange1, tickers[i], 100 * (i + 1));
     }
 
-    var tradingAccount1 = await EnsureDemoTradingAccountAsync(tradingAccountRepository, exchange1);
+    var tradingAccount1 = await EnsureDemoAccountAsync(tradingAccountRepository, exchange1);
     await exchangeRepository.LoadNavigationCollections(exchange1);
 
     var exchange2 = await exchangeRepository.GetByExchangeCodeAsync("BYBIT");
     TradingAccount? tradingAccount2 = null;
     if (exchange2 != null)
-        tradingAccount2 = await EnsureDemoTradingAccountAsync(tradingAccountRepository, exchange2);
+        tradingAccount2 = await EnsureDemoAccountAsync(tradingAccountRepository, exchange2);
 
     for (int i = daysAgoStart / 2; i > 0; i--)
     {
@@ -155,7 +155,7 @@ static async Task<Symbol?> EnsureDemoSymbolAsync(ISymbolRepository symbolReposit
     return symbol;
 }
 
-static async Task<TradingAccount> EnsureDemoTradingAccountAsync(ITradingAccountRepository tradingAccountRepository, Exchange exchange)
+static async Task<TradingAccount> EnsureDemoAccountAsync(ITradingAccountRepository tradingAccountRepository, Exchange exchange)
 {
     string title = $"Demo {exchange.ExchangeCode} Trading Account";
     var existing = await tradingAccountRepository.GetByTitleAsync(title);
@@ -347,6 +347,7 @@ static async Task<Trade> EnsureDemoTradeAsync(ITradeRepository tradeRepository, 
             trade.CancellationTime = DateTime.UtcNow.AddDays(-daysAgo).AddHours(random.Next(1, 6));
     }
 
+    AppendDemoNotes(trade, rng);
     // Assign sample tags for variety
     var tagSets = new[] { "breakout", "pullback", "reversal", "trend", "scalp", "swing", "news", "fomo", "missed-entry", "high-rr" };
     trade.Tags = tagSets[random.Next(tagSets.Length)];
@@ -373,6 +374,25 @@ static async Task<Trade> EnsureDemoTradeAsync(ITradeRepository tradeRepository, 
     }
 
     return trade;
+}
+
+static void AppendDemoNotes(Trade trade, Random? rng = null)
+{
+    var demoNotes = new[]
+    {
+        "This is a demo trade for local testing.",
+        "Seeded by TD.Tools.SeedDemoData.",
+        "Ignore this trade, it's just for debugging purposes.",
+        "Demo data - not a real trade.",
+        "Used for testing and development only."
+    };
+    trade.SetupNotes = string.Join(" ", demoNotes);
+
+    if (trade.TradeStatus != TradeStatus.Closed)
+        return;
+
+    var random = rng ?? new Random();
+    trade.ReviewNotes = TD.Tools.Text.CreateLipsumParagraphs(random.Next(1, 3));
 }
 
 static Dictionary<string, decimal> GetCryptoPriceDict()

@@ -4,6 +4,18 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.1.9] - 2026-05-29
+
+### Added
+- Added WPF value converters for trade status/direction and booleans, with global registration in `Converters.xaml` and `App.xaml`.
+
+### Changed
+- Enhanced `MainWindow.xaml` UI with color cues and improved header layout.
+- Changed `Trade.sql` to store P&L and fee fields as INTEGER, and updated indexes to use composite columns for better query performance.
+- Updated `SqliteScriptsGen.settings` to generate new composite indexes.
+- Improved demo data seeding: appended demo notes and generated review notes using new `Text.cs` and `Text.lipsum.cs` helpers.
+- Bumped all project versions to 0.1.7.
+
 ## [0.1.6] - 2026-05-28
 
 ### Added

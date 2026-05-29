@@ -17,7 +17,7 @@ namespace TD.WPF.DesignTime
                 SymbolId = 1,
                 MarketType = MarketType.CryptoPerpetual,
                 EntryMethod = EntryMethod.Limit,
-                TradeDirection = TradeDirection.Long,
+                TradeDirection = TradeDirection.Short,
                 TradeStatus = TradeStatus.Closed,
                 Tags = "breakout,high-rr",
                 EntryTime = DateTime.Now.AddDays(-10),
