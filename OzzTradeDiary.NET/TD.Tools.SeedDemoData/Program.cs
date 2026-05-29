@@ -218,6 +218,7 @@ static async Task<Trade> EnsureDemoTradeAsync(ITradeRepository tradeRepository, 
         decimal orderPrice = (entryPrice * (1m + dcaStep * e)).RoundToQuantum();
         entryOrders.Add(new EntryOrder
         {
+            OrderType = EntryOrderType.Limit,
             OrderPrice = orderPrice,
             OrderQuantity = perOrderQuantity,
             UpdatedAt = DateTime.UtcNow
@@ -227,24 +228,28 @@ static async Task<Trade> EnsureDemoTradeAsync(ITradeRepository tradeRepository, 
 
     var slOrder = new StopLossOrder
     {
+        OrderType = ExitOrderType.Stop,
         OrderPrice = (entryPrice * slMultiplier).RoundToQuantum(),
         OrderQuantity = quantity,
         UpdatedAt = DateTime.UtcNow
     };
     var tp1 = new TakeProfitOrder
     {
+        OrderType = ExitOrderType.Limit,
         OrderPrice = (entryPrice * tp1Multiplier).RoundToQuantum(),
         OrderQuantity = quantity * 0.4m, // 40% of the quantity for TP1
-        UpdatedAt = DateTime.UtcNow
+        UpdatedAt = DateTime.UtcNow,
     };
     var tp2 = new TakeProfitOrder
     {
+        OrderType = ExitOrderType.Limit,
         OrderPrice = (entryPrice * tp2Multiplier).RoundToQuantum(),
         OrderQuantity = quantity * 0.3m, // 30% of the quantity for TP2
         UpdatedAt = DateTime.UtcNow
     };
     var tp3 = new TakeProfitOrder
     {
+        OrderType = ExitOrderType.TrailingStop,
         OrderPrice = (entryPrice * tp3Multiplier).RoundToQuantum(),
         OrderQuantity = quantity * 0.3m, // 30% of the quantity for TP3
         UpdatedAt = DateTime.UtcNow
@@ -255,7 +260,6 @@ static async Task<Trade> EnsureDemoTradeAsync(ITradeRepository tradeRepository, 
         TradingAccountId = tradingAccountId,
         SymbolId = symbol.Id,
         MarketType = symbol.MarketType,
-        EntryMethod = random.Next(0, 4) != 0 ? EntryMethod.Market : EntryMethod.Limit,
         TradeDirection = direction,
         UpdatedAt = DateTime.UtcNow,
     };

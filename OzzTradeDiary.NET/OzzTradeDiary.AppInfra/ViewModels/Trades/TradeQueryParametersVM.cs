@@ -49,16 +49,6 @@ namespace TD.AppInfra.ViewModels.Trades
             }
         }
         
-        public EntryMethod? ByEntryMethod
-        {
-            get => Parameters.EntryMethod;
-            set
-            {
-                Parameters.EntryMethod = value;
-                RaisePropertyChanged(nameof(ByEntryMethod));
-            }
-        }
-        
         public TradeStatus? ByTradeStatus
         {
             get => Parameters.TradeStatus;
@@ -324,7 +314,6 @@ namespace TD.AppInfra.ViewModels.Trades
             ByTradingAccountId = null;
             BySymbolId = null;
             ByTradeDirection = null;
-            ByEntryMethod = null;
             ByTradeStatus = null;
             ByMarketType = null;
             EntryTimeMin = null;

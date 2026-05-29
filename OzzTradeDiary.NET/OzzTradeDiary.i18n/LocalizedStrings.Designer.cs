@@ -997,24 +997,6 @@ namespace TD.i18n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Entry.
-        /// </summary>
-        public static string Entry {
-            get {
-                return ResourceManager.GetString("Entry", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Entry Method.
-        /// </summary>
-        public static string EntryMethod {
-            get {
-                return ResourceManager.GetString("EntryMethod", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Entry Order.
         /// </summary>
         public static string EntryOrder {
@@ -1038,6 +1020,15 @@ namespace TD.i18n {
         public static string EntryOrdersList {
             get {
                 return ResourceManager.GetString("EntryOrdersList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Entry Order Type.
+        /// </summary>
+        public static string EntryOrderType {
+            get {
+                return ResourceManager.GetString("EntryOrderType", resourceCulture);
             }
         }
         
@@ -1137,6 +1128,15 @@ namespace TD.i18n {
         public static string ExecutedTP {
             get {
                 return ResourceManager.GetString("ExecutedTP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Exit Order Type.
+        /// </summary>
+        public static string ExitOrderType {
+            get {
+                return ResourceManager.GetString("ExitOrderType", resourceCulture);
             }
         }
         
@@ -1888,20 +1888,20 @@ namespace TD.i18n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Stop All.
+        ///   Looks up a localized string similar to Stop.
         /// </summary>
-        public static string StopAll {
+        public static string Stop {
             get {
-                return ResourceManager.GetString("StopAll", resourceCulture);
+                return ResourceManager.GetString("Stop", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Stop Loss.
+        ///   Looks up a localized string similar to Stop Limit.
         /// </summary>
-        public static string StopLoss {
+        public static string StopLimit {
             get {
-                return ResourceManager.GetString("StopLoss", resourceCulture);
+                return ResourceManager.GetString("StopLimit", resourceCulture);
             }
         }
         
@@ -2001,15 +2001,6 @@ namespace TD.i18n {
         public static string Tags {
             get {
                 return ResourceManager.GetString("Tags", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Take Profit.
-        /// </summary>
-        public static string TakeProfit {
-            get {
-                return ResourceManager.GetString("TakeProfit", resourceCulture);
             }
         }
         
@@ -2226,6 +2217,15 @@ namespace TD.i18n {
         public static string TradingAccountsList {
             get {
                 return ResourceManager.GetString("TradingAccountsList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Trailing Stop.
+        /// </summary>
+        public static string TrailingStop {
+            get {
+                return ResourceManager.GetString("TrailingStop", resourceCulture);
             }
         }
         

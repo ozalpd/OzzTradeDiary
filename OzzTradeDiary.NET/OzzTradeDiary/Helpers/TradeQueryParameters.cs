@@ -30,7 +30,6 @@ namespace TD.Helpers
                 TradingAccountId = tradeQueryParams.TradingAccountId;
                 SymbolId = tradeQueryParams.SymbolId;
                 TradeDirection = tradeQueryParams.TradeDirection;
-                EntryMethod = tradeQueryParams.EntryMethod;
                 TradeStatus = tradeQueryParams.TradeStatus;
                 MarketType = tradeQueryParams.MarketType;
                 EntryTimeMin = tradeQueryParams.EntryTimeMin;
@@ -63,7 +62,6 @@ namespace TD.Helpers
         public int? TradingAccountId { get; set; }
         public int? SymbolId { get; set; }
         public TradeDirection? TradeDirection { get; set; }
-        public EntryMethod? EntryMethod { get; set; }
         public TradeStatus? TradeStatus { get; set; }
         public MarketType? MarketType { get; set; }
         public DateTime? EntryTimeMin { get; set; }
@@ -99,7 +97,6 @@ namespace TD.Helpers
             _hasAnySearchCriteria = _hasAnySearchCriteria || TradingAccountId.HasValue;
             _hasAnySearchCriteria = _hasAnySearchCriteria || SymbolId.HasValue;
             _hasAnySearchCriteria = _hasAnySearchCriteria || TradeDirection.HasValue;
-            _hasAnySearchCriteria = _hasAnySearchCriteria || EntryMethod.HasValue;
             _hasAnySearchCriteria = _hasAnySearchCriteria || TradeStatus.HasValue;
             _hasAnySearchCriteria = _hasAnySearchCriteria || MarketType.HasValue;
             _hasAnySearchCriteria = _hasAnySearchCriteria || EntryTimeMin.HasValue || EntryTimeMax.HasValue;

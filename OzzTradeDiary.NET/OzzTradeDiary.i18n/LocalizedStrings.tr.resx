@@ -370,12 +370,6 @@
     <data name="Email" xml:space="preserve">
         <value>E-Posta</value>
     </data>
-    <data name="Entry" xml:space="preserve">
-        <value>İşleme Giriş</value>
-    </data>
-    <data name="EntryMethod" xml:space="preserve">
-        <value>İşlem Şekli</value>
-    </data>
     <data name="EntryOrder" xml:space="preserve">
         <value>Giriş Emri</value>
     </data>
@@ -384,6 +378,9 @@
     </data>
     <data name="EntryOrdersList" xml:space="preserve">
         <value>Giriş Emir Listesi</value>
+    </data>
+    <data name="EntryOrderType" xml:space="preserve">
+        <value>Giriş Emir Tipi</value>
     </data>
     <data name="EntryTime" xml:space="preserve">
         <value>Pozisyona Giriş</value>
@@ -417,6 +414,9 @@
     </data>
     <data name="ExecutedTP" xml:space="preserve">
         <value>Gerçekleşen Kar Al</value>
+    </data>
+    <data name="ExitOrderType" xml:space="preserve">
+        <value>Çıkış Emir Tipi</value>
     </data>
     <data name="ExitTime" xml:space="preserve">
         <value>Pozisyondan Çıkış</value>
@@ -667,11 +667,11 @@
     <data name="Stock" xml:space="preserve">
         <value>Hisse Senedi</value>
     </data>
-    <data name="StopAll" xml:space="preserve">
-        <value>Tümünü Kapat</value>
+    <data name="Stop" xml:space="preserve">
+        <value>Stop</value>
     </data>
-    <data name="StopLoss" xml:space="preserve">
-        <value>Zarar Kes</value>
+    <data name="StopLimit" xml:space="preserve">
+        <value>Stop Limit</value>
     </data>
     <data name="StopLossOrder" xml:space="preserve">
         <value>Zarar Kes Emri</value>
@@ -705,9 +705,6 @@
     </data>
     <data name="Tags" xml:space="preserve">
         <value>Taglar</value>
-    </data>
-    <data name="TakeProfit" xml:space="preserve">
-        <value>Kar Al</value>
     </data>
     <data name="TakeProfitOrder" xml:space="preserve">
         <value>Kar Al Emri</value>
@@ -780,6 +777,9 @@
     </data>
     <data name="TradingAccountsList" xml:space="preserve">
         <value>İşlem Hesap Listesi</value>
+    </data>
+    <data name="TrailingStop" xml:space="preserve">
+        <value>Takip Eden Stop</value>
     </data>
     <data name="Unspecified" xml:space="preserve">
         <value>Belirtilmemiş</value>

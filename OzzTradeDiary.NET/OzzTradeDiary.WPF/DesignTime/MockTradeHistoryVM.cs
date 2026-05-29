@@ -16,7 +16,6 @@ namespace TD.WPF.DesignTime
                 TradingAccountId = 1,
                 SymbolId = 1,
                 MarketType = MarketType.CryptoPerpetual,
-                EntryMethod = EntryMethod.Limit,
                 TradeDirection = TradeDirection.Short,
                 TradeStatus = TradeStatus.Closed,
                 Tags = "breakout,high-rr",
@@ -50,7 +49,7 @@ namespace TD.WPF.DesignTime
             // Entry orders (DCA into position)
             _selectedItem.EntryOrders.Add(new EntryOrder
             {
-                Id = 1, TradeId = 1, OrderType = OrderType.Limit,
+                Id = 1, TradeId = 1, OrderType = EntryOrderType.Limit,
                 OrderPrice = 75200m, OrderQuantity = 0.01m,
                 FilledPrice = 75200m, FilledQuantity = 0.01m,
                 FilledTime = DateTime.Now.AddDays(-10),
@@ -58,7 +57,7 @@ namespace TD.WPF.DesignTime
             });
             _selectedItem.EntryOrders.Add(new EntryOrder
             {
-                Id = 2, TradeId = 1, OrderType = OrderType.Limit,
+                Id = 2, TradeId = 1, OrderType = EntryOrderType.Limit,
                 OrderPrice = 74400m, OrderQuantity = 0.01m,
                 FilledPrice = 74400m, FilledQuantity = 0.01m,
                 FilledTime = DateTime.Now.AddDays(-10).AddHours(2),
@@ -68,7 +67,7 @@ namespace TD.WPF.DesignTime
             // Take profit orders
             _selectedItem.TakeProfitOrders.Add(new TakeProfitOrder
             {
-                Id = 1, TradeId = 1, OrderType = OrderType.Limit,
+                Id = 1, TradeId = 1, OrderType = ExitOrderType.Limit,
                 OrderPrice = 78000m, OrderQuantity = 0.008m,
                 FilledPrice = 77950m, FilledQuantity = 0.008m,
                 FilledTime = DateTime.Now.AddDays(-9),
@@ -76,7 +75,7 @@ namespace TD.WPF.DesignTime
             });
             _selectedItem.TakeProfitOrders.Add(new TakeProfitOrder
             {
-                Id = 2, TradeId = 1, OrderType = OrderType.Limit,
+                Id = 2, TradeId = 1, OrderType = ExitOrderType.Limit,
                 OrderPrice = 79500m, OrderQuantity = 0.006m,
                 FilledPrice = 79500m, FilledQuantity = 0.006m,
                 FilledTime = DateTime.Now.AddDays(-8).AddHours(-6),
@@ -84,7 +83,7 @@ namespace TD.WPF.DesignTime
             });
             _selectedItem.TakeProfitOrders.Add(new TakeProfitOrder
             {
-                Id = 3, TradeId = 1, OrderType = OrderType.Limit,
+                Id = 3, TradeId = 1, OrderType = ExitOrderType.TrailingStop,
                 OrderPrice = 81000m, OrderQuantity = 0.006m,
                 UpdatedAt = DateTime.Now.AddDays(-10)
             });
@@ -92,7 +91,7 @@ namespace TD.WPF.DesignTime
             // Stop loss order
             _selectedItem.StopLossOrders.Add(new StopLossOrder
             {
-                Id = 1, TradeId = 1, OrderType = OrderType.Stop,
+                Id = 1, TradeId = 1, OrderType = ExitOrderType.Stop,
                 OrderPrice = 73000m, OrderQuantity = 0.02m,
                 UpdatedAt = DateTime.Now.AddDays(-10)
             });

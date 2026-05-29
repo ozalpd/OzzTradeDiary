@@ -40,7 +40,6 @@ namespace TD.AppInfra.DesignTime
                     SymbolId = symbol.Id,
                     Symbol = symbol,
                     TradeDirection = direction,
-                    EntryMethod = EntryMethod.Market,
                     PlannedEntryPrice = price,
                     ExecutedEntryPrice = price,
                     PlannedTP = price * tpMult,

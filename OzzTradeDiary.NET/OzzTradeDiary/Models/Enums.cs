@@ -3,10 +3,29 @@ using TD.i18n;
 
 namespace TD.Models
 {
-    public enum EntryMethod : int
+    public enum EntryOrderType : int
     {
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "Market")]
         Market = 10,
-        Limit = 20
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "Limit")]
+        Limit = 20,
+        StopMarket = 40,   // stop-market entry
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "StopLimit")]
+        StopLimit = 50
+    }
+
+    public enum ExitOrderType : int
+    {
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "Market")]
+        Market = 10,
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "Limit")]
+        Limit = 20,
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "TrailingStop")]
+        TrailingStop = 30,
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "Stop")]
+        Stop = 40,
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "StopLimit")]
+        StopLimit = 50,
     }
 
     public enum MarketType : int
@@ -31,20 +50,6 @@ namespace TD.Models
         CryptoPerpetual = 90,
         [Display(ResourceType = typeof(LocalizedStrings), Name = "Index")]
         Index = 100
-    }
-
-    public enum OrderType : int
-    {
-        [Display(ResourceType = typeof(LocalizedStrings), Name = "Market")]
-        Market = 10,
-        [Display(ResourceType = typeof(LocalizedStrings), Name = "Limit")]
-        Limit = 20,
-        [Display(ResourceType = typeof(LocalizedStrings), Name = "Stop")]
-        Stop = 30,
-        [Display(ResourceType = typeof(LocalizedStrings), Name = "StopLimit")]
-        StopLimit = 40,
-        [Display(ResourceType = typeof(LocalizedStrings), Name = "TrailingStop")]
-        TrailingStop = 50
     }
 
     public enum SessionType : int

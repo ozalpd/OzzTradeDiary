@@ -1025,6 +1025,10 @@
     <Translation>Entry Orders List</Translation>
   </Vocab>
   <Vocab>
+    <Name>EntryOrderType</Name>
+    <Translation>Entry Order Type</Translation>
+  </Vocab>
+  <Vocab>
     <Name>EntryTime</Name>
     <Translation>Entry Time</Translation>
   </Vocab>
@@ -1079,6 +1083,10 @@
   <Vocab>
     <Name>Exit</Name>
     <Translation>Exit</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ExitOrderType</Name>
+    <Translation>Exit Order Type</Translation>
   </Vocab>
   <Vocab>
     <Name>ExitTime</Name>
@@ -2001,8 +2009,16 @@
     <Translation>Stock</Translation>
   </Vocab>
   <Vocab>
+    <Name>Stop</Name>
+    <Translation>Stop</Translation>
+  </Vocab>
+  <Vocab>
     <Name>StopAll</Name>
     <Translation>Stop All</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>StopLimit</Name>
+    <Translation>Stop Limit</Translation>
   </Vocab>
   <Vocab>
     <Name>StopLoss</Name>
@@ -2247,6 +2263,10 @@
   <Vocab>
     <Name>TradingAccountsList</Name>
     <Translation>Trading Accounts List</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>TrailingStop</Name>
+    <Translation>Trailing Stop</Translation>
   </Vocab>
   <Vocab>
     <Name>TwoLetterIsoCode</Name>

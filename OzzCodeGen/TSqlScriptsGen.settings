@@ -150,19 +150,6 @@
       <OverwriteExisting>false</OverwriteExisting>
       <Properties>
         <StorageColumnSetting>
-          <Name>OrderType</Name>
-          <Exclude>false</Exclude>
-          <DataType>int</DataType>
-          <Length>0</Length>
-          <PrimaryKey>false</PrimaryKey>
-          <Indexed>false</Indexed>
-          <Unique>false</Unique>
-          <SortDesc>false</SortDesc>
-          <Nullable>false</Nullable>
-          <CheckIfAltered>false</CheckIfAltered>
-          <DoNotLog>false</DoNotLog>
-        </StorageColumnSetting>
-        <StorageColumnSetting>
           <Name>FilledTime</Name>
           <Exclude>false</Exclude>
           <DataType>DateTime</DataType>
@@ -798,14 +785,26 @@
           <DataType>int</DataType>
           <Length>0</Length>
           <PrimaryKey>false</PrimaryKey>
-          <Indexed>true</Indexed>
+          <Indexed>false</Indexed>
           <Unique>false</Unique>
           <SortDesc>false</SortDesc>
           <Nullable>false</Nullable>
           <CheckIfAltered>false</CheckIfAltered>
           <DoNotLog>false</DoNotLog>
           <ForeignKeyTable>Trades</ForeignKeyTable>
-          <UpdateDefault>NeverUpdate</UpdateDefault>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>OrderType</Name>
+          <Exclude>false</Exclude>
+          <DataType>int</DataType>
+          <Length>0</Length>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <Unique>false</Unique>
+          <SortDesc>false</SortDesc>
+          <Nullable>false</Nullable>
+          <CheckIfAltered>false</CheckIfAltered>
+          <DoNotLog>false</DoNotLog>
         </StorageColumnSetting>
       </Properties>
       <InheritedEntity>ITradeOrder</InheritedEntity>
@@ -828,14 +827,26 @@
           <DataType>int</DataType>
           <Length>0</Length>
           <PrimaryKey>false</PrimaryKey>
-          <Indexed>true</Indexed>
+          <Indexed>false</Indexed>
           <Unique>false</Unique>
           <SortDesc>false</SortDesc>
           <Nullable>false</Nullable>
           <CheckIfAltered>false</CheckIfAltered>
           <DoNotLog>false</DoNotLog>
           <ForeignKeyTable>Trades</ForeignKeyTable>
-          <UpdateDefault>NeverUpdate</UpdateDefault>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>OrderType</Name>
+          <Exclude>false</Exclude>
+          <DataType>int</DataType>
+          <Length>0</Length>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <Unique>false</Unique>
+          <SortDesc>false</SortDesc>
+          <Nullable>false</Nullable>
+          <CheckIfAltered>false</CheckIfAltered>
+          <DoNotLog>false</DoNotLog>
         </StorageColumnSetting>
       </Properties>
       <InheritedEntity>ITradeOrder</InheritedEntity>
@@ -858,19 +869,18 @@
           <DataType>int</DataType>
           <Length>0</Length>
           <PrimaryKey>false</PrimaryKey>
-          <Indexed>true</Indexed>
+          <Indexed>false</Indexed>
           <Unique>false</Unique>
           <SortDesc>false</SortDesc>
           <Nullable>false</Nullable>
           <CheckIfAltered>false</CheckIfAltered>
           <DoNotLog>false</DoNotLog>
           <ForeignKeyTable>Trades</ForeignKeyTable>
-          <UpdateDefault>NeverUpdate</UpdateDefault>
         </StorageColumnSetting>
         <StorageColumnSetting>
-          <Name>StopAll</Name>
+          <Name>OrderType</Name>
           <Exclude>false</Exclude>
-          <DataType>bit</DataType>
+          <DataType>int</DataType>
           <Length>0</Length>
           <PrimaryKey>false</PrimaryKey>
           <Indexed>false</Indexed>
@@ -994,19 +1004,6 @@
           <UpdateDefault>NeverUpdate</UpdateDefault>
         </StorageColumnSetting>
         <StorageColumnSetting>
-          <Name>EntryMethod</Name>
-          <Exclude>false</Exclude>
-          <DataType>int</DataType>
-          <Length>0</Length>
-          <PrimaryKey>false</PrimaryKey>
-          <Indexed>false</Indexed>
-          <Unique>false</Unique>
-          <SortDesc>false</SortDesc>
-          <Nullable>false</Nullable>
-          <CheckIfAltered>false</CheckIfAltered>
-          <DoNotLog>false</DoNotLog>
-        </StorageColumnSetting>
-        <StorageColumnSetting>
           <Name>TradeStatus</Name>
           <Exclude>false</Exclude>
           <DataType>int</DataType>
@@ -1087,6 +1084,32 @@
           <DoNotLog>false</DoNotLog>
         </StorageColumnSetting>
         <StorageColumnSetting>
+          <Name>PlannedEntryPrice</Name>
+          <Exclude>false</Exclude>
+          <DataType>[decimal](18, 4)</DataType>
+          <Length>0</Length>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <Unique>false</Unique>
+          <SortDesc>false</SortDesc>
+          <Nullable>true</Nullable>
+          <CheckIfAltered>false</CheckIfAltered>
+          <DoNotLog>false</DoNotLog>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>ExecutedEntryPrice</Name>
+          <Exclude>false</Exclude>
+          <DataType>[decimal](18, 4)</DataType>
+          <Length>0</Length>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <Unique>false</Unique>
+          <SortDesc>false</SortDesc>
+          <Nullable>true</Nullable>
+          <CheckIfAltered>false</CheckIfAltered>
+          <DoNotLog>false</DoNotLog>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
           <Name>PlannedPositionValue</Name>
           <Exclude>false</Exclude>
           <DataType>[decimal](18, 4)</DataType>
@@ -1122,45 +1145,6 @@
           <Unique>false</Unique>
           <SortDesc>false</SortDesc>
           <Nullable>false</Nullable>
-          <CheckIfAltered>false</CheckIfAltered>
-          <DoNotLog>false</DoNotLog>
-        </StorageColumnSetting>
-        <StorageColumnSetting>
-          <Name>IsFullyClosed</Name>
-          <Exclude>false</Exclude>
-          <DataType>bit</DataType>
-          <Length>0</Length>
-          <PrimaryKey>false</PrimaryKey>
-          <Indexed>false</Indexed>
-          <Unique>false</Unique>
-          <SortDesc>false</SortDesc>
-          <Nullable>false</Nullable>
-          <CheckIfAltered>false</CheckIfAltered>
-          <DoNotLog>false</DoNotLog>
-        </StorageColumnSetting>
-        <StorageColumnSetting>
-          <Name>PlannedEntryPrice</Name>
-          <Exclude>false</Exclude>
-          <DataType>[decimal](18, 4)</DataType>
-          <Length>0</Length>
-          <PrimaryKey>false</PrimaryKey>
-          <Indexed>false</Indexed>
-          <Unique>false</Unique>
-          <SortDesc>false</SortDesc>
-          <Nullable>true</Nullable>
-          <CheckIfAltered>false</CheckIfAltered>
-          <DoNotLog>false</DoNotLog>
-        </StorageColumnSetting>
-        <StorageColumnSetting>
-          <Name>ExecutedEntryPrice</Name>
-          <Exclude>false</Exclude>
-          <DataType>[decimal](18, 4)</DataType>
-          <Length>0</Length>
-          <PrimaryKey>false</PrimaryKey>
-          <Indexed>false</Indexed>
-          <Unique>false</Unique>
-          <SortDesc>false</SortDesc>
-          <Nullable>true</Nullable>
           <CheckIfAltered>false</CheckIfAltered>
           <DoNotLog>false</DoNotLog>
         </StorageColumnSetting>

@@ -123,12 +123,12 @@ namespace TD.SQLite
 
             await using var command = connection.CreateCommand();
             command.CommandText = @$"INSERT INTO {_tableName} ({string.Join(", ", ColumnNames[1..])})
-            VALUES (@tradeId, @orderType, @filledTime, @orderPrice, @filledPrice, @orderQuantity,
+            VALUES (@orderType, @tradeId, @filledTime, @orderPrice, @filledPrice, @orderQuantity,
                     @filledQuantity, @orderValue, @filledValue, @notes, @updatedAt);
             SELECT last_insert_rowid();";
 
-            command.AddParameter("@tradeId", entryOrder.TradeId);
             command.AddParameter("@orderType", (int)entryOrder.OrderType);
+            command.AddParameter("@tradeId", entryOrder.TradeId);
             command.AddDateTimeToTextParameter("@filledTime", entryOrder.FilledTime);
             command.AddDecimalToTextParameter("@orderPrice", entryOrder.OrderPrice);
             command.AddDecimalToTextParameter("@filledPrice", entryOrder.FilledPrice);
@@ -257,8 +257,8 @@ namespace TD.SQLite
             var entryOrder = new EntryOrder
             {
                 Id = reader.GetInt32(ColNrs.Id),
+                OrderType = (EntryOrderType)reader.GetInt32(ColNrs.OrderType),
                 TradeId = reader.GetInt32(ColNrs.TradeId),
-                OrderType = (OrderType)reader.GetInt32(ColNrs.OrderType),
                 FilledTime = reader.IsDBNull(ColNrs.FilledTime) ? null
                            : ToLocalDateTime(reader.GetString(ColNrs.FilledTime)),
                 OrderPrice = reader.GetDecimalFromText(ColNrs.OrderPrice) ?? 0m,
@@ -288,8 +288,8 @@ namespace TD.SQLite
         public readonly struct ColNrs
         {
             public readonly static int Id = 0;
-            public readonly static int TradeId = 1;
-            public readonly static int OrderType = 2;
+            public readonly static int OrderType = 1;
+            public readonly static int TradeId = 2;
             public readonly static int FilledTime = 3;
             public readonly static int OrderPrice = 4;
             public readonly static int FilledPrice = 5;
@@ -306,8 +306,8 @@ namespace TD.SQLite
         /// </summary>
         public readonly string[] ColumnNames = new[] {
             "Id",
-            "TradeId",
             "OrderType",
+            "TradeId",
             "FilledTime",
             "OrderPrice",
             "FilledPrice",

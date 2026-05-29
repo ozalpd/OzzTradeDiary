@@ -26,22 +26,15 @@ namespace TD.Models
         public int Id { get; set; }
 
         [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
-        [Range(1, int.MaxValue, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName ="ValueMin")]
         [Display(ResourceType = typeof(LocalizedStrings), Name = "TradeId")]
         public int TradeId { get; set; }
 
         [Display(ResourceType = typeof(LocalizedStrings), Name = "Trade")]
         public Trade Trade { get; set; }
 
-        /// <summary>
-        /// Indicates that all remaining quantity of the trade was or will be closed
-        /// </summary>
-        [Display(ResourceType = typeof(LocalizedStrings), Name = "StopAll")]
-        public bool StopAll { get; set; }
-
         [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
         [Display(ResourceType = typeof(LocalizedStrings), Name = "OrderType")]
-        public OrderType OrderType { get; set; }
+        public ExitOrderType OrderType { get; set; }
 
         [Range(typeof(DateTime), "1/1/2000", "12/31/2220", ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName ="RangeDateTime")]
         [Display(ResourceType = typeof(LocalizedStrings), Name = "FilledTime")]
@@ -93,7 +86,6 @@ namespace TD.Models
         {
             var clone = new StopLossOrder();
             clone.TradeId = this.TradeId;
-            clone.StopAll = this.StopAll;
             clone.OrderType = this.OrderType;
             clone.FilledTime = this.FilledTime;
             clone.OrderPrice = this.OrderPrice;

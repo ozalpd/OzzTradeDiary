@@ -13,6 +13,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - Enhanced `MainWindow.xaml` UI with color cues and improved header layout.
 - Changed `Trade.sql` to store P&L and fee fields as INTEGER, and updated indexes to use composite columns for better query performance.
 - Updated `SqliteScriptsGen.settings` to generate new composite indexes.
+- Removed `EntryMethod` enum and properties `EntryMethod` and `IsFullyClosed` from Trade.
+- Replaced `OrderType` enum with `EntryOrderType` and `ExitOrderType` for more granular order classification.
+- Removed `StopAll` from `StopLossOrder`, and updated all models, repositories, queries, and UI accordingly. Adjusted DDL, indexes, localization, and codegen settings to match new structure. Updated demo data and WPF views for consistency.
 - Improved demo data seeding: appended demo notes and generated review notes using new `Text.cs` and `Text.lipsum.cs` helpers.
 - Standardized resource keys in `Converters.xaml` and updated bindings in `MainWindow.xaml`
 - Introduced `Styles.xaml` with reusable DataGrid cell/text styles for trade status and direction

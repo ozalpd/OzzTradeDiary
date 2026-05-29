@@ -21,7 +21,6 @@ namespace TD.WPF.ViewModels.Trades
         {
             _trade = trade;
             TradeDirectionValues = GetValues<TradeDirection>();
-            EntryMethodValues = GetValues<EntryMethod>();
             TradeStatusValues = GetValues<TradeStatus>();
             MarketTypeValues = GetValues<MarketType>();
             OnInitialized();
@@ -32,11 +31,6 @@ namespace TD.WPF.ViewModels.Trades
         /// Gets the collection of available TradeDirection enum members for selection or display.
         /// </summary>
         public IEnumerable<EnumValueItem<TradeDirection>> TradeDirectionValues { get; }
-
-        /// <summary>
-        /// Gets the collection of available EntryMethod enum members for selection or display.
-        /// </summary>
-        public IEnumerable<EnumValueItem<EntryMethod>> EntryMethodValues { get; }
 
         /// <summary>
         /// Gets the collection of available TradeStatus enum members for selection or display.
@@ -70,43 +64,7 @@ namespace TD.WPF.ViewModels.Trades
 
         public TradeDirection TradeDirection => _trade.TradeDirection;
 
-        public EntryMethod EntryMethod
-        {
-            get { return _trade.EntryMethod; }
-            set
-            {
-                if (_trade.EntryMethod != value)
-                {
-                    _trade.EntryMethod = value;
-                    RaisePropertyChanged(nameof(EntryMethod));
-                    ValidateProperty(_trade, nameof(EntryMethod));
-                }
-            }
-        }
-
         public TradeStatus TradeStatus => _trade.TradeStatus;
-
-        public string? Tags
-        {
-            get { return _trade.Tags; }
-            set
-            {
-                if (!string.IsNullOrWhiteSpace(value) && _trade.Tags != value)
-                {
-                    _trade.Tags = value;
-                    RaisePropertyChanged(nameof(Tags));
-                    ValidateProperty(_trade, nameof(Tags));
-                }
-                else if (string.IsNullOrWhiteSpace(value))
-                {
-                    _trade.Tags = null;
-                    RaisePropertyChanged(nameof(Tags));
-                    ValidateProperty(_trade, nameof(Tags));
-                }
-            }
-        }
-
-        public MarketType MarketType => _trade.MarketType;
 
         public DateTime? EntryTime
         {
@@ -136,12 +94,6 @@ namespace TD.WPF.ViewModels.Trades
             }
         }
 
-        public decimal? PlannedPositionValue => _trade.PlannedPositionValue;
-
-        public decimal? ExecutedPositionValue => _trade.ExecutedPositionValue;
-
-        public decimal? RemainingPositionValue => _trade.RemainingPositionValue;
-
         public decimal? PlannedEntryPrice
         {
             get { return _trade.PlannedEntryPrice; }
@@ -169,6 +121,12 @@ namespace TD.WPF.ViewModels.Trades
                 }
             }
         }
+
+        public decimal? PlannedPositionValue => _trade.PlannedPositionValue;
+
+        public decimal? ExecutedPositionValue => _trade.ExecutedPositionValue;
+
+        public decimal? RemainingPositionValue => _trade.RemainingPositionValue;
 
         public decimal? OrderQuantity
         {
@@ -288,6 +246,26 @@ namespace TD.WPF.ViewModels.Trades
                     _trade.FundingFeeTotal = value;
                     RaisePropertyChanged(nameof(FundingFeeTotal));
                     ValidateProperty(_trade, nameof(FundingFeeTotal));
+                }
+            }
+        }
+
+        public string? Tags
+        {
+            get { return _trade.Tags; }
+            set
+            {
+                if (!string.IsNullOrWhiteSpace(value) && _trade.Tags != value)
+                {
+                    _trade.Tags = value;
+                    RaisePropertyChanged(nameof(Tags));
+                    ValidateProperty(_trade, nameof(Tags));
+                }
+                else if (string.IsNullOrWhiteSpace(value))
+                {
+                    _trade.Tags = null;
+                    RaisePropertyChanged(nameof(Tags));
+                    ValidateProperty(_trade, nameof(Tags));
                 }
             }
         }

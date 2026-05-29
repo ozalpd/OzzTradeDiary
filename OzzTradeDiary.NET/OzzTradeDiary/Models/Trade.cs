@@ -50,10 +50,6 @@ namespace TD.Models
         [Display(ResourceType = typeof(LocalizedStrings), Name = "TradeDirection")]
         public TradeDirection TradeDirection { get; set; }
 
-        [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
-        [Display(ResourceType = typeof(LocalizedStrings), Name = "EntryMethod")]
-        public EntryMethod EntryMethod { get; set; }
-
         /// <summary>
         /// Missed (-10), Cancelled (-20), Planned (10), Pending (20), Active (30), Closed (40). Negative values mean never opened. TradeStatus > TradeStatus.Pending means trade active or closed and may have a result
         /// </summary>
@@ -181,7 +177,6 @@ namespace TD.Models
             clone.TradingAccountId = this.TradingAccountId;
             clone.SymbolId = this.SymbolId;
             clone.TradeDirection = this.TradeDirection;
-            clone.EntryMethod = this.EntryMethod;
             clone.TradeStatus = this.TradeStatus;
             clone.Tags = this.Tags;
             clone.MarketType = this.MarketType;

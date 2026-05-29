@@ -12,7 +12,5 @@ CREATE TABLE IF NOT EXISTS EntryOrders(
 	Notes TEXT, 
 	UpdatedAt TEXT Not Null 
 );
-Create Index If Not Exists idx_EntryOrders_TradeId on EntryOrders(TradeId);
-Create Index If Not Exists idx_EntryOrders_OrderType on EntryOrders(OrderType);
 Create Index If Not Exists idx_EntryOrders_FilledTime on EntryOrders(FilledTime);
 Create Index If Not Exists idx_EntryOrders_UpdatedAt on EntryOrders(UpdatedAt DESC, Id);
