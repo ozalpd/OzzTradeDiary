@@ -1017,19 +1017,6 @@
           <DoNotLog>false</DoNotLog>
         </StorageColumnSetting>
         <StorageColumnSetting>
-          <Name>Tags</Name>
-          <Exclude>false</Exclude>
-          <DataType>nVarChar</DataType>
-          <Length>255</Length>
-          <PrimaryKey>false</PrimaryKey>
-          <Indexed>false</Indexed>
-          <Unique>false</Unique>
-          <SortDesc>false</SortDesc>
-          <Nullable>true</Nullable>
-          <CheckIfAltered>false</CheckIfAltered>
-          <DoNotLog>false</DoNotLog>
-        </StorageColumnSetting>
-        <StorageColumnSetting>
           <Name>MarketType</Name>
           <Exclude>false</Exclude>
           <DataType>int</DataType>
@@ -1335,6 +1322,19 @@
           <Exclude>false</Exclude>
           <DataType>[decimal](18, 4)</DataType>
           <Length>0</Length>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <Unique>false</Unique>
+          <SortDesc>false</SortDesc>
+          <Nullable>true</Nullable>
+          <CheckIfAltered>false</CheckIfAltered>
+          <DoNotLog>false</DoNotLog>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>Tags</Name>
+          <Exclude>false</Exclude>
+          <DataType>nVarChar</DataType>
+          <Length>255</Length>
           <PrimaryKey>false</PrimaryKey>
           <Indexed>false</Indexed>
           <Unique>false</Unique>

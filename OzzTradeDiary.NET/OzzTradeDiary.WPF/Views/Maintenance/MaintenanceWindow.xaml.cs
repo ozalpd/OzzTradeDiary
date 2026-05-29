@@ -49,6 +49,7 @@ namespace TD.WPF.Views.Maintenance
         private void Window_Closing(object? sender, System.ComponentModel.CancelEventArgs e)
         {
             _appSettings.MaintenanceWindowPosition.GetWindowPositions(this);
+            _appSettings.Save();
         }
 
         private void FilterByExchangeCombo_Loaded(object sender, RoutedEventArgs e)

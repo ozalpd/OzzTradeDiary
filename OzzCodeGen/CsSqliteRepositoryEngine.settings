@@ -864,15 +864,6 @@
           <DecimalToIntegerScale>0</DecimalToIntegerScale>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
-          <Name>Tags</Name>
-          <Exclude>false</Exclude>
-          <AutoLoad>false</AutoLoad>
-          <CheckIfAltered>false</CheckIfAltered>
-          <ColumnName>Tags</ColumnName>
-          <SingleColumnUpdate>false</SingleColumnUpdate>
-          <DecimalToIntegerScale>0</DecimalToIntegerScale>
-        </SqliteRepositoryPropertySetting>
-        <SqliteRepositoryPropertySetting>
           <Name>MarketType</Name>
           <Exclude>false</Exclude>
           <AutoLoad>false</AutoLoad>
@@ -1087,6 +1078,15 @@
           <ColumnName>FundingFeeTotal</ColumnName>
           <SingleColumnUpdate>false</SingleColumnUpdate>
           <DecimalToIntegerScale>4</DecimalToIntegerScale>
+        </SqliteRepositoryPropertySetting>
+        <SqliteRepositoryPropertySetting>
+          <Name>Tags</Name>
+          <Exclude>false</Exclude>
+          <AutoLoad>false</AutoLoad>
+          <CheckIfAltered>false</CheckIfAltered>
+          <ColumnName>Tags</ColumnName>
+          <SingleColumnUpdate>false</SingleColumnUpdate>
+          <DecimalToIntegerScale>0</DecimalToIntegerScale>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
           <Name>EntryOrders</Name>

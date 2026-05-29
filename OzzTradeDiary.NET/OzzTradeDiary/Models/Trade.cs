@@ -47,6 +47,7 @@ namespace TD.Models
         public Symbol Symbol { get; set; }
 
         [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
+        [Range(1, int.MaxValue, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName ="ValueMin")]
         [Display(ResourceType = typeof(LocalizedStrings), Name = "TradeDirection")]
         public TradeDirection TradeDirection { get; set; }
 
@@ -54,21 +55,20 @@ namespace TD.Models
         /// Missed (-10), Cancelled (-20), Planned (10), Pending (20), Active (30), Closed (40). Negative values mean never opened. TradeStatus > TradeStatus.Pending means trade active or closed and may have a result
         /// </summary>
         [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
+        [Range(1, int.MaxValue, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName ="ValueMin")]
         [Display(ResourceType = typeof(LocalizedStrings), Name = "TradeStatus")]
         public TradeStatus TradeStatus { get; set; }
-
-        [StringLength(255, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxStringLength")]
-        [Display(ResourceType = typeof(LocalizedStrings), Name = "Tags")]
-        public string? Tags { get; set; }
 
         [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
         [Display(ResourceType = typeof(LocalizedStrings), Name = "MarketType")]
         public MarketType MarketType { get; set; }
 
+        [DataType(DataType.DateTime)]
         [Range(typeof(DateTime), "1/1/2000", "12/31/2220", ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName ="RangeDateTime")]
         [Display(ResourceType = typeof(LocalizedStrings), Name = "EntryTime")]
         public DateTime? EntryTime { get; set; }
 
+        [DataType(DataType.DateTime)]
         [Display(ResourceType = typeof(LocalizedStrings), Name = "ExitTime")]
         public DateTime? ExitTime { get; set; }
 
@@ -135,6 +135,11 @@ namespace TD.Models
         [Display(ResourceType = typeof(LocalizedStrings), Name = "FundingFeeTotal")]
         public decimal? FundingFeeTotal { get; set; }
 
+        [StringLength(255, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxStringLength")]
+        [DataType(DataType.MultilineText)]
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "Tags")]
+        public string? Tags { get; set; }
+
         [Display(ResourceType = typeof(LocalizedStrings), Name = "EntryOrders")]
         public ICollection<EntryOrder> EntryOrders { get; set; }
 
@@ -178,7 +183,6 @@ namespace TD.Models
             clone.SymbolId = this.SymbolId;
             clone.TradeDirection = this.TradeDirection;
             clone.TradeStatus = this.TradeStatus;
-            clone.Tags = this.Tags;
             clone.MarketType = this.MarketType;
             clone.EntryTime = this.EntryTime;
             clone.ExitTime = this.ExitTime;
@@ -193,6 +197,7 @@ namespace TD.Models
             clone.ExecutedSL = this.ExecutedSL;
             clone.TotalFeesCorrected = this.TotalFeesCorrected;
             clone.FundingFeeTotal = this.FundingFeeTotal;
+            clone.Tags = this.Tags;
             clone.SetupNotes = this.SetupNotes;
             clone.ReviewNotes = this.ReviewNotes;
             clone.UpdatedAt = this.UpdatedAt;

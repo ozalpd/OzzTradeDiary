@@ -1336,19 +1336,6 @@
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
-          <Name>Tags</Name>
-          <Exclude>false</Exclude>
-          <CreateEditOrder>103100</CreateEditOrder>
-          <DefaultValue />
-          <IsPreselectedInCreate>false</IsPreselectedInCreate>
-          <IsMultiLine>false</IsMultiLine>
-          <CreateViewMode>Editable</CreateViewMode>
-          <EditViewMode>Editable</EditViewMode>
-          <ShowInCollection>true</ShowInCollection>
-          <ShowInDetail>true</ShowInDetail>
-          <ValueConstraint />
-        </WpfMvvmPropertySetting>
-        <WpfMvvmPropertySetting>
           <Name>MarketType</Name>
           <Exclude>false</Exclude>
           <CreateEditOrder>100700</CreateEditOrder>
@@ -1655,6 +1642,19 @@
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsMultiLine>false</IsMultiLine>
           <CreateViewMode>Exclude</CreateViewMode>
+          <EditViewMode>Editable</EditViewMode>
+          <ShowInCollection>true</ShowInCollection>
+          <ShowInDetail>true</ShowInDetail>
+          <ValueConstraint />
+        </WpfMvvmPropertySetting>
+        <WpfMvvmPropertySetting>
+          <Name>Tags</Name>
+          <Exclude>false</Exclude>
+          <CreateEditOrder>103100</CreateEditOrder>
+          <DefaultValue />
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
+          <IsMultiLine>false</IsMultiLine>
+          <CreateViewMode>Editable</CreateViewMode>
           <EditViewMode>Editable</EditViewMode>
           <ShowInCollection>true</ShowInCollection>
           <ShowInDetail>true</ShowInDetail>

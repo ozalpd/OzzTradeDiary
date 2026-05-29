@@ -104,13 +104,7 @@ public partial class AppSettings
     /// </summary>
     public WindowPosition MaintenanceWindowPosition { get; set; } = new WindowPosition();
 
-    /// <summary>
-    /// Gets or sets a value indicating whether audio playback is muted.
-    /// </summary>
-    /// <remarks>When set to <see langword="true"/>, audio output is silenced. Use this property to
-    /// control audio playback in scenarios where muting is required, such as user preferences or application
-    /// settings.</remarks>
-    public bool MuteAudio { get; set; } = false;
+    public WindowPosition TradeDetailViewPosition { get; set; } = new WindowPosition();
 
     /// <summary>
     /// Gets or sets the BCP-47 culture name used for the application UI (e.g. <c>"en-US"</c>, <c>"tr-TR"</c>).

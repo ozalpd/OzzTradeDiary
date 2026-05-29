@@ -782,6 +782,7 @@
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
+          <Range>1, int.MaxValue</Range>
           <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
           <IsSearchParameter>true</IsSearchParameter>
         </ModelPropertySetting>
@@ -791,17 +792,9 @@
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
+          <Range>1, int.MaxValue</Range>
           <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
           <IsSearchParameter>true</IsSearchParameter>
-        </ModelPropertySetting>
-        <ModelPropertySetting>
-          <Name>Tags</Name>
-          <Exclude>false</Exclude>
-          <DataType />
-          <DTOExclusion>false</DTOExclusion>
-          <HtmlEncode xsi:nil="true" />
-          <Required />
-          <IsSearchParameter>false</IsSearchParameter>
         </ModelPropertySetting>
         <ModelPropertySetting>
           <Name>MarketType</Name>
@@ -815,7 +808,7 @@
         <ModelPropertySetting>
           <Name>EntryTime</Name>
           <Exclude>false</Exclude>
-          <DataType />
+          <DataType>DateTime</DataType>
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Range>typeof(DateTime), "1/1/2000", "12/31/2220"</Range>
@@ -825,7 +818,7 @@
         <ModelPropertySetting>
           <Name>ExitTime</Name>
           <Exclude>false</Exclude>
-          <DataType />
+          <DataType>DateTime</DataType>
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required />
@@ -882,7 +875,7 @@
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
-          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
+          <Required />
           <IsSearchParameter>true</IsSearchParameter>
         </ModelPropertySetting>
         <ModelPropertySetting>
@@ -1015,6 +1008,15 @@
           <Name>FundingFeeTotal</Name>
           <Exclude>false</Exclude>
           <DataType />
+          <DTOExclusion>false</DTOExclusion>
+          <HtmlEncode xsi:nil="true" />
+          <Required />
+          <IsSearchParameter>false</IsSearchParameter>
+        </ModelPropertySetting>
+        <ModelPropertySetting>
+          <Name>Tags</Name>
+          <Exclude>false</Exclude>
+          <DataType>MultilineText</DataType>
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required />

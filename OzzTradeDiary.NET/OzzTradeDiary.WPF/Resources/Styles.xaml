@@ -32,8 +32,8 @@
         <Setter Property="Background" Value="{Binding TradeStatus, Converter={StaticResource TradeStatusLightBgColor}}"/>
         <Style.Triggers>
             <Trigger Property="IsSelected" Value="True">
-                <Setter Property="Foreground" Value="{Binding TradeStatus, Converter={StaticResource TradeStatusLightBgColor}}"/>
-                <Setter Property="Background" Value="#202068"/>
+                <Setter Property="Foreground" Value="#EBEBEB"/>
+                <Setter Property="Background" Value="#0078D7"/>
             </Trigger>
         </Style.Triggers>
     </Style>

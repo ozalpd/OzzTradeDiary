@@ -1,6 +1,6 @@
 using System.Windows;
 using TD.Models;
-using TD.WPF.ViewModels.Trades;
+using TD.WPF.Models;
 
 namespace TD.WPF.Views.Trades
 {
@@ -8,6 +8,7 @@ namespace TD.WPF.Views.Trades
     public partial class TradeDetailView : Window
     {
         private readonly Trade _viewModel;
+        private readonly AppSettings _appSettings = AppSettings.GetAppSettings();
 
 
         /// <summary>
@@ -34,12 +35,20 @@ namespace TD.WPF.Views.Trades
             _viewModel = trade;
             DataContext = _viewModel;
             SourceInitialized += TradeDetailView_SourceInitialized;
+            Closing += Window_Closing;
         }
 
         private async void TradeDetailView_SourceInitialized(object? sender, EventArgs e)
         {
             OnSourceInitialized();
+            _appSettings.TradeDetailViewPosition.SetWindowPositions(this);
         }
         partial void OnSourceInitialized();
+
+        private void Window_Closing(object? sender, System.ComponentModel.CancelEventArgs e)
+        {
+            _appSettings.TradeDetailViewPosition.GetWindowPositions(this);
+            _appSettings.Save();
+        }
     }
 }
