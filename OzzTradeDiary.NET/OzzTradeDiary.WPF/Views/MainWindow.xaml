@@ -10,7 +10,7 @@
         xmlns:designTime="clr-namespace:TD.WPF.DesignTime"
         mc:Ignorable="d"
         Title="Ozz Trade Diary"
-        Height="1020" Width="1440" MinHeight="540" MinWidth="1280">
+        Height="980" Width="1440" MinHeight="540" MinWidth="1280">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -278,7 +278,8 @@
                     <DataGrid.Columns>
                         <!-- Identity / context -->
                         <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.TradeStatus}" Width="90"
-                                            Binding="{Binding TradeStatus}"/>
+                                            Binding="{Binding TradeStatus}"
+                                            CellStyle="{StaticResource TradeStatusCellStyle}"/>
                         <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.TradingAccount}" Width="110"
                                             Binding="{Binding TradingAccount.Title}"/>
                         <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.Symbol}" Width="110"
@@ -286,7 +287,8 @@
                         <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.MarketType}" Width="90"
                                             Binding="{Binding MarketType}"/>
                         <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.TradeDirection}" Width="70"
-                                            Binding="{Binding TradeDirection}"/>
+                                            Binding="{Binding TradeDirection}"
+                                            CellStyle="{StaticResource TradeDirectionCellStyleLight}"/>
                         <!-- Timing -->
                         <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.EntryTime}" Width="90"
                                             Binding="{Binding EntryTime, StringFormat=\{0:yyyy-MM-dd\}}"/>
@@ -422,7 +424,7 @@
 
                         <Border Grid.Column="1" Grid.Row="0" Margin="4"
                                 BorderThickness="2" CornerRadius="4"
-                                Background="{Binding TradeStatus, Converter={StaticResource tradeStatusColor}}">
+                                Background="{Binding TradeStatus, Converter={StaticResource TradeStatusLightBgColor}}">
                             <TextBlock Margin="2" HorizontalAlignment="Center"
                                        FontWeight="Bold" FontSize="12"
                                        Text="{Binding TradeStatus, Mode=OneWay}"/>
@@ -435,7 +437,7 @@
 
                         <Border Grid.Column="1" Grid.Row="1" Margin="4"
                                 BorderThickness="2" CornerRadius="4"
-                                Background="{Binding TradeDirection, Converter={StaticResource tradeDirectionForLightText}}">
+                                Background="{Binding TradeDirection, Converter={StaticResource TradeDirectionForLightText}}">
                             <TextBlock Margin="2" HorizontalAlignment="Center"
                                        FontWeight="Bold" FontSize="12" Foreground="#FFFFF8F8"
                                        Text="{Binding TradeDirection, Mode=OneWay}"/>
@@ -485,7 +487,7 @@
                                 <RowDefinition Height="*"/>
                             </Grid.RowDefinitions>
 
-                            <!-- Row 0: Status / MarketType -->
+                            <!-- Row 0: Status / MarketType
                             <TextBlock Grid.Column="0" Grid.Row="0" FontWeight="Bold"
                                        Style="{StaticResource RightAlignedTextBlockStyle}"
                                        Text="{x:Static i18n:LocalizedStrings.TradeStatus}"/>
@@ -496,8 +498,8 @@
                                        Text="{x:Static i18n:LocalizedStrings.MarketType}"/>
                             <TextBlock Grid.Column="4" Grid.Row="0"
                                        Text="{Binding MarketType, Mode=OneWay}" Margin="0,0,0,8"/>
-
-                            <!-- Row 1: Direction / EntryMethod -->
+ -->
+                            <!-- Row 1: Direction / EntryMethod
                             <TextBlock Grid.Column="0" Grid.Row="1" FontWeight="Bold"
                                        Style="{StaticResource RightAlignedTextBlockStyle}"
                                        Text="{x:Static i18n:LocalizedStrings.TradeDirection}"/>
@@ -508,7 +510,7 @@
                                        Text="{x:Static i18n:LocalizedStrings.EntryMethod}"/>
                             <TextBlock Grid.Column="4" Grid.Row="1"
                                        Text="{Binding EntryMethod, Mode=OneWay}" Margin="0,0,0,8"/>
-
+ -->
                             <!-- Row 2: EntryTime / ExitTime -->
                             <TextBlock Grid.Column="0" Grid.Row="2" FontWeight="Bold"
                                        Style="{StaticResource RightAlignedTextBlockStyle}"

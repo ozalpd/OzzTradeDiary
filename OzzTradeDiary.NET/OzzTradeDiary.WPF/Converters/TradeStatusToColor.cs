@@ -29,10 +29,10 @@ namespace TD.WPF.Converters
                     return new SolidColorBrush((Color)ColorConverter.ConvertFromString("#8CC0EB"));
 
                 case TradeStatus.Missed:
-                    return new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFCEE3"));
+                    return new SolidColorBrush((Color)ColorConverter.ConvertFromString("#E8E0F0"));
 
                 case TradeStatus.Cancelled:
-                    return new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFB0D2"));
+                    return new SolidColorBrush((Color)ColorConverter.ConvertFromString("#D8D8D8"));
 
                 default:
                     return new SolidColorBrush(Colors.Transparent);

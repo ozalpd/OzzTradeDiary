@@ -1,9 +1,9 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:converters="clr-namespace:TD.WPF.Converters">
-    <converters:TradeStatusToColor x:Key="tradeStatusColor"/>
-    <converters:TradeDirectionToColor x:Key="tradeDirectionForDarkText"/>
-    <converters:TradeDirectionToColor x:Key="tradeDirectionForLightText" ColorForLong="#FF00C000" ColorForShort="#FFC80000"/>
-    <converters:BoolToColor x:Key="trueGreenFalseRed" ColorForFalseValue="#FFD00000" ColorForTrueValue="#FF00C000" />
-    <converters:BoolToColor x:Key="truePinkFalseWhite" ColorForFalseValue="White" ColorForTrueValue="#FFFFCFCF" />
+    <converters:TradeStatusToColor x:Key="TradeStatusLightBgColor"/>
+    <converters:TradeDirectionToColor x:Key="TradeDirectionForDarkText"/>
+    <converters:TradeDirectionToColor x:Key="TradeDirectionForLightText" ColorForLong="#FF00C000" ColorForShort="#FFC80000"/>
+    <converters:BoolToColor x:Key="TrueGreenFalseRed" ColorForFalseValue="#FFD00000" ColorForTrueValue="#FF00C000" />
+    <converters:BoolToColor x:Key="TruePinkFalseWhite" ColorForFalseValue="White" ColorForTrueValue="#FFFFCFCF" />
 </ResourceDictionary>
