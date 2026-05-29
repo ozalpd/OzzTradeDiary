@@ -6,197 +6,408 @@
         xmlns:local="clr-namespace:TD.WPF.Views.Trades"
         xmlns:i18n="clr-namespace:TD.i18n;assembly=OzzTradeDiary.i18n"
         Title="{x:Static i18n:LocalizedStrings.Trade}"
-        Height="710" Width="720" MinHeight="710" MinWidth="720"
+        Height="940" Width="720" MinHeight="800" MinWidth="600"
         WindowStartupLocation="CenterOwner"
         mc:Ignorable="d">
-    <Grid Margin="8,12">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto" />
-            <ColumnDefinition Width="Auto" MinWidth="96" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="Auto" />
-            <ColumnDefinition Width="Auto" MinWidth="96" />
-            <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
+    <Grid Margin="4,4,4,0">
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <TextBlock Grid.Column="0" Grid.Row="0" FontWeight="Bold"
-                   Style="{StaticResource RightAlignedTextBlockStyle}" Text="{x:Static i18n:LocalizedStrings.TradingAccount}"/>
-        <TextBlock Grid.Column="1" Grid.Row="0"
-                   Text="{Binding TradingAccount.Title, Mode=OneWay}"
-                   Margin="0,0,0,8"/>
+        <!-- Header: Account + Symbol -->
+        <Grid Grid.Row="0" Background="#FF468DFF">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Margin="4,8,4,4"
+                       FontWeight="Bold" FontSize="16" Foreground="#FFFFF8F8"
+                       Text="{Binding TradingAccount.Title, Mode=OneWay}"
+                       HorizontalAlignment="Center"/>
 
-        <TextBlock Grid.Column="3" Grid.Row="0" FontWeight="Bold"
-                   Style="{StaticResource RightAlignedTextBlockStyle}" Text="{x:Static i18n:LocalizedStrings.Symbol}"/>
-        <TextBlock Grid.Column="4" Grid.Row="0"
-                   Text="{Binding Symbol.TickerFull, Mode=OneWay}"
-                   Margin="0,0,0,8"/>
+            <Border Grid.Column="1" Grid.Row="0" Margin="4"
+                    BorderThickness="2" CornerRadius="4"
+                    Background="{Binding TradeStatus, Converter={StaticResource TradeStatusLightBgColor}}">
+                <TextBlock Margin="2" HorizontalAlignment="Center"
+                           FontWeight="Bold" FontSize="12"
+                           Text="{Binding TradeStatus, Mode=OneWay}"/>
+            </Border>
 
-        <TextBlock Grid.Column="3" Grid.Row="1" FontWeight="Bold"
-                   Style="{StaticResource RightAlignedTextBlockStyle}" Text="{x:Static i18n:LocalizedStrings.TradeDirection}"/>
-        <TextBlock Grid.Column="4" Grid.Row="1"
-                   Text="{Binding TradeDirection, Mode=OneWay}"
-                   Margin="0,0,0,8"/>
+            <TextBlock Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" Margin="4,4,4,8"
+                       FontWeight="Bold" FontSize="14" Foreground="#FFFFF8F8"
+                       Text="{Binding Symbol.TickerFull, Mode=OneWay}"
+                       HorizontalAlignment="Center"/>
 
-        <TextBlock Grid.Column="0" Grid.Row="2" FontWeight="Bold"
-                   Style="{StaticResource RightAlignedTextBlockStyle}" Text="{x:Static i18n:LocalizedStrings.PlannedEntryPrice}"/>
-        <TextBlock Grid.Column="1" Grid.Row="2"
-                   Text="{Binding RoundedPlannedEntryPrice, Mode=OneWay}"
-                   Style="{StaticResource RightAlignedTextBlockStyle}"
-                   Margin="0,0,0,8"/>
+            <Border Grid.Column="1" Grid.Row="1" Margin="4"
+                    BorderThickness="2" CornerRadius="4"
+                    Background="{Binding TradeDirection, Converter={StaticResource TradeDirectionForLightText}}">
+                <TextBlock Margin="2" HorizontalAlignment="Center"
+                           FontWeight="Bold" FontSize="12" Foreground="#FFFFF8F8"
+                           Text="{Binding TradeDirection, Mode=OneWay}"/>
+            </Border>
+        </Grid>
 
-        <TextBlock Grid.Column="3" Grid.Row="2" FontWeight="Bold"
-                   Style="{StaticResource RightAlignedTextBlockStyle}" Text="{x:Static i18n:LocalizedStrings.ExecutedEntryPrice}"/>
-        <TextBlock Grid.Column="4" Grid.Row="2"
-                   Text="{Binding RoundedExecutedEntryPrice, Mode=OneWay}"
-                   Style="{StaticResource RightAlignedTextBlockStyle}"
-                   Margin="0,0,0,8"/>
+        <!-- Trade Details -->
+        <Grid Grid.Row="1"  Margin="4,4,4,8">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto" MinWidth="96"/>
+                <ColumnDefinition Width="*" MaxWidth="64"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto" MinWidth="96"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <!--11-->
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <!--21-->
+                <RowDefinition Height="Auto"/>
+                <!--22-->
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            
+            <!-- Row 2: EntryTime / ExitTime -->
+            <TextBlock Grid.Column="0" Grid.Row="2" FontWeight="Bold"
+                       Style="{StaticResource RightAlignedTextBlockStyle}"
+                       Text="{x:Static i18n:LocalizedStrings.EntryTime}"/>
+            <TextBlock Grid.Column="1" Grid.Row="2"
+                       Text="{Binding EntryTime, StringFormat=\{0:yyyy-MM-dd HH:mm\}, Mode=OneWay}" Margin="0,0,0,8"/>
+            <TextBlock Grid.Column="3" Grid.Row="2" FontWeight="Bold"
+                       Style="{StaticResource RightAlignedTextBlockStyle}"
+                       Text="{x:Static i18n:LocalizedStrings.ExitTime}"/>
+            <TextBlock Grid.Column="4" Grid.Row="2"
+                       Text="{Binding ExitTime, StringFormat=\{0:yyyy-MM-dd HH:mm\}, Mode=OneWay}" Margin="0,0,0,8"/>
 
-        <TextBlock Grid.Column="0" Grid.Row="3" FontWeight="Bold"
-                   Style="{StaticResource RightAlignedTextBlockStyle}" Text="{x:Static i18n:LocalizedStrings.EntryTime}"/>
-        <TextBlock Grid.Column="1" Grid.Row="3"
-                   Text="{Binding EntryTime, StringFormat=\{0:yyyy-MM-dd HH:mm\}, Mode=OneWay}"
-                   Margin="0,0,0,8"/>
+            <!-- Row 3: CancellationTime / IsFullyClosed -->
+            <TextBlock Grid.Column="0" Grid.Row="3" FontWeight="Bold"
+                       Style="{StaticResource RightAlignedTextBlockStyle}"
+                       Text="{x:Static i18n:LocalizedStrings.CancellationTime}"/>
+            <TextBlock Grid.Column="1" Grid.Row="3"
+                       Text="{Binding CancellationTime, StringFormat=\{0:yyyy-MM-dd HH:mm\}, Mode=OneWay}" Margin="0,0,0,8"/>
 
-        <TextBlock Grid.Column="3" Grid.Row="3" FontWeight="Bold"
-                   Style="{StaticResource RightAlignedTextBlockStyle}" Text="{x:Static i18n:LocalizedStrings.ExitTime}"/>
-        <TextBlock Grid.Column="4" Grid.Row="3"
-                   Text="{Binding ExitTime, StringFormat=\{0:yyyy-MM-dd HH:mm\}, Mode=OneWay}"
-                   Margin="0,0,0,8"/>
-<!--
-        <TextBlock Grid.Column="0" Grid.Row="4" FontWeight="Bold"
-                   Style="{StaticResource RightAlignedTextBlockStyle}" Text="{x:Static i18n:LocalizedStrings.RealizedR}"/>
-        <TextBlock Grid.Column="1" Grid.Row="4"
-                   Text="{Binding RealizedR, StringFormat=\{0:N2\}, Mode=OneWay}"
-                   Style="{StaticResource RightAlignedTextBlockStyle}"
-                   Margin="0,0,0,8"/>
--->
 
-        <TextBlock Grid.Column="0" Grid.Row="5" FontWeight="Bold"
-                   Style="{StaticResource RightAlignedTextBlockStyle}" Text="{x:Static i18n:LocalizedStrings.PlannedPositionValue}"/>
-        <TextBlock Grid.Column="1" Grid.Row="5"
-                   Text="{Binding PlannedPositionValue, StringFormat=\{0:N2\}, Mode=OneWay}"
-                   Style="{StaticResource RightAlignedTextBlockStyle}"
-                   Margin="0,0,0,8"/>
+            <!-- Row 4: PlannedEntryPrice / ExecutedEntryPrice -->
+            <TextBlock Grid.Column="0" Grid.Row="4" FontWeight="Bold"
+                       Style="{StaticResource RightAlignedTextBlockStyle}"
+                       Text="{x:Static i18n:LocalizedStrings.PlannedEntryPrice}"/>
+            <TextBlock Grid.Column="1" Grid.Row="4"
+                       Text="{Binding RoundedPlannedEntryPrice, Mode=OneWay}"
+                       Style="{StaticResource RightAlignedTextBlockStyle}" Margin="0,0,0,8"/>
+            <TextBlock Grid.Column="3" Grid.Row="4" FontWeight="Bold"
+                       Style="{StaticResource RightAlignedTextBlockStyle}"
+                       Text="{x:Static i18n:LocalizedStrings.ExecutedEntryPrice}"/>
+            <TextBlock Grid.Column="4" Grid.Row="4"
+                       Text="{Binding RoundedExecutedEntryPrice, Mode=OneWay}"
+                       Style="{StaticResource RightAlignedTextBlockStyle}" Margin="0,0,0,8"/>
 
-        <TextBlock Grid.Column="3" Grid.Row="5" FontWeight="Bold"
-                   Style="{StaticResource RightAlignedTextBlockStyle}" Text="{x:Static i18n:LocalizedStrings.ExecutedPositionValue}"/>
-        <TextBlock Grid.Column="4" Grid.Row="5"
-                   Text="{Binding ExecutedPositionValue, StringFormat=\{0:N2\}, Mode=OneWay}"
-                   Style="{StaticResource RightAlignedTextBlockStyle}"
-                   Margin="0,0,0,8"/>
+            <!-- Row 5: OrderQuantity / FilledQuantity -->
+            <TextBlock Grid.Column="0" Grid.Row="5" FontWeight="Bold"
+                       Style="{StaticResource RightAlignedTextBlockStyle}"
+                       Text="{x:Static i18n:LocalizedStrings.OrderQuantity}"/>
+            <TextBlock Grid.Column="1" Grid.Row="5"
+                       Text="{Binding RoundedOrderQuantity, Mode=OneWay}"
+                       Style="{StaticResource RightAlignedTextBlockStyle}" Margin="0,0,0,8"/>
+            <TextBlock Grid.Column="3" Grid.Row="5" FontWeight="Bold"
+                       Style="{StaticResource RightAlignedTextBlockStyle}"
+                       Text="{x:Static i18n:LocalizedStrings.FilledQuantity}"/>
+            <TextBlock Grid.Column="4" Grid.Row="5"
+                       Text="{Binding RoundedFilledQuantity, Mode=OneWay}"
+                       Style="{StaticResource RightAlignedTextBlockStyle}" Margin="0,0,0,8"/>
 
-        <TextBlock Grid.Column="0" Grid.Row="6" FontWeight="Bold"
-                   Style="{StaticResource RightAlignedTextBlockStyle}" Text="{x:Static i18n:LocalizedStrings.OrderQuantity}"/>
-        <TextBlock Grid.Column="1" Grid.Row="6"
-                   Text="{Binding RoundedOrderQuantity, Mode=OneWay}"
-                   Style="{StaticResource RightAlignedTextBlockStyle}"
-                   Margin="0,0,0,8"/>
+            <!-- Row 6: PlannedPositionValue / ExecutedPositionValue -->
+            <TextBlock Grid.Column="0" Grid.Row="6" FontWeight="Bold"
+                       Style="{StaticResource RightAlignedTextBlockStyle}"
+                       Text="{x:Static i18n:LocalizedStrings.PlannedPositionValue}"/>
+            <TextBlock Grid.Column="1" Grid.Row="6"
+                       Text="{Binding PlannedPositionValue, StringFormat=\{0:N2\}, Mode=OneWay}"
+                       Style="{StaticResource RightAlignedTextBlockStyle}" Margin="0,0,0,8"/>
+            <TextBlock Grid.Column="3" Grid.Row="6" FontWeight="Bold"
+                       Style="{StaticResource RightAlignedTextBlockStyle}"
+                       Text="{x:Static i18n:LocalizedStrings.ExecutedPositionValue}"/>
+            <TextBlock Grid.Column="4" Grid.Row="6"
+                       Text="{Binding ExecutedPositionValue, StringFormat=\{0:N2\}, Mode=OneWay}"
+                       Style="{StaticResource RightAlignedTextBlockStyle}" Margin="0,0,0,8"/>
 
-        <TextBlock Grid.Column="3" Grid.Row="6" FontWeight="Bold"
-                   Style="{StaticResource RightAlignedTextBlockStyle}" Text="{x:Static i18n:LocalizedStrings.FilledQuantity}"/>
-        <TextBlock Grid.Column="4" Grid.Row="6"
-                   Text="{Binding RoundedFilledQuantity, Mode=OneWay}"
-                   Style="{StaticResource RightAlignedTextBlockStyle}"
-                   Margin="0,0,0,8"/>
+            <!-- Row 7: RemainingPositionValue -->
+            <TextBlock Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="7" FontWeight="Bold"
+                       Style="{StaticResource RightAlignedTextBlockStyle}"
+                       Text="{x:Static i18n:LocalizedStrings.RemainingPositionValue}"/>
+            <TextBlock Grid.Column="4" Grid.Row="7"
+                       Text="{Binding RemainingPositionValue, StringFormat=\{0:N2\}, Mode=OneWay}"
+                       Style="{StaticResource RightAlignedTextBlockStyle}" Margin="0,0,0,8"/>
 
-        <TextBlock Grid.Column="0" Grid.Row="7" FontWeight="Bold"
-                   Style="{StaticResource RightAlignedTextBlockStyle}" Text="{x:Static i18n:LocalizedStrings.PlannedSL}"/>
-        <TextBlock Grid.Column="1" Grid.Row="7"
-                   Text="{Binding RoundedPlannedSL, Mode=OneWay}"
-                   Style="{StaticResource RightAlignedTextBlockStyle}"
-                   Margin="0,0,0,8"/>
+            <!-- Row 8: PlannedSL / ExecutedSL -->
+            <TextBlock Grid.Column="0" Grid.Row="8" FontWeight="Bold"
+                       Style="{StaticResource RightAlignedTextBlockStyle}"
+                       Text="{x:Static i18n:LocalizedStrings.PlannedSL}"/>
+            <TextBlock Grid.Column="1" Grid.Row="8"
+                       Text="{Binding RoundedPlannedSL, Mode=OneWay}"
+                       Style="{StaticResource RightAlignedTextBlockStyle}" Margin="0,0,0,8"/>
+            <TextBlock Grid.Column="3" Grid.Row="8" FontWeight="Bold"
+                       Style="{StaticResource RightAlignedTextBlockStyle}"
+                       Text="{x:Static i18n:LocalizedStrings.ExecutedSL}"/>
+            <TextBlock Grid.Column="4" Grid.Row="8"
+                       Text="{Binding RoundedExecutedSL, Mode=OneWay}"
+                       Style="{StaticResource RightAlignedTextBlockStyle}" Margin="0,0,0,8"/>
 
-        <TextBlock Grid.Column="3" Grid.Row="7" FontWeight="Bold"
-                   Style="{StaticResource RightAlignedTextBlockStyle}" Text="{x:Static i18n:LocalizedStrings.ExecutedSL}"/>
-        <TextBlock Grid.Column="4" Grid.Row="7"
-                   Text="{Binding RoundedExecutedSL, Mode=OneWay}"
-                   Style="{StaticResource RightAlignedTextBlockStyle}"
-                   Margin="0,0,0,8"/>
+            <!-- Row 9: PlannedTP / ExecutedTP -->
+            <TextBlock Grid.Column="0" Grid.Row="9" FontWeight="Bold"
+                       Style="{StaticResource RightAlignedTextBlockStyle}"
+                       Text="{x:Static i18n:LocalizedStrings.PlannedTP}"/>
+            <TextBlock Grid.Column="1" Grid.Row="9"
+                       Text="{Binding RoundedPlannedTP, Mode=OneWay}"
+                       Style="{StaticResource RightAlignedTextBlockStyle}" Margin="0,0,0,8"/>
+            <TextBlock Grid.Column="3" Grid.Row="9" FontWeight="Bold"
+                       Style="{StaticResource RightAlignedTextBlockStyle}"
+                       Text="{x:Static i18n:LocalizedStrings.ExecutedTP}"/>
+            <TextBlock Grid.Column="4" Grid.Row="9"
+                       Text="{Binding RoundedExecutedTP, Mode=OneWay}"
+                       Style="{StaticResource RightAlignedTextBlockStyle}" Margin="0,0,0,8"/>
 
-        <TextBlock Grid.Column="0" Grid.Row="8" FontWeight="Bold"
-                   Style="{StaticResource RightAlignedTextBlockStyle}" Text="{x:Static i18n:LocalizedStrings.PlannedProfit}"/>
-        <TextBlock Grid.Column="1" Grid.Row="8"
-                   Text="{Binding PlannedProfit, StringFormat=\{0:N2\}, Mode=OneWay}"
-                   Style="{StaticResource RightAlignedTextBlockStyle}"
-                   Margin="0,0,0,8"/>
+            <!-- Row 10: PlannedRiskAmount / RealizedRiskAmount -->
+            <TextBlock Grid.Column="0" Grid.Row="10" FontWeight="Bold"
+                       Style="{StaticResource RightAlignedTextBlockStyle}"
+                       Text="{x:Static i18n:LocalizedStrings.PlannedRiskAmount}"/>
+            <TextBlock Grid.Column="1" Grid.Row="10"
+                       Text="{Binding PlannedRiskAmount, StringFormat=\{0:N2\}, Mode=OneWay}"
+                       Style="{StaticResource RightAlignedTextBlockStyle}" Margin="0,0,0,8"/>
+            <TextBlock Grid.Column="3" Grid.Row="10" FontWeight="Bold"
+                       Style="{StaticResource RightAlignedTextBlockStyle}"
+                       Text="{x:Static i18n:LocalizedStrings.RealizedRiskAmount}"/>
+            <TextBlock Grid.Column="4" Grid.Row="10"
+                       Text="{Binding RealizedRiskAmount, StringFormat=\{0:N2\}, Mode=OneWay}"
+                       Style="{StaticResource RightAlignedTextBlockStyle}" Margin="0,0,0,8"/>
 
-        <TextBlock Grid.Column="3" Grid.Row="8" FontWeight="Bold"
-                   Style="{StaticResource RightAlignedTextBlockStyle}" Text="{x:Static i18n:LocalizedStrings.RealizedProfitLoss}"/>
-        <TextBlock Grid.Column="4" Grid.Row="8"
-                   Text="{Binding RealizedProfitLoss, StringFormat=\{0:N2\}, Mode=OneWay}"
-                   Style="{StaticResource RightAlignedTextBlockStyle}"
-                   Margin="0,0,0,8"/>
+            <!-- Row 11: PlannedProfit / RealizedProfitLoss -->
+            <TextBlock Grid.Column="0" Grid.Row="11" FontWeight="Bold"
+                       Style="{StaticResource RightAlignedTextBlockStyle}"
+                       Text="{x:Static i18n:LocalizedStrings.PlannedProfit}"/>
+            <TextBlock Grid.Column="1" Grid.Row="11"
+                       Text="{Binding PlannedProfitLoss, StringFormat=\{0:N2\}, Mode=OneWay}"
+                       Style="{StaticResource RightAlignedTextBlockStyle}" Margin="0,0,0,8"/>
+            <TextBlock Grid.Column="3" Grid.Row="11" FontWeight="Bold"
+                       Style="{StaticResource RightAlignedTextBlockStyle}"
+                       Text="{x:Static i18n:LocalizedStrings.RealizedProfitLoss}"/>
+            <TextBlock Grid.Column="4" Grid.Row="11"
+                       Text="{Binding RealizedProfitLoss, StringFormat=\{0:N2\}, Mode=OneWay}"
+                       Style="{StaticResource RightAlignedTextBlockStyle}" Margin="0,0,0,8"/>
 
-        <TextBlock Grid.Column="0" Grid.Row="9" FontWeight="Bold"
-                   Style="{StaticResource RightAlignedTextBlockStyle}" Text="{x:Static i18n:LocalizedStrings.PlannedTP}"/>
-        <TextBlock Grid.Column="1" Grid.Row="9"
-                   Text="{Binding RoundedPlannedTP, Mode=OneWay}"
-                   Style="{StaticResource RightAlignedTextBlockStyle}"
-                   Margin="0,0,0,8"/>
+            <!-- Row 12: PlannedRiskRewardRatio / NetProfitLoss -->
+            <TextBlock Grid.Column="0" Grid.Row="12" FontWeight="Bold"
+                       Style="{StaticResource RightAlignedTextBlockStyle}"
+                       Text="{x:Static i18n:LocalizedStrings.PlannedRiskRewardRatio}"/>
+            <TextBlock Grid.Column="1" Grid.Row="12"
+                       Text="{Binding PlannedRiskRewardRatio, StringFormat=\{0:N2\}, Mode=OneWay}"
+                       Style="{StaticResource RightAlignedTextBlockStyle}" Margin="0,0,0,8"/>
+            <TextBlock Grid.Column="3" Grid.Row="12" FontWeight="Bold"
+                       Style="{StaticResource RightAlignedTextBlockStyle}"
+                       Text="{x:Static i18n:LocalizedStrings.NetProfitLoss}"/>
+            <TextBlock Grid.Column="4" Grid.Row="12"
+                       Text="{Binding NetProfitLoss, StringFormat=\{0:N2\}, Mode=OneWay}"
+                       Style="{StaticResource RightAlignedTextBlockStyle}" Margin="0,0,0,8"/>
 
-        <TextBlock Grid.Column="3" Grid.Row="9" FontWeight="Bold"
-                   Style="{StaticResource RightAlignedTextBlockStyle}" Text="{x:Static i18n:LocalizedStrings.ExecutedTP}"/>
-        <TextBlock Grid.Column="4" Grid.Row="9"
-                   Text="{Binding RoundedExecutedTP, Mode=OneWay}"
-                   Style="{StaticResource RightAlignedTextBlockStyle}"
-                   Margin="0,0,0,8"/>
+            <!-- Row 13: TotalFeesCalculated / TotalFeesCorrected -->
+            <TextBlock Grid.Column="0" Grid.Row="13" FontWeight="Bold"
+                       Style="{StaticResource RightAlignedTextBlockStyle}"
+                       Text="{x:Static i18n:LocalizedStrings.TotalFeesCalculated}"/>
+            <TextBlock Grid.Column="1" Grid.Row="13"
+                       Text="{Binding TotalFeesCalculated, StringFormat=\{0:N2\}, Mode=OneWay}"
+                       Style="{StaticResource RightAlignedTextBlockStyle}" Margin="0,0,0,8"/>
+            <TextBlock Grid.Column="3" Grid.Row="13" FontWeight="Bold"
+                       Style="{StaticResource RightAlignedTextBlockStyle}"
+                       Text="{x:Static i18n:LocalizedStrings.TotalFeesCorrected}"/>
+            <TextBlock Grid.Column="4" Grid.Row="13"
+                       Text="{Binding TotalFeesCorrected, StringFormat=\{0:N2\}, Mode=OneWay}"
+                       Style="{StaticResource RightAlignedTextBlockStyle}" Margin="0,0,0,8"/>
 
-        <TextBlock Grid.Column="0" Grid.Row="10" FontWeight="Bold"
-                   Style="{StaticResource RightAlignedTextBlockStyle}" Text="{x:Static i18n:LocalizedStrings.PlannedRiskAmount}"/>
-        <TextBlock Grid.Column="1" Grid.Row="10"
-                   Text="{Binding PlannedRiskAmount, StringFormat=\{0:N2\}, Mode=OneWay}"
-                   Style="{StaticResource RightAlignedTextBlockStyle}"
-                   Margin="0,0,0,8"/>
+            <!-- Row 14: FundingFeeTotal / UpdatedAt -->
+            <TextBlock Grid.Column="0" Grid.Row="14" FontWeight="Bold"
+                       Style="{StaticResource RightAlignedTextBlockStyle}"
+                       Text="{x:Static i18n:LocalizedStrings.FundingFeeTotal}"/>
+            <TextBlock Grid.Column="1" Grid.Row="14"
+                       Text="{Binding FundingFeeTotal, StringFormat=\{0:N2\}, Mode=OneWay}"
+                       Style="{StaticResource RightAlignedTextBlockStyle}" Margin="0,0,0,8"/>
+            <TextBlock Grid.Column="3" Grid.Row="14" FontWeight="Bold"
+                       Style="{StaticResource RightAlignedTextBlockStyle}"
+                       Text="{x:Static i18n:LocalizedStrings.UpdatedAt}"/>
+            <TextBlock Grid.Column="4" Grid.Row="14"
+                       Text="{Binding UpdatedAt, StringFormat=\{0:yyyy-MM-dd HH:mm\}, Mode=OneWay}" Margin="0,0,0,8"/>
 
-        <TextBlock Grid.Column="3" Grid.Row="10" FontWeight="Bold"
-                   Style="{StaticResource RightAlignedTextBlockStyle}" Text="{x:Static i18n:LocalizedStrings.RealizedRiskAmount}"/>
-        <TextBlock Grid.Column="4" Grid.Row="10"
-                   Text="{Binding RealizedRiskAmount, StringFormat=\{0:N2\}, Mode=OneWay}"
-                   Style="{StaticResource RightAlignedTextBlockStyle}"
-                   Margin="0,0,0,8"/>
+            <!-- Row 15: Tags -->
+            <TextBlock Grid.Column="0" Grid.Row="15" FontWeight="Bold"
+                       Style="{StaticResource RightAlignedTextBlockStyle}"
+                       Text="{x:Static i18n:LocalizedStrings.Tags}"/>
+            <TextBlock Grid.Column="1" Grid.Row="15" Grid.ColumnSpan="5"
+                       Text="{Binding Tags, Mode=OneWay}" TextWrapping="Wrap" Margin="0,0,0,8"/>
 
-        <TextBlock Grid.Column="0" Grid.Row="11" FontWeight="Bold"
-                   Style="{StaticResource RightAlignedTextBlockStyle}" Text="{x:Static i18n:LocalizedStrings.PlannedRiskRewardRatio}"/>
-        <TextBlock Grid.Column="1" Grid.Row="11"
-                   Text="{Binding PlannedRiskRewardRatio, StringFormat=\{0:N2\}, Mode=OneWay}"
-                   Style="{StaticResource RightAlignedTextBlockStyle}"
-                   Margin="0,0,0,8"/>
 
-        <TextBlock Grid.Column="3" Grid.Row="11" FontWeight="Bold"
-                   Style="{StaticResource RightAlignedTextBlockStyle}" Text="{x:Static i18n:LocalizedStrings.UpdatedAt}"/>
-        <TextBlock Grid.Column="4" Grid.Row="11"
-                   Text="{Binding UpdatedAt, StringFormat=\{0:yyyy-MM-dd HH:mm\}, Mode=OneWay}"
-                   Margin="0,0,0,8"/>
+            <!-- ═══ Entry Orders ═══ -->
+            <TextBlock Grid.Row="16" Grid.ColumnSpan="2" Margin="0,8,8,0"
+                       Text="{x:Static i18n:LocalizedStrings.EntryOrders}" FontWeight="Bold"/>
+            <Border Grid.Row="17" Grid.ColumnSpan="6" Margin="-4,0,-4,4">
+                <DataGrid ItemsSource="{Binding EntryOrders}"
+                          AutoGenerateColumns="False"
+                          IsReadOnly="True"
+                          SelectionMode="Single"
+                          CanUserReorderColumns="True"
+                          CanUserResizeColumns="True"
+                          CanUserSortColumns="True"
+                          GridLinesVisibility="Horizontal"
+                          AlternatingRowBackground="{DynamicResource {x:Static SystemColors.ControlBrushKey}}">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.OrderType}" Width="64"
+                                            Binding="{Binding OrderType}"/>
+                        <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.OrderPrice}" Width="72"
+                                            Binding="{Binding OrderPrice}"
+                                            ElementStyle="{StaticResource RightAlignedTextBlockStyle}"/>
+                        <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.FilledPrice}" Width="72"
+                                            Binding="{Binding FilledPrice}"
+                                            ElementStyle="{StaticResource RightAlignedTextBlockStyle}"/>
+                        <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.OrderQuantity}" Width="80"
+                                            Binding="{Binding OrderQuantity}"
+                                            ElementStyle="{StaticResource RightAlignedTextBlockStyle}"/>
+                        <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.FilledQuantity}" Width="80"
+                                            Binding="{Binding FilledQuantity}"
+                                            ElementStyle="{StaticResource RightAlignedTextBlockStyle}"/>
+                        <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.OrderValue}" Width="72"
+                                            Binding="{Binding OrderValue, StringFormat=\{0:N2\}}"
+                                            ElementStyle="{StaticResource RightAlignedTextBlockStyle}"/>
+                        <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.FilledValue}" Width="72"
+                                            Binding="{Binding FilledValue, StringFormat=\{0:N2\}}"
+                                            ElementStyle="{StaticResource RightAlignedTextBlockStyle}"/>
+                        <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.FilledTime}" Width="*"
+                                            Binding="{Binding FilledTime, StringFormat=\{0:yyyy-MM-dd HH:mm\}}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Border>
 
-        <TextBlock Grid.Column="0" Grid.Row="12" FontWeight="Bold"
-                   Style="{StaticResource RightAlignedTextBlockStyle}" Text="{x:Static i18n:LocalizedStrings.SetupNotes}"/>
-        <TextBlock Grid.Column="1" Grid.Row="12"
-                   Grid.ColumnSpan="5" TextWrapping="Wrap"
-                   Text="{Binding SetupNotes, Mode=OneWay}"
-                   Margin="0,0,0,8"/>
+            <!-- ═══ Take Profit Orders ═══ -->
+            <TextBlock Grid.Row="18" Grid.ColumnSpan="2" Margin="0,8,8,0"
+                       Text="{x:Static i18n:LocalizedStrings.TakeProfitOrders}" FontWeight="Bold"/>
+            <Border Grid.Row="19" Grid.ColumnSpan="6" Margin="-4,0,-4,4">
+                <DataGrid ItemsSource="{Binding TakeProfitOrders}"
+                          AutoGenerateColumns="False"
+                          IsReadOnly="True"
+                          SelectionMode="Single"
+                          CanUserReorderColumns="True"
+                          CanUserResizeColumns="True"
+                          CanUserSortColumns="True"
+                          GridLinesVisibility="Horizontal"
+                          AlternatingRowBackground="{DynamicResource {x:Static SystemColors.ControlBrushKey}}">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.OrderType}" Width="72"
+                                            Binding="{Binding OrderType}"/>
+                        <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.OrderPrice}" Width="90"
+                                            Binding="{Binding OrderPrice}"
+                                            ElementStyle="{StaticResource RightAlignedTextBlockStyle}"/>
+                        <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.FilledPrice}" Width="90"
+                                            Binding="{Binding FilledPrice}"
+                                            ElementStyle="{StaticResource RightAlignedTextBlockStyle}"/>
+                        <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.OrderQuantity}" Width="80"
+                                            Binding="{Binding OrderQuantity}"
+                                            ElementStyle="{StaticResource RightAlignedTextBlockStyle}"/>
+                        <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.FilledQuantity}" Width="80"
+                                            Binding="{Binding FilledQuantity}"
+                                            ElementStyle="{StaticResource RightAlignedTextBlockStyle}"/>
+                        <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.OrderValue}" Width="80"
+                                            Binding="{Binding OrderValue, StringFormat=\{0:N2\}}"
+                                            ElementStyle="{StaticResource RightAlignedTextBlockStyle}"/>
+                        <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.FilledValue}" Width="80"
+                                            Binding="{Binding FilledValue, StringFormat=\{0:N2\}}"
+                                            ElementStyle="{StaticResource RightAlignedTextBlockStyle}"/>
+                        <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.FilledTime}" Width="*"
+                                            Binding="{Binding FilledTime, StringFormat=\{0:yyyy-MM-dd HH:mm\}}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Border>
 
-        <TextBlock Grid.Column="0" Grid.Row="13" FontWeight="Bold"
-                   Style="{StaticResource RightAlignedTextBlockStyle}" Text="{x:Static i18n:LocalizedStrings.ReviewNotes}"/>
-        <TextBlock Grid.Column="1" Grid.Row="13"
-                   Grid.ColumnSpan="5" TextWrapping="Wrap"
-                   Text="{Binding ReviewNotes, Mode=OneWay}"
-                   Margin="0,0,0,8"/>
+            <!-- ═══ Stop Loss Orders ═══ -->
+            <TextBlock Grid.Row="20" Grid.ColumnSpan="2" Margin="0,8,8,0"
+                                    Text="{x:Static i18n:LocalizedStrings.StopLossOrders}" FontWeight="Bold"/>
+            <Border Grid.Row="21" Grid.ColumnSpan="6" Margin="-4,0,-4,4">
+                <DataGrid ItemsSource="{Binding StopLossOrders}"
+                                        AutoGenerateColumns="False"
+                                        IsReadOnly="True"
+                                        SelectionMode="Single"
+                                        CanUserReorderColumns="True"
+                                        CanUserResizeColumns="True"
+                                        CanUserSortColumns="True"
+                                        GridLinesVisibility="Horizontal"
+                                        AlternatingRowBackground="{DynamicResource {x:Static SystemColors.ControlBrushKey}}">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.OrderType}" Width="72"
+                                            Binding="{Binding OrderType}"/>
+                        <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.OrderPrice}" Width="90"
+                                            Binding="{Binding OrderPrice}"
+                                            ElementStyle="{StaticResource RightAlignedTextBlockStyle}"/>
+                        <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.FilledPrice}" Width="90"
+                                            Binding="{Binding FilledPrice}"
+                                            ElementStyle="{StaticResource RightAlignedTextBlockStyle}"/>
+                        <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.OrderQuantity}" Width="80"
+                                            Binding="{Binding OrderQuantity}"
+                                            ElementStyle="{StaticResource RightAlignedTextBlockStyle}"/>
+                        <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.FilledQuantity}" Width="80"
+                                            Binding="{Binding FilledQuantity}"
+                                            ElementStyle="{StaticResource RightAlignedTextBlockStyle}"/>
+                        <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.OrderValue}" Width="80"
+                                            Binding="{Binding OrderValue, StringFormat=\{0:N2\}}"
+                                            ElementStyle="{StaticResource RightAlignedTextBlockStyle}"/>
+                        <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.FilledValue}" Width="80"
+                                            Binding="{Binding FilledValue, StringFormat=\{0:N2\}}"
+                                            ElementStyle="{StaticResource RightAlignedTextBlockStyle}"/>
+                        <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.FilledTime}" Width="*"
+                                            Binding="{Binding FilledTime, StringFormat=\{0:yyyy-MM-dd HH:mm\}}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Border>
+        </Grid>
+        <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Auto">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <!-- ═══ Setup Notes ═══ -->
+                <TextBlock Grid.Row="0" Grid.ColumnSpan="2" Margin="0,8,0,0"
+                           Text="{x:Static i18n:LocalizedStrings.SetupNotes}" FontWeight="Bold"/>
+                <Border Grid.Row="1" Grid.ColumnSpan="6" Margin="0">
+                    <TextBlock TextWrapping="Wrap" Text="{Binding SetupNotes, Mode=OneWay}" Margin="0,0,4,8"/>
+                </Border>
+
+                <!-- ═══ Review Notes ═══ -->
+                <TextBlock Grid.Row="2" Grid.ColumnSpan="2" Margin="0,8,0,0"
+                           Text="{x:Static i18n:LocalizedStrings.ReviewNotes}" FontWeight="Bold"/>
+                <Border Grid.Row="3" Grid.ColumnSpan="6" Margin="0">
+                    <TextBlock TextWrapping="Wrap" Text="{Binding ReviewNotes, Mode=OneWay}" Margin="0,0,4,8"/>
+                </Border>
+            </Grid>
+        </ScrollViewer>
     </Grid>
 </Window>

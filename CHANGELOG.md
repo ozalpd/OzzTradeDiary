@@ -21,6 +21,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - Introduced `Styles.xaml` with reusable DataGrid cell/text styles for trade status and direction
 - Adjusted color values for Missed/Cancelled statuses for clarity
 - Fixed resource dictionary order in `App.xaml` and reduced `MainWindow` height
+- Redesign TradeDetailView for improved clarity and UX
 - Bumped all project versions to 0.1.7.
 
 ## [0.1.6] - 2026-05-28
