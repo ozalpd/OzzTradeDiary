@@ -434,7 +434,7 @@
   </Vocab>
   <Vocab>
     <Name>CompanyId</Name>
-    <Translation>Company Id</Translation>
+    <Translation>Company</Translation>
   </Vocab>
   <Vocab>
     <Name>CompanyName</Name>
@@ -482,7 +482,7 @@
   </Vocab>
   <Vocab>
     <Name>CountryId</Name>
-    <Translation>Country Id</Translation>
+    <Translation>Country</Translation>
   </Vocab>
   <Vocab>
     <Name>CountryName</Name>
@@ -658,7 +658,7 @@
   </Vocab>
   <Vocab>
     <Name>CustomerAddressId</Name>
-    <Translation>Customer Address Id</Translation>
+    <Translation>Customer Address</Translation>
   </Vocab>
   <Vocab>
     <Name>CustomerCode</Name>
@@ -666,7 +666,7 @@
   </Vocab>
   <Vocab>
     <Name>CustomerId</Name>
-    <Translation>Customer Id</Translation>
+    <Translation>Customer</Translation>
   </Vocab>
   <Vocab>
     <Name>Customers</Name>
@@ -714,7 +714,7 @@
   </Vocab>
   <Vocab>
     <Name>DefaultCurrencyId</Name>
-    <Translation>Default Currency Id</Translation>
+    <Translation>Default Currency</Translation>
   </Vocab>
   <Vocab>
     <Name>Delete</Name>
@@ -1046,7 +1046,7 @@
   </Vocab>
   <Vocab>
     <Name>ExchangeId</Name>
-    <Translation>Exchange Id</Translation>
+    <Translation>Exchange</Translation>
   </Vocab>
   <Vocab>
     <Name>ExchangeName</Name>
@@ -1458,7 +1458,7 @@
   </Vocab>
   <Vocab>
     <Name>OrderId</Name>
-    <Translation>Order Id</Translation>
+    <Translation>Order</Translation>
   </Vocab>
   <Vocab>
     <Name>OrderItem</Name>
@@ -1682,7 +1682,7 @@
   </Vocab>
   <Vocab>
     <Name>PriceCurrencyId</Name>
-    <Translation>Price Currency Id</Translation>
+    <Translation>Price Currency</Translation>
   </Vocab>
   <Vocab>
     <Name>Print</Name>
@@ -2042,7 +2042,7 @@
   </Vocab>
   <Vocab>
     <Name>StoreId</Name>
-    <Translation>Store Id</Translation>
+    <Translation>Store</Translation>
   </Vocab>
   <Vocab>
     <Name>Stores</Name>
@@ -2118,7 +2118,7 @@
   </Vocab>
   <Vocab>
     <Name>SymbolId</Name>
-    <Translation>Symbol Id</Translation>
+    <Translation>Symbol</Translation>
   </Vocab>
   <Vocab>
     <Name>Symbols</Name>
@@ -2222,7 +2222,7 @@
   </Vocab>
   <Vocab>
     <Name>TradeId</Name>
-    <Translation>Trade Id</Translation>
+    <Translation>Trade</Translation>
   </Vocab>
   <Vocab>
     <Name>TradeImage</Name>
@@ -2254,7 +2254,7 @@
   </Vocab>
   <Vocab>
     <Name>TradingAccountId</Name>
-    <Translation>Trading Account Id</Translation>
+    <Translation>Trading Account</Translation>
   </Vocab>
   <Vocab>
     <Name>TradingAccounts</Name>

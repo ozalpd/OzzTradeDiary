@@ -484,9 +484,6 @@
     <data name="IsAlwaysOpen" xml:space="preserve">
         <value>Sürekli Açık</value>
     </data>
-    <data name="IsFullyClosed" xml:space="preserve">
-        <value>Tamamen Kapandı</value>
-    </data>
     <data name="IsHalfDay" xml:space="preserve">
         <value>Yarım Gün</value>
     </data>

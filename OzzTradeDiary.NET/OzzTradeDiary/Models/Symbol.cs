@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using TD.Validation;
 using TD.i18n;
 //----------------------------------------------------------------------------------
 //
@@ -51,6 +52,7 @@ namespace TD.Models
         [Display(ResourceType = typeof(LocalizedStrings), Name = "BaseCurrency")]
         public string? BaseCurrency { get; set; }
 
+        [RequiredSelection]
         [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
         [Display(ResourceType = typeof(LocalizedStrings), Name = "PriceCurrencyId")]
         public int PriceCurrencyId { get; set; }
@@ -69,6 +71,7 @@ namespace TD.Models
         /// <summary>
         /// The Id value of exchange record that related to the symbol.
         /// </summary>
+        [RequiredSelection]
         [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
         [Range(1, int.MaxValue, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName ="ValueMin")]
         [Display(ResourceType = typeof(LocalizedStrings), Name = "ExchangeId")]
@@ -80,6 +83,7 @@ namespace TD.Models
         [Display(ResourceType = typeof(LocalizedStrings), Name = "Exchange")]
         public Exchange Exchange { get; set; }
 
+        [RequiredSelection]
         [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
         [Display(ResourceType = typeof(LocalizedStrings), Name = "MarketType")]
         public MarketType MarketType { get; set; }

@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using TD.i18n;
+using TD.Validation;
 
 //----------------------------------------------------------------------------------
 // Custom calculated properties for Trade, these properties are also persisted for
@@ -76,13 +77,14 @@ public partial class Trade
     /// <remarks>This property is a calculated value based on other trade details and is not intended
     /// to be set directly in most scenarios. The setter exists primarily to support data binding requirements in UI
     /// and database operations, but setting this property does not affect the underlying calculation.</remarks>
+    [GreaterThan(0)]
     [Display(ResourceType = typeof(LocalizedStrings), Name = "PlannedPositionValue")]
     public decimal? PlannedPositionValue
     {
         get
         {
-            if (PlannedEntryPrice.HasValue && OrderQuantity.HasValue)
-                return Math.Round(PlannedEntryPrice.Value * OrderQuantity.Value, 4);
+            if (PlannedEntryPrice > 0 && OrderQuantity > 0)
+                return PlannedEntryPrice.Value * OrderQuantity.Value;
 
             return null;
         }

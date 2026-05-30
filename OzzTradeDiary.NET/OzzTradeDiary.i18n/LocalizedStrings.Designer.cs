@@ -736,7 +736,7 @@ namespace TD.i18n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Default Currency Id.
+        ///   Looks up a localized string similar to Default Currency.
         /// </summary>
         public static string DefaultCurrencyId {
             get {
@@ -1060,7 +1060,7 @@ namespace TD.i18n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Exchange Id.
+        ///   Looks up a localized string similar to Exchange.
         /// </summary>
         public static string ExchangeId {
             get {
@@ -1335,15 +1335,6 @@ namespace TD.i18n {
         public static string IsAlwaysOpen {
             get {
                 return ResourceManager.GetString("IsAlwaysOpen", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Is Fully Closed.
-        /// </summary>
-        public static string IsFullyClosed {
-            get {
-                return ResourceManager.GetString("IsFullyClosed", resourceCulture);
             }
         }
         
@@ -1645,7 +1636,7 @@ namespace TD.i18n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Price Currency Id.
+        ///   Looks up a localized string similar to Price Currency.
         /// </summary>
         public static string PriceCurrencyId {
             get {
@@ -1969,7 +1960,7 @@ namespace TD.i18n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Symbol Id.
+        ///   Looks up a localized string similar to Symbol.
         /// </summary>
         public static string SymbolId {
             get {
@@ -2122,7 +2113,7 @@ namespace TD.i18n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Trade Id.
+        ///   Looks up a localized string similar to Trade.
         /// </summary>
         public static string TradeId {
             get {
@@ -2194,7 +2185,7 @@ namespace TD.i18n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Trading Account Id.
+        ///   Looks up a localized string similar to Trading Account.
         /// </summary>
         public static string TradingAccountId {
             get {

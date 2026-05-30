@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using TD.Validation;
 using TD.i18n;
 //----------------------------------------------------------------------------------
 //
@@ -30,16 +31,16 @@ namespace TD.Models
         [Display(ResourceType = typeof(LocalizedStrings), Name = "Id")]
         public int Id { get; set; }
 
+        [RequiredSelection]
         [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
-        [Range(1, int.MaxValue, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName ="ValueMin")]
         [Display(ResourceType = typeof(LocalizedStrings), Name = "TradingAccountId")]
         public int TradingAccountId { get; set; }
 
         [Display(ResourceType = typeof(LocalizedStrings), Name = "TradingAccount")]
         public TradingAccount TradingAccount { get; set; }
 
+        [RequiredSelection]
         [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
-        [Range(1, int.MaxValue, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName ="ValueMin")]
         [Display(ResourceType = typeof(LocalizedStrings), Name = "SymbolId")]
         public int SymbolId { get; set; }
 
@@ -52,21 +53,24 @@ namespace TD.Models
         public DateTime? EntryTime { get; set; }
 
         [DataType(DataType.DateTime)]
+        [Range(typeof(DateTime), "1/1/2000", "12/31/2220", ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName ="RangeDateTime")]
         [Display(ResourceType = typeof(LocalizedStrings), Name = "ExitTime")]
         public DateTime? ExitTime { get; set; }
 
+        [RequiredSelection]
         [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
-        [Range(1, int.MaxValue, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName ="ValueMin")]
         [Display(ResourceType = typeof(LocalizedStrings), Name = "TradeDirection")]
         public TradeDirection TradeDirection { get; set; }
 
         /// <summary>
         /// Missed (-10), Cancelled (-20), Planned (10), Pending (20), Active (30), Closed (40). Negative values mean never opened. TradeStatus > TradeStatus.Pending means trade active or closed and may have a result
         /// </summary>
+        [RequiredSelection]
         [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
         [Display(ResourceType = typeof(LocalizedStrings), Name = "TradeStatus")]
         public TradeStatus TradeStatus { get; set; }
 
+        [RequiredSelection]
         [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
         [Display(ResourceType = typeof(LocalizedStrings), Name = "MarketType")]
         public MarketType MarketType { get; set; }
@@ -80,6 +84,7 @@ namespace TD.Models
         /// <summary>
         /// Planned Entry Price, calculated from EntryOrders, also persisted for using in SQL queries.
         /// </summary>
+        [GreaterThan(0)]
         [Display(ResourceType = typeof(LocalizedStrings), Name = "PlannedEntryPrice")]
         public decimal? PlannedEntryPrice { get; set; }
 
@@ -92,36 +97,42 @@ namespace TD.Models
         /// <summary>
         /// Planned contract quantity of entry orders, calculated from EntryOrders. Also persisted for using in SQL queries.
         /// </summary>
+        [GreaterThan(0)]
         [Display(ResourceType = typeof(LocalizedStrings), Name = "OrderQuantity")]
         public decimal? OrderQuantity { get; set; }
 
         /// <summary>
         /// Realized contract quantity of entry orders, calculated from EntryOrders. Also persisted for using in SQL queries.
         /// </summary>
+        [GreaterThan(0)]
         [Display(ResourceType = typeof(LocalizedStrings), Name = "FilledQuantity")]
         public decimal? FilledQuantity { get; set; }
 
         /// <summary>
         /// Planned Take Profit Price, calculated from TakeProfitOrders
         /// </summary>
+        [GreaterThan(0)]
         [Display(ResourceType = typeof(LocalizedStrings), Name = "PlannedTP")]
         public decimal? PlannedTP { get; set; }
 
         /// <summary>
         /// Executed Take Profit Price, calculated from TakeProfitOrders
         /// </summary>
+        [GreaterThan(0)]
         [Display(ResourceType = typeof(LocalizedStrings), Name = "ExecutedTP")]
         public decimal? ExecutedTP { get; set; }
 
         /// <summary>
         /// Planned Stop Loss Price, calculated from StopLossOrders
         /// </summary>
+        [GreaterThan(0)]
         [Display(ResourceType = typeof(LocalizedStrings), Name = "PlannedSL")]
         public decimal? PlannedSL { get; set; }
 
         /// <summary>
         /// Executed Stop Loss Price, calculated from StopLossOrders
         /// </summary>
+        [GreaterThan(0)]
         [Display(ResourceType = typeof(LocalizedStrings), Name = "ExecutedSL")]
         public decimal? ExecutedSL { get; set; }
 
@@ -131,6 +142,7 @@ namespace TD.Models
         [Display(ResourceType = typeof(LocalizedStrings), Name = "TotalFeesCorrected")]
         public decimal? TotalFeesCorrected { get; set; }
 
+        [GreaterThan(0)]
         [Display(ResourceType = typeof(LocalizedStrings), Name = "FundingFeeTotal")]
         public decimal? FundingFeeTotal { get; set; }
 

@@ -206,6 +206,7 @@
         <ModelPropertySetting>
           <Name>DefaultCurrencyId</Name>
           <Exclude>false</Exclude>
+          <CustomAttributes>RequiredSelection</CustomAttributes>
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
@@ -290,6 +291,7 @@
         <ModelPropertySetting>
           <Name>ExchangeId</Name>
           <Exclude>false</Exclude>
+          <CustomAttributes>RequiredSelection</CustomAttributes>
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
@@ -307,6 +309,7 @@
         <ModelPropertySetting>
           <Name>SessionType</Name>
           <Exclude>false</Exclude>
+          <CustomAttributes>RequiredSelection</CustomAttributes>
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
@@ -360,6 +363,7 @@
         <ModelPropertySetting>
           <Name>ExchangeId</Name>
           <Exclude>false</Exclude>
+          <CustomAttributes>RequiredSelection</CustomAttributes>
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
@@ -430,10 +434,11 @@
         <ModelPropertySetting>
           <Name>ExchangeId</Name>
           <Exclude>false</Exclude>
+          <CustomAttributes>RequiredSelection</CustomAttributes>
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
-          <Range>1, int.MaxValue</Range>
+          <Range />
           <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
           <IsSearchParameter>true</IsSearchParameter>
         </ModelPropertySetting>
@@ -536,6 +541,7 @@
         <ModelPropertySetting>
           <Name>PriceCurrencyId</Name>
           <Exclude>false</Exclude>
+          <CustomAttributes>RequiredSelection</CustomAttributes>
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
@@ -562,6 +568,7 @@
         <ModelPropertySetting>
           <Name>ExchangeId</Name>
           <Exclude>false</Exclude>
+          <CustomAttributes>RequiredSelection</CustomAttributes>
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
@@ -580,6 +587,7 @@
         <ModelPropertySetting>
           <Name>MarketType</Name>
           <Exclude>false</Exclude>
+          <CustomAttributes>RequiredSelection</CustomAttributes>
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
@@ -597,10 +605,11 @@
         <ModelPropertySetting>
           <Name>TradeId</Name>
           <Exclude>false</Exclude>
+          <CustomAttributes>RequiredSelection</CustomAttributes>
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
-          <Range>1, int.MaxValue</Range>
+          <Range />
           <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
           <IsSearchParameter>true</IsSearchParameter>
         </ModelPropertySetting>
@@ -615,6 +624,7 @@
         <ModelPropertySetting>
           <Name>OrderType</Name>
           <Exclude>false</Exclude>
+          <CustomAttributes>RequiredSelection</CustomAttributes>
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
@@ -632,6 +642,7 @@
         <ModelPropertySetting>
           <Name>TradeId</Name>
           <Exclude>false</Exclude>
+          <CustomAttributes>RequiredSelection</CustomAttributes>
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
@@ -650,6 +661,7 @@
         <ModelPropertySetting>
           <Name>OrderType</Name>
           <Exclude>false</Exclude>
+          <CustomAttributes>RequiredSelection</CustomAttributes>
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
@@ -667,6 +679,7 @@
         <ModelPropertySetting>
           <Name>TradeId</Name>
           <Exclude>false</Exclude>
+          <CustomAttributes>RequiredSelection</CustomAttributes>
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
@@ -685,6 +698,7 @@
         <ModelPropertySetting>
           <Name>OrderType</Name>
           <Exclude>false</Exclude>
+          <CustomAttributes>RequiredSelection</CustomAttributes>
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
@@ -702,6 +716,7 @@
         <ModelPropertySetting>
           <Name>TradeId</Name>
           <Exclude>false</Exclude>
+          <CustomAttributes>RequiredSelection</CustomAttributes>
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
@@ -746,10 +761,11 @@
         <ModelPropertySetting>
           <Name>TradingAccountId</Name>
           <Exclude>false</Exclude>
+          <CustomAttributes>RequiredSelection</CustomAttributes>
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
-          <Range>1, int.MaxValue</Range>
+          <Range />
           <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
           <IsSearchParameter>true</IsSearchParameter>
         </ModelPropertySetting>
@@ -764,10 +780,11 @@
         <ModelPropertySetting>
           <Name>SymbolId</Name>
           <Exclude>false</Exclude>
+          <CustomAttributes>RequiredSelection</CustomAttributes>
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
-          <Range>1, int.MaxValue</Range>
+          <Range />
           <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
           <IsSearchParameter>true</IsSearchParameter>
         </ModelPropertySetting>
@@ -795,22 +812,25 @@
           <DataType>DateTime</DataType>
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
+          <Range>typeof(DateTime), "1/1/2000", "12/31/2220"</Range>
           <Required />
           <IsSearchParameter>true</IsSearchParameter>
         </ModelPropertySetting>
         <ModelPropertySetting>
           <Name>TradeDirection</Name>
           <Exclude>false</Exclude>
+          <CustomAttributes>RequiredSelection</CustomAttributes>
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
-          <Range>1, int.MaxValue</Range>
+          <Range />
           <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
           <IsSearchParameter>true</IsSearchParameter>
         </ModelPropertySetting>
         <ModelPropertySetting>
           <Name>TradeStatus</Name>
           <Exclude>false</Exclude>
+          <CustomAttributes>RequiredSelection</CustomAttributes>
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
@@ -821,6 +841,7 @@
         <ModelPropertySetting>
           <Name>MarketType</Name>
           <Exclude>false</Exclude>
+          <CustomAttributes>RequiredSelection</CustomAttributes>
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
@@ -839,6 +860,7 @@
         <ModelPropertySetting>
           <Name>PlannedEntryPrice</Name>
           <Exclude>false</Exclude>
+          <CustomAttributes>GreaterThan(0)</CustomAttributes>
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
@@ -884,6 +906,7 @@
         <ModelPropertySetting>
           <Name>OrderQuantity</Name>
           <Exclude>false</Exclude>
+          <CustomAttributes>GreaterThan(0)</CustomAttributes>
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
@@ -893,6 +916,7 @@
         <ModelPropertySetting>
           <Name>FilledQuantity</Name>
           <Exclude>false</Exclude>
+          <CustomAttributes>GreaterThan(0)</CustomAttributes>
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
@@ -911,6 +935,7 @@
         <ModelPropertySetting>
           <Name>PlannedTP</Name>
           <Exclude>false</Exclude>
+          <CustomAttributes>GreaterThan(0)</CustomAttributes>
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
@@ -920,6 +945,7 @@
         <ModelPropertySetting>
           <Name>ExecutedTP</Name>
           <Exclude>false</Exclude>
+          <CustomAttributes>GreaterThan(0)</CustomAttributes>
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
@@ -929,6 +955,7 @@
         <ModelPropertySetting>
           <Name>PlannedSL</Name>
           <Exclude>false</Exclude>
+          <CustomAttributes>GreaterThan(0)</CustomAttributes>
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
@@ -938,6 +965,7 @@
         <ModelPropertySetting>
           <Name>ExecutedSL</Name>
           <Exclude>false</Exclude>
+          <CustomAttributes>GreaterThan(0)</CustomAttributes>
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
@@ -1010,6 +1038,7 @@
         <ModelPropertySetting>
           <Name>FundingFeeTotal</Name>
           <Exclude>false</Exclude>
+          <CustomAttributes>GreaterThan(0)</CustomAttributes>
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />

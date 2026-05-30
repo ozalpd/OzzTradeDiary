@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using TD.Validation;
 using TD.i18n;
 //----------------------------------------------------------------------------------
 //
@@ -25,6 +26,7 @@ namespace TD.Models
         [Display(ResourceType = typeof(LocalizedStrings), Name = "Id")]
         public int Id { get; set; }
 
+        [RequiredSelection]
         [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
         [Range(1, int.MaxValue, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName ="ValueMin")]
         [Display(ResourceType = typeof(LocalizedStrings), Name = "TradeId")]
@@ -33,6 +35,7 @@ namespace TD.Models
         [Display(ResourceType = typeof(LocalizedStrings), Name = "Trade")]
         public Trade Trade { get; set; }
 
+        [RequiredSelection]
         [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
         [Display(ResourceType = typeof(LocalizedStrings), Name = "OrderType")]
         public ExitOrderType OrderType { get; set; }

@@ -32,12 +32,12 @@
 
         <TextBlock Grid.Column="0" Grid.Row="0" FontWeight="Bold"
                    Style="{StaticResource RightAlignedTextBlockStyle}" Text="{x:Static i18n:LocalizedStrings.EntryTime}"/>
-        <DatePicker x:Name="EntryTimeDatePicker" Grid.Row="0" Grid.Column="1" Margin="0,-2,0,16"
+        <DatePicker x:Name="EntryTimeDatePicker" Grid.Row="0" Grid.Column="1" Margin="0,-2,0,22"
                     SelectedDate="{Binding EntryTime, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"/>
 
         <TextBlock Grid.Column="2" Grid.Row="0" FontWeight="Bold"
                    Style="{StaticResource RightAlignedTextBlockStyle}" Text="{x:Static i18n:LocalizedStrings.ExitTime}"/>
-        <DatePicker x:Name="ExitTimeDatePicker" Grid.Row="0" Grid.Column="3" Margin="0,-2,0,16"
+        <DatePicker x:Name="ExitTimeDatePicker" Grid.Row="0" Grid.Column="3" Margin="0,-2,0,22"
                     SelectedDate="{Binding ExitTime, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"/>
 
         <TextBlock Grid.Column="0" Grid.Row="1" FontWeight="Bold"
