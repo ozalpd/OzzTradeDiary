@@ -41,6 +41,30 @@ namespace TD.WPF.Services
         }
 
         /// <inheritdoc />
+        public (bool IsConfirmed, EntryOrder? EntryOrder) ShowEntryOrderCreateDialog(Window owner, Trade? preselectedTrade)
+        {
+            var dialog = new EntryOrderCreateView(preselectedTrade)
+            {
+                Owner = owner
+            };
+
+            var result = dialog.ShowDialog() == true;
+            return (result, result ? dialog.EntryOrder : null);
+        }
+
+        /// <inheritdoc />
+        public (bool IsConfirmed, bool IsDirty) ShowEntryOrderEditDialog(Window owner, EntryOrder entryOrder)
+        {
+            var dialog = new EntryOrderEditView(entryOrder)
+            {
+                Owner = owner
+            };
+
+            var result = dialog.ShowDialog() == true;
+            return (result, dialog.IsDirty);
+        }
+
+        /// <inheritdoc />
         public (bool IsConfirmed, Exchange? Exchange) ShowExchangeCreateDialog(Window owner, ICurrencyLookupService currencyLookupService)
         {
             var dialog = new ExchangeCreateView(currencyLookupService)
@@ -56,6 +80,30 @@ namespace TD.WPF.Services
         public (bool IsConfirmed, bool IsDirty) ShowExchangeEditDialog(Window owner, Exchange exchange)
         {
             var dialog = new ExchangeEditView(exchange)
+            {
+                Owner = owner
+            };
+
+            var result = dialog.ShowDialog() == true;
+            return (result, dialog.IsDirty);
+        }
+
+        /// <inheritdoc />
+        public (bool IsConfirmed, StopLossOrder? StopLossOrder) ShowStopLossOrderCreateDialog(Window owner, Trade? preselectedTrade)
+        {
+            var dialog = new StopLossOrderCreateView(preselectedTrade)
+            {
+                Owner = owner
+            };
+
+            var result = dialog.ShowDialog() == true;
+            return (result, result ? dialog.StopLossOrder : null);
+        }
+
+        /// <inheritdoc />
+        public (bool IsConfirmed, bool IsDirty) ShowStopLossOrderEditDialog(Window owner, StopLossOrder stopLossOrder)
+        {
+            var dialog = new StopLossOrderEditView(stopLossOrder)
             {
                 Owner = owner
             };
@@ -81,6 +129,30 @@ namespace TD.WPF.Services
         public (bool IsConfirmed, bool IsDirty) ShowSymbolEditDialog(Window owner, Symbol symbol)
         {
             var dialog = new SymbolEditView(symbol)
+            {
+                Owner = owner
+            };
+
+            var result = dialog.ShowDialog() == true;
+            return (result, dialog.IsDirty);
+        }
+
+        /// <inheritdoc />
+        public (bool IsConfirmed, TakeProfitOrder? TakeProfitOrder) ShowTakeProfitOrderCreateDialog(Window owner, Trade? preselectedTrade)
+        {
+            var dialog = new TakeProfitOrderCreateView(preselectedTrade)
+            {
+                Owner = owner
+            };
+
+            var result = dialog.ShowDialog() == true;
+            return (result, result ? dialog.TakeProfitOrder : null);
+        }
+
+        /// <inheritdoc />
+        public (bool IsConfirmed, bool IsDirty) ShowTakeProfitOrderEditDialog(Window owner, TakeProfitOrder takeProfitOrder)
+        {
+            var dialog = new TakeProfitOrderEditView(takeProfitOrder)
             {
                 Owner = owner
             };

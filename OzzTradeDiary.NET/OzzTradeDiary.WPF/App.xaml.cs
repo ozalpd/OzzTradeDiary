@@ -30,18 +30,21 @@ namespace TD.WPF
             var exchangeRepository = new ExchangeRepository(databasePath,
                                      currencyRepository: currencyRepository,
                                      symbolRepository: symbolRepository);
-            var tradingAccountRepository = new TradingAccountRepository(databasePath, exchangeRepository: exchangeRepository);
+            var entryOrderRepository = new EntryOrderRepository(databasePath);
+            var stopLossOrderRepository = new StopLossOrderRepository(databasePath);
+            var takeProfitOrderRepository = new TakeProfitOrderRepository(databasePath);
+            var tradingAccountRepository = new TradingAccountRepository(databasePath, exchangeRepository);
             var tradeRepository = new TradeRepository(databasePath,
-                                  entryOrderRepository: new EntryOrderRepository(databasePath),
-                                  stopLossOrderRepository: new StopLossOrderRepository(databasePath),
+                                  entryOrderRepository: entryOrderRepository,
+                                  stopLossOrderRepository: stopLossOrderRepository,
                                   symbolRepository: symbolRepository,
-                                  takeProfitOrderRepository: new TakeProfitOrderRepository(databasePath),
+                                  takeProfitOrderRepository: takeProfitOrderRepository,
                                   tradeImageRepository: new TradeImageRepository(databasePath),
                                   tradingAccountRepository: tradingAccountRepository);
 
-            var dataSources = new AppDataSources(currencyRepository, exchangeRepository,
-                                                  symbolRepository, tradingAccountRepository,
-                                                  tradeRepository);
+            var dataSources = new AppDataSources(currencyRepository, entryOrderRepository, exchangeRepository,
+                                                 stopLossOrderRepository, symbolRepository, takeProfitOrderRepository,
+                                                 tradingAccountRepository, tradeRepository);
             new MainWindow(dataSources).Show();
         }
     }

@@ -1,30 +1,75 @@
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using TD.AppInfra.Services;
 using TD.Models;
 using TD.RepositoryContracts;
+using TD.WPF.Commands.Trades;
 using TD.WPF.Services;
+using static TD.Extensions.EnumExtension;
 
 namespace TD.WPF.ViewModels.Trades
 {
-    public class TradeHistoryVM : TradeListVM
+    public partial class TradeHistoryVM : TradeListVM
     {
-        public TradeHistoryVM(ITradeRepository tradeRepository, IWindowDialogService windowDialogService,
-                              ISymbolLookupService symbolLookupService, ITradingAccountLookupService tradingAccountLookupService)
+        public TradeHistoryVM(IEntryOrderRepository entryOrderRepository, ITakeProfitOrderRepository takeProfitOrderRepository,
+                              ITradeRepository tradeRepository, IStopLossOrderRepository stopLossOrderRepository,
+                              IWindowDialogService windowDialogService, ISymbolLookupService symbolLookupService,
+                              ITradingAccountLookupService tradingAccountLookupService)
             : base(tradeRepository, windowDialogService, symbolLookupService, tradingAccountLookupService)
         {
             _allSymbols = new List<Symbol>();
             _symbolLookup = symbolLookupService;
             _tradingAccountLookup = tradingAccountLookupService;
 
+            EntryOrderTypeValues = GetValues<EntryOrderType>();
+            ExitOrderTypeValues = GetValues<ExitOrderType>();
+            ExitOrderForTpValues = ExitOrderTypeValues.Where(v => v.Value <= ExitOrderType.TrailingStop)
+                                                      .ToList();
+
+            EntryOrderRepository = entryOrderRepository;
+            EntryOrders = new ObservableCollection<EntryOrder>();
+            EntryOrderCreateCommand = new EntryOrderCreateCommand(this, windowDialogService);
+            EntryOrderDeleteCommand = new EntryOrderDeleteCommand(this);
+            EntryOrderEditCommand = new EntryOrderEditCommand(this, windowDialogService);
+
+            StopLossOrderRepository = stopLossOrderRepository;
+            StopLossOrders = new ObservableCollection<StopLossOrder>();
+            StopLossOrderCreateCommand = new StopLossOrderCreateCommand(this, windowDialogService);
+            StopLossOrderDeleteCommand = new StopLossOrderDeleteCommand(this);
+            StopLossOrderEditCommand = new StopLossOrderEditCommand(this, windowDialogService);
+
+            TakeProfitOrderRepository = takeProfitOrderRepository;
+            TakeProfitOrders = new ObservableCollection<TakeProfitOrder>();
+            TakeProfitOrderCreateCommand = new TakeProfitOrderCreateCommand(this, windowDialogService);
+            TakeProfitOrderDeleteCommand = new TakeProfitOrderDeleteCommand(this);
+            TakeProfitOrderEditCommand = new TakeProfitOrderEditCommand(this, windowDialogService);
+
             QueryVM.PageSize = 50;
         }
+
+
+        protected override void OnPropertyChanged(object? sender, PropertyChangedEventArgs e)
+        {
+            base.OnPropertyChanged(sender, e);
+
+            if (e.PropertyName == nameof(SelectedTrade))
+            {
+                ReplaceEntryOrders();
+                ReplaceStopLossOrders();
+                ReplaceTakeProfitOrders();
+
+                EntryOrderCreateCommand.PreselectedTrade = SelectedTrade;
+                TakeProfitOrderCreateCommand.PreselectedTrade = SelectedTrade;
+                StopLossOrderCreateCommand.PreselectedTrade = SelectedTrade;
+            }
+        }
+
 
         private IReadOnlyList<Symbol> _allSymbols;
         private ISymbolLookupService _symbolLookup { get; }
         private ITradingAccountLookupService _tradingAccountLookup { get; }
 
         public ObservableCollection<Symbol> Symbols { get; } = new();
-        public ObservableCollection<TradingAccount> TradingAccounts { get; } = new();
 
         public TradingAccount? SelectedTradingAccount
         {
@@ -49,6 +94,7 @@ namespace TD.WPF.ViewModels.Trades
             }
         }
         private TradingAccount? _selectedTradingAccount;
+        public ObservableCollection<TradingAccount> TradingAccounts { get; } = new();
 
         public async Task InitializeAsync()
         {

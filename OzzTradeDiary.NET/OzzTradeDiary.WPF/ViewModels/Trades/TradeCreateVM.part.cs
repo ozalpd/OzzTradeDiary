@@ -12,7 +12,7 @@ namespace TD.WPF.ViewModels.Trades
         {
             EntryOrderTypeValues = GetValues<EntryOrderType>();
             ExitOrderTypeValues = GetValues<ExitOrderType>();
-            ExitOrderForTpValues = GetValues<ExitOrderType>().Where(v => v.Value <= ExitOrderType.TrailingStop).ToList();
+            ExitOrderForTpValues = ExitOrderTypeValues.Where(v => v.Value <= ExitOrderType.TrailingStop).ToList();
             PropertyChanged += OnPropertyChanged;
 
             EntryOrderType = EntryOrderType.Market;

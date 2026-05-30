@@ -535,15 +535,15 @@
       <CommandVmTypeName>ISessionsVM</CommandVmTypeName>
       <DetailColumnLayout>OneColumn</DetailColumnLayout>
       <InputColumnLayout>OneColumn</InputColumnLayout>
-      <GenModeCreateCommand>GenerateIfNotExists</GenModeCreateCommand>
-      <GenModeEditCommand>GenerateIfNotExists</GenModeEditCommand>
-      <GenModeDeleteCommand>GenerateIfNotExists</GenModeDeleteCommand>
+      <GenModeCreateCommand>DoNotGenerate</GenModeCreateCommand>
+      <GenModeEditCommand>DoNotGenerate</GenModeEditCommand>
+      <GenModeDeleteCommand>DoNotGenerate</GenModeDeleteCommand>
       <GenModeDetailCommand>DoNotGenerate</GenModeDetailCommand>
       <GenModeLoadCommand>DoNotGenerate</GenModeLoadCommand>
-      <GenModeCreateVM>GenerateIfNotExists</GenModeCreateVM>
-      <GenModeEditVM>GenerateIfNotExists</GenModeEditVM>
+      <GenModeCreateVM>DoNotGenerate</GenModeCreateVM>
+      <GenModeEditVM>DoNotGenerate</GenModeEditVM>
       <GenerateGetPaged>false</GenerateGetPaged>
-      <GenModeCollectionVM>GenerateIfNotExists</GenModeCollectionVM>
+      <GenModeCollectionVM>DoNotGenerate</GenModeCollectionVM>
       <GenModeLookupService>DoNotGenerate</GenModeLookupService>
       <GenModeCreateView>DoNotGenerate</GenModeCreateView>
       <GenModeEditView>DoNotGenerate</GenModeEditView>
@@ -652,15 +652,15 @@
       <CommandVmTypeName>IHolidaysVM</CommandVmTypeName>
       <DetailColumnLayout>OneColumn</DetailColumnLayout>
       <InputColumnLayout>OneColumn</InputColumnLayout>
-      <GenModeCreateCommand>GenerateIfNotExists</GenModeCreateCommand>
-      <GenModeEditCommand>GenerateIfNotExists</GenModeEditCommand>
-      <GenModeDeleteCommand>GenerateIfNotExists</GenModeDeleteCommand>
+      <GenModeCreateCommand>DoNotGenerate</GenModeCreateCommand>
+      <GenModeEditCommand>DoNotGenerate</GenModeEditCommand>
+      <GenModeDeleteCommand>DoNotGenerate</GenModeDeleteCommand>
       <GenModeDetailCommand>DoNotGenerate</GenModeDetailCommand>
       <GenModeLoadCommand>DoNotGenerate</GenModeLoadCommand>
-      <GenModeCreateVM>GenerateIfNotExists</GenModeCreateVM>
-      <GenModeEditVM>GenerateIfNotExists</GenModeEditVM>
+      <GenModeCreateVM>DoNotGenerate</GenModeCreateVM>
+      <GenModeEditVM>DoNotGenerate</GenModeEditVM>
       <GenerateGetPaged>false</GenerateGetPaged>
-      <GenModeCollectionVM>GenerateIfNotExists</GenModeCollectionVM>
+      <GenModeCollectionVM>DoNotGenerate</GenModeCollectionVM>
       <GenModeLookupService>DoNotGenerate</GenModeLookupService>
       <GenModeCreateView>DoNotGenerate</GenModeCreateView>
       <GenModeEditView>DoNotGenerate</GenModeEditView>
@@ -989,7 +989,7 @@
           <Exclude>false</Exclude>
           <CreateEditOrder>10200</CreateEditOrder>
           <DefaultValue />
-          <IsPreselectedInCreate>false</IsPreselectedInCreate>
+          <IsPreselectedInCreate>true</IsPreselectedInCreate>
           <IsMultiLine>false</IsMultiLine>
           <CreateViewMode>Editable</CreateViewMode>
           <EditViewMode>Editable</EditViewMode>
@@ -1025,11 +1025,11 @@
         </WpfMvvmPropertySetting>
       </Properties>
       <SubFolder>Trades</SubFolder>
-      <CommandVmNamespace />
+      <CommandVmNamespace>TD.WPF.ViewModels.Trades</CommandVmNamespace>
       <CommandVmTypeName>TradeHistoryVM</CommandVmTypeName>
       <DetailColumnLayout>OneColumn</DetailColumnLayout>
       <InputColumnLayout>OneColumn</InputColumnLayout>
-      <GenModeCreateCommand>GenerateIfNotExists</GenModeCreateCommand>
+      <GenModeCreateCommand>SkipManuallyEdited</GenModeCreateCommand>
       <GenModeEditCommand>GenerateIfNotExists</GenModeEditCommand>
       <GenModeDeleteCommand>GenerateIfNotExists</GenModeDeleteCommand>
       <GenModeDetailCommand>DoNotGenerate</GenModeDetailCommand>
@@ -1037,10 +1037,10 @@
       <GenModeCreateVM>GenerateIfNotExists</GenModeCreateVM>
       <GenModeEditVM>GenerateIfNotExists</GenModeEditVM>
       <GenerateGetPaged>false</GenerateGetPaged>
-      <GenModeCollectionVM>DoNotGenerate</GenModeCollectionVM>
+      <GenModeCollectionVM>GenerateIfNotExists</GenModeCollectionVM>
       <GenModeLookupService>DoNotGenerate</GenModeLookupService>
-      <GenModeCreateView>DoNotGenerate</GenModeCreateView>
-      <GenModeEditView>DoNotGenerate</GenModeEditView>
+      <GenModeCreateView>GenerateIfNotExists</GenModeCreateView>
+      <GenModeEditView>GenerateIfNotExists</GenModeEditView>
       <GenModeDetailView>DoNotGenerate</GenModeDetailView>
       <RepositoryName>IEntryOrderRepository</RepositoryName>
     </BaseEntitySetting>
@@ -1067,7 +1067,7 @@
           <Exclude>false</Exclude>
           <CreateEditOrder>10200</CreateEditOrder>
           <DefaultValue />
-          <IsPreselectedInCreate>false</IsPreselectedInCreate>
+          <IsPreselectedInCreate>true</IsPreselectedInCreate>
           <IsMultiLine>false</IsMultiLine>
           <CreateViewMode>Editable</CreateViewMode>
           <EditViewMode>Editable</EditViewMode>
@@ -1103,11 +1103,11 @@
         </WpfMvvmPropertySetting>
       </Properties>
       <SubFolder>Trades</SubFolder>
-      <CommandVmNamespace />
+      <CommandVmNamespace>TD.WPF.ViewModels.Trades</CommandVmNamespace>
       <CommandVmTypeName>TradeHistoryVM</CommandVmTypeName>
       <DetailColumnLayout>OneColumn</DetailColumnLayout>
       <InputColumnLayout>OneColumn</InputColumnLayout>
-      <GenModeCreateCommand>GenerateIfNotExists</GenModeCreateCommand>
+      <GenModeCreateCommand>SkipManuallyEdited</GenModeCreateCommand>
       <GenModeEditCommand>GenerateIfNotExists</GenModeEditCommand>
       <GenModeDeleteCommand>GenerateIfNotExists</GenModeDeleteCommand>
       <GenModeDetailCommand>DoNotGenerate</GenModeDetailCommand>
@@ -1117,8 +1117,8 @@
       <GenerateGetPaged>false</GenerateGetPaged>
       <GenModeCollectionVM>DoNotGenerate</GenModeCollectionVM>
       <GenModeLookupService>DoNotGenerate</GenModeLookupService>
-      <GenModeCreateView>DoNotGenerate</GenModeCreateView>
-      <GenModeEditView>DoNotGenerate</GenModeEditView>
+      <GenModeCreateView>GenerateIfNotExists</GenModeCreateView>
+      <GenModeEditView>GenerateIfNotExists</GenModeEditView>
       <GenModeDetailView>DoNotGenerate</GenModeDetailView>
       <RepositoryName>ITakeProfitOrderRepository</RepositoryName>
     </BaseEntitySetting>
@@ -1145,7 +1145,7 @@
           <Exclude>false</Exclude>
           <CreateEditOrder>10200</CreateEditOrder>
           <DefaultValue />
-          <IsPreselectedInCreate>false</IsPreselectedInCreate>
+          <IsPreselectedInCreate>true</IsPreselectedInCreate>
           <IsMultiLine>false</IsMultiLine>
           <CreateViewMode>Editable</CreateViewMode>
           <EditViewMode>Editable</EditViewMode>
@@ -1181,11 +1181,11 @@
         </WpfMvvmPropertySetting>
       </Properties>
       <SubFolder>Trades</SubFolder>
-      <CommandVmNamespace />
+      <CommandVmNamespace>TD.WPF.ViewModels.Trades</CommandVmNamespace>
       <CommandVmTypeName>TradeHistoryVM</CommandVmTypeName>
       <DetailColumnLayout>OneColumn</DetailColumnLayout>
       <InputColumnLayout>OneColumn</InputColumnLayout>
-      <GenModeCreateCommand>GenerateIfNotExists</GenModeCreateCommand>
+      <GenModeCreateCommand>SkipManuallyEdited</GenModeCreateCommand>
       <GenModeEditCommand>GenerateIfNotExists</GenModeEditCommand>
       <GenModeDeleteCommand>GenerateIfNotExists</GenModeDeleteCommand>
       <GenModeDetailCommand>DoNotGenerate</GenModeDetailCommand>
@@ -1195,8 +1195,8 @@
       <GenerateGetPaged>false</GenerateGetPaged>
       <GenModeCollectionVM>DoNotGenerate</GenModeCollectionVM>
       <GenModeLookupService>DoNotGenerate</GenModeLookupService>
-      <GenModeCreateView>DoNotGenerate</GenModeCreateView>
-      <GenModeEditView>DoNotGenerate</GenModeEditView>
+      <GenModeCreateView>GenerateIfNotExists</GenModeCreateView>
+      <GenModeEditView>GenerateIfNotExists</GenModeEditView>
       <GenModeDetailView>DoNotGenerate</GenModeDetailView>
       <RepositoryName>IStopLossOrderRepository</RepositoryName>
     </BaseEntitySetting>
@@ -1263,13 +1263,13 @@
       <CommandVmTypeName>TradeHistoryVM</CommandVmTypeName>
       <DetailColumnLayout>OneColumn</DetailColumnLayout>
       <InputColumnLayout>OneColumn</InputColumnLayout>
-      <GenModeCreateCommand>GenerateIfNotExists</GenModeCreateCommand>
-      <GenModeEditCommand>GenerateIfNotExists</GenModeEditCommand>
-      <GenModeDeleteCommand>GenerateIfNotExists</GenModeDeleteCommand>
+      <GenModeCreateCommand>DoNotGenerate</GenModeCreateCommand>
+      <GenModeEditCommand>DoNotGenerate</GenModeEditCommand>
+      <GenModeDeleteCommand>DoNotGenerate</GenModeDeleteCommand>
       <GenModeDetailCommand>DoNotGenerate</GenModeDetailCommand>
       <GenModeLoadCommand>DoNotGenerate</GenModeLoadCommand>
-      <GenModeCreateVM>GenerateIfNotExists</GenModeCreateVM>
-      <GenModeEditVM>GenerateIfNotExists</GenModeEditVM>
+      <GenModeCreateVM>DoNotGenerate</GenModeCreateVM>
+      <GenModeEditVM>DoNotGenerate</GenModeEditVM>
       <GenerateGetPaged>false</GenerateGetPaged>
       <GenModeCollectionVM>DoNotGenerate</GenModeCollectionVM>
       <GenModeLookupService>DoNotGenerate</GenModeLookupService>

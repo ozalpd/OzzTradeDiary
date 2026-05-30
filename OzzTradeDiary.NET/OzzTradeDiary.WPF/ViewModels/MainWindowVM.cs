@@ -19,7 +19,9 @@ namespace TD.WPF.ViewModels
             var symbolLookupService = new SymbolLookupService(dataSources.SymbolRepository);
             var tradingAccountLookupService = new TradingAccountLookupService(dataSources.TradingAccountRepository);
 
-            TradeHistory = new TradeHistoryVM(dataSources.TradeRepository, _windowDialogService, symbolLookupService, tradingAccountLookupService);
+            TradeHistory = new TradeHistoryVM(dataSources.EntryOrderRepository, dataSources.TakeProfitOrderRepository,
+                                              dataSources.TradeRepository, dataSources.StopLossOrderRepository,
+                                              _windowDialogService, symbolLookupService, tradingAccountLookupService);
             ShowMaintenanceCommand = new ShowMaintenanceCommand(dataSources);
             ShowAboutCommand = new ShowAboutCommand();
             ExitCommand = new ExitCommand();

@@ -7,7 +7,7 @@ namespace TD.WPF.DesignTime
     public class MockTradeHistoryVM : TradeHistoryVM
     {
         public MockTradeHistoryVM()
-            : base(new TradeMockRepository(), new MockWindowDialogService(),
+            : base(new EntryOrderMockRepository(), new TakeProfitOrderMockRepository(), new TradeMockRepository(), new StopLossOrderMockRepository(), new MockWindowDialogService(),
                    new SymbolMockLookupService(), new TradingAccountMockLookupService())
         {
             _selectedItem = new Trade
@@ -49,17 +49,25 @@ namespace TD.WPF.DesignTime
             // Entry orders (DCA into position)
             _selectedItem.EntryOrders.Add(new EntryOrder
             {
-                Id = 1, TradeId = 1, OrderType = EntryOrderType.Limit,
-                OrderPrice = 75200m, OrderQuantity = 0.01m,
-                FilledPrice = 75200m, FilledQuantity = 0.01m,
+                Id = 1,
+                TradeId = 1,
+                OrderType = EntryOrderType.Limit,
+                OrderPrice = 75200m,
+                OrderQuantity = 0.01m,
+                FilledPrice = 75200m,
+                FilledQuantity = 0.01m,
                 FilledTime = DateTime.Now.AddDays(-10),
                 UpdatedAt = DateTime.Now.AddDays(-10)
             });
             _selectedItem.EntryOrders.Add(new EntryOrder
             {
-                Id = 2, TradeId = 1, OrderType = EntryOrderType.Limit,
-                OrderPrice = 74400m, OrderQuantity = 0.01m,
-                FilledPrice = 74400m, FilledQuantity = 0.01m,
+                Id = 2,
+                TradeId = 1,
+                OrderType = EntryOrderType.Limit,
+                OrderPrice = 74400m,
+                OrderQuantity = 0.01m,
+                FilledPrice = 74400m,
+                FilledQuantity = 0.01m,
                 FilledTime = DateTime.Now.AddDays(-10).AddHours(2),
                 UpdatedAt = DateTime.Now.AddDays(-10)
             });
@@ -67,34 +75,52 @@ namespace TD.WPF.DesignTime
             // Take profit orders
             _selectedItem.TakeProfitOrders.Add(new TakeProfitOrder
             {
-                Id = 1, TradeId = 1, OrderType = ExitOrderType.Limit,
-                OrderPrice = 78000m, OrderQuantity = 0.008m,
-                FilledPrice = 77950m, FilledQuantity = 0.008m,
+                Id = 1,
+                TradeId = 1,
+                OrderType = ExitOrderType.Limit,
+                OrderPrice = 78000m,
+                OrderQuantity = 0.008m,
+                FilledPrice = 77950m,
+                FilledQuantity = 0.008m,
                 FilledTime = DateTime.Now.AddDays(-9),
                 UpdatedAt = DateTime.Now.AddDays(-9)
             });
             _selectedItem.TakeProfitOrders.Add(new TakeProfitOrder
             {
-                Id = 2, TradeId = 1, OrderType = ExitOrderType.Limit,
-                OrderPrice = 79500m, OrderQuantity = 0.006m,
-                FilledPrice = 79500m, FilledQuantity = 0.006m,
+                Id = 2,
+                TradeId = 1,
+                OrderType = ExitOrderType.Limit,
+                OrderPrice = 79500m,
+                OrderQuantity = 0.006m,
+                FilledPrice = 79500m,
+                FilledQuantity = 0.006m,
                 FilledTime = DateTime.Now.AddDays(-8).AddHours(-6),
                 UpdatedAt = DateTime.Now.AddDays(-8)
             });
             _selectedItem.TakeProfitOrders.Add(new TakeProfitOrder
             {
-                Id = 3, TradeId = 1, OrderType = ExitOrderType.TrailingStop,
-                OrderPrice = 81000m, OrderQuantity = 0.006m,
+                Id = 3,
+                TradeId = 1,
+                OrderType = ExitOrderType.TrailingStop,
+                OrderPrice = 81000m,
+                OrderQuantity = 0.006m,
                 UpdatedAt = DateTime.Now.AddDays(-10)
             });
 
             // Stop loss order
             _selectedItem.StopLossOrders.Add(new StopLossOrder
             {
-                Id = 1, TradeId = 1, OrderType = ExitOrderType.Stop,
-                OrderPrice = 73000m, OrderQuantity = 0.02m,
+                Id = 1,
+                TradeId = 1,
+                OrderType = ExitOrderType.Stop,
+                OrderPrice = 73000m,
+                OrderQuantity = 0.02m,
                 UpdatedAt = DateTime.Now.AddDays(-10)
             });
+
+            ReplaceCollection(EntryOrders, _selectedItem.EntryOrders);
+            ReplaceCollection(TakeProfitOrders, _selectedItem.TakeProfitOrders);
+            ReplaceCollection(StopLossOrders, _selectedItem.StopLossOrders);
 
             _selectedItem.SetupNotes = "BTC breaking above key resistance at 75k with strong volume." + Environment.NewLine +
                                        "DCA entry plan: first fill at resistance retest, second fill at 74.4k demand zone.";

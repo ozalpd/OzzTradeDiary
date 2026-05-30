@@ -18,5 +18,11 @@ namespace TD.WPF.DesignTime
         public void ShowTradeDetailDialog(Window owner, Trade trade) { }
         public (bool IsConfirmed, TradingAccount? TradingAccount) ShowTradingAccountCreateDialog(Window owner, IExchangeLookupService exchangeLookupService, Exchange? preselectedExchange) => (false, null);
         public (bool IsConfirmed, bool IsDirty) ShowTradingAccountEditDialog(Window owner, TradingAccount tradingAccount) => (false, false);
+        public (bool IsConfirmed, EntryOrder? EntryOrder) ShowEntryOrderCreateDialog(Window owner, Trade? preselectedTrade) => (false, null);
+        public (bool IsConfirmed, bool IsDirty) ShowEntryOrderEditDialog(Window owner, EntryOrder entryOrder) => (false, false);
+        public (bool IsConfirmed, StopLossOrder? StopLossOrder) ShowStopLossOrderCreateDialog(Window owner, Trade? preselectedTrade) => (false, null);
+        public (bool IsConfirmed, bool IsDirty) ShowStopLossOrderEditDialog(Window owner, StopLossOrder stopLossOrder) => (false, false);
+        public (bool IsConfirmed, TakeProfitOrder? TakeProfitOrder) ShowTakeProfitOrderCreateDialog(Window owner, Trade? preselectedTrade) => (false, null);
+        public (bool IsConfirmed, bool IsDirty) ShowTakeProfitOrderEditDialog(Window owner, TakeProfitOrder takeProfitOrder) => (false, false);
     }
 }

@@ -4,6 +4,20 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.2.0] - 2026-05-30
+
+### Added
+- Added full CRUD support for `EntryOrder`, `TakeProfitOrder`, and `StopLossOrder` in the WPF UI
+- Integrated repositories for these order types into `AppDataSources`, DI, and design-time mocks
+- Implemented create/edit/delete commands, ViewModels, and dialogs for each order type
+
+### Changed
+- Updated `MainWindow` and `TradeHistoryVM` to manage order collections and selection
+- Extended `IWindowDialogService` for new order dialogs
+- Updated `MainWindow.xaml` to show order data grids and reorganized layout
+- Refactored design-time mocks and dialog services for new types
+- Bumped all project versions to 0.2.0.
+
 ## [0.1.7] - 2026-05-30
 
 ### Added
