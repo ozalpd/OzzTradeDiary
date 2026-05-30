@@ -105,18 +105,9 @@
           <IsSearchParameter>false</IsSearchParameter>
         </ModelPropertySetting>
         <ModelPropertySetting>
-          <Name>OrderPrice</Name>
-          <Exclude>false</Exclude>
-          <DataType />
-          <DTOExclusion>false</DTOExclusion>
-          <HtmlEncode xsi:nil="true" />
-          <Range>0.00000001, double.MaxValue</Range>
-          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
-          <IsSearchParameter>false</IsSearchParameter>
-        </ModelPropertySetting>
-        <ModelPropertySetting>
           <Name>FilledPrice</Name>
           <Exclude>false</Exclude>
+          <CustomAttributes>GreaterThan(0)</CustomAttributes>
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
@@ -126,6 +117,7 @@
         <ModelPropertySetting>
           <Name>OrderQuantity</Name>
           <Exclude>false</Exclude>
+          <CustomAttributes>GreaterThan(0)</CustomAttributes>
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
@@ -135,6 +127,7 @@
         <ModelPropertySetting>
           <Name>FilledQuantity</Name>
           <Exclude>false</Exclude>
+          <CustomAttributes>GreaterThan(0)</CustomAttributes>
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
@@ -631,6 +624,16 @@
           <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
           <IsSearchParameter>false</IsSearchParameter>
         </ModelPropertySetting>
+        <ModelPropertySetting>
+          <Name>OrderPrice</Name>
+          <Exclude>false</Exclude>
+          <CustomAttributes>GreaterThan(0)</CustomAttributes>
+          <DataType />
+          <DTOExclusion>false</DTOExclusion>
+          <HtmlEncode xsi:nil="true" />
+          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
+          <IsSearchParameter>false</IsSearchParameter>
+        </ModelPropertySetting>
       </Properties>
       <GenerateQueryParam>false</GenerateQueryParam>
     </BaseEntitySetting>
@@ -668,6 +671,16 @@
           <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
           <IsSearchParameter>false</IsSearchParameter>
         </ModelPropertySetting>
+        <ModelPropertySetting>
+          <Name>OrderPrice</Name>
+          <Exclude>false</Exclude>
+          <CustomAttributes>GreaterThan(0);PriceSide(PriceSide.Above)</CustomAttributes>
+          <DataType />
+          <DTOExclusion>false</DTOExclusion>
+          <HtmlEncode xsi:nil="true" />
+          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
+          <IsSearchParameter>false</IsSearchParameter>
+        </ModelPropertySetting>
       </Properties>
       <GenerateQueryParam>false</GenerateQueryParam>
     </BaseEntitySetting>
@@ -699,6 +712,16 @@
           <Name>OrderType</Name>
           <Exclude>false</Exclude>
           <CustomAttributes>RequiredSelection</CustomAttributes>
+          <DataType />
+          <DTOExclusion>false</DTOExclusion>
+          <HtmlEncode xsi:nil="true" />
+          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
+          <IsSearchParameter>false</IsSearchParameter>
+        </ModelPropertySetting>
+        <ModelPropertySetting>
+          <Name>OrderPrice</Name>
+          <Exclude>false</Exclude>
+          <CustomAttributes>GreaterThan(0);PriceSide(PriceSide.Below)</CustomAttributes>
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
@@ -935,7 +958,7 @@
         <ModelPropertySetting>
           <Name>PlannedTP</Name>
           <Exclude>false</Exclude>
-          <CustomAttributes>GreaterThan(0)</CustomAttributes>
+          <CustomAttributes>GreaterThan(0);PriceSide(PriceSide.Above)</CustomAttributes>
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
@@ -955,7 +978,7 @@
         <ModelPropertySetting>
           <Name>PlannedSL</Name>
           <Exclude>false</Exclude>
-          <CustomAttributes>GreaterThan(0)</CustomAttributes>
+          <CustomAttributes>GreaterThan(0);PriceSide(PriceSide.Below)</CustomAttributes>
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />

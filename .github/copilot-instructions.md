@@ -170,6 +170,10 @@ Internal tracking versions: `OzzTradeDiary` `0.0.60`, `OzzTradeDiary.AppInfra` `
 - **App version**: `AppVersion` static class (`TD.WPF.Models`) reads product name, version, copyright, and description from assembly attributes; use `AppVersion.Version` for display
 - **UI culture**: `AppSettings.UiCulture` stores the user's preferred BCP-47 culture name (e.g. `"en-US"`, `"tr-TR"`). `App.OnStartup` applies it to `Thread.CurrentThread.CurrentUICulture` and `CurrentCulture` before `MainWindow` is created. When empty, the OS culture is used.
 - **Validation**: Use `TD.Validation.ModelValidator` for shared DataAnnotations-based model validation logic so WPF, MAUI, and ASP.NET can reuse the same validation rules
+- **Custom validation attributes** live in `TD.Validation` and are applied via OzzCodeGen on generated model properties:
+  - `RequiredSelectionAttribute` — validates that a selection was made (value != 0); use on enum properties and FK int properties instead of `[Range(1, int.MaxValue)]`
+  - `GreaterThanAttribute` — validates that a numeric value is strictly greater than a threshold
+  - `PriceSideAttribute(PriceSide side)` — validates that a planned price level is on the correct side of `PlannedEntryPrice` relative to `TradeDirection`; only enforced for `TradeStatus.Planned` and `TradeStatus.Pending`; silently passes for Active/Closed. Works on order entities (reads `Trade` via the `TradeProperty` navigation name, default `"Trade"`) and directly on `Trade` properties (`PlannedTP`, `PlannedSL`). `PriceSide` enum lives in `TD.Models` (`Enums.cs`).
 - **Query contract**: Use `TD.Helpers.QueryParameters` for shared pagination/search query payloads, and `TD.Helpers.TradeQueryParameters` for typed trade filtering instead of duplicating per-feature query DTOs.
 - **Trade query extensibility**: keep `TradeQueryParameters` search-criteria checks extensible through partial methods so companion partial files can extend filter detection without editing generated files.
 - **Localization**: Use resources from `OzzTradeDiary.i18n` (`ActionStrings`, `CommonStrings`, `ErrorStrings`, `LocalizedStrings`, `MessageStrings`); model classes consume these resources through DataAnnotations and the resource classes are generated artifacts
@@ -205,10 +209,11 @@ Internal tracking versions: `OzzTradeDiary` `0.0.60`, `OzzTradeDiary.AppInfra` `
 
 ## Key Enums
 
-- `MarketType`: Stock, Fund, Futures, Forex, Option, Commodity, Crypto, CryptoPerpetual, Index
+- `MarketType`: Unspecified (0), Stock (20), Fund (30), Futures (40), Forex (50), Option (60), Commodity (70), Crypto (80), CryptoPerpetual (90), Index (100)
 - `TradeDirection`: Long (200), Short (100)
-- `EntryMethod`: Market, Limit
-- `OrderType`: Market, Limit, Stop, StopLimit, TrailingStop
+- `EntryOrderType`: Market (10), Limit (20), StopMarket (40), StopLimit (50) — used on `EntryOrder.OrderType`
+- `ExitOrderType`: Market (10), Limit (20), TrailingStop (30), Stop (40), StopLimit (50) — used on `StopLossOrder.OrderType` and `TakeProfitOrder.OrderType`
+- `PriceSide`: Above, Below — used by `PriceSideAttribute` to specify which side of the entry price a planned price level must be on; defined in `TD.Models` (`Enums.cs`) alongside the other domain enums
 - `TradeStatus`: Missed (-10), Cancelled (-20), Planned (10), Pending (20), Active (30), Closed (40). Negative values = never opened; use range queries: `status < 0` (abandoned), `status <= Pending` (no position opened), `status > Pending` (active or closed, may have execution results). `Cancelled` uses -20 to align with the convention used in other enums in this codebase.
 
 ## UI Guidelines

@@ -24,7 +24,7 @@ See [`CHANGELOG.md`](CHANGELOG.md) for release history.
 ### Trade Journal
 - Track trades across multiple markets: Crypto, Stock, Forex, Futures, Options, Commodities, and more
 - Long and short trade directions
-- Multiple order types: Market, Limit, Stop, StopLimit, TrailingStop
+- Separate order type enums for entries (`EntryOrderType`: Market, Limit, StopMarket, StopLimit) and exits (`ExitOrderType`: Market, Limit, TrailingStop, Stop, StopLimit)
 - Entry/exit orders, stop-loss, and take-profit levels per trade
 - Trade images: attach chart screenshots or web URLs with notes
 - Trade filtering and paging with `TradeQueryParameters` — supports date ranges, position values, P/L, and risk range filters
@@ -83,7 +83,7 @@ See [`CHANGELOG.md`](CHANGELOG.md) for release history.
 - Multi-market support: Stock, Forex, Crypto, Futures, Options, Commodities, and more
 - Trade tracking with entry/exit orders, stop-loss, and take-profit levels
 - Long and short trade directions
-- Multiple order types: Market, Limit, Stop, StopLimit, TrailingStop
+- Separate order type enums for entries and exits (EntryOrderType, ExitOrderType)
 - Trade images with chart attachments and notes
 - Multi-account and multi-exchange support
 - Automatic SQLite database backup with ZIP archiving

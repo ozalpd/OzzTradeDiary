@@ -408,25 +408,9 @@
           <IsStoreGenerated>false</IsStoreGenerated>
         </BaseProperty>
         <BaseProperty xsi:type="SimpleProperty">
-          <Name>OrderPrice</Name>
-          <Comment>Planned Entry Price</Comment>
-          <DisplayOrder>20200</DisplayOrder>
-          <DisplayName>Order Price</DisplayName>
-          <TypeName>decimal</TypeName>
-          <IsClientComputed>false</IsClientComputed>
-          <IsServerComputed>false</IsServerComputed>
-          <RestrictedData>false</RestrictedData>
-          <EnumTypeName />
-          <IsKey>false</IsKey>
-          <IsForeignKey>false</IsForeignKey>
-          <IsImmutable>false</IsImmutable>
-          <IsNullable>false</IsNullable>
-          <IsStoreGenerated>false</IsStoreGenerated>
-        </BaseProperty>
-        <BaseProperty xsi:type="SimpleProperty">
           <Name>FilledPrice</Name>
           <Comment>Executed Entry Price</Comment>
-          <DisplayOrder>20300</DisplayOrder>
+          <DisplayOrder>20200</DisplayOrder>
           <DisplayName>Filled Price</DisplayName>
           <TypeName>decimal</TypeName>
           <IsClientComputed>false</IsClientComputed>
@@ -442,7 +426,7 @@
         <BaseProperty xsi:type="SimpleProperty">
           <Name>OrderQuantity</Name>
           <Comment>Planned contract quantity of order</Comment>
-          <DisplayOrder>20400</DisplayOrder>
+          <DisplayOrder>20300</DisplayOrder>
           <DisplayName>Order Quantity</DisplayName>
           <TypeName>decimal</TypeName>
           <IsClientComputed>false</IsClientComputed>
@@ -458,7 +442,7 @@
         <BaseProperty xsi:type="SimpleProperty">
           <Name>FilledQuantity</Name>
           <Comment>Realized contract quantity of order</Comment>
-          <DisplayOrder>20500</DisplayOrder>
+          <DisplayOrder>20400</DisplayOrder>
           <DisplayName>Filled Quantity</DisplayName>
           <TypeName>decimal</TypeName>
           <IsClientComputed>false</IsClientComputed>
@@ -474,7 +458,7 @@
         <BaseProperty xsi:type="SimpleProperty">
           <Name>OrderValue</Name>
           <Comment>Planned position value in currency, like $100</Comment>
-          <DisplayOrder>20600</DisplayOrder>
+          <DisplayOrder>20500</DisplayOrder>
           <DisplayName>Order Value</DisplayName>
           <TypeName>decimal</TypeName>
           <IsClientComputed>false</IsClientComputed>
@@ -490,7 +474,7 @@
         <BaseProperty xsi:type="SimpleProperty">
           <Name>FilledValue</Name>
           <Comment>Filled position value in currency, like $100</Comment>
-          <DisplayOrder>20700</DisplayOrder>
+          <DisplayOrder>20600</DisplayOrder>
           <DisplayName>Filled Value</DisplayName>
           <TypeName>decimal</TypeName>
           <IsClientComputed>false</IsClientComputed>
@@ -505,7 +489,7 @@
         </BaseProperty>
         <BaseProperty xsi:type="StringProperty">
           <Name>Notes</Name>
-          <DisplayOrder>20800</DisplayOrder>
+          <DisplayOrder>20700</DisplayOrder>
           <DisplayName>Notes</DisplayName>
           <TypeName>string</TypeName>
           <IsClientComputed>false</IsClientComputed>
@@ -1254,6 +1238,21 @@
           <IsNullable>false</IsNullable>
           <IsStoreGenerated>false</IsStoreGenerated>
         </BaseProperty>
+        <BaseProperty xsi:type="SimpleProperty">
+          <Name>OrderPrice</Name>
+          <DisplayOrder>10400</DisplayOrder>
+          <DisplayName>Order Price</DisplayName>
+          <TypeName>decimal</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <RestrictedData>false</RestrictedData>
+          <EnumTypeName />
+          <IsKey>false</IsKey>
+          <IsForeignKey>false</IsForeignKey>
+          <IsImmutable>false</IsImmutable>
+          <IsNullable>false</IsNullable>
+          <IsStoreGenerated>false</IsStoreGenerated>
+        </BaseProperty>
       </Properties>
     </EntityDefinition>
     <EntityDefinition>
@@ -1306,6 +1305,21 @@
           <IsNullable>false</IsNullable>
           <IsStoreGenerated>false</IsStoreGenerated>
         </BaseProperty>
+        <BaseProperty xsi:type="SimpleProperty">
+          <Name>OrderPrice</Name>
+          <DisplayOrder>10400</DisplayOrder>
+          <DisplayName>Order Price</DisplayName>
+          <TypeName>decimal</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <RestrictedData>false</RestrictedData>
+          <EnumTypeName />
+          <IsKey>false</IsKey>
+          <IsForeignKey>false</IsForeignKey>
+          <IsImmutable>false</IsImmutable>
+          <IsNullable>false</IsNullable>
+          <IsStoreGenerated>false</IsStoreGenerated>
+        </BaseProperty>
       </Properties>
     </EntityDefinition>
     <EntityDefinition>
@@ -1352,6 +1366,21 @@
           <IsServerComputed>false</IsServerComputed>
           <RestrictedData>false</RestrictedData>
           <EnumTypeName>ExitOrderType</EnumTypeName>
+          <IsKey>false</IsKey>
+          <IsForeignKey>false</IsForeignKey>
+          <IsImmutable>false</IsImmutable>
+          <IsNullable>false</IsNullable>
+          <IsStoreGenerated>false</IsStoreGenerated>
+        </BaseProperty>
+        <BaseProperty xsi:type="SimpleProperty">
+          <Name>OrderPrice</Name>
+          <DisplayOrder>10400</DisplayOrder>
+          <DisplayName>Order Price</DisplayName>
+          <TypeName>decimal</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <RestrictedData>false</RestrictedData>
+          <EnumTypeName />
           <IsKey>false</IsKey>
           <IsForeignKey>false</IsForeignKey>
           <IsImmutable>false</IsImmutable>

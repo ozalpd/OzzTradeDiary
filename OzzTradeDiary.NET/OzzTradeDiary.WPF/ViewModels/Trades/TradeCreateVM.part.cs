@@ -39,6 +39,14 @@ namespace TD.WPF.ViewModels.Trades
             {
                 SetMarketType();
             }
+
+            if (e.PropertyName == nameof(TradeDirection) || e.PropertyName == nameof(TradeStatus) || e.PropertyName == nameof(PlannedEntryPrice))
+            {
+                RaisePropertyChanged(nameof(PlannedRiskRewardRatio));
+                RaisePropertyChanged(nameof(PlannedProfit));
+                ValidateProperty(Trade, nameof(PlannedTP));
+                ValidateProperty(Trade, nameof(PlannedSL));
+            }
         }
 
         public EntryOrderType EntryOrderType

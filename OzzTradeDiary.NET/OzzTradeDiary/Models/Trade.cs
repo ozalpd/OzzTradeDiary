@@ -112,6 +112,7 @@ namespace TD.Models
         /// Planned Take Profit Price, calculated from TakeProfitOrders
         /// </summary>
         [GreaterThan(0)]
+        [PriceSide(PriceSide.Above)]
         [Display(ResourceType = typeof(LocalizedStrings), Name = "PlannedTP")]
         public decimal? PlannedTP { get; set; }
 
@@ -126,6 +127,7 @@ namespace TD.Models
         /// Planned Stop Loss Price, calculated from StopLossOrders
         /// </summary>
         [GreaterThan(0)]
+        [PriceSide(PriceSide.Below)]
         [Display(ResourceType = typeof(LocalizedStrings), Name = "PlannedSL")]
         public decimal? PlannedSL { get; set; }
 

@@ -40,33 +40,34 @@ namespace TD.Models
         [Display(ResourceType = typeof(LocalizedStrings), Name = "OrderType")]
         public ExitOrderType OrderType { get; set; }
 
+        [GreaterThan(0)]
+        [PriceSide(PriceSide.Below)]
+        [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "OrderPrice")]
+        public decimal OrderPrice { get; set; }
+
         [Range(typeof(DateTime), "1/1/2000", "12/31/2220", ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName ="RangeDateTime")]
         [Display(ResourceType = typeof(LocalizedStrings), Name = "FilledTime")]
         public DateTime? FilledTime { get; set; }
 
         /// <summary>
-        /// Planned Entry Price
-        /// </summary>
-        [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
-        [Range(0.00000001, double.MaxValue, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName ="ValueMin")]
-        [Display(ResourceType = typeof(LocalizedStrings), Name = "OrderPrice")]
-        public decimal OrderPrice { get; set; }
-
-        /// <summary>
         /// Executed Entry Price
         /// </summary>
+        [GreaterThan(0)]
         [Display(ResourceType = typeof(LocalizedStrings), Name = "FilledPrice")]
         public decimal? FilledPrice { get; set; }
 
         /// <summary>
         /// Planned contract quantity of order
         /// </summary>
+        [GreaterThan(0)]
         [Display(ResourceType = typeof(LocalizedStrings), Name = "OrderQuantity")]
         public decimal? OrderQuantity { get; set; }
 
         /// <summary>
         /// Realized contract quantity of order
         /// </summary>
+        [GreaterThan(0)]
         [Display(ResourceType = typeof(LocalizedStrings), Name = "FilledQuantity")]
         public decimal? FilledQuantity { get; set; }
 
@@ -91,8 +92,8 @@ namespace TD.Models
             var clone = new StopLossOrder();
             clone.TradeId = this.TradeId;
             clone.OrderType = this.OrderType;
-            clone.FilledTime = this.FilledTime;
             clone.OrderPrice = this.OrderPrice;
+            clone.FilledTime = this.FilledTime;
             clone.FilledPrice = this.FilledPrice;
             clone.OrderQuantity = this.OrderQuantity;
             clone.FilledQuantity = this.FilledQuantity;

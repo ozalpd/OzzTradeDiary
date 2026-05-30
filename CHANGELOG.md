@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 ### Added
 - Added WPF value converters for trade status/direction and booleans, with global registration in `Converters.xaml` and `App.xaml`.
 - Introduced `RequiredSelectionAttribute` and `GreaterThanAttribute` for improved model validation and clearer error messages.
+- Introduced `PriceSide` enum and `PriceSideAttribute`.
 
 ### Changed
 - Enhanced `MainWindow.xaml` UI with color cues and improved header layout.
@@ -29,6 +30,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - Updated `TradeRepository` to support new update logic; only expose `UpdateCancellationTimeAsync`
 - Updated codegen settings and model classes to use these attributes instead of `[Range(1, int.MaxValue)]` for enums, foreign keys, and numeric fields.
 - Changed vocabulary and localization for `*Id` fields to display user-friendly labels (e.g., "Exchange" instead of "Exchange Id").
+- Applied [GreaterThan(0)] and new [PriceSide(...)] validation attributes to ensure price levels are on the correct side of entry price for trade direction.
+- Improved `TradeCreateVM` property change handling for validation and recalculation.
 
 ## [0.1.6] - 2026-05-28
 

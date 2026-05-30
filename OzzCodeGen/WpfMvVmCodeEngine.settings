@@ -218,19 +218,6 @@
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
-          <Name>OrderPrice</Name>
-          <Exclude>false</Exclude>
-          <CreateEditOrder>20300</CreateEditOrder>
-          <DefaultValue />
-          <IsPreselectedInCreate>false</IsPreselectedInCreate>
-          <IsMultiLine>false</IsMultiLine>
-          <CreateViewMode>Editable</CreateViewMode>
-          <EditViewMode>Editable</EditViewMode>
-          <ShowInCollection>true</ShowInCollection>
-          <ShowInDetail>true</ShowInDetail>
-          <ValueConstraint />
-        </WpfMvvmPropertySetting>
-        <WpfMvvmPropertySetting>
           <Name>FilledPrice</Name>
           <Exclude>false</Exclude>
           <CreateEditOrder>20400</CreateEditOrder>
@@ -1023,6 +1010,19 @@
           <ShowInDetail>true</ShowInDetail>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
+        <WpfMvvmPropertySetting>
+          <Name>OrderPrice</Name>
+          <Exclude>false</Exclude>
+          <CreateEditOrder>10400</CreateEditOrder>
+          <DefaultValue />
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
+          <IsMultiLine>false</IsMultiLine>
+          <CreateViewMode>Editable</CreateViewMode>
+          <EditViewMode>Editable</EditViewMode>
+          <ShowInCollection>true</ShowInCollection>
+          <ShowInDetail>true</ShowInDetail>
+          <ValueConstraint />
+        </WpfMvvmPropertySetting>
       </Properties>
       <SubFolder>Trades</SubFolder>
       <CommandVmNamespace />
@@ -1088,6 +1088,19 @@
           <ShowInDetail>true</ShowInDetail>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
+        <WpfMvvmPropertySetting>
+          <Name>OrderPrice</Name>
+          <Exclude>false</Exclude>
+          <CreateEditOrder>10400</CreateEditOrder>
+          <DefaultValue />
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
+          <IsMultiLine>false</IsMultiLine>
+          <CreateViewMode>Editable</CreateViewMode>
+          <EditViewMode>Editable</EditViewMode>
+          <ShowInCollection>true</ShowInCollection>
+          <ShowInDetail>true</ShowInDetail>
+          <ValueConstraint />
+        </WpfMvvmPropertySetting>
       </Properties>
       <SubFolder>Trades</SubFolder>
       <CommandVmNamespace />
@@ -1144,6 +1157,19 @@
           <Name>OrderType</Name>
           <Exclude>false</Exclude>
           <CreateEditOrder>10100</CreateEditOrder>
+          <DefaultValue />
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
+          <IsMultiLine>false</IsMultiLine>
+          <CreateViewMode>Editable</CreateViewMode>
+          <EditViewMode>Editable</EditViewMode>
+          <ShowInCollection>true</ShowInCollection>
+          <ShowInDetail>true</ShowInDetail>
+          <ValueConstraint />
+        </WpfMvvmPropertySetting>
+        <WpfMvvmPropertySetting>
+          <Name>OrderPrice</Name>
+          <Exclude>false</Exclude>
+          <CreateEditOrder>10400</CreateEditOrder>
           <DefaultValue />
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsMultiLine>false</IsMultiLine>

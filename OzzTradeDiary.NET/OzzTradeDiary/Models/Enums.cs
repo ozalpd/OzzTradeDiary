@@ -52,6 +52,18 @@ namespace TD.Models
         Index = 100
     }
 
+    /// <summary>
+    /// Specifies which side of the entry price a planned price level must be on for a Long position.
+    /// The rule is automatically inverted for Short positions.
+    /// </summary>
+    public enum PriceSide
+    {
+        /// <summary>Price must be above the entry price (e.g. Take Profit for Long).</summary>
+        Above,
+        /// <summary>Price must be below the entry price (e.g. Stop Loss for Long).</summary>
+        Below
+    }
+
     public enum SessionType : int
     {
         [Display(ResourceType = typeof(LocalizedStrings), Name = "Break")]
