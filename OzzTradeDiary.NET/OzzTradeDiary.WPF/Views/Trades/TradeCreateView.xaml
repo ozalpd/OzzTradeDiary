@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:TD.WPF.Views.Trades"
         xmlns:i18n="clr-namespace:TD.i18n;assembly=OzzTradeDiary.i18n"
         Title="{x:Static i18n:LocalizedStrings.CreateTrade}"
-        Height="450" Width="720" MinHeight="450" MinWidth="720"
+        Height="560" Width="720" MinHeight="500" MinWidth="640"
         WindowStartupLocation="CenterOwner"
         mc:Ignorable="d">
     <Grid Margin="8,12">
@@ -24,55 +24,57 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
         <TextBlock Grid.Column="0" Grid.Row="0" FontWeight="Bold"
+                   Style="{StaticResource RightAlignedTextBlockStyle}" Text="{x:Static i18n:LocalizedStrings.EntryTime}"/>
+        <DatePicker x:Name="EntryTimeDatePicker" Grid.Row="0" Grid.Column="1" Margin="0,-2,0,16"
+                    SelectedDate="{Binding EntryTime, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"/>
+
+        <TextBlock Grid.Column="2" Grid.Row="0" FontWeight="Bold"
+                   Style="{StaticResource RightAlignedTextBlockStyle}" Text="{x:Static i18n:LocalizedStrings.ExitTime}"/>
+        <DatePicker x:Name="ExitTimeDatePicker" Grid.Row="0" Grid.Column="3" Margin="0,-2,0,16"
+                    SelectedDate="{Binding ExitTime, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"/>
+
+        <TextBlock Grid.Column="0" Grid.Row="1" FontWeight="Bold"
                    Style="{StaticResource RightAlignedTextBlockStyle}" Text="{x:Static i18n:LocalizedStrings.TradingAccount}"/>
-        <ComboBox x:Name="TradingAccountIdComboBox" Grid.Row="0" Grid.Column="1"
+        <ComboBox x:Name="TradingAccountIdComboBox" Grid.Row="1" Grid.Column="1"
                   Style="{StaticResource ValidationComboBoxStyle}"
                   ItemsSource="{Binding TradingAccounts}"
                   DisplayMemberPath="Title"
                   SelectedValuePath="Id"
                   SelectedValue="{Binding TradingAccountId, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"/>
 
-        <TextBlock Grid.Column="2" Grid.Row="0" FontWeight="Bold"
+        <TextBlock Grid.Column="2" Grid.Row="1" FontWeight="Bold"
                    Style="{StaticResource RightAlignedTextBlockStyle}" Text="{x:Static i18n:LocalizedStrings.Symbol}"/>
-        <ComboBox x:Name="SymbolIdComboBox" Grid.Row="0" Grid.Column="3"
+        <ComboBox x:Name="SymbolIdComboBox" Grid.Row="1" Grid.Column="3"
                   Style="{StaticResource ValidationComboBoxStyle}"
                   ItemsSource="{Binding Symbols}"
                   DisplayMemberPath="TickerFull"
                   SelectedValuePath="Id"
                   SelectedValue="{Binding SymbolId, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"/>
 
-        <TextBlock Grid.Column="0" Grid.Row="1" FontWeight="Bold"
+        <TextBlock Grid.Column="0" Grid.Row="2" FontWeight="Bold"
                    Style="{StaticResource RightAlignedTextBlockStyle}" Text="{x:Static i18n:LocalizedStrings.TradeDirection}"/>
-        <ComboBox x:Name="TradeDirectionComboBox" Grid.Row="1" Grid.Column="1"
+        <ComboBox x:Name="TradeDirectionComboBox" Grid.Row="2" Grid.Column="1"
                   Style="{StaticResource ValidationComboBoxStyle}"
                   ItemsSource="{Binding TradeDirectionValues}"
                   DisplayMemberPath="DisplayValue"
                   SelectedValuePath="Value"
                   SelectedValue="{Binding TradeDirection, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"/>
 
-        <TextBlock Grid.Column="2" Grid.Row="1" FontWeight="Bold"
+        <TextBlock Grid.Column="2" Grid.Row="2" FontWeight="Bold"
                    Style="{StaticResource RightAlignedTextBlockStyle}" Text="{x:Static i18n:LocalizedStrings.TradeStatus}"/>
-        <ComboBox x:Name="TradeStatusComboBox" Grid.Row="1" Grid.Column="3"
+        <ComboBox x:Name="TradeStatusComboBox" Grid.Row="2" Grid.Column="3"
                   Style="{StaticResource ValidationComboBoxStyle}"
                   ItemsSource="{Binding TradeStatusValues}"
                   DisplayMemberPath="DisplayValue"
                   SelectedValuePath="Value"
                   SelectedValue="{Binding TradeStatus, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"/>
-
-        <TextBlock Grid.Column="0" Grid.Row="2" FontWeight="Bold"
-                   Style="{StaticResource RightAlignedTextBlockStyle}" Text="{x:Static i18n:LocalizedStrings.EntryTime}"/>
-        <DatePicker x:Name="EntryTimeDatePicker" Grid.Row="2" Grid.Column="1" Margin="0,-2,0,16"
-                    SelectedDate="{Binding EntryTime, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"/>
-
-        <TextBlock Grid.Column="2" Grid.Row="2" FontWeight="Bold"
-                   Style="{StaticResource RightAlignedTextBlockStyle}" Text="{x:Static i18n:LocalizedStrings.ExitTime}"/>
-        <DatePicker x:Name="ExitTimeDatePicker" Grid.Row="2" Grid.Column="3" Margin="0,-2,0,16"
-                    SelectedDate="{Binding ExitTime, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"/>
 
         <TextBlock Grid.Column="0" Grid.Row="3" FontWeight="Bold"
                    Style="{StaticResource RightAlignedTextBlockStyle}" Text="{x:Static i18n:LocalizedStrings.PlannedEntryPrice}"/>
@@ -82,59 +84,75 @@
                  Style="{StaticResource ValidationTextBoxStyle}"/>
 
         <TextBlock Grid.Column="2" Grid.Row="3" FontWeight="Bold"
+                   Style="{StaticResource RightAlignedTextBlockStyle}" Text="{x:Static i18n:LocalizedStrings.MarketType}"/>
+        <TextBox Grid.Row="3" Grid.Column="3"
+                 Text="{Binding MarketType, Mode=OneWay}"
+                 Style="{StaticResource ReadOnlyTextBoxStyle}"/>
+
+        <TextBlock Grid.Column="0" Grid.Row="4" FontWeight="Bold"
                    Style="{StaticResource RightAlignedTextBlockStyle}" Text="{x:Static i18n:LocalizedStrings.PlannedPositionValue}"/>
-        <TextBox x:Name="PlannedPositionValueTextBox" Grid.Row="3" Grid.Column="3"
+        <TextBox x:Name="PlannedPositionValueTextBox" Grid.Row="4" Grid.Column="1"
                  PreviewTextInput="DecimalTextBox_PreviewTextInput"
                  Text="{Binding PlannedPositionValue, UpdateSourceTrigger=LostFocus, ValidatesOnNotifyDataErrors=True}"
                  Style="{StaticResource ValidationTextBoxStyle}"/>
 
-        <TextBlock Grid.Column="0" Grid.Row="4" FontWeight="Bold"
+        <TextBlock Grid.Column="0" Grid.Row="5" FontWeight="Bold"
                    Style="{StaticResource RightAlignedTextBlockStyle}" Text="{x:Static i18n:LocalizedStrings.OrderQuantity}"/>
-        <TextBox x:Name="OrderQuantityTextBox" Grid.Row="4" Grid.Column="1"
+        <TextBox x:Name="OrderQuantityTextBox" Grid.Row="5" Grid.Column="1"
                  PreviewTextInput="DecimalTextBox_PreviewTextInput"
                  Text="{Binding OrderQuantity, UpdateSourceTrigger=LostFocus, ValidatesOnNotifyDataErrors=True}"
                  Style="{StaticResource ValidationTextBoxStyle}"/>
 
-        <TextBlock Grid.Column="2" Grid.Row="4" FontWeight="Bold"
-                   Style="{StaticResource RightAlignedTextBlockStyle}" Text="{x:Static i18n:LocalizedStrings.PlannedProfit}"/>
-        <TextBox Grid.Row="4" Grid.Column="3"
-                 Text="{Binding PlannedProfit, Mode=OneWay}"
-                 Style="{StaticResource ReadOnlyTextBoxStyle}"/>
-
-        <TextBlock Grid.Column="0" Grid.Row="5" FontWeight="Bold"
-                   Style="{StaticResource RightAlignedTextBlockStyle}" Text="{x:Static i18n:LocalizedStrings.PlannedTP}"/>
-        <TextBox x:Name="PlannedTPTextBox" Grid.Row="5" Grid.Column="1"
-                 PreviewTextInput="DecimalTextBox_PreviewTextInput"
-                 Text="{Binding PlannedTP, UpdateSourceTrigger=LostFocus, ValidatesOnNotifyDataErrors=True}"
-                 Style="{StaticResource ValidationTextBoxStyle}"/>
-
         <TextBlock Grid.Column="2" Grid.Row="5" FontWeight="Bold"
+                   Style="{StaticResource RightAlignedTextBlockStyle}" Text="{x:Static i18n:LocalizedStrings.EntryOrderType}"/>
+        <ComboBox x:Name="EntryOrderTypeComboBox" Grid.Row="5" Grid.Column="3"
+                  Style="{StaticResource ValidationComboBoxStyle}"
+                  ItemsSource="{Binding EntryOrderTypeValues}"
+                  DisplayMemberPath="DisplayValue"
+                  SelectedValuePath="Value"
+                  SelectedValue="{Binding EntryOrderType, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"/>
+        
+        
+
+        <TextBlock Grid.Column="0" Grid.Row="6" FontWeight="Bold"
                    Style="{StaticResource RightAlignedTextBlockStyle}" Text="{x:Static i18n:LocalizedStrings.PlannedSL}"/>
-        <TextBox x:Name="PlannedSLTextBox" Grid.Row="5" Grid.Column="3"
+        <TextBox x:Name="PlannedSLTextBox" Grid.Row="6" Grid.Column="1"
                  PreviewTextInput="DecimalTextBox_PreviewTextInput"
                  Text="{Binding PlannedSL, UpdateSourceTrigger=LostFocus, ValidatesOnNotifyDataErrors=True}"
                  Style="{StaticResource ValidationTextBoxStyle}"/>
 
-        <TextBlock Grid.Column="0" Grid.Row="6" FontWeight="Bold"
+        <TextBlock Grid.Column="2" Grid.Row="6" FontWeight="Bold"
                    Style="{StaticResource RightAlignedTextBlockStyle}" Text="{x:Static i18n:LocalizedStrings.PlannedRiskRewardRatio}"/>
-        <TextBox Grid.Row="6" Grid.Column="1"
+        <TextBox Grid.Row="6" Grid.Column="3"
                  Text="{Binding PlannedRiskRewardRatio, Mode=OneWay}"
                  Style="{StaticResource ReadOnlyTextBoxStyle}"/>
 
-        <TextBlock Grid.Column="2" Grid.Row="6" FontWeight="Bold"
+        <TextBlock Grid.Column="0" Grid.Row="7" FontWeight="Bold"
+                   Style="{StaticResource RightAlignedTextBlockStyle}" Text="{x:Static i18n:LocalizedStrings.PlannedTP}"/>
+        <TextBox x:Name="PlannedTPTextBox" Grid.Row="7" Grid.Column="1"
+                 PreviewTextInput="DecimalTextBox_PreviewTextInput"
+                 Text="{Binding PlannedTP, UpdateSourceTrigger=LostFocus, ValidatesOnNotifyDataErrors=True}"
+                 Style="{StaticResource ValidationTextBoxStyle}"/>
+
+        <TextBlock Grid.Column="2" Grid.Row="7" FontWeight="Bold"
+                   Style="{StaticResource RightAlignedTextBlockStyle}" Text="{x:Static i18n:LocalizedStrings.PlannedProfit}"/>
+        <TextBox Grid.Row="7" Grid.Column="3"
+                 Text="{Binding PlannedProfit, Mode=OneWay}"
+                 Style="{StaticResource ReadOnlyTextBoxStyle}"/>
+
+        <TextBlock Grid.Column="0" Grid.Row="8" FontWeight="Bold"
                    Style="{StaticResource RightAlignedTextBlockStyle}" Text="{x:Static i18n:LocalizedStrings.Tags}"/>
-        <TextBox x:Name="TagsTextBox" Grid.Row="6" Grid.Column="3"
+        <TextBox x:Name="TagsTextBox" Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="3"
                  Text="{Binding Tags, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"
                  Style="{StaticResource ValidationTextBoxStyle}"/>
 
-        <TextBlock Grid.Column="0" Grid.Row="7" FontWeight="Bold"
+        <TextBlock Grid.Column="0" Grid.Row="9" FontWeight="Bold"
                    Style="{StaticResource RightAlignedTextBlockStyle}" Text="{x:Static i18n:LocalizedStrings.SetupNotes}"/>
-        <TextBox x:Name="SetupNotesTextBox" Grid.Row="7" Grid.Column="1"
+        <TextBox x:Name="SetupNotesTextBox" Grid.Row="9" Grid.Column="1" Grid.ColumnSpan="3"
                  Style="{StaticResource ValidationMutliLineTextBoxStyle}"
-                 Grid.ColumnSpan="3"
                  Text="{Binding SetupNotes, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"/>
 
-        <StackPanel Grid.Row="9" Grid.ColumnSpan="4" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,6" VerticalAlignment="Bottom">
+        <StackPanel Grid.Row="10" Grid.ColumnSpan="4" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,6" VerticalAlignment="Bottom">
             <Button Content="{x:Static i18n:ActionStrings.OK}" Width="90" Margin="0,0,18,0" IsDefault="True" IsEnabled="{Binding IsValid}" Click="OkButton_Click" />
             <Button Content="{x:Static i18n:ActionStrings.Cancel}" Width="90" IsCancel="True" />
         </StackPanel>

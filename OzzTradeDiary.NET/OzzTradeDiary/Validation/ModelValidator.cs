@@ -60,7 +60,7 @@ namespace TD.Validation
                     : new[] { string.Empty };
 
                 foreach (var member in members)
-                    {
+                {
                     if (!map.TryGetValue(member, out var list))
                     {
                         list = new List<string>();

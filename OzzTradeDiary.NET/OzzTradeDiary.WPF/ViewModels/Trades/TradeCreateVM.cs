@@ -132,6 +132,34 @@ namespace TD.WPF.ViewModels.Trades
             }
         }
 
+        public DateTime? EntryTime
+        {
+            get { return _trade.EntryTime; }
+            set
+            {
+                if (_trade.EntryTime != value)
+                {
+                    _trade.EntryTime = value;
+                    RaisePropertyChanged(nameof(EntryTime));
+                    ValidateProperty(_trade, nameof(EntryTime));
+                }
+            }
+        }
+
+        public DateTime? ExitTime
+        {
+            get { return _trade.ExitTime; }
+            set
+            {
+                if (_trade.ExitTime != value)
+                {
+                    _trade.ExitTime = value;
+                    RaisePropertyChanged(nameof(ExitTime));
+                    ValidateProperty(_trade, nameof(ExitTime));
+                }
+            }
+        }
+
         public TradeDirection TradeDirection
         {
             get { return _trade.TradeDirection; }
@@ -160,33 +188,7 @@ namespace TD.WPF.ViewModels.Trades
             }
         }
 
-        public DateTime? EntryTime
-        {
-            get { return _trade.EntryTime; }
-            set
-            {
-                if (_trade.EntryTime != value)
-                {
-                    _trade.EntryTime = value;
-                    RaisePropertyChanged(nameof(EntryTime));
-                    ValidateProperty(_trade, nameof(EntryTime));
-                }
-            }
-        }
-
-        public DateTime? ExitTime
-        {
-            get { return _trade.ExitTime; }
-            set
-            {
-                if (_trade.ExitTime != value)
-                {
-                    _trade.ExitTime = value;
-                    RaisePropertyChanged(nameof(ExitTime));
-                    ValidateProperty(_trade, nameof(ExitTime));
-                }
-            }
-        }
+        public MarketType MarketType => _trade.MarketType;
 
         public decimal? PlannedEntryPrice
         {

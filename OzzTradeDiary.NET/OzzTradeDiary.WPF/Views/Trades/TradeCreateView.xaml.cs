@@ -112,6 +112,7 @@ namespace TD.WPF.Views.Trades
             if (!_viewModel.ValidateModel())
                 return;
 
+            _viewModel.AddOrders();
             DialogResult = true;
         }
     }

@@ -83,7 +83,7 @@ public static partial class Text
             return _lipsumSentences;
         }
     }
-    private static string[] _lipsumSentences;
+    private static string[] _lipsumSentences = [];
 
 
     static string[] _lipsum =

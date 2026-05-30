@@ -146,5 +146,10 @@ namespace TD.AppInfra.DesignTime
         {
             throw new NotImplementedException();
         }
+
+        public Task<bool> UpdateCancellationTimeAsync(int id, DateTime cancellationTime)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -1492,8 +1492,38 @@
           <DependentPropertyType>int</DependentPropertyType>
         </BaseProperty>
         <BaseProperty xsi:type="SimpleProperty">
-          <Name>TradeDirection</Name>
+          <Name>EntryTime</Name>
           <DisplayOrder>100500</DisplayOrder>
+          <DisplayName>Entry Time</DisplayName>
+          <TypeName>DateTime</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <RestrictedData>false</RestrictedData>
+          <EnumTypeName />
+          <IsKey>false</IsKey>
+          <IsForeignKey>false</IsForeignKey>
+          <IsImmutable>false</IsImmutable>
+          <IsNullable>true</IsNullable>
+          <IsStoreGenerated>false</IsStoreGenerated>
+        </BaseProperty>
+        <BaseProperty xsi:type="SimpleProperty">
+          <Name>ExitTime</Name>
+          <DisplayOrder>100600</DisplayOrder>
+          <DisplayName>Exit Time</DisplayName>
+          <TypeName>DateTime</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <RestrictedData>false</RestrictedData>
+          <EnumTypeName />
+          <IsKey>false</IsKey>
+          <IsForeignKey>false</IsForeignKey>
+          <IsImmutable>false</IsImmutable>
+          <IsNullable>true</IsNullable>
+          <IsStoreGenerated>false</IsStoreGenerated>
+        </BaseProperty>
+        <BaseProperty xsi:type="SimpleProperty">
+          <Name>TradeDirection</Name>
+          <DisplayOrder>100700</DisplayOrder>
           <DisplayName>Trade Direction</DisplayName>
           <TypeName>int</TypeName>
           <IsClientComputed>false</IsClientComputed>
@@ -1509,7 +1539,7 @@
         <BaseProperty xsi:type="SimpleProperty">
           <Name>TradeStatus</Name>
           <Comment>Missed (-10), Cancelled (-20), Planned (10), Pending (20), Active (30), Closed (40). Negative values mean never opened. TradeStatus &gt; TradeStatus.Pending means trade active or closed and may have a result</Comment>
-          <DisplayOrder>100600</DisplayOrder>
+          <DisplayOrder>100800</DisplayOrder>
           <DisplayName>Trade Status</DisplayName>
           <TypeName>int</TypeName>
           <IsClientComputed>false</IsClientComputed>
@@ -1518,13 +1548,13 @@
           <EnumTypeName>TradeStatus</EnumTypeName>
           <IsKey>false</IsKey>
           <IsForeignKey>false</IsForeignKey>
-          <IsImmutable>true</IsImmutable>
+          <IsImmutable>false</IsImmutable>
           <IsNullable>false</IsNullable>
           <IsStoreGenerated>false</IsStoreGenerated>
         </BaseProperty>
         <BaseProperty xsi:type="SimpleProperty">
           <Name>MarketType</Name>
-          <DisplayOrder>100700</DisplayOrder>
+          <DisplayOrder>100900</DisplayOrder>
           <DisplayName>Market Type</DisplayName>
           <TypeName>int</TypeName>
           <IsClientComputed>false</IsClientComputed>
@@ -1533,38 +1563,8 @@
           <EnumTypeName>MarketType</EnumTypeName>
           <IsKey>false</IsKey>
           <IsForeignKey>false</IsForeignKey>
-          <IsImmutable>false</IsImmutable>
+          <IsImmutable>true</IsImmutable>
           <IsNullable>false</IsNullable>
-          <IsStoreGenerated>false</IsStoreGenerated>
-        </BaseProperty>
-        <BaseProperty xsi:type="SimpleProperty">
-          <Name>EntryTime</Name>
-          <DisplayOrder>100800</DisplayOrder>
-          <DisplayName>Entry Time</DisplayName>
-          <TypeName>DateTime</TypeName>
-          <IsClientComputed>false</IsClientComputed>
-          <IsServerComputed>false</IsServerComputed>
-          <RestrictedData>false</RestrictedData>
-          <EnumTypeName />
-          <IsKey>false</IsKey>
-          <IsForeignKey>false</IsForeignKey>
-          <IsImmutable>true</IsImmutable>
-          <IsNullable>true</IsNullable>
-          <IsStoreGenerated>false</IsStoreGenerated>
-        </BaseProperty>
-        <BaseProperty xsi:type="SimpleProperty">
-          <Name>ExitTime</Name>
-          <DisplayOrder>100900</DisplayOrder>
-          <DisplayName>Exit Time</DisplayName>
-          <TypeName>DateTime</TypeName>
-          <IsClientComputed>false</IsClientComputed>
-          <IsServerComputed>false</IsServerComputed>
-          <RestrictedData>false</RestrictedData>
-          <EnumTypeName />
-          <IsKey>false</IsKey>
-          <IsForeignKey>false</IsForeignKey>
-          <IsImmutable>true</IsImmutable>
-          <IsNullable>true</IsNullable>
           <IsStoreGenerated>false</IsStoreGenerated>
         </BaseProperty>
         <BaseProperty xsi:type="SimpleProperty">

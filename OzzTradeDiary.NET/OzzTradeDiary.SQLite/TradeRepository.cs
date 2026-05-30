@@ -516,22 +516,21 @@ namespace TD.SQLite
 
             await using var command = connection.CreateCommand();
             command.CommandText = @$"INSERT INTO {_tableName} ({string.Join(", ", ColumnNames[1..])})
-            VALUES (@tradingAccountId, @symbolId, @tradeDirection, @tradeStatus, @tags, @marketType,
-                    @entryTime, @exitTime, @cancellationTime, @plannedEntryPrice, @executedEntryPrice, @plannedPositionValue,
-                    @executedPositionValue, @remainingPositionValue, @orderQuantity, @filledQuantity, @plannedProfit, @plannedTP,
-                    @executedTP, @plannedSL, @executedSL, @plannedRiskAmount, @plannedRiskRewardRatio, @realizedProfitLoss,
-                    @netProfitLoss, @realizedRiskAmount, @totalFeesCalculated, @totalFeesCorrected, @fundingFeeTotal, @setupNotes,
+            VALUES (@tradingAccountId, @symbolId, @entryTime, @exitTime, @tradeDirection, @tradeStatus,
+                    @marketType, @cancellationTime, @plannedEntryPrice, @executedEntryPrice, @plannedPositionValue, @executedPositionValue,
+                    @remainingPositionValue, @orderQuantity, @filledQuantity, @plannedProfit, @plannedTP, @executedTP,
+                    @plannedSL, @executedSL, @plannedRiskAmount, @plannedRiskRewardRatio, @realizedProfitLoss, @netProfitLoss,
+                    @realizedRiskAmount, @totalFeesCalculated, @totalFeesCorrected, @fundingFeeTotal, @tags, @setupNotes,
                     @reviewNotes, @updatedAt);
             SELECT last_insert_rowid();";
 
             command.AddParameter("@tradingAccountId", trade.TradingAccountId);
             command.AddParameter("@symbolId", trade.SymbolId);
-            command.AddParameter("@tradeDirection", (int)trade.TradeDirection);
-            command.AddParameter("@tradeStatus", (int)trade.TradeStatus);
-            command.AddNullableParameter("@tags", trade.Tags);
-            command.AddParameter("@marketType", (int)trade.MarketType);
             command.AddDateTimeToTextParameter("@entryTime", trade.EntryTime);
             command.AddDateTimeToTextParameter("@exitTime", trade.ExitTime);
+            command.AddParameter("@tradeDirection", (int)trade.TradeDirection);
+            command.AddParameter("@tradeStatus", (int)trade.TradeStatus);
+            command.AddParameter("@marketType", (int)trade.MarketType);
             command.AddDateTimeToTextParameter("@cancellationTime", trade.CancellationTime);
             command.AddDecimalToTextParameter("@plannedEntryPrice", trade.PlannedEntryPrice);
             command.AddDecimalToTextParameter("@executedEntryPrice", trade.ExecutedEntryPrice);
@@ -575,6 +574,7 @@ namespace TD.SQLite
             command.AddDecimalToIntegerParameter("@fundingFeeTotal",
                                                 trade.FundingFeeTotal,
                                                 DecimalToIntegerScale.FundingFeeTotal);
+            command.AddNullableParameter("@tags", trade.Tags);
             command.AddNullableParameter("@setupNotes", trade.SetupNotes);
             command.AddNullableParameter("@reviewNotes", trade.ReviewNotes);
             command.AddDateTimeToTextParameter("@updatedAt", DateTime.Now);
@@ -645,7 +645,9 @@ namespace TD.SQLite
             await using var connection = await GetOpenConnectionAsync();
             var existingTrade = await GetByIdAsync(trade.Id);
             bool noChanges = existingTrade != null
-                          && existingTrade.Tags == trade.Tags
+                          && existingTrade.EntryTime == trade.EntryTime
+                          && existingTrade.ExitTime == trade.ExitTime
+                          && existingTrade.TradeStatus == trade.TradeStatus
                           && existingTrade.MarketType == trade.MarketType
                           && existingTrade.PlannedEntryPrice == trade.PlannedEntryPrice
                           && existingTrade.ExecutedEntryPrice == trade.ExecutedEntryPrice
@@ -667,16 +669,19 @@ namespace TD.SQLite
                           && existingTrade.TotalFeesCalculated == trade.TotalFeesCalculated
                           && existingTrade.TotalFeesCorrected == trade.TotalFeesCorrected
                           && existingTrade.FundingFeeTotal == trade.FundingFeeTotal
+                          && existingTrade.Tags == trade.Tags
                           && existingTrade.UpdatedAt == trade.UpdatedAt;
 
             if (noChanges)
                 return false;
 
             await using var command = connection.CreateCommand();
-            // TradingAccountId, SymbolId, TradeDirection, TradeStatus, EntryTime, ExitTime, CancellationTime, SetupNotes, ReviewNotes are not updated to avoid complications with existing references,
-            // so only Tags, MarketType, PlannedEntryPrice, ExecutedEntryPrice, PlannedPositionValue, ExecutedPositionValue, RemainingPositionValue, OrderQuantity, FilledQuantity, PlannedProfit, PlannedTP, ExecutedTP, PlannedSL, ExecutedSL, PlannedRiskAmount, PlannedRiskRewardRatio, RealizedProfitLoss, NetProfitLoss, RealizedRiskAmount, TotalFeesCalculated, TotalFeesCorrected, FundingFeeTotal, UpdatedAt are updated
+            // TradingAccountId, SymbolId, TradeDirection, CancellationTime, SetupNotes, ReviewNotes are not updated to avoid complications with existing references,
+            // so only EntryTime, ExitTime, TradeStatus, MarketType, PlannedEntryPrice, ExecutedEntryPrice, PlannedPositionValue, ExecutedPositionValue, RemainingPositionValue, OrderQuantity, FilledQuantity, PlannedProfit, PlannedTP, ExecutedTP, PlannedSL, ExecutedSL, PlannedRiskAmount, PlannedRiskRewardRatio, RealizedProfitLoss, NetProfitLoss, RealizedRiskAmount, TotalFeesCalculated, TotalFeesCorrected, FundingFeeTotal, Tags, UpdatedAt are updated
             command.CommandText = @$"UPDATE {_tableName} SET
-                Tags = @tags,
+                EntryTime = @entryTime,
+                ExitTime = @exitTime,
+                TradeStatus = @tradeStatus,
                 MarketType = @marketType,
                 PlannedEntryPrice = @plannedEntryPrice,
                 ExecutedEntryPrice = @executedEntryPrice,
@@ -698,11 +703,14 @@ namespace TD.SQLite
                 TotalFeesCalculated = @totalFeesCalculated,
                 TotalFeesCorrected = @totalFeesCorrected,
                 FundingFeeTotal = @fundingFeeTotal,
+                Tags = @tags,
                 UpdatedAt = @updatedAt
             WHERE Id = @id";
 
             command.AddParameter("@id", trade.Id);
-            command.AddNullableParameter("@tags", trade.Tags);
+            command.AddDateTimeToTextParameter("@entryTime", trade.EntryTime);
+            command.AddDateTimeToTextParameter("@exitTime", trade.ExitTime);
+            command.AddParameter("@tradeStatus", (int)trade.TradeStatus);
             command.AddParameter("@marketType", (int)trade.MarketType);
             command.AddDecimalToTextParameter("@plannedEntryPrice", trade.PlannedEntryPrice);
             command.AddDecimalToTextParameter("@executedEntryPrice", trade.ExecutedEntryPrice);
@@ -746,6 +754,7 @@ namespace TD.SQLite
             command.AddDecimalToIntegerParameter("@fundingFeeTotal",
                                                 trade.FundingFeeTotal,
                                                 DecimalToIntegerScale.FundingFeeTotal);
+            command.AddNullableParameter("@tags", trade.Tags);
             command.AddDateTimeToTextParameter("@updatedAt", DateTime.Now);
 
             var affectedRows = await command.ExecuteNonQueryAsync();
@@ -760,36 +769,15 @@ namespace TD.SQLite
         partial void OnUpdated(Trade trade);
         partial void OnUpdated(int tradeId);
 
-        public async Task<bool> UpdateEntryTimeAsync(int id, DateTime entryTime)
+        public async Task<bool> UpdateCancellationTimeAsync(int id, DateTime cancellationTime)
         {
             await using var connection = await GetOpenConnectionAsync();
             await using var command = connection.CreateCommand();
             command.CommandText = @$"UPDATE {_tableName} SET
-                EntryTime = @entryTime,                UpdatedAt = @updatedAt            WHERE Id = @id";
+                CancellationTime = @cancellationTime,                UpdatedAt = @updatedAt            WHERE Id = @id";
 
             command.AddParameter("@id", id);
-            command.AddDateTimeToTextParameter("@entryTime", entryTime);
-            command.AddDateTimeToTextParameter("@updatedAt", DateTime.Now);
-
-            var affectedRows = await command.ExecuteNonQueryAsync();
-            if (affectedRows > 0)
-            {
-                await _metadataRepository.SaveLastUpdateUtcAsync(connection);
-                OnUpdated(id);
-            }
-
-            return affectedRows > 0;
-        }
-
-        public async Task<bool> UpdateExitTimeAsync(int id, DateTime exitTime)
-        {
-            await using var connection = await GetOpenConnectionAsync();
-            await using var command = connection.CreateCommand();
-            command.CommandText = @$"UPDATE {_tableName} SET
-                ExitTime = @exitTime,                UpdatedAt = @updatedAt            WHERE Id = @id";
-
-            command.AddParameter("@id", id);
-            command.AddDateTimeToTextParameter("@exitTime", exitTime);
+            command.AddDateTimeToTextParameter("@cancellationTime", cancellationTime);
             command.AddDateTimeToTextParameter("@updatedAt", DateTime.Now);
 
             var affectedRows = await command.ExecuteNonQueryAsync();
@@ -865,15 +853,13 @@ namespace TD.SQLite
                 Id = reader.GetInt32(ColNrs.Id),
                 TradingAccountId = reader.GetInt32(ColNrs.TradingAccountId),
                 SymbolId = reader.GetInt32(ColNrs.SymbolId),
-                TradeDirection = (TradeDirection)reader.GetInt32(ColNrs.TradeDirection),
-                TradeStatus = (TradeStatus)reader.GetInt32(ColNrs.TradeStatus),
-                Tags = reader.IsDBNull(ColNrs.Tags) ? null
-                     : reader.GetString(ColNrs.Tags),
-                MarketType = (MarketType)reader.GetInt32(ColNrs.MarketType),
                 EntryTime = reader.IsDBNull(ColNrs.EntryTime) ? null
                           : ToLocalDateTime(reader.GetString(ColNrs.EntryTime)),
                 ExitTime = reader.IsDBNull(ColNrs.ExitTime) ? null
                          : ToLocalDateTime(reader.GetString(ColNrs.ExitTime)),
+                TradeDirection = (TradeDirection)reader.GetInt32(ColNrs.TradeDirection),
+                TradeStatus = (TradeStatus)reader.GetInt32(ColNrs.TradeStatus),
+                MarketType = (MarketType)reader.GetInt32(ColNrs.MarketType),
                 CancellationTime = reader.IsDBNull(ColNrs.CancellationTime) ? null
                                  : ToLocalDateTime(reader.GetString(ColNrs.CancellationTime)),
                 PlannedEntryPrice = reader.IsDBNull(ColNrs.PlannedEntryPrice) ? null
@@ -927,6 +913,8 @@ namespace TD.SQLite
                 FundingFeeTotal = reader.IsDBNull(ColNrs.FundingFeeTotal) ? null
                                 : reader.GetDecimalFromInteger(ColNrs.FundingFeeTotal,
                                                 DecimalToIntegerScale.FundingFeeTotal),
+                Tags = reader.IsDBNull(ColNrs.Tags) ? null
+                     : reader.GetString(ColNrs.Tags),
                 SetupNotes = reader.IsDBNull(ColNrs.SetupNotes) ? null
                            : reader.GetString(ColNrs.SetupNotes),
                 ReviewNotes = reader.IsDBNull(ColNrs.ReviewNotes) ? null
@@ -945,33 +933,33 @@ namespace TD.SQLite
             public readonly static int Id = 0;
             public readonly static int TradingAccountId = 1;
             public readonly static int SymbolId = 2;
-            public readonly static int TradeDirection = 3;
-            public readonly static int TradeStatus = 4;
-            public readonly static int Tags = 5;
-            public readonly static int MarketType = 6;
-            public readonly static int EntryTime = 7;
-            public readonly static int ExitTime = 8;
-            public readonly static int CancellationTime = 9;
-            public readonly static int PlannedEntryPrice = 10;
-            public readonly static int ExecutedEntryPrice = 11;
-            public readonly static int PlannedPositionValue = 12;
-            public readonly static int ExecutedPositionValue = 13;
-            public readonly static int RemainingPositionValue = 14;
-            public readonly static int OrderQuantity = 15;
-            public readonly static int FilledQuantity = 16;
-            public readonly static int PlannedProfit = 17;
-            public readonly static int PlannedTP = 18;
-            public readonly static int ExecutedTP = 19;
-            public readonly static int PlannedSL = 20;
-            public readonly static int ExecutedSL = 21;
-            public readonly static int PlannedRiskAmount = 22;
-            public readonly static int PlannedRiskRewardRatio = 23;
-            public readonly static int RealizedProfitLoss = 24;
-            public readonly static int NetProfitLoss = 25;
-            public readonly static int RealizedRiskAmount = 26;
-            public readonly static int TotalFeesCalculated = 27;
-            public readonly static int TotalFeesCorrected = 28;
-            public readonly static int FundingFeeTotal = 29;
+            public readonly static int EntryTime = 3;
+            public readonly static int ExitTime = 4;
+            public readonly static int TradeDirection = 5;
+            public readonly static int TradeStatus = 6;
+            public readonly static int MarketType = 7;
+            public readonly static int CancellationTime = 8;
+            public readonly static int PlannedEntryPrice = 9;
+            public readonly static int ExecutedEntryPrice = 10;
+            public readonly static int PlannedPositionValue = 11;
+            public readonly static int ExecutedPositionValue = 12;
+            public readonly static int RemainingPositionValue = 13;
+            public readonly static int OrderQuantity = 14;
+            public readonly static int FilledQuantity = 15;
+            public readonly static int PlannedProfit = 16;
+            public readonly static int PlannedTP = 17;
+            public readonly static int ExecutedTP = 18;
+            public readonly static int PlannedSL = 19;
+            public readonly static int ExecutedSL = 20;
+            public readonly static int PlannedRiskAmount = 21;
+            public readonly static int PlannedRiskRewardRatio = 22;
+            public readonly static int RealizedProfitLoss = 23;
+            public readonly static int NetProfitLoss = 24;
+            public readonly static int RealizedRiskAmount = 25;
+            public readonly static int TotalFeesCalculated = 26;
+            public readonly static int TotalFeesCorrected = 27;
+            public readonly static int FundingFeeTotal = 28;
+            public readonly static int Tags = 29;
             public readonly static int SetupNotes = 30;
             public readonly static int ReviewNotes = 31;
             public readonly static int UpdatedAt = 32;
@@ -984,12 +972,11 @@ namespace TD.SQLite
             "Id",
             "TradingAccountId",
             "SymbolId",
-            "TradeDirection",
-            "TradeStatus",
-            "Tags",
-            "MarketType",
             "EntryTime",
             "ExitTime",
+            "TradeDirection",
+            "TradeStatus",
+            "MarketType",
             "CancellationTime",
             "PlannedEntryPrice",
             "ExecutedEntryPrice",
@@ -1011,6 +998,7 @@ namespace TD.SQLite
             "TotalFeesCalculated",
             "TotalFeesCorrected",
             "FundingFeeTotal",
+            "Tags",
             "SetupNotes",
             "ReviewNotes",
             "UpdatedAt"

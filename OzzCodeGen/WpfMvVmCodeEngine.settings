@@ -1260,7 +1260,7 @@
         <WpfMvvmPropertySetting>
           <Name>TradingAccountId</Name>
           <Exclude>false</Exclude>
-          <CreateEditOrder>100100</CreateEditOrder>
+          <CreateEditOrder>100300</CreateEditOrder>
           <DefaultValue />
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsMultiLine>false</IsMultiLine>
@@ -1273,7 +1273,7 @@
         <WpfMvvmPropertySetting>
           <Name>TradingAccount</Name>
           <Exclude>false</Exclude>
-          <CreateEditOrder>100200</CreateEditOrder>
+          <CreateEditOrder>100400</CreateEditOrder>
           <DefaultValue />
           <IsPreselectedInCreate>true</IsPreselectedInCreate>
           <IsMultiLine>false</IsMultiLine>
@@ -1286,7 +1286,7 @@
         <WpfMvvmPropertySetting>
           <Name>SymbolId</Name>
           <Exclude>false</Exclude>
-          <CreateEditOrder>100300</CreateEditOrder>
+          <CreateEditOrder>100500</CreateEditOrder>
           <DefaultValue />
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsMultiLine>false</IsMultiLine>
@@ -1299,7 +1299,7 @@
         <WpfMvvmPropertySetting>
           <Name>Symbol</Name>
           <Exclude>false</Exclude>
-          <CreateEditOrder>100400</CreateEditOrder>
+          <CreateEditOrder>100600</CreateEditOrder>
           <DefaultValue />
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsMultiLine>false</IsMultiLine>
@@ -1310,48 +1310,9 @@
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
-          <Name>TradeDirection</Name>
-          <Exclude>false</Exclude>
-          <CreateEditOrder>100500</CreateEditOrder>
-          <DefaultValue />
-          <IsPreselectedInCreate>false</IsPreselectedInCreate>
-          <IsMultiLine>false</IsMultiLine>
-          <CreateViewMode>Editable</CreateViewMode>
-          <EditViewMode>ReadOnly</EditViewMode>
-          <ShowInCollection>true</ShowInCollection>
-          <ShowInDetail>true</ShowInDetail>
-          <ValueConstraint />
-        </WpfMvvmPropertySetting>
-        <WpfMvvmPropertySetting>
-          <Name>TradeStatus</Name>
-          <Exclude>false</Exclude>
-          <CreateEditOrder>100600</CreateEditOrder>
-          <DefaultValue />
-          <IsPreselectedInCreate>false</IsPreselectedInCreate>
-          <IsMultiLine>false</IsMultiLine>
-          <CreateViewMode>Editable</CreateViewMode>
-          <EditViewMode>ReadOnly</EditViewMode>
-          <ShowInCollection>true</ShowInCollection>
-          <ShowInDetail>true</ShowInDetail>
-          <ValueConstraint />
-        </WpfMvvmPropertySetting>
-        <WpfMvvmPropertySetting>
-          <Name>MarketType</Name>
-          <Exclude>false</Exclude>
-          <CreateEditOrder>100700</CreateEditOrder>
-          <DefaultValue />
-          <IsPreselectedInCreate>false</IsPreselectedInCreate>
-          <IsMultiLine>false</IsMultiLine>
-          <CreateViewMode>Exclude</CreateViewMode>
-          <EditViewMode>Exclude</EditViewMode>
-          <ShowInCollection>true</ShowInCollection>
-          <ShowInDetail>true</ShowInDetail>
-          <ValueConstraint />
-        </WpfMvvmPropertySetting>
-        <WpfMvvmPropertySetting>
           <Name>EntryTime</Name>
           <Exclude>false</Exclude>
-          <CreateEditOrder>100800</CreateEditOrder>
+          <CreateEditOrder>100100</CreateEditOrder>
           <DefaultValue />
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsMultiLine>false</IsMultiLine>
@@ -1364,7 +1325,7 @@
         <WpfMvvmPropertySetting>
           <Name>ExitTime</Name>
           <Exclude>false</Exclude>
-          <CreateEditOrder>100900</CreateEditOrder>
+          <CreateEditOrder>100200</CreateEditOrder>
           <DefaultValue />
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsMultiLine>false</IsMultiLine>
@@ -1375,9 +1336,48 @@
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
+          <Name>TradeDirection</Name>
+          <Exclude>false</Exclude>
+          <CreateEditOrder>100700</CreateEditOrder>
+          <DefaultValue />
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
+          <IsMultiLine>false</IsMultiLine>
+          <CreateViewMode>Editable</CreateViewMode>
+          <EditViewMode>ReadOnly</EditViewMode>
+          <ShowInCollection>true</ShowInCollection>
+          <ShowInDetail>true</ShowInDetail>
+          <ValueConstraint />
+        </WpfMvvmPropertySetting>
+        <WpfMvvmPropertySetting>
+          <Name>TradeStatus</Name>
+          <Exclude>false</Exclude>
+          <CreateEditOrder>100800</CreateEditOrder>
+          <DefaultValue />
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
+          <IsMultiLine>false</IsMultiLine>
+          <CreateViewMode>Editable</CreateViewMode>
+          <EditViewMode>ReadOnly</EditViewMode>
+          <ShowInCollection>true</ShowInCollection>
+          <ShowInDetail>true</ShowInDetail>
+          <ValueConstraint />
+        </WpfMvvmPropertySetting>
+        <WpfMvvmPropertySetting>
+          <Name>MarketType</Name>
+          <Exclude>false</Exclude>
+          <CreateEditOrder>101100</CreateEditOrder>
+          <DefaultValue />
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
+          <IsMultiLine>false</IsMultiLine>
+          <CreateViewMode>ReadOnly</CreateViewMode>
+          <EditViewMode>Exclude</EditViewMode>
+          <ShowInCollection>true</ShowInCollection>
+          <ShowInDetail>true</ShowInDetail>
+          <ValueConstraint />
+        </WpfMvvmPropertySetting>
+        <WpfMvvmPropertySetting>
           <Name>CancellationTime</Name>
           <Exclude>false</Exclude>
-          <CreateEditOrder>101000</CreateEditOrder>
+          <CreateEditOrder>101200</CreateEditOrder>
           <DefaultValue />
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsMultiLine>false</IsMultiLine>
@@ -1390,7 +1390,7 @@
         <WpfMvvmPropertySetting>
           <Name>PlannedEntryPrice</Name>
           <Exclude>false</Exclude>
-          <CreateEditOrder>101100</CreateEditOrder>
+          <CreateEditOrder>100900</CreateEditOrder>
           <DefaultValue />
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsMultiLine>false</IsMultiLine>
@@ -1403,7 +1403,7 @@
         <WpfMvvmPropertySetting>
           <Name>ExecutedEntryPrice</Name>
           <Exclude>false</Exclude>
-          <CreateEditOrder>101200</CreateEditOrder>
+          <CreateEditOrder>101000</CreateEditOrder>
           <DefaultValue />
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsMultiLine>false</IsMultiLine>
@@ -1455,7 +1455,7 @@
         <WpfMvvmPropertySetting>
           <Name>OrderQuantity</Name>
           <Exclude>false</Exclude>
-          <CreateEditOrder>101600</CreateEditOrder>
+          <CreateEditOrder>101700</CreateEditOrder>
           <DefaultValue />
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsMultiLine>false</IsMultiLine>
@@ -1468,7 +1468,7 @@
         <WpfMvvmPropertySetting>
           <Name>FilledQuantity</Name>
           <Exclude>false</Exclude>
-          <CreateEditOrder>101700</CreateEditOrder>
+          <CreateEditOrder>101800</CreateEditOrder>
           <DefaultValue />
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsMultiLine>false</IsMultiLine>
@@ -1481,7 +1481,7 @@
         <WpfMvvmPropertySetting>
           <Name>PlannedProfit</Name>
           <Exclude>false</Exclude>
-          <CreateEditOrder>101800</CreateEditOrder>
+          <CreateEditOrder>101600</CreateEditOrder>
           <DefaultValue />
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsMultiLine>false</IsMultiLine>
@@ -1494,7 +1494,7 @@
         <WpfMvvmPropertySetting>
           <Name>PlannedTP</Name>
           <Exclude>false</Exclude>
-          <CreateEditOrder>101900</CreateEditOrder>
+          <CreateEditOrder>102300</CreateEditOrder>
           <DefaultValue />
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsMultiLine>false</IsMultiLine>
@@ -1507,7 +1507,7 @@
         <WpfMvvmPropertySetting>
           <Name>ExecutedTP</Name>
           <Exclude>false</Exclude>
-          <CreateEditOrder>102000</CreateEditOrder>
+          <CreateEditOrder>102400</CreateEditOrder>
           <DefaultValue />
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsMultiLine>false</IsMultiLine>
@@ -1546,7 +1546,7 @@
         <WpfMvvmPropertySetting>
           <Name>PlannedRiskAmount</Name>
           <Exclude>false</Exclude>
-          <CreateEditOrder>102300</CreateEditOrder>
+          <CreateEditOrder>101900</CreateEditOrder>
           <DefaultValue />
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsMultiLine>false</IsMultiLine>
@@ -1559,7 +1559,7 @@
         <WpfMvvmPropertySetting>
           <Name>PlannedRiskRewardRatio</Name>
           <Exclude>false</Exclude>
-          <CreateEditOrder>102400</CreateEditOrder>
+          <CreateEditOrder>102000</CreateEditOrder>
           <DefaultValue />
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsMultiLine>false</IsMultiLine>
@@ -1702,7 +1702,7 @@
       <GenerateGetPaged>true</GenerateGetPaged>
       <GenModeCollectionVM>GenerateIfNotExists</GenModeCollectionVM>
       <GenModeLookupService>DoNotGenerate</GenModeLookupService>
-      <GenModeCreateView>GenerateIfNotExists</GenModeCreateView>
+      <GenModeCreateView>SkipManuallyEdited</GenModeCreateView>
       <GenModeEditView>GenerateIfNotExists</GenModeEditView>
       <GenModeDetailView>SkipManuallyEdited</GenModeDetailView>
       <RepositoryName>ITradeRepository</RepositoryName>

@@ -46,6 +46,15 @@ namespace TD.Models
         [Display(ResourceType = typeof(LocalizedStrings), Name = "Symbol")]
         public Symbol Symbol { get; set; }
 
+        [DataType(DataType.DateTime)]
+        [Range(typeof(DateTime), "1/1/2000", "12/31/2220", ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName ="RangeDateTime")]
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "EntryTime")]
+        public DateTime? EntryTime { get; set; }
+
+        [DataType(DataType.DateTime)]
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "ExitTime")]
+        public DateTime? ExitTime { get; set; }
+
         [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
         [Range(1, int.MaxValue, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName ="ValueMin")]
         [Display(ResourceType = typeof(LocalizedStrings), Name = "TradeDirection")]
@@ -55,22 +64,12 @@ namespace TD.Models
         /// Missed (-10), Cancelled (-20), Planned (10), Pending (20), Active (30), Closed (40). Negative values mean never opened. TradeStatus > TradeStatus.Pending means trade active or closed and may have a result
         /// </summary>
         [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
-        [Range(1, int.MaxValue, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName ="ValueMin")]
         [Display(ResourceType = typeof(LocalizedStrings), Name = "TradeStatus")]
         public TradeStatus TradeStatus { get; set; }
 
         [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
         [Display(ResourceType = typeof(LocalizedStrings), Name = "MarketType")]
         public MarketType MarketType { get; set; }
-
-        [DataType(DataType.DateTime)]
-        [Range(typeof(DateTime), "1/1/2000", "12/31/2220", ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName ="RangeDateTime")]
-        [Display(ResourceType = typeof(LocalizedStrings), Name = "EntryTime")]
-        public DateTime? EntryTime { get; set; }
-
-        [DataType(DataType.DateTime)]
-        [Display(ResourceType = typeof(LocalizedStrings), Name = "ExitTime")]
-        public DateTime? ExitTime { get; set; }
 
         /// <summary>
         /// Time stamp, when TradeStatus is set to TradeStatus.Cancelled
@@ -181,11 +180,11 @@ namespace TD.Models
             var clone = new Trade();
             clone.TradingAccountId = this.TradingAccountId;
             clone.SymbolId = this.SymbolId;
+            clone.EntryTime = this.EntryTime;
+            clone.ExitTime = this.ExitTime;
             clone.TradeDirection = this.TradeDirection;
             clone.TradeStatus = this.TradeStatus;
             clone.MarketType = this.MarketType;
-            clone.EntryTime = this.EntryTime;
-            clone.ExitTime = this.ExitTime;
             clone.CancellationTime = this.CancellationTime;
             clone.PlannedEntryPrice = this.PlannedEntryPrice;
             clone.ExecutedEntryPrice = this.ExecutedEntryPrice;

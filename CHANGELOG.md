@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
-## [0.1.7] - 2026-05-29
+## [0.1.7] - 2026-05-30
 
 ### Added
 - Added WPF value converters for trade status/direction and booleans, with global registration in `Converters.xaml` and `App.xaml`.
@@ -23,6 +23,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - Fixed resource dictionary order in `App.xaml` and reduced `MainWindow` height
 - Redesign TradeDetailView for improved clarity and UX
 - Bumped all project versions to 0.1.7.
+- Added range validation to `EntryTime`; `TradeDirection`/`MarketType` required
+- Updated `TradeCreateVM`/`TradeEditVM` and XAML views to bind `EntryTime`/`ExitTime` as editable fields at top of form
+- Updated `TradeRepository` to support new update logic; only expose `UpdateCancellationTimeAsync`
 
 ## [0.1.6] - 2026-05-28
 

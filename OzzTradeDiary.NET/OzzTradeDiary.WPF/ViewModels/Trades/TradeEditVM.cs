@@ -62,10 +62,6 @@ namespace TD.WPF.ViewModels.Trades
 
         public Symbol Symbol => _trade.Symbol;
 
-        public TradeDirection TradeDirection => _trade.TradeDirection;
-
-        public TradeStatus TradeStatus => _trade.TradeStatus;
-
         public DateTime? EntryTime
         {
             get { return _trade.EntryTime; }
@@ -93,6 +89,10 @@ namespace TD.WPF.ViewModels.Trades
                 }
             }
         }
+
+        public TradeDirection TradeDirection => _trade.TradeDirection;
+
+        public TradeStatus TradeStatus => _trade.TradeStatus;
 
         public decimal? PlannedEntryPrice
         {
