@@ -8,7 +8,7 @@ namespace TD.Validation
         private readonly decimal _minvalue;
         private static readonly string defaultErrorMessageString = "The {0} field must be greater than {1}.";
 
-        public GreaterThanAttribute(decimal minvalue, string customErrMessage = null)
+        public GreaterThanAttribute(decimal minvalue, string? customErrMessage = null)
         {
             _minvalue = minvalue;
             ErrorMessage = !string.IsNullOrEmpty(customErrMessage)
@@ -16,9 +16,9 @@ namespace TD.Validation
                          : ErrorStrings.ValueGreaterThan;
         }
 
-        public GreaterThanAttribute(int minvalue, string customErrMessage = null) : this((decimal)minvalue, customErrMessage) { }
+        public GreaterThanAttribute(int minvalue, string? customErrMessage = null) : this((decimal)minvalue, customErrMessage) { }
 
-        public GreaterThanAttribute(double minvalue, string customErrMessage = null) : this((decimal)minvalue, customErrMessage) { }
+        public GreaterThanAttribute(double minvalue, string? customErrMessage = null) : this((decimal)minvalue, customErrMessage) { }
 
 
         public override string FormatErrorMessage(string name)

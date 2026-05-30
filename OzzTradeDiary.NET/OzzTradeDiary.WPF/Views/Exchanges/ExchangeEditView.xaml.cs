@@ -1,4 +1,6 @@
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Input;
 using TD.Models;
 using TD.WPF.ViewModels.Exchanges;
 
@@ -40,6 +42,14 @@ namespace TD.WPF.Views.Exchanges
             OnSourceInitialized();
         }
         partial void OnSourceInitialized();
+
+        private void IntegerTextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if (sender is not TextBox tb)
+                return;
+
+            e.Handled = !char.IsDigit(e.Text, 0);
+        }
 
         private void OkButton_Click(object sender, RoutedEventArgs e)
         {

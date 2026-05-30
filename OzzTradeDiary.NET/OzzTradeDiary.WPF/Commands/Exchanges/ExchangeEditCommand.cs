@@ -15,9 +15,9 @@ namespace TD.WPF.Commands.Exchanges
 {
     public partial class ExchangeEditCommand : AbstractCommand
     {
-        private readonly AbstractDiaryVM _viewModel;
+        protected readonly AbstractDiaryVM _viewModel;
         private readonly IWindowDialogService _windowDialogService;
-
+        
         public ExchangeEditCommand(AbstractDiaryVM viewModel, IWindowDialogService windowDialogService)
         {
             _viewModel = viewModel;

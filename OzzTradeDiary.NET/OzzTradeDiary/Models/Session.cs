@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using TD.Validation;
 using TD.i18n;
 //----------------------------------------------------------------------------------
 //
@@ -27,6 +28,7 @@ namespace TD.Models
         [Display(ResourceType = typeof(LocalizedStrings), Name = "Id")]
         public int Id { get; set; }
 
+        [RequiredSelection]
         [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
         [Display(ResourceType = typeof(LocalizedStrings), Name = "ExchangeId")]
         public int ExchangeId { get; set; }
@@ -34,6 +36,7 @@ namespace TD.Models
         [Display(ResourceType = typeof(LocalizedStrings), Name = "Exchange")]
         public Exchange Exchange { get; set; }
 
+        [RequiredSelection]
         [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
         [Display(ResourceType = typeof(LocalizedStrings), Name = "SessionType")]
         public SessionType SessionType { get; set; }

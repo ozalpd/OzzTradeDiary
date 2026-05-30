@@ -29,11 +29,10 @@ namespace TD.WPF.ViewModels.Maintenance
             _exchangeLookupService = exchangeLookupService;
             Exchanges = new ObservableCollection<Exchange>();
 
-            MarketTypeValues = GetValues<MarketType>();
-
             _symbol = new Symbol();
             DisplayOrder = 1000;
             IsActive = true;
+            MarketTypeValues = GetValues<MarketType>();
             OnInitialized();
         }
         partial void OnInitialized();

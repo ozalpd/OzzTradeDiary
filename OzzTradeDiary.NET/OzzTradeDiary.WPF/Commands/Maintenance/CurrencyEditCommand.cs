@@ -15,9 +15,9 @@ namespace TD.WPF.Commands.Maintenance
 {
     public partial class CurrencyEditCommand : AbstractCommand
     {
-        private readonly AbstractDiaryVM _viewModel;
+        protected readonly AbstractDiaryVM _viewModel;
         private readonly IWindowDialogService _windowDialogService;
-
+        
         public CurrencyEditCommand(AbstractDiaryVM viewModel, IWindowDialogService windowDialogService)
         {
             _viewModel = viewModel;

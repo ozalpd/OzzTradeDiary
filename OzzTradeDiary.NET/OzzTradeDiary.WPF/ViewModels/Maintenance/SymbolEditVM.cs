@@ -19,9 +19,8 @@ namespace TD.WPF.ViewModels.Maintenance
 
         public SymbolEditVM(Symbol symbol)
         {
-            MarketTypeValues = GetValues<MarketType>();
-
             _symbol = symbol;
+            MarketTypeValues = GetValues<MarketType>();
             OnInitialized();
         }
         partial void OnInitialized();

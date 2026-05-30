@@ -60,7 +60,7 @@ namespace TD.AppInfra.ViewModels
         }
         private string? _searchString;
 
-        protected void ReplaceCollection<T>(ObservableCollection<T> target, IEnumerable<T> source)
+        protected void ReplaceCollection<K>(ObservableCollection<K> target, IEnumerable<K> source)
         {
             target.Clear();
             foreach (var item in source)

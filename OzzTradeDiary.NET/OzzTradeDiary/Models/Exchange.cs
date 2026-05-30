@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using TD.Validation;
 using TD.i18n;
 //----------------------------------------------------------------------------------
 //
@@ -48,6 +49,7 @@ namespace TD.Models
         [Display(ResourceType = typeof(LocalizedStrings), Name = "CountryCode")]
         public string CountryCode { get; set; }
 
+        [RequiredSelection]
         [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
         [Display(ResourceType = typeof(LocalizedStrings), Name = "DefaultCurrencyId")]
         public int DefaultCurrencyId { get; set; }

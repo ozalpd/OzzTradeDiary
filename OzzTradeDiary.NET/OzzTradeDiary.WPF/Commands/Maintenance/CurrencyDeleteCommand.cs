@@ -1,7 +1,6 @@
 using System.Windows;
 using TD.AppInfra.Commands;
 using TD.i18n;
-using TD.WPF.Services;
 using TD.WPF.ViewModels;
 //----------------------------------------------------------------------------------
 //
@@ -15,8 +14,8 @@ namespace TD.WPF.Commands.Maintenance
 {
     public partial class CurrencyDeleteCommand : AbstractCommand
     {
-        private readonly AbstractDiaryVM _viewModel;
-
+        protected readonly AbstractDiaryVM _viewModel;
+        
         public CurrencyDeleteCommand(AbstractDiaryVM viewModel)
         {
             _viewModel = viewModel;

@@ -16,10 +16,10 @@ namespace TD.WPF.Commands.Exchanges
 {
     public partial class ExchangeCreateCommand : AbstractCommand
     {
-        private readonly AbstractDiaryVM _viewModel;
+        protected readonly AbstractDiaryVM _viewModel;
         private readonly IWindowDialogService _windowDialogService;
         private readonly ICurrencyLookupService _currencyLookupService;
-
+        
         public ExchangeCreateCommand(AbstractDiaryVM viewModel, IWindowDialogService windowDialogService,
                                      ICurrencyLookupService currencyLookupService)
         {

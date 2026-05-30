@@ -648,7 +648,6 @@ namespace TD.SQLite
                           && existingTrade.EntryTime == trade.EntryTime
                           && existingTrade.ExitTime == trade.ExitTime
                           && existingTrade.TradeStatus == trade.TradeStatus
-                          && existingTrade.MarketType == trade.MarketType
                           && existingTrade.PlannedEntryPrice == trade.PlannedEntryPrice
                           && existingTrade.ExecutedEntryPrice == trade.ExecutedEntryPrice
                           && existingTrade.PlannedPositionValue == trade.PlannedPositionValue
@@ -676,13 +675,12 @@ namespace TD.SQLite
                 return false;
 
             await using var command = connection.CreateCommand();
-            // TradingAccountId, SymbolId, TradeDirection, CancellationTime, SetupNotes, ReviewNotes are not updated to avoid complications with existing references,
-            // so only EntryTime, ExitTime, TradeStatus, MarketType, PlannedEntryPrice, ExecutedEntryPrice, PlannedPositionValue, ExecutedPositionValue, RemainingPositionValue, OrderQuantity, FilledQuantity, PlannedProfit, PlannedTP, ExecutedTP, PlannedSL, ExecutedSL, PlannedRiskAmount, PlannedRiskRewardRatio, RealizedProfitLoss, NetProfitLoss, RealizedRiskAmount, TotalFeesCalculated, TotalFeesCorrected, FundingFeeTotal, Tags, UpdatedAt are updated
+            // TradingAccountId, SymbolId, TradeDirection, MarketType, CancellationTime, SetupNotes, ReviewNotes are not updated to avoid complications with existing references,
+            // so only EntryTime, ExitTime, TradeStatus, PlannedEntryPrice, ExecutedEntryPrice, PlannedPositionValue, ExecutedPositionValue, RemainingPositionValue, OrderQuantity, FilledQuantity, PlannedProfit, PlannedTP, ExecutedTP, PlannedSL, ExecutedSL, PlannedRiskAmount, PlannedRiskRewardRatio, RealizedProfitLoss, NetProfitLoss, RealizedRiskAmount, TotalFeesCalculated, TotalFeesCorrected, FundingFeeTotal, Tags, UpdatedAt are updated
             command.CommandText = @$"UPDATE {_tableName} SET
                 EntryTime = @entryTime,
                 ExitTime = @exitTime,
                 TradeStatus = @tradeStatus,
-                MarketType = @marketType,
                 PlannedEntryPrice = @plannedEntryPrice,
                 ExecutedEntryPrice = @executedEntryPrice,
                 PlannedPositionValue = @plannedPositionValue,
@@ -711,7 +709,6 @@ namespace TD.SQLite
             command.AddDateTimeToTextParameter("@entryTime", trade.EntryTime);
             command.AddDateTimeToTextParameter("@exitTime", trade.ExitTime);
             command.AddParameter("@tradeStatus", (int)trade.TradeStatus);
-            command.AddParameter("@marketType", (int)trade.MarketType);
             command.AddDecimalToTextParameter("@plannedEntryPrice", trade.PlannedEntryPrice);
             command.AddDecimalToTextParameter("@executedEntryPrice", trade.ExecutedEntryPrice);
             command.AddDecimalToIntegerParameter("@plannedPositionValue",

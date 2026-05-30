@@ -1,5 +1,7 @@
 using System.Collections.ObjectModel;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Input;
 using TD.AppInfra.DesignTime;
 using TD.AppInfra.Services;
 using TD.Models;
@@ -64,6 +66,14 @@ namespace TD.WPF.Views.Maintenance
             OnSourceInitialized();
         }
         partial void OnSourceInitialized();
+
+        private void IntegerTextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if (sender is not TextBox tb)
+                return;
+
+            e.Handled = !char.IsDigit(e.Text, 0);
+        }
 
         private void OkButton_Click(object sender, RoutedEventArgs e)
         {

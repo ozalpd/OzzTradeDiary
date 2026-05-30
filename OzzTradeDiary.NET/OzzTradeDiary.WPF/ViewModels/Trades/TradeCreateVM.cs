@@ -262,6 +262,8 @@ namespace TD.WPF.ViewModels.Trades
             }
         }
 
+        public decimal? PlannedRiskAmount => _trade.PlannedRiskAmount;
+
         public decimal? PlannedRiskRewardRatio => _trade.PlannedRiskRewardRatio;
 
         public string? Tags

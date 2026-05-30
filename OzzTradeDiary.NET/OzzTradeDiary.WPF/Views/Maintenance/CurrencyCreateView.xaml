@@ -22,27 +22,29 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <TextBlock Grid.Row="0" Grid.Column="0" Style="{StaticResource RightAlignedTextBlockStyle}"
-                   Text="{x:Static i18n:LocalizedStrings.CurrencyTicker}"/>
+        <TextBlock Grid.Column="0" Grid.Row="0" FontWeight="Bold"
+                   Style="{StaticResource RightAlignedTextBlockStyle}" Text="{x:Static i18n:LocalizedStrings.CurrencyTicker}"/>
         <TextBox x:Name="CurrencyTickerTextBox" Grid.Row="0" Grid.Column="1"
-                 Style="{StaticResource ValidationTextBoxStyle}"
-                 Text="{Binding CurrencyTicker, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"/>
+                 Text="{Binding CurrencyTicker, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"
+                 Style="{StaticResource ValidationTextBoxStyle}"/>
 
-        <TextBlock Grid.Row="1" Grid.Column="0" Style="{StaticResource RightAlignedTextBlockStyle}"
-                   Text="{x:Static i18n:LocalizedStrings.Description}"/>
+        <TextBlock Grid.Column="0" Grid.Row="1" FontWeight="Bold"
+                   Style="{StaticResource RightAlignedTextBlockStyle}" Text="{x:Static i18n:LocalizedStrings.Description}"/>
         <TextBox x:Name="DescriptionTextBox" Grid.Row="1" Grid.Column="1"
                  Style="{StaticResource ValidationMutliLineTextBoxStyle}"
                  Text="{Binding Description, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"/>
 
-        <TextBlock Grid.Row="2" Grid.Column="0" Style="{StaticResource RightAlignedTextBlockStyle}"
-                   Text="{x:Static i18n:LocalizedStrings.DisplayOrder}"/>
+        <TextBlock Grid.Column="0" Grid.Row="2" FontWeight="Bold"
+                   Style="{StaticResource RightAlignedTextBlockStyle}" Text="{x:Static i18n:LocalizedStrings.DisplayOrder}"/>
         <TextBox x:Name="DisplayOrderTextBox" Grid.Row="2" Grid.Column="1"
-                 Style="{StaticResource ValidationTextBoxStyle}"
-                 Text="{Binding DisplayOrder, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"/>
+                 PreviewTextInput="IntegerTextBox_PreviewTextInput"
+                 Text="{Binding DisplayOrder, UpdateSourceTrigger=LostFocus, ValidatesOnNotifyDataErrors=True}"
+                 Style="{StaticResource ValidationTextBoxStyle}"/>
 
-        <TextBlock Grid.Row="3" Grid.Column="0" Style="{StaticResource RightAlignedTextBlockStyle}"
-                   Text="{x:Static i18n:LocalizedStrings.IsActive}"/>
-        <CheckBox Grid.Row="3" Grid.Column="1" Margin="0,0,0,20" IsChecked="{Binding IsActive}" />
+        <TextBlock Grid.Column="0" Grid.Row="3" FontWeight="Bold"
+                   Style="{StaticResource RightAlignedTextBlockStyle}" Text="{x:Static i18n:LocalizedStrings.IsActive}"/>
+        <CheckBox Grid.Row="3" Grid.Column="1" Margin="0,0,0,22"
+                  IsChecked="{Binding IsActive}" />
 
         <StackPanel Grid.Row="5" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,6" VerticalAlignment="Bottom">
             <Button Content="{x:Static i18n:ActionStrings.OK}" Width="90" Margin="0,0,18,0" IsDefault="True" IsEnabled="{Binding IsValid}" Click="OkButton_Click" />

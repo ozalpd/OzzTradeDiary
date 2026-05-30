@@ -6,15 +6,24 @@ namespace TD.WPF.ViewModels.Trades
 {
     public partial class TradeCreateVM
     {
-        public IEnumerable<EnumValueItem<EntryOrderType>> EntryOrderTypeValues { get; private set; }
-        IReadOnlyList<Symbol> _allSymbols;
+        IReadOnlyList<Symbol> _allSymbols = null;
 
         partial void OnInitialized()
         {
             EntryOrderTypeValues = GetValues<EntryOrderType>();
+            ExitOrderTypeValues = GetValues<ExitOrderType>();
+            ExitOrderForTpValues = GetValues<ExitOrderType>().Where(v => v.Value <= ExitOrderType.TrailingStop).ToList();
             PropertyChanged += OnPropertyChanged;
+
             EntryOrderType = EntryOrderType.Market;
+            StopLossOrderType = ExitOrderType.Market;
+            TakeProfitOrderType = ExitOrderType.Market;
         }
+
+        public IEnumerable<EnumValueItem<EntryOrderType>> EntryOrderTypeValues { get; private set; } = Array.Empty<EnumValueItem<EntryOrderType>>();
+        public IEnumerable<EnumValueItem<ExitOrderType>> ExitOrderTypeValues { get; private set; } = Array.Empty<EnumValueItem<ExitOrderType>>();
+        public IEnumerable<EnumValueItem<ExitOrderType>> ExitOrderForTpValues { get; private set; } = Array.Empty<EnumValueItem<ExitOrderType>>();
+
 
         private void OnPropertyChanged(object? sender, System.ComponentModel.PropertyChangedEventArgs e)
         {
@@ -24,10 +33,16 @@ namespace TD.WPF.ViewModels.Trades
                     RaisePropertyChanged(nameof(PlannedPositionValue));
             }
 
-            if (e.PropertyName == nameof(PlannedPositionValue) || e.PropertyName == nameof(PlannedTP) || e.PropertyName == nameof(PlannedSL))
+            if (e.PropertyName == nameof(PlannedTP) || e.PropertyName == nameof(OrderQuantity))
             {
                 RaisePropertyChanged(nameof(PlannedRiskRewardRatio));
                 RaisePropertyChanged(nameof(PlannedProfit));
+            }
+
+            if (e.PropertyName == nameof(PlannedSL) || e.PropertyName == nameof(OrderQuantity))
+            {
+                RaisePropertyChanged(nameof(PlannedRiskRewardRatio));
+                RaisePropertyChanged(nameof(PlannedRiskAmount));
             }
 
             if (e.PropertyName == nameof(TradingAccountId))
@@ -38,11 +53,13 @@ namespace TD.WPF.ViewModels.Trades
             if (e.PropertyName == nameof(SymbolId))
             {
                 SetMarketType();
+                ValidateProperty(Trade, nameof(MarketType));
             }
 
             if (e.PropertyName == nameof(TradeDirection) || e.PropertyName == nameof(TradeStatus) || e.PropertyName == nameof(PlannedEntryPrice))
             {
                 RaisePropertyChanged(nameof(PlannedRiskRewardRatio));
+                RaisePropertyChanged(nameof(PlannedRiskAmount));
                 RaisePropertyChanged(nameof(PlannedProfit));
                 ValidateProperty(Trade, nameof(PlannedTP));
                 ValidateProperty(Trade, nameof(PlannedSL));
@@ -63,12 +80,41 @@ namespace TD.WPF.ViewModels.Trades
         }
         EntryOrderType _entryOrderType;
 
+        public ExitOrderType StopLossOrderType
+        {
+            get => _stopLossOrderType;
+            set
+            {
+                if (_stopLossOrderType != value)
+                {
+                    _stopLossOrderType = value;
+                    RaisePropertyChanged(nameof(StopLossOrderType));
+                }
+            }
+        }
+        ExitOrderType _stopLossOrderType;
+
+        public ExitOrderType TakeProfitOrderType
+        {
+            get => _takeProfitOrderType;
+            set
+            {
+                if (_takeProfitOrderType != value)
+                {
+                    _takeProfitOrderType = value;
+                    RaisePropertyChanged(nameof(TakeProfitOrderType));
+                }
+            }
+        }
+        ExitOrderType _takeProfitOrderType;
+
 
 
         public void AddOrders()
         {
             AddEntryOrder();
-
+            AddStopLossOrder();
+            AddTakeProfitOrder();
         }
 
         private void AddEntryOrder()
@@ -85,6 +131,36 @@ namespace TD.WPF.ViewModels.Trades
                 OrderPrice = PlannedEntryPrice.Value
             };
             Trade.EntryOrders.Add(entryOrder);
+        }
+
+        private void AddStopLossOrder()
+        {
+            if (PlannedSL == null || OrderQuantity == null)
+                return;
+            var slOrder = new StopLossOrder
+            {
+                Id = 0,
+                TradeId = Trade.Id,
+                OrderType = StopLossOrderType,
+                OrderQuantity = OrderQuantity,
+                OrderPrice = PlannedSL.Value
+            };
+            Trade.StopLossOrders.Add(slOrder);
+        }
+
+        private void AddTakeProfitOrder()
+        {
+            if (PlannedTP == null || OrderQuantity == null)
+                return;
+            var tpOrder = new TakeProfitOrder
+            {
+                Id = 0,
+                TradeId = Trade.Id,
+                OrderType = TakeProfitOrderType,
+                OrderQuantity = OrderQuantity,
+                OrderPrice = PlannedTP.Value
+            };
+            Trade.TakeProfitOrders.Add(tpOrder);
         }
 
         public void SetMarketType()

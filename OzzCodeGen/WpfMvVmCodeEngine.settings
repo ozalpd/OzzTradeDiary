@@ -1576,7 +1576,7 @@
           <DefaultValue />
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsMultiLine>false</IsMultiLine>
-          <CreateViewMode>Exclude</CreateViewMode>
+          <CreateViewMode>ReadOnly</CreateViewMode>
           <EditViewMode>Exclude</EditViewMode>
           <ShowInCollection>true</ShowInCollection>
           <ShowInDetail>true</ShowInDetail>

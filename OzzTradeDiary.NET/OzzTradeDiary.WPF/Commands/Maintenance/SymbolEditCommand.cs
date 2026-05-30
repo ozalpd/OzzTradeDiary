@@ -15,9 +15,9 @@ namespace TD.WPF.Commands.Maintenance
 {
     public partial class SymbolEditCommand : AbstractCommand
     {
-        private readonly ISymbolCreationContext _viewModel;
+        protected readonly ISymbolCreationContext _viewModel;
         private readonly IWindowDialogService _windowDialogService;
-
+        
         public SymbolEditCommand(ISymbolCreationContext viewModel, IWindowDialogService windowDialogService)
         {
             _viewModel = viewModel;
