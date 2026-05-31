@@ -3,12 +3,12 @@ CREATE TABLE IF NOT EXISTS StopLossOrders(
 	TradeId INTEGER Not Null, 
 	OrderType INTEGER Not Null, 
 	OrderPrice TEXT Not Null, 
-	FilledTime INTEGER, 
 	FilledPrice TEXT, 
 	OrderQuantity TEXT, 
 	FilledQuantity TEXT, 
 	OrderValue INTEGER, 
 	FilledValue INTEGER, 
+	FilledTime INTEGER, 
 	Notes TEXT, 
 	UpdatedAt TEXT Not Null 
 );

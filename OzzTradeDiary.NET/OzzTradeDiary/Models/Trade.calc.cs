@@ -181,30 +181,6 @@ public partial class Trade
     decimal? _plannedRiskRewardRatio;
 
     /// <summary>
-    /// Market value of the position that remains open after accounting for filled take-profit and stop-loss orders.
-    /// </summary>
-    /// <remarks>Calculated as (FilledQuantity - exited quantity) × ExecutedEntryPrice. Returns null
-    /// if ExecutedEntryPrice or FilledQuantity is null. Returns 0 if the entire position has been exited. This
-    /// calculated value is persisted to enable query operations.</remarks>
-    public decimal? RemainingPositionValue
-    {
-        get
-        {
-            if (!ExecutedEntryPrice.HasValue || !FilledQuantity.HasValue)
-                return null;
-
-            // Sum quantities already exited via TP and SL fills
-            decimal exitedQty = TakeProfitOrders.Sum(o => o.FilledQuantity ?? 0)
-                              + StopLossOrders.Sum(o => o.FilledQuantity ?? 0);
-
-            decimal remainingQty = FilledQuantity.Value - exitedQty;
-            return remainingQty > 0 ? remainingQty * ExecutedEntryPrice.Value : 0;
-        }
-        set { _remainingPositionValue = value; }
-    }
-    decimal? _remainingPositionValue;
-
-    /// <summary>
     /// Gets or sets the realized profit or loss for the trade based on executed entry and exit prices.
     /// </summary>
     /// <remarks>The realized profit or loss is calculated using the executed entry price and either

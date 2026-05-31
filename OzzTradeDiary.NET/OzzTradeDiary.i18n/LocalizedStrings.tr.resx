@@ -610,6 +610,9 @@
     <data name="RealizedProfitLoss" xml:space="preserve">
         <value>Gerçekleşen Kazanç/Kayıp</value>
     </data>
+    <data name="RealizedR" xml:space="preserve">
+        <value>Gerçekleşen R</value>
+    </data>
     <data name="RealizedRiskAmount" xml:space="preserve">
         <value>Gerçekleşen Risk Tutarı</value>
     </data>
@@ -621,6 +624,9 @@
     </data>
     <data name="RemainingPositionValue" xml:space="preserve">
         <value>Kalan Pozisyon Büyüklüğü</value>
+    </data>
+    <data name="RemainingQuantity" xml:space="preserve">
+        <value>Kalan Miktar</value>
     </data>
     <data name="RemoveCurrency" xml:space="preserve">
         <value>Dövizi Çıkart</value>

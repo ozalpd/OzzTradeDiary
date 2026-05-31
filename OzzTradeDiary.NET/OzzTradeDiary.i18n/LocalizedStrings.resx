@@ -610,6 +610,9 @@
     <data name="RealizedProfitLoss" xml:space="preserve">
         <value>Realized Profit Loss</value>
     </data>
+    <data name="RealizedR" xml:space="preserve">
+        <value>Realized R</value>
+    </data>
     <data name="RealizedRiskAmount" xml:space="preserve">
         <value>Realized Risk Amount</value>
     </data>
@@ -621,6 +624,9 @@
     </data>
     <data name="RemainingPositionValue" xml:space="preserve">
         <value>Remaining Position Value</value>
+    </data>
+    <data name="RemainingQuantity" xml:space="preserve">
+        <value>Remaining Quantity</value>
     </data>
     <data name="RemoveCurrency" xml:space="preserve">
         <value>Remove Currency</value>

@@ -18,7 +18,7 @@ namespace TD.AppInfra.ViewModels.Trades
         }
 
         public TradeQueryParameters Parameters { get; }
-        
+
         public int? ByTradingAccountId
         {
             get => Parameters.TradingAccountId;
@@ -28,7 +28,7 @@ namespace TD.AppInfra.ViewModels.Trades
                 RaisePropertyChanged(nameof(ByTradingAccountId));
             }
         }
-        
+
         public int? BySymbolId
         {
             get => Parameters.SymbolId;
@@ -38,7 +38,7 @@ namespace TD.AppInfra.ViewModels.Trades
                 RaisePropertyChanged(nameof(BySymbolId));
             }
         }
-        
+
         public TradeDirection? ByTradeDirection
         {
             get => Parameters.TradeDirection;
@@ -48,7 +48,7 @@ namespace TD.AppInfra.ViewModels.Trades
                 RaisePropertyChanged(nameof(ByTradeDirection));
             }
         }
-        
+
         public TradeStatus? ByTradeStatus
         {
             get => Parameters.TradeStatus;
@@ -58,7 +58,7 @@ namespace TD.AppInfra.ViewModels.Trades
                 RaisePropertyChanged(nameof(ByTradeStatus));
             }
         }
-        
+
         public MarketType? ByMarketType
         {
             get => Parameters.MarketType;
@@ -68,7 +68,7 @@ namespace TD.AppInfra.ViewModels.Trades
                 RaisePropertyChanged(nameof(ByMarketType));
             }
         }
-        
+
         public DateTime? EntryTimeMin
         {
             get => Parameters.EntryTimeMin;
@@ -88,7 +88,7 @@ namespace TD.AppInfra.ViewModels.Trades
                 RaisePropertyChanged(nameof(EntryTimeMax));
             }
         }
-        
+
         public DateTime? ExitTimeMin
         {
             get => Parameters.ExitTimeMin;
@@ -108,7 +108,7 @@ namespace TD.AppInfra.ViewModels.Trades
                 RaisePropertyChanged(nameof(ExitTimeMax));
             }
         }
-        
+
         public decimal? PlannedPositionValueMin
         {
             get => Parameters.PlannedPositionValueMin;
@@ -128,7 +128,7 @@ namespace TD.AppInfra.ViewModels.Trades
                 RaisePropertyChanged(nameof(PlannedPositionValueMax));
             }
         }
-        
+
         public decimal? ExecutedPositionValueMin
         {
             get => Parameters.ExecutedPositionValueMin;
@@ -148,27 +148,7 @@ namespace TD.AppInfra.ViewModels.Trades
                 RaisePropertyChanged(nameof(ExecutedPositionValueMax));
             }
         }
-        
-        public decimal? RemainingPositionValueMin
-        {
-            get => Parameters.RemainingPositionValueMin;
-            set
-            {
-                Parameters.RemainingPositionValueMin = value;
-                RaisePropertyChanged(nameof(RemainingPositionValueMin));
-            }
-        }
 
-        public decimal? RemainingPositionValueMax
-        {
-            get => Parameters.RemainingPositionValueMax;
-            set
-            {
-                Parameters.RemainingPositionValueMax = value;
-                RaisePropertyChanged(nameof(RemainingPositionValueMax));
-            }
-        }
-        
         public decimal? PlannedProfitMin
         {
             get => Parameters.PlannedProfitMin;
@@ -188,7 +168,7 @@ namespace TD.AppInfra.ViewModels.Trades
                 RaisePropertyChanged(nameof(PlannedProfitMax));
             }
         }
-        
+
         public decimal? PlannedRiskAmountMin
         {
             get => Parameters.PlannedRiskAmountMin;
@@ -208,7 +188,7 @@ namespace TD.AppInfra.ViewModels.Trades
                 RaisePropertyChanged(nameof(PlannedRiskAmountMax));
             }
         }
-        
+
         public decimal? PlannedRiskRewardRatioMin
         {
             get => Parameters.PlannedRiskRewardRatioMin;
@@ -228,7 +208,7 @@ namespace TD.AppInfra.ViewModels.Trades
                 RaisePropertyChanged(nameof(PlannedRiskRewardRatioMax));
             }
         }
-        
+
         public decimal? RealizedProfitLossMin
         {
             get => Parameters.RealizedProfitLossMin;
@@ -248,7 +228,7 @@ namespace TD.AppInfra.ViewModels.Trades
                 RaisePropertyChanged(nameof(RealizedProfitLossMax));
             }
         }
-        
+
         public decimal? NetProfitLossMin
         {
             get => Parameters.NetProfitLossMin;
@@ -268,7 +248,7 @@ namespace TD.AppInfra.ViewModels.Trades
                 RaisePropertyChanged(nameof(NetProfitLossMax));
             }
         }
-        
+
         public decimal? RealizedRiskAmountMin
         {
             get => Parameters.RealizedRiskAmountMin;
@@ -288,7 +268,7 @@ namespace TD.AppInfra.ViewModels.Trades
                 RaisePropertyChanged(nameof(RealizedRiskAmountMax));
             }
         }
-        
+
         public DateTime? UpdatedAtMin
         {
             get => Parameters.UpdatedAtMin;
@@ -324,8 +304,6 @@ namespace TD.AppInfra.ViewModels.Trades
             PlannedPositionValueMax = null;
             ExecutedPositionValueMin = null;
             ExecutedPositionValueMax = null;
-            RemainingPositionValueMin = null;
-            RemainingPositionValueMax = null;
             PlannedProfitMin = null;
             PlannedProfitMax = null;
             PlannedRiskAmountMin = null;

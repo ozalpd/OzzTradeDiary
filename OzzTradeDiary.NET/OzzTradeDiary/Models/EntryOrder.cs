@@ -44,10 +44,6 @@ namespace TD.Models
         [Display(ResourceType = typeof(LocalizedStrings), Name = "OrderPrice")]
         public decimal OrderPrice { get; set; }
 
-        [Range(typeof(DateTime), "1/1/2000", "12/31/2220", ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName ="RangeDateTime")]
-        [Display(ResourceType = typeof(LocalizedStrings), Name = "FilledTime")]
-        public DateTime? FilledTime { get; set; }
-
         /// <summary>
         /// Executed Entry Price
         /// </summary>
@@ -69,6 +65,10 @@ namespace TD.Models
         [NotGreaterThanProperty(nameof(OrderQuantity))]
         [Display(ResourceType = typeof(LocalizedStrings), Name = "FilledQuantity")]
         public decimal? FilledQuantity { get; set; }
+
+        [Range(typeof(DateTime), "1/1/2000", "12/31/2220", ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName ="RangeDateTime")]
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "FilledTime")]
+        public DateTime? FilledTime { get; set; }
 
         [StringLength(512, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxStringLength")]
         [DataType(DataType.MultilineText)]
@@ -92,10 +92,10 @@ namespace TD.Models
             clone.TradeId = this.TradeId;
             clone.OrderType = this.OrderType;
             clone.OrderPrice = this.OrderPrice;
-            clone.FilledTime = this.FilledTime;
             clone.FilledPrice = this.FilledPrice;
             clone.OrderQuantity = this.OrderQuantity;
             clone.FilledQuantity = this.FilledQuantity;
+            clone.FilledTime = this.FilledTime;
             clone.Notes = this.Notes;
             clone.UpdatedAt = this.UpdatedAt;
 

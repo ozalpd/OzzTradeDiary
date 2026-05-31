@@ -30,7 +30,6 @@ namespace TD.WPF.DesignTime
                 ExecutedSL = 73050m,
                 PlannedPositionValue = 1500m,
                 ExecutedPositionValue = 1496m,
-                RemainingPositionValue = 0m,
                 IsFullyClosed = true,
                 PlannedProfit = 300m,
                 RealizedProfitLoss = 294m,

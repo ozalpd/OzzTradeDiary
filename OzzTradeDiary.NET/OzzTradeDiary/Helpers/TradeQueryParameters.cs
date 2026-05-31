@@ -40,8 +40,6 @@ namespace TD.Helpers
                 PlannedPositionValueMax = tradeQueryParams.PlannedPositionValueMax;
                 ExecutedPositionValueMin = tradeQueryParams.ExecutedPositionValueMin;
                 ExecutedPositionValueMax = tradeQueryParams.ExecutedPositionValueMax;
-                RemainingPositionValueMin = tradeQueryParams.RemainingPositionValueMin;
-                RemainingPositionValueMax = tradeQueryParams.RemainingPositionValueMax;
                 PlannedProfitMin = tradeQueryParams.PlannedProfitMin;
                 PlannedProfitMax = tradeQueryParams.PlannedProfitMax;
                 PlannedRiskAmountMin = tradeQueryParams.PlannedRiskAmountMin;
@@ -72,8 +70,6 @@ namespace TD.Helpers
         public decimal? PlannedPositionValueMax { get; set; }
         public decimal? ExecutedPositionValueMin { get; set; }
         public decimal? ExecutedPositionValueMax { get; set; }
-        public decimal? RemainingPositionValueMin { get; set; }
-        public decimal? RemainingPositionValueMax { get; set; }
         public decimal? PlannedProfitMin { get; set; }
         public decimal? PlannedProfitMax { get; set; }
         public decimal? PlannedRiskAmountMin { get; set; }
@@ -103,7 +99,6 @@ namespace TD.Helpers
             _hasAnySearchCriteria = _hasAnySearchCriteria || ExitTimeMin.HasValue || ExitTimeMax.HasValue;
             _hasAnySearchCriteria = _hasAnySearchCriteria || PlannedPositionValueMin.HasValue || PlannedPositionValueMax.HasValue;
             _hasAnySearchCriteria = _hasAnySearchCriteria || ExecutedPositionValueMin.HasValue || ExecutedPositionValueMax.HasValue;
-            _hasAnySearchCriteria = _hasAnySearchCriteria || RemainingPositionValueMin.HasValue || RemainingPositionValueMax.HasValue;
             _hasAnySearchCriteria = _hasAnySearchCriteria || PlannedProfitMin.HasValue || PlannedProfitMax.HasValue;
             _hasAnySearchCriteria = _hasAnySearchCriteria || PlannedRiskAmountMin.HasValue || PlannedRiskAmountMax.HasValue;
             _hasAnySearchCriteria = _hasAnySearchCriteria || PlannedRiskRewardRatioMin.HasValue || PlannedRiskRewardRatioMax.HasValue;

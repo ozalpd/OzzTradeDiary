@@ -1845,6 +1845,10 @@
     <Translation>Remaining Position Value</Translation>
   </Vocab>
   <Vocab>
+    <Name>RemainingQuantity</Name>
+    <Translation>Remaining Quantity</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Remove</Name>
     <Translation>Remove</Translation>
   </Vocab>

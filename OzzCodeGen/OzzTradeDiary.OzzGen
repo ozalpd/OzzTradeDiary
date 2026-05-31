@@ -354,6 +354,51 @@
           <IsNullable>true</IsNullable>
           <IsStoreGenerated>false</IsStoreGenerated>
         </BaseProperty>
+        <BaseProperty xsi:type="SimpleProperty">
+          <Name>RemainingPositionValue</Name>
+          <DisplayOrder>9990600</DisplayOrder>
+          <DisplayName>Remaining Position Value</DisplayName>
+          <TypeName>decimal</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <RestrictedData>false</RestrictedData>
+          <EnumTypeName />
+          <IsKey>false</IsKey>
+          <IsForeignKey>false</IsForeignKey>
+          <IsImmutable>false</IsImmutable>
+          <IsNullable>true</IsNullable>
+          <IsStoreGenerated>false</IsStoreGenerated>
+        </BaseProperty>
+        <BaseProperty xsi:type="SimpleProperty">
+          <Name>RemainingQuantity</Name>
+          <DisplayOrder>9990700</DisplayOrder>
+          <DisplayName>Remaining Quantity</DisplayName>
+          <TypeName>decimal</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <RestrictedData>false</RestrictedData>
+          <EnumTypeName />
+          <IsKey>false</IsKey>
+          <IsForeignKey>false</IsForeignKey>
+          <IsImmutable>false</IsImmutable>
+          <IsNullable>true</IsNullable>
+          <IsStoreGenerated>false</IsStoreGenerated>
+        </BaseProperty>
+        <BaseProperty xsi:type="SimpleProperty">
+          <Name>RealizedR</Name>
+          <DisplayOrder>9990800</DisplayOrder>
+          <DisplayName>Realized R</DisplayName>
+          <TypeName>decimal</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <RestrictedData>false</RestrictedData>
+          <EnumTypeName />
+          <IsKey>false</IsKey>
+          <IsForeignKey>false</IsForeignKey>
+          <IsImmutable>false</IsImmutable>
+          <IsNullable>true</IsNullable>
+          <IsStoreGenerated>false</IsStoreGenerated>
+        </BaseProperty>
       </Properties>
     </EntityDefinition>
     <EntityDefinition>
@@ -1781,25 +1826,9 @@
           <IsStoreGenerated>false</IsStoreGenerated>
         </BaseProperty>
         <BaseProperty xsi:type="SimpleProperty">
-          <Name>RemainingPositionValue</Name>
-          <Comment>Calculated based on ExecutedPositionValue, sums of OrderValue from TakeProfitOrders and StopLossOrders</Comment>
-          <DisplayOrder>101500</DisplayOrder>
-          <DisplayName>Remaining Position Value</DisplayName>
-          <TypeName>decimal</TypeName>
-          <IsClientComputed>false</IsClientComputed>
-          <IsServerComputed>false</IsServerComputed>
-          <RestrictedData>false</RestrictedData>
-          <EnumTypeName />
-          <IsKey>false</IsKey>
-          <IsForeignKey>false</IsForeignKey>
-          <IsImmutable>false</IsImmutable>
-          <IsNullable>true</IsNullable>
-          <IsStoreGenerated>false</IsStoreGenerated>
-        </BaseProperty>
-        <BaseProperty xsi:type="SimpleProperty">
           <Name>OrderQuantity</Name>
           <Comment>Planned contract quantity of entry orders, calculated from EntryOrders. Also persisted for using in SQL queries.</Comment>
-          <DisplayOrder>101600</DisplayOrder>
+          <DisplayOrder>101500</DisplayOrder>
           <DisplayName>Order Quantity</DisplayName>
           <TypeName>decimal</TypeName>
           <IsClientComputed>false</IsClientComputed>
@@ -1815,7 +1844,7 @@
         <BaseProperty xsi:type="SimpleProperty">
           <Name>FilledQuantity</Name>
           <Comment>Realized contract quantity of entry orders, calculated from EntryOrders. Also persisted for using in SQL queries.</Comment>
-          <DisplayOrder>101700</DisplayOrder>
+          <DisplayOrder>101600</DisplayOrder>
           <DisplayName>Filled Quantity</DisplayName>
           <TypeName>decimal</TypeName>
           <IsClientComputed>false</IsClientComputed>
@@ -1830,7 +1859,7 @@
         </BaseProperty>
         <BaseProperty xsi:type="SimpleProperty">
           <Name>PlannedProfit</Name>
-          <DisplayOrder>101800</DisplayOrder>
+          <DisplayOrder>101700</DisplayOrder>
           <DisplayName>Planned P/L</DisplayName>
           <TypeName>decimal</TypeName>
           <IsClientComputed>false</IsClientComputed>
@@ -1846,7 +1875,7 @@
         <BaseProperty xsi:type="SimpleProperty">
           <Name>PlannedTP</Name>
           <Comment>Planned Take Profit Price, calculated from TakeProfitOrders</Comment>
-          <DisplayOrder>101900</DisplayOrder>
+          <DisplayOrder>101800</DisplayOrder>
           <DisplayName>Planned Take Profit</DisplayName>
           <TypeName>decimal</TypeName>
           <IsClientComputed>false</IsClientComputed>
@@ -1862,7 +1891,7 @@
         <BaseProperty xsi:type="SimpleProperty">
           <Name>ExecutedTP</Name>
           <Comment>Executed Take Profit Price, calculated from TakeProfitOrders</Comment>
-          <DisplayOrder>102000</DisplayOrder>
+          <DisplayOrder>101900</DisplayOrder>
           <DisplayName>Executed Take Profit</DisplayName>
           <TypeName>decimal</TypeName>
           <IsClientComputed>false</IsClientComputed>
@@ -1878,7 +1907,7 @@
         <BaseProperty xsi:type="SimpleProperty">
           <Name>PlannedSL</Name>
           <Comment>Planned Stop Loss Price, calculated from StopLossOrders</Comment>
-          <DisplayOrder>102100</DisplayOrder>
+          <DisplayOrder>102000</DisplayOrder>
           <DisplayName>Planned Stop Loss</DisplayName>
           <TypeName>decimal</TypeName>
           <IsClientComputed>false</IsClientComputed>
@@ -1894,7 +1923,7 @@
         <BaseProperty xsi:type="SimpleProperty">
           <Name>ExecutedSL</Name>
           <Comment>Executed Stop Loss Price, calculated from StopLossOrders</Comment>
-          <DisplayOrder>102200</DisplayOrder>
+          <DisplayOrder>102100</DisplayOrder>
           <DisplayName>Executed Stop Loss</DisplayName>
           <TypeName>decimal</TypeName>
           <IsClientComputed>false</IsClientComputed>
@@ -1910,7 +1939,7 @@
         <BaseProperty xsi:type="SimpleProperty">
           <Name>PlannedRiskAmount</Name>
           <Comment>Calculated on the planned entry price, planned stop loss price, and order quantity. This property is a calculated value that represents the potential loss if the trade hits the stop loss level. Also persisted for using in SQL queries.</Comment>
-          <DisplayOrder>102300</DisplayOrder>
+          <DisplayOrder>102200</DisplayOrder>
           <DisplayName>Planned Risk Amount</DisplayName>
           <TypeName>decimal</TypeName>
           <IsClientComputed>false</IsClientComputed>
@@ -1926,7 +1955,7 @@
         <BaseProperty xsi:type="SimpleProperty">
           <Name>PlannedRiskRewardRatio</Name>
           <Comment>Gets the planned risk/reward ratio for the trade, calculated as PlannedProfit divided by PlannedRiskAmount. A ratio of 2.0 means the planned reward is twice the planned risk (2:1 R/R). Calculated but also persisted for using in SQL queries.</Comment>
-          <DisplayOrder>102400</DisplayOrder>
+          <DisplayOrder>102300</DisplayOrder>
           <DisplayName>Planned Risk Reward Ratio</DisplayName>
           <TypeName>decimal</TypeName>
           <IsClientComputed>false</IsClientComputed>
@@ -1942,7 +1971,7 @@
         <BaseProperty xsi:type="SimpleProperty">
           <Name>RealizedProfitLoss</Name>
           <Comment>Calculated using the executed entry price and either the executed take profit or stop loss price, depending on which is available. For long positions, profit is realized when the exit price is higher than the entry price; for short positions, when the exit price is lower. If neither executed take profit nor stop loss is available, the value is null. The setter exists to support data binding scenarios and does not affect the calculated value. Calculated but also persisted for using in SQL queries.</Comment>
-          <DisplayOrder>102500</DisplayOrder>
+          <DisplayOrder>102400</DisplayOrder>
           <DisplayName>Realized P/L</DisplayName>
           <TypeName>decimal</TypeName>
           <IsClientComputed>false</IsClientComputed>
@@ -1958,7 +1987,7 @@
         <BaseProperty xsi:type="SimpleProperty">
           <Name>NetProfitLoss</Name>
           <Comment>Calculated from RealizedProfitLoss - (TotalFeesCalculated ?? TotalFeesCorrected) - FundingFeeTotal, also persisted for using in SQL queries.</Comment>
-          <DisplayOrder>102600</DisplayOrder>
+          <DisplayOrder>102500</DisplayOrder>
           <DisplayName>Net Profit Loss</DisplayName>
           <TypeName>decimal</TypeName>
           <IsClientComputed>false</IsClientComputed>
@@ -1974,7 +2003,7 @@
         <BaseProperty xsi:type="SimpleProperty">
           <Name>RealizedRiskAmount</Name>
           <Comment>Calculated based on executed entry price and executed exit price (TP or SL), representing the actual amount won or lost on the trade. Calculated but also persisted for using in SQL queries.</Comment>
-          <DisplayOrder>102700</DisplayOrder>
+          <DisplayOrder>102600</DisplayOrder>
           <DisplayName>Realized Risk Amount</DisplayName>
           <TypeName>decimal</TypeName>
           <IsClientComputed>false</IsClientComputed>
@@ -1990,7 +2019,7 @@
         <BaseProperty xsi:type="SimpleProperty">
           <Name>TotalFeesCalculated</Name>
           <Comment>Calculated: opening + closing fees from orders</Comment>
-          <DisplayOrder>102800</DisplayOrder>
+          <DisplayOrder>102700</DisplayOrder>
           <DisplayName>Total Fees Calculated</DisplayName>
           <TypeName>decimal</TypeName>
           <IsClientComputed>false</IsClientComputed>
@@ -2006,7 +2035,7 @@
         <BaseProperty xsi:type="SimpleProperty">
           <Name>TotalFeesCorrected</Name>
           <Comment>User override; used if set</Comment>
-          <DisplayOrder>102900</DisplayOrder>
+          <DisplayOrder>102800</DisplayOrder>
           <DisplayName>Total Fees Corrected</DisplayName>
           <TypeName>decimal</TypeName>
           <IsClientComputed>false</IsClientComputed>
@@ -2021,7 +2050,7 @@
         </BaseProperty>
         <BaseProperty xsi:type="SimpleProperty">
           <Name>FundingFeeTotal</Name>
-          <DisplayOrder>103000</DisplayOrder>
+          <DisplayOrder>102900</DisplayOrder>
           <DisplayName>Funding Fee Total</DisplayName>
           <TypeName>decimal</TypeName>
           <IsClientComputed>false</IsClientComputed>
@@ -2036,7 +2065,7 @@
         </BaseProperty>
         <BaseProperty xsi:type="StringProperty">
           <Name>Tags</Name>
-          <DisplayOrder>103100</DisplayOrder>
+          <DisplayOrder>103000</DisplayOrder>
           <DisplayName>Tags</DisplayName>
           <TypeName>string</TypeName>
           <IsClientComputed>false</IsClientComputed>
@@ -2052,7 +2081,7 @@
         </BaseProperty>
         <BaseProperty xsi:type="CollectionProperty">
           <Name>EntryOrders</Name>
-          <DisplayOrder>103200</DisplayOrder>
+          <DisplayOrder>103100</DisplayOrder>
           <DisplayName>Entry Orders</DisplayName>
           <TypeName>ICollection&lt;EntryOrder&gt;</TypeName>
           <IsClientComputed>false</IsClientComputed>
@@ -2061,7 +2090,7 @@
         </BaseProperty>
         <BaseProperty xsi:type="CollectionProperty">
           <Name>TakeProfitOrders</Name>
-          <DisplayOrder>103300</DisplayOrder>
+          <DisplayOrder>103200</DisplayOrder>
           <DisplayName>Take Profit Orders</DisplayName>
           <TypeName>ICollection&lt;TakeProfitOrder&gt;</TypeName>
           <IsClientComputed>false</IsClientComputed>
@@ -2070,7 +2099,7 @@
         </BaseProperty>
         <BaseProperty xsi:type="CollectionProperty">
           <Name>StopLossOrders</Name>
-          <DisplayOrder>103400</DisplayOrder>
+          <DisplayOrder>103300</DisplayOrder>
           <DisplayName>Stop Loss Orders</DisplayName>
           <TypeName>ICollection&lt;StopLossOrder&gt;</TypeName>
           <IsClientComputed>false</IsClientComputed>
@@ -2079,7 +2108,7 @@
         </BaseProperty>
         <BaseProperty xsi:type="StringProperty">
           <Name>SetupNotes</Name>
-          <DisplayOrder>103500</DisplayOrder>
+          <DisplayOrder>103400</DisplayOrder>
           <DisplayName>Setup Notes</DisplayName>
           <TypeName>string</TypeName>
           <IsClientComputed>false</IsClientComputed>
@@ -2095,7 +2124,7 @@
         </BaseProperty>
         <BaseProperty xsi:type="StringProperty">
           <Name>ReviewNotes</Name>
-          <DisplayOrder>103600</DisplayOrder>
+          <DisplayOrder>103500</DisplayOrder>
           <DisplayName>Review Notes</DisplayName>
           <TypeName>string</TypeName>
           <IsClientComputed>false</IsClientComputed>
@@ -2112,7 +2141,7 @@
         <BaseProperty xsi:type="CollectionProperty">
           <Name>TradeImages</Name>
           <Comment>Keeps Web URL or local file path of the images associated with the trade, along with optional notes. This collection allows for multiple images to be linked to a single trade, providing visual documentation or evidence of the trade setup, execution, or outcome. Each TradeImage instance contains details about the image and its relation to the trade, facilitating better organization and reference within the trading diary.</Comment>
-          <DisplayOrder>103700</DisplayOrder>
+          <DisplayOrder>103600</DisplayOrder>
           <DisplayName>Trade Images</DisplayName>
           <TypeName>ICollection&lt;TradeImage&gt;</TypeName>
           <IsClientComputed>false</IsClientComputed>
@@ -2125,10 +2154,10 @@
   <StripSourcePrefixes>false</StripSourcePrefixes>
   <SourceClassPrefix />
   <CodeEngineList>
+    <string>Sqlite_Scripts_Generator</string>
     <string>Wpf_Mvvm_View_ViewModel_Generator</string>
     <string>Localization_Resource_Generator</string>
     <string>CS_Sqlite_Repository_Generator</string>
-    <string>Sqlite_Scripts_Generator</string>
     <string>CS_Model_Class_Generator</string>
     <string>T-Sql_Scripts_Generator</string>
   </CodeEngineList>

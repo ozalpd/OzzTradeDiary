@@ -1717,6 +1717,15 @@ namespace TD.i18n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Realized R.
+        /// </summary>
+        public static string RealizedR {
+            get {
+                return ResourceManager.GetString("RealizedR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Realized Risk Amount.
         /// </summary>
         public static string RealizedRiskAmount {
@@ -1749,6 +1758,15 @@ namespace TD.i18n {
         public static string RemainingPositionValue {
             get {
                 return ResourceManager.GetString("RemainingPositionValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Remaining Quantity.
+        /// </summary>
+        public static string RemainingQuantity {
+            get {
+                return ResourceManager.GetString("RemainingQuantity", resourceCulture);
             }
         }
         

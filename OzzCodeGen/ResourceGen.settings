@@ -40,6 +40,24 @@
           <LocalizeRequiredMsg>false</LocalizeRequiredMsg>
           <LocalizeValidationMsg>false</LocalizeValidationMsg>
         </LocalizationPropertySetting>
+        <LocalizationPropertySetting>
+          <Name>RemainingPositionValue</Name>
+          <Exclude>false</Exclude>
+          <LocalizeRequiredMsg>false</LocalizeRequiredMsg>
+          <LocalizeValidationMsg>false</LocalizeValidationMsg>
+        </LocalizationPropertySetting>
+        <LocalizationPropertySetting>
+          <Name>RemainingQuantity</Name>
+          <Exclude>false</Exclude>
+          <LocalizeRequiredMsg>false</LocalizeRequiredMsg>
+          <LocalizeValidationMsg>false</LocalizeValidationMsg>
+        </LocalizationPropertySetting>
+        <LocalizationPropertySetting>
+          <Name>RealizedR</Name>
+          <Exclude>false</Exclude>
+          <LocalizeRequiredMsg>false</LocalizeRequiredMsg>
+          <LocalizeValidationMsg>false</LocalizeValidationMsg>
+        </LocalizationPropertySetting>
       </Properties>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="LocalizationEntitySetting">

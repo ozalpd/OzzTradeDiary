@@ -19,6 +19,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - Refactored design-time mocks and dialog services for new types
 - Implemented `IValidatableObject` on `Trade` to enforce TP/SL order quantity sum ≤ `Trade.OrderQuantity`.
 - Added calculated properties to `TakeProfitOrder` and `StopLossOrder`. Exposed these in WPF ViewModels and updated views to display new fields with localization and read-only styling. Added translations for new fields in EN/TR.
+- Added non-persisted properties `RemainingPositionValue`, `RemainingQuantity`, and `RealizedR` to the Trade model with full localization, schema, and UI support. Updated code generation, repository mapping, and DDL scripts accordingly.
 - Bumped all project versions to 0.2.0.
 
 ## [0.1.7] - 2026-05-30

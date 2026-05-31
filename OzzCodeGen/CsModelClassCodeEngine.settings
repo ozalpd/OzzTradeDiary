@@ -54,6 +54,33 @@
           <Required />
           <IsSearchParameter>false</IsSearchParameter>
         </ModelPropertySetting>
+        <ModelPropertySetting>
+          <Name>RemainingPositionValue</Name>
+          <Exclude>false</Exclude>
+          <DataType />
+          <DTOExclusion>false</DTOExclusion>
+          <HtmlEncode xsi:nil="true" />
+          <Required />
+          <IsSearchParameter>false</IsSearchParameter>
+        </ModelPropertySetting>
+        <ModelPropertySetting>
+          <Name>RemainingQuantity</Name>
+          <Exclude>false</Exclude>
+          <DataType />
+          <DTOExclusion>false</DTOExclusion>
+          <HtmlEncode xsi:nil="true" />
+          <Required />
+          <IsSearchParameter>false</IsSearchParameter>
+        </ModelPropertySetting>
+        <ModelPropertySetting>
+          <Name>RealizedR</Name>
+          <Exclude>false</Exclude>
+          <DataType />
+          <DTOExclusion>false</DTOExclusion>
+          <HtmlEncode xsi:nil="true" />
+          <Required />
+          <IsSearchParameter>false</IsSearchParameter>
+        </ModelPropertySetting>
       </Properties>
       <GenerateQueryParam>false</GenerateQueryParam>
     </BaseEntitySetting>

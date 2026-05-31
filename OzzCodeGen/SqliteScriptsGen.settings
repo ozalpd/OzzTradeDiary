@@ -74,6 +74,45 @@
           <CheckIfAltered>false</CheckIfAltered>
           <DoNotLog>false</DoNotLog>
         </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>RemainingPositionValue</Name>
+          <Exclude>false</Exclude>
+          <DataType>REAL</DataType>
+          <Length>0</Length>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <Unique>false</Unique>
+          <SortDesc>false</SortDesc>
+          <Nullable>true</Nullable>
+          <CheckIfAltered>false</CheckIfAltered>
+          <DoNotLog>false</DoNotLog>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>RemainingQuantity</Name>
+          <Exclude>false</Exclude>
+          <DataType>REAL</DataType>
+          <Length>0</Length>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <Unique>false</Unique>
+          <SortDesc>false</SortDesc>
+          <Nullable>true</Nullable>
+          <CheckIfAltered>false</CheckIfAltered>
+          <DoNotLog>false</DoNotLog>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>RealizedR</Name>
+          <Exclude>false</Exclude>
+          <DataType>REAL</DataType>
+          <Length>0</Length>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <Unique>false</Unique>
+          <SortDesc>false</SortDesc>
+          <Nullable>true</Nullable>
+          <CheckIfAltered>false</CheckIfAltered>
+          <DoNotLog>false</DoNotLog>
+        </StorageColumnSetting>
       </Properties>
       <InheritedEntity />
       <UseInheritance>false</UseInheritance>

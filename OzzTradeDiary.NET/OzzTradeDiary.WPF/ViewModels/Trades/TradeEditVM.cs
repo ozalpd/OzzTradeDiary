@@ -126,8 +126,6 @@ namespace TD.WPF.ViewModels.Trades
 
         public decimal? ExecutedPositionValue => _trade.ExecutedPositionValue;
 
-        public decimal? RemainingPositionValue => _trade.RemainingPositionValue;
-
         public decimal? OrderQuantity
         {
             get { return _trade.OrderQuantity; }

@@ -54,6 +54,33 @@
           <SingleColumnUpdate>false</SingleColumnUpdate>
           <DecimalToIntegerScale>0</DecimalToIntegerScale>
         </SqliteRepositoryPropertySetting>
+        <SqliteRepositoryPropertySetting>
+          <Name>RemainingPositionValue</Name>
+          <Exclude>false</Exclude>
+          <AutoLoad>false</AutoLoad>
+          <CheckIfAltered>false</CheckIfAltered>
+          <ColumnName>RemainingPositionValue</ColumnName>
+          <SingleColumnUpdate>false</SingleColumnUpdate>
+          <DecimalToIntegerScale>0</DecimalToIntegerScale>
+        </SqliteRepositoryPropertySetting>
+        <SqliteRepositoryPropertySetting>
+          <Name>RemainingQuantity</Name>
+          <Exclude>false</Exclude>
+          <AutoLoad>false</AutoLoad>
+          <CheckIfAltered>false</CheckIfAltered>
+          <ColumnName>RemainingQuantity</ColumnName>
+          <SingleColumnUpdate>false</SingleColumnUpdate>
+          <DecimalToIntegerScale>0</DecimalToIntegerScale>
+        </SqliteRepositoryPropertySetting>
+        <SqliteRepositoryPropertySetting>
+          <Name>RealizedR</Name>
+          <Exclude>false</Exclude>
+          <AutoLoad>false</AutoLoad>
+          <CheckIfAltered>false</CheckIfAltered>
+          <ColumnName>RealizedR</ColumnName>
+          <SingleColumnUpdate>false</SingleColumnUpdate>
+          <DecimalToIntegerScale>0</DecimalToIntegerScale>
+        </SqliteRepositoryPropertySetting>
       </Properties>
       <GenerateGetPaged>false</GenerateGetPaged>
       <TableName>IReadOnlyOneses</TableName>

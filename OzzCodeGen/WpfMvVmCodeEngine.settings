@@ -74,6 +74,45 @@
           <ShowInDetail>true</ShowInDetail>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
+        <WpfMvvmPropertySetting>
+          <Name>RemainingPositionValue</Name>
+          <Exclude>false</Exclude>
+          <CreateEditOrder>9990600</CreateEditOrder>
+          <DefaultValue />
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
+          <IsMultiLine>false</IsMultiLine>
+          <CreateViewMode>Editable</CreateViewMode>
+          <EditViewMode>Editable</EditViewMode>
+          <ShowInCollection>true</ShowInCollection>
+          <ShowInDetail>true</ShowInDetail>
+          <ValueConstraint />
+        </WpfMvvmPropertySetting>
+        <WpfMvvmPropertySetting>
+          <Name>RemainingQuantity</Name>
+          <Exclude>false</Exclude>
+          <CreateEditOrder>9990700</CreateEditOrder>
+          <DefaultValue />
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
+          <IsMultiLine>false</IsMultiLine>
+          <CreateViewMode>Editable</CreateViewMode>
+          <EditViewMode>Editable</EditViewMode>
+          <ShowInCollection>true</ShowInCollection>
+          <ShowInDetail>true</ShowInDetail>
+          <ValueConstraint />
+        </WpfMvvmPropertySetting>
+        <WpfMvvmPropertySetting>
+          <Name>RealizedR</Name>
+          <Exclude>false</Exclude>
+          <CreateEditOrder>9990800</CreateEditOrder>
+          <DefaultValue />
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
+          <IsMultiLine>false</IsMultiLine>
+          <CreateViewMode>Editable</CreateViewMode>
+          <EditViewMode>Editable</EditViewMode>
+          <ShowInCollection>true</ShowInCollection>
+          <ShowInDetail>true</ShowInDetail>
+          <ValueConstraint />
+        </WpfMvvmPropertySetting>
       </Properties>
       <SubFolder />
       <CommandVmNamespace />
@@ -1275,7 +1314,7 @@
       <CommandVmNamespace>TD.WPF.ViewModels.Trades</CommandVmNamespace>
       <CommandVmTypeName>TradeHistoryVM</CommandVmTypeName>
       <DetailColumnLayout>OneColumn</DetailColumnLayout>
-      <InputColumnLayout>OneColumn</InputColumnLayout>
+      <InputColumnLayout>TwoColumns</InputColumnLayout>
       <GenModeCreateCommand>SkipManuallyEdited</GenModeCreateCommand>
       <GenModeEditCommand>SkipManuallyEdited</GenModeEditCommand>
       <GenModeDeleteCommand>SkipManuallyEdited</GenModeDeleteCommand>
@@ -1287,7 +1326,7 @@
       <GenModeCollectionVM>DoNotGenerate</GenModeCollectionVM>
       <GenModeLookupService>DoNotGenerate</GenModeLookupService>
       <GenModeCreateView>SkipManuallyEdited</GenModeCreateView>
-      <GenModeEditView>GenerateIfNotExists</GenModeEditView>
+      <GenModeEditView>SkipManuallyEdited</GenModeEditView>
       <GenModeDetailView>DoNotGenerate</GenModeDetailView>
       <RepositoryName>IStopLossOrderRepository</RepositoryName>
     </BaseEntitySetting>

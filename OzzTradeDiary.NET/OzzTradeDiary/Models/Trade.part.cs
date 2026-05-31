@@ -171,24 +171,6 @@ namespace TD.Models
         public bool IsWinning => RealizedProfitLoss.HasValue && RealizedProfitLoss.Value > 0;
 
         /// <summary>
-        /// Gets the realized R multiple for the trade — how many units of planned risk were actually made or lost.
-        /// </summary>
-        /// <remarks>A value of +2.0 means the trade returned twice the planned risk amount (2R win).
-        /// A value of -1.0 means the trade lost exactly the planned risk amount (1R loss).
-        /// Returns null if PlannedRiskAmount is null or zero.</remarks>
-        public decimal? RealizedR
-        {
-            get
-            {
-                if (PlannedRiskAmount.HasValue && RealizedProfitLoss.HasValue && PlannedRiskAmount != 0)
-                {
-                    return Math.Round(RealizedProfitLoss.Value / PlannedRiskAmount.Value, 4);
-                }
-                return null;
-            }
-        }
-
-        /// <summary>
         /// A read-only computed label that uniquely identifies this trade in lists and grids.
         /// Combines symbol ticker, direction, and entry date (falling back to trade Id when no
         /// entry time has been recorded yet). Never entered by the user.
@@ -206,6 +188,69 @@ namespace TD.Models
                 return $"{Symbol.TickerFull} · {status} · {direction} · {datePart}";
             }
         }
+
+        /// <summary>
+        /// Gets the realized R multiple for the trade — how many units of planned risk were actually made or lost.
+        /// </summary>
+        /// <remarks>A value of +2.0 means the trade returned twice the planned risk amount (2R win).
+        /// A value of -1.0 means the trade lost exactly the planned risk amount (1R loss).
+        /// Returns null if PlannedRiskAmount is null or zero.</remarks>
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "RealizedR")]
+        public decimal? RealizedR
+        {
+            get
+            {
+                if (PlannedRiskAmount.HasValue && RealizedProfitLoss.HasValue && PlannedRiskAmount != 0)
+                {
+                    return Math.Round(RealizedProfitLoss.Value / PlannedRiskAmount.Value, 4);
+                }
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// Market value of the position that remains open after accounting for filled take-profit and stop-loss orders.
+        /// </summary>
+        /// <remarks>Calculated as (FilledQuantity - exited quantity) × ExecutedEntryPrice. Returns null
+        /// if ExecutedEntryPrice or FilledQuantity is null. Returns 0 if the entire position has been exited. This
+        /// calculated value is persisted to enable query operations.</remarks>
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "RemainingPositionValue")]
+        public decimal? RemainingPositionValue
+        {
+            get
+            {
+                if (!ExecutedEntryPrice.HasValue || !FilledQuantity.HasValue)
+                    return null;
+
+                // Sum quantities already exited via TP and SL fills
+                decimal exitedQty = TakeProfitOrders.Sum(o => o.FilledQuantity ?? 0)
+                                  + StopLossOrders.Sum(o => o.FilledQuantity ?? 0);
+
+                decimal remainingQty = FilledQuantity.Value - exitedQty;
+                return remainingQty > 0 ? remainingQty * ExecutedEntryPrice.Value : 0;
+            }
+        }
+
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "RemainingQuantity")]
+        public decimal? RemainingQuantity
+        {
+            get
+            {
+                if (!FilledQuantity.HasValue)
+                    return null;
+                // Sum quantities already exited via TP and SL fills
+                decimal exitedQty = TakeProfitOrders.Sum(o => o.FilledQuantity ?? 0)
+                                  + StopLossOrders.Sum(o => o.FilledQuantity ?? 0);
+                decimal remainingQty = FilledQuantity.Value - exitedQty;
+                return remainingQty > 0 ? remainingQty : 0;
+            }
+        }
+
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "RemainingQuantity")]
+        public string RoundedRemainingQuantity => RemainingQuantity.ToRoundedString();
+
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "RemainingPositionValue")]
+        public string RoundedRemainingPositionValue => RemainingPositionValue.ToRoundedString();
 
         [Display(ResourceType = typeof(LocalizedStrings), Name = "FilledQuantity")]
         public string RoundedFilledQuantity => FilledQuantity.ToRoundedString();
