@@ -18,6 +18,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - Updated `MainWindow.xaml` to show order data grids and reorganized layout
 - Refactored design-time mocks and dialog services for new types
 - Implemented `IValidatableObject` on `Trade` to enforce TP/SL order quantity sum ≤ `Trade.OrderQuantity`.
+- Added calculated properties to `TakeProfitOrder` and `StopLossOrder`. Exposed these in WPF ViewModels and updated views to display new fields with localization and read-only styling. Added translations for new fields in EN/TR.
 - Bumped all project versions to 0.2.0.
 
 ## [0.1.7] - 2026-05-30

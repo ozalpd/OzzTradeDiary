@@ -521,6 +521,10 @@
     <Translation>Müşteri Adresi Oluştur</Translation>
   </Vocab>
   <Vocab>
+    <Name>CreatedAt</Name>
+    <Translation>Oluşturma Tarihi</Translation>
+  </Vocab>
+  <Vocab>
     <Name>CreateDate</Name>
     <Translation>Oluşturma Tarihi</Translation>
   </Vocab>
@@ -1109,6 +1113,10 @@
     <Translation>Faks</Translation>
   </Vocab>
   <Vocab>
+    <Name>FeesCalculated</Name>
+    <Translation>Hesaplanmış Ücret</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Female</Name>
     <Translation>Kadın</Translation>
   </Vocab>
@@ -1121,8 +1129,16 @@
     <Translation>Gerçekleşen Fiyat</Translation>
   </Vocab>
   <Vocab>
+    <Name>FilledProfitAmount</Name>
+    <Translation>Emrin Gerçekleşen Kar Tutarı</Translation>
+  </Vocab>
+  <Vocab>
     <Name>FilledQuantity</Name>
     <Translation>Gerçekleşen Miktar</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>FilledRiskAmount</Name>
+    <Translation>Emrin Gerçekleşen Risk Tutarı</Translation>
   </Vocab>
   <Vocab>
     <Name>FilledTime</Name>
@@ -1481,8 +1497,16 @@
     <Translation>Emir Fiyatı</Translation>
   </Vocab>
   <Vocab>
+    <Name>OrderProfitAmount</Name>
+    <Translation>Emrin Kar Tutarı</Translation>
+  </Vocab>
+  <Vocab>
     <Name>OrderQuantity</Name>
     <Translation>Emir Miktarı</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>OrderRiskAmount</Name>
+    <Translation>Emrin Risk Tutarı</Translation>
   </Vocab>
   <Vocab>
     <Name>Orders</Name>
@@ -1638,7 +1662,7 @@
   </Vocab>
   <Vocab>
     <Name>PlannedRiskAmount</Name>
-    <Translation>Planlanan Risk Miktarı</Translation>
+    <Translation>Planlanan Risk Tutarı</Translation>
   </Vocab>
   <Vocab>
     <Name>PlannedRiskRewardRatio</Name>

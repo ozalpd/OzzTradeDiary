@@ -5,6 +5,46 @@
   <TargetFolder>..\OzzTradeDiary.NET\OzzTradeDiary.SQLite\DbScripts</TargetFolder>
   <EntitySettings>
     <BaseEntitySetting xsi:type="StorageEntitySetting">
+      <Name>IReadOnlyOnes</Name>
+      <Exclude>true</Exclude>
+      <OverwriteExisting>false</OverwriteExisting>
+      <Properties>
+        <StorageColumnSetting>
+          <Name>OrderProfitAmount</Name>
+          <Exclude>false</Exclude>
+          <DataType>REAL</DataType>
+          <Length>0</Length>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <Unique>false</Unique>
+          <SortDesc>false</SortDesc>
+          <Nullable>true</Nullable>
+          <CheckIfAltered>false</CheckIfAltered>
+          <DoNotLog>false</DoNotLog>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>OrderRiskAmount</Name>
+          <Exclude>false</Exclude>
+          <DataType>REAL</DataType>
+          <Length>0</Length>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <Unique>false</Unique>
+          <SortDesc>false</SortDesc>
+          <Nullable>true</Nullable>
+          <CheckIfAltered>false</CheckIfAltered>
+          <DoNotLog>false</DoNotLog>
+        </StorageColumnSetting>
+      </Properties>
+      <InheritedEntity />
+      <UseInheritance>false</UseInheritance>
+      <SchemaName>dbo</SchemaName>
+      <TableName>IReadOnlyOneses</TableName>
+      <HasLogTable>false</HasLogTable>
+      <StoredProcGeneration>NoStoredProcedure</StoredProcGeneration>
+      <CustomStoredProcs>false</CustomStoredProcs>
+    </BaseEntitySetting>
+    <BaseEntitySetting xsi:type="StorageEntitySetting">
       <Name>IPrimaryKey</Name>
       <Exclude>true</Exclude>
       <OverwriteExisting>false</OverwriteExisting>

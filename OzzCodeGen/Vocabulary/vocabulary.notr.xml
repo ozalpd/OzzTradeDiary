@@ -521,6 +521,10 @@
     <Translation>Create Customer Address</Translation>
   </Vocab>
   <Vocab>
+    <Name>CreatedAt</Name>
+    <Translation>Created At</Translation>
+  </Vocab>
+  <Vocab>
     <Name>CreateDate</Name>
     <Translation>Create Date</Translation>
   </Vocab>
@@ -1109,6 +1113,10 @@
     <Translation>Fax</Translation>
   </Vocab>
   <Vocab>
+    <Name>FeesCalculated</Name>
+    <Translation>Fees Calculated</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Female</Name>
     <Translation>Female</Translation>
   </Vocab>
@@ -1121,8 +1129,16 @@
     <Translation>Filled Price</Translation>
   </Vocab>
   <Vocab>
+    <Name>FilledProfitAmount</Name>
+    <Translation>Filled Profit Amount</Translation>
+  </Vocab>
+  <Vocab>
     <Name>FilledQuantity</Name>
     <Translation>Filled Quantity</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>FilledRiskAmount</Name>
+    <Translation>Filled Risk Amount</Translation>
   </Vocab>
   <Vocab>
     <Name>FilledTime</Name>
@@ -1481,8 +1497,16 @@
     <Translation>Order Price</Translation>
   </Vocab>
   <Vocab>
+    <Name>OrderProfitAmount</Name>
+    <Translation>Order Profit Amount</Translation>
+  </Vocab>
+  <Vocab>
     <Name>OrderQuantity</Name>
     <Translation>Order Quantity</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>OrderRiskAmount</Name>
+    <Translation>Order Risk Amount</Translation>
   </Vocab>
   <Vocab>
     <Name>Orders</Name>

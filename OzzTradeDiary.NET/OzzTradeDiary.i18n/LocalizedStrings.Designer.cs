@@ -502,6 +502,15 @@ namespace TD.i18n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Created At.
+        /// </summary>
+        public static string CreatedAt {
+            get {
+                return ResourceManager.GetString("CreatedAt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Create Entry Order.
         /// </summary>
         public static string CreateEntryOrder {
@@ -1150,6 +1159,15 @@ namespace TD.i18n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Fees Calculated.
+        /// </summary>
+        public static string FeesCalculated {
+            get {
+                return ResourceManager.GetString("FeesCalculated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Filled Price.
         /// </summary>
         public static string FilledPrice {
@@ -1159,11 +1177,29 @@ namespace TD.i18n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Filled Profit Amount.
+        /// </summary>
+        public static string FilledProfitAmount {
+            get {
+                return ResourceManager.GetString("FilledProfitAmount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Filled Quantity.
         /// </summary>
         public static string FilledQuantity {
             get {
                 return ResourceManager.GetString("FilledQuantity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Filled Risk Amount.
+        /// </summary>
+        public static string FilledRiskAmount {
+            get {
+                return ResourceManager.GetString("FilledRiskAmount", resourceCulture);
             }
         }
         
@@ -1510,11 +1546,29 @@ namespace TD.i18n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Order Profit Amount.
+        /// </summary>
+        public static string OrderProfitAmount {
+            get {
+                return ResourceManager.GetString("OrderProfitAmount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Order Quantity.
         /// </summary>
         public static string OrderQuantity {
             get {
                 return ResourceManager.GetString("OrderQuantity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Order Risk Amount.
+        /// </summary>
+        public static string OrderRiskAmount {
+            get {
+                return ResourceManager.GetString("OrderRiskAmount", resourceCulture);
             }
         }
         

@@ -205,6 +205,9 @@
     <data name="CreateCurrency" xml:space="preserve">
         <value>Create Currency</value>
     </data>
+    <data name="CreatedAt" xml:space="preserve">
+        <value>Created At</value>
+    </data>
     <data name="CreateEntryOrder" xml:space="preserve">
         <value>Create Entry Order</value>
     </data>
@@ -421,11 +424,20 @@
     <data name="ExitTime" xml:space="preserve">
         <value>Exit Time</value>
     </data>
+    <data name="FeesCalculated" xml:space="preserve">
+        <value>Fees Calculated</value>
+    </data>
     <data name="FilledPrice" xml:space="preserve">
         <value>Filled Price</value>
     </data>
+    <data name="FilledProfitAmount" xml:space="preserve">
+        <value>Filled Profit Amount</value>
+    </data>
     <data name="FilledQuantity" xml:space="preserve">
         <value>Filled Quantity</value>
+    </data>
+    <data name="FilledRiskAmount" xml:space="preserve">
+        <value>Filled Risk Amount</value>
     </data>
     <data name="FilledTime" xml:space="preserve">
         <value>Filled Time</value>
@@ -541,8 +553,14 @@
     <data name="OrderPrice" xml:space="preserve">
         <value>Order Price</value>
     </data>
+    <data name="OrderProfitAmount" xml:space="preserve">
+        <value>Order Profit Amount</value>
+    </data>
     <data name="OrderQuantity" xml:space="preserve">
         <value>Order Quantity</value>
+    </data>
+    <data name="OrderRiskAmount" xml:space="preserve">
+        <value>Order Risk Amount</value>
     </data>
     <data name="OrderType" xml:space="preserve">
         <value>Order Type</value>

@@ -205,6 +205,9 @@
     <data name="CreateCurrency" xml:space="preserve">
         <value>Döviz Oluştur</value>
     </data>
+    <data name="CreatedAt" xml:space="preserve">
+        <value>Oluşturma Tarihi</value>
+    </data>
     <data name="CreateEntryOrder" xml:space="preserve">
         <value>Giriş Emri Oluştur</value>
     </data>
@@ -421,11 +424,20 @@
     <data name="ExitTime" xml:space="preserve">
         <value>Pozisyondan Çıkış</value>
     </data>
+    <data name="FeesCalculated" xml:space="preserve">
+        <value>Hesaplanmış Ücret</value>
+    </data>
     <data name="FilledPrice" xml:space="preserve">
         <value>Gerçekleşen Fiyat</value>
     </data>
+    <data name="FilledProfitAmount" xml:space="preserve">
+        <value>Emrin Gerçekleşen Kar Tutarı</value>
+    </data>
     <data name="FilledQuantity" xml:space="preserve">
         <value>Gerçekleşen Miktar</value>
+    </data>
+    <data name="FilledRiskAmount" xml:space="preserve">
+        <value>Emrin Gerçekleşen Risk Tutarı</value>
     </data>
     <data name="FilledTime" xml:space="preserve">
         <value>Gerçekleşme Zamanı</value>
@@ -541,8 +553,14 @@
     <data name="OrderPrice" xml:space="preserve">
         <value>Emir Fiyatı</value>
     </data>
+    <data name="OrderProfitAmount" xml:space="preserve">
+        <value>Emrin Kar Tutarı</value>
+    </data>
     <data name="OrderQuantity" xml:space="preserve">
         <value>Emir Miktarı</value>
+    </data>
+    <data name="OrderRiskAmount" xml:space="preserve">
+        <value>Emrin Risk Tutarı</value>
     </data>
     <data name="OrderType" xml:space="preserve">
         <value>Emir Tipi</value>
@@ -569,7 +587,7 @@
         <value>Planlanan Kazanç</value>
     </data>
     <data name="PlannedRiskAmount" xml:space="preserve">
-        <value>Planlanan Risk Miktarı</value>
+        <value>Planlanan Risk Tutarı</value>
     </data>
     <data name="PlannedRiskRewardRatio" xml:space="preserve">
         <value>Planlanan Risk Ödül Oranı</value>

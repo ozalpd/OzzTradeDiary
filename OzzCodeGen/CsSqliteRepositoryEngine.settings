@@ -5,6 +5,35 @@
   <TargetFolder>..\OzzTradeDiary.NET\OzzTradeDiary.SQLite</TargetFolder>
   <EntitySettings>
     <BaseEntitySetting xsi:type="SqliteRepositoryEntitySetting">
+      <Name>IReadOnlyOnes</Name>
+      <Exclude>true</Exclude>
+      <OverwriteExisting>false</OverwriteExisting>
+      <Properties>
+        <SqliteRepositoryPropertySetting>
+          <Name>OrderProfitAmount</Name>
+          <Exclude>false</Exclude>
+          <AutoLoad>false</AutoLoad>
+          <CheckIfAltered>false</CheckIfAltered>
+          <ColumnName>OrderProfitAmount</ColumnName>
+          <SingleColumnUpdate>false</SingleColumnUpdate>
+          <DecimalToIntegerScale>0</DecimalToIntegerScale>
+        </SqliteRepositoryPropertySetting>
+        <SqliteRepositoryPropertySetting>
+          <Name>OrderRiskAmount</Name>
+          <Exclude>false</Exclude>
+          <AutoLoad>false</AutoLoad>
+          <CheckIfAltered>false</CheckIfAltered>
+          <ColumnName>OrderRiskAmount</ColumnName>
+          <SingleColumnUpdate>false</SingleColumnUpdate>
+          <DecimalToIntegerScale>0</DecimalToIntegerScale>
+        </SqliteRepositoryPropertySetting>
+      </Properties>
+      <GenerateGetPaged>false</GenerateGetPaged>
+      <TableName>IReadOnlyOneses</TableName>
+      <FileNameDDL>IReadOnlyOnes.sql</FileNameDDL>
+      <OrderByClause>ORDER BY OrderProfitAmount</OrderByClause>
+    </BaseEntitySetting>
+    <BaseEntitySetting xsi:type="SqliteRepositoryEntitySetting">
       <Name>IPrimaryKey</Name>
       <Exclude>true</Exclude>
       <OverwriteExisting>false</OverwriteExisting>

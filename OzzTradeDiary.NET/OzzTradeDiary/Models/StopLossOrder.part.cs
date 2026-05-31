@@ -49,5 +49,52 @@ namespace TD.Models
             // Implement the logic to calculate fees based on trade details
             return null; // Placeholder
         }
+
+
+        /// <summary>
+        /// Gets the planned risk amount for this specific stop loss Filled,
+        /// calculated from the trade's entry price, this Filled's price and quantity.
+        /// </summary>
+        public decimal? FilledRiskAmount
+        {
+            get
+            {
+                if (Trade == null || FilledPrice <= 0)
+                    return null;
+
+                var entryPrice = Trade.ExecutedEntryPrice ?? Trade.PlannedEntryPrice;
+                var quantity = FilledQuantity;
+
+                if (entryPrice == null || quantity == null || quantity <= 0)
+                    return null;
+
+                return Trade.TradeDirection == TradeDirection.Long
+                    ? (entryPrice.Value - FilledPrice) * quantity.Value
+                    : (FilledPrice - entryPrice.Value) * quantity.Value;
+            }
+        }
+
+        /// <summary>
+        /// Gets the planned risk amount for this specific stop loss order,
+        /// calculated from the trade's entry price, this order's price and quantity.
+        /// </summary>
+        public decimal? OrderRiskAmount
+        {
+            get
+            {
+                if (Trade == null || OrderPrice <= 0)
+                    return null;
+
+                var entryPrice = Trade.ExecutedEntryPrice ?? Trade.PlannedEntryPrice;
+                var quantity = OrderQuantity;
+
+                if (entryPrice == null || quantity == null || quantity <= 0)
+                    return null;
+
+                return Trade.TradeDirection == TradeDirection.Long
+                    ? (entryPrice.Value - OrderPrice) * quantity.Value
+                    : (OrderPrice - entryPrice.Value) * quantity.Value;
+            }
+        }
     }
 }

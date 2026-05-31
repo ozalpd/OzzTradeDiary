@@ -5,6 +5,58 @@
   <TargetFolder>..\OzzTradeDiary.NET\OzzTradeDiary.WPF\</TargetFolder>
   <EntitySettings>
     <BaseEntitySetting xsi:type="WpfMvvmEntitySetting">
+      <Name>IReadOnlyOnes</Name>
+      <Exclude>true</Exclude>
+      <OverwriteExisting>false</OverwriteExisting>
+      <Properties>
+        <WpfMvvmPropertySetting>
+          <Name>OrderProfitAmount</Name>
+          <Exclude>false</Exclude>
+          <CreateEditOrder>9990100</CreateEditOrder>
+          <DefaultValue />
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
+          <IsMultiLine>false</IsMultiLine>
+          <CreateViewMode>Editable</CreateViewMode>
+          <EditViewMode>Editable</EditViewMode>
+          <ShowInCollection>true</ShowInCollection>
+          <ShowInDetail>true</ShowInDetail>
+          <ValueConstraint />
+        </WpfMvvmPropertySetting>
+        <WpfMvvmPropertySetting>
+          <Name>OrderRiskAmount</Name>
+          <Exclude>false</Exclude>
+          <CreateEditOrder>9990200</CreateEditOrder>
+          <DefaultValue />
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
+          <IsMultiLine>false</IsMultiLine>
+          <CreateViewMode>Editable</CreateViewMode>
+          <EditViewMode>Editable</EditViewMode>
+          <ShowInCollection>true</ShowInCollection>
+          <ShowInDetail>true</ShowInDetail>
+          <ValueConstraint />
+        </WpfMvvmPropertySetting>
+      </Properties>
+      <SubFolder />
+      <CommandVmNamespace />
+      <CommandVmTypeName />
+      <DetailColumnLayout>OneColumn</DetailColumnLayout>
+      <InputColumnLayout>OneColumn</InputColumnLayout>
+      <GenModeCreateCommand>DoNotGenerate</GenModeCreateCommand>
+      <GenModeEditCommand>DoNotGenerate</GenModeEditCommand>
+      <GenModeDeleteCommand>DoNotGenerate</GenModeDeleteCommand>
+      <GenModeDetailCommand>DoNotGenerate</GenModeDetailCommand>
+      <GenModeLoadCommand>DoNotGenerate</GenModeLoadCommand>
+      <GenModeCreateVM>DoNotGenerate</GenModeCreateVM>
+      <GenModeEditVM>DoNotGenerate</GenModeEditVM>
+      <GenerateGetPaged>false</GenerateGetPaged>
+      <GenModeCollectionVM>DoNotGenerate</GenModeCollectionVM>
+      <GenModeLookupService>DoNotGenerate</GenModeLookupService>
+      <GenModeCreateView>DoNotGenerate</GenModeCreateView>
+      <GenModeEditView>DoNotGenerate</GenModeEditView>
+      <GenModeDetailView>DoNotGenerate</GenModeDetailView>
+      <RepositoryName />
+    </BaseEntitySetting>
+    <BaseEntitySetting xsi:type="WpfMvvmEntitySetting">
       <Name>IPrimaryKey</Name>
       <Exclude>true</Exclude>
       <OverwriteExisting>false</OverwriteExisting>

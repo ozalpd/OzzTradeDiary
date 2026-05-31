@@ -271,10 +271,96 @@
   </EnumDefinitions>
   <DataModel>
     <EntityDefinition>
+      <Name>IReadOnlyOnes</Name>
+      <NamespaceName>TD</NamespaceName>
+      <DisplayOrder>1</DisplayOrder>
+      <Abstract>true</Abstract>
+      <DisplayName>IRead Only Ones</DisplayName>
+      <DisplayMember>OrderProfitAmount</DisplayMember>
+      <BaseTypeName />
+      <Properties>
+        <BaseProperty xsi:type="SimpleProperty">
+          <Name>OrderProfitAmount</Name>
+          <DisplayOrder>9990100</DisplayOrder>
+          <DisplayName>Order Profit Amount</DisplayName>
+          <TypeName>decimal</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <RestrictedData>false</RestrictedData>
+          <EnumTypeName />
+          <IsKey>false</IsKey>
+          <IsForeignKey>false</IsForeignKey>
+          <IsImmutable>false</IsImmutable>
+          <IsNullable>true</IsNullable>
+          <IsStoreGenerated>false</IsStoreGenerated>
+        </BaseProperty>
+        <BaseProperty xsi:type="SimpleProperty">
+          <Name>OrderRiskAmount</Name>
+          <DisplayOrder>9990200</DisplayOrder>
+          <DisplayName>Order Risk Amount</DisplayName>
+          <TypeName>decimal</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <RestrictedData>false</RestrictedData>
+          <EnumTypeName />
+          <IsKey>false</IsKey>
+          <IsForeignKey>false</IsForeignKey>
+          <IsImmutable>false</IsImmutable>
+          <IsNullable>true</IsNullable>
+          <IsStoreGenerated>false</IsStoreGenerated>
+        </BaseProperty>
+        <BaseProperty xsi:type="SimpleProperty">
+          <Name>FilledProfitAmount</Name>
+          <DisplayOrder>9990300</DisplayOrder>
+          <DisplayName>Filled Profit Amount</DisplayName>
+          <TypeName>decimal</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <RestrictedData>false</RestrictedData>
+          <EnumTypeName />
+          <IsKey>false</IsKey>
+          <IsForeignKey>false</IsForeignKey>
+          <IsImmutable>false</IsImmutable>
+          <IsNullable>true</IsNullable>
+          <IsStoreGenerated>false</IsStoreGenerated>
+        </BaseProperty>
+        <BaseProperty xsi:type="SimpleProperty">
+          <Name>FilledRiskAmount</Name>
+          <DisplayOrder>9990400</DisplayOrder>
+          <DisplayName>Filled Risk Amount</DisplayName>
+          <TypeName>decimal</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <RestrictedData>false</RestrictedData>
+          <EnumTypeName />
+          <IsKey>false</IsKey>
+          <IsForeignKey>false</IsForeignKey>
+          <IsImmutable>false</IsImmutable>
+          <IsNullable>true</IsNullable>
+          <IsStoreGenerated>false</IsStoreGenerated>
+        </BaseProperty>
+        <BaseProperty xsi:type="SimpleProperty">
+          <Name>FeesCalculated</Name>
+          <DisplayOrder>9990500</DisplayOrder>
+          <DisplayName>Fees Calculated</DisplayName>
+          <TypeName>decimal</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <RestrictedData>false</RestrictedData>
+          <EnumTypeName />
+          <IsKey>false</IsKey>
+          <IsForeignKey>false</IsForeignKey>
+          <IsImmutable>false</IsImmutable>
+          <IsNullable>true</IsNullable>
+          <IsStoreGenerated>false</IsStoreGenerated>
+        </BaseProperty>
+      </Properties>
+    </EntityDefinition>
+    <EntityDefinition>
       <Name>IPrimaryKey</Name>
       <Comment>For defining the PrimaryKey of entities</Comment>
       <NamespaceName>TD</NamespaceName>
-      <DisplayOrder>1</DisplayOrder>
+      <DisplayOrder>2</DisplayOrder>
       <Abstract>true</Abstract>
       <DisplayName>IPrimaryKey</DisplayName>
       <DisplayMember>Id</DisplayMember>
@@ -300,7 +386,7 @@
     <EntityDefinition>
       <Name>IDisplayOrder</Name>
       <NamespaceName>TD</NamespaceName>
-      <DisplayOrder>2</DisplayOrder>
+      <DisplayOrder>3</DisplayOrder>
       <Abstract>true</Abstract>
       <DisplayName>IDisplay Order</DisplayName>
       <DisplayMember>Id</DisplayMember>
@@ -326,7 +412,7 @@
     <EntityDefinition>
       <Name>IIsActive</Name>
       <NamespaceName>TD</NamespaceName>
-      <DisplayOrder>3</DisplayOrder>
+      <DisplayOrder>4</DisplayOrder>
       <Abstract>true</Abstract>
       <DisplayName>IIs Active</DisplayName>
       <DisplayMember>Id</DisplayMember>
@@ -352,7 +438,7 @@
     <EntityDefinition>
       <Name>ICreatedAt</Name>
       <NamespaceName>TD</NamespaceName>
-      <DisplayOrder>4</DisplayOrder>
+      <DisplayOrder>5</DisplayOrder>
       <Abstract>true</Abstract>
       <DisplayName>ICreated At</DisplayName>
       <DisplayMember>Id</DisplayMember>
@@ -378,7 +464,7 @@
     <EntityDefinition>
       <Name>IUpdatedAt</Name>
       <NamespaceName>TD</NamespaceName>
-      <DisplayOrder>5</DisplayOrder>
+      <DisplayOrder>6</DisplayOrder>
       <Abstract>true</Abstract>
       <DisplayName>IUpdated At</DisplayName>
       <DisplayMember>Id</DisplayMember>
@@ -404,7 +490,7 @@
     <EntityDefinition>
       <Name>ITradeOrder</Name>
       <NamespaceName>TD</NamespaceName>
-      <DisplayOrder>6</DisplayOrder>
+      <DisplayOrder>7</DisplayOrder>
       <Abstract>true</Abstract>
       <DisplayName>ITrade Order</DisplayName>
       <DisplayMember>Id</DisplayMember>
@@ -526,7 +612,7 @@
     <EntityDefinition>
       <Name>Exchange</Name>
       <NamespaceName>TD</NamespaceName>
-      <DisplayOrder>7</DisplayOrder>
+      <DisplayOrder>8</DisplayOrder>
       <Abstract>false</Abstract>
       <DisplayName>Exchange</DisplayName>
       <DisplayMember>ExchangeName</DisplayMember>
@@ -697,7 +783,7 @@
     <EntityDefinition>
       <Name>Session</Name>
       <NamespaceName>TD</NamespaceName>
-      <DisplayOrder>8</DisplayOrder>
+      <DisplayOrder>9</DisplayOrder>
       <Abstract>false</Abstract>
       <DisplayName>Session</DisplayName>
       <DisplayMember>Id</DisplayMember>
@@ -799,7 +885,7 @@
     <EntityDefinition>
       <Name>Holiday</Name>
       <NamespaceName>TD</NamespaceName>
-      <DisplayOrder>9</DisplayOrder>
+      <DisplayOrder>10</DisplayOrder>
       <Abstract>false</Abstract>
       <DisplayName>Holiday</DisplayName>
       <DisplayMember>HolidayName</DisplayMember>
@@ -915,7 +1001,7 @@
     <EntityDefinition>
       <Name>TradingAccount</Name>
       <NamespaceName>TD</NamespaceName>
-      <DisplayOrder>10</DisplayOrder>
+      <DisplayOrder>11</DisplayOrder>
       <Abstract>false</Abstract>
       <DisplayName>Trading Account</DisplayName>
       <DisplayMember>Title</DisplayMember>
@@ -1016,7 +1102,7 @@
     <EntityDefinition>
       <Name>Currency</Name>
       <NamespaceName>TD</NamespaceName>
-      <DisplayOrder>11</DisplayOrder>
+      <DisplayOrder>12</DisplayOrder>
       <Abstract>false</Abstract>
       <DisplayName>Currency</DisplayName>
       <DisplayMember>CurrencyTicker</DisplayMember>
@@ -1061,7 +1147,7 @@
     <EntityDefinition>
       <Name>Symbol</Name>
       <NamespaceName>TD</NamespaceName>
-      <DisplayOrder>12</DisplayOrder>
+      <DisplayOrder>13</DisplayOrder>
       <Abstract>false</Abstract>
       <DisplayName>Symbol</DisplayName>
       <DisplayMember>TickerFull</DisplayMember>
@@ -1209,7 +1295,7 @@
     <EntityDefinition>
       <Name>EntryOrder</Name>
       <NamespaceName>TD</NamespaceName>
-      <DisplayOrder>13</DisplayOrder>
+      <DisplayOrder>14</DisplayOrder>
       <Abstract>false</Abstract>
       <DisplayName>Entry Order</DisplayName>
       <DisplayMember>Id</DisplayMember>
@@ -1276,7 +1362,7 @@
     <EntityDefinition>
       <Name>TakeProfitOrder</Name>
       <NamespaceName>TD</NamespaceName>
-      <DisplayOrder>14</DisplayOrder>
+      <DisplayOrder>15</DisplayOrder>
       <Abstract>false</Abstract>
       <DisplayName>Entry Order</DisplayName>
       <DisplayMember>Id</DisplayMember>
@@ -1343,7 +1429,7 @@
     <EntityDefinition>
       <Name>StopLossOrder</Name>
       <NamespaceName>TD</NamespaceName>
-      <DisplayOrder>15</DisplayOrder>
+      <DisplayOrder>16</DisplayOrder>
       <Abstract>false</Abstract>
       <DisplayName>Entry Order</DisplayName>
       <DisplayMember>Id</DisplayMember>
@@ -1410,7 +1496,7 @@
     <EntityDefinition>
       <Name>TradeImage</Name>
       <NamespaceName>TD</NamespaceName>
-      <DisplayOrder>16</DisplayOrder>
+      <DisplayOrder>17</DisplayOrder>
       <Abstract>false</Abstract>
       <DisplayName>Trade Image</DisplayName>
       <DisplayMember>TradeId</DisplayMember>
@@ -1480,7 +1566,7 @@
     <EntityDefinition>
       <Name>Trade</Name>
       <NamespaceName>TD</NamespaceName>
-      <DisplayOrder>17</DisplayOrder>
+      <DisplayOrder>18</DisplayOrder>
       <Abstract>false</Abstract>
       <DisplayName>Trade</DisplayName>
       <DisplayMember>Label</DisplayMember>
@@ -2040,9 +2126,9 @@
   <SourceClassPrefix />
   <CodeEngineList>
     <string>Wpf_Mvvm_View_ViewModel_Generator</string>
+    <string>Localization_Resource_Generator</string>
     <string>CS_Sqlite_Repository_Generator</string>
     <string>Sqlite_Scripts_Generator</string>
-    <string>Localization_Resource_Generator</string>
     <string>CS_Model_Class_Generator</string>
     <string>T-Sql_Scripts_Generator</string>
   </CodeEngineList>

@@ -5,6 +5,32 @@
   <TargetFolder>..\OzzTradeDiary.NET\OzzTradeDiary\Models</TargetFolder>
   <EntitySettings>
     <BaseEntitySetting xsi:type="ModelClassEntitySetting">
+      <Name>IReadOnlyOnes</Name>
+      <Exclude>true</Exclude>
+      <OverwriteExisting>false</OverwriteExisting>
+      <Properties>
+        <ModelPropertySetting>
+          <Name>OrderProfitAmount</Name>
+          <Exclude>false</Exclude>
+          <DataType />
+          <DTOExclusion>false</DTOExclusion>
+          <HtmlEncode xsi:nil="true" />
+          <Required />
+          <IsSearchParameter>false</IsSearchParameter>
+        </ModelPropertySetting>
+        <ModelPropertySetting>
+          <Name>OrderRiskAmount</Name>
+          <Exclude>false</Exclude>
+          <DataType />
+          <DTOExclusion>false</DTOExclusion>
+          <HtmlEncode xsi:nil="true" />
+          <Required />
+          <IsSearchParameter>false</IsSearchParameter>
+        </ModelPropertySetting>
+      </Properties>
+      <GenerateQueryParam>false</GenerateQueryParam>
+    </BaseEntitySetting>
+    <BaseEntitySetting xsi:type="ModelClassEntitySetting">
       <Name>IPrimaryKey</Name>
       <Exclude>true</Exclude>
       <OverwriteExisting>false</OverwriteExisting>

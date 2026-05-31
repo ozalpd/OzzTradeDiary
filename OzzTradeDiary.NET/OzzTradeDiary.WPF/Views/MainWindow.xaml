@@ -886,11 +886,11 @@
                                         <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.FilledQuantity}" Width="80"
                                                             Binding="{Binding FilledQuantity}"
                                                             ElementStyle="{StaticResource RightAlignedTextBlockStyle}"/>
-                                        <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.OrderValue}" Width="72"
-                                                            Binding="{Binding OrderValue, StringFormat=\{0:N2\}}"
+                                        <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.OrderRiskAmount}" Width="72"
+                                                            Binding="{Binding OrderRiskAmount, StringFormat=\{0:N2\}}"
                                                             ElementStyle="{StaticResource RightAlignedTextBlockStyle}"/>
-                                        <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.FilledValue}" Width="72"
-                                                            Binding="{Binding FilledValue, StringFormat=\{0:N2\}}"
+                                        <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.FilledRiskAmount}" Width="72"
+                                                            Binding="{Binding FilledRiskAmount, StringFormat=\{0:N2\}}"
                                                             ElementStyle="{StaticResource RightAlignedTextBlockStyle}"/>
                                         <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.FilledTime}" Width="*"
                                                             Binding="{Binding FilledTime, StringFormat=\{0:yyyy-MM-dd HH:mm\}}"/>
@@ -1000,11 +1000,11 @@
                                         <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.FilledQuantity}" Width="80"
                                                             Binding="{Binding FilledQuantity}"
                                                             ElementStyle="{StaticResource RightAlignedTextBlockStyle}"/>
-                                        <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.OrderValue}" Width="72"
-                                                            Binding="{Binding OrderValue, StringFormat=\{0:N2\}}"
+                                        <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.OrderProfitAmount}" Width="72"
+                                                            Binding="{Binding OrderProfitAmount, StringFormat=\{0:N2\}}"
                                                             ElementStyle="{StaticResource RightAlignedTextBlockStyle}"/>
-                                        <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.FilledValue}" Width="72"
-                                                            Binding="{Binding FilledValue, StringFormat=\{0:N2\}}"
+                                        <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.FilledProfitAmount}" Width="72"
+                                                            Binding="{Binding FilledProfitAmount, StringFormat=\{0:N2\}}"
                                                             ElementStyle="{StaticResource RightAlignedTextBlockStyle}"/>
                                         <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.FilledTime}" Width="*"
                                                             Binding="{Binding FilledTime, StringFormat=\{0:yyyy-MM-dd HH:mm\}}"/>
