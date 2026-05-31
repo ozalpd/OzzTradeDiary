@@ -10,12 +10,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - Added full CRUD support for `EntryOrder`, `TakeProfitOrder`, and `StopLossOrder` in the WPF UI
 - Integrated repositories for these order types into `AppDataSources`, DI, and design-time mocks
 - Implemented create/edit/delete Views, Commands, ViewModels, and dialogs for each order type
+- Introduced `NotGreaterThanPropertyAttribute` for property-to-property max validation and applied to `FilledQuantity` fields.
 
 ### Changed
 - Updated `MainWindow` and `TradeHistoryVM` to manage order collections and selection
 - Extended `IWindowDialogService` for new order dialogs
 - Updated `MainWindow.xaml` to show order data grids and reorganized layout
 - Refactored design-time mocks and dialog services for new types
+- Implemented `IValidatableObject` on `Trade` to enforce TP/SL order quantity sum ≤ `Trade.OrderQuantity`.
 - Bumped all project versions to 0.2.0.
 
 ## [0.1.7] - 2026-05-30

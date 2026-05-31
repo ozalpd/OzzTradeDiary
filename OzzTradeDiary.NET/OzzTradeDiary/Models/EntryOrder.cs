@@ -66,6 +66,7 @@ namespace TD.Models
         /// Realized contract quantity of order
         /// </summary>
         [GreaterThan(0)]
+        [NotGreaterThanProperty(nameof(OrderQuantity))]
         [Display(ResourceType = typeof(LocalizedStrings), Name = "FilledQuantity")]
         public decimal? FilledQuantity { get; set; }
 

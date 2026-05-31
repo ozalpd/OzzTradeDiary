@@ -4,7 +4,7 @@ using TD.i18n;
 
 namespace TD.Models
 {
-    public partial class Trade
+    public partial class Trade : IValidatableObject
     {
         /// <summary>
         /// Calculates planned and executed entry prices, take-profit levels, stop-loss levels, and quantities by
@@ -211,5 +211,41 @@ namespace TD.Models
 
         [Display(ResourceType = typeof(LocalizedStrings), Name = "ExecutedTP")]
         public string RoundedExecutedTP => ExecutedTP.ToRoundedString();
+
+        /// <inheritdoc/>
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        {
+            // Sum of TakeProfitOrder.OrderQuantity must not exceed Trade.OrderQuantity
+            if (OrderQuantity > 0 && TakeProfitOrders?.Count > 0)
+            {
+                var tpSum = TakeProfitOrders
+                    .Where(o => o.OrderQuantity.HasValue)
+                    .Sum(o => o.OrderQuantity!.Value);
+
+                if (tpSum > OrderQuantity!.Value)
+                    yield return new ValidationResult(
+                        string.Format(ErrorStrings.ValueMax,
+                            LocalizedStrings.TakeProfitOrders,
+                            LocalizedStrings.OrderQuantity,
+                            LocalizedStrings.OrderQuantity),
+                        new[] { nameof(TakeProfitOrders) });
+            }
+
+            // Sum of StopLossOrder.OrderQuantity must not exceed Trade.OrderQuantity
+            if (OrderQuantity > 0 && StopLossOrders?.Count > 0)
+            {
+                var slSum = StopLossOrders
+                    .Where(o => o.OrderQuantity.HasValue)
+                    .Sum(o => o.OrderQuantity!.Value);
+
+                if (slSum > OrderQuantity!.Value)
+                    yield return new ValidationResult(
+                        string.Format(ErrorStrings.ValueMax,
+                            LocalizedStrings.StopLossOrders,
+                            LocalizedStrings.OrderQuantity,
+                            LocalizedStrings.OrderQuantity),
+                        new[] { nameof(StopLossOrders) });
+            }
+        }
     }
 }

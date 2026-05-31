@@ -127,7 +127,7 @@
         <ModelPropertySetting>
           <Name>FilledQuantity</Name>
           <Exclude>false</Exclude>
-          <CustomAttributes>GreaterThan(0)</CustomAttributes>
+          <CustomAttributes>GreaterThan(0);NotGreaterThanProperty(nameof(OrderQuantity))</CustomAttributes>
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
@@ -137,6 +137,7 @@
         <ModelPropertySetting>
           <Name>OrderValue</Name>
           <Exclude>true</Exclude>
+          <CustomAttributes />
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
