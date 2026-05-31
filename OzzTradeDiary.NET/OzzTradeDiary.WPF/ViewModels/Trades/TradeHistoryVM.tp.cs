@@ -8,7 +8,6 @@ namespace TD.WPF.ViewModels.Trades
 {
     public partial class TradeHistoryVM
     {
-        public ITakeProfitOrderRepository TakeProfitOrderRepository { get; }
         public ObservableCollection<TakeProfitOrder> TakeProfitOrders { get; }
         public TakeProfitOrderCreateCommand TakeProfitOrderCreateCommand { get; }
         public TakeProfitOrderDeleteCommand TakeProfitOrderDeleteCommand { get; }
@@ -32,6 +31,19 @@ namespace TD.WPF.ViewModels.Trades
         /// </summary>
         public IEnumerable<EnumValueItem<ExitOrderType>> ExitOrderForTpValues { get; }
 
+        /// <summary>
+        /// Removes <paramref name="tpOrder"/> from <see cref="Trade.TakeProfitOrders"/> of
+        /// <see cref="SelectedTrade"/>, then persists <em>all</em> remaining take-profit orders
+        /// in a single repository call (<see cref="ITradeRepository.SaveTakeProfitOrdersAsync"/>).
+        /// </summary>
+        /// <remarks>
+        /// The save call persists the entire <see cref="Trade.TakeProfitOrders"/> collection after
+        /// removal, so any other in-memory modifications to that collection are also committed.
+        /// Returns <c>false</c> without saving if <see cref="SelectedTrade"/> is <c>null</c> or
+        /// <paramref name="tpOrder"/> has not been persisted yet (<c>Id == 0</c>).
+        /// </remarks>
+        /// <param name="tpOrder">The take-profit order to delete.</param>
+        /// <returns><c>true</c> if the order was found and removed; otherwise <c>false</c>.</returns>
         public async Task<bool> DeleteTakeProfitOrderAsync(TakeProfitOrder tpOrder)
         {
             if (SelectedTrade == null)
@@ -47,13 +59,6 @@ namespace TD.WPF.ViewModels.Trades
             }
 
             return isDeleted;
-        }
-
-        public async Task LoadTakeProfitOrdersAsync()
-        {
-            if (SelectedTrade != null)
-                await LoadNavigationCollectionsAsync(SelectedTrade);
-            ReplaceTakeProfitOrders();
         }
 
         private void ReplaceTakeProfitOrders()
@@ -72,6 +77,18 @@ namespace TD.WPF.ViewModels.Trades
             TakeProfitOrderEditCommand.RaiseCanExecuteChanged();
         }
 
+        /// <summary>
+        /// Adds or updates <paramref name="tpOrder"/> within <see cref="Trade.TakeProfitOrders"/> of
+        /// <see cref="SelectedTrade"/>, then persists <em>all</em> take-profit orders of that trade
+        /// in a single repository call (<see cref="ITradeRepository.SaveTakeProfitOrdersAsync"/>).
+        /// </summary>
+        /// <remarks>
+        /// Despite its singular name, this method always saves the entire
+        /// <see cref="Trade.TakeProfitOrders"/> collection — not just the supplied order.
+        /// If <paramref name="tpOrder"/> is new (<c>Id == 0</c>) it is appended to the collection
+        /// before saving; if it already exists it is updated in place.
+        /// </remarks>
+        /// <param name="tpOrder">The take-profit order to add or update.</param>
         public async Task SaveTakeProfitOrderAsync(TakeProfitOrder tpOrder)
         {
             if (SelectedTrade == null)

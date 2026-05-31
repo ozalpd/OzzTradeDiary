@@ -7,8 +7,7 @@ namespace TD.WPF.DesignTime
     public class MockTradeHistoryVM : TradeHistoryVM
     {
         public MockTradeHistoryVM()
-            : base(new EntryOrderMockRepository(), new TakeProfitOrderMockRepository(), new TradeMockRepository(), new StopLossOrderMockRepository(), new MockWindowDialogService(),
-                   new SymbolMockLookupService(), new TradingAccountMockLookupService())
+            : base(new TradeMockRepository(), new MockWindowDialogService(), new SymbolMockLookupService(), new TradingAccountMockLookupService())
         {
             _selectedItem = new Trade
             {

@@ -669,7 +669,7 @@
                                 </Grid.RowDefinitions>
 
                                 <!-- ═══ Entry Orders ═══ -->
-                                <TextBlock Grid.Row="0" Margin="0,4" FontWeight="Bold"
+                                <TextBlock Grid.Row="0" Margin="0,4,8,0" FontWeight="Bold"
                                            Text="{x:Static i18n:LocalizedStrings.EntryOrders}"/>
 
                                 <StackPanel Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="0" Orientation="Horizontal">
@@ -784,7 +784,7 @@
 
 
                                 <!-- ═══ Stop Loss Orders ═══ -->
-                                <TextBlock Grid.Row="2" Margin="0,4" FontWeight="Bold"
+                                <TextBlock Grid.Row="2" Margin="0,4,8,0" FontWeight="Bold"
                                            Text="{x:Static i18n:LocalizedStrings.StopLossOrders}"/>
 
                                 <StackPanel Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="2" Orientation="Horizontal">
@@ -898,7 +898,7 @@
                                 </DataGrid>
 
                                 <!-- ═══ Take Profit Orders ═══ -->
-                                <TextBlock Grid.Row="4" Grid.ColumnSpan="2" Margin="0,4" FontWeight="Bold"
+                                <TextBlock Grid.Row="4" Grid.ColumnSpan="2" Margin="0,4,8,0" FontWeight="Bold"
                                            Text="{x:Static i18n:LocalizedStrings.TakeProfitOrders}"/>
 
                                 <StackPanel Grid.Column="2" Grid.Row="4" Orientation="Horizontal">

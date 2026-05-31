@@ -8,7 +8,6 @@ namespace TD.WPF.ViewModels.Trades
 {
     public partial class TradeHistoryVM
     {
-        public IStopLossOrderRepository StopLossOrderRepository { get; }
         public ObservableCollection<StopLossOrder> StopLossOrders { get; }
         public StopLossOrderCreateCommand StopLossOrderCreateCommand { get; }
         public StopLossOrderDeleteCommand StopLossOrderDeleteCommand { get; }
@@ -32,6 +31,19 @@ namespace TD.WPF.ViewModels.Trades
         /// </summary>
         public IEnumerable<EnumValueItem<ExitOrderType>> ExitOrderTypeValues { get; }
 
+        /// <summary>
+        /// Removes <paramref name="slOrder"/> from <see cref="Trade.StopLossOrders"/> of
+        /// <see cref="SelectedTrade"/>, then persists <em>all</em> remaining stop-loss orders
+        /// in a single repository call (<see cref="ITradeRepository.SaveStopLossOrdersAsync"/>).
+        /// </summary>
+        /// <remarks>
+        /// The save call persists the entire <see cref="Trade.StopLossOrders"/> collection after
+        /// removal, so any other in-memory modifications to that collection are also committed.
+        /// Returns <c>false</c> without saving if <see cref="SelectedTrade"/> is <c>null</c> or
+        /// <paramref name="slOrder"/> has not been persisted yet (<c>Id == 0</c>).
+        /// </remarks>
+        /// <param name="slOrder">The stop-loss order to delete.</param>
+        /// <returns><c>true</c> if the order was found and removed; otherwise <c>false</c>.</returns>
         public async Task<bool> DeleteStopLossOrderAsync(StopLossOrder slOrder)
         {
             if (SelectedTrade == null)
@@ -47,13 +59,6 @@ namespace TD.WPF.ViewModels.Trades
             }
 
             return isDeleted;
-        }
-
-        public async Task LoadStopLossOrdersAsync()
-        {
-            if (SelectedTrade != null)
-                await LoadNavigationCollectionsAsync(SelectedTrade);
-            ReplaceStopLossOrders();
         }
 
         private void ReplaceStopLossOrders()
@@ -72,6 +77,18 @@ namespace TD.WPF.ViewModels.Trades
             StopLossOrderEditCommand.RaiseCanExecuteChanged();
         }
 
+        /// <summary>
+        /// Adds or updates <paramref name="slOrder"/> within <see cref="Trade.StopLossOrders"/> of
+        /// <see cref="SelectedTrade"/>, then persists <em>all</em> stop-loss orders of that trade
+        /// in a single repository call (<see cref="ITradeRepository.SaveStopLossOrdersAsync"/>).
+        /// </summary>
+        /// <remarks>
+        /// Despite its singular name, this method always saves the entire
+        /// <see cref="Trade.StopLossOrders"/> collection — not just the supplied order.
+        /// If <paramref name="slOrder"/> is new (<c>Id == 0</c>) it is appended to the collection
+        /// before saving; if it already exists it is updated in place.
+        /// </remarks>
+        /// <param name="slOrder">The stop-loss order to add or update.</param>
         public async Task SaveStopLossOrderAsync(StopLossOrder slOrder)
         {
             if (SelectedTrade == null)

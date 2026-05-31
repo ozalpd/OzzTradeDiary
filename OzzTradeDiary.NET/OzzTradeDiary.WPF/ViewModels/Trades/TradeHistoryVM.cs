@@ -11,10 +11,8 @@ namespace TD.WPF.ViewModels.Trades
 {
     public partial class TradeHistoryVM : TradeListVM
     {
-        public TradeHistoryVM(IEntryOrderRepository entryOrderRepository, ITakeProfitOrderRepository takeProfitOrderRepository,
-                              ITradeRepository tradeRepository, IStopLossOrderRepository stopLossOrderRepository,
-                              IWindowDialogService windowDialogService, ISymbolLookupService symbolLookupService,
-                              ITradingAccountLookupService tradingAccountLookupService)
+        public TradeHistoryVM(ITradeRepository tradeRepository, IWindowDialogService windowDialogService,
+                              ISymbolLookupService symbolLookupService, ITradingAccountLookupService tradingAccountLookupService)
             : base(tradeRepository, windowDialogService, symbolLookupService, tradingAccountLookupService)
         {
             _allSymbols = new List<Symbol>();
@@ -26,19 +24,16 @@ namespace TD.WPF.ViewModels.Trades
             ExitOrderForTpValues = ExitOrderTypeValues.Where(v => v.Value <= ExitOrderType.TrailingStop)
                                                       .ToList();
 
-            EntryOrderRepository = entryOrderRepository;
             EntryOrders = new ObservableCollection<EntryOrder>();
             EntryOrderCreateCommand = new EntryOrderCreateCommand(this, windowDialogService);
             EntryOrderDeleteCommand = new EntryOrderDeleteCommand(this);
             EntryOrderEditCommand = new EntryOrderEditCommand(this, windowDialogService);
 
-            StopLossOrderRepository = stopLossOrderRepository;
             StopLossOrders = new ObservableCollection<StopLossOrder>();
             StopLossOrderCreateCommand = new StopLossOrderCreateCommand(this, windowDialogService);
             StopLossOrderDeleteCommand = new StopLossOrderDeleteCommand(this);
             StopLossOrderEditCommand = new StopLossOrderEditCommand(this, windowDialogService);
 
-            TakeProfitOrderRepository = takeProfitOrderRepository;
             TakeProfitOrders = new ObservableCollection<TakeProfitOrder>();
             TakeProfitOrderCreateCommand = new TakeProfitOrderCreateCommand(this, windowDialogService);
             TakeProfitOrderDeleteCommand = new TakeProfitOrderDeleteCommand(this);

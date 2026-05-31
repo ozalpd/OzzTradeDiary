@@ -8,7 +8,6 @@ namespace TD.WPF.ViewModels.Trades
 {
     public partial class TradeHistoryVM
     {
-        public IEntryOrderRepository EntryOrderRepository { get; }
         public ObservableCollection<EntryOrder> EntryOrders { get; }
         public EntryOrderCreateCommand EntryOrderCreateCommand { get; }
         public EntryOrderDeleteCommand EntryOrderDeleteCommand { get; }
@@ -32,6 +31,19 @@ namespace TD.WPF.ViewModels.Trades
         /// </summary>
         public IEnumerable<EnumValueItem<EntryOrderType>> EntryOrderTypeValues { get; }
 
+        /// <summary>
+        /// Removes <paramref name="entryOrder"/> from <see cref="Trade.EntryOrders"/> of
+        /// <see cref="SelectedTrade"/>, then persists <em>all</em> remaining entry orders
+        /// in a single repository call (<see cref="ITradeRepository.SaveEntryOrdersAsync"/>).
+        /// </summary>
+        /// <remarks>
+        /// The save call persists the entire <see cref="Trade.EntryOrders"/> collection after
+        /// removal, so any other in-memory modifications to that collection are also committed.
+        /// Returns <c>false</c> without saving if <see cref="SelectedTrade"/> is <c>null</c> or
+        /// <paramref name="entryOrder"/> has not been persisted yet (<c>Id == 0</c>).
+        /// </remarks>
+        /// <param name="entryOrder">The entry order to delete.</param>
+        /// <returns><c>true</c> if the order was found and removed; otherwise <c>false</c>.</returns>
         public async Task<bool> DeleteEntryOrderAsync(EntryOrder entryOrder)
         {
             if (SelectedTrade == null)
@@ -65,6 +77,18 @@ namespace TD.WPF.ViewModels.Trades
             EntryOrderEditCommand.RaiseCanExecuteChanged();
         }
 
+        /// <summary>
+        /// Adds or updates <paramref name="entryOrder"/> within <see cref="Trade.EntryOrders"/> of
+        /// <see cref="SelectedTrade"/>, then persists <em>all</em> entry orders of that trade
+        /// in a single repository call (<see cref="ITradeRepository.SaveEntryOrdersAsync"/>).
+        /// </summary>
+        /// <remarks>
+        /// Despite its singular name, this method always saves the entire
+        /// <see cref="Trade.EntryOrders"/> collection — not just the supplied order.
+        /// If <paramref name="entryOrder"/> is new (<c>Id == 0</c>) it is appended to the collection
+        /// before saving; if it already exists it is updated in place.
+        /// </remarks>
+        /// <param name="entryOrder">The entry order to add or update.</param>
         public async Task SaveEntryOrderAsync(EntryOrder entryOrder)
         {
             if (SelectedTrade == null)
