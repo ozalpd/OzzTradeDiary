@@ -86,34 +86,6 @@ namespace TD.WPF.ViewModels.Trades
             }
         }
 
-        public DateTime? FilledTime
-        {
-            get { return _entryOrder.FilledTime; }
-            set
-            {
-                if (_entryOrder.FilledTime != value)
-                {
-                    _entryOrder.FilledTime = value;
-                    RaisePropertyChanged(nameof(FilledTime));
-                    ValidateProperty(_entryOrder, nameof(FilledTime));
-                }
-            }
-        }
-
-        public decimal? FilledPrice
-        {
-            get { return _entryOrder.FilledPrice; }
-            set
-            {
-                if (_entryOrder.FilledPrice != value)
-                {
-                    _entryOrder.FilledPrice = value;
-                    RaisePropertyChanged(nameof(FilledPrice));
-                    ValidateProperty(_entryOrder, nameof(FilledPrice));
-                }
-            }
-        }
-
         public decimal? OrderQuantity
         {
             get { return _entryOrder.OrderQuantity; }
@@ -128,20 +100,6 @@ namespace TD.WPF.ViewModels.Trades
             }
         }
 
-        public decimal? FilledQuantity
-        {
-            get { return _entryOrder.FilledQuantity; }
-            set
-            {
-                if (_entryOrder.FilledQuantity != value)
-                {
-                    _entryOrder.FilledQuantity = value;
-                    RaisePropertyChanged(nameof(FilledQuantity));
-                    ValidateProperty(_entryOrder, nameof(FilledQuantity));
-                }
-            }
-        }
-
         public decimal? OrderValue
         {
             get { return _entryOrder.OrderValue; }
@@ -152,20 +110,6 @@ namespace TD.WPF.ViewModels.Trades
                     _entryOrder.OrderValue = value;
                     RaisePropertyChanged(nameof(OrderValue));
                     ValidateProperty(_entryOrder, nameof(OrderValue));
-                }
-            }
-        }
-
-        public decimal? FilledValue
-        {
-            get { return _entryOrder.FilledValue; }
-            set
-            {
-                if (_entryOrder.FilledValue != value)
-                {
-                    _entryOrder.FilledValue = value;
-                    RaisePropertyChanged(nameof(FilledValue));
-                    ValidateProperty(_entryOrder, nameof(FilledValue));
                 }
             }
         }

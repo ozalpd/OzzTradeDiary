@@ -5,7 +5,6 @@ using TD.Models;
 using TD.RepositoryContracts;
 using TD.WPF.Commands.Trades;
 using TD.WPF.Services;
-using static TD.Extensions.EnumExtension;
 
 namespace TD.WPF.ViewModels.Trades
 {
@@ -18,11 +17,6 @@ namespace TD.WPF.ViewModels.Trades
             _allSymbols = new List<Symbol>();
             _symbolLookup = symbolLookupService;
             _tradingAccountLookup = tradingAccountLookupService;
-
-            EntryOrderTypeValues = GetValues<EntryOrderType>();
-            ExitOrderTypeValues = GetValues<ExitOrderType>();
-            ExitOrderForTpValues = ExitOrderTypeValues.Where(v => v.Value <= ExitOrderType.TrailingStop)
-                                                      .ToList();
 
             EntryOrders = new ObservableCollection<EntryOrder>();
             EntryOrderCreateCommand = new EntryOrderCreateCommand(this, windowDialogService);
@@ -89,29 +83,29 @@ namespace TD.WPF.ViewModels.Trades
 
         public ObservableCollection<Symbol> Symbols { get; } = new();
 
-        public TradingAccount? SelectedTradingAccount
+        public TradingAccount? FilterTradingAccount
         {
-            get => _selectedTradingAccount;
+            get => _byTradingAccount;
             set
             {
-                _selectedTradingAccount = value;
-                if (_selectedTradingAccount == null)
+                _byTradingAccount = value;
+                if (_byTradingAccount == null)
                 {
                     ReplaceCollection(Symbols, _allSymbols);
                     QueryVM.ByTradingAccountId = null;
                 }
                 else
                 {
-                    int exchangeId = _selectedTradingAccount.ExchangeId;
+                    int exchangeId = _byTradingAccount.ExchangeId;
                     var symbols = _allSymbols.Where(s => s.ExchangeId == exchangeId)
                                              .ToList();
                     ReplaceCollection(Symbols, symbols);
-                    QueryVM.ByTradingAccountId = _selectedTradingAccount.Id;
+                    QueryVM.ByTradingAccountId = _byTradingAccount.Id;
                 }
-                RaisePropertyChanged(nameof(SelectedTradingAccount));
+                RaisePropertyChanged(nameof(FilterTradingAccount));
             }
         }
-        private TradingAccount? _selectedTradingAccount;
+        private TradingAccount? _byTradingAccount;
         public ObservableCollection<TradingAccount> TradingAccounts { get; } = new();
 
         public async Task InitializeAsync()

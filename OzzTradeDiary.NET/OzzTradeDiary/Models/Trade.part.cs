@@ -188,6 +188,25 @@ namespace TD.Models
             }
         }
 
+        /// <summary>
+        /// A read-only computed label that uniquely identifies this trade in lists and grids.
+        /// Combines symbol ticker, direction, and entry date (falling back to trade Id when no
+        /// entry time has been recorded yet). Never entered by the user.
+        /// Example: "BTCUSDT · Long · 2025-01-15" or "BTCUSDT · Short · #42"
+        /// </summary>
+        public string Label
+        {
+            get
+            {
+                var direction = TradeDirection.GetDisplayValue();
+                var status = TradeStatus.GetDisplayValue();
+                var datePart = EntryTime.HasValue
+                    ? EntryTime.Value.ToString("yyyy-MM-dd")
+                    : $"#{Id}";
+                return $"{Symbol.TickerFull} · {status} · {direction} · {datePart}";
+            }
+        }
+
         [Display(ResourceType = typeof(LocalizedStrings), Name = "FilledQuantity")]
         public string RoundedFilledQuantity => FilledQuantity.ToRoundedString();
 

@@ -1333,6 +1333,10 @@
     <Translation>Çıkış Yap</Translation>
   </Vocab>
   <Vocab>
+    <Name>Long</Name>
+    <Translation>Long</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Longitude</Name>
     <Translation>Boylam</Translation>
   </Vocab>
@@ -1985,6 +1989,10 @@
     <Translation>Setup Notu</Translation>
   </Vocab>
   <Vocab>
+    <Name>Short</Name>
+    <Translation>Short</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Show</Name>
     <Translation>Göster</Translation>
   </Vocab>
@@ -2035,6 +2043,10 @@
   <Vocab>
     <Name>StopLossOrdersList</Name>
     <Translation>Zarar Kes Emir Listesi</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>StopMarket</Name>
+    <Translation>Stop Market</Translation>
   </Vocab>
   <Vocab>
     <Name>Store</Name>

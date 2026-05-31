@@ -1,5 +1,4 @@
 ﻿using System.Collections.ObjectModel;
-using TD.Extensions;
 using TD.Models;
 using TD.RepositoryContracts;
 using TD.WPF.Commands.Trades;
@@ -25,11 +24,6 @@ namespace TD.WPF.ViewModels.Trades
             }
         }
         StopLossOrder? _selectedStopLossOrder;
-
-        /// <summary>
-        /// Gets the collection of available ExitOrderType enum members for selection or display.
-        /// </summary>
-        public IEnumerable<EnumValueItem<ExitOrderType>> ExitOrderTypeValues { get; }
 
         /// <summary>
         /// Removes <paramref name="slOrder"/> from <see cref="Trade.StopLossOrders"/> of
@@ -65,8 +59,13 @@ namespace TD.WPF.ViewModels.Trades
         {
             StopLossOrders.Clear();
             if (SelectedTrade != null)
-                ReplaceCollection(StopLossOrders, SelectedTrade.StopLossOrders);
-
+            {
+                var direction = SelectedTrade.TradeDirection;
+                var sortedOrders = direction == TradeDirection.Short
+                                 ? SelectedTrade.StopLossOrders.OrderBy(o => o.OrderPrice)
+                                 : SelectedTrade.StopLossOrders.OrderByDescending(o => o.OrderPrice);
+                ReplaceCollection(StopLossOrders, sortedOrders);
+            }
             RaiseStopLossOrderCmdCanExecute();
         }
 

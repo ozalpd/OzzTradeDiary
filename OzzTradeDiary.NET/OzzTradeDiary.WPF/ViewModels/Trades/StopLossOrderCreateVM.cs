@@ -86,34 +86,6 @@ namespace TD.WPF.ViewModels.Trades
             }
         }
 
-        public DateTime? FilledTime
-        {
-            get { return _stopLossOrder.FilledTime; }
-            set
-            {
-                if (_stopLossOrder.FilledTime != value)
-                {
-                    _stopLossOrder.FilledTime = value;
-                    RaisePropertyChanged(nameof(FilledTime));
-                    ValidateProperty(_stopLossOrder, nameof(FilledTime));
-                }
-            }
-        }
-
-        public decimal? FilledPrice
-        {
-            get { return _stopLossOrder.FilledPrice; }
-            set
-            {
-                if (_stopLossOrder.FilledPrice != value)
-                {
-                    _stopLossOrder.FilledPrice = value;
-                    RaisePropertyChanged(nameof(FilledPrice));
-                    ValidateProperty(_stopLossOrder, nameof(FilledPrice));
-                }
-            }
-        }
-
         public decimal? OrderQuantity
         {
             get { return _stopLossOrder.OrderQuantity; }
@@ -128,20 +100,6 @@ namespace TD.WPF.ViewModels.Trades
             }
         }
 
-        public decimal? FilledQuantity
-        {
-            get { return _stopLossOrder.FilledQuantity; }
-            set
-            {
-                if (_stopLossOrder.FilledQuantity != value)
-                {
-                    _stopLossOrder.FilledQuantity = value;
-                    RaisePropertyChanged(nameof(FilledQuantity));
-                    ValidateProperty(_stopLossOrder, nameof(FilledQuantity));
-                }
-            }
-        }
-
         public decimal? OrderValue
         {
             get { return _stopLossOrder.OrderValue; }
@@ -152,20 +110,6 @@ namespace TD.WPF.ViewModels.Trades
                     _stopLossOrder.OrderValue = value;
                     RaisePropertyChanged(nameof(OrderValue));
                     ValidateProperty(_stopLossOrder, nameof(OrderValue));
-                }
-            }
-        }
-
-        public decimal? FilledValue
-        {
-            get { return _stopLossOrder.FilledValue; }
-            set
-            {
-                if (_stopLossOrder.FilledValue != value)
-                {
-                    _stopLossOrder.FilledValue = value;
-                    RaisePropertyChanged(nameof(FilledValue));
-                    ValidateProperty(_stopLossOrder, nameof(FilledValue));
                 }
             }
         }

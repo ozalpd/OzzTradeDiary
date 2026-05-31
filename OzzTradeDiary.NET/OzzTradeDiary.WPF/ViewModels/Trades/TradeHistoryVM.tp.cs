@@ -1,5 +1,4 @@
 ﻿using System.Collections.ObjectModel;
-using TD.Extensions;
 using TD.Models;
 using TD.RepositoryContracts;
 using TD.WPF.Commands.Trades;
@@ -25,11 +24,6 @@ namespace TD.WPF.ViewModels.Trades
             }
         }
         TakeProfitOrder? _selectedTakeProfitOrder;
-
-        /// <summary>
-        /// Gets the collection of available ExitOrderType enum members for selection or display.
-        /// </summary>
-        public IEnumerable<EnumValueItem<ExitOrderType>> ExitOrderForTpValues { get; }
 
         /// <summary>
         /// Removes <paramref name="tpOrder"/> from <see cref="Trade.TakeProfitOrders"/> of
@@ -65,8 +59,13 @@ namespace TD.WPF.ViewModels.Trades
         {
             TakeProfitOrders.Clear();
             if (SelectedTrade != null)
-                ReplaceCollection(TakeProfitOrders, SelectedTrade.TakeProfitOrders);
-
+            {
+                var direction = SelectedTrade.TradeDirection;
+                var sortedTPs = direction == TradeDirection.Long
+                              ? SelectedTrade.TakeProfitOrders.OrderBy(tp => tp.OrderPrice).ToList()
+                              : SelectedTrade.TakeProfitOrders.OrderByDescending(tp => tp.OrderPrice).ToList();
+                ReplaceCollection(TakeProfitOrders, sortedTPs);
+            }
             RaiseTakeProfitOrderCmdCanExecute();
         }
 

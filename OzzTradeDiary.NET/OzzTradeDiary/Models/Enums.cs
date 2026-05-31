@@ -9,6 +9,7 @@ namespace TD.Models
         Market = 10,
         [Display(ResourceType = typeof(LocalizedStrings), Name = "Limit")]
         Limit = 20,
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "StopMarket")]
         StopMarket = 40,   // stop-market entry
         [Display(ResourceType = typeof(LocalizedStrings), Name = "StopLimit")]
         StopLimit = 50
@@ -106,7 +107,9 @@ namespace TD.Models
 
     public enum TradeDirection : int
     {
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "Long")]
         Long = 200,
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "Short")]
         Short = 100
     }
 

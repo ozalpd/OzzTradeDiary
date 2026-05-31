@@ -1402,6 +1402,15 @@ namespace TD.i18n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Long.
+        /// </summary>
+        public static string Long {
+            get {
+                return ResourceManager.GetString("Long", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Maker Fee Rate.
         /// </summary>
         public static string MakerFeeRate {
@@ -1870,6 +1879,15 @@ namespace TD.i18n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Short.
+        /// </summary>
+        public static string Short {
+            get {
+                return ResourceManager.GetString("Short", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Stock.
         /// </summary>
         public static string Stock {
@@ -1920,6 +1938,15 @@ namespace TD.i18n {
         public static string StopLossOrdersList {
             get {
                 return ResourceManager.GetString("StopLossOrdersList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Stop Market.
+        /// </summary>
+        public static string StopMarket {
+            get {
+                return ResourceManager.GetString("StopMarket", resourceCulture);
             }
         }
         

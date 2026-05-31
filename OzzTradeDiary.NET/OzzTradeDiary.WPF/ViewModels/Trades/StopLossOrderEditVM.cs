@@ -30,19 +30,7 @@ namespace TD.WPF.ViewModels.Trades
         /// </summary>
         public IEnumerable<EnumValueItem<ExitOrderType>> ExitOrderTypeValues { get; }
 
-        public int TradeId
-        {
-            get { return _stopLossOrder.TradeId; }
-            set
-            {
-                if (_stopLossOrder.TradeId != value)
-                {
-                    _stopLossOrder.TradeId = value;
-                    RaisePropertyChanged(nameof(TradeId));
-                    ValidateProperty(_stopLossOrder, nameof(TradeId));
-                }
-            }
-        }
+        public int TradeId => _stopLossOrder.TradeId;
 
         public Trade Trade
         {

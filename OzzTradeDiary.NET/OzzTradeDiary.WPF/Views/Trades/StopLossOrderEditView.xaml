@@ -31,10 +31,9 @@
 
         <TextBlock Grid.Column="0" Grid.Row="0" FontWeight="Bold"
                    Style="{StaticResource RightAlignedTextBlockStyle}" Text="{x:Static i18n:LocalizedStrings.Trade}"/>
-        <TextBox x:Name="TradeIdTextBox" Grid.Row="0" Grid.Column="1"
-                 PreviewTextInput="IntegerTextBox_PreviewTextInput"
-                 Text="{Binding TradeId, UpdateSourceTrigger=LostFocus, ValidatesOnNotifyDataErrors=True}"
-                 Style="{StaticResource ValidationTextBoxStyle}"/>
+        <TextBox Grid.Row="0" Grid.Column="1"
+                 Text="{Binding TradeId, Mode=OneWay}"
+                 Style="{StaticResource ReadOnlyTextBoxStyle}"/>
 
         <TextBlock Grid.Column="0" Grid.Row="1" FontWeight="Bold"
                    Style="{StaticResource RightAlignedTextBlockStyle}" Text="{x:Static i18n:LocalizedStrings.OrderType}"/>

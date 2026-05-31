@@ -178,7 +178,7 @@
                       ItemsSource="{Binding TradingAccounts}"
                       DisplayMemberPath="Title"
                       SelectedValuePath="Id"
-                      SelectedItem="{Binding SelectedTradingAccount}"
+                      SelectedItem="{Binding FilterTradingAccount }"
                       SelectedValue="{Binding QueryVM.ByTradingAccountId, Mode=TwoWay}">
                 <ComboBox.Resources>
                     <CollectionViewSource x:Key="cvs" Source="{Binding TradingAccounts}"/>

@@ -43,6 +43,7 @@ namespace TD.WPF.Views.Trades
         {
             if (_preselectedTrade != null)
             {
+                _viewModel.Trade = _preselectedTrade;
                 _viewModel.TradeId = _preselectedTrade.Id;
             }
             OnSourceInitialized();

@@ -25,8 +25,12 @@
           <Value>30</Value>
         </EnumMember>
         <EnumMember>
-          <Name>StopLimit</Name>
+          <Name>StopMarket</Name>
           <Value>40</Value>
+        </EnumMember>
+        <EnumMember>
+          <Name>StopLimit</Name>
+          <Value>50</Value>
         </EnumMember>
       </Members>
     </EnumDefinition>
@@ -43,15 +47,15 @@
           <Value>20</Value>
         </EnumMember>
         <EnumMember>
-          <Name>Stop</Name>
+          <Name>TrailingStop</Name>
           <Value>30</Value>
         </EnumMember>
         <EnumMember>
-          <Name>StopLimit</Name>
+          <Name>Stop</Name>
           <Value>40</Value>
         </EnumMember>
         <EnumMember>
-          <Name>TrailingStop</Name>
+          <Name>StopLimit</Name>
           <Value>50</Value>
         </EnumMember>
       </Members>
@@ -247,6 +251,20 @@
         <EnumMember>
           <Name>Cancelled</Name>
           <Value>-20</Value>
+        </EnumMember>
+      </Members>
+    </EnumDefinition>
+    <EnumDefinition>
+      <Name>TradeDirection</Name>
+      <NamespaceName>TD</NamespaceName>
+      <Members>
+        <EnumMember>
+          <Name>Short</Name>
+          <Value>100</Value>
+        </EnumMember>
+        <EnumMember>
+          <Name>Long</Name>
+          <Value>200</Value>
         </EnumMember>
       </Members>
     </EnumDefinition>
@@ -1465,7 +1483,7 @@
       <DisplayOrder>17</DisplayOrder>
       <Abstract>false</Abstract>
       <DisplayName>Trade</DisplayName>
-      <DisplayMember>Id</DisplayMember>
+      <DisplayMember>Label</DisplayMember>
       <BaseTypeName>IUpdatedAt</BaseTypeName>
       <Properties>
         <BaseProperty xsi:type="SimpleProperty">

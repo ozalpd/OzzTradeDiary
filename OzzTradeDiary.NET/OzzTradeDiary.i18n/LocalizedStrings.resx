@@ -505,6 +505,9 @@
     <data name="LocalOpen" xml:space="preserve">
         <value>Local Open</value>
     </data>
+    <data name="Long" xml:space="preserve">
+        <value>Long</value>
+    </data>
     <data name="MakerFeeRate" xml:space="preserve">
         <value>Maker Fee Rate</value>
     </data>
@@ -661,6 +664,9 @@
     <data name="SetupNotes" xml:space="preserve">
         <value>Setup Notes</value>
     </data>
+    <data name="Short" xml:space="preserve">
+        <value>Short</value>
+    </data>
     <data name="Stock" xml:space="preserve">
         <value>Stock</value>
     </data>
@@ -678,6 +684,9 @@
     </data>
     <data name="StopLossOrdersList" xml:space="preserve">
         <value>Stop Loss Orders List</value>
+    </data>
+    <data name="StopMarket" xml:space="preserve">
+        <value>Stop Market</value>
     </data>
     <data name="String" xml:space="preserve">
         <value>String</value>

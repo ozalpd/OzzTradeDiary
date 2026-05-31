@@ -211,7 +211,7 @@
           <DefaultValue />
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsMultiLine>false</IsMultiLine>
-          <CreateViewMode>Editable</CreateViewMode>
+          <CreateViewMode>Exclude</CreateViewMode>
           <EditViewMode>Editable</EditViewMode>
           <ShowInCollection>true</ShowInCollection>
           <ShowInDetail>true</ShowInDetail>
@@ -224,7 +224,7 @@
           <DefaultValue />
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsMultiLine>false</IsMultiLine>
-          <CreateViewMode>Editable</CreateViewMode>
+          <CreateViewMode>Exclude</CreateViewMode>
           <EditViewMode>Editable</EditViewMode>
           <ShowInCollection>true</ShowInCollection>
           <ShowInDetail>true</ShowInDetail>
@@ -250,7 +250,7 @@
           <DefaultValue />
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsMultiLine>false</IsMultiLine>
-          <CreateViewMode>Editable</CreateViewMode>
+          <CreateViewMode>Exclude</CreateViewMode>
           <EditViewMode>Editable</EditViewMode>
           <ShowInCollection>true</ShowInCollection>
           <ShowInDetail>true</ShowInDetail>
@@ -276,7 +276,7 @@
           <DefaultValue />
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsMultiLine>false</IsMultiLine>
-          <CreateViewMode>Editable</CreateViewMode>
+          <CreateViewMode>Exclude</CreateViewMode>
           <EditViewMode>Editable</EditViewMode>
           <ShowInCollection>true</ShowInCollection>
           <ShowInDetail>true</ShowInDetail>
@@ -979,7 +979,7 @@
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsMultiLine>false</IsMultiLine>
           <CreateViewMode>Editable</CreateViewMode>
-          <EditViewMode>Editable</EditViewMode>
+          <EditViewMode>ReadOnly</EditViewMode>
           <ShowInCollection>true</ShowInCollection>
           <ShowInDetail>true</ShowInDetail>
           <ValueConstraint />
@@ -1037,9 +1037,9 @@
       <GenModeCreateVM>GenerateIfNotExists</GenModeCreateVM>
       <GenModeEditVM>GenerateIfNotExists</GenModeEditVM>
       <GenerateGetPaged>false</GenerateGetPaged>
-      <GenModeCollectionVM>GenerateIfNotExists</GenModeCollectionVM>
+      <GenModeCollectionVM>DoNotGenerate</GenModeCollectionVM>
       <GenModeLookupService>DoNotGenerate</GenModeLookupService>
-      <GenModeCreateView>GenerateIfNotExists</GenModeCreateView>
+      <GenModeCreateView>SkipManuallyEdited</GenModeCreateView>
       <GenModeEditView>GenerateIfNotExists</GenModeEditView>
       <GenModeDetailView>DoNotGenerate</GenModeDetailView>
       <RepositoryName>IEntryOrderRepository</RepositoryName>
@@ -1057,7 +1057,7 @@
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsMultiLine>false</IsMultiLine>
           <CreateViewMode>Editable</CreateViewMode>
-          <EditViewMode>Editable</EditViewMode>
+          <EditViewMode>ReadOnly</EditViewMode>
           <ShowInCollection>true</ShowInCollection>
           <ShowInDetail>true</ShowInDetail>
           <ValueConstraint />
@@ -1069,7 +1069,7 @@
           <DefaultValue />
           <IsPreselectedInCreate>true</IsPreselectedInCreate>
           <IsMultiLine>false</IsMultiLine>
-          <CreateViewMode>Editable</CreateViewMode>
+          <CreateViewMode>ReadOnly</CreateViewMode>
           <EditViewMode>Editable</EditViewMode>
           <ShowInCollection>true</ShowInCollection>
           <ShowInDetail>true</ShowInDetail>
@@ -1112,12 +1112,12 @@
       <GenModeDeleteCommand>SkipManuallyEdited</GenModeDeleteCommand>
       <GenModeDetailCommand>DoNotGenerate</GenModeDetailCommand>
       <GenModeLoadCommand>DoNotGenerate</GenModeLoadCommand>
-      <GenModeCreateVM>GenerateIfNotExists</GenModeCreateVM>
-      <GenModeEditVM>GenerateIfNotExists</GenModeEditVM>
+      <GenModeCreateVM>SkipManuallyEdited</GenModeCreateVM>
+      <GenModeEditVM>SkipManuallyEdited</GenModeEditVM>
       <GenerateGetPaged>false</GenerateGetPaged>
       <GenModeCollectionVM>DoNotGenerate</GenModeCollectionVM>
       <GenModeLookupService>DoNotGenerate</GenModeLookupService>
-      <GenModeCreateView>GenerateIfNotExists</GenModeCreateView>
+      <GenModeCreateView>SkipManuallyEdited</GenModeCreateView>
       <GenModeEditView>GenerateIfNotExists</GenModeEditView>
       <GenModeDetailView>DoNotGenerate</GenModeDetailView>
       <RepositoryName>ITakeProfitOrderRepository</RepositoryName>
@@ -1135,7 +1135,7 @@
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsMultiLine>false</IsMultiLine>
           <CreateViewMode>Editable</CreateViewMode>
-          <EditViewMode>Editable</EditViewMode>
+          <EditViewMode>ReadOnly</EditViewMode>
           <ShowInCollection>true</ShowInCollection>
           <ShowInDetail>true</ShowInDetail>
           <ValueConstraint />
@@ -1195,7 +1195,7 @@
       <GenerateGetPaged>false</GenerateGetPaged>
       <GenModeCollectionVM>DoNotGenerate</GenModeCollectionVM>
       <GenModeLookupService>DoNotGenerate</GenModeLookupService>
-      <GenModeCreateView>GenerateIfNotExists</GenModeCreateView>
+      <GenModeCreateView>SkipManuallyEdited</GenModeCreateView>
       <GenModeEditView>GenerateIfNotExists</GenModeEditView>
       <GenModeDetailView>DoNotGenerate</GenModeDetailView>
       <RepositoryName>IStopLossOrderRepository</RepositoryName>

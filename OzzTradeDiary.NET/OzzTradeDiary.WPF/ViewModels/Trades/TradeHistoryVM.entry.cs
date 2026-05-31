@@ -1,5 +1,4 @@
 ﻿using System.Collections.ObjectModel;
-using TD.Extensions;
 using TD.Models;
 using TD.RepositoryContracts;
 using TD.WPF.Commands.Trades;
@@ -25,11 +24,6 @@ namespace TD.WPF.ViewModels.Trades
             }
         }
         EntryOrder? _selectedEntryOrder;
-
-        /// <summary>
-        /// Gets the collection of available EntryOrderType enum members for selection or display.
-        /// </summary>
-        public IEnumerable<EnumValueItem<EntryOrderType>> EntryOrderTypeValues { get; }
 
         /// <summary>
         /// Removes <paramref name="entryOrder"/> from <see cref="Trade.EntryOrders"/> of
@@ -65,8 +59,13 @@ namespace TD.WPF.ViewModels.Trades
         {
             EntryOrders.Clear();
             if (SelectedTrade != null)
-                ReplaceCollection(EntryOrders, SelectedTrade.EntryOrders);
-
+            {
+                var direction = SelectedTrade.TradeDirection;
+                var sortedOrders = direction == TradeDirection.Long
+                                 ? SelectedTrade.EntryOrders.OrderBy(o => o.OrderPrice)
+                                 : SelectedTrade.EntryOrders.OrderByDescending(o => o.OrderPrice);
+                ReplaceCollection(EntryOrders, sortedOrders);
+            }
             RaiseEntryOrderCmdCanExecute();
         }
 

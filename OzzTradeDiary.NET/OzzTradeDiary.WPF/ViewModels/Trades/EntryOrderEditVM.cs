@@ -30,19 +30,7 @@ namespace TD.WPF.ViewModels.Trades
         /// </summary>
         public IEnumerable<EnumValueItem<EntryOrderType>> EntryOrderTypeValues { get; }
 
-        public int TradeId
-        {
-            get { return _entryOrder.TradeId; }
-            set
-            {
-                if (_entryOrder.TradeId != value)
-                {
-                    _entryOrder.TradeId = value;
-                    RaisePropertyChanged(nameof(TradeId));
-                    ValidateProperty(_entryOrder, nameof(TradeId));
-                }
-            }
-        }
+        public int TradeId => _entryOrder.TradeId;
 
         public Trade Trade
         {
