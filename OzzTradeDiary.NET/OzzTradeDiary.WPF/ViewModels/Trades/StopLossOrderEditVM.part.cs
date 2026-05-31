@@ -1,9 +1,13 @@
-using TD.Models;
-
 namespace TD.WPF.ViewModels.Trades
 {
     public partial class StopLossOrderEditVM
     {
+        partial void OnInitialized()
+        {
+            PropertyChanged += OnPropertyChanged;
+        }
+
+
         /// <summary>
         /// Gets the planned risk amount for this specific stop loss order,
         /// calculated from the trade's entry price, this order's price and quantity.
@@ -11,16 +15,18 @@ namespace TD.WPF.ViewModels.Trades
         /// </summary>
         public decimal? OrderRiskAmount => _stopLossOrder.OrderRiskAmount;
 
-        partial void OnInitialized()
+        private void OnPropertyChanged(object? sender, System.ComponentModel.PropertyChangedEventArgs e)
         {
-            PropertyChanged += (_, e) =>
+            if (e.PropertyName is nameof(OrderPrice) or nameof(OrderQuantity) or nameof(Trade))
             {
-                if (e.PropertyName is nameof(OrderPrice) or nameof(OrderQuantity) or nameof(Trade))
-                {
-                    RaisePropertyChanged(nameof(OrderValue));
-                    RaisePropertyChanged(nameof(OrderRiskAmount));
-                }
-            };
+                RaisePropertyChanged(nameof(OrderValue));
+                RaisePropertyChanged(nameof(OrderRiskAmount));
+            }
+
+            if (e.PropertyName is nameof(FilledPrice) or nameof(FilledQuantity) or nameof(Trade))
+            {
+                RaisePropertyChanged(nameof(FilledValue));
+            }
         }
     }
 }

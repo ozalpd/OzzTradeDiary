@@ -757,7 +757,7 @@
                                           GridLinesVisibility="Horizontal"
                                           AlternatingRowBackground="{DynamicResource {x:Static SystemColors.ControlBrushKey}}">
                                     <DataGrid.Columns>
-                                        <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.OrderType}" Width="64"
+                                        <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.OrderType}" Width="72"
                                                             Binding="{Binding OrderType}"/>
                                         <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.OrderPrice}" Width="72"
                                                             Binding="{Binding OrderPrice}"
@@ -872,7 +872,7 @@
                                           GridLinesVisibility="Horizontal"
                                           AlternatingRowBackground="{DynamicResource {x:Static SystemColors.ControlBrushKey}}">
                                     <DataGrid.Columns>
-                                        <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.OrderType}" Width="64"
+                                        <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.OrderType}" Width="72"
                                                             Binding="{Binding OrderType}"/>
                                         <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.OrderPrice}" Width="72"
                                                             Binding="{Binding OrderPrice}"
@@ -986,7 +986,7 @@
                                           GridLinesVisibility="Horizontal"
                                           AlternatingRowBackground="{DynamicResource {x:Static SystemColors.ControlBrushKey}}">
                                     <DataGrid.Columns>
-                                        <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.OrderType}" Width="64"
+                                        <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.OrderType}" Width="72"
                                                             Binding="{Binding OrderType}"/>
                                         <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.OrderPrice}" Width="72"
                                                             Binding="{Binding OrderPrice}"

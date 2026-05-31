@@ -27,6 +27,33 @@
           <Required />
           <IsSearchParameter>false</IsSearchParameter>
         </ModelPropertySetting>
+        <ModelPropertySetting>
+          <Name>FilledProfitAmount</Name>
+          <Exclude>false</Exclude>
+          <DataType />
+          <DTOExclusion>false</DTOExclusion>
+          <HtmlEncode xsi:nil="true" />
+          <Required />
+          <IsSearchParameter>false</IsSearchParameter>
+        </ModelPropertySetting>
+        <ModelPropertySetting>
+          <Name>FilledRiskAmount</Name>
+          <Exclude>false</Exclude>
+          <DataType />
+          <DTOExclusion>false</DTOExclusion>
+          <HtmlEncode xsi:nil="true" />
+          <Required />
+          <IsSearchParameter>false</IsSearchParameter>
+        </ModelPropertySetting>
+        <ModelPropertySetting>
+          <Name>FeesCalculated</Name>
+          <Exclude>false</Exclude>
+          <DataType />
+          <DTOExclusion>false</DTOExclusion>
+          <HtmlEncode xsi:nil="true" />
+          <Required />
+          <IsSearchParameter>false</IsSearchParameter>
+        </ModelPropertySetting>
       </Properties>
       <GenerateQueryParam>false</GenerateQueryParam>
     </BaseEntitySetting>
@@ -121,16 +148,6 @@
       <OverwriteExisting>false</OverwriteExisting>
       <Properties>
         <ModelPropertySetting>
-          <Name>FilledTime</Name>
-          <Exclude>false</Exclude>
-          <DataType />
-          <DTOExclusion>false</DTOExclusion>
-          <HtmlEncode xsi:nil="true" />
-          <Range>typeof(DateTime), "1/1/2000", "12/31/2220"</Range>
-          <Required />
-          <IsSearchParameter>false</IsSearchParameter>
-        </ModelPropertySetting>
-        <ModelPropertySetting>
           <Name>FilledPrice</Name>
           <Exclude>false</Exclude>
           <CustomAttributes>GreaterThan(0)</CustomAttributes>
@@ -176,6 +193,16 @@
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
+          <Required />
+          <IsSearchParameter>false</IsSearchParameter>
+        </ModelPropertySetting>
+        <ModelPropertySetting>
+          <Name>FilledTime</Name>
+          <Exclude>false</Exclude>
+          <DataType />
+          <DTOExclusion>false</DTOExclusion>
+          <HtmlEncode xsi:nil="true" />
+          <Range>typeof(DateTime), "1/1/2000", "12/31/2220"</Range>
           <Required />
           <IsSearchParameter>false</IsSearchParameter>
         </ModelPropertySetting>

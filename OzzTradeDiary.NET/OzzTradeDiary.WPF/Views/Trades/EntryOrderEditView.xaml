@@ -7,19 +7,18 @@
         xmlns:i18n="clr-namespace:TD.i18n;assembly=OzzTradeDiary.i18n"
         xmlns:base="clr-namespace:TD.WPF.Views"
         Title="{x:Static i18n:LocalizedStrings.EditEntryOrder}"
-        Height="530" Width="420" MinHeight="530" MinWidth="420"
+        Height="420" Width="720" MinHeight="370" MinWidth="720"
         WindowStartupLocation="CenterOwner"
         mc:Ignorable="d">
     <Grid Margin="8,12">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" MinWidth="32" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
@@ -31,9 +30,9 @@
 
         <TextBlock Grid.Column="0" Grid.Row="0" FontWeight="Bold"
                    Style="{StaticResource RightAlignedTextBlockStyle}" Text="{x:Static i18n:LocalizedStrings.Trade}"/>
-        <TextBox Grid.Row="0" Grid.Column="1"
-                 Text="{Binding TradeId, Mode=OneWay}"
-                 Style="{StaticResource ReadOnlyTextBoxStyle}"/>
+        <TextBlock Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="4"
+                   Style="{StaticResource ReadOnlyTextBlockStyle}" FontSize="16"
+                   Text="{Binding Trade.Label, Mode=OneWay}"/>
 
         <TextBlock Grid.Column="0" Grid.Row="1" FontWeight="Bold"
                    Style="{StaticResource RightAlignedTextBlockStyle}" Text="{x:Static i18n:LocalizedStrings.OrderType}"/>
@@ -44,6 +43,12 @@
                   SelectedValuePath="Value"
                   SelectedValue="{Binding OrderType, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"/>
 
+        <TextBlock Grid.Column="3" Grid.Row="1" FontWeight="Bold"
+                   Style="{StaticResource RightAlignedTextBlockStyle}" Text="{x:Static i18n:LocalizedStrings.FilledTime}"/>
+        <DatePicker x:Name="FilledTimeDatePicker" Grid.Row="1" Grid.Column="4" Margin="0,-2,0,16"
+                    SelectedDate="{Binding FilledTime, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"/>
+        
+
         <TextBlock Grid.Column="0" Grid.Row="2" FontWeight="Bold"
                    Style="{StaticResource RightAlignedTextBlockStyle}" Text="{x:Static i18n:LocalizedStrings.OrderPrice}"/>
         <TextBox x:Name="OrderPriceTextBox" Grid.Row="2" Grid.Column="1"
@@ -51,53 +56,92 @@
                  Text="{Binding OrderPrice, UpdateSourceTrigger=LostFocus, ValidatesOnNotifyDataErrors=True}"
                  Style="{StaticResource ValidationTextBoxStyle}"/>
 
-        <TextBlock Grid.Column="0" Grid.Row="3" FontWeight="Bold"
-                   Style="{StaticResource RightAlignedTextBlockStyle}" Text="{x:Static i18n:LocalizedStrings.FilledTime}"/>
-        <DatePicker x:Name="FilledTimeDatePicker" Grid.Row="3" Grid.Column="1" Margin="0,-2,0,16"
-                    SelectedDate="{Binding FilledTime, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"/>
+        <Button x:Name="SetFilledPriceButton" Grid.Row="2" Grid.Column="2" Margin="4,-3,0,0"
+                Style="{StaticResource IconButtonStyle-28x24}"
+                ToolTip="{x:Static i18n:ActionStrings.SetFilledPrice}" Click="SetFilledPriceButton_Click">
+            <Viewbox Width="18" Height="18">
+                <Path Margin="0">
+                    <Path.Style>
+                        <Style TargetType="Path">
+                            <Setter Property="Fill" Value="#0044D7"/>
+                            <Setter Property="Data" Value="{StaticResource box-arrow-right}"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding IsEnabled, RelativeSource={RelativeSource AncestorType=Button}}" Value="False">
+                                    <Setter Property="Fill" Value="#A0A0A0"/>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding IsMouseOver, RelativeSource={RelativeSource AncestorType=Button}}" Value="True">
+                                    <Setter Property="Fill" Value="#000000"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Path.Style>
+                </Path>
+            </Viewbox>
+        </Button>
 
-        <TextBlock Grid.Column="0" Grid.Row="4" FontWeight="Bold"
+        <TextBlock Grid.Column="3" Grid.Row="2" FontWeight="Bold"
                    Style="{StaticResource RightAlignedTextBlockStyle}" Text="{x:Static i18n:LocalizedStrings.FilledPrice}"/>
-        <TextBox x:Name="FilledPriceTextBox" Grid.Row="4" Grid.Column="1"
+        <TextBox x:Name="FilledPriceTextBox" Grid.Row="2" Grid.Column="4"
                  PreviewTextInput="DecimalTextBox_PreviewTextInput"
                  Text="{Binding FilledPrice, UpdateSourceTrigger=LostFocus, ValidatesOnNotifyDataErrors=True}"
                  Style="{StaticResource ValidationTextBoxStyle}"/>
 
-        <TextBlock Grid.Column="0" Grid.Row="5" FontWeight="Bold"
+        <TextBlock Grid.Column="0" Grid.Row="3" FontWeight="Bold"
                    Style="{StaticResource RightAlignedTextBlockStyle}" Text="{x:Static i18n:LocalizedStrings.OrderQuantity}"/>
-        <TextBox x:Name="OrderQuantityTextBox" Grid.Row="5" Grid.Column="1"
+        <TextBox x:Name="OrderQuantityTextBox" Grid.Row="3" Grid.Column="1"
                  PreviewTextInput="DecimalTextBox_PreviewTextInput"
                  Text="{Binding OrderQuantity, UpdateSourceTrigger=LostFocus, ValidatesOnNotifyDataErrors=True}"
                  Style="{StaticResource ValidationTextBoxStyle}"/>
 
-        <TextBlock Grid.Column="0" Grid.Row="6" FontWeight="Bold"
+        <Button x:Name="SetFilledQuantityButton" Grid.Row="3" Grid.Column="2" Margin="4,-3,0,0"
+                Style="{StaticResource IconButtonStyle-28x24}"
+                ToolTip="{x:Static i18n:ActionStrings.SetFilledQuantity}" Click="SetFilledQuantityButton_Click">
+            <Viewbox Width="18" Height="18">
+                <Path Margin="0">
+                    <Path.Style>
+                        <Style TargetType="Path">
+                            <Setter Property="Fill" Value="#0044D7"/>
+                            <Setter Property="Data" Value="{StaticResource box-arrow-right}"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding IsEnabled, RelativeSource={RelativeSource AncestorType=Button}}" Value="False">
+                                    <Setter Property="Fill" Value="#A0A0A0"/>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding IsMouseOver, RelativeSource={RelativeSource AncestorType=Button}}" Value="True">
+                                    <Setter Property="Fill" Value="#000000"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Path.Style>
+                </Path>
+            </Viewbox>
+        </Button>
+
+        <TextBlock Grid.Column="3" Grid.Row="3" FontWeight="Bold"
                    Style="{StaticResource RightAlignedTextBlockStyle}" Text="{x:Static i18n:LocalizedStrings.FilledQuantity}"/>
-        <TextBox x:Name="FilledQuantityTextBox" Grid.Row="6" Grid.Column="1"
+        <TextBox x:Name="FilledQuantityTextBox" Grid.Row="3" Grid.Column="4"
                  PreviewTextInput="DecimalTextBox_PreviewTextInput"
                  Text="{Binding FilledQuantity, UpdateSourceTrigger=LostFocus, ValidatesOnNotifyDataErrors=True}"
                  Style="{StaticResource ValidationTextBoxStyle}"/>
 
-        <TextBlock Grid.Column="0" Grid.Row="7" FontWeight="Bold"
+        <TextBlock Grid.Column="0" Grid.Row="4" FontWeight="Bold"
                    Style="{StaticResource RightAlignedTextBlockStyle}" Text="{x:Static i18n:LocalizedStrings.OrderValue}"/>
-        <TextBox x:Name="OrderValueTextBox" Grid.Row="7" Grid.Column="1"
-                 PreviewTextInput="DecimalTextBox_PreviewTextInput"
-                 Text="{Binding OrderValue, UpdateSourceTrigger=LostFocus, ValidatesOnNotifyDataErrors=True}"
-                 Style="{StaticResource ValidationTextBoxStyle}"/>
+        <TextBox Grid.Row="4" Grid.Column="1"
+                 Text="{Binding OrderValue, Mode=OneWay}"
+                 Style="{StaticResource ReadOnlyTextBoxStyle}"/>
 
-        <TextBlock Grid.Column="0" Grid.Row="8" FontWeight="Bold"
+        <TextBlock Grid.Column="3" Grid.Row="4" FontWeight="Bold"
                    Style="{StaticResource RightAlignedTextBlockStyle}" Text="{x:Static i18n:LocalizedStrings.FilledValue}"/>
-        <TextBox x:Name="FilledValueTextBox" Grid.Row="8" Grid.Column="1"
-                 PreviewTextInput="DecimalTextBox_PreviewTextInput"
-                 Text="{Binding FilledValue, UpdateSourceTrigger=LostFocus, ValidatesOnNotifyDataErrors=True}"
-                 Style="{StaticResource ValidationTextBoxStyle}"/>
+        <TextBox Grid.Row="4" Grid.Column="4"
+                 Text="{Binding FilledValue, Mode=OneWay}"
+                 Style="{StaticResource ReadOnlyTextBoxStyle}"/>
 
-        <TextBlock Grid.Column="0" Grid.Row="9" FontWeight="Bold"
+        <TextBlock Grid.Column="0" Grid.Row="5" FontWeight="Bold"
                    Style="{StaticResource RightAlignedTextBlockStyle}" Text="{x:Static i18n:LocalizedStrings.Notes}"/>
-        <TextBox x:Name="NotesTextBox" Grid.Row="9" Grid.Column="1"
+        <TextBox x:Name="NotesTextBox" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="4"
                  Style="{StaticResource ValidationMutliLineTextBoxStyle}"
                  Text="{Binding Notes, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"/>
 
-        <StackPanel Grid.Row="11" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,6" VerticalAlignment="Bottom">
+        <StackPanel Grid.Row="7" Grid.ColumnSpan="5" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,6" VerticalAlignment="Bottom">
             <Button Content="{x:Static i18n:ActionStrings.OK}" Width="90" Margin="0,0,18,0" IsDefault="True" IsEnabled="{Binding IsValid}" Click="OkButton_Click" />
             <Button Content="{x:Static i18n:ActionStrings.Cancel}" Width="90" IsCancel="True" />
         </StackPanel>

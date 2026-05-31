@@ -949,8 +949,16 @@
     <Translation>Edit Purchase Order</Translation>
   </Vocab>
   <Vocab>
+    <Name>EditReviewNotes</Name>
+    <Translation>Edit Review Notes</Translation>
+  </Vocab>
+  <Vocab>
     <Name>EditSession</Name>
     <Translation>Edit Session</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>EditSetupNotes</Name>
+    <Translation>Edit Setup Notes</Translation>
   </Vocab>
   <Vocab>
     <Name>EditStopLossOrder</Name>
@@ -2003,6 +2011,30 @@
   <Vocab>
     <Name>SessionType_SundayOpen_Description</Name>
     <Translation>The first opening session of the week, typically starting Sunday night in FX and crypto.</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>SetExecutedEntryPrice</Name>
+    <Translation>Set Executed Entry Price</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>SetExecutedPositionValue</Name>
+    <Translation>Set Executed Position Value</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>SetExecutedSL</Name>
+    <Translation>Set Executed SL</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>SetExecutedTP</Name>
+    <Translation>Set Executed TP</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>SetFilledPrice</Name>
+    <Translation>Set Filled Price</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>SetFilledQuantity</Name>
+    <Translation>Set Filled Quantity</Translation>
   </Vocab>
   <Vocab>
     <Name>SettingType</Name>

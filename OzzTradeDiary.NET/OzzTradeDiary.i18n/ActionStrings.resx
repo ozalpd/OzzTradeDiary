@@ -106,6 +106,12 @@
     <data name="Edit" xml:space="preserve">
         <value>Edit</value>
     </data>
+    <data name="EditReviewNotes" xml:space="preserve">
+        <value>Edit Review Notes</value>
+    </data>
+    <data name="EditSetupNotes" xml:space="preserve">
+        <value>Edit Setup Notes</value>
+    </data>
     <data name="Exit" xml:space="preserve">
         <value>Exit</value>
     </data>
@@ -177,6 +183,24 @@
     </data>
     <data name="SelectPlease" xml:space="preserve">
         <value>Please Select</value>
+    </data>
+    <data name="SetExecutedEntryPrice" xml:space="preserve">
+        <value>Set Executed Entry Price</value>
+    </data>
+    <data name="SetExecutedPositionValue" xml:space="preserve">
+        <value>Set Executed Position Value</value>
+    </data>
+    <data name="SetExecutedSL" xml:space="preserve">
+        <value>Set Executed SL</value>
+    </data>
+    <data name="SetExecutedTP" xml:space="preserve">
+        <value>Set Executed TP</value>
+    </data>
+    <data name="SetFilledPrice" xml:space="preserve">
+        <value>Set Filled Price</value>
+    </data>
+    <data name="SetFilledQuantity" xml:space="preserve">
+        <value>Set Filled Quantity</value>
     </data>
     <data name="Show" xml:space="preserve">
         <value>Show</value>

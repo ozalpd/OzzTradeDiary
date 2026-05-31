@@ -35,6 +35,45 @@
           <ShowInDetail>true</ShowInDetail>
           <ValueConstraint />
         </WpfMvvmPropertySetting>
+        <WpfMvvmPropertySetting>
+          <Name>FilledProfitAmount</Name>
+          <Exclude>false</Exclude>
+          <CreateEditOrder>9990300</CreateEditOrder>
+          <DefaultValue />
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
+          <IsMultiLine>false</IsMultiLine>
+          <CreateViewMode>Editable</CreateViewMode>
+          <EditViewMode>Editable</EditViewMode>
+          <ShowInCollection>true</ShowInCollection>
+          <ShowInDetail>true</ShowInDetail>
+          <ValueConstraint />
+        </WpfMvvmPropertySetting>
+        <WpfMvvmPropertySetting>
+          <Name>FilledRiskAmount</Name>
+          <Exclude>false</Exclude>
+          <CreateEditOrder>9990400</CreateEditOrder>
+          <DefaultValue />
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
+          <IsMultiLine>false</IsMultiLine>
+          <CreateViewMode>Editable</CreateViewMode>
+          <EditViewMode>Editable</EditViewMode>
+          <ShowInCollection>true</ShowInCollection>
+          <ShowInDetail>true</ShowInDetail>
+          <ValueConstraint />
+        </WpfMvvmPropertySetting>
+        <WpfMvvmPropertySetting>
+          <Name>FeesCalculated</Name>
+          <Exclude>false</Exclude>
+          <CreateEditOrder>9990500</CreateEditOrder>
+          <DefaultValue />
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
+          <IsMultiLine>false</IsMultiLine>
+          <CreateViewMode>Editable</CreateViewMode>
+          <EditViewMode>Editable</EditViewMode>
+          <ShowInCollection>true</ShowInCollection>
+          <ShowInDetail>true</ShowInDetail>
+          <ValueConstraint />
+        </WpfMvvmPropertySetting>
       </Properties>
       <SubFolder />
       <CommandVmNamespace />
@@ -257,22 +296,9 @@
       <OverwriteExisting>false</OverwriteExisting>
       <Properties>
         <WpfMvvmPropertySetting>
-          <Name>FilledTime</Name>
-          <Exclude>false</Exclude>
-          <CreateEditOrder>20200</CreateEditOrder>
-          <DefaultValue />
-          <IsPreselectedInCreate>false</IsPreselectedInCreate>
-          <IsMultiLine>false</IsMultiLine>
-          <CreateViewMode>Exclude</CreateViewMode>
-          <EditViewMode>Editable</EditViewMode>
-          <ShowInCollection>true</ShowInCollection>
-          <ShowInDetail>true</ShowInDetail>
-          <ValueConstraint />
-        </WpfMvvmPropertySetting>
-        <WpfMvvmPropertySetting>
           <Name>FilledPrice</Name>
           <Exclude>false</Exclude>
-          <CreateEditOrder>20400</CreateEditOrder>
+          <CreateEditOrder>20100</CreateEditOrder>
           <DefaultValue />
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsMultiLine>false</IsMultiLine>
@@ -285,7 +311,7 @@
         <WpfMvvmPropertySetting>
           <Name>OrderQuantity</Name>
           <Exclude>false</Exclude>
-          <CreateEditOrder>20500</CreateEditOrder>
+          <CreateEditOrder>20200</CreateEditOrder>
           <DefaultValue />
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsMultiLine>false</IsMultiLine>
@@ -298,7 +324,7 @@
         <WpfMvvmPropertySetting>
           <Name>FilledQuantity</Name>
           <Exclude>false</Exclude>
-          <CreateEditOrder>20600</CreateEditOrder>
+          <CreateEditOrder>20300</CreateEditOrder>
           <DefaultValue />
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsMultiLine>false</IsMultiLine>
@@ -311,12 +337,12 @@
         <WpfMvvmPropertySetting>
           <Name>OrderValue</Name>
           <Exclude>false</Exclude>
-          <CreateEditOrder>20700</CreateEditOrder>
+          <CreateEditOrder>20400</CreateEditOrder>
           <DefaultValue />
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsMultiLine>false</IsMultiLine>
-          <CreateViewMode>Editable</CreateViewMode>
-          <EditViewMode>Editable</EditViewMode>
+          <CreateViewMode>ReadOnly</CreateViewMode>
+          <EditViewMode>ReadOnly</EditViewMode>
           <ShowInCollection>true</ShowInCollection>
           <ShowInDetail>true</ShowInDetail>
           <ValueConstraint />
@@ -324,7 +350,20 @@
         <WpfMvvmPropertySetting>
           <Name>FilledValue</Name>
           <Exclude>false</Exclude>
-          <CreateEditOrder>20800</CreateEditOrder>
+          <CreateEditOrder>20500</CreateEditOrder>
+          <DefaultValue />
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
+          <IsMultiLine>false</IsMultiLine>
+          <CreateViewMode>Exclude</CreateViewMode>
+          <EditViewMode>ReadOnly</EditViewMode>
+          <ShowInCollection>true</ShowInCollection>
+          <ShowInDetail>true</ShowInDetail>
+          <ValueConstraint />
+        </WpfMvvmPropertySetting>
+        <WpfMvvmPropertySetting>
+          <Name>FilledTime</Name>
+          <Exclude>false</Exclude>
+          <CreateEditOrder>20600</CreateEditOrder>
           <DefaultValue />
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsMultiLine>false</IsMultiLine>
@@ -337,7 +376,7 @@
         <WpfMvvmPropertySetting>
           <Name>Notes</Name>
           <Exclude>false</Exclude>
-          <CreateEditOrder>20900</CreateEditOrder>
+          <CreateEditOrder>20700</CreateEditOrder>
           <DefaultValue />
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsMultiLine>true</IsMultiLine>
@@ -1044,7 +1083,7 @@
           <IsPreselectedInCreate>true</IsPreselectedInCreate>
           <IsMultiLine>false</IsMultiLine>
           <CreateViewMode>Editable</CreateViewMode>
-          <EditViewMode>Editable</EditViewMode>
+          <EditViewMode>ReadOnly</EditViewMode>
           <ShowInCollection>true</ShowInCollection>
           <ShowInDetail>true</ShowInDetail>
           <ValueConstraint />
@@ -1052,7 +1091,7 @@
         <WpfMvvmPropertySetting>
           <Name>OrderType</Name>
           <Exclude>false</Exclude>
-          <CreateEditOrder>10100</CreateEditOrder>
+          <CreateEditOrder>10300</CreateEditOrder>
           <DefaultValue />
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsMultiLine>false</IsMultiLine>
@@ -1080,7 +1119,7 @@
       <CommandVmNamespace>TD.WPF.ViewModels.Trades</CommandVmNamespace>
       <CommandVmTypeName>TradeHistoryVM</CommandVmTypeName>
       <DetailColumnLayout>OneColumn</DetailColumnLayout>
-      <InputColumnLayout>OneColumn</InputColumnLayout>
+      <InputColumnLayout>TwoColumns</InputColumnLayout>
       <GenModeCreateCommand>SkipManuallyEdited</GenModeCreateCommand>
       <GenModeEditCommand>SkipManuallyEdited</GenModeEditCommand>
       <GenModeDeleteCommand>SkipManuallyEdited</GenModeDeleteCommand>
@@ -1092,7 +1131,7 @@
       <GenModeCollectionVM>DoNotGenerate</GenModeCollectionVM>
       <GenModeLookupService>DoNotGenerate</GenModeLookupService>
       <GenModeCreateView>SkipManuallyEdited</GenModeCreateView>
-      <GenModeEditView>GenerateIfNotExists</GenModeEditView>
+      <GenModeEditView>SkipManuallyEdited</GenModeEditView>
       <GenModeDetailView>DoNotGenerate</GenModeDetailView>
       <RepositoryName>IEntryOrderRepository</RepositoryName>
     </BaseEntitySetting>
@@ -1158,7 +1197,7 @@
       <CommandVmNamespace>TD.WPF.ViewModels.Trades</CommandVmNamespace>
       <CommandVmTypeName>TradeHistoryVM</CommandVmTypeName>
       <DetailColumnLayout>OneColumn</DetailColumnLayout>
-      <InputColumnLayout>OneColumn</InputColumnLayout>
+      <InputColumnLayout>TwoColumns</InputColumnLayout>
       <GenModeCreateCommand>SkipManuallyEdited</GenModeCreateCommand>
       <GenModeEditCommand>SkipManuallyEdited</GenModeEditCommand>
       <GenModeDeleteCommand>SkipManuallyEdited</GenModeDeleteCommand>
@@ -1170,7 +1209,7 @@
       <GenModeCollectionVM>DoNotGenerate</GenModeCollectionVM>
       <GenModeLookupService>DoNotGenerate</GenModeLookupService>
       <GenModeCreateView>SkipManuallyEdited</GenModeCreateView>
-      <GenModeEditView>GenerateIfNotExists</GenModeEditView>
+      <GenModeEditView>SkipManuallyEdited</GenModeEditView>
       <GenModeDetailView>DoNotGenerate</GenModeDetailView>
       <RepositoryName>ITakeProfitOrderRepository</RepositoryName>
     </BaseEntitySetting>

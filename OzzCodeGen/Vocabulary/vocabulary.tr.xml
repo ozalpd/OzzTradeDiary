@@ -949,8 +949,16 @@
     <Translation>Siparişi Düzenle</Translation>
   </Vocab>
   <Vocab>
+    <Name>EditReviewNotes</Name>
+    <Translation>Değerlendirme Notunu Düzenle</Translation>
+  </Vocab>
+  <Vocab>
     <Name>EditSession</Name>
     <Translation>Seansı Düzenle</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>EditSetupNotes</Name>
+    <Translation>Setup Notunu Düzenle</Translation>
   </Vocab>
   <Vocab>
     <Name>EditStopLossOrder</Name>
@@ -2003,6 +2011,30 @@
   <Vocab>
     <Name>SessionType_SundayOpen_Description</Name>
     <Translation>Haftanın ilk açılış seansı; Forex ve kripto piyasalarında genellikle Pazar gecesi başlar.</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>SetExecutedEntryPrice</Name>
+    <Translation>Gerçekleşen İşlem Fiyatına Aktar</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>SetExecutedPositionValue</Name>
+    <Translation>Gerçekleşen Pozisyon Büyüklüğüne Aktar</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>SetExecutedSL</Name>
+    <Translation>Gerçekleşen Zarar Kese Aktar</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>SetExecutedTP</Name>
+    <Translation>Gerçekleşen Kar Ala Aktar</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>SetFilledPrice</Name>
+    <Translation>Gerçekleşen Fiyata Aktar</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>SetFilledQuantity</Name>
+    <Translation>Gerçekleşen Miktara Aktar</Translation>
   </Vocab>
   <Vocab>
     <Name>SettingType</Name>

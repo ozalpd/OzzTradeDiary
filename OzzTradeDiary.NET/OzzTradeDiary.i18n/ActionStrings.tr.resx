@@ -106,6 +106,12 @@
     <data name="Edit" xml:space="preserve">
         <value>Düzenle</value>
     </data>
+    <data name="EditReviewNotes" xml:space="preserve">
+        <value>Değerlendirme Notunu Düzenle</value>
+    </data>
+    <data name="EditSetupNotes" xml:space="preserve">
+        <value>Setup Notunu Düzenle</value>
+    </data>
     <data name="Exit" xml:space="preserve">
         <value>Kapat</value>
     </data>
@@ -177,6 +183,24 @@
     </data>
     <data name="SelectPlease" xml:space="preserve">
         <value>Lütfen Seçiniz</value>
+    </data>
+    <data name="SetExecutedEntryPrice" xml:space="preserve">
+        <value>Gerçekleşen İşlem Fiyatına Aktar</value>
+    </data>
+    <data name="SetExecutedPositionValue" xml:space="preserve">
+        <value>Gerçekleşen Pozisyon Büyüklüğüne Aktar</value>
+    </data>
+    <data name="SetExecutedSL" xml:space="preserve">
+        <value>Gerçekleşen Zarar Kese Aktar</value>
+    </data>
+    <data name="SetExecutedTP" xml:space="preserve">
+        <value>Gerçekleşen Kar Ala Aktar</value>
+    </data>
+    <data name="SetFilledPrice" xml:space="preserve">
+        <value>Gerçekleşen Fiyata Aktar</value>
+    </data>
+    <data name="SetFilledQuantity" xml:space="preserve">
+        <value>Gerçekleşen Miktara Aktar</value>
     </data>
     <data name="Show" xml:space="preserve">
         <value>Göster</value>

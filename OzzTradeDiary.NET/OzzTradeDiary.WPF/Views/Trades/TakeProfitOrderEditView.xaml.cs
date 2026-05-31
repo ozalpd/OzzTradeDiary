@@ -83,6 +83,16 @@ namespace TD.WPF.Views.Trades
             e.Handled = !char.IsDigit(e.Text, 0);
         }
 
+        private void SetFilledPriceButton_Click(object sender, RoutedEventArgs e)
+        {
+            _viewModel.FilledPrice = _viewModel.OrderPrice;
+        }
+
+        private void SetFilledQuantityButton_Click(object sender, RoutedEventArgs e)
+        {
+            _viewModel.FilledQuantity = _viewModel.OrderQuantity;
+        }
+
         private void OkButton_Click(object sender, RoutedEventArgs e)
         {
             if (!_viewModel.ValidateModel())

@@ -205,6 +205,24 @@ namespace TD.i18n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Edit Review Notes.
+        /// </summary>
+        public static string EditReviewNotes {
+            get {
+                return ResourceManager.GetString("EditReviewNotes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit Setup Notes.
+        /// </summary>
+        public static string EditSetupNotes {
+            get {
+                return ResourceManager.GetString("EditSetupNotes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Exit.
         /// </summary>
         public static string Exit {
@@ -417,6 +435,60 @@ namespace TD.i18n {
         public static string SelectPlease {
             get {
                 return ResourceManager.GetString("SelectPlease", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Set Executed Entry Price.
+        /// </summary>
+        public static string SetExecutedEntryPrice {
+            get {
+                return ResourceManager.GetString("SetExecutedEntryPrice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Set Executed Position Value.
+        /// </summary>
+        public static string SetExecutedPositionValue {
+            get {
+                return ResourceManager.GetString("SetExecutedPositionValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Set Executed SL.
+        /// </summary>
+        public static string SetExecutedSL {
+            get {
+                return ResourceManager.GetString("SetExecutedSL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Set Executed TP.
+        /// </summary>
+        public static string SetExecutedTP {
+            get {
+                return ResourceManager.GetString("SetExecutedTP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Set Filled Price.
+        /// </summary>
+        public static string SetFilledPrice {
+            get {
+                return ResourceManager.GetString("SetFilledPrice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Set Filled Quantity.
+        /// </summary>
+        public static string SetFilledQuantity {
+            get {
+                return ResourceManager.GetString("SetFilledQuantity", resourceCulture);
             }
         }
         

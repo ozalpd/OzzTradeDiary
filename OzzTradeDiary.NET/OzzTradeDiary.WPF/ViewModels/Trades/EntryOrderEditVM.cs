@@ -74,20 +74,6 @@ namespace TD.WPF.ViewModels.Trades
             }
         }
 
-        public DateTime? FilledTime
-        {
-            get { return _entryOrder.FilledTime; }
-            set
-            {
-                if (_entryOrder.FilledTime != value)
-                {
-                    _entryOrder.FilledTime = value;
-                    RaisePropertyChanged(nameof(FilledTime));
-                    ValidateProperty(_entryOrder, nameof(FilledTime));
-                }
-            }
-        }
-
         public decimal? FilledPrice
         {
             get { return _entryOrder.FilledPrice; }
@@ -130,30 +116,20 @@ namespace TD.WPF.ViewModels.Trades
             }
         }
 
-        public decimal? OrderValue
-        {
-            get { return _entryOrder.OrderValue; }
-            set
-            {
-                if (_entryOrder.OrderValue != value)
-                {
-                    _entryOrder.OrderValue = value;
-                    RaisePropertyChanged(nameof(OrderValue));
-                    ValidateProperty(_entryOrder, nameof(OrderValue));
-                }
-            }
-        }
+        public decimal? OrderValue => _entryOrder.OrderValue;
 
-        public decimal? FilledValue
+        public decimal? FilledValue => _entryOrder.FilledValue;
+
+        public DateTime? FilledTime
         {
-            get { return _entryOrder.FilledValue; }
+            get { return _entryOrder.FilledTime; }
             set
             {
-                if (_entryOrder.FilledValue != value)
+                if (_entryOrder.FilledTime != value)
                 {
-                    _entryOrder.FilledValue = value;
-                    RaisePropertyChanged(nameof(FilledValue));
-                    ValidateProperty(_entryOrder, nameof(FilledValue));
+                    _entryOrder.FilledTime = value;
+                    RaisePropertyChanged(nameof(FilledTime));
+                    ValidateProperty(_entryOrder, nameof(FilledTime));
                 }
             }
         }
