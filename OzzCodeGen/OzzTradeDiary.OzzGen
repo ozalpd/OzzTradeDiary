@@ -280,24 +280,9 @@
       <BaseTypeName />
       <Properties>
         <BaseProperty xsi:type="SimpleProperty">
-          <Name>OrderProfitAmount</Name>
+          <Name>FeesCalculated</Name>
           <DisplayOrder>9990100</DisplayOrder>
-          <DisplayName>Order Profit Amount</DisplayName>
-          <TypeName>decimal</TypeName>
-          <IsClientComputed>false</IsClientComputed>
-          <IsServerComputed>false</IsServerComputed>
-          <RestrictedData>false</RestrictedData>
-          <EnumTypeName />
-          <IsKey>false</IsKey>
-          <IsForeignKey>false</IsForeignKey>
-          <IsImmutable>false</IsImmutable>
-          <IsNullable>true</IsNullable>
-          <IsStoreGenerated>false</IsStoreGenerated>
-        </BaseProperty>
-        <BaseProperty xsi:type="SimpleProperty">
-          <Name>OrderRiskAmount</Name>
-          <DisplayOrder>9990200</DisplayOrder>
-          <DisplayName>Order Risk Amount</DisplayName>
+          <DisplayName>Fees Calculated</DisplayName>
           <TypeName>decimal</TypeName>
           <IsClientComputed>false</IsClientComputed>
           <IsServerComputed>false</IsServerComputed>
@@ -311,7 +296,7 @@
         </BaseProperty>
         <BaseProperty xsi:type="SimpleProperty">
           <Name>FilledProfitAmount</Name>
-          <DisplayOrder>9990300</DisplayOrder>
+          <DisplayOrder>9990200</DisplayOrder>
           <DisplayName>Filled Profit Amount</DisplayName>
           <TypeName>decimal</TypeName>
           <IsClientComputed>false</IsClientComputed>
@@ -326,7 +311,7 @@
         </BaseProperty>
         <BaseProperty xsi:type="SimpleProperty">
           <Name>FilledRiskAmount</Name>
-          <DisplayOrder>9990400</DisplayOrder>
+          <DisplayOrder>9990300</DisplayOrder>
           <DisplayName>Filled Risk Amount</DisplayName>
           <TypeName>decimal</TypeName>
           <IsClientComputed>false</IsClientComputed>
@@ -340,9 +325,54 @@
           <IsStoreGenerated>false</IsStoreGenerated>
         </BaseProperty>
         <BaseProperty xsi:type="SimpleProperty">
-          <Name>FeesCalculated</Name>
+          <Name>OrderProfitAmount</Name>
+          <DisplayOrder>9990400</DisplayOrder>
+          <DisplayName>Order Profit Amount</DisplayName>
+          <TypeName>decimal</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <RestrictedData>false</RestrictedData>
+          <EnumTypeName />
+          <IsKey>false</IsKey>
+          <IsForeignKey>false</IsForeignKey>
+          <IsImmutable>false</IsImmutable>
+          <IsNullable>true</IsNullable>
+          <IsStoreGenerated>false</IsStoreGenerated>
+        </BaseProperty>
+        <BaseProperty xsi:type="SimpleProperty">
+          <Name>OrderRiskAmount</Name>
           <DisplayOrder>9990500</DisplayOrder>
-          <DisplayName>Fees Calculated</DisplayName>
+          <DisplayName>Order Risk Amount</DisplayName>
+          <TypeName>decimal</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <RestrictedData>false</RestrictedData>
+          <EnumTypeName />
+          <IsKey>false</IsKey>
+          <IsForeignKey>false</IsForeignKey>
+          <IsImmutable>false</IsImmutable>
+          <IsNullable>true</IsNullable>
+          <IsStoreGenerated>false</IsStoreGenerated>
+        </BaseProperty>
+        <BaseProperty xsi:type="SimpleProperty">
+          <Name>RemainingOpenPositionValue</Name>
+          <DisplayOrder>9990600</DisplayOrder>
+          <DisplayName>Remaining Open Position Value</DisplayName>
+          <TypeName>decimal</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <RestrictedData>false</RestrictedData>
+          <EnumTypeName />
+          <IsKey>false</IsKey>
+          <IsForeignKey>false</IsForeignKey>
+          <IsImmutable>false</IsImmutable>
+          <IsNullable>true</IsNullable>
+          <IsStoreGenerated>false</IsStoreGenerated>
+        </BaseProperty>
+        <BaseProperty xsi:type="SimpleProperty">
+          <Name>RemainingOpenQuantity</Name>
+          <DisplayOrder>9990700</DisplayOrder>
+          <DisplayName>Remaining Open Quantity</DisplayName>
           <TypeName>decimal</TypeName>
           <IsClientComputed>false</IsClientComputed>
           <IsServerComputed>false</IsServerComputed>
@@ -356,7 +386,7 @@
         </BaseProperty>
         <BaseProperty xsi:type="SimpleProperty">
           <Name>RemainingPositionValue</Name>
-          <DisplayOrder>9990600</DisplayOrder>
+          <DisplayOrder>9990800</DisplayOrder>
           <DisplayName>Remaining Position Value</DisplayName>
           <TypeName>decimal</TypeName>
           <IsClientComputed>false</IsClientComputed>
@@ -371,7 +401,7 @@
         </BaseProperty>
         <BaseProperty xsi:type="SimpleProperty">
           <Name>RemainingQuantity</Name>
-          <DisplayOrder>9990700</DisplayOrder>
+          <DisplayOrder>9990900</DisplayOrder>
           <DisplayName>Remaining Quantity</DisplayName>
           <TypeName>decimal</TypeName>
           <IsClientComputed>false</IsClientComputed>
@@ -386,8 +416,68 @@
         </BaseProperty>
         <BaseProperty xsi:type="SimpleProperty">
           <Name>RealizedR</Name>
-          <DisplayOrder>9990800</DisplayOrder>
+          <DisplayOrder>9991000</DisplayOrder>
           <DisplayName>Realized R</DisplayName>
+          <TypeName>decimal</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <RestrictedData>false</RestrictedData>
+          <EnumTypeName />
+          <IsKey>false</IsKey>
+          <IsForeignKey>false</IsForeignKey>
+          <IsImmutable>false</IsImmutable>
+          <IsNullable>true</IsNullable>
+          <IsStoreGenerated>false</IsStoreGenerated>
+        </BaseProperty>
+        <BaseProperty xsi:type="SimpleProperty">
+          <Name>UnallocatedSLQuantity</Name>
+          <DisplayOrder>9991100</DisplayOrder>
+          <DisplayName>Unallocated SLQuantity</DisplayName>
+          <TypeName>decimal</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <RestrictedData>false</RestrictedData>
+          <EnumTypeName />
+          <IsKey>false</IsKey>
+          <IsForeignKey>false</IsForeignKey>
+          <IsImmutable>false</IsImmutable>
+          <IsNullable>true</IsNullable>
+          <IsStoreGenerated>false</IsStoreGenerated>
+        </BaseProperty>
+        <BaseProperty xsi:type="SimpleProperty">
+          <Name>UnallocatedStopLossQuantity</Name>
+          <DisplayOrder>9991200</DisplayOrder>
+          <DisplayName>Unallocated Stop Loss Quantity</DisplayName>
+          <TypeName>decimal</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <RestrictedData>false</RestrictedData>
+          <EnumTypeName />
+          <IsKey>false</IsKey>
+          <IsForeignKey>false</IsForeignKey>
+          <IsImmutable>false</IsImmutable>
+          <IsNullable>true</IsNullable>
+          <IsStoreGenerated>false</IsStoreGenerated>
+        </BaseProperty>
+        <BaseProperty xsi:type="SimpleProperty">
+          <Name>UnallocatedTakeProfitQuantity</Name>
+          <DisplayOrder>9991300</DisplayOrder>
+          <DisplayName>Unallocated Take Profit Quantity</DisplayName>
+          <TypeName>decimal</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <RestrictedData>false</RestrictedData>
+          <EnumTypeName />
+          <IsKey>false</IsKey>
+          <IsForeignKey>false</IsForeignKey>
+          <IsImmutable>false</IsImmutable>
+          <IsNullable>true</IsNullable>
+          <IsStoreGenerated>false</IsStoreGenerated>
+        </BaseProperty>
+        <BaseProperty xsi:type="SimpleProperty">
+          <Name>UnallocatedTPQuantity</Name>
+          <DisplayOrder>9991400</DisplayOrder>
+          <DisplayName>Unallocated TPQuantity</DisplayName>
           <TypeName>decimal</TypeName>
           <IsClientComputed>false</IsClientComputed>
           <IsServerComputed>false</IsServerComputed>
@@ -2154,9 +2244,9 @@
   <StripSourcePrefixes>false</StripSourcePrefixes>
   <SourceClassPrefix />
   <CodeEngineList>
-    <string>Sqlite_Scripts_Generator</string>
     <string>Wpf_Mvvm_View_ViewModel_Generator</string>
     <string>Localization_Resource_Generator</string>
+    <string>Sqlite_Scripts_Generator</string>
     <string>CS_Sqlite_Repository_Generator</string>
     <string>CS_Model_Class_Generator</string>
     <string>T-Sql_Scripts_Generator</string>

@@ -622,6 +622,12 @@
     <data name="RegularTradingHours" xml:space="preserve">
         <value>Normal İşlem Saatleri</value>
     </data>
+    <data name="RemainingOpenPositionValue" xml:space="preserve">
+        <value>Kalan Açık Pozisyon Büyüklüğü</value>
+    </data>
+    <data name="RemainingOpenQuantity" xml:space="preserve">
+        <value>Kalan Açık Pozisyon Miktarı</value>
+    </data>
     <data name="RemainingPositionValue" xml:space="preserve">
         <value>Kalan Pozisyon Büyüklüğü</value>
     </data>
@@ -810,6 +816,18 @@
     </data>
     <data name="TrailingStop" xml:space="preserve">
         <value>Takip Eden Stop</value>
+    </data>
+    <data name="UnallocatedSLQuantity" xml:space="preserve">
+        <value>Açılmamış SL Miktarı</value>
+    </data>
+    <data name="UnallocatedStopLossQuantity" xml:space="preserve">
+        <value>Açılmamış Zarar Kes Miktarı</value>
+    </data>
+    <data name="UnallocatedTakeProfitQuantity" xml:space="preserve">
+        <value>Açılmamış Kar Al Miktarı</value>
+    </data>
+    <data name="UnallocatedTPQuantity" xml:space="preserve">
+        <value>Açılmamış TP Miktarı</value>
     </data>
     <data name="Unspecified" xml:space="preserve">
         <value>Belirtilmemiş</value>

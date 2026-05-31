@@ -1841,6 +1841,14 @@
     <Translation>Bu kayıt {0} adet {1} kaydına sahip.</Translation>
   </Vocab>
   <Vocab>
+    <Name>RemainingOpenPositionValue</Name>
+    <Translation>Kalan Açık Pozisyon Büyüklüğü</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>RemainingOpenQuantity</Name>
+    <Translation>Kalan Açık Pozisyon Miktarı</Translation>
+  </Vocab>
+  <Vocab>
     <Name>RemainingPositionValue</Name>
     <Translation>Kalan Pozisyon Büyüklüğü</Translation>
   </Vocab>
@@ -2347,6 +2355,22 @@
   <Vocab>
     <Name>UnableToDelete</Name>
     <Translation>Silinemez</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>UnallocatedSLQuantity</Name>
+    <Translation>Açılmamış SL Miktarı</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>UnallocatedStopLossQuantity</Name>
+    <Translation>Açılmamış Zarar Kes Miktarı</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>UnallocatedTakeProfitQuantity</Name>
+    <Translation>Açılmamış Kar Al Miktarı</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>UnallocatedTPQuantity</Name>
+    <Translation>Açılmamış TP Miktarı</Translation>
   </Vocab>
   <Vocab>
     <Name>UnexpectedError</Name>

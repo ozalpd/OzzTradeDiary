@@ -1596,19 +1596,6 @@
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
-          <Name>RemainingPositionValue</Name>
-          <Exclude>false</Exclude>
-          <CreateEditOrder>101500</CreateEditOrder>
-          <DefaultValue />
-          <IsPreselectedInCreate>false</IsPreselectedInCreate>
-          <IsMultiLine>false</IsMultiLine>
-          <CreateViewMode>Exclude</CreateViewMode>
-          <EditViewMode>ReadOnly</EditViewMode>
-          <ShowInCollection>true</ShowInCollection>
-          <ShowInDetail>true</ShowInDetail>
-          <ValueConstraint />
-        </WpfMvvmPropertySetting>
-        <WpfMvvmPropertySetting>
           <Name>OrderQuantity</Name>
           <Exclude>false</Exclude>
           <CreateEditOrder>101700</CreateEditOrder>

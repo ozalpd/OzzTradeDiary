@@ -999,15 +999,6 @@
           <IsSearchParameter>true</IsSearchParameter>
         </ModelPropertySetting>
         <ModelPropertySetting>
-          <Name>RemainingPositionValue</Name>
-          <Exclude>true</Exclude>
-          <DataType />
-          <DTOExclusion>false</DTOExclusion>
-          <HtmlEncode xsi:nil="true" />
-          <Required />
-          <IsSearchParameter>true</IsSearchParameter>
-        </ModelPropertySetting>
-        <ModelPropertySetting>
           <Name>OrderQuantity</Name>
           <Exclude>false</Exclude>
           <CustomAttributes>GreaterThan(0)</CustomAttributes>

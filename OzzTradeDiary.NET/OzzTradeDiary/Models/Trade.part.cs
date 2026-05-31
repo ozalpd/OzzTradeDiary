@@ -214,8 +214,17 @@ namespace TD.Models
         /// <remarks>Calculated as (FilledQuantity - exited quantity) × ExecutedEntryPrice. Returns null
         /// if ExecutedEntryPrice or FilledQuantity is null. Returns 0 if the entire position has been exited. This
         /// calculated value is persisted to enable query operations.</remarks>
+        /// <summary>
+        /// Market value of the position that remains open after accounting for filled take-profit and stop-loss orders.
+        /// </summary>
+        /// <remarks>
+        /// Calculated as (FilledQuantity - exited quantity) × ExecutedEntryPrice. Returns <c>null</c>
+        /// if ExecutedEntryPrice or FilledQuantity is null. Returns 0 if the entire position has been exited.
+        /// This calculated value is persisted to enable query operations.
+        /// See also <see cref="RemainingOpenQuantity"/> for the quantity-only counterpart.
+        /// </remarks>
         [Display(ResourceType = typeof(LocalizedStrings), Name = "RemainingPositionValue")]
-        public decimal? RemainingPositionValue
+        public decimal? RemainingOpenPositionValue
         {
             get
             {
@@ -231,8 +240,17 @@ namespace TD.Models
             }
         }
 
+        /// <summary>
+        /// Filled quantity that is still open — i.e. not yet covered by any filled take-profit or stop-loss order.
+        /// </summary>
+        /// <remarks>
+        /// Calculated as FilledQuantity minus the sum of FilledQuantity across all TP and SL orders.
+        /// Returns <c>null</c> when FilledQuantity is not set. Returns 0 when the entire position has been exited.
+        /// See also <see cref="RemainingOpenPositionValue"/> for the monetary counterpart,
+        /// and <see cref="UnallocatedTPQuantity"/> / <see cref="UnallocatedSLQuantity"/> for plan-coverage gaps.
+        /// </remarks>
         [Display(ResourceType = typeof(LocalizedStrings), Name = "RemainingQuantity")]
-        public decimal? RemainingQuantity
+        public decimal? RemainingOpenQuantity
         {
             get
             {
@@ -246,11 +264,59 @@ namespace TD.Models
             }
         }
 
+        /// <summary>
+        /// Portion of the planned order quantity not yet covered by any take-profit order.
+        /// </summary>
+        /// <remarks>
+        /// Calculated as OrderQuantity minus the sum of OrderQuantity across all TakeProfitOrders.
+        /// Returns <c>null</c> when OrderQuantity is not set. A positive value means there is still
+        /// planned quantity that has no corresponding TP exit order assigned.
+        /// </remarks>
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "UnallocatedTPQuantity")]
+        public decimal? UnallocatedTPQuantity
+        {
+            get
+            {
+                if (!OrderQuantity.HasValue)
+                    return null;
+                decimal allocated = TakeProfitOrders.Sum(o => o.OrderQuantity ?? 0);
+                decimal unallocated = OrderQuantity.Value - allocated;
+                return unallocated > 0 ? unallocated : 0;
+            }
+        }
+
+        /// <summary>
+        /// Portion of the planned order quantity not yet covered by any stop-loss order.
+        /// </summary>
+        /// <remarks>
+        /// Calculated as OrderQuantity minus the sum of OrderQuantity across all StopLossOrders.
+        /// Returns <c>null</c> when OrderQuantity is not set. A positive value means there is still
+        /// planned quantity that has no corresponding SL exit order assigned.
+        /// </remarks>
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "UnallocatedSLQuantity")]
+        public decimal? UnallocatedSLQuantity
+        {
+            get
+            {
+                if (!OrderQuantity.HasValue)
+                    return null;
+                decimal allocated = StopLossOrders.Sum(o => o.OrderQuantity ?? 0);
+                decimal unallocated = OrderQuantity.Value - allocated;
+                return unallocated > 0 ? unallocated : 0;
+            }
+        }
+
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "UnallocatedSLQuantity")]
+        public string RoundedUnallocatedSLQuantity => UnallocatedSLQuantity.ToRoundedString();
+
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "UnallocatedTPQuantity")]
+        public string RoundedUnallocatedTPQuantity => UnallocatedTPQuantity.ToRoundedString();
+
         [Display(ResourceType = typeof(LocalizedStrings), Name = "RemainingQuantity")]
-        public string RoundedRemainingQuantity => RemainingQuantity.ToRoundedString();
+        public string RoundedRemainingOpenQuantity => RemainingOpenQuantity.ToRoundedString();
 
         [Display(ResourceType = typeof(LocalizedStrings), Name = "RemainingPositionValue")]
-        public string RoundedRemainingPositionValue => RemainingPositionValue.ToRoundedString();
+        public string RoundedRemainingOpenPositionValue => RemainingOpenPositionValue.ToRoundedString();
 
         [Display(ResourceType = typeof(LocalizedStrings), Name = "FilledQuantity")]
         public string RoundedFilledQuantity => FilledQuantity.ToRoundedString();

@@ -11,13 +11,7 @@
       <LocalizeEntityName>false</LocalizeEntityName>
       <Properties>
         <LocalizationPropertySetting>
-          <Name>OrderProfitAmount</Name>
-          <Exclude>false</Exclude>
-          <LocalizeRequiredMsg>false</LocalizeRequiredMsg>
-          <LocalizeValidationMsg>false</LocalizeValidationMsg>
-        </LocalizationPropertySetting>
-        <LocalizationPropertySetting>
-          <Name>OrderRiskAmount</Name>
+          <Name>FeesCalculated</Name>
           <Exclude>false</Exclude>
           <LocalizeRequiredMsg>false</LocalizeRequiredMsg>
           <LocalizeValidationMsg>false</LocalizeValidationMsg>
@@ -35,7 +29,25 @@
           <LocalizeValidationMsg>false</LocalizeValidationMsg>
         </LocalizationPropertySetting>
         <LocalizationPropertySetting>
-          <Name>FeesCalculated</Name>
+          <Name>OrderProfitAmount</Name>
+          <Exclude>false</Exclude>
+          <LocalizeRequiredMsg>false</LocalizeRequiredMsg>
+          <LocalizeValidationMsg>false</LocalizeValidationMsg>
+        </LocalizationPropertySetting>
+        <LocalizationPropertySetting>
+          <Name>OrderRiskAmount</Name>
+          <Exclude>false</Exclude>
+          <LocalizeRequiredMsg>false</LocalizeRequiredMsg>
+          <LocalizeValidationMsg>false</LocalizeValidationMsg>
+        </LocalizationPropertySetting>
+        <LocalizationPropertySetting>
+          <Name>RemainingOpenPositionValue</Name>
+          <Exclude>false</Exclude>
+          <LocalizeRequiredMsg>false</LocalizeRequiredMsg>
+          <LocalizeValidationMsg>false</LocalizeValidationMsg>
+        </LocalizationPropertySetting>
+        <LocalizationPropertySetting>
+          <Name>RemainingOpenQuantity</Name>
           <Exclude>false</Exclude>
           <LocalizeRequiredMsg>false</LocalizeRequiredMsg>
           <LocalizeValidationMsg>false</LocalizeValidationMsg>
@@ -54,6 +66,30 @@
         </LocalizationPropertySetting>
         <LocalizationPropertySetting>
           <Name>RealizedR</Name>
+          <Exclude>false</Exclude>
+          <LocalizeRequiredMsg>false</LocalizeRequiredMsg>
+          <LocalizeValidationMsg>false</LocalizeValidationMsg>
+        </LocalizationPropertySetting>
+        <LocalizationPropertySetting>
+          <Name>UnallocatedSLQuantity</Name>
+          <Exclude>false</Exclude>
+          <LocalizeRequiredMsg>false</LocalizeRequiredMsg>
+          <LocalizeValidationMsg>false</LocalizeValidationMsg>
+        </LocalizationPropertySetting>
+        <LocalizationPropertySetting>
+          <Name>UnallocatedStopLossQuantity</Name>
+          <Exclude>false</Exclude>
+          <LocalizeRequiredMsg>false</LocalizeRequiredMsg>
+          <LocalizeValidationMsg>false</LocalizeValidationMsg>
+        </LocalizationPropertySetting>
+        <LocalizationPropertySetting>
+          <Name>UnallocatedTakeProfitQuantity</Name>
+          <Exclude>false</Exclude>
+          <LocalizeRequiredMsg>false</LocalizeRequiredMsg>
+          <LocalizeValidationMsg>false</LocalizeValidationMsg>
+        </LocalizationPropertySetting>
+        <LocalizationPropertySetting>
+          <Name>UnallocatedTPQuantity</Name>
           <Exclude>false</Exclude>
           <LocalizeRequiredMsg>false</LocalizeRequiredMsg>
           <LocalizeValidationMsg>false</LocalizeValidationMsg>
@@ -694,12 +730,6 @@
         </LocalizationPropertySetting>
         <LocalizationPropertySetting>
           <Name>ExecutedPositionValue</Name>
-          <Exclude>false</Exclude>
-          <LocalizeRequiredMsg>false</LocalizeRequiredMsg>
-          <LocalizeValidationMsg>false</LocalizeValidationMsg>
-        </LocalizationPropertySetting>
-        <LocalizationPropertySetting>
-          <Name>RemainingPositionValue</Name>
           <Exclude>false</Exclude>
           <LocalizeRequiredMsg>false</LocalizeRequiredMsg>
           <LocalizeValidationMsg>false</LocalizeValidationMsg>

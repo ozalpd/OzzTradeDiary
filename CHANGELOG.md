@@ -11,6 +11,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - Integrated repositories for these order types into `AppDataSources`, DI, and design-time mocks
 - Implemented create/edit/delete Views, Commands, ViewModels, and dialogs for each order type
 - Introduced `NotGreaterThanPropertyAttribute` for property-to-property max validation and applied to `FilledQuantity` fields.
+- Added `development-roadmap.md` for feature planning.
 
 ### Changed
 - Updated `MainWindow` and `TradeHistoryVM` to manage order collections and selection
@@ -20,6 +21,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - Implemented `IValidatableObject` on `Trade` to enforce TP/SL order quantity sum ≤ `Trade.OrderQuantity`.
 - Added calculated properties to `TakeProfitOrder` and `StopLossOrder`. Exposed these in WPF ViewModels and updated views to display new fields with localization and read-only styling. Added translations for new fields in EN/TR.
 - Added non-persisted properties `RemainingPositionValue`, `RemainingQuantity`, and `RealizedR` to the Trade model with full localization, schema, and UI support. Updated code generation, repository mapping, and DDL scripts accordingly.
+- Added `RemainingOpenPositionValue`, `RemainingOpenQuantity`, and unallocated TP/SL quantity properties to Trade model with localization and UI bindings.
+- Removed legacy `RemainingPositionValue` from codegen, schema, and views.
+- Updated XAML views to show new fields and improved layout.
+- Synced resource files and translations for new properties.
+- Registered `OnExit` handler to trigger auto-backup on app exit.
 - Bumped all project versions to 0.2.0.
 
 ## [0.1.7] - 2026-05-30

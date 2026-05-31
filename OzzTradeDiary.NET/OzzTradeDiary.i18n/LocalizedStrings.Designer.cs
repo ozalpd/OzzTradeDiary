@@ -1753,6 +1753,24 @@ namespace TD.i18n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Remaining Open Position Value.
+        /// </summary>
+        public static string RemainingOpenPositionValue {
+            get {
+                return ResourceManager.GetString("RemainingOpenPositionValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Remaining Open Quantity.
+        /// </summary>
+        public static string RemainingOpenQuantity {
+            get {
+                return ResourceManager.GetString("RemainingOpenQuantity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Remaining Position Value.
         /// </summary>
         public static string RemainingPositionValue {
@@ -2316,6 +2334,42 @@ namespace TD.i18n {
         public static string TrailingStop {
             get {
                 return ResourceManager.GetString("TrailingStop", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unallocated SL Quantity.
+        /// </summary>
+        public static string UnallocatedSLQuantity {
+            get {
+                return ResourceManager.GetString("UnallocatedSLQuantity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unallocated Stop Loss Quantity.
+        /// </summary>
+        public static string UnallocatedStopLossQuantity {
+            get {
+                return ResourceManager.GetString("UnallocatedStopLossQuantity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unallocated Take Profit Quantity.
+        /// </summary>
+        public static string UnallocatedTakeProfitQuantity {
+            get {
+                return ResourceManager.GetString("UnallocatedTakeProfitQuantity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unallocated TP Quantity.
+        /// </summary>
+        public static string UnallocatedTPQuantity {
+            get {
+                return ResourceManager.GetString("UnallocatedTPQuantity", resourceCulture);
             }
         }
         

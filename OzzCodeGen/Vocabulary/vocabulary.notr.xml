@@ -1841,6 +1841,14 @@
     <Translation>This record has {0} related {1}.</Translation>
   </Vocab>
   <Vocab>
+    <Name>RemainingOpenPositionValue</Name>
+    <Translation>Remaining Open Position Value</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>RemainingOpenQuantity</Name>
+    <Translation>Remaining Open Quantity</Translation>
+  </Vocab>
+  <Vocab>
     <Name>RemainingPositionValue</Name>
     <Translation>Remaining Position Value</Translation>
   </Vocab>
@@ -2347,6 +2355,22 @@
   <Vocab>
     <Name>UnableToDelete</Name>
     <Translation>Unable to Delete</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>UnallocatedSLQuantity</Name>
+    <Translation>Unallocated SL Quantity</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>UnallocatedStopLossQuantity</Name>
+    <Translation>Unallocated Stop Loss Quantity</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>UnallocatedTakeProfitQuantity</Name>
+    <Translation>Unallocated Take Profit Quantity</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>UnallocatedTPQuantity</Name>
+    <Translation>Unallocated TP Quantity</Translation>
   </Vocab>
   <Vocab>
     <Name>UnexpectedError</Name>

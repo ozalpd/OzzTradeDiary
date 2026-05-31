@@ -1037,15 +1037,6 @@
           <DecimalToIntegerScale>4</DecimalToIntegerScale>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
-          <Name>RemainingPositionValue</Name>
-          <Exclude>false</Exclude>
-          <AutoLoad>false</AutoLoad>
-          <CheckIfAltered>true</CheckIfAltered>
-          <ColumnName>RemainingPositionValue</ColumnName>
-          <SingleColumnUpdate>false</SingleColumnUpdate>
-          <DecimalToIntegerScale>4</DecimalToIntegerScale>
-        </SqliteRepositoryPropertySetting>
-        <SqliteRepositoryPropertySetting>
           <Name>OrderQuantity</Name>
           <Exclude>false</Exclude>
           <AutoLoad>false</AutoLoad>

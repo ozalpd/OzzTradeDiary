@@ -158,7 +158,7 @@
                        Style="{StaticResource RightAlignedTextBlockStyle}"
                        Text="{x:Static i18n:LocalizedStrings.RemainingPositionValue}"/>
             <TextBlock Grid.Column="4" Grid.Row="7"
-                       Text="{Binding RemainingPositionValue, StringFormat=\{0:N2\}, Mode=OneWay}"
+                       Text="{Binding RemainingOpenPositionValue, StringFormat=\{0:N2\}, Mode=OneWay}"
                        Style="{StaticResource RightAlignedTextBlockStyle}" Margin="0,0,0,8"/>
 
             <!-- Row 8: PlannedSL / ExecutedSL -->
