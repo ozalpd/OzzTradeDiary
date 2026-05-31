@@ -151,5 +151,20 @@ namespace TD.AppInfra.DesignTime
         {
             throw new NotImplementedException();
         }
+
+        public Task SaveEntryOrdersAsync(Trade trade, bool updateTrade = true)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task SaveStopLossOrdersAsync(Trade trade, bool updateTrade = true)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task SaveTakeProfitOrdersAsync(Trade trade, bool updateTrade = true)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

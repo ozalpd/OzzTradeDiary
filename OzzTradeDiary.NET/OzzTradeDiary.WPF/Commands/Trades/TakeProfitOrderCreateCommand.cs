@@ -11,7 +11,7 @@ namespace TD.WPF.Commands.Trades
     {
         protected readonly TradeHistoryVM _viewModel;
         private readonly IWindowDialogService _windowDialogService;
-        
+
         public TakeProfitOrderCreateCommand(TradeHistoryVM viewModel, IWindowDialogService windowDialogService)
         {
             _viewModel = viewModel;
@@ -36,8 +36,6 @@ namespace TD.WPF.Commands.Trades
                 {
                     var takeProfitOrder = dialogResult.TakeProfitOrder;
                     await _viewModel.SaveTakeProfitOrderAsync(takeProfitOrder);
-                    await _viewModel.LoadTakeProfitOrdersAsync();
-
                     _viewModel.SelectedTakeProfitOrder = _viewModel.TakeProfitOrders.FirstOrDefault(x => x.Id == takeProfitOrder.Id);
                 }
             }

@@ -36,8 +36,6 @@ namespace TD.WPF.Commands.Trades
                 {
                     var stopLossOrder = dialogResult.StopLossOrder;
                     await _viewModel.SaveStopLossOrderAsync(stopLossOrder);
-                    await _viewModel.LoadStopLossOrdersAsync();
-
                     _viewModel.SelectedStopLossOrder = _viewModel.StopLossOrders.FirstOrDefault(x => x.Id == stopLossOrder.Id);
                 }
             }

@@ -9,7 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 ### Added
 - Added full CRUD support for `EntryOrder`, `TakeProfitOrder`, and `StopLossOrder` in the WPF UI
 - Integrated repositories for these order types into `AppDataSources`, DI, and design-time mocks
-- Implemented create/edit/delete commands, ViewModels, and dialogs for each order type
+- Implemented create/edit/delete Views, Commands, ViewModels, and dialogs for each order type
 
 ### Changed
 - Updated `MainWindow` and `TradeHistoryVM` to manage order collections and selection

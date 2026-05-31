@@ -6,5 +6,8 @@ namespace TD.RepositoryContracts
     {
         Task LoadNavigationCollectionsAsync(Trade trade);
         Task SaveNavigationCollectionsAsync(Trade trade);
+        Task SaveEntryOrdersAsync(Trade trade, bool updateTrade = true);
+        Task SaveStopLossOrdersAsync(Trade trade, bool updateTrade = true);
+        Task SaveTakeProfitOrdersAsync(Trade trade, bool updateTrade = true);
     }
 }

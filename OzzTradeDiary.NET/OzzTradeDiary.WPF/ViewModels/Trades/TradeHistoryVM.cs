@@ -61,7 +61,30 @@ namespace TD.WPF.ViewModels.Trades
                 EntryOrderCreateCommand.PreselectedTrade = SelectedTrade;
                 TakeProfitOrderCreateCommand.PreselectedTrade = SelectedTrade;
                 StopLossOrderCreateCommand.PreselectedTrade = SelectedTrade;
+                RaiseEntryOrderCmdCanExecute();
+                RaiseStopLossOrderCmdCanExecute();
+                RaiseTakeProfitOrderCmdCanExecute();
             }
+        }
+
+        /// <summary>
+        /// Forces WPF bindings to refresh trade's derived properties.
+        /// Necessary because <see cref="Trade"/> does not implement INotifyPropertyChanged.
+        /// </summary>
+        public void RefreshTrades()
+        {
+            if (Trades == null || Trades.Count == 0)
+                return;
+
+            var trade = SelectedTrade;
+            var trades = Trades.ToList();
+            ReplaceCollection(Trades, trades);
+
+            if (trade == null)
+                return;
+
+            SelectedTrade = null;
+            SelectedTrade = trade;
         }
 
 

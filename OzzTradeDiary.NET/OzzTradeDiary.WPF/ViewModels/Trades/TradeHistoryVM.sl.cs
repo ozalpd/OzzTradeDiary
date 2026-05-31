@@ -32,6 +32,23 @@ namespace TD.WPF.ViewModels.Trades
         /// </summary>
         public IEnumerable<EnumValueItem<ExitOrderType>> ExitOrderTypeValues { get; }
 
+        public async Task<bool> DeleteStopLossOrderAsync(StopLossOrder slOrder)
+        {
+            if (SelectedTrade == null)
+                return false;
+
+            ArgumentNullException.ThrowIfNull(slOrder, nameof(slOrder));
+            bool isDeleted = false;
+            if (slOrder.Id > 0)
+            {
+                isDeleted = SelectedTrade.StopLossOrders.Remove(slOrder);
+                await TradeRepository.SaveStopLossOrdersAsync(SelectedTrade);
+                RefreshTrades();
+            }
+
+            return isDeleted;
+        }
+
         public async Task LoadStopLossOrdersAsync()
         {
             if (SelectedTrade != null)
@@ -55,12 +72,17 @@ namespace TD.WPF.ViewModels.Trades
             StopLossOrderEditCommand.RaiseCanExecuteChanged();
         }
 
-        public async Task SaveStopLossOrderAsync(StopLossOrder stopLossOrder)
+        public async Task SaveStopLossOrderAsync(StopLossOrder slOrder)
         {
-            if (stopLossOrder.Id <= 0)
-                stopLossOrder.Id = await StopLossOrderRepository.CreateAsync(stopLossOrder);
-            else
-                await StopLossOrderRepository.UpdateAsync(stopLossOrder);
+            if (SelectedTrade == null)
+                return;
+            if (slOrder.Id == 0)
+            {
+                SelectedTrade.StopLossOrders.Add(slOrder);
+                slOrder.Trade = SelectedTrade;
+            }
+            await TradeRepository.SaveStopLossOrdersAsync(SelectedTrade);
+            RefreshTrades();
         }
     }
 }

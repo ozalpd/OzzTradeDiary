@@ -32,6 +32,23 @@ namespace TD.WPF.ViewModels.Trades
         /// </summary>
         public IEnumerable<EnumValueItem<ExitOrderType>> ExitOrderForTpValues { get; }
 
+        public async Task<bool> DeleteTakeProfitOrderAsync(TakeProfitOrder tpOrder)
+        {
+            if (SelectedTrade == null)
+                return false;
+
+            ArgumentNullException.ThrowIfNull(tpOrder, nameof(tpOrder));
+            bool isDeleted = false;
+            if (tpOrder.Id > 0)
+            {
+                isDeleted = SelectedTrade.TakeProfitOrders.Remove(tpOrder);
+                await TradeRepository.SaveTakeProfitOrdersAsync(SelectedTrade);
+                RefreshTrades();
+            }
+
+            return isDeleted;
+        }
+
         public async Task LoadTakeProfitOrdersAsync()
         {
             if (SelectedTrade != null)
@@ -55,12 +72,17 @@ namespace TD.WPF.ViewModels.Trades
             TakeProfitOrderEditCommand.RaiseCanExecuteChanged();
         }
 
-        public async Task SaveTakeProfitOrderAsync(TakeProfitOrder takeProfitOrder)
+        public async Task SaveTakeProfitOrderAsync(TakeProfitOrder tpOrder)
         {
-            if (takeProfitOrder.Id <= 0)
-                takeProfitOrder.Id = await TakeProfitOrderRepository.CreateAsync(takeProfitOrder);
-            else
-                await TakeProfitOrderRepository.UpdateAsync(takeProfitOrder);
+            if (SelectedTrade == null)
+                return;
+            if (tpOrder.Id == 0)
+            {
+                SelectedTrade.TakeProfitOrders.Add(tpOrder);
+                tpOrder.Trade = SelectedTrade;
+            }
+            await TradeRepository.SaveTakeProfitOrdersAsync(SelectedTrade);
+            RefreshTrades();
         }
     }
 }

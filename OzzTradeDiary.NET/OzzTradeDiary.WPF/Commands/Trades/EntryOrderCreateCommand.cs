@@ -11,7 +11,7 @@ namespace TD.WPF.Commands.Trades
     {
         protected readonly TradeHistoryVM _viewModel;
         private readonly IWindowDialogService _windowDialogService;
-        
+
         public EntryOrderCreateCommand(TradeHistoryVM viewModel, IWindowDialogService windowDialogService)
         {
             _viewModel = viewModel;
@@ -36,8 +36,6 @@ namespace TD.WPF.Commands.Trades
                 {
                     var entryOrder = dialogResult.EntryOrder;
                     await _viewModel.SaveEntryOrderAsync(entryOrder);
-                    await _viewModel.LoadEntryOrdersAsync();
-
                     _viewModel.SelectedEntryOrder = _viewModel.EntryOrders.FirstOrDefault(x => x.Id == entryOrder.Id);
                 }
             }

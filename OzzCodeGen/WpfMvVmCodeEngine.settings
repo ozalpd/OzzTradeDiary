@@ -1030,8 +1030,8 @@
       <DetailColumnLayout>OneColumn</DetailColumnLayout>
       <InputColumnLayout>OneColumn</InputColumnLayout>
       <GenModeCreateCommand>SkipManuallyEdited</GenModeCreateCommand>
-      <GenModeEditCommand>GenerateIfNotExists</GenModeEditCommand>
-      <GenModeDeleteCommand>GenerateIfNotExists</GenModeDeleteCommand>
+      <GenModeEditCommand>SkipManuallyEdited</GenModeEditCommand>
+      <GenModeDeleteCommand>SkipManuallyEdited</GenModeDeleteCommand>
       <GenModeDetailCommand>DoNotGenerate</GenModeDetailCommand>
       <GenModeLoadCommand>DoNotGenerate</GenModeLoadCommand>
       <GenModeCreateVM>GenerateIfNotExists</GenModeCreateVM>
@@ -1108,8 +1108,8 @@
       <DetailColumnLayout>OneColumn</DetailColumnLayout>
       <InputColumnLayout>OneColumn</InputColumnLayout>
       <GenModeCreateCommand>SkipManuallyEdited</GenModeCreateCommand>
-      <GenModeEditCommand>GenerateIfNotExists</GenModeEditCommand>
-      <GenModeDeleteCommand>GenerateIfNotExists</GenModeDeleteCommand>
+      <GenModeEditCommand>SkipManuallyEdited</GenModeEditCommand>
+      <GenModeDeleteCommand>SkipManuallyEdited</GenModeDeleteCommand>
       <GenModeDetailCommand>DoNotGenerate</GenModeDetailCommand>
       <GenModeLoadCommand>DoNotGenerate</GenModeLoadCommand>
       <GenModeCreateVM>GenerateIfNotExists</GenModeCreateVM>
@@ -1186,8 +1186,8 @@
       <DetailColumnLayout>OneColumn</DetailColumnLayout>
       <InputColumnLayout>OneColumn</InputColumnLayout>
       <GenModeCreateCommand>SkipManuallyEdited</GenModeCreateCommand>
-      <GenModeEditCommand>GenerateIfNotExists</GenModeEditCommand>
-      <GenModeDeleteCommand>GenerateIfNotExists</GenModeDeleteCommand>
+      <GenModeEditCommand>SkipManuallyEdited</GenModeEditCommand>
+      <GenModeDeleteCommand>SkipManuallyEdited</GenModeDeleteCommand>
       <GenModeDetailCommand>DoNotGenerate</GenModeDetailCommand>
       <GenModeLoadCommand>DoNotGenerate</GenModeLoadCommand>
       <GenModeCreateVM>GenerateIfNotExists</GenModeCreateVM>

@@ -20,9 +20,9 @@ namespace TD.WPF.ViewModels.Trades
             set
             {
                 _selectedEntryOrder = value;
+                RaisePropertyChanged(nameof(SelectedEntryOrder));
                 EntryOrderEditCommand.RaiseCanExecuteChanged();
                 EntryOrderDeleteCommand.RaiseCanExecuteChanged();
-                RaisePropertyChanged(nameof(SelectedEntryOrder));
             }
         }
         EntryOrder? _selectedEntryOrder;
@@ -32,11 +32,21 @@ namespace TD.WPF.ViewModels.Trades
         /// </summary>
         public IEnumerable<EnumValueItem<EntryOrderType>> EntryOrderTypeValues { get; }
 
-        public async Task LoadEntryOrdersAsync()
+        public async Task<bool> DeleteEntryOrderAsync(EntryOrder entryOrder)
         {
-            if (SelectedTrade != null)
-                await LoadNavigationCollectionsAsync(SelectedTrade);
-            ReplaceEntryOrders();
+            if (SelectedTrade == null)
+                return false;
+
+            ArgumentNullException.ThrowIfNull(entryOrder, nameof(entryOrder));
+            bool isDeleted = false;
+            if (entryOrder.Id > 0)
+            {
+                isDeleted = SelectedTrade.EntryOrders.Remove(entryOrder);
+                await TradeRepository.SaveEntryOrdersAsync(SelectedTrade);
+                RefreshTrades();
+            }
+
+            return isDeleted;
         }
 
         private void ReplaceEntryOrders()
@@ -57,10 +67,15 @@ namespace TD.WPF.ViewModels.Trades
 
         public async Task SaveEntryOrderAsync(EntryOrder entryOrder)
         {
-            if (entryOrder.Id <= 0)
-                entryOrder.Id = await EntryOrderRepository.CreateAsync(entryOrder);
-            else
-                await EntryOrderRepository.UpdateAsync(entryOrder);
+            if (SelectedTrade == null)
+                return;
+            if (entryOrder.Id == 0)
+            {
+                SelectedTrade.EntryOrders.Add(entryOrder);
+                entryOrder.Trade = SelectedTrade;
+            }
+            await TradeRepository.SaveEntryOrdersAsync(SelectedTrade);
+            RefreshTrades();
         }
     }
 }

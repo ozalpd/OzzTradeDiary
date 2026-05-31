@@ -25,6 +25,10 @@ namespace TD.SQLite
             {
                 var images = await TradeImageRepository.GetByTradeIdAsync(trade.Id);
                 trade.TradeImages = images.ToList();
+                foreach (var image in trade.TradeImages)
+                {
+                    image.Trade = trade;
+                }
             }
             catch (Exception)
             {
@@ -35,6 +39,10 @@ namespace TD.SQLite
             {
                 var entryOrders = await EntryOrderRepository.GetByTradeIdAsync(trade.Id);
                 trade.EntryOrders = entryOrders.ToList();
+                foreach (var order in trade.EntryOrders)
+                {
+                    order.Trade = trade;
+                }
             }
             catch (Exception)
             {
@@ -45,6 +53,10 @@ namespace TD.SQLite
             {
                 var tpOrders = await TakeProfitOrderRepository.GetByTradeIdAsync(trade.Id);
                 trade.TakeProfitOrders = tpOrders.ToList();
+                foreach (var item in trade.TakeProfitOrders)
+                {
+                    item.Trade = trade;
+                }
             }
             catch (Exception)
             {
@@ -55,6 +67,10 @@ namespace TD.SQLite
             {
                 var slOrders = await StopLossOrderRepository.GetByTradeIdAsync(trade.Id);
                 trade.StopLossOrders = slOrders.ToList();
+                foreach (var item in trade.StopLossOrders)
+                {
+                    item.Trade = trade;
+                }
             }
             catch (Exception)
             {
@@ -71,9 +87,9 @@ namespace TD.SQLite
             try
             {
                 await SaveTradeImagesAsync(trade);
-                await SaveEntryOrdersAsync(trade);
-                await SaveTakeProfitOrdersAsync(trade);
-                await SaveStopLossOrdersAsync(trade);
+                await SaveEntryOrdersAsync(trade, updateTrade: false);
+                await SaveTakeProfitOrdersAsync(trade, updateTrade: false);
+                await SaveStopLossOrdersAsync(trade, updateTrade: false);
 
                 trade.CalculateFromOrders();
                 await UpdateAsync(trade);
@@ -85,8 +101,9 @@ namespace TD.SQLite
         }
         bool updatingFromSaveNavigationCollectionsAsync = false;
 
-        private async Task SaveEntryOrdersAsync(Trade trade)
+        public async Task SaveEntryOrdersAsync(Trade trade, bool updateTrade = true)
         {
+            bool anyChanges = false;
             var existingOrders = await EntryOrderRepository.GetByTradeIdAsync(trade.Id);
             var existingOrderIds = existingOrders.Select(o => o.Id).ToHashSet();
             foreach (var order in trade.EntryOrders)
@@ -95,21 +112,30 @@ namespace TD.SQLite
                 {
                     order.TradeId = trade.Id;
                     await EntryOrderRepository.CreateAsync(order);
+                    anyChanges = true;
                 }
                 else if (existingOrderIds.Contains(order.Id))
                 {
-                    await EntryOrderRepository.UpdateAsync(order);
+                    anyChanges = await EntryOrderRepository.UpdateAsync(order) || anyChanges;
                     existingOrderIds.Remove(order.Id);
                 }
             }
             foreach (var id in existingOrderIds)
             {
                 await EntryOrderRepository.DeleteAsync(id);
+                anyChanges = true;
+            }
+
+            if (anyChanges && updateTrade)
+            {
+                trade.CalculateFromOrders();
+                await UpdateAsync(trade);
             }
         }
 
-        private async Task SaveStopLossOrdersAsync(Trade trade)
+        public async Task SaveStopLossOrdersAsync(Trade trade, bool updateTrade = true)
         {
+            bool anyChanges = false;
             var existingOrders = await StopLossOrderRepository.GetByTradeIdAsync(trade.Id);
             var existingOrderIds = existingOrders.Select(o => o.Id).ToHashSet();
             foreach (var order in trade.StopLossOrders)
@@ -118,21 +144,30 @@ namespace TD.SQLite
                 {
                     order.TradeId = trade.Id;
                     await StopLossOrderRepository.CreateAsync(order);
+                    anyChanges = true;
                 }
                 else if (existingOrderIds.Contains(order.Id))
                 {
-                    await StopLossOrderRepository.UpdateAsync(order);
+                    anyChanges = await StopLossOrderRepository.UpdateAsync(order) || anyChanges;
                     existingOrderIds.Remove(order.Id);
                 }
             }
             foreach (var id in existingOrderIds)
             {
                 await StopLossOrderRepository.DeleteAsync(id);
+                anyChanges = true;
+            }
+
+            if (anyChanges && updateTrade)
+            {
+                trade.CalculateFromOrders();
+                await UpdateAsync(trade);
             }
         }
 
-        private async Task SaveTakeProfitOrdersAsync(Trade trade)
+        public async Task SaveTakeProfitOrdersAsync(Trade trade, bool updateTrade = true)
         {
+            bool anyChanges = false;
             var existingOrders = await TakeProfitOrderRepository.GetByTradeIdAsync(trade.Id);
             var existingOrderIds = existingOrders.Select(o => o.Id).ToHashSet();
             foreach (var order in trade.TakeProfitOrders)
@@ -141,19 +176,26 @@ namespace TD.SQLite
                 {
                     order.TradeId = trade.Id;
                     await TakeProfitOrderRepository.CreateAsync(order);
+                    anyChanges = true;
                 }
                 else if (existingOrderIds.Contains(order.Id))
                 {
-                    await TakeProfitOrderRepository.UpdateAsync(order);
+                    anyChanges = await TakeProfitOrderRepository.UpdateAsync(order) || anyChanges;
                     existingOrderIds.Remove(order.Id);
                 }
             }
             foreach (var id in existingOrderIds)
             {
                 await TakeProfitOrderRepository.DeleteAsync(id);
+                anyChanges = true;
+            }
+
+            if (anyChanges && updateTrade)
+            {
+                trade.CalculateFromOrders();
+                await UpdateAsync(trade);
             }
         }
-
 
         private async Task SaveTradeImagesAsync(Trade trade)
         {
