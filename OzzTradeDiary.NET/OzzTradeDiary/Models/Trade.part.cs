@@ -161,6 +161,15 @@ namespace TD.Models
         // with very small unit prices.
         //----------------------------------------------------------------------------------
 
+
+        public bool IsActiveOrWaiting => IsWaiting || TradeStatus == TradeStatus.Active;
+
+        public bool IsMissedOrCancelled => TradeStatus <= TradeStatus.Missed;
+
+        public bool IsWaiting => TradeStatus == TradeStatus.Planned || TradeStatus == TradeStatus.Pending;
+
+        public bool IsWinning => RealizedProfitLoss.HasValue && RealizedProfitLoss.Value > 0;
+
         /// <summary>
         /// Gets the realized R multiple for the trade — how many units of planned risk were actually made or lost.
         /// </summary>

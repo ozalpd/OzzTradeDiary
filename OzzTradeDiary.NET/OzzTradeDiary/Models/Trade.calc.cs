@@ -265,41 +265,37 @@ public partial class Trade
     }
     decimal? _realizedRiskAmount;
 
+    /// <summary>
+    /// Gets or sets the total fees calculated for the trade by summing the fees from all entry, take profit, and stop loss orders.
+    /// </summary>
     [Display(ResourceType = typeof(LocalizedStrings), Name = "TotalFeesCalculated")]
     public decimal? TotalFeesCalculated
     {
         get
         {
-            if (TotalFeesCorrected.HasValue)
+            decimal totalFees = 0;
+            if (EntryOrders != null)
             {
-                return TotalFeesCorrected;
+                foreach (var order in EntryOrders)
+                {
+                    totalFees += order.FeesCalculated ?? 0;
+                }
             }
-            else
+            if (TakeProfitOrders != null)
             {
-                decimal totalFees = 0;
-                if (EntryOrders != null)
+                foreach (var order in TakeProfitOrders)
                 {
-                    foreach (var order in EntryOrders)
-                    {
-                        totalFees += order.FeesCalculated ?? 0;
-                    }
+                    totalFees += order.FeesCalculated ?? 0;
                 }
-                if (TakeProfitOrders != null)
-                {
-                    foreach (var order in TakeProfitOrders)
-                    {
-                        totalFees += order.FeesCalculated ?? 0;
-                    }
-                }
-                if (StopLossOrders != null)
-                {
-                    foreach (var order in StopLossOrders)
-                    {
-                        totalFees += order.FeesCalculated ?? 0;
-                    }
-                }
-                return totalFees;
             }
+            if (StopLossOrders != null)
+            {
+                foreach (var order in StopLossOrders)
+                {
+                    totalFees += order.FeesCalculated ?? 0;
+                }
+            }
+            return totalFees;
         }
         set { _totalFeesCalculated = value; }
     }

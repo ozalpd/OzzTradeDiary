@@ -23,12 +23,7 @@ namespace TD.WPF.Commands.Trades
             if (takeProfitOrder.Id < 1)
                 return false;
 
-
-            var result = _viewModel.TakeProfitOrderRepository
-                                   .CanDeleteAsync(takeProfitOrder.Id)
-                                   .GetAwaiter()
-                                   .GetResult();
-            return result;
+            return takeProfitOrder.Trade != null && takeProfitOrder.Trade.IsActiveOrWaiting;
         }
 
         public override async void Execute(object? parameter)

@@ -20,7 +20,7 @@ namespace TD.WPF.Commands.Trades
 
         public override bool CanExecute(object? parameter)
         {
-            return PreselectedTrade != null;
+            return PreselectedTrade != null && PreselectedTrade.IsActiveOrWaiting;
         }
 
         public override async void Execute(object? parameter)

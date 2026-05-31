@@ -23,12 +23,7 @@ namespace TD.WPF.Commands.Trades
             if (stopLossOrder.Id < 1)
                 return false;
 
-
-            var result = _viewModel.StopLossOrderRepository
-                                   .CanDeleteAsync(stopLossOrder.Id)
-                                   .GetAwaiter()
-                                   .GetResult();
-            return result;
+            return stopLossOrder.Trade != null && stopLossOrder.Trade.IsActiveOrWaiting;
         }
 
         public override async void Execute(object? parameter)

@@ -19,7 +19,9 @@ namespace TD.WPF.Commands.Trades
 
         public override bool CanExecute(object? parameter)
         {
-            return _viewModel.SelectedTakeProfitOrder is not null;
+            return _viewModel.SelectedTakeProfitOrder != null && _viewModel.SelectedTakeProfitOrder.Id > 0
+                   && _viewModel.SelectedTakeProfitOrder.Trade != null
+                   && _viewModel.SelectedTakeProfitOrder.Trade.IsActiveOrWaiting;
         }
 
         public override async void Execute(object? parameter)
