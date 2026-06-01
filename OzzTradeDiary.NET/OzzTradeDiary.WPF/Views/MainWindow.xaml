@@ -53,12 +53,12 @@
         </Menu>
 
         <!-- Upper Toolbars -->
-        <Grid Grid.Row="1" DataContext="{Binding TradeHistory}">
+        <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <ToolBar>
+            <ToolBar DataContext="{Binding TradeHistory}">
                 <Button Style="{StaticResource IconButtonStyle-28x24}"
                                 ToolTip="{x:Static i18n:LocalizedStrings.AddTrade}"
                                 Command="{Binding TradeCreateCommand}"
@@ -156,10 +156,11 @@
                         </Path>
                     </Viewbox>
                 </Button>
+                <Separator/>
             </ToolBar>
 
             <!-- Filter Toolbar -->
-            <ToolBar Grid.Column="1">
+            <ToolBar Grid.Column="1" DataContext="{Binding TradeHistory}">
                 <!-- Trading Account filter -->
                 <ComboBox x:Name="TradingAccountComboBox" Width="160"
                           ItemsSource="{Binding TradingAccounts}"
@@ -191,6 +192,18 @@
                     </TextBlock.Style>
                 </TextBlock>
 
+                <!-- Clear button -->
+                <Button Style="{StaticResource IconButtonStyle-28x24}"
+                        ToolTip="{x:Static i18n:ActionStrings.Clear}"
+                        Tag="ClearAccount" Click="ClearComboBox_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <Viewbox Width="14" Height="14">
+                            <Path Fill="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"
+                                  Data="{StaticResource x-circle}"/>
+                        </Viewbox>
+                    </StackPanel>
+                </Button>
+
                 <Separator/>
 
                 <!-- Symbol filter -->
@@ -219,6 +232,17 @@
                     </TextBlock.Style>
                 </TextBlock>
 
+                <!-- Clear button -->
+                <Button Style="{StaticResource IconButtonStyle-28x24}"
+                        ToolTip="{x:Static i18n:ActionStrings.Clear}"
+                        Tag="ClearSymbol" Click="ClearComboBox_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <Viewbox Width="14" Height="14">
+                            <Path Fill="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"
+                                  Data="{StaticResource x-circle}"/>
+                        </Viewbox>
+                    </StackPanel>
+                </Button>
                 <Separator/>
                 <!-- TradeStatus filter -->
                 <ComboBox x:Name="TradeStatusQueryComboBox" Width="160"
@@ -249,24 +273,56 @@
 
             </ToolBar>
         </Grid>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <ToolBar>
+                <Border Width="24" Background="Transparent" />
+                <Border Width="16" Background="Transparent" />
 
-        <!-- Date Filter Toolbar -->
-        <ToolBar Grid.Row="2" DataContext="{Binding TradeHistory}">
-            <!-- Entry date range -->
-            <TextBlock Text="{x:Static i18n:LocalizedStrings.EntryTime}"
-                        VerticalAlignment="Center" Margin="4,0,4,0"/>
-            <DatePicker Width="120" SelectedDate="{Binding QueryVM.EntryTimeMin, Mode=TwoWay}"
-                        ToolTip="From"/>
-            <Viewbox Width="12" Height="12" Margin="2,0,4,0">
-                <Path Fill="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"
-                        Data="{StaticResource arrow-right}"/>
-            </Viewbox>
-            <DatePicker Width="120" SelectedDate="{Binding QueryVM.EntryTimeMax, Mode=TwoWay}"
-                        ToolTip="To"/>
+                <Button Style="{StaticResource IconButtonStyle-28x24}"
+                                ToolTip="{x:Static i18n:ActionStrings.ManageData}"
+                                Command="{Binding ShowMaintenanceCommand}">
+                    <Viewbox Width="18" Height="18">
+                        <Path Margin="-3,0,0,-3">
+                            <Path.Style>
+                                <Style TargetType="Path">
+                                    <Setter Property="Fill" Value="#0044D7"/>
+                                    <Setter Property="Data" Value="{StaticResource gear-wide-connected}"/>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding IsEnabled, RelativeSource={RelativeSource AncestorType=Button}}" Value="False">
+                                            <Setter Property="Fill" Value="#A0A0A0"/>
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding IsMouseOver, RelativeSource={RelativeSource AncestorType=Button}}" Value="True">
+                                            <Setter Property="Fill" Value="#000000"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Path.Style>
+                        </Path>
+                    </Viewbox>
+                </Button>
 
-            <Separator/>
-        </ToolBar>
+            </ToolBar>
+            <!-- Date Filter Toolbar -->
+            <ToolBar Grid.Column="1" DataContext="{Binding TradeHistory}">
+                <!-- Entry date range -->
+                <TextBlock Text="{x:Static i18n:LocalizedStrings.EntryTime}"
+                            VerticalAlignment="Center" Margin="4,0,4,0"/>
+                <DatePicker Width="120" SelectedDate="{Binding QueryVM.EntryTimeMin, Mode=TwoWay}"
+                            ToolTip="From"/>
+                <Viewbox Width="12" Height="12" Margin="2,0,4,0">
+                    <Path Fill="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"
+                            Data="{StaticResource arrow-right}"/>
+                </Viewbox>
+                <DatePicker Width="120" SelectedDate="{Binding QueryVM.EntryTimeMax, Mode=TwoWay}"
+                            ToolTip="To"/>
 
+                <Separator/>
+            </ToolBar>
+        </Grid>
         <!-- Master / Detail content area -->
         <Grid Grid.Row="3" DataContext="{Binding TradeHistory}" d:DataContext="{d:DesignInstance Type=designTime:MockTradeHistoryVM, IsDesignTimeCreatable=True}">
             <Grid.ColumnDefinitions>

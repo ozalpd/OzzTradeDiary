@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using System.Windows.Controls;
 using TD.AppInfra.DesignTime;
 using TD.AppInfra.Models;
 using TD.Models;
@@ -41,6 +42,30 @@ namespace TD.WPF.Views
         {
             _appSettings.MainWindowPosition.GetWindowPositions(this);
             _appSettings.Save();
+        }
+
+        private void ClearComboBox_Click(object sender, RoutedEventArgs e)
+        {
+            if (sender is not Button button)
+                return;
+
+            var tag = button.Tag as string;
+            if (string.IsNullOrWhiteSpace(tag))
+                return;
+
+            switch (tag)
+            {
+                case "ClearAccount":
+                    _viewModel.TradeHistory.QueryVM.ByTradingAccountId = null;
+                    break;
+                case "ClearDirection":
+                    _viewModel.TradeHistory.QueryVM.ByTradeDirection = null;
+                    break;
+                case "ClearSymbol":
+                    _viewModel.TradeHistory.QueryVM.BySymbolId = null;
+                    break;
+            }
+
         }
     }
 }
