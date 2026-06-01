@@ -49,16 +49,6 @@ namespace TD.AppInfra.ViewModels.Trades
             }
         }
 
-        public TradeStatus? ByTradeStatus
-        {
-            get => Parameters.TradeStatus;
-            set
-            {
-                Parameters.TradeStatus = value;
-                RaisePropertyChanged(nameof(ByTradeStatus));
-            }
-        }
-
         public MarketType? ByMarketType
         {
             get => Parameters.MarketType;
@@ -294,7 +284,6 @@ namespace TD.AppInfra.ViewModels.Trades
             ByTradingAccountId = null;
             BySymbolId = null;
             ByTradeDirection = null;
-            ByTradeStatus = null;
             ByMarketType = null;
             EntryTimeMin = null;
             EntryTimeMax = null;

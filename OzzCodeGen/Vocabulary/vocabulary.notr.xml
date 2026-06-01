@@ -17,6 +17,10 @@
     <Translation>Active</Translation>
   </Vocab>
   <Vocab>
+    <Name>ActiveOrWaiting</Name>
+    <Translation>Active Or Waiting</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Add</Name>
     <Translation>Add</Translation>
   </Vocab>
@@ -287,6 +291,10 @@
   <Vocab>
     <Name>AfterHours</Name>
     <Translation>After Hours</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>All</Name>
+    <Translation>All</Translation>
   </Vocab>
   <Vocab>
     <Name>Always</Name>
@@ -1321,6 +1329,10 @@
     <Translation>Loading</Translation>
   </Vocab>
   <Vocab>
+    <Name>LoadJournal</Name>
+    <Translation>Load Your Journal</Translation>
+  </Vocab>
+  <Vocab>
     <Name>LocalClose</Name>
     <Translation>Local Close</Translation>
   </Vocab>
@@ -1403,6 +1415,10 @@
   <Vocab>
     <Name>Missed</Name>
     <Translation>Missed</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>MissedOrCancelled</Name>
+    <Translation>Missed Or Cancelled</Translation>
   </Vocab>
   <Vocab>
     <Name>ModifierId</Name>
@@ -2329,6 +2345,10 @@
     <Translation>Trade Status</Translation>
   </Vocab>
   <Vocab>
+    <Name>TradeStatusQuery</Name>
+    <Translation>Trade Status Query</Translation>
+  </Vocab>
+  <Vocab>
     <Name>TradingAccount</Name>
     <Translation>Trading Account</Translation>
   </Vocab>
@@ -2435,6 +2455,10 @@
   <Vocab>
     <Name>ViewOnGitHub</Name>
     <Translation>View on GitHub</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Waiting</Name>
+    <Translation>Waiting</Translation>
   </Vocab>
   <Vocab>
     <Name>Width</Name>

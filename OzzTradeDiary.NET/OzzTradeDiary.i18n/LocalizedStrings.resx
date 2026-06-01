@@ -61,6 +61,9 @@
     <data name="Active" xml:space="preserve">
         <value>Active</value>
     </data>
+    <data name="ActiveOrWaiting" xml:space="preserve">
+        <value>Active Or Waiting</value>
+    </data>
     <data name="AddCurrency" xml:space="preserve">
         <value>Add Currency</value>
     </data>
@@ -171,6 +174,9 @@
     </data>
     <data name="AfterHours" xml:space="preserve">
         <value>After Hours</value>
+    </data>
+    <data name="All" xml:space="preserve">
+        <value>All</value>
     </data>
     <data name="Balance" xml:space="preserve">
         <value>Balance</value>
@@ -532,6 +538,9 @@
     <data name="Missed" xml:space="preserve">
         <value>Missed</value>
     </data>
+    <data name="MissedOrCancelled" xml:space="preserve">
+        <value>Missed Or Cancelled</value>
+    </data>
     <data name="Month" xml:space="preserve">
         <value>Month</value>
     </data>
@@ -802,6 +811,9 @@
     <data name="TradeStatus" xml:space="preserve">
         <value>Trade Status</value>
     </data>
+    <data name="TradeStatusQuery" xml:space="preserve">
+        <value>Trade Status Query</value>
+    </data>
     <data name="TradingAccount" xml:space="preserve">
         <value>Trading Account</value>
     </data>
@@ -834,5 +846,8 @@
     </data>
     <data name="UpdatedAt" xml:space="preserve">
         <value>Updated At</value>
+    </data>
+    <data name="Waiting" xml:space="preserve">
+        <value>Waiting</value>
     </data>
 </root>

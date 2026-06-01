@@ -128,4 +128,29 @@ namespace TD.Models
         [Display(ResourceType = typeof(LocalizedStrings), Name = "Cancelled")]
         Cancelled = -20
     }
+
+    public enum TradeStatusQuery
+    {
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "All", Order = 0)]
+        All = 0,
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "Waiting", Order = 300)]
+        Waiting = 1010,
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "ActiveOrWaiting", Order = 100)]
+        ActiveOrWaiting = 1020,
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "MissedOrCancelled", Order = 700)]
+        MissedOrCancelled = 1030,
+
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "Planned", Order = 400)]
+        Planned = 10,
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "Pending", Order = 500)]
+        Pending = 20,
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "Active", Order = 200)]
+        Active = 30,
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "Closed", Order = 600)]
+        Closed = 40,
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "Missed", Order = 800)]
+        Missed = -10,
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "Cancelled", Order = 900)]
+        Cancelled = -20
+    }
 }

@@ -342,6 +342,7 @@ namespace TD.Models
         [Display(ResourceType = typeof(LocalizedStrings), Name = "ExecutedTP")]
         public string RoundedExecutedTP => ExecutedTP.ToRoundedString();
 
+
         /// <inheritdoc/>
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {

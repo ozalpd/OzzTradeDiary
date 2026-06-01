@@ -53,7 +53,11 @@
         </Menu>
 
         <!-- Upper Toolbars -->
-        <StackPanel Grid.Row="1" DataContext="{Binding TradeHistory}" Orientation="Horizontal" VerticalAlignment="Center">
+        <Grid Grid.Row="1" DataContext="{Binding TradeHistory}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
             <ToolBar>
                 <Button Style="{StaticResource IconButtonStyle-28x24}"
                                 ToolTip="{x:Static i18n:LocalizedStrings.AddTrade}"
@@ -154,100 +158,113 @@
                 </Button>
             </ToolBar>
 
-            <ToolBar>
-                <!-- Entry date range -->
-                <TextBlock Text="{x:Static i18n:LocalizedStrings.EntryTime}"
-                           VerticalAlignment="Center" Margin="4,0,4,0"/>
-                <DatePicker Width="120" SelectedDate="{Binding QueryVM.EntryTimeMin, Mode=TwoWay}"
-                            ToolTip="From"/>
-                <Viewbox Width="12" Height="12" Margin="2,0,4,0">
-                    <Path Fill="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"
-                          Data="{StaticResource arrow-right}"/>
-                </Viewbox>
-                <DatePicker Width="120" SelectedDate="{Binding QueryVM.EntryTimeMax, Mode=TwoWay}"
-                            ToolTip="To"/>
+            <!-- Filter Toolbar -->
+            <ToolBar Grid.Column="1">
+                <!-- Trading Account filter -->
+                <ComboBox x:Name="TradingAccountComboBox" Width="160"
+                          ItemsSource="{Binding TradingAccounts}"
+                          DisplayMemberPath="Title"
+                          SelectedValuePath="Id"
+                          SelectedItem="{Binding FilterTradingAccount }"
+                          SelectedValue="{Binding QueryVM.ByTradingAccountId, Mode=TwoWay}">
+                    <ComboBox.Resources>
+                        <CollectionViewSource x:Key="cvs" Source="{Binding TradingAccounts}"/>
+                    </ComboBox.Resources>
+                </ComboBox>
+                <TextBlock Text="{x:Static i18n:LocalizedStrings.TradingAccounts}"
+                           VerticalAlignment="Stretch" Margin="-154,3,18,3"
+                           Foreground="#686868" Background="White"
+                           IsHitTestVisible="False">
+                    <TextBlock.Style>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="Visibility" Value="Collapsed" />
+                            <Style.Triggers>
+                                <MultiDataTrigger>
+                                    <MultiDataTrigger.Conditions>
+                                        <Condition Binding="{Binding IsFocused, ElementName=TradingAccountComboBox}" Value="False" />
+                                        <Condition Binding="{Binding Text.Length, ElementName=TradingAccountComboBox, FallbackValue=0}" Value="0" />
+                                    </MultiDataTrigger.Conditions>
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </MultiDataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
 
                 <Separator/>
+
+                <!-- Symbol filter -->
+                <ComboBox x:Name="SymbolComboBox" Width="140"
+                          ItemsSource="{Binding Symbols}"
+                          DisplayMemberPath="TickerFull"
+                          SelectedValuePath="Id"
+                          SelectedValue="{Binding QueryVM.BySymbolId, Mode=TwoWay}"/>
+                <TextBlock Text="{x:Static i18n:LocalizedStrings.Symbols}"
+                           VerticalAlignment="Stretch" Margin="-134,3,18,3"
+                           Foreground="#686868" Background="White"
+                           IsHitTestVisible="False">
+                    <TextBlock.Style>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="Visibility" Value="Collapsed" />
+                            <Style.Triggers>
+                                <MultiDataTrigger>
+                                    <MultiDataTrigger.Conditions>
+                                        <Condition Binding="{Binding IsFocused, ElementName=SymbolComboBox}" Value="False" />
+                                        <Condition Binding="{Binding Text.Length, ElementName=SymbolComboBox, FallbackValue=0}" Value="0" />
+                                    </MultiDataTrigger.Conditions>
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </MultiDataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+
+                <Separator/>
+                <!-- TradeStatus filter -->
+                <ComboBox x:Name="TradeStatusQueryComboBox" Width="160"
+                          ItemsSource="{Binding TradeStatusQueryValues}"
+                          DisplayMemberPath="DisplayValue"
+                          SelectedValuePath="Value"
+                          SelectedItem="{Binding FilterTradeStatus }"
+                          SelectedValue="{Binding QueryVM.ByTradeStatus, Mode=TwoWay}">
+                    <ComboBox.Resources>
+                        <CollectionViewSource x:Key="cvs" Source="{Binding TradeStatusQueryValues}"/>
+                    </ComboBox.Resources>
+                </ComboBox>
+
+                <Separator/>
+                <!-- Load button -->
+                <Button Style="{StaticResource IconButtonStyle-28x24}"
+                        ToolTip="{x:Static i18n:ActionStrings.LoadJournal}"
+                        Command="{Binding TradesLoadCommand}">
+                    <StackPanel Orientation="Horizontal">
+                        <Viewbox Width="18" Height="18">
+                            <Path Margin="-3,-3,0,-3"
+                                  Fill="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"
+                                  Data="{StaticResource journal-arrow-up}"/>
+                        </Viewbox>
+                    </StackPanel>
+                </Button>
+
+
             </ToolBar>
-        </StackPanel>
+        </Grid>
 
-        <!-- Filter Toolbar -->
+        <!-- Date Filter Toolbar -->
         <ToolBar Grid.Row="2" DataContext="{Binding TradeHistory}">
-            <!-- Trading Account filter -->
-            <ComboBox x:Name="TradingAccountComboBox" Width="160"
-                      ItemsSource="{Binding TradingAccounts}"
-                      DisplayMemberPath="Title"
-                      SelectedValuePath="Id"
-                      SelectedItem="{Binding FilterTradingAccount }"
-                      SelectedValue="{Binding QueryVM.ByTradingAccountId, Mode=TwoWay}">
-                <ComboBox.Resources>
-                    <CollectionViewSource x:Key="cvs" Source="{Binding TradingAccounts}"/>
-                </ComboBox.Resources>
-            </ComboBox>
-            <TextBlock Text="{x:Static i18n:LocalizedStrings.TradingAccount}"
-                       VerticalAlignment="Stretch" Margin="-154,3,18,3"
-                       Foreground="#686868" Background="White"
-                       IsHitTestVisible="False">
-                <TextBlock.Style>
-                    <Style TargetType="TextBlock">
-                        <Setter Property="Visibility" Value="Collapsed" />
-                        <Style.Triggers>
-                            <MultiDataTrigger>
-                                <MultiDataTrigger.Conditions>
-                                    <Condition Binding="{Binding IsFocused, ElementName=TradingAccountComboBox}" Value="False" />
-                                    <Condition Binding="{Binding Text.Length, ElementName=TradingAccountComboBox, FallbackValue=0}" Value="0" />
-                                </MultiDataTrigger.Conditions>
-                                <Setter Property="Visibility" Value="Visible" />
-                            </MultiDataTrigger>
-                        </Style.Triggers>
-                    </Style>
-                </TextBlock.Style>
-            </TextBlock>
+            <!-- Entry date range -->
+            <TextBlock Text="{x:Static i18n:LocalizedStrings.EntryTime}"
+                        VerticalAlignment="Center" Margin="4,0,4,0"/>
+            <DatePicker Width="120" SelectedDate="{Binding QueryVM.EntryTimeMin, Mode=TwoWay}"
+                        ToolTip="From"/>
+            <Viewbox Width="12" Height="12" Margin="2,0,4,0">
+                <Path Fill="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"
+                        Data="{StaticResource arrow-right}"/>
+            </Viewbox>
+            <DatePicker Width="120" SelectedDate="{Binding QueryVM.EntryTimeMax, Mode=TwoWay}"
+                        ToolTip="To"/>
 
             <Separator/>
-
-            <!-- Symbol filter -->
-            <ComboBox x:Name="SymbolComboBox" Width="140"
-                      ItemsSource="{Binding Symbols}"
-                      DisplayMemberPath="TickerFull"
-                      SelectedValuePath="Id"
-                      SelectedValue="{Binding QueryVM.BySymbolId, Mode=TwoWay}"/>
-            <TextBlock Text="{x:Static i18n:LocalizedStrings.Symbol}"
-                       VerticalAlignment="Stretch" Margin="-134,3,18,3"
-                       Foreground="#686868" Background="White"
-                       IsHitTestVisible="False">
-                <TextBlock.Style>
-                    <Style TargetType="TextBlock">
-                        <Setter Property="Visibility" Value="Collapsed" />
-                        <Style.Triggers>
-                            <MultiDataTrigger>
-                                <MultiDataTrigger.Conditions>
-                                    <Condition Binding="{Binding IsFocused, ElementName=SymbolComboBox}" Value="False" />
-                                    <Condition Binding="{Binding Text.Length, ElementName=SymbolComboBox, FallbackValue=0}" Value="0" />
-                                </MultiDataTrigger.Conditions>
-                                <Setter Property="Visibility" Value="Visible" />
-                            </MultiDataTrigger>
-                        </Style.Triggers>
-                    </Style>
-                </TextBlock.Style>
-            </TextBlock>
-
-            <Separator/>
-
-
-            <!-- Load button -->
-            <Button Command="{Binding TradesLoadCommand}"
-                    ToolTip="{x:Static i18n:ActionStrings.Load}"
-                    Padding="6,2">
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="{x:Static i18n:ActionStrings.Load}"
-                               VerticalAlignment="Center" Margin="0,0,4,0"/>
-                    <Viewbox Width="14" Height="14">
-                        <Path Fill="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"
-                              Data="{StaticResource search}"/>
-                    </Viewbox>
-                </StackPanel>
-            </Button>
         </ToolBar>
 
         <!-- Master / Detail content area -->
@@ -419,7 +436,7 @@
                             <RowDefinition Height="Auto"/>
                             <RowDefinition Height="Auto"/>
                         </Grid.RowDefinitions>
-                        <TextBlock Grid.Column="0" Grid.Row="0" Margin="4,8,4,4"
+                        <TextBlock Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Margin="4,8,4,4"
                                    FontWeight="Bold" FontSize="16" Foreground="#FFFFF8F8"
                                    Text="{Binding TradingAccount.Title, Mode=OneWay}"
                                    HorizontalAlignment="Center"/>
@@ -502,7 +519,7 @@
                                            Text="{x:Static i18n:LocalizedStrings.CancellationTime}"/>
                                 <TextBlock Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="1"
                                            Text="{Binding CancellationTime, StringFormat=\{0:yyyy-MM-dd HH:mm\}, Mode=OneWay}" Margin="0,0,0,8"/>
-                                
+
                                 <TextBlock Grid.Column="3" Grid.Row="1" FontWeight="Bold"
                                            Style="{StaticResource RightAlignedTextBlockStyle}"
                                            Text="{x:Static i18n:LocalizedStrings.UpdatedAt}"/>
@@ -620,7 +637,7 @@
                                 <TextBlock Grid.Column="4" Grid.Row="7"
                                            Text="{Binding RealizedRiskAmount, StringFormat=\{0:N2\}, Mode=OneWay}"
                                            Style="{StaticResource RightAlignedTextBlockStyle}" Margin="0,0,0,8"/>
-                                
+
                                 <TextBlock Grid.Column="6" Grid.Row="7" FontWeight="Bold"
                                            Style="{StaticResource RightAlignedTextBlockStyle}"
                                            Text="{x:Static i18n:LocalizedStrings.PlannedRiskRewardRatio}"/>

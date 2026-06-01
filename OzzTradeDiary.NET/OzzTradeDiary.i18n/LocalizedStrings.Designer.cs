@@ -70,6 +70,15 @@ namespace TD.i18n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Active Or Waiting.
+        /// </summary>
+        public static string ActiveOrWaiting {
+            get {
+                return ResourceManager.GetString("ActiveOrWaiting", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add Currency.
         /// </summary>
         public static string AddCurrency {
@@ -399,6 +408,15 @@ namespace TD.i18n {
         public static string AfterHours {
             get {
                 return ResourceManager.GetString("AfterHours", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to All.
+        /// </summary>
+        public static string All {
+            get {
+                return ResourceManager.GetString("All", resourceCulture);
             }
         }
         
@@ -1483,6 +1501,15 @@ namespace TD.i18n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Missed Or Cancelled.
+        /// </summary>
+        public static string MissedOrCancelled {
+            get {
+                return ResourceManager.GetString("MissedOrCancelled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Month.
         /// </summary>
         public static string Month {
@@ -2293,6 +2320,15 @@ namespace TD.i18n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Trade Status Query.
+        /// </summary>
+        public static string TradeStatusQuery {
+            get {
+                return ResourceManager.GetString("TradeStatusQuery", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Trading Account.
         /// </summary>
         public static string TradingAccount {
@@ -2388,6 +2424,15 @@ namespace TD.i18n {
         public static string UpdatedAt {
             get {
                 return ResourceManager.GetString("UpdatedAt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Waiting.
+        /// </summary>
+        public static string Waiting {
+            get {
+                return ResourceManager.GetString("Waiting", resourceCulture);
             }
         }
     }

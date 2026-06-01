@@ -136,6 +136,9 @@
     <data name="Load" xml:space="preserve">
         <value>Yükle</value>
     </data>
+    <data name="LoadJournal" xml:space="preserve">
+        <value>Günlüğünü Yükle</value>
+    </data>
     <data name="Login" xml:space="preserve">
         <value>Giriş Yap</value>
     </data>

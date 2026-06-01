@@ -17,6 +17,10 @@
     <Translation>Aktif</Translation>
   </Vocab>
   <Vocab>
+    <Name>ActiveOrWaiting</Name>
+    <Translation>Actif veya Bekleyen</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Add</Name>
     <Translation>Ekle</Translation>
   </Vocab>
@@ -287,6 +291,10 @@
   <Vocab>
     <Name>AfterHours</Name>
     <Translation>Seans Sonrası</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>All</Name>
+    <Translation>All</Translation>
   </Vocab>
   <Vocab>
     <Name>Always</Name>
@@ -1321,6 +1329,10 @@
     <Translation>Yükleniyor</Translation>
   </Vocab>
   <Vocab>
+    <Name>LoadJournal</Name>
+    <Translation>Günlüğünü Yükle</Translation>
+  </Vocab>
+  <Vocab>
     <Name>LocalClose</Name>
     <Translation>Kapanış (Yerel Saat)</Translation>
   </Vocab>
@@ -1403,6 +1415,10 @@
   <Vocab>
     <Name>Missed</Name>
     <Translation>Kaçırıldı</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>MissedOrCancelled</Name>
+    <Translation>Kaçmış veya İptal</Translation>
   </Vocab>
   <Vocab>
     <Name>ModifierId</Name>
@@ -2326,7 +2342,11 @@
   </Vocab>
   <Vocab>
     <Name>TradeStatus</Name>
-    <Translation>İşlem Durumu </Translation>
+    <Translation>İşlem Durumu</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>TradeStatusQuery</Name>
+    <Translation>İşlem Durum Sorgusu</Translation>
   </Vocab>
   <Vocab>
     <Name>TradingAccount</Name>
@@ -2435,6 +2455,10 @@
   <Vocab>
     <Name>ViewOnGitHub</Name>
     <Translation>GitHub'da Gör</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Waiting</Name>
+    <Translation>Bekleyen</Translation>
   </Vocab>
   <Vocab>
     <Name>Width</Name>

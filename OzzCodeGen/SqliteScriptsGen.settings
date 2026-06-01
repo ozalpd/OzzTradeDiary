@@ -10,20 +10,7 @@
       <OverwriteExisting>false</OverwriteExisting>
       <Properties>
         <StorageColumnSetting>
-          <Name>OrderProfitAmount</Name>
-          <Exclude>false</Exclude>
-          <DataType>REAL</DataType>
-          <Length>0</Length>
-          <PrimaryKey>false</PrimaryKey>
-          <Indexed>false</Indexed>
-          <Unique>false</Unique>
-          <SortDesc>false</SortDesc>
-          <Nullable>true</Nullable>
-          <CheckIfAltered>false</CheckIfAltered>
-          <DoNotLog>false</DoNotLog>
-        </StorageColumnSetting>
-        <StorageColumnSetting>
-          <Name>OrderRiskAmount</Name>
+          <Name>FeesCalculated</Name>
           <Exclude>false</Exclude>
           <DataType>REAL</DataType>
           <Length>0</Length>
@@ -62,7 +49,46 @@
           <DoNotLog>false</DoNotLog>
         </StorageColumnSetting>
         <StorageColumnSetting>
-          <Name>FeesCalculated</Name>
+          <Name>OrderProfitAmount</Name>
+          <Exclude>false</Exclude>
+          <DataType>REAL</DataType>
+          <Length>0</Length>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <Unique>false</Unique>
+          <SortDesc>false</SortDesc>
+          <Nullable>true</Nullable>
+          <CheckIfAltered>false</CheckIfAltered>
+          <DoNotLog>false</DoNotLog>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>OrderRiskAmount</Name>
+          <Exclude>false</Exclude>
+          <DataType>REAL</DataType>
+          <Length>0</Length>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <Unique>false</Unique>
+          <SortDesc>false</SortDesc>
+          <Nullable>true</Nullable>
+          <CheckIfAltered>false</CheckIfAltered>
+          <DoNotLog>false</DoNotLog>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>RemainingOpenPositionValue</Name>
+          <Exclude>false</Exclude>
+          <DataType>REAL</DataType>
+          <Length>0</Length>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <Unique>false</Unique>
+          <SortDesc>false</SortDesc>
+          <Nullable>true</Nullable>
+          <CheckIfAltered>false</CheckIfAltered>
+          <DoNotLog>false</DoNotLog>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>RemainingOpenQuantity</Name>
           <Exclude>false</Exclude>
           <DataType>REAL</DataType>
           <Length>0</Length>
@@ -102,6 +128,58 @@
         </StorageColumnSetting>
         <StorageColumnSetting>
           <Name>RealizedR</Name>
+          <Exclude>false</Exclude>
+          <DataType>REAL</DataType>
+          <Length>0</Length>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <Unique>false</Unique>
+          <SortDesc>false</SortDesc>
+          <Nullable>true</Nullable>
+          <CheckIfAltered>false</CheckIfAltered>
+          <DoNotLog>false</DoNotLog>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>UnallocatedSLQuantity</Name>
+          <Exclude>false</Exclude>
+          <DataType>REAL</DataType>
+          <Length>0</Length>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <Unique>false</Unique>
+          <SortDesc>false</SortDesc>
+          <Nullable>true</Nullable>
+          <CheckIfAltered>false</CheckIfAltered>
+          <DoNotLog>false</DoNotLog>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>UnallocatedStopLossQuantity</Name>
+          <Exclude>false</Exclude>
+          <DataType>REAL</DataType>
+          <Length>0</Length>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <Unique>false</Unique>
+          <SortDesc>false</SortDesc>
+          <Nullable>true</Nullable>
+          <CheckIfAltered>false</CheckIfAltered>
+          <DoNotLog>false</DoNotLog>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>UnallocatedTakeProfitQuantity</Name>
+          <Exclude>false</Exclude>
+          <DataType>REAL</DataType>
+          <Length>0</Length>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <Unique>false</Unique>
+          <SortDesc>false</SortDesc>
+          <Nullable>true</Nullable>
+          <CheckIfAltered>false</CheckIfAltered>
+          <DoNotLog>false</DoNotLog>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>UnallocatedTPQuantity</Name>
           <Exclude>false</Exclude>
           <DataType>REAL</DataType>
           <Length>0</Length>

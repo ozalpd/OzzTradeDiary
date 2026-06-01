@@ -136,6 +136,9 @@
     <data name="Load" xml:space="preserve">
         <value>Load</value>
     </data>
+    <data name="LoadJournal" xml:space="preserve">
+        <value>Load Your Journal</value>
+    </data>
     <data name="Login" xml:space="preserve">
         <value>Login</value>
     </data>

@@ -1,10 +1,12 @@
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using TD.AppInfra.Services;
+using TD.Extensions;
 using TD.Models;
 using TD.RepositoryContracts;
 using TD.WPF.Commands.Trades;
 using TD.WPF.Services;
+using static TD.Extensions.EnumExtension;
 
 namespace TD.WPF.ViewModels.Trades
 {
@@ -17,6 +19,8 @@ namespace TD.WPF.ViewModels.Trades
             _allSymbols = new List<Symbol>();
             _symbolLookup = symbolLookupService;
             _tradingAccountLookup = tradingAccountLookupService;
+
+            TradeStatusQueryValues = GetOrderedValues<TradeStatusQuery>();
 
             EntryOrders = new ObservableCollection<EntryOrder>();
             EntryOrderCreateCommand = new EntryOrderCreateCommand(this, windowDialogService);
@@ -34,6 +38,7 @@ namespace TD.WPF.ViewModels.Trades
             TakeProfitOrderEditCommand = new TakeProfitOrderEditCommand(this, windowDialogService);
 
             QueryVM.PageSize = 50;
+            QueryVM.ByTradeStatus = 0;
         }
 
 
@@ -107,6 +112,8 @@ namespace TD.WPF.ViewModels.Trades
         }
         private TradingAccount? _byTradingAccount;
         public ObservableCollection<TradingAccount> TradingAccounts { get; } = new();
+
+        public IEnumerable<EnumValueItem<TradeStatusQuery>> TradeStatusQueryValues { get; private set; } = Array.Empty<EnumValueItem<TradeStatusQuery>>();
 
         public async Task InitializeAsync()
         {

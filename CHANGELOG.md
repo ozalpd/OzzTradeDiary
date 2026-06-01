@@ -4,6 +4,17 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.2.1] - 2026-06-01
+
+### Added
+- Introduced `TradeStatusQuery` enum for flexible trade status filtering in UI and repository.
+
+### Changed
+- Updated `TradeQueryParameters` and `ViewModel` to use `TradeStatusQuery`, enabling grouped and advanced status queries.
+- Extended repository filtering logic to interpret new enum values.
+- Updated `MainWindow` filter toolbar with a localized, ordered `ComboBox` for status selection. Enhanced enum extension helpers for display order support.
+- No breaking changes; all updates are backward-compatible.
+
 ## [0.2.0] - 2026-05-30
 
 ### Added

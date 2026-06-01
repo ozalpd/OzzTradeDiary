@@ -295,6 +295,15 @@ namespace TD.i18n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Load Your Journal.
+        /// </summary>
+        public static string LoadJournal {
+            get {
+                return ResourceManager.GetString("LoadJournal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Login.
         /// </summary>
         public static string Login {

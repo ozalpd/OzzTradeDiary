@@ -225,9 +225,55 @@
       </Members>
     </EnumDefinition>
     <EnumDefinition>
-      <Name>Trade</Name>
+      <Name>TradeStatus</Name>
       <NamespaceName>TD</NamespaceName>
       <Members>
+        <EnumMember>
+          <Name>Planned</Name>
+          <Value>10</Value>
+        </EnumMember>
+        <EnumMember>
+          <Name>Pending</Name>
+          <Value>20</Value>
+        </EnumMember>
+        <EnumMember>
+          <Name>Active</Name>
+          <Value>30</Value>
+        </EnumMember>
+        <EnumMember>
+          <Name>Closed</Name>
+          <Value>40</Value>
+        </EnumMember>
+        <EnumMember>
+          <Name>Missed</Name>
+          <Value>-10</Value>
+        </EnumMember>
+        <EnumMember>
+          <Name>Cancelled</Name>
+          <Value>-20</Value>
+        </EnumMember>
+      </Members>
+    </EnumDefinition>
+    <EnumDefinition>
+      <Name>TradeStatusQuery</Name>
+      <NamespaceName>TD</NamespaceName>
+      <Members>
+        <EnumMember>
+          <Name>All</Name>
+          <Value>0</Value>
+        </EnumMember>
+        <EnumMember>
+          <Name>Waiting</Name>
+          <Value>1010</Value>
+        </EnumMember>
+        <EnumMember>
+          <Name>ActiveOrWaiting</Name>
+          <Value>1020</Value>
+        </EnumMember>
+        <EnumMember>
+          <Name>MissedOrCancelled</Name>
+          <Value>1030</Value>
+        </EnumMember>
         <EnumMember>
           <Name>Planned</Name>
           <Value>10</Value>
@@ -2246,9 +2292,9 @@
   <CodeEngineList>
     <string>Wpf_Mvvm_View_ViewModel_Generator</string>
     <string>Localization_Resource_Generator</string>
+    <string>CS_Model_Class_Generator</string>
     <string>Sqlite_Scripts_Generator</string>
     <string>CS_Sqlite_Repository_Generator</string>
-    <string>CS_Model_Class_Generator</string>
     <string>T-Sql_Scripts_Generator</string>
   </CodeEngineList>
 </CodeGenProject>

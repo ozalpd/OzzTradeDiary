@@ -56,6 +56,9 @@
 
         public static string ToRoundedString(this decimal value)
         {
+            if (value == 0)
+                return value.ToString("N2");
+
             string s;
             if (value > 200000)
             {
@@ -81,9 +84,13 @@
             {
                 s = value.RoundToQuantum().ToString("N5");
             }
-            else
+            else if (value > 1)
             {
                 s = value.RoundToQuantum().ToString("N6");
+            }
+            else
+            {
+                s = value.RoundToQuantum().ToString("N7");
             }
             return s;
         }

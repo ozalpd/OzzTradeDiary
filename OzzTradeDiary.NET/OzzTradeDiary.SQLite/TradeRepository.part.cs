@@ -1,9 +1,46 @@
-﻿using TD.Models;
+﻿using Microsoft.Data.Sqlite;
+using TD.Helpers;
+using TD.Models;
+using TD.SQLite.Extensions;
 
 namespace TD.SQLite
 {
     public partial class TradeRepository
     {
+        partial void OnAppendingWhere(TradeQueryParameters queryParameters, List<string> whereClauses, SqliteCommand command)
+        {
+
+            if (queryParameters.TradeStatus.HasValue && queryParameters.TradeStatus.Value is TradeStatusQuery stat && (int)stat != 0)
+            {
+                if ((int)stat < 1000)
+                {
+                    whereClauses.Add("TradeStatus = @tradeStatus");
+                    command.AddParameter("@tradeStatus", (int)stat);
+                }
+                else if (stat == TradeStatusQuery.Waiting)
+                {
+                    whereClauses.Add("TradeStatus < @tradeStatusOpen");
+                    command.AddParameter("@tradeStatusOpen", (int)TradeStatusQuery.Active);
+                }
+                else if (stat == TradeStatusQuery.ActiveOrWaiting)
+                {
+                    whereClauses.Add("TradeStatus < @tradeStatusClosed");
+                    command.AddParameter("@tradeStatusClosed", (int)TradeStatusQuery.Closed);
+                }
+                else if (stat == TradeStatusQuery.MissedOrCancelled)
+                {
+                    whereClauses.Add("TradeStatus < @notMissedOrCancelled");
+                    command.AddParameter("@notMissedOrCancelled", 0);
+                }
+
+                if (stat == TradeStatusQuery.Waiting || stat == TradeStatusQuery.ActiveOrWaiting)
+                {
+                    whereClauses.Add("TradeStatus > @notMissedOrCancelled");
+                    command.AddParameter("@notMissedOrCancelled", 0);
+                }
+            }
+        }
+
         partial void OnCreated(Trade trade)
         {
             _ = SaveNavigationCollectionsAsync(trade);

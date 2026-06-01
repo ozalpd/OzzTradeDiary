@@ -317,9 +317,10 @@ namespace TD.SQLite
             return result;
         }
 
-        private static void AppendWhere(TradeQueryParameters queryParameters, SqliteCommand command)
+        private void AppendWhere(TradeQueryParameters queryParameters, SqliteCommand command)
         {
             var whereClauses = new List<string>();
+            OnAppendingWhere(queryParameters, whereClauses, command);
 
             if (queryParameters.TradingAccountId.HasValue)
             {
@@ -335,11 +336,6 @@ namespace TD.SQLite
             {
                 whereClauses.Add("TradeDirection = @tradeDirection");
                 command.AddParameter("@tradeDirection", (int)queryParameters.TradeDirection.Value);
-            }
-            if (queryParameters.TradeStatus.HasValue)
-            {
-                whereClauses.Add("TradeStatus = @tradeStatus");
-                command.AddParameter("@tradeStatus", (int)queryParameters.TradeStatus.Value);
             }
             if (queryParameters.MarketType.HasValue)
             {
@@ -492,6 +488,7 @@ namespace TD.SQLite
                 command.CommandText += whereClause;
             }
         }
+        partial void OnAppendingWhere(TradeQueryParameters queryParameters, List<string> whereClauses, SqliteCommand command);
 
         public async Task<int> CreateAsync(Trade trade)
         {
