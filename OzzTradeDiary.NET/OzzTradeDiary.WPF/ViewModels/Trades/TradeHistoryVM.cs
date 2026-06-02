@@ -77,7 +77,12 @@ namespace TD.WPF.ViewModels.Trades
                                                                          && v.Value != TradeDateType.CancellationTime)
                                                                 .ToList();
                     ReplaceCollection(TradeDateTypeValues, tradeDateTypes);
-                    QueryVM.ByTradeDateType = TradeDateType.EntryTime;
+
+                    if (tradeStatus == TradeStatusQuery.Active)
+                        QueryVM.ByTradeDateType = TradeDateType.EntryTime;
+
+                    if (tradeStatus == TradeStatusQuery.ActiveOrWaiting)
+                        QueryVM.ByTradeDateType = TradeDateType.UpdateTime;
                 }
                 else if (tradeStatus == TradeStatusQuery.Closed)
                 {
