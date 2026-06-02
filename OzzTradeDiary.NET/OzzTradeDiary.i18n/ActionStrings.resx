@@ -85,8 +85,23 @@
     <data name="Clear" xml:space="preserve">
         <value>Clear</value>
     </data>
+    <data name="ClearAccounts" xml:space="preserve">
+        <value>Clear Accounts</value>
+    </data>
+    <data name="ClearDates" xml:space="preserve">
+        <value>Clear Dates</value>
+    </data>
+    <data name="ClearSymbols" xml:space="preserve">
+        <value>Clear Symbols</value>
+    </data>
+    <data name="ClearTradingAccounts" xml:space="preserve">
+        <value>Clear Trading Accounts</value>
+    </data>
     <data name="Clone" xml:space="preserve">
         <value>Clone</value>
+    </data>
+    <data name="Close" xml:space="preserve">
+        <value>Close</value>
     </data>
     <data name="Create" xml:space="preserve">
         <value>Create</value>
@@ -160,6 +175,18 @@
     <data name="OK" xml:space="preserve">
         <value>OK</value>
     </data>
+    <data name="Open" xml:space="preserve">
+        <value>Open</value>
+    </data>
+    <data name="OpenDetail" xml:space="preserve">
+        <value>Open Detail</value>
+    </data>
+    <data name="OpenDetails" xml:space="preserve">
+        <value>Open Details</value>
+    </data>
+    <data name="OpenMaintenanceWindow" xml:space="preserve">
+        <value>Open Maintenance Window</value>
+    </data>
     <data name="Print" xml:space="preserve">
         <value>Print</value>
     </data>
@@ -207,6 +234,15 @@
     </data>
     <data name="Show" xml:space="preserve">
         <value>Show</value>
+    </data>
+    <data name="ShowDetail" xml:space="preserve">
+        <value>Show Detail</value>
+    </data>
+    <data name="ShowDetails" xml:space="preserve">
+        <value>Show Details</value>
+    </data>
+    <data name="ShowMaintenanceWindow" xml:space="preserve">
+        <value>Show Maintenance Window</value>
     </data>
     <data name="Summary" xml:space="preserve">
         <value>Summary</value>

@@ -67,6 +67,12 @@
     <data name="Home" xml:space="preserve">
         <value>Ana Sayfa</value>
     </data>
+    <data name="MaintenanceView" xml:space="preserve">
+        <value>Bakım Sayfası</value>
+    </data>
+    <data name="MaintenanceWindow" xml:space="preserve">
+        <value>Bakım Penceresi</value>
+    </data>
     <data name="Page" xml:space="preserve">
         <value>Sayfa</value>
     </data>

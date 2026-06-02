@@ -4,15 +4,21 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
-## [0.2.1] - 2026-06-01
+## [0.2.1] - 2026-06-02
 
 ### Added
 - Introduced `TradeStatusQuery` enum for flexible trade status filtering in UI and repository.
+- Introduced `TradeDateType` enum for flexible date filtering (Entry, Exit, Cancellation, Update)
 
 ### Changed
 - Updated `TradeQueryParameters` and `ViewModel` to use `TradeStatusQuery`, enabling grouped and advanced status queries.
 - Extended repository filtering logic to interpret new enum values.
 - Updated `MainWindow` filter toolbar with a localized, ordered `ComboBox` for status selection. Enhanced enum extension helpers for display order support.
+- Extended `TradeQueryParameters` and `ViewModel` with `TradeDateType`, `StartDate`, `EndDate`, and `CancellationTime` min/max
+- Updated repository logic to support filtering by selected date type
+- Added `TradeDateType` ComboBox and bound new date properties in `MainWindow` UI
+- Dynamically adjusted `TradeDateType` options based on `TradeStatusQuery` in `TradeHistoryVM`
+- Minor code style and whitespace cleanups
 - No breaking changes; all updates are backward-compatible.
 
 ## [0.2.0] - 2026-05-30

@@ -76,9 +76,6 @@
     <data name="AddHoliday" xml:space="preserve">
         <value>Tatil Ekle</value>
     </data>
-    <data name="AddIUpdatedAt" xml:space="preserve">
-        <value>Değişiklik Tarihi Ekle</value>
-    </data>
     <data name="AddNewCurrency" xml:space="preserve">
         <value>Yeni Döviz Ekle</value>
     </data>
@@ -90,9 +87,6 @@
     </data>
     <data name="AddNewHoliday" xml:space="preserve">
         <value>Yeni Tatil Ekle</value>
-    </data>
-    <data name="AddNewIUpdatedAt" xml:space="preserve">
-        <value>Yeni Değişiklik Tarihi Ekle</value>
     </data>
     <data name="AddNewSession" xml:space="preserve">
         <value>Yeni Seans Ekle</value>
@@ -126,9 +120,6 @@
     </data>
     <data name="AddRemoveHoliday" xml:space="preserve">
         <value>Tatil Ekle/Çıkar</value>
-    </data>
-    <data name="AddRemoveIUpdatedAt" xml:space="preserve">
-        <value>Değişiklik Tarihi Ekle/Çıkar</value>
     </data>
     <data name="AddRemoveSession" xml:space="preserve">
         <value>Seans Ekle/Çıkar</value>
@@ -176,7 +167,7 @@
         <value>Seans Sonrası</value>
     </data>
     <data name="All" xml:space="preserve">
-        <value>All</value>
+        <value>Tümü</value>
     </data>
     <data name="Balance" xml:space="preserve">
         <value>Bakiye</value>
@@ -222,9 +213,6 @@
     </data>
     <data name="CreateHoliday" xml:space="preserve">
         <value>Tatil Oluştur</value>
-    </data>
-    <data name="CreateIUpdatedAt" xml:space="preserve">
-        <value>Değişiklik Tarihi Oluştur</value>
     </data>
     <data name="CreateSession" xml:space="preserve">
         <value>Seans Oluştur</value>
@@ -307,9 +295,6 @@
     <data name="DeleteHoliday" xml:space="preserve">
         <value>Tatili Sil</value>
     </data>
-    <data name="DeleteIUpdatedAt" xml:space="preserve">
-        <value>Değişiklik Tarihini Sil</value>
-    </data>
     <data name="DeleteSession" xml:space="preserve">
         <value>Seansı Sil</value>
     </data>
@@ -348,9 +333,6 @@
     </data>
     <data name="EditHoliday" xml:space="preserve">
         <value>Tatili Düzenle</value>
-    </data>
-    <data name="EditIUpdatedAt" xml:space="preserve">
-        <value>Değişiklik Tarihini Düzenle</value>
     </data>
     <data name="EditSession" xml:space="preserve">
         <value>Seansı Düzenle</value>
@@ -505,15 +487,6 @@
     <data name="IsHalfDay" xml:space="preserve">
         <value>Yarım Gün</value>
     </data>
-    <data name="IUpdatedAt" xml:space="preserve">
-        <value>Değişiklik Tarihi</value>
-    </data>
-    <data name="IUpdatedAts" xml:space="preserve">
-        <value>Değişiklik Tarihleri</value>
-    </data>
-    <data name="IUpdatedAtsList" xml:space="preserve">
-        <value>Değişiklik Tarih Listesi</value>
-    </data>
     <data name="Limit" xml:space="preserve">
         <value>Limit</value>
     </data>
@@ -655,9 +628,6 @@
     <data name="RemoveHoliday" xml:space="preserve">
         <value>Tatil Çıkar</value>
     </data>
-    <data name="RemoveIUpdatedAt" xml:space="preserve">
-        <value>Değişiklik Tarihini Çıkar</value>
-    </data>
     <data name="RemoveSession" xml:space="preserve">
         <value>Seans Çıkar</value>
     </data>
@@ -784,6 +754,9 @@
     <data name="Trade" xml:space="preserve">
         <value>İşlem</value>
     </data>
+    <data name="TradeDateType" xml:space="preserve">
+        <value>İşlem Tarih Türü</value>
+    </data>
     <data name="TradeDirection" xml:space="preserve">
         <value>İşlem Yönü</value>
     </data>
@@ -845,7 +818,10 @@
         <value>Belirtilmemiş</value>
     </data>
     <data name="UpdatedAt" xml:space="preserve">
-        <value>Değişiklik Tarihi</value>
+        <value>Değişiklik Zamanı</value>
+    </data>
+    <data name="UpdateTime" xml:space="preserve">
+        <value>Değişiklik Zamanı</value>
     </data>
     <data name="Waiting" xml:space="preserve">
         <value>Bekleyen</value>

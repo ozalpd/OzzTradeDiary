@@ -67,6 +67,12 @@
     <data name="Home" xml:space="preserve">
         <value>Home</value>
     </data>
+    <data name="MaintenanceView" xml:space="preserve">
+        <value>Maintenance View</value>
+    </data>
+    <data name="MaintenanceWindow" xml:space="preserve">
+        <value>Maintenance Window</value>
+    </data>
     <data name="Page" xml:space="preserve">
         <value>Page</value>
     </data>

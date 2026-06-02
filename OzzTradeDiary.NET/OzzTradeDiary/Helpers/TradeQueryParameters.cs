@@ -35,6 +35,8 @@ namespace TD.Helpers
                 EntryTimeMax = tradeQueryParams.EntryTimeMax;
                 ExitTimeMin = tradeQueryParams.ExitTimeMin;
                 ExitTimeMax = tradeQueryParams.ExitTimeMax;
+                CancellationTimeMin = tradeQueryParams.CancellationTimeMin;
+                CancellationTimeMax = tradeQueryParams.CancellationTimeMax;
                 PlannedPositionValueMin = tradeQueryParams.PlannedPositionValueMin;
                 PlannedPositionValueMax = tradeQueryParams.PlannedPositionValueMax;
                 ExecutedPositionValueMin = tradeQueryParams.ExecutedPositionValueMin;
@@ -64,6 +66,8 @@ namespace TD.Helpers
         public DateTime? EntryTimeMax { get; set; }
         public DateTime? ExitTimeMin { get; set; }
         public DateTime? ExitTimeMax { get; set; }
+        public DateTime? CancellationTimeMin { get; set; }
+        public DateTime? CancellationTimeMax { get; set; }
         public decimal? PlannedPositionValueMin { get; set; }
         public decimal? PlannedPositionValueMax { get; set; }
         public decimal? ExecutedPositionValueMin { get; set; }
@@ -94,6 +98,7 @@ namespace TD.Helpers
             _hasAnySearchCriteria = _hasAnySearchCriteria || MarketType.HasValue;
             _hasAnySearchCriteria = _hasAnySearchCriteria || EntryTimeMin.HasValue || EntryTimeMax.HasValue;
             _hasAnySearchCriteria = _hasAnySearchCriteria || ExitTimeMin.HasValue || ExitTimeMax.HasValue;
+            _hasAnySearchCriteria = _hasAnySearchCriteria || CancellationTimeMin.HasValue || CancellationTimeMax.HasValue;
             _hasAnySearchCriteria = _hasAnySearchCriteria || PlannedPositionValueMin.HasValue || PlannedPositionValueMax.HasValue;
             _hasAnySearchCriteria = _hasAnySearchCriteria || ExecutedPositionValueMin.HasValue || ExecutedPositionValueMax.HasValue;
             _hasAnySearchCriteria = _hasAnySearchCriteria || PlannedProfitMin.HasValue || PlannedProfitMax.HasValue;

@@ -57,10 +57,6 @@
     <Translation>Add Holiday</Translation>
   </Vocab>
   <Vocab>
-    <Name>AddIUpdatedAt</Name>
-    <Translation>Add IUpdated At</Translation>
-  </Vocab>
-  <Vocab>
     <Name>AddNew</Name>
     <Translation>Add New</Translation>
   </Vocab>
@@ -99,10 +95,6 @@
   <Vocab>
     <Name>AddNewHoliday</Name>
     <Translation>Add New Holiday</Translation>
-  </Vocab>
-  <Vocab>
-    <Name>AddNewIUpdatedAt</Name>
-    <Translation>Add New IUpdated At</Translation>
   </Vocab>
   <Vocab>
     <Name>AddNewOrderItem</Name>
@@ -199,10 +191,6 @@
   <Vocab>
     <Name>AddRemoveHoliday</Name>
     <Translation>Add Remove Holiday</Translation>
-  </Vocab>
-  <Vocab>
-    <Name>AddRemoveIUpdatedAt</Name>
-    <Translation>Add Remove IUpdated At</Translation>
   </Vocab>
   <Vocab>
     <Name>AddRemoveSession</Name>
@@ -405,8 +393,28 @@
     <Translation>Clear</Translation>
   </Vocab>
   <Vocab>
+    <Name>ClearAccounts</Name>
+    <Translation>Clear Accounts</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ClearDates</Name>
+    <Translation>Clear Dates</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ClearSymbols</Name>
+    <Translation>Clear Symbols</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ClearTradingAccounts</Name>
+    <Translation>Clear Trading Accounts</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Clone</Name>
     <Translation>Clone</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Close</Name>
+    <Translation>Close</Translation>
   </Vocab>
   <Vocab>
     <Name>Closed</Name>
@@ -547,10 +555,6 @@
   <Vocab>
     <Name>CreateHoliday</Name>
     <Translation>Create Holiday</Translation>
-  </Vocab>
-  <Vocab>
-    <Name>CreateIUpdatedAt</Name>
-    <Translation>Create IUpdated At</Translation>
   </Vocab>
   <Vocab>
     <Name>CreateNew</Name>
@@ -773,10 +777,6 @@
     <Translation>Delete Holiday</Translation>
   </Vocab>
   <Vocab>
-    <Name>DeleteIUpdatedAt</Name>
-    <Translation>Delete IUpdated At</Translation>
-  </Vocab>
-  <Vocab>
     <Name>DeleteOrder</Name>
     <Translation>Delete Order</Translation>
   </Vocab>
@@ -927,10 +927,6 @@
   <Vocab>
     <Name>EditHoliday</Name>
     <Translation>Edit Holiday</Translation>
-  </Vocab>
-  <Vocab>
-    <Name>EditIUpdatedAt</Name>
-    <Translation>Edit IUpdated At</Translation>
   </Vocab>
   <Vocab>
     <Name>EditOrder</Name>
@@ -1293,18 +1289,6 @@
     <Translation>Is Published</Translation>
   </Vocab>
   <Vocab>
-    <Name>IUpdatedAt</Name>
-    <Translation>IUpdated At</Translation>
-  </Vocab>
-  <Vocab>
-    <Name>IUpdatedAts</Name>
-    <Translation>IUpdated Ats</Translation>
-  </Vocab>
-  <Vocab>
-    <Name>IUpdatedAtsList</Name>
-    <Translation>IUpdated Ats List</Translation>
-  </Vocab>
-  <Vocab>
     <Name>Lastname</Name>
     <Translation>Lastname</Translation>
   </Vocab>
@@ -1383,6 +1367,14 @@
   <Vocab>
     <Name>MaintenanceBreak</Name>
     <Translation>Maintenance Break</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>MaintenanceView</Name>
+    <Translation>Maintenance View</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>MaintenanceWindow</Name>
+    <Translation>Maintenance Window</Translation>
   </Vocab>
   <Vocab>
     <Name>MakerFeeRate</Name>
@@ -1485,8 +1477,24 @@
     <Translation>OK</Translation>
   </Vocab>
   <Vocab>
+    <Name>Open</Name>
+    <Translation>Open</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>OpenDetail</Name>
+    <Translation>Open Detail</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>OpenDetails</Name>
+    <Translation>Open Details</Translation>
+  </Vocab>
+  <Vocab>
     <Name>OpeningAuction</Name>
     <Translation>Opening Auction</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>OpenMaintenanceWindow</Name>
+    <Translation>Open Maintenance Window</Translation>
   </Vocab>
   <Vocab>
     <Name>Option</Name>
@@ -1893,10 +1901,6 @@
     <Translation>Remove Holiday</Translation>
   </Vocab>
   <Vocab>
-    <Name>RemoveIUpdatedAt</Name>
-    <Translation>Remove IUpdated At</Translation>
-  </Vocab>
-  <Vocab>
     <Name>RemoveSession</Name>
     <Translation>Remove Session</Translation>
   </Vocab>
@@ -2079,6 +2083,18 @@
   <Vocab>
     <Name>Show</Name>
     <Translation>Show</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ShowDetail</Name>
+    <Translation>Show Detail</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ShowDetails</Name>
+    <Translation>Show Details</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ShowMaintenanceWindow</Name>
+    <Translation>Show Maintenance Window</Translation>
   </Vocab>
   <Vocab>
     <Name>Size</Name>
@@ -2309,6 +2325,10 @@
     <Translation>Trade</Translation>
   </Vocab>
   <Vocab>
+    <Name>TradeDateType</Name>
+    <Translation>Trade Date Type</Translation>
+  </Vocab>
+  <Vocab>
     <Name>TradeDirection</Name>
     <Translation>Trade Direction</Translation>
   </Vocab>
@@ -2419,6 +2439,10 @@
   <Vocab>
     <Name>UpdatedAt</Name>
     <Translation>Updated At</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>UpdateTime</Name>
+    <Translation>Update Time</Translation>
   </Vocab>
   <Vocab>
     <Name>UserName</Name>

@@ -115,15 +115,6 @@ namespace TD.i18n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Add IUpdated At.
-        /// </summary>
-        public static string AddIUpdatedAt {
-            get {
-                return ResourceManager.GetString("AddIUpdatedAt", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Add New Currency.
         /// </summary>
         public static string AddNewCurrency {
@@ -156,15 +147,6 @@ namespace TD.i18n {
         public static string AddNewHoliday {
             get {
                 return ResourceManager.GetString("AddNewHoliday", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Add New IUpdated At.
-        /// </summary>
-        public static string AddNewIUpdatedAt {
-            get {
-                return ResourceManager.GetString("AddNewIUpdatedAt", resourceCulture);
             }
         }
         
@@ -264,15 +246,6 @@ namespace TD.i18n {
         public static string AddRemoveHoliday {
             get {
                 return ResourceManager.GetString("AddRemoveHoliday", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Add Remove IUpdated At.
-        /// </summary>
-        public static string AddRemoveIUpdatedAt {
-            get {
-                return ResourceManager.GetString("AddRemoveIUpdatedAt", resourceCulture);
             }
         }
         
@@ -556,15 +529,6 @@ namespace TD.i18n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Create IUpdated At.
-        /// </summary>
-        public static string CreateIUpdatedAt {
-            get {
-                return ResourceManager.GetString("CreateIUpdatedAt", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Create Session.
         /// </summary>
         public static string CreateSession {
@@ -808,15 +772,6 @@ namespace TD.i18n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Delete IUpdated At.
-        /// </summary>
-        public static string DeleteIUpdatedAt {
-            get {
-                return ResourceManager.GetString("DeleteIUpdatedAt", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Delete Session.
         /// </summary>
         public static string DeleteSession {
@@ -930,15 +885,6 @@ namespace TD.i18n {
         public static string EditHoliday {
             get {
                 return ResourceManager.GetString("EditHoliday", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Edit IUpdated At.
-        /// </summary>
-        public static string EditIUpdatedAt {
-            get {
-                return ResourceManager.GetString("EditIUpdatedAt", resourceCulture);
             }
         }
         
@@ -1402,33 +1348,6 @@ namespace TD.i18n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to IUpdated At.
-        /// </summary>
-        public static string IUpdatedAt {
-            get {
-                return ResourceManager.GetString("IUpdatedAt", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to IUpdated Ats.
-        /// </summary>
-        public static string IUpdatedAts {
-            get {
-                return ResourceManager.GetString("IUpdatedAts", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to IUpdated Ats List.
-        /// </summary>
-        public static string IUpdatedAtsList {
-            get {
-                return ResourceManager.GetString("IUpdatedAtsList", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Limit.
         /// </summary>
         public static string Limit {
@@ -1852,15 +1771,6 @@ namespace TD.i18n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Remove IUpdated At.
-        /// </summary>
-        public static string RemoveIUpdatedAt {
-            get {
-                return ResourceManager.GetString("RemoveIUpdatedAt", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Remove Session.
         /// </summary>
         public static string RemoveSession {
@@ -2239,6 +2149,15 @@ namespace TD.i18n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Trade Date Type.
+        /// </summary>
+        public static string TradeDateType {
+            get {
+                return ResourceManager.GetString("TradeDateType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Trade Direction.
         /// </summary>
         public static string TradeDirection {
@@ -2424,6 +2343,15 @@ namespace TD.i18n {
         public static string UpdatedAt {
             get {
                 return ResourceManager.GetString("UpdatedAt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Update Time.
+        /// </summary>
+        public static string UpdateTime {
+            get {
+                return ResourceManager.GetString("UpdateTime", resourceCulture);
             }
         }
         

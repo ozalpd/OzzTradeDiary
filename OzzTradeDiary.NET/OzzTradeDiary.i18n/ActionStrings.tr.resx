@@ -85,8 +85,23 @@
     <data name="Clear" xml:space="preserve">
         <value>Temizle</value>
     </data>
+    <data name="ClearAccounts" xml:space="preserve">
+        <value>Hesapları Temizle</value>
+    </data>
+    <data name="ClearDates" xml:space="preserve">
+        <value>Tarihleri Temizle</value>
+    </data>
+    <data name="ClearSymbols" xml:space="preserve">
+        <value>Sembolleri Temizle</value>
+    </data>
+    <data name="ClearTradingAccounts" xml:space="preserve">
+        <value>İşlem Hesaplarını Temizle</value>
+    </data>
     <data name="Clone" xml:space="preserve">
         <value>Klonla</value>
+    </data>
+    <data name="Close" xml:space="preserve">
+        <value>Kapat</value>
     </data>
     <data name="Create" xml:space="preserve">
         <value>Oluştur</value>
@@ -95,7 +110,7 @@
         <value>Sil</value>
     </data>
     <data name="Details" xml:space="preserve">
-        <value>Detay</value>
+        <value>Detaylar</value>
     </data>
     <data name="Display" xml:space="preserve">
         <value>Göster</value>
@@ -160,6 +175,18 @@
     <data name="OK" xml:space="preserve">
         <value>Tamam</value>
     </data>
+    <data name="Open" xml:space="preserve">
+        <value>Aç</value>
+    </data>
+    <data name="OpenDetail" xml:space="preserve">
+        <value>Detayı Aç</value>
+    </data>
+    <data name="OpenDetails" xml:space="preserve">
+        <value>Detayları Aç</value>
+    </data>
+    <data name="OpenMaintenanceWindow" xml:space="preserve">
+        <value>Bakım Penceresini Aç</value>
+    </data>
     <data name="Print" xml:space="preserve">
         <value>Yazdır</value>
     </data>
@@ -207,6 +234,15 @@
     </data>
     <data name="Show" xml:space="preserve">
         <value>Göster</value>
+    </data>
+    <data name="ShowDetail" xml:space="preserve">
+        <value>Detayı Göster</value>
+    </data>
+    <data name="ShowDetails" xml:space="preserve">
+        <value>Detayları Göster</value>
+    </data>
+    <data name="ShowMaintenanceWindow" xml:space="preserve">
+        <value>Bakım Penceresini Göster</value>
     </data>
     <data name="Summary" xml:space="preserve">
         <value>Özet</value>

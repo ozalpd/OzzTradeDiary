@@ -17,7 +17,7 @@ namespace TD.WPF.Commands.Trades
     {
         protected readonly TradeListVM _viewModel;
         private readonly IWindowDialogService _windowDialogService;
-        
+
         public TradeDetailCommand(TradeListVM viewModel, IWindowDialogService windowDialogService)
         {
             _viewModel = viewModel;

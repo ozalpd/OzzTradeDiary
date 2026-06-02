@@ -20,6 +20,9 @@ namespace TD.WPF.ViewModels.Trades
             _symbolLookup = symbolLookupService;
             _tradingAccountLookup = tradingAccountLookupService;
 
+            _allTradeDateTypeValues = GetOrderedValues<TradeDateType>();
+            ReplaceCollection(TradeDateTypeValues, _allTradeDateTypeValues);
+            QueryVM.ByTradeDateType = TradeDateType.UpdateTime;
             TradeStatusQueryValues = GetOrderedValues<TradeStatusQuery>();
 
             EntryOrders = new ObservableCollection<EntryOrder>();
@@ -58,6 +61,46 @@ namespace TD.WPF.ViewModels.Trades
                 RaiseEntryOrderCmdCanExecute();
                 RaiseStopLossOrderCmdCanExecute();
                 RaiseTakeProfitOrderCmdCanExecute();
+            }
+
+            if (e.PropertyName == nameof(QueryVM.ByTradeStatus))
+            {
+                var tradeStatus = QueryVM.ByTradeStatus;
+                if (tradeStatus == null || tradeStatus == TradeStatusQuery.All)
+                {
+                    ReplaceCollection(TradeDateTypeValues, _allTradeDateTypeValues);
+                    QueryVM.ByTradeDateType = TradeDateType.UpdateTime;
+                }
+                else if (tradeStatus == TradeStatusQuery.Active || tradeStatus == TradeStatusQuery.ActiveOrWaiting)
+                {
+                    var tradeDateTypes = _allTradeDateTypeValues.Where(v => v.Value != TradeDateType.ExitTime
+                                                                         && v.Value != TradeDateType.CancellationTime)
+                                                                .ToList();
+                    ReplaceCollection(TradeDateTypeValues, tradeDateTypes);
+                    QueryVM.ByTradeDateType = TradeDateType.EntryTime;
+                }
+                else if (tradeStatus == TradeStatusQuery.Closed)
+                {
+                    var tradeDateTypes = _allTradeDateTypeValues.Where(v => v.Value != TradeDateType.CancellationTime)
+                                                                .ToList();
+                    ReplaceCollection(TradeDateTypeValues, tradeDateTypes);
+                    QueryVM.ByTradeDateType = TradeDateType.ExitTime;
+                }
+                else if (tradeStatus == TradeStatusQuery.Cancelled)
+                {
+                    var tradeDateTypes = _allTradeDateTypeValues.Where(v => v.Value == TradeDateType.UpdateTime
+                                                                         || v.Value == TradeDateType.CancellationTime)
+                                                                .ToList();
+                    ReplaceCollection(TradeDateTypeValues, tradeDateTypes);
+                    QueryVM.ByTradeDateType = TradeDateType.CancellationTime;
+                }
+                else //This must be Planned, Pending, Missed or MissedOrCancelled
+                {
+                    var tradeDateTypes = _allTradeDateTypeValues.Where(v => v.Value == TradeDateType.UpdateTime)
+                                                                .ToList();
+                    ReplaceCollection(TradeDateTypeValues, tradeDateTypes);
+                    QueryVM.ByTradeDateType = TradeDateType.UpdateTime;
+                }
             }
         }
 
@@ -112,6 +155,31 @@ namespace TD.WPF.ViewModels.Trades
         }
         private TradingAccount? _byTradingAccount;
         public ObservableCollection<TradingAccount> TradingAccounts { get; } = new();
+
+        public TradeDateType? FilterTradeDateType
+        {
+            get => QueryVM.ByTradeDateType;
+            set
+            {
+                QueryVM.ByTradeDateType = value;
+                RaisePropertyChanged(nameof(FilterTradeDateType));
+            }
+        }
+        private TradeDateType? _byTradeDateType;
+
+        private IEnumerable<EnumValueItem<TradeDateType>> _allTradeDateTypeValues;
+        public ObservableCollection<EnumValueItem<TradeDateType>> TradeDateTypeValues { get; private set; } = new ObservableCollection<EnumValueItem<TradeDateType>>();
+
+        public TradeStatusQuery? FilterTradeStatus
+        {
+            get => QueryVM.ByTradeStatus;
+            set
+            {
+                QueryVM.ByTradeStatus = value;
+                RaisePropertyChanged(nameof(FilterTradeStatus));
+                RaisePropertyChanged(nameof(FilterTradeDateType));
+            }
+        }
 
         public IEnumerable<EnumValueItem<TradeStatusQuery>> TradeStatusQueryValues { get; private set; } = Array.Empty<EnumValueItem<TradeStatusQuery>>();
 

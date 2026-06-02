@@ -15,7 +15,7 @@ namespace TD.WPF.Commands.Trades
     public partial class TradeDeleteCommand : AbstractCommand
     {
         protected readonly TradeListVM _viewModel;
-        
+
         public TradeDeleteCommand(TradeListVM viewModel)
         {
             _viewModel = viewModel;

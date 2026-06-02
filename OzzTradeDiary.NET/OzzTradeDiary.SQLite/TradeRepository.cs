@@ -308,7 +308,7 @@ namespace TD.SQLite
 
                 result.Add(trade);
             }
-            
+
             await using var countCommand = connection.CreateCommand();
             countCommand.CommandText = $"SELECT COUNT(1) FROM {_tableName}";
             AppendWhere(queryParameters, countCommand);
@@ -361,6 +361,16 @@ namespace TD.SQLite
             {
                 whereClauses.Add("ExitTime <= @exitTimeMax");
                 command.AddDateTimeToTextParameter("@exitTimeMax", queryParameters.ExitTimeMax.Value);
+            }
+            if (queryParameters.CancellationTimeMin.HasValue)
+            {
+                whereClauses.Add("CancellationTime >= @cancellationTimeMin");
+                command.AddDateTimeToTextParameter("@cancellationTimeMin", queryParameters.CancellationTimeMin.Value);
+            }
+            if (queryParameters.CancellationTimeMax.HasValue)
+            {
+                whereClauses.Add("CancellationTime <= @cancellationTimeMax");
+                command.AddDateTimeToTextParameter("@cancellationTimeMax", queryParameters.CancellationTimeMax.Value);
             }
             if (queryParameters.PlannedPositionValueMin.HasValue)
             {

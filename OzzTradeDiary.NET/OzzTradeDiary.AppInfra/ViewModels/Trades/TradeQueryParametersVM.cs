@@ -99,6 +99,26 @@ namespace TD.AppInfra.ViewModels.Trades
             }
         }
 
+        public DateTime? CancellationTimeMin
+        {
+            get => Parameters.CancellationTimeMin;
+            set
+            {
+                Parameters.CancellationTimeMin = value;
+                RaisePropertyChanged(nameof(CancellationTimeMin));
+            }
+        }
+
+        public DateTime? CancellationTimeMax
+        {
+            get => Parameters.CancellationTimeMax;
+            set
+            {
+                Parameters.CancellationTimeMax = value;
+                RaisePropertyChanged(nameof(CancellationTimeMax));
+            }
+        }
+
         public decimal? PlannedPositionValueMin
         {
             get => Parameters.PlannedPositionValueMin;
@@ -289,6 +309,8 @@ namespace TD.AppInfra.ViewModels.Trades
             EntryTimeMax = null;
             ExitTimeMin = null;
             ExitTimeMax = null;
+            CancellationTimeMin = null;
+            CancellationTimeMax = null;
             PlannedPositionValueMin = null;
             PlannedPositionValueMax = null;
             ExecutedPositionValueMin = null;
@@ -307,6 +329,8 @@ namespace TD.AppInfra.ViewModels.Trades
             RealizedRiskAmountMax = null;
             UpdatedAtMin = null;
             UpdatedAtMax = null;
+            OnReset();
         }
+        partial void OnReset(); // For any additional reset logic that may be needed in the future, such as resetting properties on a partial class.
     }
 }

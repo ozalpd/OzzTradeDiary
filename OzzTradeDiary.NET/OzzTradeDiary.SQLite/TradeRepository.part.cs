@@ -9,6 +9,7 @@ namespace TD.SQLite
     {
         partial void OnAppendingWhere(TradeQueryParameters queryParameters, List<string> whereClauses, SqliteCommand command)
         {
+            AppendTradeDatesToWhereClause(queryParameters, whereClauses, command);
 
             if (queryParameters.TradeStatus.HasValue && queryParameters.TradeStatus.Value is TradeStatusQuery stat && (int)stat != 0)
             {
@@ -54,6 +55,42 @@ namespace TD.SQLite
         partial void OnUpdated(Trade trade)
         {
             _ = SaveNavigationCollectionsAsync(trade);
+        }
+
+        private void AppendTradeDatesToWhereClause(TradeQueryParameters queryParameters, List<string> whereClauses, SqliteCommand command)
+        {
+            if (queryParameters?.TradeDateType == null)
+                return;
+
+            //queryParameters.EntryTimeMin = null; queryParameters.EntryTimeMax = null;
+            //queryParameters.ExitTimeMin = null; queryParameters.ExitTimeMax = null;
+            //queryParameters.UpdatedAtMin = null; queryParameters.UpdatedAtMax = null;
+
+            switch (queryParameters.TradeDateType.Value)
+            {
+                case TradeDateType.EntryTime:
+                    queryParameters.EntryTimeMin = queryParameters.StartDate;
+                    queryParameters.EntryTimeMax = queryParameters.EndDate;
+                    break;
+
+                case TradeDateType.ExitTime:
+                    queryParameters.ExitTimeMin = queryParameters.StartDate;
+                    queryParameters.ExitTimeMax = queryParameters.EndDate;
+                    break;
+
+                case TradeDateType.CancellationTime:
+                    queryParameters.CancellationTimeMin = queryParameters.StartDate;
+                    queryParameters.CancellationTimeMax = queryParameters.EndDate;
+                    break;
+
+                case TradeDateType.UpdateTime:
+                    queryParameters.UpdatedAtMin = queryParameters.StartDate;
+                    queryParameters.UpdatedAtMax = queryParameters.EndDate;
+                    break;
+
+                default:
+                    break;
+            }
         }
 
         public async Task LoadNavigationCollectionsAsync(Trade trade)

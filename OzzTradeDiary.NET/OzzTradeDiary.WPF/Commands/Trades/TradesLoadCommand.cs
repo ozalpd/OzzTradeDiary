@@ -13,7 +13,7 @@ namespace TD.WPF.Commands.Trades
     public partial class TradesLoadCommand : AbstractCommand
     {
         protected readonly TradeListVM _viewModel;
-        
+
         public TradesLoadCommand(TradeListVM viewModel)
         {
             _viewModel = viewModel;

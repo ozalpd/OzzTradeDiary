@@ -57,10 +57,6 @@
     <Translation>Tatil Ekle</Translation>
   </Vocab>
   <Vocab>
-    <Name>AddIUpdatedAt</Name>
-    <Translation>Değişiklik Tarihi Ekle</Translation>
-  </Vocab>
-  <Vocab>
     <Name>AddNew</Name>
     <Translation>Yeni Ekle</Translation>
   </Vocab>
@@ -99,10 +95,6 @@
   <Vocab>
     <Name>AddNewHoliday</Name>
     <Translation>Yeni Tatil Ekle</Translation>
-  </Vocab>
-  <Vocab>
-    <Name>AddNewIUpdatedAt</Name>
-    <Translation>Yeni Değişiklik Tarihi Ekle</Translation>
   </Vocab>
   <Vocab>
     <Name>AddNewOrderItem</Name>
@@ -201,10 +193,6 @@
     <Translation>Tatil Ekle/Çıkar</Translation>
   </Vocab>
   <Vocab>
-    <Name>AddRemoveIUpdatedAt</Name>
-    <Translation>Değişiklik Tarihi Ekle/Çıkar</Translation>
-  </Vocab>
-  <Vocab>
     <Name>AddRemoveSession</Name>
     <Translation>Seans Ekle/Çıkar</Translation>
   </Vocab>
@@ -294,7 +282,7 @@
   </Vocab>
   <Vocab>
     <Name>All</Name>
-    <Translation>All</Translation>
+    <Translation>Tümü</Translation>
   </Vocab>
   <Vocab>
     <Name>Always</Name>
@@ -405,8 +393,28 @@
     <Translation>Temizle</Translation>
   </Vocab>
   <Vocab>
+    <Name>ClearAccounts</Name>
+    <Translation>Hesapları Temizle</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ClearDates</Name>
+    <Translation>Tarihleri Temizle</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ClearSymbols</Name>
+    <Translation>Sembolleri Temizle</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ClearTradingAccounts</Name>
+    <Translation>İşlem Hesaplarını Temizle</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Clone</Name>
     <Translation>Klonla</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Close</Name>
+    <Translation>Kapat</Translation>
   </Vocab>
   <Vocab>
     <Name>Closed</Name>
@@ -547,10 +555,6 @@
   <Vocab>
     <Name>CreateHoliday</Name>
     <Translation>Tatil Oluştur</Translation>
-  </Vocab>
-  <Vocab>
-    <Name>CreateIUpdatedAt</Name>
-    <Translation>Değişiklik Tarihi Oluştur</Translation>
   </Vocab>
   <Vocab>
     <Name>CreateNew</Name>
@@ -773,10 +777,6 @@
     <Translation>Tatili Sil</Translation>
   </Vocab>
   <Vocab>
-    <Name>DeleteIUpdatedAt</Name>
-    <Translation>Değişiklik Tarihini Sil</Translation>
-  </Vocab>
-  <Vocab>
     <Name>DeleteOrder</Name>
     <Translation>Siparişi Sil</Translation>
   </Vocab>
@@ -854,7 +854,7 @@
   </Vocab>
   <Vocab>
     <Name>Details</Name>
-    <Translation>Detay</Translation>
+    <Translation>Detaylar</Translation>
   </Vocab>
   <Vocab>
     <Name>Display</Name>
@@ -927,10 +927,6 @@
   <Vocab>
     <Name>EditHoliday</Name>
     <Translation>Tatili Düzenle</Translation>
-  </Vocab>
-  <Vocab>
-    <Name>EditIUpdatedAt</Name>
-    <Translation>Değişiklik Tarihini Düzenle</Translation>
   </Vocab>
   <Vocab>
     <Name>EditOrder</Name>
@@ -1293,18 +1289,6 @@
     <Translation>Yayında</Translation>
   </Vocab>
   <Vocab>
-    <Name>IUpdatedAt</Name>
-    <Translation>Değişiklik Tarihi</Translation>
-  </Vocab>
-  <Vocab>
-    <Name>IUpdatedAts</Name>
-    <Translation>Değişiklik Tarihleri</Translation>
-  </Vocab>
-  <Vocab>
-    <Name>IUpdatedAtsList</Name>
-    <Translation>Değişiklik Tarih Listesi</Translation>
-  </Vocab>
-  <Vocab>
     <Name>Lastname</Name>
     <Translation>Soyad</Translation>
   </Vocab>
@@ -1383,6 +1367,14 @@
   <Vocab>
     <Name>MaintenanceBreak</Name>
     <Translation>Bakım için Ara</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>MaintenanceView</Name>
+    <Translation>Bakım Sayfası</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>MaintenanceWindow</Name>
+    <Translation>Bakım Penceresi</Translation>
   </Vocab>
   <Vocab>
     <Name>MakerFeeRate</Name>
@@ -1485,8 +1477,24 @@
     <Translation>Tamam</Translation>
   </Vocab>
   <Vocab>
+    <Name>Open</Name>
+    <Translation>Aç</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>OpenDetail</Name>
+    <Translation>Detayı Aç</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>OpenDetails</Name>
+    <Translation>Detayları Aç</Translation>
+  </Vocab>
+  <Vocab>
     <Name>OpeningAuction</Name>
     <Translation>Açılış Seansı</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>OpenMaintenanceWindow</Name>
+    <Translation>Bakım Penceresini Aç</Translation>
   </Vocab>
   <Vocab>
     <Name>Option</Name>
@@ -1893,10 +1901,6 @@
     <Translation>Tatil Çıkar</Translation>
   </Vocab>
   <Vocab>
-    <Name>RemoveIUpdatedAt</Name>
-    <Translation>Değişiklik Tarihini Çıkar</Translation>
-  </Vocab>
-  <Vocab>
     <Name>RemoveSession</Name>
     <Translation>Seans Çıkar</Translation>
   </Vocab>
@@ -2079,6 +2083,18 @@
   <Vocab>
     <Name>Show</Name>
     <Translation>Göster</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ShowDetail</Name>
+    <Translation>Detayı Göster</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ShowDetails</Name>
+    <Translation>Detayları Göster</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ShowMaintenanceWindow</Name>
+    <Translation>Bakım Penceresini Göster</Translation>
   </Vocab>
   <Vocab>
     <Name>Size</Name>
@@ -2309,6 +2325,10 @@
     <Translation>İşlem</Translation>
   </Vocab>
   <Vocab>
+    <Name>TradeDateType</Name>
+    <Translation>İşlem Tarih Türü</Translation>
+  </Vocab>
+  <Vocab>
     <Name>TradeDirection</Name>
     <Translation>İşlem Yönü</Translation>
   </Vocab>
@@ -2418,7 +2438,11 @@
   </Vocab>
   <Vocab>
     <Name>UpdatedAt</Name>
-    <Translation>Değişiklik Tarihi</Translation>
+    <Translation>Değişiklik Zamanı</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>UpdateTime</Name>
+    <Translation>Değişiklik Zamanı</Translation>
   </Vocab>
   <Vocab>
     <Name>UserName</Name>

@@ -142,11 +142,56 @@ namespace TD.i18n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Clear Accounts.
+        /// </summary>
+        public static string ClearAccounts {
+            get {
+                return ResourceManager.GetString("ClearAccounts", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Clear Dates.
+        /// </summary>
+        public static string ClearDates {
+            get {
+                return ResourceManager.GetString("ClearDates", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Clear Symbols.
+        /// </summary>
+        public static string ClearSymbols {
+            get {
+                return ResourceManager.GetString("ClearSymbols", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Clear Trading Accounts.
+        /// </summary>
+        public static string ClearTradingAccounts {
+            get {
+                return ResourceManager.GetString("ClearTradingAccounts", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Clone.
         /// </summary>
         public static string Clone {
             get {
                 return ResourceManager.GetString("Clone", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Close.
+        /// </summary>
+        public static string Close {
+            get {
+                return ResourceManager.GetString("Close", resourceCulture);
             }
         }
         
@@ -367,6 +412,42 @@ namespace TD.i18n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Open.
+        /// </summary>
+        public static string Open {
+            get {
+                return ResourceManager.GetString("Open", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Open Detail.
+        /// </summary>
+        public static string OpenDetail {
+            get {
+                return ResourceManager.GetString("OpenDetail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Open Details.
+        /// </summary>
+        public static string OpenDetails {
+            get {
+                return ResourceManager.GetString("OpenDetails", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Open Maintenance Window.
+        /// </summary>
+        public static string OpenMaintenanceWindow {
+            get {
+                return ResourceManager.GetString("OpenMaintenanceWindow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Print.
         /// </summary>
         public static string Print {
@@ -507,6 +588,33 @@ namespace TD.i18n {
         public static string Show {
             get {
                 return ResourceManager.GetString("Show", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show Detail.
+        /// </summary>
+        public static string ShowDetail {
+            get {
+                return ResourceManager.GetString("ShowDetail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show Details.
+        /// </summary>
+        public static string ShowDetails {
+            get {
+                return ResourceManager.GetString("ShowDetails", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show Maintenance Window.
+        /// </summary>
+        public static string ShowMaintenanceWindow {
+            get {
+                return ResourceManager.GetString("ShowMaintenanceWindow", resourceCulture);
             }
         }
         

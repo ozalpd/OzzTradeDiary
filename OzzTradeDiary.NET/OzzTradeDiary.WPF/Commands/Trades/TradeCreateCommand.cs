@@ -21,7 +21,7 @@ namespace TD.WPF.Commands.Trades
         private readonly IWindowDialogService _windowDialogService;
         private readonly ISymbolLookupService _symbolLookupService;
         private readonly ITradingAccountLookupService _tradingAccountLookupService;
-        
+
         public TradeCreateCommand(TradeListVM viewModel, IWindowDialogService windowDialogService,
                                   ISymbolLookupService symbolLookupService, ITradingAccountLookupService tradingAccountLookupService)
         {

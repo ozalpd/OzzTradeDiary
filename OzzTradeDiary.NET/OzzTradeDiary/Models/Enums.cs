@@ -105,6 +105,18 @@ namespace TD.Models
         DateTimeArray = 3021
     }
 
+    public enum TradeDateType : int
+    {
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "EntryTime", Order = 10)]
+        EntryTime = 10,
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "ExitTime", Order = 20)]
+        ExitTime = 20,
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "CancellationTime", Order = 30)]
+        CancellationTime = 30,
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "UpdateTime", Order = 40)]
+        UpdateTime = 40
+    }
+
     public enum TradeDirection : int
     {
         [Display(ResourceType = typeof(LocalizedStrings), Name = "Long")]
@@ -115,17 +127,17 @@ namespace TD.Models
 
     public enum TradeStatus
     {
-        [Display(ResourceType = typeof(LocalizedStrings), Name = "Planned")]
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "Planned", Order = 10)]
         Planned = 10,
-        [Display(ResourceType = typeof(LocalizedStrings), Name = "Pending")]
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "Pending", Order = 20)]
         Pending = 20,
-        [Display(ResourceType = typeof(LocalizedStrings), Name = "Active")]
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "Active", Order = 30)]
         Active = 30,
-        [Display(ResourceType = typeof(LocalizedStrings), Name = "Closed")]
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "Closed", Order = 40)]
         Closed = 40,
-        [Display(ResourceType = typeof(LocalizedStrings), Name = "Missed")]
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "Missed", Order = 50)]
         Missed = -10,
-        [Display(ResourceType = typeof(LocalizedStrings), Name = "Cancelled")]
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "Cancelled", Order = 60)]
         Cancelled = -20
     }
 
@@ -133,10 +145,10 @@ namespace TD.Models
     {
         [Display(ResourceType = typeof(LocalizedStrings), Name = "All", Order = 0)]
         All = 0,
-        [Display(ResourceType = typeof(LocalizedStrings), Name = "Waiting", Order = 300)]
-        Waiting = 1010,
         [Display(ResourceType = typeof(LocalizedStrings), Name = "ActiveOrWaiting", Order = 100)]
-        ActiveOrWaiting = 1020,
+        ActiveOrWaiting = 1010,
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "Waiting", Order = 300)]
+        Waiting = 1020,
         [Display(ResourceType = typeof(LocalizedStrings), Name = "MissedOrCancelled", Order = 700)]
         MissedOrCancelled = 1030,
 

@@ -88,6 +88,24 @@ namespace TD.i18n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Maintenance View.
+        /// </summary>
+        public static string MaintenanceView {
+            get {
+                return ResourceManager.GetString("MaintenanceView", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Maintenance Window.
+        /// </summary>
+        public static string MaintenanceWindow {
+            get {
+                return ResourceManager.GetString("MaintenanceWindow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Page.
         /// </summary>
         public static string Page {
