@@ -56,6 +56,7 @@
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <ToolBar DataContext="{Binding TradeHistory}">
@@ -252,6 +253,7 @@
                 </ComboBox>
 
                 <Separator/>
+                <Border Width="16" Background="Transparent" />
                 <!-- Load button -->
                 <Button Style="{StaticResource IconButtonStyle-28x24}"
                         ToolTip="{x:Static i18n:ActionStrings.LoadJournal}"
@@ -264,19 +266,11 @@
                         </Viewbox>
                     </StackPanel>
                 </Button>
-
-
-            </ToolBar>
-        </Grid>
-        <Grid Grid.Row="2">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-            <ToolBar>
-                <Border Width="24" Background="Transparent" />
+                <Separator/>
                 <Border Width="16" Background="Transparent" />
+            </ToolBar>
 
+            <ToolBar Grid.Column="2">
                 <Button Style="{StaticResource IconButtonStyle-28x24}"
                                 ToolTip="{x:Static i18n:ActionStrings.OpenMaintenanceWindow}"
                                 Command="{Binding ShowMaintenanceCommand}">
@@ -300,13 +294,30 @@
                     </Viewbox>
                 </Button>
 
+                <Border Width="16" Background="Transparent" />
+                <Border Width="16" Background="Transparent" />
+            </ToolBar>
+        </Grid>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <ToolBar>
+                <Border Width="24" Background="Transparent" />
+                <Border Width="16" Background="Transparent" />
+                <Border Width="24" Background="Transparent" />
+                <Border Width="22" Background="Transparent" />
+                <Border Width="24" Background="Transparent" />
+                <Border Width="16" Background="Transparent" />
+                <Border Width="16" Background="Transparent" />
             </ToolBar>
             <!-- Date Filter Toolbar -->
             <ToolBar Grid.Column="1" DataContext="{Binding TradeHistory}">
                 <!-- Entry date range -->
 
                 <!-- TradeDateType filter -->
-                <ComboBox x:Name="TradeDateTypeComboBox" Width="120"
+                <ComboBox x:Name="TradeDateTypeComboBox" Width="127"
                           ItemsSource="{Binding TradeDateTypeValues}"
                           DisplayMemberPath="DisplayValue"
                           SelectedValuePath="Value"
@@ -325,6 +336,15 @@
                             ToolTip="To"/>
 
                 <Separator/>
+                <ComboBox x:Name="DatePeriodComboBox" Width="127"
+                          ItemsSource="{Binding DatePeriodValues}"
+                          DisplayMemberPath="DisplayValue"
+                          SelectedValuePath="Value"
+                          SelectedValue="{Binding FilterDatePeriod, Mode=TwoWay}">
+                    <ComboBox.Resources>
+                        <CollectionViewSource x:Key="cvs" Source="{Binding DatePeriodValues}"/>
+                    </ComboBox.Resources>
+                </ComboBox>
             </ToolBar>
         </Grid>
         <!-- Master / Detail content area -->

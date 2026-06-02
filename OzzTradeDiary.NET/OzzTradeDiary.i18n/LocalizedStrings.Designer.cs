@@ -394,6 +394,15 @@ namespace TD.i18n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to All Dates.
+        /// </summary>
+        public static string AllDates {
+            get {
+                return ResourceManager.GetString("AllDates", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Balance.
         /// </summary>
         public static string Balance {
@@ -660,6 +669,15 @@ namespace TD.i18n {
         public static string DateArray {
             get {
                 return ResourceManager.GetString("DateArray", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Date Period.
+        /// </summary>
+        public static string DatePeriod {
+            get {
+                return ResourceManager.GetString("DatePeriod", resourceCulture);
             }
         }
         
@@ -1636,6 +1654,51 @@ namespace TD.i18n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Previous Half Year.
+        /// </summary>
+        public static string PreviousHalfYear {
+            get {
+                return ResourceManager.GetString("PreviousHalfYear", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Previous Month.
+        /// </summary>
+        public static string PreviousMonth {
+            get {
+                return ResourceManager.GetString("PreviousMonth", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Previous Quarter.
+        /// </summary>
+        public static string PreviousQuarter {
+            get {
+                return ResourceManager.GetString("PreviousQuarter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Previous Week.
+        /// </summary>
+        public static string PreviousWeek {
+            get {
+                return ResourceManager.GetString("PreviousWeek", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Previous Year.
+        /// </summary>
+        public static string PreviousYear {
+            get {
+                return ResourceManager.GetString("PreviousYear", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Price Currency.
         /// </summary>
         public static string PriceCurrency {
@@ -2082,6 +2145,51 @@ namespace TD.i18n {
         public static string TakerFeeRate {
             get {
                 return ResourceManager.GetString("TakerFeeRate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This Half Year.
+        /// </summary>
+        public static string ThisHalfYear {
+            get {
+                return ResourceManager.GetString("ThisHalfYear", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This Month.
+        /// </summary>
+        public static string ThisMonth {
+            get {
+                return ResourceManager.GetString("ThisMonth", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This Quarter.
+        /// </summary>
+        public static string ThisQuarter {
+            get {
+                return ResourceManager.GetString("ThisQuarter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This Week.
+        /// </summary>
+        public static string ThisWeek {
+            get {
+                return ResourceManager.GetString("ThisWeek", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This Year.
+        /// </summary>
+        public static string ThisYear {
+            get {
+                return ResourceManager.GetString("ThisYear", resourceCulture);
             }
         }
         

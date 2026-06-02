@@ -169,6 +169,9 @@
     <data name="All" xml:space="preserve">
         <value>Tümü</value>
     </data>
+    <data name="AllDates" xml:space="preserve">
+        <value>Tüm Tarihler</value>
+    </data>
     <data name="Balance" xml:space="preserve">
         <value>Bakiye</value>
     </data>
@@ -258,6 +261,9 @@
     </data>
     <data name="DateArray" xml:space="preserve">
         <value>Tarih Dizisi</value>
+    </data>
+    <data name="DatePeriod" xml:space="preserve">
+        <value>Dönem</value>
     </data>
     <data name="DateTime" xml:space="preserve">
         <value>Tarih/Zaman</value>
@@ -583,6 +589,21 @@
     <data name="PreMarket" xml:space="preserve">
         <value>Seans Öncesi</value>
     </data>
+    <data name="PreviousHalfYear" xml:space="preserve">
+        <value>Önceki Yarı Yıl</value>
+    </data>
+    <data name="PreviousMonth" xml:space="preserve">
+        <value>Önceki Ay</value>
+    </data>
+    <data name="PreviousQuarter" xml:space="preserve">
+        <value>Önceki Çeyrek</value>
+    </data>
+    <data name="PreviousWeek" xml:space="preserve">
+        <value>Önceki Hafta</value>
+    </data>
+    <data name="PreviousYear" xml:space="preserve">
+        <value>Önceki Yıl</value>
+    </data>
     <data name="PriceCurrency" xml:space="preserve">
         <value>Karşı Döviz</value>
     </data>
@@ -649,7 +670,7 @@
     <data name="RemoveTradingAccount" xml:space="preserve">
         <value>İşlem Hesabını Çıkart</value>
     </data>
-    <data name="ReportTypes" xml:space="preserve">
+    <data name="ReportType" xml:space="preserve">
         <value>Rapor Tipi</value>
     </data>
     <data name="ReviewNotes" xml:space="preserve">
@@ -732,6 +753,21 @@
     </data>
     <data name="TakerFeeRate" xml:space="preserve">
         <value>Taker Ücret Oranı</value>
+    </data>
+    <data name="ThisHalfYear" xml:space="preserve">
+        <value>Bu Yarı Yıl</value>
+    </data>
+    <data name="ThisMonth" xml:space="preserve">
+        <value>This MontABu Ayh</value>
+    </data>
+    <data name="ThisQuarter" xml:space="preserve">
+        <value>Bu Çeyrek</value>
+    </data>
+    <data name="ThisWeek" xml:space="preserve">
+        <value>Bu Hafta</value>
+    </data>
+    <data name="ThisYear" xml:space="preserve">
+        <value>Bu Yıl</value>
     </data>
     <data name="Ticker" xml:space="preserve">
         <value>İşlem Kodu</value>

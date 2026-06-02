@@ -285,6 +285,10 @@
     <Translation>All</Translation>
   </Vocab>
   <Vocab>
+    <Name>AllDates</Name>
+    <Translation>All Dates</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Always</Name>
     <Translation>Always</Translation>
   </Vocab>
@@ -699,6 +703,10 @@
   <Vocab>
     <Name>DateArray</Name>
     <Translation>Date Array</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>DatePeriod</Name>
+    <Translation>Date Period</Translation>
   </Vocab>
   <Vocab>
     <Name>DateTime</Name>
@@ -1733,6 +1741,26 @@
     <Translation>Pre Market</Translation>
   </Vocab>
   <Vocab>
+    <Name>PreviousHalfYear</Name>
+    <Translation>Previous Half Year</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>PreviousMonth</Name>
+    <Translation>Previous Month</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>PreviousQuarter</Name>
+    <Translation>Previous Quarter</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>PreviousWeek</Name>
+    <Translation>Previous Week</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>PreviousYear</Name>
+    <Translation>Previous Year</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Price</Name>
     <Translation>Price</Translation>
   </Vocab>
@@ -1927,6 +1955,10 @@
   <Vocab>
     <Name>RemoveTradingAccount</Name>
     <Translation>Remove Trading Account</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ReportType</Name>
+    <Translation>Report Type</Translation>
   </Vocab>
   <Vocab>
     <Name>ReportTypes</Name>
@@ -2271,6 +2303,26 @@
   <Vocab>
     <Name>TaxOffice</Name>
     <Translation>Tax Office</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ThisHalfYear</Name>
+    <Translation>This Half Year</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ThisMonth</Name>
+    <Translation>This Month</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ThisQuarter</Name>
+    <Translation>This Quarter</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ThisWeek</Name>
+    <Translation>This Week</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ThisYear</Name>
+    <Translation>This Year</Translation>
   </Vocab>
   <Vocab>
     <Name>ThreeLetterIsoCode</Name>

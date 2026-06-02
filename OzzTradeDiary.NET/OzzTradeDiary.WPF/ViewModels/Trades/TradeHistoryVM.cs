@@ -2,6 +2,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using TD.AppInfra.Services;
 using TD.Extensions;
+using TD.Helpers;
 using TD.Models;
 using TD.RepositoryContracts;
 using TD.WPF.Commands.Trades;
@@ -24,6 +25,7 @@ namespace TD.WPF.ViewModels.Trades
             ReplaceCollection(TradeDateTypeValues, _allTradeDateTypeValues);
             QueryVM.ByTradeDateType = TradeDateType.UpdateTime;
             TradeStatusQueryValues = GetOrderedValues<TradeStatusQuery>();
+            DatePeriodValues = GetOrderedValues<DatePeriod>();
 
             EntryOrders = new ObservableCollection<EntryOrder>();
             EntryOrderCreateCommand = new EntryOrderCreateCommand(this, windowDialogService);
@@ -160,6 +162,21 @@ namespace TD.WPF.ViewModels.Trades
         }
         private TradingAccount? _byTradingAccount;
         public ObservableCollection<TradingAccount> TradingAccounts { get; } = new();
+
+        public IEnumerable<EnumValueItem<DatePeriod>> DatePeriodValues { get; private set; } = Array.Empty<EnumValueItem<DatePeriod>>();
+
+        public DatePeriod FilterDatePeriod
+        {
+            get;
+            set
+            {
+                field = value;
+                var dates = value.GetMonthPeriod();
+                RaisePropertyChanged(nameof(FilterDatePeriod));
+                QueryVM.ByStartDate = dates.Start;
+                QueryVM.ByEndDate = dates.End;
+            }
+        }
 
         public TradeDateType? FilterTradeDateType
         {

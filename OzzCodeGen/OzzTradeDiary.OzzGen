@@ -9,6 +9,56 @@
   <EntityTrackEnum>EntityType</EntityTrackEnum>
   <EnumDefinitions>
     <EnumDefinition>
+      <Name>DatePeriod</Name>
+      <NamespaceName>TD</NamespaceName>
+      <Members>
+        <EnumMember>
+          <Name>AllDates</Name>
+          <Value>0</Value>
+        </EnumMember>
+        <EnumMember>
+          <Name>ThisWeek</Name>
+          <Value>10</Value>
+        </EnumMember>
+        <EnumMember>
+          <Name>PreviousWeek</Name>
+          <Value>20</Value>
+        </EnumMember>
+        <EnumMember>
+          <Name>ThisMonth</Name>
+          <Value>30</Value>
+        </EnumMember>
+        <EnumMember>
+          <Name>PreviousMonth</Name>
+          <Value>40</Value>
+        </EnumMember>
+        <EnumMember>
+          <Name>ThisQuarter</Name>
+          <Value>50</Value>
+        </EnumMember>
+        <EnumMember>
+          <Name>PreviousQuarter</Name>
+          <Value>60</Value>
+        </EnumMember>
+        <EnumMember>
+          <Name>ThisHalfYear</Name>
+          <Value>70</Value>
+        </EnumMember>
+        <EnumMember>
+          <Name>PreviousHalfYear</Name>
+          <Value>80</Value>
+        </EnumMember>
+        <EnumMember>
+          <Name>ThisYear</Name>
+          <Value>90</Value>
+        </EnumMember>
+        <EnumMember>
+          <Name>PreviousYear</Name>
+          <Value>100</Value>
+        </EnumMember>
+      </Members>
+    </EnumDefinition>
+    <EnumDefinition>
       <Name>EntryOrderType</Name>
       <NamespaceName>TD</NamespaceName>
       <Members>
@@ -107,6 +157,70 @@
       </Members>
     </EnumDefinition>
     <EnumDefinition>
+      <Name>ReportType</Name>
+      <NamespaceName>TD</NamespaceName>
+      <Members>
+        <EnumMember>
+          <Name>Balance</Name>
+          <Value>10</Value>
+        </EnumMember>
+        <EnumMember>
+          <Name>Performance</Name>
+          <Value>20</Value>
+        </EnumMember>
+        <EnumMember>
+          <Name>NetResult</Name>
+          <Value>30</Value>
+        </EnumMember>
+        <EnumMember>
+          <Name>TradeHistory</Name>
+          <Value>40</Value>
+        </EnumMember>
+      </Members>
+    </EnumDefinition>
+    <EnumDefinition>
+      <Name>SessionType</Name>
+      <NamespaceName>TD</NamespaceName>
+      <Members>
+        <EnumMember>
+          <Name>Break</Name>
+          <Value>0</Value>
+        </EnumMember>
+        <EnumMember>
+          <Name>Regular</Name>
+          <Value>1</Value>
+        </EnumMember>
+        <EnumMember>
+          <Name>PreMarket</Name>
+          <Value>2</Value>
+        </EnumMember>
+        <EnumMember>
+          <Name>AfterHours</Name>
+          <Value>3</Value>
+        </EnumMember>
+        <EnumMember>
+          <Name>SundayOpen</Name>
+          <Value>5</Value>
+        </EnumMember>
+        <EnumMember>
+          <Name>OpeningAuction</Name>
+          <Value>6</Value>
+        </EnumMember>
+        <EnumMember>
+          <Name>ClosingAuction</Name>
+          <Value>7</Value>
+        </EnumMember>
+        <EnumMember>
+          <Name>RegularTradingHours</Name>
+          <Value>8</Value>
+        </EnumMember>
+        <EnumMember>
+          <Name>ElectronicTradingHours</Name>
+          <Value>9</Value>
+        </EnumMember>
+      </Members>
+    </EnumDefinition>
+    <EnumDefinition>
       <Name>SettingType</Name>
       <NamespaceName>TD</NamespaceName>
       <Members>
@@ -161,66 +275,38 @@
       </Members>
     </EnumDefinition>
     <EnumDefinition>
-      <Name>ReportTypes</Name>
+      <Name>TradeDateType</Name>
       <NamespaceName>TD</NamespaceName>
       <Members>
         <EnumMember>
-          <Name>Balance</Name>
-          <Value>1</Value>
+          <Name>EntryTime</Name>
+          <Value>10</Value>
         </EnumMember>
         <EnumMember>
-          <Name>Performance</Name>
-          <Value>2</Value>
+          <Name>ExitTime</Name>
+          <Value>20</Value>
         </EnumMember>
         <EnumMember>
-          <Name>NetResult</Name>
-          <Value>3</Value>
+          <Name>CancellationTime</Name>
+          <Value>30</Value>
         </EnumMember>
         <EnumMember>
-          <Name>TradeHistory</Name>
-          <Value>4</Value>
+          <Name>UpdateTime</Name>
+          <Value>40</Value>
         </EnumMember>
       </Members>
     </EnumDefinition>
     <EnumDefinition>
-      <Name>SessionType</Name>
+      <Name>TradeDirection</Name>
       <NamespaceName>TD</NamespaceName>
       <Members>
         <EnumMember>
-          <Name>Break</Name>
-          <Value>0</Value>
+          <Name>Short</Name>
+          <Value>100</Value>
         </EnumMember>
         <EnumMember>
-          <Name>Regular</Name>
-          <Value>1</Value>
-        </EnumMember>
-        <EnumMember>
-          <Name>PreMarket</Name>
-          <Value>2</Value>
-        </EnumMember>
-        <EnumMember>
-          <Name>AfterHours</Name>
-          <Value>3</Value>
-        </EnumMember>
-        <EnumMember>
-          <Name>SundayOpen</Name>
-          <Value>5</Value>
-        </EnumMember>
-        <EnumMember>
-          <Name>OpeningAuction</Name>
-          <Value>6</Value>
-        </EnumMember>
-        <EnumMember>
-          <Name>ClosingAuction</Name>
-          <Value>7</Value>
-        </EnumMember>
-        <EnumMember>
-          <Name>RegularTradingHours</Name>
-          <Value>8</Value>
-        </EnumMember>
-        <EnumMember>
-          <Name>ElectronicTradingHours</Name>
-          <Value>9</Value>
+          <Name>Long</Name>
+          <Value>200</Value>
         </EnumMember>
       </Members>
     </EnumDefinition>
@@ -297,42 +383,6 @@
         <EnumMember>
           <Name>Cancelled</Name>
           <Value>-20</Value>
-        </EnumMember>
-      </Members>
-    </EnumDefinition>
-    <EnumDefinition>
-      <Name>TradeDirection</Name>
-      <NamespaceName>TD</NamespaceName>
-      <Members>
-        <EnumMember>
-          <Name>Short</Name>
-          <Value>100</Value>
-        </EnumMember>
-        <EnumMember>
-          <Name>Long</Name>
-          <Value>200</Value>
-        </EnumMember>
-      </Members>
-    </EnumDefinition>
-    <EnumDefinition>
-      <Name>TradeDateType</Name>
-      <NamespaceName>TD</NamespaceName>
-      <Members>
-        <EnumMember>
-          <Name>EntryTime</Name>
-          <Value>10</Value>
-        </EnumMember>
-        <EnumMember>
-          <Name>ExitTime</Name>
-          <Value>20</Value>
-        </EnumMember>
-        <EnumMember>
-          <Name>CancellationTime</Name>
-          <Value>30</Value>
-        </EnumMember>
-        <EnumMember>
-          <Name>UpdateTime</Name>
-          <Value>40</Value>
         </EnumMember>
       </Members>
     </EnumDefinition>
@@ -2313,8 +2363,8 @@
   <SourceClassPrefix />
   <CodeEngineList>
     <string>Wpf_Mvvm_View_ViewModel_Generator</string>
-    <string>CS_Model_Class_Generator</string>
     <string>Localization_Resource_Generator</string>
+    <string>CS_Model_Class_Generator</string>
     <string>Sqlite_Scripts_Generator</string>
     <string>CS_Sqlite_Repository_Generator</string>
     <string>T-Sql_Scripts_Generator</string>

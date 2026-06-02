@@ -285,6 +285,10 @@
     <Translation>Tümü</Translation>
   </Vocab>
   <Vocab>
+    <Name>AllDates</Name>
+    <Translation>Tüm Tarihler</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Always</Name>
     <Translation>Her zaman</Translation>
   </Vocab>
@@ -699,6 +703,10 @@
   <Vocab>
     <Name>DateArray</Name>
     <Translation>Tarih Dizisi</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>DatePeriod</Name>
+    <Translation>Dönem</Translation>
   </Vocab>
   <Vocab>
     <Name>DateTime</Name>
@@ -1733,6 +1741,26 @@
     <Translation>Seans Öncesi</Translation>
   </Vocab>
   <Vocab>
+    <Name>PreviousHalfYear</Name>
+    <Translation>Önceki Yarı Yıl</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>PreviousMonth</Name>
+    <Translation>Önceki Ay</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>PreviousQuarter</Name>
+    <Translation>Önceki Çeyrek</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>PreviousWeek</Name>
+    <Translation>Önceki Hafta</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>PreviousYear</Name>
+    <Translation>Önceki Yıl</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Price</Name>
     <Translation>Fiyat</Translation>
   </Vocab>
@@ -1929,8 +1957,12 @@
     <Translation>İşlem Hesabını Çıkart</Translation>
   </Vocab>
   <Vocab>
-    <Name>ReportTypes</Name>
+    <Name>ReportType</Name>
     <Translation>Rapor Tipi</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ReportTypes</Name>
+    <Translation>Rapor Tipleri</Translation>
   </Vocab>
   <Vocab>
     <Name>Required</Name>
@@ -2271,6 +2303,26 @@
   <Vocab>
     <Name>TaxOffice</Name>
     <Translation>Vergi Dairesi</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ThisHalfYear</Name>
+    <Translation>Bu Yarı Yıl</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ThisMonth</Name>
+    <Translation>This MontABu Ayh</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ThisQuarter</Name>
+    <Translation>Bu Çeyrek</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ThisWeek</Name>
+    <Translation>Bu Hafta</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ThisYear</Name>
+    <Translation>Bu Yıl</Translation>
   </Vocab>
   <Vocab>
     <Name>ThreeLetterIsoCode</Name>

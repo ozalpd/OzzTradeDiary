@@ -3,6 +3,32 @@ using TD.i18n;
 
 namespace TD.Models
 {
+    public enum DatePeriod
+    {
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "AllDates", Order = 0)]
+        AllDates = 0,
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "ThisWeek", Order = 10)]
+        ThisWeek = 10,
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "PreviousWeek", Order = 20)]
+        PreviousWeek = 20,
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "ThisMonth", Order = 30)]
+        ThisMonth = 30,
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "PreviousMonth", Order = 40)]
+        PreviousMonth = 40,
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "ThisQuarter", Order = 50)]
+        ThisQuarter = 50,
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "PreviousQuarter", Order = 60)]
+        PreviousQuarter = 60,
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "ThisHalfYear", Order = 70)]
+        ThisHalfYear = 70,
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "PreviousHalfYear", Order = 80)]
+        PreviousHalfYear = 80,
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "ThisYear", Order = 90)]
+        ThisYear = 90,
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "PreviousYear", Order = 100)]
+        PreviousYear = 100
+    }
+
     public enum EntryOrderType : int
     {
         [Display(ResourceType = typeof(LocalizedStrings), Name = "Market")]
@@ -63,6 +89,14 @@ namespace TD.Models
         Above,
         /// <summary>Price must be below the entry price (e.g. Stop Loss for Long).</summary>
         Below
+    }
+
+    public enum ReportType
+    {
+        Balance = 10,
+        Performance = 20,
+        NetResult = 30,
+        TradeHistory = 40
     }
 
     public enum SessionType : int
