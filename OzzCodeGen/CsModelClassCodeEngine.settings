@@ -301,7 +301,7 @@
           <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
-          <Range>typeof(DateTime), "1/1/2000", "12/31/2220"</Range>
+          <Range>typeof(DateTime), "2000-01-01", "2220-12-31"</Range>
           <Required />
           <IsSearchParameter>false</IsSearchParameter>
         </ModelPropertySetting>
@@ -978,7 +978,7 @@
           <DataType>DateTime</DataType>
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
-          <Range>typeof(DateTime), "1/1/2000", "12/31/2220"</Range>
+          <Range>typeof(DateTime), "2000-01-01", "2220-12-31"</Range>
           <Required />
           <IsSearchParameter>true</IsSearchParameter>
         </ModelPropertySetting>
@@ -988,7 +988,7 @@
           <DataType>DateTime</DataType>
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
-          <Range>typeof(DateTime), "1/1/2000", "12/31/2220"</Range>
+          <Range>typeof(DateTime), "2000-01-01", "2220-12-31"</Range>
           <Required />
           <IsSearchParameter>true</IsSearchParameter>
         </ModelPropertySetting>
