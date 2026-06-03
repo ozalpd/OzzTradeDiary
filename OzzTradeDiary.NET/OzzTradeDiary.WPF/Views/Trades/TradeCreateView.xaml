@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TD.WPF.Views.Trades"
+        xmlns:ctr="clr-namespace:TD.WPF.Controls"
         xmlns:i18n="clr-namespace:TD.i18n;assembly=OzzTradeDiary.i18n"
         Title="{x:Static i18n:LocalizedStrings.CreateTrade}"
         Height="640" Width="720" MinHeight="580" MinWidth="640"
@@ -35,13 +36,15 @@
 
         <TextBlock Grid.Column="0" Grid.Row="0" FontWeight="Bold"
                    Style="{StaticResource RightAlignedTextBlockStyle}" Text="{x:Static i18n:LocalizedStrings.EntryTime}"/>
-        <DatePicker x:Name="EntryTimeDatePicker" Grid.Row="0" Grid.Column="1" Margin="0,-2,0,22"
-                    SelectedDate="{Binding EntryTime, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"/>
+        <ctr:DateTimePicker x:Name="EntryTimeDatePicker" Grid.Row="0" Grid.Column="1" Margin="0,-2,0,22" Height="24"
+                            DisallowFuture="True"
+                            SelectedDateTime="{Binding EntryTime, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"/>
 
         <TextBlock Grid.Column="2" Grid.Row="0" FontWeight="Bold"
                    Style="{StaticResource RightAlignedTextBlockStyle}" Text="{x:Static i18n:LocalizedStrings.ExitTime}"/>
-        <DatePicker x:Name="ExitTimeDatePicker" Grid.Row="0" Grid.Column="3" Margin="0,-2,0,22"
-                    SelectedDate="{Binding ExitTime, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"/>
+        <ctr:DateTimePicker x:Name="ExitTimeDatePicker" Grid.Row="0" Grid.Column="3" Margin="0,-2,0,22" Height="24"
+                            DisallowFuture="True"
+                            SelectedDateTime="{Binding ExitTime, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"/>
 
         <TextBlock Grid.Column="0" Grid.Row="1" FontWeight="Bold"
                    Style="{StaticResource RightAlignedTextBlockStyle}" Text="{x:Static i18n:LocalizedStrings.TradingAccount}"/>
@@ -114,8 +117,8 @@
                   DisplayMemberPath="DisplayValue"
                   SelectedValuePath="Value"
                   SelectedValue="{Binding EntryOrderType, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"/>
-        
-        
+
+
 
         <TextBlock Grid.Column="0" Grid.Row="6" FontWeight="Bold"
                    Style="{StaticResource RightAlignedTextBlockStyle}" Text="{x:Static i18n:LocalizedStrings.PlannedSL}"/>

@@ -4,13 +4,13 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
-## [0.2.1] - 2026-06-02
+## [0.2.1] - 2026-06-03
 
 ### Added
 - Introduced `TradeStatusQuery` enum for flexible trade status filtering in UI and repository.
 - Introduced `TradeDateType` enum for flexible date filtering (Entry, Exit, Cancellation, Update)
 - Added `DatePeriod` enum with localized values and helper methods for common date ranges.
-- Introduced `ReportType` and `SessionType` enums.
+- Introduced a new `DateTimePicker` control with hour/minute input and `DisallowFuture` support.
 
 ### Changed
 - Updated `TradeQueryParameters` and `ViewModel` to use `TradeStatusQuery`, enabling grouped and advanced status queries.
@@ -22,6 +22,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - Dynamically adjusted `TradeDateType` options based on `TradeStatusQuery` in `TradeHistoryVM`
 - Added `DateHelper` for period calculations.
 - Enhanced `TradeHistoryVM` and `MainWindow` to support date period filtering via a new ComboBox.
+- Updated `TradeCreateView` to use this control for EntryTime and ExitTime fields, replacing DatePicker.
+- Introduced `ReportType` and `SessionType` enums.
 - Minor code style and whitespace cleanups
 - No breaking changes; all updates are backward-compatible.
 
