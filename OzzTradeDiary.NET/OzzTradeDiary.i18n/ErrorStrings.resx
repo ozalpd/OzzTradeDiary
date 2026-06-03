@@ -79,6 +79,12 @@
     <data name="PasswordNotMatch" xml:space="preserve">
         <value>The password and confirmation password do not match.</value>
     </data>
+    <data name="PriceSideMustBeAbove" xml:space="preserve">
+        <value>The {0} field field must be above the entry price ({1}).</value>
+    </data>
+    <data name="PriceSideMustBeBelow" xml:space="preserve">
+        <value>The {0} field field must be below the entry price ({1}).</value>
+    </data>
     <data name="Range" xml:space="preserve">
         <value>The {0} field must be between {1} and {2}.</value>
     </data>

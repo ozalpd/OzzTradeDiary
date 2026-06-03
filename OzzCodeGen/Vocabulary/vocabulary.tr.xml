@@ -1793,6 +1793,14 @@
     <Translation>Karşı Döviz</Translation>
   </Vocab>
   <Vocab>
+    <Name>PriceSideMustBeAbove</Name>
+    <Translation>{0} sahası değeri işlem fiyatının ({1}) üstünde olmalı.</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>PriceSideMustBeBelow</Name>
+    <Translation>{0} sahası değeri işlem fiyatının ({1}) altında olmalı.</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Print</Name>
     <Translation>Yazdır</Translation>
   </Vocab>

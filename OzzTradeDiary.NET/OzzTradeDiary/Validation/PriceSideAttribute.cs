@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using TD.i18n;
 using TD.Models;
 
 namespace TD.Validation
@@ -89,10 +90,8 @@ namespace TD.Validation
 
             if (!isValid)
             {
-                string sideLabel = mustBeAbove ? "above" : "below";
-                string message = string.Format(
-                    ErrorMessage ?? $"The {{0}} field must be {sideLabel} the entry price ({entryPrice}).",
-                    validationContext.DisplayName);
+                string sideLabel = mustBeAbove ? ErrorStrings.PriceSideMustBeAbove : ErrorStrings.PriceSideMustBeBelow;
+                string message = string.Format(sideLabel, validationContext.DisplayName, entryPrice);
 
                 return new ValidationResult(message, new[] { validationContext.MemberName! });
             }

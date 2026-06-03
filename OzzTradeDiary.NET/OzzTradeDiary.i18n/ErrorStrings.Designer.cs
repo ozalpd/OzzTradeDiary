@@ -124,6 +124,24 @@ namespace TD.i18n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The {0} field field must be above the entry price ({1})..
+        /// </summary>
+        public static string PriceSideMustBeAbove {
+            get {
+                return ResourceManager.GetString("PriceSideMustBeAbove", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The {0} field field must be below the entry price ({1})..
+        /// </summary>
+        public static string PriceSideMustBeBelow {
+            get {
+                return ResourceManager.GetString("PriceSideMustBeBelow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The {0} field must be between {1} and {2}..
         /// </summary>
         public static string Range {

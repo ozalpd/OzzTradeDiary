@@ -79,6 +79,12 @@
     <data name="PasswordNotMatch" xml:space="preserve">
         <value>Parola ve Parola Doğrulaması aynı değil.</value>
     </data>
+    <data name="PriceSideMustBeAbove" xml:space="preserve">
+        <value>{0} sahası değeri işlem fiyatının ({1}) üstünde olmalı.</value>
+    </data>
+    <data name="PriceSideMustBeBelow" xml:space="preserve">
+        <value>{0} sahası değeri işlem fiyatının ({1}) altında olmalı.</value>
+    </data>
     <data name="Range" xml:space="preserve">
         <value>{0} sahasına en az {1} en fazla {2} değeri girmelisiniz.</value>
     </data>

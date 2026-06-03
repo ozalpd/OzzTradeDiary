@@ -48,12 +48,12 @@ namespace TD.Models
         public Symbol Symbol { get; set; }
 
         [DataType(DataType.DateTime)]
-        [Range(typeof(DateTime), "1/1/2000", "12/31/2220", ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName ="RangeDateTime")]
+        [Range(typeof(DateTime), "2000-01-01", "2220-12-31", ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName ="RangeDateTime")]
         [Display(ResourceType = typeof(LocalizedStrings), Name = "EntryTime")]
         public DateTime? EntryTime { get; set; }
 
         [DataType(DataType.DateTime)]
-        [Range(typeof(DateTime), "1/1/2000", "12/31/2220", ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName ="RangeDateTime")]
+        [Range(typeof(DateTime), "2000-01-01", "2220-12-31", ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName ="RangeDateTime")]
         [Display(ResourceType = typeof(LocalizedStrings), Name = "ExitTime")]
         public DateTime? ExitTime { get; set; }
 

@@ -1793,6 +1793,14 @@
     <Translation>Price Currency</Translation>
   </Vocab>
   <Vocab>
+    <Name>PriceSideMustBeAbove</Name>
+    <Translation>The {0} field field must be above the entry price ({1}).</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>PriceSideMustBeBelow</Name>
+    <Translation>The {0} field field must be below the entry price ({1}).</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Print</Name>
     <Translation>Print</Translation>
   </Vocab>
