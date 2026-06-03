@@ -75,6 +75,32 @@
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
+          <Name>OrderTypeSL</Name>
+          <Exclude>false</Exclude>
+          <CreateEditOrder>9990600</CreateEditOrder>
+          <DefaultValue />
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
+          <IsMultiLine>false</IsMultiLine>
+          <CreateViewMode>Editable</CreateViewMode>
+          <EditViewMode>Editable</EditViewMode>
+          <ShowInCollection>true</ShowInCollection>
+          <ShowInDetail>true</ShowInDetail>
+          <ValueConstraint />
+        </WpfMvvmPropertySetting>
+        <WpfMvvmPropertySetting>
+          <Name>OrderTypeTP</Name>
+          <Exclude>false</Exclude>
+          <CreateEditOrder>9990700</CreateEditOrder>
+          <DefaultValue />
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
+          <IsMultiLine>false</IsMultiLine>
+          <CreateViewMode>Editable</CreateViewMode>
+          <EditViewMode>Editable</EditViewMode>
+          <ShowInCollection>true</ShowInCollection>
+          <ShowInDetail>true</ShowInDetail>
+          <ValueConstraint />
+        </WpfMvvmPropertySetting>
+        <WpfMvvmPropertySetting>
           <Name>RemainingOpenPositionValue</Name>
           <Exclude>false</Exclude>
           <CreateEditOrder>9990600</CreateEditOrder>

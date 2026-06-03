@@ -126,6 +126,12 @@ namespace TD.WPF.Controls
             {
                 _hour = (_hour - 1 + 24) % 24;
             }
+            else if (tag == "Clear")
+            {
+                _hour = 0;
+                _minute = 0;
+                _selectedDate = null;
+            }
 
             RefreshSubControls();
             RebuildSelectedDateTime();

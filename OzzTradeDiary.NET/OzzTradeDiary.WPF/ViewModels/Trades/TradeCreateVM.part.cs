@@ -15,9 +15,9 @@ namespace TD.WPF.ViewModels.Trades
             ExitOrderForTpValues = ExitOrderTypeValues.Where(v => v.Value <= ExitOrderType.TrailingStop).ToList();
             PropertyChanged += OnPropertyChanged;
 
-            EntryOrderType = EntryOrderType.Market;
+            EntryOrderType = EntryOrderType.Limit;
             StopLossOrderType = ExitOrderType.Market;
-            TakeProfitOrderType = ExitOrderType.Market;
+            TakeProfitOrderType = ExitOrderType.Limit;
         }
 
         public IEnumerable<EnumValueItem<EntryOrderType>> EntryOrderTypeValues { get; private set; } = Array.Empty<EnumValueItem<EntryOrderType>>();
@@ -63,6 +63,22 @@ namespace TD.WPF.ViewModels.Trades
                 RaisePropertyChanged(nameof(PlannedProfit));
                 ValidateProperty(Trade, nameof(PlannedTP));
                 ValidateProperty(Trade, nameof(PlannedSL));
+            }
+
+            if (e.PropertyName == nameof(TradeStatus))
+            {
+                ValidateProperty(_trade, nameof(EntryTime));
+            }
+
+            if (e.PropertyName == nameof(ExitTime))
+            {
+                ValidateProperty(_trade, nameof(EntryTime));
+            }
+
+            if (e.PropertyName == nameof(EntryTime))
+            {
+                ValidateProperty(_trade, nameof(ExitTime));
+                ValidateProperty(_trade, nameof(TradeStatus));
             }
         }
 

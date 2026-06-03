@@ -58,8 +58,17 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+    <data name="DateGreaterThan" xml:space="preserve">
+        <value>The {0} field cannot be before than {1}.</value>
+    </data>
+    <data name="DateLessThan" xml:space="preserve">
+        <value>The {0} field must be before than {2}.</value>
+    </data>
     <data name="MaxStringLength" xml:space="preserve">
         <value>The {0} field maximum length is {1}.</value>
+    </data>
+    <data name="MinSelectionWhenOtherFilled" xml:space="preserve">
+        <value>When {0} field is filled {1} is required {2} or further selection.</value>
     </data>
     <data name="MinStringLength" xml:space="preserve">
         <value>The {0} must be at least {2} characters long.</value>
@@ -93,6 +102,12 @@
     </data>
     <data name="RequiredPassword" xml:space="preserve">
         <value>Please enter your password to {0} field.</value>
+    </data>
+    <data name="RequiredWhenOtherFilled" xml:space="preserve">
+        <value>The {0} field is required when {1} is filled.</value>
+    </data>
+    <data name="RequiredWhenOtherSelected" xml:space="preserve">
+        <value>The {0} field is required when {1} selected in {2}.</value>
     </data>
     <data name="ValueGreaterThan" xml:space="preserve">
         <value>The {0} field must be greater than {1}.</value>

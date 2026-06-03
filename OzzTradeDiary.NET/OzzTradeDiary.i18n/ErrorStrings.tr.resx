@@ -58,8 +58,17 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+    <data name="DateGreaterThan" xml:space="preserve">
+        <value>{0} tarihi {1} tarihinden önce olamaz.</value>
+    </data>
+    <data name="DateLessThan" xml:space="preserve">
+        <value>{0} tarihi {2} tarihinden sonra olamaz.</value>
+    </data>
     <data name="MaxStringLength" xml:space="preserve">
         <value>{0} sahasına en fazla {1} karakter girebilirsiniz.</value>
+    </data>
+    <data name="MinSelectionWhenOtherFilled" xml:space="preserve">
+        <value>{0} dolu iken {1} sahası {2} veya ötesi seçilmelidir.</value>
     </data>
     <data name="MinStringLength" xml:space="preserve">
         <value>{0} sahasına en az {2} karakter girmelisiniz.</value>
@@ -93,6 +102,12 @@
     </data>
     <data name="RequiredPassword" xml:space="preserve">
         <value>Lütfen {0} sahasına parolanızı giriniz.</value>
+    </data>
+    <data name="RequiredWhenOtherFilled" xml:space="preserve">
+        <value>{1} sahası dolu iken {0} sahası boş kalamaz.</value>
+    </data>
+    <data name="RequiredWhenOtherSelected" xml:space="preserve">
+        <value>{2} sahası {1} seçilmişken {0} sahası boş kalamaz.</value>
     </data>
     <data name="ValueGreaterThan" xml:space="preserve">
         <value>{0} sahası {1} değerinden büyük olmalı.</value>

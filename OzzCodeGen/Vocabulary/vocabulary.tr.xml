@@ -705,6 +705,14 @@
     <Translation>Tarih Dizisi</Translation>
   </Vocab>
   <Vocab>
+    <Name>DateGreaterThan</Name>
+    <Translation>{0} tarihi {1} tarihinden önce olamaz.</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>DateLessThan</Name>
+    <Translation>{0} tarihi {2} tarihinden sonra olamaz.</Translation>
+  </Vocab>
+  <Vocab>
     <Name>DatePeriod</Name>
     <Translation>Dönem</Translation>
   </Vocab>
@@ -1409,6 +1417,10 @@
     <Translation>{0} sahasına en fazla {1} karakter girebilirsiniz.</Translation>
   </Vocab>
   <Vocab>
+    <Name>MinSelectionWhenOtherFilled</Name>
+    <Translation>{0} dolu iken {1} sahası {2} veya ötesi seçilmelidir.</Translation>
+  </Vocab>
+  <Vocab>
     <Name>MinStringLength</Name>
     <Translation>{0} sahasına en az {2} karakter girmelisiniz.</Translation>
   </Vocab>
@@ -1579,6 +1591,14 @@
   <Vocab>
     <Name>OrderType_TrailingStop_Description</Name>
     <Translation>Fiyat hareketine göre otomatik ayarlanan dinamik bir stop emri türüdür.</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>OrderTypeSL</Name>
+    <Translation>SL Emir Tipi</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>OrderTypeTP</Name>
+    <Translation>TP Emir Tipi</Translation>
   </Vocab>
   <Vocab>
     <Name>OrderValue</Name>
@@ -1979,6 +1999,14 @@
   <Vocab>
     <Name>RequiredPassword</Name>
     <Translation>Lütfen {0} sahasına parolanızı giriniz.</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>RequiredWhenOtherFilled</Name>
+    <Translation>{1} sahası dolu iken {0} sahası boş kalamaz.</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>RequiredWhenOtherSelected</Name>
+    <Translation>{2} sahası {1} seçilmişken {0} sahası boş kalamaz.</Translation>
   </Vocab>
   <Vocab>
     <Name>ReviewNotes</Name>

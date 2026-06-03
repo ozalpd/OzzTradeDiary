@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Transactions;
 using TD.Extensions;
 using TD.i18n;
 
@@ -376,6 +377,41 @@ namespace TD.Models
                             LocalizedStrings.OrderQuantity,
                             LocalizedStrings.OrderQuantity),
                         new[] { nameof(StopLossOrders) });
+            }
+
+            if (EntryTime.HasValue && ExitTime.HasValue && EntryTime > ExitTime)
+            {
+                yield return new ValidationResult(
+                    string.Format(ErrorStrings.DateLessThan,
+                        LocalizedStrings.EntryTime, "",
+                        LocalizedStrings.ExitTime),
+                    new[] { nameof(EntryTime) });
+                yield return new ValidationResult(
+                    string.Format(ErrorStrings.DateGreaterThan,
+                        LocalizedStrings.ExitTime,
+                        LocalizedStrings.EntryTime),
+                    new[] { nameof(ExitTime) });
+            }
+
+            if (ExitTime.HasValue && !EntryTime.HasValue)
+            {
+                yield return new ValidationResult(
+                                    string.Format(ErrorStrings.RequiredWhenOtherFilled, LocalizedStrings.EntryTime, LocalizedStrings.ExitTime),
+                                    new[] { nameof(EntryTime) });
+            }
+
+            if (TradeStatus >= TradeStatus.Active && !EntryTime.HasValue)
+            {
+                yield return new ValidationResult(
+                    string.Format(ErrorStrings.RequiredWhenOtherSelected, LocalizedStrings.EntryTime, TradeStatus.GetDisplayValue(), LocalizedStrings.TradeStatus),
+                    new[] { nameof(EntryTime), nameof(TradeStatus) });
+            }
+
+            if (TradeStatus < TradeStatus.Active && EntryTime.HasValue)
+            {
+                yield return new ValidationResult(string.Format(ErrorStrings.MinSelectionWhenOtherFilled,
+                                                                LocalizedStrings.EntryTime, LocalizedStrings.TradeStatus, TransactionStatus.Active.GetDisplayValue()),
+                                                   new[] { nameof(TradeStatus) });
             }
         }
     }

@@ -705,6 +705,14 @@
     <Translation>Date Array</Translation>
   </Vocab>
   <Vocab>
+    <Name>DateGreaterThan</Name>
+    <Translation>The {0} field cannot be before than {1}.</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>DateLessThan</Name>
+    <Translation>The {0} field must be before than {2}.</Translation>
+  </Vocab>
+  <Vocab>
     <Name>DatePeriod</Name>
     <Translation>Date Period</Translation>
   </Vocab>
@@ -1409,6 +1417,10 @@
     <Translation>The {0} field maximum length is {1}.</Translation>
   </Vocab>
   <Vocab>
+    <Name>MinSelectionWhenOtherFilled</Name>
+    <Translation>When {0} field is filled {1} is required {2} or further selection.</Translation>
+  </Vocab>
+  <Vocab>
     <Name>MinStringLength</Name>
     <Translation>The {0} must be at least {2} characters long.</Translation>
   </Vocab>
@@ -1579,6 +1591,14 @@
   <Vocab>
     <Name>OrderType_TrailingStop_Description</Name>
     <Translation>A stop order that automatically adjusts based on price movement.</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>OrderTypeSL</Name>
+    <Translation>SL Order Type</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>OrderTypeTP</Name>
+    <Translation>TP Order Type</Translation>
   </Vocab>
   <Vocab>
     <Name>OrderValue</Name>
@@ -1979,6 +1999,14 @@
   <Vocab>
     <Name>RequiredPassword</Name>
     <Translation>Please enter your password to {0} field.</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>RequiredWhenOtherFilled</Name>
+    <Translation>The {0} field is required when {1} is filled.</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>RequiredWhenOtherSelected</Name>
+    <Translation>The {0} field is required when {1} selected in {2}.</Translation>
   </Vocab>
   <Vocab>
     <Name>ReviewNotes</Name>

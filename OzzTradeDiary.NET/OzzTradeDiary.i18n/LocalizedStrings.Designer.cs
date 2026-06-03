@@ -1546,6 +1546,24 @@ namespace TD.i18n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to SL Order Type.
+        /// </summary>
+        public static string OrderTypeSL {
+            get {
+                return ResourceManager.GetString("OrderTypeSL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TP Order Type.
+        /// </summary>
+        public static string OrderTypeTP {
+            get {
+                return ResourceManager.GetString("OrderTypeTP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Order Value.
         /// </summary>
         public static string OrderValue {
@@ -1897,11 +1915,11 @@ namespace TD.i18n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Report Types.
+        ///   Looks up a localized string similar to Report Type.
         /// </summary>
-        public static string ReportTypes {
+        public static string ReportType {
             get {
-                return ResourceManager.GetString("ReportTypes", resourceCulture);
+                return ResourceManager.GetString("ReportType", resourceCulture);
             }
         }
         

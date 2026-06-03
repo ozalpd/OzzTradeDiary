@@ -61,11 +61,38 @@ namespace TD.i18n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The {0} field cannot be before than {1}..
+        /// </summary>
+        public static string DateGreaterThan {
+            get {
+                return ResourceManager.GetString("DateGreaterThan", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The {0} field must be before than {2}..
+        /// </summary>
+        public static string DateLessThan {
+            get {
+                return ResourceManager.GetString("DateLessThan", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The {0} field maximum length is {1}..
         /// </summary>
         public static string MaxStringLength {
             get {
                 return ResourceManager.GetString("MaxStringLength", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to When {0} field is filled {1} is required {2} or further selection..
+        /// </summary>
+        public static string MinSelectionWhenOtherFilled {
+            get {
+                return ResourceManager.GetString("MinSelectionWhenOtherFilled", resourceCulture);
             }
         }
         
@@ -165,6 +192,24 @@ namespace TD.i18n {
         public static string RequiredPassword {
             get {
                 return ResourceManager.GetString("RequiredPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The {0} field is required when {1} is filled..
+        /// </summary>
+        public static string RequiredWhenOtherFilled {
+            get {
+                return ResourceManager.GetString("RequiredWhenOtherFilled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The {0} field is required when {1} selected in {2}..
+        /// </summary>
+        public static string RequiredWhenOtherSelected {
+            get {
+                return ResourceManager.GetString("RequiredWhenOtherSelected", resourceCulture);
             }
         }
         

@@ -553,6 +553,12 @@
     <data name="OrderType" xml:space="preserve">
         <value>Order Type</value>
     </data>
+    <data name="OrderTypeSL" xml:space="preserve">
+        <value>SL Order Type</value>
+    </data>
+    <data name="OrderTypeTP" xml:space="preserve">
+        <value>TP Order Type</value>
+    </data>
     <data name="OrderValue" xml:space="preserve">
         <value>Order Value</value>
     </data>

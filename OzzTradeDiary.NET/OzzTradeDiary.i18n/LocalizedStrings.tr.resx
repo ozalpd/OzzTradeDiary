@@ -553,6 +553,12 @@
     <data name="OrderType" xml:space="preserve">
         <value>Emir Tipi</value>
     </data>
+    <data name="OrderTypeSL" xml:space="preserve">
+        <value>SL Emir Tipi</value>
+    </data>
+    <data name="OrderTypeTP" xml:space="preserve">
+        <value>TP Emir Tipi</value>
+    </data>
     <data name="OrderValue" xml:space="preserve">
         <value>Emir Tutarı</value>
     </data>

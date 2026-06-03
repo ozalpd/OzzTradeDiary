@@ -38,10 +38,4 @@
         </Style.Triggers>
     </Style>
 
-
-    <Style x:Key="ReadOnlyTextBlockStyle" TargetType="TextBlock">
-        <Setter Property="Margin" Value="0,0,0,20" />
-        <Setter Property="Background" Value="#EDEDED" />
-    </Style>
-
 </ResourceDictionary>
