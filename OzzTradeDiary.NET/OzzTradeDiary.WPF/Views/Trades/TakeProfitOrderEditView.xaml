@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TD.WPF.Views.Trades"
         xmlns:i18n="clr-namespace:TD.i18n;assembly=OzzTradeDiary.i18n"
+        xmlns:ctr="clr-namespace:TD.WPF.Controls"
         xmlns:base="clr-namespace:TD.WPF.Views"
         Title="{x:Static i18n:LocalizedStrings.EditTakeProfitOrder}"
         Height="420" Width="720" MinHeight="370" MinWidth="720"
@@ -45,8 +46,8 @@
 
         <TextBlock Grid.Column="3" Grid.Row="1" FontWeight="Bold"
                    Style="{StaticResource RightAlignedTextBlockStyle}" Text="{x:Static i18n:LocalizedStrings.FilledTime}"/>
-        <DatePicker x:Name="FilledTimeDatePicker" Grid.Row="1" Grid.Column="4" Margin="0,-2,0,16"
-                    SelectedDate="{Binding FilledTime, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"/>
+        <ctr:DateTimePicker x:Name="FilledTimeDatePicker" Grid.Row="1" Grid.Column="4" DisallowFuture="True"
+                            SelectedDateTime="{Binding FilledTime, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"/>
 
 
         <TextBlock Grid.Column="0" Grid.Row="2" FontWeight="Bold"

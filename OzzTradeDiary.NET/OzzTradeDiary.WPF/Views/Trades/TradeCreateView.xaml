@@ -13,10 +13,10 @@
     <Grid Margin="8,12">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto" />
-            <ColumnDefinition Width="5*" />
+            <ColumnDefinition Width="6*" />
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="Auto" />
-            <ColumnDefinition Width="5*" />
+            <ColumnDefinition Width="6*" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
@@ -178,13 +178,13 @@
 
         <TextBlock Grid.Column="0" Grid.Row="11" FontWeight="Bold"
                    Style="{StaticResource RightAlignedTextBlockStyle}" Text="{x:Static i18n:LocalizedStrings.Tags}"/>
-        <TextBox x:Name="TagsTextBox" Grid.Row="11" Grid.Column="1" Grid.ColumnSpan="5"
+        <TextBox x:Name="TagsTextBox" Grid.Row="11" Grid.Column="1" Grid.ColumnSpan="4"
                  Text="{Binding Tags, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"
                  Style="{StaticResource ValidationTextBoxStyle}"/>
 
         <TextBlock Grid.Column="0" Grid.Row="12" FontWeight="Bold"
                    Style="{StaticResource RightAlignedTextBlockStyle}" Text="{x:Static i18n:LocalizedStrings.SetupNotes}"/>
-        <TextBox x:Name="SetupNotesTextBox" Grid.Row="12" Grid.Column="1" Grid.ColumnSpan="5"
+        <TextBox x:Name="SetupNotesTextBox" Grid.Row="12" Grid.Column="1" Grid.ColumnSpan="4"
                  Style="{StaticResource ValidationMutliLineTextBoxStyle}"
                  Text="{Binding SetupNotes, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"/>
 

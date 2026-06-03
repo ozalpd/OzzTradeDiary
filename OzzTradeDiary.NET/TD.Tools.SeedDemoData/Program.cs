@@ -271,8 +271,10 @@ static async Task<Trade> EnsureDemoTradeAsync(ITradeRepository tradeRepository, 
     trade.TakeProfitOrders.Add(tp3);
 
     bool isExecuted = random.Next(0, 4) != 0; // 75% chance the trade is executed
-    DateTime entryTime = DateTime.UtcNow.AddDays(-daysAgo).AddHours(random.Next(0, 12)).AddMinutes(random.Next(0, 60));
-    if (isExecuted)
+    DateTime? entryTime = isExecuted 
+                        ? DateTime.UtcNow.AddDays(-daysAgo).AddHours(random.Next(0, 12)).AddMinutes(random.Next(0, 60))
+                        : null;
+    if (isExecuted && entryTime.HasValue)
     {
         trade.EntryTime = entryTime;
         // Fill entry orders with a slight time spread for multi-order trades
@@ -280,14 +282,14 @@ static async Task<Trade> EnsureDemoTradeAsync(ITradeRepository tradeRepository, 
         {
             entryOrders[e].FilledPrice = entryOrders[e].OrderPrice;
             entryOrders[e].FilledQuantity = entryOrders[e].OrderQuantity;
-            entryOrders[e].FilledTime = entryTime.AddMinutes(e * random.Next(1, 30));
+            entryOrders[e].FilledTime = entryTime.Value.AddMinutes(e * random.Next(1, 30));
         }
     }
 
     bool isClosed = isExecuted && (daysAgo > 7 || random.Next(0, 4) == 0); // 25% chance the if trade is not older than 7 days
-    if (isClosed)
+    if (isClosed && entryTime.HasValue)
     {
-        trade.ExitTime = entryTime.AddHours(random.Next(1, 72)); // Random exit time between 1 hour and 3 days after entry
+        trade.ExitTime = entryTime.Value.AddHours(random.Next(1, 72)); // Random exit time between 1 hour and 3 days after entry
         trade.TradeStatus = TradeStatus.Closed;
 
         bool isWin = random.Next(0, 2) == 0; // 50% chance of winning trade if it's closed
@@ -298,7 +300,7 @@ static async Task<Trade> EnsureDemoTradeAsync(ITradeRepository tradeRepository, 
         {
             tp1.FilledPrice = tp1.OrderPrice;
             tp1.FilledQuantity = tp1.OrderQuantity;
-            tp1.FilledTime = entryTime.AddHours(random.Next(1, 24));
+            tp1.FilledTime = entryTime.Value.AddHours(random.Next(1, 24));
             remainingQuantity = quantity - tp1.FilledQuantity.Value;
             if (hitTp2)
             {
