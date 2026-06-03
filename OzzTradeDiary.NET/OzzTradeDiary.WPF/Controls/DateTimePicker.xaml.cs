@@ -47,6 +47,13 @@ namespace TD.WPF.Controls
                 picker.RefreshSubControls();
         }
 
+        protected override void OnPropertyChanged(DependencyPropertyChangedEventArgs e)
+        {
+            base.OnPropertyChanged(e);
+            if (e.Property == IsEnabledProperty)
+                RefreshSubControls();
+        }
+
         public static readonly DependencyProperty SelectedDateTimeProperty = DependencyProperty.Register(nameof(SelectedDateTime),
                                                                                                          typeof(DateTime?),
                                                                                                          typeof(DateTimePicker),
@@ -77,7 +84,9 @@ namespace TD.WPF.Controls
 
         private void RefreshSubControls()
         {
-            if (datePicker == null) return;
+            if (datePicker == null)
+                return;
+
             datePicker.DisplayDateEnd = DisallowFuture ? DateTime.Today : null;
             datePicker.SelectedDate = _selectedDate;
             hourTextBox.Text = _hour.ToString("D2");

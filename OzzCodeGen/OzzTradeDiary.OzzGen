@@ -2371,7 +2371,7 @@
           <EnumTypeName />
           <IsKey>false</IsKey>
           <IsForeignKey>false</IsForeignKey>
-          <IsImmutable>true</IsImmutable>
+          <IsImmutable>false</IsImmutable>
           <IsNullable>true</IsNullable>
           <IsStoreGenerated>false</IsStoreGenerated>
           <MaxLength>2048</MaxLength>

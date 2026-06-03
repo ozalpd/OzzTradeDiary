@@ -66,22 +66,22 @@
                   SelectedValue="{Binding SymbolId, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"/>
 
         <TextBlock Grid.Column="0" Grid.Row="2" FontWeight="Bold"
-                   Style="{StaticResource RightAlignedTextBlockStyle}" Text="{x:Static i18n:LocalizedStrings.TradeDirection}"/>
-        <ComboBox x:Name="TradeDirectionComboBox" Grid.Row="2" Grid.Column="1"
-                  Style="{StaticResource ValidationComboBoxStyle}"
-                  ItemsSource="{Binding TradeDirectionValues}"
-                  DisplayMemberPath="DisplayValue"
-                  SelectedValuePath="Value"
-                  SelectedValue="{Binding TradeDirection, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"/>
-
-        <TextBlock Grid.Column="3" Grid.Row="2" FontWeight="Bold"
                    Style="{StaticResource RightAlignedTextBlockStyle}" Text="{x:Static i18n:LocalizedStrings.TradeStatus}"/>
-        <ComboBox x:Name="TradeStatusComboBox" Grid.Row="2" Grid.Column="4"
+        <ComboBox x:Name="TradeStatusComboBox" Grid.Row="2" Grid.Column="1"
                   Style="{StaticResource ValidationComboBoxStyle}"
                   ItemsSource="{Binding TradeStatusValues}"
                   DisplayMemberPath="DisplayValue"
                   SelectedValuePath="Value"
                   SelectedValue="{Binding TradeStatus, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"/>
+
+        <TextBlock Grid.Column="3" Grid.Row="2" FontWeight="Bold"
+                   Style="{StaticResource RightAlignedTextBlockStyle}" Text="{x:Static i18n:LocalizedStrings.TradeDirection}"/>
+        <ComboBox x:Name="TradeDirectionComboBox" Grid.Row="2" Grid.Column="4"
+                  Style="{StaticResource ValidationComboBoxStyle}"
+                  ItemsSource="{Binding TradeDirectionValues}"
+                  DisplayMemberPath="DisplayValue"
+                  SelectedValuePath="Value"
+                  SelectedValue="{Binding TradeDirection, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"/>
 
         <TextBlock Grid.Column="0" Grid.Row="3" FontWeight="Bold"
                    Style="{StaticResource RightAlignedTextBlockStyle}" Text="{x:Static i18n:LocalizedStrings.PlannedEntryPrice}"/>

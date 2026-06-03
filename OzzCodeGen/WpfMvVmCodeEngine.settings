@@ -1538,7 +1538,7 @@
           <IsPreselectedInCreate>true</IsPreselectedInCreate>
           <IsMultiLine>false</IsMultiLine>
           <CreateViewMode>Editable</CreateViewMode>
-          <EditViewMode>Editable</EditViewMode>
+          <EditViewMode>ReadOnly</EditViewMode>
           <ShowInCollection>false</ShowInCollection>
           <ShowInDetail>false</ShowInDetail>
           <ValueConstraint />
@@ -1616,7 +1616,7 @@
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsMultiLine>false</IsMultiLine>
           <CreateViewMode>Editable</CreateViewMode>
-          <EditViewMode>ReadOnly</EditViewMode>
+          <EditViewMode>Editable</EditViewMode>
           <ShowInCollection>true</ShowInCollection>
           <ShowInDetail>true</ShowInDetail>
           <ValueConstraint />
@@ -1655,7 +1655,7 @@
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsMultiLine>false</IsMultiLine>
           <CreateViewMode>Editable</CreateViewMode>
-          <EditViewMode>Editable</EditViewMode>
+          <EditViewMode>ReadOnly</EditViewMode>
           <ShowInCollection>true</ShowInCollection>
           <ShowInDetail>true</ShowInDetail>
           <ValueConstraint />
@@ -1668,7 +1668,7 @@
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsMultiLine>false</IsMultiLine>
           <CreateViewMode>Exclude</CreateViewMode>
-          <EditViewMode>Editable</EditViewMode>
+          <EditViewMode>ReadOnly</EditViewMode>
           <ShowInCollection>true</ShowInCollection>
           <ShowInDetail>true</ShowInDetail>
           <ValueConstraint />
@@ -1707,7 +1707,7 @@
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsMultiLine>false</IsMultiLine>
           <CreateViewMode>Editable</CreateViewMode>
-          <EditViewMode>Editable</EditViewMode>
+          <EditViewMode>ReadOnly</EditViewMode>
           <ShowInCollection>true</ShowInCollection>
           <ShowInDetail>true</ShowInDetail>
           <ValueConstraint />
@@ -1720,7 +1720,7 @@
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsMultiLine>false</IsMultiLine>
           <CreateViewMode>Exclude</CreateViewMode>
-          <EditViewMode>Editable</EditViewMode>
+          <EditViewMode>ReadOnly</EditViewMode>
           <ShowInCollection>true</ShowInCollection>
           <ShowInDetail>true</ShowInDetail>
           <ValueConstraint />
@@ -1746,7 +1746,7 @@
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsMultiLine>false</IsMultiLine>
           <CreateViewMode>Editable</CreateViewMode>
-          <EditViewMode>Editable</EditViewMode>
+          <EditViewMode>ReadOnly</EditViewMode>
           <ShowInCollection>true</ShowInCollection>
           <ShowInDetail>true</ShowInDetail>
           <ValueConstraint />
@@ -1759,7 +1759,7 @@
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsMultiLine>false</IsMultiLine>
           <CreateViewMode>Exclude</CreateViewMode>
-          <EditViewMode>Editable</EditViewMode>
+          <EditViewMode>ReadOnly</EditViewMode>
           <ShowInCollection>true</ShowInCollection>
           <ShowInDetail>true</ShowInDetail>
           <ValueConstraint />
@@ -1772,7 +1772,7 @@
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsMultiLine>false</IsMultiLine>
           <CreateViewMode>Editable</CreateViewMode>
-          <EditViewMode>Editable</EditViewMode>
+          <EditViewMode>ReadOnly</EditViewMode>
           <ShowInCollection>true</ShowInCollection>
           <ShowInDetail>true</ShowInDetail>
           <ValueConstraint />
@@ -1785,7 +1785,7 @@
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsMultiLine>false</IsMultiLine>
           <CreateViewMode>Exclude</CreateViewMode>
-          <EditViewMode>Editable</EditViewMode>
+          <EditViewMode>ReadOnly</EditViewMode>
           <ShowInCollection>true</ShowInCollection>
           <ShowInDetail>true</ShowInDetail>
           <ValueConstraint />
@@ -1928,7 +1928,7 @@
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsMultiLine>true</IsMultiLine>
           <CreateViewMode>Exclude</CreateViewMode>
-          <EditViewMode>ReadOnly</EditViewMode>
+          <EditViewMode>Editable</EditViewMode>
           <ShowInCollection>true</ShowInCollection>
           <ShowInDetail>true</ShowInDetail>
           <ValueConstraint />

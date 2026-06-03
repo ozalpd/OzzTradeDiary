@@ -658,14 +658,15 @@ namespace TD.SQLite
                           && existingTrade.TotalFeesCorrected == trade.TotalFeesCorrected
                           && existingTrade.FundingFeeTotal == trade.FundingFeeTotal
                           && existingTrade.Tags == trade.Tags
+                          && existingTrade.ReviewNotes == trade.ReviewNotes
                           && existingTrade.UpdatedAt == trade.UpdatedAt;
 
             if (noChanges)
                 return false;
 
             await using var command = connection.CreateCommand();
-            // TradingAccountId, SymbolId, TradeDirection, MarketType, CancellationTime, SetupNotes, ReviewNotes are not updated to avoid complications with existing references,
-            // so only EntryTime, ExitTime, TradeStatus, PlannedEntryPrice, ExecutedEntryPrice, PlannedPositionValue, ExecutedPositionValue, OrderQuantity, FilledQuantity, PlannedProfit, PlannedTP, ExecutedTP, PlannedSL, ExecutedSL, PlannedRiskAmount, PlannedRiskRewardRatio, RealizedProfitLoss, NetProfitLoss, RealizedRiskAmount, TotalFeesCalculated, TotalFeesCorrected, FundingFeeTotal, Tags, UpdatedAt are updated
+            // TradingAccountId, SymbolId, TradeDirection, MarketType, CancellationTime, SetupNotes are not updated to avoid complications with existing references,
+            // so only EntryTime, ExitTime, TradeStatus, PlannedEntryPrice, ExecutedEntryPrice, PlannedPositionValue, ExecutedPositionValue, OrderQuantity, FilledQuantity, PlannedProfit, PlannedTP, ExecutedTP, PlannedSL, ExecutedSL, PlannedRiskAmount, PlannedRiskRewardRatio, RealizedProfitLoss, NetProfitLoss, RealizedRiskAmount, TotalFeesCalculated, TotalFeesCorrected, FundingFeeTotal, Tags, ReviewNotes, UpdatedAt are updated
             command.CommandText = @$"UPDATE {_tableName} SET
                 EntryTime = @entryTime,
                 ExitTime = @exitTime,
@@ -690,6 +691,7 @@ namespace TD.SQLite
                 TotalFeesCorrected = @totalFeesCorrected,
                 FundingFeeTotal = @fundingFeeTotal,
                 Tags = @tags,
+                ReviewNotes = @reviewNotes,
                 UpdatedAt = @updatedAt
             WHERE Id = @id";
 
@@ -737,6 +739,7 @@ namespace TD.SQLite
                                                 trade.FundingFeeTotal,
                                                 DecimalToIntegerScale.FundingFeeTotal);
             command.AddNullableParameter("@tags", trade.Tags);
+            command.AddNullableParameter("@reviewNotes", trade.ReviewNotes);
             command.AddDateTimeToTextParameter("@updatedAt", DateTime.Now);
 
             var affectedRows = await command.ExecuteNonQueryAsync();

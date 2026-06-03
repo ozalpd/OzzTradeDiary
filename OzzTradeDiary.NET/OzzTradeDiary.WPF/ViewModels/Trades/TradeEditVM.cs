@@ -44,19 +44,7 @@ namespace TD.WPF.ViewModels.Trades
 
         public int TradingAccountId => _trade.TradingAccountId;
 
-        public TradingAccount TradingAccount
-        {
-            get { return _trade.TradingAccount; }
-            set
-            {
-                if (_trade.TradingAccount != value)
-                {
-                    _trade.TradingAccount = value;
-                    RaisePropertyChanged(nameof(TradingAccount));
-                    ValidateProperty(_trade, nameof(TradingAccount));
-                }
-            }
-        }
+        public TradingAccount TradingAccount => _trade.TradingAccount;
 
         public int SymbolId => _trade.SymbolId;
 
@@ -92,125 +80,41 @@ namespace TD.WPF.ViewModels.Trades
 
         public TradeDirection TradeDirection => _trade.TradeDirection;
 
-        public TradeStatus TradeStatus => _trade.TradeStatus;
-
-        public decimal? PlannedEntryPrice
+        public TradeStatus TradeStatus
         {
-            get { return _trade.PlannedEntryPrice; }
+            get { return _trade.TradeStatus; }
             set
             {
-                if (_trade.PlannedEntryPrice != value)
+                if (_trade.TradeStatus != value)
                 {
-                    _trade.PlannedEntryPrice = value;
-                    RaisePropertyChanged(nameof(PlannedEntryPrice));
-                    ValidateProperty(_trade, nameof(PlannedEntryPrice));
+                    _trade.TradeStatus = value;
+                    RaisePropertyChanged(nameof(TradeStatus));
+                    ValidateProperty(_trade, nameof(TradeStatus));
                 }
             }
         }
 
-        public decimal? ExecutedEntryPrice
-        {
-            get { return _trade.ExecutedEntryPrice; }
-            set
-            {
-                if (_trade.ExecutedEntryPrice != value)
-                {
-                    _trade.ExecutedEntryPrice = value;
-                    RaisePropertyChanged(nameof(ExecutedEntryPrice));
-                    ValidateProperty(_trade, nameof(ExecutedEntryPrice));
-                }
-            }
-        }
+        public decimal? PlannedEntryPrice => _trade.PlannedEntryPrice;
+
+        public decimal? ExecutedEntryPrice => _trade.ExecutedEntryPrice;
 
         public decimal? PlannedPositionValue => _trade.PlannedPositionValue;
 
         public decimal? ExecutedPositionValue => _trade.ExecutedPositionValue;
 
-        public decimal? OrderQuantity
-        {
-            get { return _trade.OrderQuantity; }
-            set
-            {
-                if (_trade.OrderQuantity != value)
-                {
-                    _trade.OrderQuantity = value;
-                    RaisePropertyChanged(nameof(OrderQuantity));
-                    ValidateProperty(_trade, nameof(OrderQuantity));
-                }
-            }
-        }
+        public decimal? OrderQuantity => _trade.OrderQuantity;
 
-        public decimal? FilledQuantity
-        {
-            get { return _trade.FilledQuantity; }
-            set
-            {
-                if (_trade.FilledQuantity != value)
-                {
-                    _trade.FilledQuantity = value;
-                    RaisePropertyChanged(nameof(FilledQuantity));
-                    ValidateProperty(_trade, nameof(FilledQuantity));
-                }
-            }
-        }
+        public decimal? FilledQuantity => _trade.FilledQuantity;
 
         public decimal? PlannedProfit => _trade.PlannedProfit;
 
-        public decimal? PlannedTP
-        {
-            get { return _trade.PlannedTP; }
-            set
-            {
-                if (_trade.PlannedTP != value)
-                {
-                    _trade.PlannedTP = value;
-                    RaisePropertyChanged(nameof(PlannedTP));
-                    ValidateProperty(_trade, nameof(PlannedTP));
-                }
-            }
-        }
+        public decimal? PlannedTP => _trade.PlannedTP;
 
-        public decimal? ExecutedTP
-        {
-            get { return _trade.ExecutedTP; }
-            set
-            {
-                if (_trade.ExecutedTP != value)
-                {
-                    _trade.ExecutedTP = value;
-                    RaisePropertyChanged(nameof(ExecutedTP));
-                    ValidateProperty(_trade, nameof(ExecutedTP));
-                }
-            }
-        }
+        public decimal? ExecutedTP => _trade.ExecutedTP;
 
-        public decimal? PlannedSL
-        {
-            get { return _trade.PlannedSL; }
-            set
-            {
-                if (_trade.PlannedSL != value)
-                {
-                    _trade.PlannedSL = value;
-                    RaisePropertyChanged(nameof(PlannedSL));
-                    ValidateProperty(_trade, nameof(PlannedSL));
-                }
-            }
-        }
+        public decimal? PlannedSL => _trade.PlannedSL;
 
-        public decimal? ExecutedSL
-        {
-            get { return _trade.ExecutedSL; }
-            set
-            {
-                if (_trade.ExecutedSL != value)
-                {
-                    _trade.ExecutedSL = value;
-                    RaisePropertyChanged(nameof(ExecutedSL));
-                    ValidateProperty(_trade, nameof(ExecutedSL));
-                }
-            }
-        }
+        public decimal? ExecutedSL => _trade.ExecutedSL;
 
         public decimal? PlannedRiskRewardRatio => _trade.PlannedRiskRewardRatio;
 
@@ -270,7 +174,25 @@ namespace TD.WPF.ViewModels.Trades
 
         public string? SetupNotes => _trade.SetupNotes;
 
-        public string? ReviewNotes => _trade.ReviewNotes;
+        public string? ReviewNotes
+        {
+            get { return _trade.ReviewNotes; }
+            set
+            {
+                if (!string.IsNullOrWhiteSpace(value) && _trade.ReviewNotes != value)
+                {
+                    _trade.ReviewNotes = value;
+                    RaisePropertyChanged(nameof(ReviewNotes));
+                    ValidateProperty(_trade, nameof(ReviewNotes));
+                }
+                else if (string.IsNullOrWhiteSpace(value))
+                {
+                    _trade.ReviewNotes = null;
+                    RaisePropertyChanged(nameof(ReviewNotes));
+                    ValidateProperty(_trade, nameof(ReviewNotes));
+                }
+            }
+        }
 
         public bool ValidateModel()
         {

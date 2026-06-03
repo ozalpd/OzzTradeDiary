@@ -37,13 +37,18 @@ namespace TD.WPF.Views.Trades
         {
             InitializeComponent();
             _viewModel = (TradeEditVM)DataContext;
+            SourceInitialized += TradeEditView_SourceInitialized;
         }
 
         private async void TradeEditView_SourceInitialized(object? sender, EventArgs e)
         {
-            OnSourceInitialized();
+            if (!_viewModel.Trade.IsActiveOrWaiting)
+            {
+                EntryTimeDatePicker.IsEnabled = false;
+                ExitTimeDatePicker.IsEnabled = false;
+                TradeStatusComboBox.IsEnabled = false;
+            }
         }
-        partial void OnSourceInitialized();
 
         private void DecimalTextBox_Pasting(object sender, DataObjectPastingEventArgs e)
         {
