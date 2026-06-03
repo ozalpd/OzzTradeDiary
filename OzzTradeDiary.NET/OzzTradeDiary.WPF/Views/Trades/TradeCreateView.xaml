@@ -38,8 +38,7 @@
 
         <TextBlock Grid.Column="0" Grid.Row="0" Margin="4,4,8,0"  FontWeight="Bold"
                    Style="{StaticResource RightAlignedTextBlockStyle}" Text="{x:Static i18n:LocalizedStrings.EntryTime}"/>
-        <ctr:DateTimePicker x:Name="EntryTimeDatePicker" Grid.Row="0" Grid.Column="1"
-                            DisallowFuture="True"
+        <ctr:DateTimePicker x:Name="EntryTimeDatePicker" Grid.Row="0" Grid.Column="1" DisallowFuture="True"
                             SelectedDateTime="{Binding EntryTime, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"/>
 
         <TextBlock Grid.Column="3" Grid.Row="0" Margin="4,4,8,0" FontWeight="Bold"

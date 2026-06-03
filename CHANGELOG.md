@@ -22,7 +22,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - Dynamically adjusted `TradeDateType` options based on `TradeStatusQuery` in `TradeHistoryVM`
 - Added `DateHelper` for period calculations.
 - Enhanced `TradeHistoryVM` and `MainWindow` to support date period filtering via a new ComboBox.
-- Updated `TradeCreateView` to use this control for EntryTime and ExitTime fields, replacing DatePicker.
+- Updated `TradeCreateView` to `DateTimePicker` control for `EntryTime` and `ExitTime` fields, replacing DatePicker.
+- Switched Entry/SL/TP order edit views to custom `DateTimePicker` for FilledTime (disallowing future dates).
 - Introduced `ReportType` and `SessionType` enums.
 - Strengthen `Trade` model validation for entry/exit time and status logic and improve WPF validation.
 - Minor code style and whitespace cleanups.

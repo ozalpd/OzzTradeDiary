@@ -1950,7 +1950,7 @@
       <GenModeCollectionVM>GenerateIfNotExists</GenModeCollectionVM>
       <GenModeLookupService>DoNotGenerate</GenModeLookupService>
       <GenModeCreateView>SkipManuallyEdited</GenModeCreateView>
-      <GenModeEditView>GenerateIfNotExists</GenModeEditView>
+      <GenModeEditView>SkipManuallyEdited</GenModeEditView>
       <GenModeDetailView>SkipManuallyEdited</GenModeDetailView>
       <RepositoryName>ITradeRepository</RepositoryName>
     </BaseEntitySetting>

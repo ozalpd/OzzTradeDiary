@@ -5,9 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TD.WPF.Views.Trades"
         xmlns:i18n="clr-namespace:TD.i18n;assembly=OzzTradeDiary.i18n"
+        xmlns:ctr="clr-namespace:TD.WPF.Controls"
         xmlns:base="clr-namespace:TD.WPF.Views"
         Title="{x:Static i18n:LocalizedStrings.EditTrade}"
-        Height="750" Width="720" MinHeight="750" MinWidth="720"
+        Height="750" Width="800" MinHeight="750" MinWidth="800"
         WindowStartupLocation="CenterOwner"
         mc:Ignorable="d">
     <Grid Margin="8,12">
@@ -38,13 +39,13 @@
 
         <TextBlock Grid.Column="0" Grid.Row="0" FontWeight="Bold"
                    Style="{StaticResource RightAlignedTextBlockStyle}" Text="{x:Static i18n:LocalizedStrings.EntryTime}"/>
-        <DatePicker x:Name="EntryTimeDatePicker" Grid.Row="0" Grid.Column="1" Margin="0,-2,0,16"
-                    SelectedDate="{Binding EntryTime, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"/>
+        <ctr:DateTimePicker x:Name="EntryTimeDatePicker" Grid.Row="0" Grid.Column="1" DisallowFuture="True"
+                    SelectedDateTime="{Binding EntryTime, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"/>
 
         <TextBlock Grid.Column="2" Grid.Row="0" FontWeight="Bold"
                    Style="{StaticResource RightAlignedTextBlockStyle}" Text="{x:Static i18n:LocalizedStrings.ExitTime}"/>
-        <DatePicker x:Name="ExitTimeDatePicker" Grid.Row="0" Grid.Column="3" Margin="0,-2,0,16"
-                    SelectedDate="{Binding ExitTime, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"/>
+        <ctr:DateTimePicker x:Name="ExitTimeDatePicker" Grid.Row="0" Grid.Column="3" DisallowFuture="True"
+                    SelectedDateTime="{Binding ExitTime, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"/>
 
         <TextBlock Grid.Column="0" Grid.Row="1" FontWeight="Bold"
                    Style="{StaticResource RightAlignedTextBlockStyle}" Text="{x:Static i18n:LocalizedStrings.TradingAccount}"/>
