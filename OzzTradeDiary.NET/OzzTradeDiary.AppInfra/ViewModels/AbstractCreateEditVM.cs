@@ -29,5 +29,6 @@ namespace TD.AppInfra.ViewModels
     public interface IIsDirty
     {
         bool IsDirty { get; }
+        bool HasErrors { get; }
     }
 }

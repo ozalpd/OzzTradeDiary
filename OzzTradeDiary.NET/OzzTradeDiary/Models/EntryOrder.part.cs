@@ -6,6 +6,19 @@ namespace TD.Models
     public partial class EntryOrder
     {
         /// <summary>
+        /// Gets or sets the calculated fees for the trade.
+        /// </summary>
+        /// <remarks>The fees are computed based on the trade details. The setter exists to support data binding scenarios but does not affect the calculation of the fees.</remarks>
+        public decimal? FeesCalculated => CalculateFees();
+
+        private decimal? CalculateFees()
+        {
+            var account = Trade?.TradingAccount;
+            // Implement the logic to calculate fees based on trade details
+            return null; // Placeholder
+        }
+
+        /// <summary>
         /// Gets or sets the filled value for the trade, representing the total value of the filled quantity at the
         /// filled price.
         /// </summary>
@@ -22,6 +35,8 @@ namespace TD.Models
         }
         decimal? _filledValue;
 
+        public bool IsCancelled => CancellationTime.HasValue;
+
         /// <summary>
         /// Gets or sets the calculated order value for the trade.
         /// </summary>
@@ -36,18 +51,5 @@ namespace TD.Models
             set { _orderValue = value; }
         }
         decimal? _orderValue;
-
-        /// <summary>
-        /// Gets or sets the calculated fees for the trade.
-        /// </summary>
-        /// <remarks>The fees are computed based on the trade details. The setter exists to support data binding scenarios but does not affect the calculation of the fees.</remarks>
-        public decimal? FeesCalculated => CalculateFees();
-
-        private decimal? CalculateFees()
-        {
-            var account = Trade?.TradingAccount;
-            // Implement the logic to calculate fees based on trade details
-            return null; // Placeholder
-        }
     }
 }

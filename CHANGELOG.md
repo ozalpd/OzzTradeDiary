@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
-## [0.2.1] - 2026-06-03
+## [0.2.1] - 2026-06-04
 
 ### Added
 - Introduced `TradeStatusQuery` enum for flexible trade status filtering in UI and repository.
@@ -24,6 +24,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - Enhanced `TradeHistoryVM` and `MainWindow` to support date period filtering via a new ComboBox.
 - Updated `TradeCreateView` to `DateTimePicker` control for `EntryTime` and `ExitTime` fields, replacing DatePicker.
 - Switched Entry/SL/TP order edit views to custom `DateTimePicker` for FilledTime (disallowing future dates).
+- Added `CancellationTime` to `EntryOrder`, `StopLossOrder`, and `TakeProfitOrder` models, including DataAnnotations, repository mapping, and schema generation. Adjusted calculated properties and validation logic to exclude cancelled orders.
+- Implemented `UpdateCancellationTimeAsync` in repositories and mocks.
+- Fixed `AbstractEditView` close logic to check `IsDirty` and `HasErrors`.
 - Redesign `TradeEditView`: use read-only text boxes for most fields, editable multi-line ReviewNotes, improved layout
 - Introduced `ReportType` and `SessionType` enums.
 - Strengthen `Trade` model validation for entry/exit time and status logic and improve WPF validation.

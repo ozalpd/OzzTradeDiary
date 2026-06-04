@@ -303,7 +303,7 @@ namespace TD.SQLite
 
                 result.Add(symbol);
             }
-            
+
             await using var countCommand = connection.CreateCommand();
             countCommand.CommandText = $"SELECT COUNT(1) FROM {_tableName}";
             if (isActive.HasValue)

@@ -26,6 +26,7 @@ namespace TD.AppInfra.DesignTime
         public Task<EntryOrder?> GetByIdAsync(int? id) => Task.FromResult<EntryOrder?>(null);
         public Task<IReadOnlyList<EntryOrder>> GetByTradeIdAsync(int tradeId) => Task.FromResult<IReadOnlyList<EntryOrder>>(Array.Empty<EntryOrder>());
         public Task<bool> UpdateAsync(EntryOrder entryOrder) => throw new NotImplementedException();
+        public Task<bool> UpdateCancellationTimeAsync(int id, DateTime cancellationTime) => throw new NotImplementedException();
     }
 
     public class ExchangeMockRepository : IExchangeRepository
@@ -53,6 +54,7 @@ namespace TD.AppInfra.DesignTime
         public Task<StopLossOrder?> GetByIdAsync(int? id) => Task.FromResult<StopLossOrder?>(null);
         public Task<IReadOnlyList<StopLossOrder>> GetByTradeIdAsync(int tradeId) => Task.FromResult<IReadOnlyList<StopLossOrder>>(Array.Empty<StopLossOrder>());
         public Task<bool> UpdateAsync(StopLossOrder stopLossOrder) => throw new NotImplementedException();
+        public Task<bool> UpdateCancellationTimeAsync(int id, DateTime cancellationTime) => throw new NotImplementedException();
     }
 
     public class SymbolMockRepository : ISymbolRepository
@@ -82,6 +84,7 @@ namespace TD.AppInfra.DesignTime
         public Task<TakeProfitOrder?> GetByIdAsync(int? id) => Task.FromResult<TakeProfitOrder?>(null);
         public Task<IReadOnlyList<TakeProfitOrder>> GetByTradeIdAsync(int tradeId) => Task.FromResult<IReadOnlyList<TakeProfitOrder>>(Array.Empty<TakeProfitOrder>());
         public Task<bool> UpdateAsync(TakeProfitOrder takeProfitOrder) => throw new NotImplementedException();
+        public Task<bool> UpdateCancellationTimeAsync(int id, DateTime cancellationTime) => throw new NotImplementedException();
     }
 
     public class TradingAccountMockRepository : ITradingAccountRepository

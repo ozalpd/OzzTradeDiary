@@ -74,6 +74,8 @@ namespace TD.Models
             }
         }
 
+        public bool IsCancelled => CancellationTime.HasValue;
+
         /// <summary>
         /// Gets the planned profit amount for this specific take profit order,
         /// calculated from the trade's entry price, this order's price and quantity.

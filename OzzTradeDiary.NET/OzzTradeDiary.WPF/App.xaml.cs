@@ -3,7 +3,6 @@ using System.Windows;
 using TD.AppInfra.Models;
 using TD.SQLite;
 using TD.WPF.Models;
-using TD.WPF.Services;
 using TD.WPF.Views;
 
 namespace TD.WPF
@@ -47,13 +46,6 @@ namespace TD.WPF
                                                  stopLossOrderRepository, symbolRepository, takeProfitOrderRepository,
                                                  tradingAccountRepository, tradeRepository);
             new MainWindow(dataSources).Show();
-
-            _ = AutoBackupHelper.RunAsync();
-        }
-
-        private void OnExit(object sender, ExitEventArgs e)
-        {
-            _ = AutoBackupHelper.RunAsync(byPassIsBackupDue: true);
         }
     }
 }

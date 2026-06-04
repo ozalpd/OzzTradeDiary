@@ -3,7 +3,7 @@ using TD.i18n;
 
 namespace TD.Models
 {
-    public partial class StopLossOrder
+    public partial class StopLossOrder : IValidatableObject
     {
         /// <summary>
         /// Gets or sets the filled value for the trade, representing the total value of the filled quantity at the
@@ -74,6 +74,8 @@ namespace TD.Models
             }
         }
 
+        public bool IsCancelled => CancellationTime.HasValue;
+
         /// <summary>
         /// Gets the planned risk amount for this specific stop loss order,
         /// calculated from the trade's entry price, this order's price and quantity.
@@ -94,6 +96,33 @@ namespace TD.Models
                 return Trade.TradeDirection == TradeDirection.Long
                     ? (entryPrice.Value - OrderPrice) * quantity.Value
                     : (OrderPrice - entryPrice.Value) * quantity.Value;
+            }
+        }
+
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        {
+            if (FilledQuantity.HasValue)
+            {
+                if (FilledPrice == null || FilledPrice <= 0)
+                {
+                    yield return new ValidationResult(
+                        "Filled price must be greater than zero when filled quantity is specified.",
+                        new[] { nameof(FilledPrice) });
+                }
+
+                var filledQ = FilledQuantity.Value;
+                var remExceptThis = Trade.GetRemainingOpenQuantity(filledQ) ?? 0;
+                if (filledQ > remExceptThis)
+                    yield return new ValidationResult(
+                        string.Format("Filled quantity cannot exceed the remaining open quantity ({0}) of the trade.", remExceptThis),
+                        new[] { nameof(FilledQuantity) });
+            }
+
+            if (FilledPrice.HasValue && (FilledQuantity == null || FilledQuantity <= 0))
+            {
+                yield return new ValidationResult(
+                    "Filled quantity must be greater than zero when filled price is specified.",
+                    new[] { nameof(FilledQuantity) });
             }
         }
     }

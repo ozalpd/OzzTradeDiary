@@ -16,7 +16,7 @@ namespace TD.WPF.Views
 
         protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
         {
-            if (_isDirty.IsDirty && !DialogResult.HasValue)
+            if (IsDirty && !_isDirty.HasErrors && !DialogResult.HasValue)
             {
                 var result = MessageBox.Show(this,
                     MessageStrings.UnsavedChangesWarning,

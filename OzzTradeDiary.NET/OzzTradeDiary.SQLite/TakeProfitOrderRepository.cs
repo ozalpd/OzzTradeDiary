@@ -124,7 +124,7 @@ namespace TD.SQLite
             await using var command = connection.CreateCommand();
             command.CommandText = @$"INSERT INTO {_tableName} ({string.Join(", ", ColumnNames[1..])})
             VALUES (@tradeId, @orderType, @orderPrice, @filledPrice, @orderQuantity, @filledQuantity,
-                    @orderValue, @filledValue, @filledTime, @notes, @updatedAt);
+                    @orderValue, @filledValue, @notes, @cancellationTime, @filledTime, @updatedAt);
             SELECT last_insert_rowid();";
 
             command.AddParameter("@tradeId", takeProfitOrder.TradeId);
@@ -139,8 +139,9 @@ namespace TD.SQLite
             command.AddDecimalToIntegerParameter("@filledValue",
                                                 takeProfitOrder.FilledValue,
                                                 DecimalToIntegerScale.FilledValue);
-            command.AddDateTimeToTextParameter("@filledTime", takeProfitOrder.FilledTime);
             command.AddNullableParameter("@notes", takeProfitOrder.Notes);
+            command.AddDateTimeToTextParameter("@cancellationTime", takeProfitOrder.CancellationTime);
+            command.AddDateTimeToTextParameter("@filledTime", takeProfitOrder.FilledTime);
             command.AddDateTimeToTextParameter("@updatedAt", DateTime.Now);
 
             var id = Convert.ToInt32((long)(await command.ExecuteScalarAsync() ?? 0));
@@ -202,16 +203,16 @@ namespace TD.SQLite
                           && existingTakeProfitOrder.FilledQuantity == takeProfitOrder.FilledQuantity
                           && existingTakeProfitOrder.OrderValue == takeProfitOrder.OrderValue
                           && existingTakeProfitOrder.FilledValue == takeProfitOrder.FilledValue
-                          && existingTakeProfitOrder.FilledTime == takeProfitOrder.FilledTime
                           && existingTakeProfitOrder.Notes == takeProfitOrder.Notes
+                          && existingTakeProfitOrder.FilledTime == takeProfitOrder.FilledTime
                           && existingTakeProfitOrder.UpdatedAt == takeProfitOrder.UpdatedAt;
 
             if (noChanges)
                 return false;
 
             await using var command = connection.CreateCommand();
-            // TradeId is not updated to avoid complications with existing references,
-            // so only OrderType, OrderPrice, FilledPrice, OrderQuantity, FilledQuantity, OrderValue, FilledValue, FilledTime, Notes, UpdatedAt are updated
+            // TradeId, CancellationTime are not updated to avoid complications with existing references,
+            // so only OrderType, OrderPrice, FilledPrice, OrderQuantity, FilledQuantity, OrderValue, FilledValue, Notes, FilledTime, UpdatedAt are updated
             command.CommandText = @$"UPDATE {_tableName} SET
                 OrderType = @orderType,
                 OrderPrice = @orderPrice,
@@ -220,8 +221,8 @@ namespace TD.SQLite
                 FilledQuantity = @filledQuantity,
                 OrderValue = @orderValue,
                 FilledValue = @filledValue,
-                FilledTime = @filledTime,
                 Notes = @notes,
+                FilledTime = @filledTime,
                 UpdatedAt = @updatedAt
             WHERE Id = @id";
 
@@ -237,8 +238,8 @@ namespace TD.SQLite
             command.AddDecimalToIntegerParameter("@filledValue",
                                                 takeProfitOrder.FilledValue,
                                                 DecimalToIntegerScale.FilledValue);
-            command.AddDateTimeToTextParameter("@filledTime", takeProfitOrder.FilledTime);
             command.AddNullableParameter("@notes", takeProfitOrder.Notes);
+            command.AddDateTimeToTextParameter("@filledTime", takeProfitOrder.FilledTime);
             command.AddDateTimeToTextParameter("@updatedAt", DateTime.Now);
 
             var affectedRows = await command.ExecuteNonQueryAsync();
@@ -251,6 +252,28 @@ namespace TD.SQLite
             return affectedRows > 0;
         }
         partial void OnUpdated(TakeProfitOrder takeProfitOrder);
+        partial void OnUpdated(int takeProfitOrderId);
+
+        public async Task<bool> UpdateCancellationTimeAsync(int id, DateTime cancellationTime)
+        {
+            await using var connection = await GetOpenConnectionAsync();
+            await using var command = connection.CreateCommand();
+            command.CommandText = @$"UPDATE {_tableName} SET
+                CancellationTime = @cancellationTime,                UpdatedAt = @updatedAt            WHERE Id = @id";
+
+            command.AddParameter("@id", id);
+            command.AddDateTimeToTextParameter("@cancellationTime", cancellationTime);
+            command.AddDateTimeToTextParameter("@updatedAt", DateTime.Now);
+
+            var affectedRows = await command.ExecuteNonQueryAsync();
+            if (affectedRows > 0)
+            {
+                await _metadataRepository.SaveLastUpdateUtcAsync(connection);
+                OnUpdated(id);
+            }
+
+            return affectedRows > 0;
+        }
 
         private static TakeProfitOrder MapTakeProfitOrder(SqliteDataReader reader)
         {
@@ -272,10 +295,12 @@ namespace TD.SQLite
                 FilledValue = reader.IsDBNull(ColNrs.FilledValue) ? null
                             : reader.GetDecimalFromInteger(ColNrs.FilledValue,
                                             DecimalToIntegerScale.FilledValue),
-                FilledTime = reader.IsDBNull(ColNrs.FilledTime) ? null
-                           : ToLocalDateTime(reader.GetString(ColNrs.FilledTime)),
                 Notes = reader.IsDBNull(ColNrs.Notes) ? null
                       : reader.GetString(ColNrs.Notes),
+                CancellationTime = reader.IsDBNull(ColNrs.CancellationTime) ? null
+                                 : ToLocalDateTime(reader.GetString(ColNrs.CancellationTime)),
+                FilledTime = reader.IsDBNull(ColNrs.FilledTime) ? null
+                           : ToLocalDateTime(reader.GetString(ColNrs.FilledTime)),
                 UpdatedAt = ToLocalDateTime(reader.GetString(ColNrs.UpdatedAt)) ?? DateTime.MinValue
             };
 
@@ -296,9 +321,10 @@ namespace TD.SQLite
             public readonly static int FilledQuantity = 6;
             public readonly static int OrderValue = 7;
             public readonly static int FilledValue = 8;
-            public readonly static int FilledTime = 9;
-            public readonly static int Notes = 10;
-            public readonly static int UpdatedAt = 11;
+            public readonly static int Notes = 9;
+            public readonly static int CancellationTime = 10;
+            public readonly static int FilledTime = 11;
+            public readonly static int UpdatedAt = 12;
         }
 
         /// <summary>
@@ -314,8 +340,9 @@ namespace TD.SQLite
             "FilledQuantity",
             "OrderValue",
             "FilledValue",
-            "FilledTime",
             "Notes",
+            "CancellationTime",
+            "FilledTime",
             "UpdatedAt"
         };
 

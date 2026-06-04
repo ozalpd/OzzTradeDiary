@@ -233,8 +233,10 @@ namespace TD.Models
                     return null;
 
                 // Sum quantities already exited via TP and SL fills
-                decimal exitedQty = TakeProfitOrders.Sum(o => o.FilledQuantity ?? 0)
-                                  + StopLossOrders.Sum(o => o.FilledQuantity ?? 0);
+                decimal exitedQty = TakeProfitOrders.Where(o => !o.IsCancelled)
+                                                    .Sum(o => o.FilledQuantity ?? 0)
+                                  + StopLossOrders.Where(o => !o.IsCancelled)
+                                                  .Sum(o => o.FilledQuantity ?? 0);
 
                 decimal remainingQty = FilledQuantity.Value - exitedQty;
                 return remainingQty > 0 ? remainingQty * ExecutedEntryPrice.Value : 0;
@@ -251,18 +253,19 @@ namespace TD.Models
         /// and <see cref="UnallocatedTPQuantity"/> / <see cref="UnallocatedSLQuantity"/> for plan-coverage gaps.
         /// </remarks>
         [Display(ResourceType = typeof(LocalizedStrings), Name = "RemainingQuantity")]
-        public decimal? RemainingOpenQuantity
+        public decimal? RemainingOpenQuantity => GetRemainingOpenQuantity();
+
+        public decimal? GetRemainingOpenQuantity(decimal exception = 0)
         {
-            get
-            {
-                if (!FilledQuantity.HasValue)
-                    return null;
-                // Sum quantities already exited via TP and SL fills
-                decimal exitedQty = TakeProfitOrders.Sum(o => o.FilledQuantity ?? 0)
-                                  + StopLossOrders.Sum(o => o.FilledQuantity ?? 0);
-                decimal remainingQty = FilledQuantity.Value - exitedQty;
-                return remainingQty > 0 ? remainingQty : 0;
-            }
+            if (!FilledQuantity.HasValue)
+                return null;
+            // Sum quantities already exited via TP and SL fills
+            decimal exitedQty = TakeProfitOrders.Where(o => !o.IsCancelled)
+                                                .Sum(o => o.FilledQuantity ?? 0)
+                              + StopLossOrders.Where(o => !o.IsCancelled)
+                                              .Sum(o => o.FilledQuantity ?? 0);
+            decimal remainingQty = FilledQuantity.Value - (exitedQty - exception);
+            return remainingQty > 0 ? remainingQty : 0;
         }
 
         /// <summary>
@@ -280,7 +283,8 @@ namespace TD.Models
             {
                 if (!OrderQuantity.HasValue)
                     return null;
-                decimal allocated = TakeProfitOrders.Sum(o => o.OrderQuantity ?? 0);
+                decimal allocated = TakeProfitOrders.Where(o => !o.IsCancelled)
+                                                    .Sum(o => o.OrderQuantity ?? 0);
                 decimal unallocated = OrderQuantity.Value - allocated;
                 return unallocated > 0 ? unallocated : 0;
             }
@@ -301,7 +305,8 @@ namespace TD.Models
             {
                 if (!OrderQuantity.HasValue)
                     return null;
-                decimal allocated = StopLossOrders.Sum(o => o.OrderQuantity ?? 0);
+                decimal allocated = StopLossOrders.Where(o => !o.IsCancelled)
+                                                  .Sum(o => o.OrderQuantity ?? 0);
                 decimal unallocated = OrderQuantity.Value - allocated;
                 return unallocated > 0 ? unallocated : 0;
             }
@@ -351,7 +356,7 @@ namespace TD.Models
             if (OrderQuantity > 0 && TakeProfitOrders?.Count > 0)
             {
                 var tpSum = TakeProfitOrders
-                    .Where(o => o.OrderQuantity.HasValue)
+                    .Where(o => o.OrderQuantity.HasValue && !o.IsCancelled)
                     .Sum(o => o.OrderQuantity!.Value);
 
                 if (tpSum > OrderQuantity!.Value)
@@ -367,7 +372,7 @@ namespace TD.Models
             if (OrderQuantity > 0 && StopLossOrders?.Count > 0)
             {
                 var slSum = StopLossOrders
-                    .Where(o => o.OrderQuantity.HasValue)
+                    .Where(o => o.OrderQuantity.HasValue && !o.IsCancelled)
                     .Sum(o => o.OrderQuantity!.Value);
 
                 if (slSum > OrderQuantity!.Value)

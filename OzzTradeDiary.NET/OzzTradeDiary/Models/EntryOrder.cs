@@ -66,14 +66,17 @@ namespace TD.Models
         [Display(ResourceType = typeof(LocalizedStrings), Name = "FilledQuantity")]
         public decimal? FilledQuantity { get; set; }
 
-        [Range(typeof(DateTime), "2000-01-01", "2220-12-31", ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName ="RangeDateTime")]
-        [Display(ResourceType = typeof(LocalizedStrings), Name = "FilledTime")]
-        public DateTime? FilledTime { get; set; }
-
         [StringLength(512, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxStringLength")]
         [DataType(DataType.MultilineText)]
         [Display(ResourceType = typeof(LocalizedStrings), Name = "Notes")]
         public string? Notes { get; set; }
+
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "CancellationTime")]
+        public DateTime? CancellationTime { get; set; }
+
+        [Range(typeof(DateTime), "2000-01-01", "2220-12-31", ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName ="RangeDateTime")]
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "FilledTime")]
+        public DateTime? FilledTime { get; set; }
 
         [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
         [DataType(DataType.Date)]
@@ -95,8 +98,9 @@ namespace TD.Models
             clone.FilledPrice = this.FilledPrice;
             clone.OrderQuantity = this.OrderQuantity;
             clone.FilledQuantity = this.FilledQuantity;
-            clone.FilledTime = this.FilledTime;
             clone.Notes = this.Notes;
+            clone.CancellationTime = this.CancellationTime;
+            clone.FilledTime = this.FilledTime;
             clone.UpdatedAt = this.UpdatedAt;
 
             Cloning(clone);

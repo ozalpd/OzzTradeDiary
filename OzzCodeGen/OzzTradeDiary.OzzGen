@@ -859,24 +859,9 @@
           <IsNullable>true</IsNullable>
           <IsStoreGenerated>false</IsStoreGenerated>
         </BaseProperty>
-        <BaseProperty xsi:type="SimpleProperty">
-          <Name>FilledTime</Name>
-          <DisplayOrder>20600</DisplayOrder>
-          <DisplayName>Execute Time</DisplayName>
-          <TypeName>DateTime</TypeName>
-          <IsClientComputed>false</IsClientComputed>
-          <IsServerComputed>false</IsServerComputed>
-          <RestrictedData>false</RestrictedData>
-          <EnumTypeName />
-          <IsKey>false</IsKey>
-          <IsForeignKey>false</IsForeignKey>
-          <IsImmutable>false</IsImmutable>
-          <IsNullable>true</IsNullable>
-          <IsStoreGenerated>false</IsStoreGenerated>
-        </BaseProperty>
         <BaseProperty xsi:type="StringProperty">
           <Name>Notes</Name>
-          <DisplayOrder>20700</DisplayOrder>
+          <DisplayOrder>20600</DisplayOrder>
           <DisplayName>Notes</DisplayName>
           <TypeName>string</TypeName>
           <IsClientComputed>false</IsClientComputed>
@@ -889,6 +874,36 @@
           <IsNullable>true</IsNullable>
           <IsStoreGenerated>false</IsStoreGenerated>
           <MaxLength>512</MaxLength>
+        </BaseProperty>
+        <BaseProperty xsi:type="SimpleProperty">
+          <Name>CancellationTime</Name>
+          <DisplayOrder>20700</DisplayOrder>
+          <DisplayName>Cancellation Time</DisplayName>
+          <TypeName>DateTime</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <RestrictedData>false</RestrictedData>
+          <EnumTypeName />
+          <IsKey>false</IsKey>
+          <IsForeignKey>false</IsForeignKey>
+          <IsImmutable>true</IsImmutable>
+          <IsNullable>true</IsNullable>
+          <IsStoreGenerated>false</IsStoreGenerated>
+        </BaseProperty>
+        <BaseProperty xsi:type="SimpleProperty">
+          <Name>FilledTime</Name>
+          <DisplayOrder>20800</DisplayOrder>
+          <DisplayName>Execute Time</DisplayName>
+          <TypeName>DateTime</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <RestrictedData>false</RestrictedData>
+          <EnumTypeName />
+          <IsKey>false</IsKey>
+          <IsForeignKey>false</IsForeignKey>
+          <IsImmutable>false</IsImmutable>
+          <IsNullable>true</IsNullable>
+          <IsStoreGenerated>false</IsStoreGenerated>
         </BaseProperty>
       </Properties>
     </EntityDefinition>
@@ -2392,10 +2407,10 @@
   <StripSourcePrefixes>false</StripSourcePrefixes>
   <SourceClassPrefix />
   <CodeEngineList>
-    <string>Wpf_Mvvm_View_ViewModel_Generator</string>
     <string>Localization_Resource_Generator</string>
     <string>CS_Model_Class_Generator</string>
     <string>Sqlite_Scripts_Generator</string>
+    <string>Wpf_Mvvm_View_ViewModel_Generator</string>
     <string>CS_Sqlite_Repository_Generator</string>
     <string>T-Sql_Scripts_Generator</string>
   </CodeEngineList>

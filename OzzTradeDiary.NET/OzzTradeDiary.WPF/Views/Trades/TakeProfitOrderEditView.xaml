@@ -57,7 +57,7 @@
                  Text="{Binding OrderPrice, UpdateSourceTrigger=LostFocus, ValidatesOnNotifyDataErrors=True}"
                  Style="{StaticResource ValidationTextBoxStyle}"/>
 
-        <Button x:Name="SetFilledPriceButton" Grid.Row="2" Grid.Column="2" Margin="4,-3,0,0"
+        <Button x:Name="SetFilledPriceButton" Grid.Row="2" Grid.Column="2" Margin="4,-1,0,0"
                 Style="{StaticResource IconButtonStyle-28x24}"
                 ToolTip="{x:Static i18n:ActionStrings.SetFilledPrice}" Click="SetFilledPriceButton_Click">
             <Viewbox Width="18" Height="18">
@@ -94,7 +94,7 @@
                  Text="{Binding OrderQuantity, UpdateSourceTrigger=LostFocus, ValidatesOnNotifyDataErrors=True}"
                  Style="{StaticResource ValidationTextBoxStyle}"/>
 
-        <Button x:Name="SetFilledQuantityButton" Grid.Row="3" Grid.Column="2" Margin="4,-3,0,0"
+        <Button x:Name="SetFilledQuantityButton" Grid.Row="3" Grid.Column="2" Margin="4,-1,0,0"
                 Style="{StaticResource IconButtonStyle-28x24}"
                 ToolTip="{x:Static i18n:ActionStrings.SetFilledQuantity}" Click="SetFilledQuantityButton_Click">
             <Viewbox Width="18" Height="18">

@@ -8,8 +8,9 @@ CREATE TABLE IF NOT EXISTS TakeProfitOrders(
 	FilledQuantity TEXT, 
 	OrderValue INTEGER, 
 	FilledValue INTEGER, 
-	FilledTime INTEGER, 
 	Notes TEXT, 
+	CancellationTime TEXT, 
+	FilledTime TEXT, 
 	UpdatedAt TEXT Not Null 
 );
 Create Index If Not Exists idx_TakeProfitOrders_FilledTime on TakeProfitOrders(FilledTime);

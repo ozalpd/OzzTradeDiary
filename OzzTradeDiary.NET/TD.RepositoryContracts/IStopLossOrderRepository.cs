@@ -20,5 +20,6 @@ namespace TD.RepositoryContracts
         Task<bool> CanDeleteAsync(int id);
         Task<bool> DeleteAsync(int id);
         Task<bool> UpdateAsync(StopLossOrder stopLossOrder);
+        Task<bool> UpdateCancellationTimeAsync(int id, DateTime cancellationTime);
     }
 }
