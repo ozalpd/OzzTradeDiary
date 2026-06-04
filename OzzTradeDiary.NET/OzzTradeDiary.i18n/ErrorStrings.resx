@@ -64,6 +64,15 @@
     <data name="DateLessThan" xml:space="preserve">
         <value>The {0} field must be before than {2}.</value>
     </data>
+    <data name="FilledPriceWhenFilledQuantityHasValue" xml:space="preserve">
+        <value>Filled price must be greater than zero when filled quantity is specified.</value>
+    </data>
+    <data name="FilledQuantityExceedsRemaining" xml:space="preserve">
+        <value>Filled quantity cannot exceed the remaining open quantity ({0}) of the trade.</value>
+    </data>
+    <data name="FilledQuantityWhenFilledPriceHasValue" xml:space="preserve">
+        <value>Filled quantity must be greater than zero when filled price is specified.</value>
+    </data>
     <data name="MaxStringLength" xml:space="preserve">
         <value>The {0} field maximum length is {1}.</value>
     </data>

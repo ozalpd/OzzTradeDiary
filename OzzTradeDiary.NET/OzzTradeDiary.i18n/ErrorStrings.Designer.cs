@@ -79,6 +79,33 @@ namespace TD.i18n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Filled price must be greater than zero when filled quantity is specified..
+        /// </summary>
+        public static string FilledPriceWhenFilledQuantityHasValue {
+            get {
+                return ResourceManager.GetString("FilledPriceWhenFilledQuantityHasValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Filled quantity cannot exceed the remaining open quantity ({0}) of the trade..
+        /// </summary>
+        public static string FilledQuantityExceedsRemaining {
+            get {
+                return ResourceManager.GetString("FilledQuantityExceedsRemaining", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Filled quantity must be greater than zero when filled price is specified..
+        /// </summary>
+        public static string FilledQuantityWhenFilledPriceHasValue {
+            get {
+                return ResourceManager.GetString("FilledQuantityWhenFilledPriceHasValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The {0} field maximum length is {1}..
         /// </summary>
         public static string MaxStringLength {

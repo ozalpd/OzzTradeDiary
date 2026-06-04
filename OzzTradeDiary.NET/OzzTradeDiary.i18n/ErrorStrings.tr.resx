@@ -64,6 +64,15 @@
     <data name="DateLessThan" xml:space="preserve">
         <value>{0} tarihi {2} tarihinden sonra olamaz.</value>
     </data>
+    <data name="FilledPriceWhenFilledQuantityHasValue" xml:space="preserve">
+        <value>Gerçekleşen Miktar doluyken Gerçekleşen Fiyat sıfırdan büyük olmak zorundadır.</value>
+    </data>
+    <data name="FilledQuantityExceedsRemaining" xml:space="preserve">
+        <value>Gerçekleşen Fiyat işlemin kalan açık miktarını ({0}) aşamaz.</value>
+    </data>
+    <data name="FilledQuantityWhenFilledPriceHasValue" xml:space="preserve">
+        <value>Gerçekleşen Fiyat doluyken Gerçekleşen Miktar sıfırdan büyük olmak zorundadır.</value>
+    </data>
     <data name="MaxStringLength" xml:space="preserve">
         <value>{0} sahasına en fazla {1} karakter girebilirsiniz.</value>
     </data>

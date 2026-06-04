@@ -15,7 +15,7 @@ namespace TD.WPF.Commands.Exchanges
     public partial class ExchangeDeleteCommand : AbstractCommand
     {
         protected readonly AbstractDiaryVM _viewModel;
-        
+
         public ExchangeDeleteCommand(AbstractDiaryVM viewModel)
         {
             _viewModel = viewModel;

@@ -15,7 +15,7 @@ namespace TD.WPF.Commands.Maintenance
     public partial class CurrencyDeleteCommand : AbstractCommand
     {
         protected readonly AbstractDiaryVM _viewModel;
-        
+
         public CurrencyDeleteCommand(AbstractDiaryVM viewModel)
         {
             _viewModel = viewModel;

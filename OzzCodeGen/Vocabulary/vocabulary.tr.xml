@@ -1157,12 +1157,24 @@
     <Translation>Gerçekleşen Fiyat</Translation>
   </Vocab>
   <Vocab>
+    <Name>FilledPriceWhenFilledQuantityHasValue</Name>
+    <Translation>Gerçekleşen Miktar doluyken Gerçekleşen Fiyat sıfırdan büyük olmak zorundadır.</Translation>
+  </Vocab>
+  <Vocab>
     <Name>FilledProfitAmount</Name>
     <Translation>Emrin Gerçekleşen Kar Tutarı</Translation>
   </Vocab>
   <Vocab>
     <Name>FilledQuantity</Name>
     <Translation>Gerçekleşen Miktar</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>FilledQuantityExceedsRemaining</Name>
+    <Translation>Gerçekleşen Fiyat işlemin kalan açık miktarını ({0}) aşamaz.</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>FilledQuantityWhenFilledPriceHasValue</Name>
+    <Translation>Gerçekleşen Fiyat doluyken Gerçekleşen Miktar sıfırdan büyük olmak zorundadır.</Translation>
   </Vocab>
   <Vocab>
     <Name>FilledRiskAmount</Name>

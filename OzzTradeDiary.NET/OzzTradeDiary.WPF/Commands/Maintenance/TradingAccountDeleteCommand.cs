@@ -15,7 +15,7 @@ namespace TD.WPF.Commands.Maintenance
     public partial class TradingAccountDeleteCommand : AbstractCommand
     {
         protected readonly AbstractDiaryVM _viewModel;
-        
+
         public TradingAccountDeleteCommand(AbstractDiaryVM viewModel)
         {
             _viewModel = viewModel;

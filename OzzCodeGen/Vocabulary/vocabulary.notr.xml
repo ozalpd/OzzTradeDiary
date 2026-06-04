@@ -1157,12 +1157,24 @@
     <Translation>Filled Price</Translation>
   </Vocab>
   <Vocab>
+    <Name>FilledPriceWhenFilledQuantityHasValue</Name>
+    <Translation>Filled price must be greater than zero when filled quantity is specified.</Translation>
+  </Vocab>
+  <Vocab>
     <Name>FilledProfitAmount</Name>
     <Translation>Filled Profit Amount</Translation>
   </Vocab>
   <Vocab>
     <Name>FilledQuantity</Name>
     <Translation>Filled Quantity</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>FilledQuantityExceedsRemaining</Name>
+    <Translation>Filled quantity cannot exceed the remaining open quantity ({0}) of the trade.</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>FilledQuantityWhenFilledPriceHasValue</Name>
+    <Translation>Filled quantity must be greater than zero when filled price is specified.</Translation>
   </Vocab>
   <Vocab>
     <Name>FilledRiskAmount</Name>

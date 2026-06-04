@@ -106,7 +106,7 @@ namespace TD.Models
                 if (FilledPrice == null || FilledPrice <= 0)
                 {
                     yield return new ValidationResult(
-                        "Filled price must be greater than zero when filled quantity is specified.",
+                        ErrorStrings.FilledPriceWhenFilledQuantityHasValue,
                         new[] { nameof(FilledPrice) });
                 }
 
@@ -114,14 +114,14 @@ namespace TD.Models
                 var remExceptThis = Trade.GetRemainingOpenQuantity(filledQ) ?? 0;
                 if (filledQ > remExceptThis)
                     yield return new ValidationResult(
-                        string.Format("Filled quantity cannot exceed the remaining open quantity ({0}) of the trade.", remExceptThis),
+                        string.Format(ErrorStrings.FilledQuantityExceedsRemaining, remExceptThis),
                         new[] { nameof(FilledQuantity) });
             }
 
             if (FilledPrice.HasValue && (FilledQuantity == null || FilledQuantity <= 0))
             {
                 yield return new ValidationResult(
-                    "Filled quantity must be greater than zero when filled price is specified.",
+                    ErrorStrings.FilledQuantityWhenFilledPriceHasValue,
                     new[] { nameof(FilledQuantity) });
             }
         }

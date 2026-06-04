@@ -3,7 +3,7 @@ using TD.i18n;
 
 namespace TD.Models
 {
-    public partial class TakeProfitOrder
+    public partial class TakeProfitOrder : IValidatableObject
     {
         /// <summary>
         /// Gets or sets the filled value for the trade, representing the total value of the filled quantity at the
@@ -96,6 +96,33 @@ namespace TD.Models
                 return Trade.TradeDirection == TradeDirection.Long
                     ? (OrderPrice - entryPrice.Value) * quantity.Value
                     : (entryPrice.Value - OrderPrice) * quantity.Value;
+            }
+        }
+
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        {
+            if (FilledQuantity.HasValue)
+            {
+                if (FilledPrice == null || FilledPrice <= 0)
+                {
+                    yield return new ValidationResult(
+                        ErrorStrings.FilledPriceWhenFilledQuantityHasValue,
+                        new[] { nameof(FilledPrice) });
+                }
+
+                var filledQ = FilledQuantity.Value;
+                var remExceptThis = Trade.GetRemainingOpenQuantity(filledQ) ?? 0;
+                if (filledQ > remExceptThis)
+                    yield return new ValidationResult(
+                        string.Format(ErrorStrings.FilledQuantityExceedsRemaining, remExceptThis),
+                        new[] { nameof(FilledQuantity) });
+            }
+
+            if (FilledPrice.HasValue && (FilledQuantity == null || FilledQuantity <= 0))
+            {
+                yield return new ValidationResult(
+                    ErrorStrings.FilledQuantityWhenFilledPriceHasValue,
+                    new[] { nameof(FilledQuantity) });
             }
         }
     }

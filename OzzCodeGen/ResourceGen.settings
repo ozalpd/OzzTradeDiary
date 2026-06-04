@@ -1408,6 +1408,24 @@
           <LocalizeValidationMsg>false</LocalizeValidationMsg>
         </LocalizationPropertySetting>
         <LocalizationPropertySetting>
+          <Name>FilledPriceWhenFilledQuantityHasValue</Name>
+          <Exclude>false</Exclude>
+          <LocalizeRequiredMsg>false</LocalizeRequiredMsg>
+          <LocalizeValidationMsg>false</LocalizeValidationMsg>
+        </LocalizationPropertySetting>
+        <LocalizationPropertySetting>
+          <Name>FilledQuantityExceedsRemaining</Name>
+          <Exclude>false</Exclude>
+          <LocalizeRequiredMsg>false</LocalizeRequiredMsg>
+          <LocalizeValidationMsg>false</LocalizeValidationMsg>
+        </LocalizationPropertySetting>
+        <LocalizationPropertySetting>
+          <Name>FilledQuantityWhenFilledPriceHasValue</Name>
+          <Exclude>false</Exclude>
+          <LocalizeRequiredMsg>false</LocalizeRequiredMsg>
+          <LocalizeValidationMsg>false</LocalizeValidationMsg>
+        </LocalizationPropertySetting>
+        <LocalizationPropertySetting>
           <Name>MaxStringLength</Name>
           <Exclude>false</Exclude>
           <LocalizeRequiredMsg>false</LocalizeRequiredMsg>

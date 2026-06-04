@@ -30,6 +30,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - Redesign `TradeEditView`: use read-only text boxes for most fields, editable multi-line ReviewNotes, improved layout
 - Introduced `ReportType` and `SessionType` enums.
 - Strengthen `Trade` model validation for entry/exit time and status logic and improve WPF validation.
+- Implemented and aligned validation in `TakeProfitOrder` and `StopLossOrder` to enforce:
+  - Filled price required when filled quantity is set
+  - Filled quantity cannot exceed trade's remaining open quantity
+  - Filled quantity required when filled price is set
 - Minor code style and whitespace cleanups.
 - No breaking changes; all updates are backward-compatible.
 

@@ -15,7 +15,7 @@ namespace TD.WPF.Commands.Maintenance
     public partial class SymbolDeleteCommand : AbstractCommand
     {
         protected readonly ISymbolCreationContext _viewModel;
-        
+
         public SymbolDeleteCommand(ISymbolCreationContext viewModel)
         {
             _viewModel = viewModel;

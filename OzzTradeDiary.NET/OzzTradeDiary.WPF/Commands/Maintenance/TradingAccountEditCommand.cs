@@ -17,7 +17,7 @@ namespace TD.WPF.Commands.Maintenance
     {
         protected readonly AbstractDiaryVM _viewModel;
         private readonly IWindowDialogService _windowDialogService;
-        
+
         public TradingAccountEditCommand(AbstractDiaryVM viewModel, IWindowDialogService windowDialogService)
         {
             _viewModel = viewModel;
