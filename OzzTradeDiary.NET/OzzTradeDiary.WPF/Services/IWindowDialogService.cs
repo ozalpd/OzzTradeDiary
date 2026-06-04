@@ -181,6 +181,28 @@ namespace TD.WPF.Services
         void ShowTradeDetailDialog(Window owner, Trade trade);
 
         /// <summary>
+        /// Displays the Trade Image creation dialog and returns the result indicating whether the user confirmed the dialog
+        /// and the created Trade Image, if any.
+        /// </summary>
+        /// <param name="owner">The window that will own the dialog. This determines the dialog's parent window for modality and positioning.</param>
+        /// <param name="preselectedTrade">An optional preselected trade to initialize the dialog with.</param>
+        /// <returns>A tuple containing a Boolean value that is <see langword="true"/> if the user confirmed the dialog; otherwise, <see
+        /// langword="false"/>. The second item is the created Trade Image if confirmed; otherwise, <see langword="null"/>.</returns>
+        (bool IsConfirmed, TradeImage? TradeImage) ShowTradeImageCreateDialog(Window owner, Trade? preselectedTrade);
+
+        /// <summary>
+        /// Displays a modal dialog for editing the specified Trade Image and returns the result indicating whether the dialog
+        /// was confirmed and if any changes were made.
+        /// </summary>
+        /// <param name="owner">The window that will own the dialog. This parameter determines the parent window for modal behavior and dialog
+        /// positioning.</param>
+        /// <param name="tradeImage">The Trade Image entity to edit. The dialog will display and allow editing of this tradeImage's properties.</param>
+        /// <returns>A tuple containing two values: IsConfirmed is <see langword="true"/> if the user confirmed the dialog;
+        /// otherwise, <see langword="false"/>. IsDirty is <see langword="true"/> if any changes were made to the tradeImage
+        /// during editing; otherwise, <see langword="false"/>.</returns>
+        (bool IsConfirmed, bool IsDirty) ShowTradeImageEditDialog(Window owner, TradeImage tradeImage);
+
+        /// <summary>
         /// Displays the Trading Account creation dialog and returns the result indicating whether the user confirmed the dialog
         /// and the created Trading Account, if any.
         /// </summary>

@@ -160,7 +160,7 @@ namespace TD.SQLite
             updatingFromSaveNavigationCollectionsAsync = true;
             try
             {
-                await SaveTradeImagesAsync(trade);
+                await SaveTradeImagesAsync(trade, updateTrade: false);
                 await SaveEntryOrdersAsync(trade, updateTrade: false);
                 await SaveTakeProfitOrdersAsync(trade, updateTrade: false);
                 await SaveStopLossOrdersAsync(trade, updateTrade: false);
@@ -271,8 +271,9 @@ namespace TD.SQLite
             }
         }
 
-        private async Task SaveTradeImagesAsync(Trade trade)
+        public async Task SaveTradeImagesAsync(Trade trade, bool updateTrade = true)
         {
+            bool anyChanges = false;
             var existingImages = await TradeImageRepository.GetByTradeIdAsync(trade.Id);
             var existingImageIds = existingImages.Select(i => i.Id).ToHashSet();
             foreach (var image in trade.TradeImages)
@@ -281,16 +282,24 @@ namespace TD.SQLite
                 {
                     image.TradeId = trade.Id;
                     await TradeImageRepository.CreateAsync(image);
+                    anyChanges = true;
                 }
                 else if (existingImageIds.Contains(image.Id))
                 {
-                    await TradeImageRepository.UpdateAsync(image);
+                    anyChanges = await TradeImageRepository.UpdateAsync(image) || anyChanges;
                     existingImageIds.Remove(image.Id);
                 }
             }
             foreach (var id in existingImageIds)
             {
                 await TradeImageRepository.DeleteAsync(id);
+                anyChanges = true;
+            }
+
+            if (anyChanges && updateTrade)
+            {
+                trade.CalculateFromOrders();
+                await UpdateAsync(trade);
             }
         }
     }

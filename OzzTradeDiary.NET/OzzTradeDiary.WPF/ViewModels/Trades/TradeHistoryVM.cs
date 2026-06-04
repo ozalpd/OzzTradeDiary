@@ -42,6 +42,11 @@ namespace TD.WPF.ViewModels.Trades
             TakeProfitOrderDeleteCommand = new TakeProfitOrderDeleteCommand(this);
             TakeProfitOrderEditCommand = new TakeProfitOrderEditCommand(this, windowDialogService);
 
+            TradeImageCategoryValues = GetValues<TradeImageCategory>();
+            TradeImageCreateCommand = new TradeImageCreateCommand(this, windowDialogService);
+            TradeImageDeleteCommand = new TradeImageDeleteCommand(this);
+            TradeImageEditCommand = new TradeImageEditCommand(this, windowDialogService);
+
             QueryVM.PageSize = 50;
             QueryVM.ByTradeStatus = 0;
         }
@@ -53,16 +58,20 @@ namespace TD.WPF.ViewModels.Trades
 
             if (e.PropertyName == nameof(SelectedTrade))
             {
+                ReplaceTradeImages();
                 ReplaceEntryOrders();
                 ReplaceStopLossOrders();
                 ReplaceTakeProfitOrders();
 
                 EntryOrderCreateCommand.PreselectedTrade = SelectedTrade;
-                TakeProfitOrderCreateCommand.PreselectedTrade = SelectedTrade;
                 StopLossOrderCreateCommand.PreselectedTrade = SelectedTrade;
+                TakeProfitOrderCreateCommand.PreselectedTrade = SelectedTrade;
+                TradeImageCreateCommand.PreselectedTrade = SelectedTrade;
+
                 RaiseEntryOrderCmdCanExecute();
                 RaiseStopLossOrderCmdCanExecute();
                 RaiseTakeProfitOrderCmdCanExecute();
+                RaiseTradeImageCmdCanExecute();
             }
 
             if (e.PropertyName == nameof(QueryVM.ByTradeStatus))

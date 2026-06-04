@@ -57,10 +57,15 @@ namespace TD.Models
 
     public enum TradeImageCategory : int
     {
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "Setup", Order = 10)]
         Setup = 10,  // Chart showing the trade setup / entry signal
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "Entry", Order = 20)]
         Entry = 20,  // Screenshot at entry execution
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "Exit", Order = 30)]
         Exit = 30,  // Screenshot at exit execution
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "Review", Order = 40)]
         Review = 40,  // Post-trade analysis / journaling
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "Other", Order = 50)]
         Other = 50,  // Uncategorized
     }
 

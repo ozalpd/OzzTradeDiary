@@ -1523,9 +1523,9 @@
       <CommandVmTypeName>TradeHistoryVM</CommandVmTypeName>
       <DetailColumnLayout>OneColumn</DetailColumnLayout>
       <InputColumnLayout>OneColumn</InputColumnLayout>
-      <GenModeCreateCommand>GenerateIfNotExists</GenModeCreateCommand>
-      <GenModeEditCommand>GenerateIfNotExists</GenModeEditCommand>
-      <GenModeDeleteCommand>GenerateIfNotExists</GenModeDeleteCommand>
+      <GenModeCreateCommand>SkipManuallyEdited</GenModeCreateCommand>
+      <GenModeEditCommand>SkipManuallyEdited</GenModeEditCommand>
+      <GenModeDeleteCommand>SkipManuallyEdited</GenModeDeleteCommand>
       <GenModeDetailCommand>DoNotGenerate</GenModeDetailCommand>
       <GenModeLoadCommand>DoNotGenerate</GenModeLoadCommand>
       <GenModeCreateVM>GenerateIfNotExists</GenModeCreateVM>

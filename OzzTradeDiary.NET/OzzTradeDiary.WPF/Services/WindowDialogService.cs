@@ -198,6 +198,30 @@ namespace TD.WPF.Services
         }
 
         /// <inheritdoc />
+        public (bool IsConfirmed, TradeImage? TradeImage) ShowTradeImageCreateDialog(Window owner, Trade? preselectedTrade)
+        {
+            var dialog = new TradeImageCreateView(preselectedTrade)
+            {
+                Owner = owner
+            };
+
+            var result = dialog.ShowDialog() == true;
+            return (result, result ? dialog.TradeImage : null);
+        }
+
+        /// <inheritdoc />
+        public (bool IsConfirmed, bool IsDirty) ShowTradeImageEditDialog(Window owner, TradeImage tradeImage)
+        {
+            var dialog = new TradeImageEditView(tradeImage)
+            {
+                Owner = owner
+            };
+
+            var result = dialog.ShowDialog() == true;
+            return (result, dialog.IsDirty);
+        }
+
+        /// <inheritdoc />
         public (bool IsConfirmed, TradingAccount? TradingAccount) ShowTradingAccountCreateDialog(Window owner, IExchangeLookupService exchangeLookupService,
                                                                                                  Exchange? preselectedExchange)
         {
