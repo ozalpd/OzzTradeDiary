@@ -123,10 +123,11 @@ namespace TD.SQLite
 
             await using var command = connection.CreateCommand();
             command.CommandText = @$"INSERT INTO {_tableName} ({string.Join(", ", ColumnNames[1..])})
-            VALUES (@tradeId, @imageURL, @notes, @updatedAt);
+            VALUES (@tradeId, @category, @imageURL, @notes, @updatedAt);
             SELECT last_insert_rowid();";
 
             command.AddParameter("@tradeId", tradeImage.TradeId);
+            command.AddParameter("@category", (int)tradeImage.Category);
             command.AddParameter("@imageURL", tradeImage.ImageURL);
             command.AddNullableParameter("@notes", tradeImage.Notes);
             command.AddDateTimeToTextParameter("@updatedAt", DateTime.Now);
@@ -183,6 +184,7 @@ namespace TD.SQLite
             await using var connection = await GetOpenConnectionAsync();
             var existingTradeImage = await GetByIdAsync(tradeImage.Id);
             bool noChanges = existingTradeImage != null
+                          && existingTradeImage.Category == tradeImage.Category
                           && existingTradeImage.ImageURL == tradeImage.ImageURL
                           && existingTradeImage.Notes == tradeImage.Notes
                           && existingTradeImage.UpdatedAt == tradeImage.UpdatedAt;
@@ -192,14 +194,16 @@ namespace TD.SQLite
 
             await using var command = connection.CreateCommand();
             // TradeId is not updated to avoid complications with existing references,
-            // so only ImageURL, Notes, UpdatedAt are updated
+            // so only Category, ImageURL, Notes, UpdatedAt are updated
             command.CommandText = @$"UPDATE {_tableName} SET
+                Category = @category,
                 ImageURL = @imageURL,
                 Notes = @notes,
                 UpdatedAt = @updatedAt
             WHERE Id = @id";
 
             command.AddParameter("@id", tradeImage.Id);
+            command.AddParameter("@category", (int)tradeImage.Category);
             command.AddParameter("@imageURL", tradeImage.ImageURL);
             command.AddNullableParameter("@notes", tradeImage.Notes);
             command.AddDateTimeToTextParameter("@updatedAt", DateTime.Now);
@@ -222,6 +226,7 @@ namespace TD.SQLite
                 Id = reader.GetInt32(ColNrs.Id),
                 TradeId = reader.IsDBNull(ColNrs.TradeId) ? null
                         : reader.GetInt32(ColNrs.TradeId),
+                Category = (TradeImageCategory)reader.GetInt32(ColNrs.Category),
                 ImageURL = reader.GetString(ColNrs.ImageURL),
                 Notes = reader.IsDBNull(ColNrs.Notes) ? null
                       : reader.GetString(ColNrs.Notes),
@@ -238,9 +243,10 @@ namespace TD.SQLite
         {
             public readonly static int Id = 0;
             public readonly static int TradeId = 1;
-            public readonly static int ImageURL = 2;
-            public readonly static int Notes = 3;
-            public readonly static int UpdatedAt = 4;
+            public readonly static int Category = 2;
+            public readonly static int ImageURL = 3;
+            public readonly static int Notes = 4;
+            public readonly static int UpdatedAt = 5;
         }
 
         /// <summary>
@@ -249,6 +255,7 @@ namespace TD.SQLite
         public readonly string[] ColumnNames = new[] {
             "Id",
             "TradeId",
+            "Category",
             "ImageURL",
             "Notes",
             "UpdatedAt"

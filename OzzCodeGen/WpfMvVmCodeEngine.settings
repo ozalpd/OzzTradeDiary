@@ -1479,6 +1479,19 @@
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
+          <Name>Category</Name>
+          <Exclude>false</Exclude>
+          <CreateEditOrder>10300</CreateEditOrder>
+          <DefaultValue />
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
+          <IsMultiLine>false</IsMultiLine>
+          <CreateViewMode>Editable</CreateViewMode>
+          <EditViewMode>Editable</EditViewMode>
+          <ShowInCollection>true</ShowInCollection>
+          <ShowInDetail>true</ShowInDetail>
+          <ValueConstraint />
+        </WpfMvvmPropertySetting>
+        <WpfMvvmPropertySetting>
           <Name>ImageURL</Name>
           <Exclude>false</Exclude>
           <CreateEditOrder>10300</CreateEditOrder>
@@ -1510,18 +1523,18 @@
       <CommandVmTypeName>TradeHistoryVM</CommandVmTypeName>
       <DetailColumnLayout>OneColumn</DetailColumnLayout>
       <InputColumnLayout>OneColumn</InputColumnLayout>
-      <GenModeCreateCommand>DoNotGenerate</GenModeCreateCommand>
-      <GenModeEditCommand>DoNotGenerate</GenModeEditCommand>
-      <GenModeDeleteCommand>DoNotGenerate</GenModeDeleteCommand>
+      <GenModeCreateCommand>GenerateIfNotExists</GenModeCreateCommand>
+      <GenModeEditCommand>GenerateIfNotExists</GenModeEditCommand>
+      <GenModeDeleteCommand>GenerateIfNotExists</GenModeDeleteCommand>
       <GenModeDetailCommand>DoNotGenerate</GenModeDetailCommand>
       <GenModeLoadCommand>DoNotGenerate</GenModeLoadCommand>
-      <GenModeCreateVM>DoNotGenerate</GenModeCreateVM>
-      <GenModeEditVM>DoNotGenerate</GenModeEditVM>
+      <GenModeCreateVM>GenerateIfNotExists</GenModeCreateVM>
+      <GenModeEditVM>GenerateIfNotExists</GenModeEditVM>
       <GenerateGetPaged>false</GenerateGetPaged>
       <GenModeCollectionVM>DoNotGenerate</GenModeCollectionVM>
       <GenModeLookupService>DoNotGenerate</GenModeLookupService>
-      <GenModeCreateView>DoNotGenerate</GenModeCreateView>
-      <GenModeEditView>DoNotGenerate</GenModeEditView>
+      <GenModeCreateView>GenerateIfNotExists</GenModeCreateView>
+      <GenModeEditView>GenerateIfNotExists</GenModeEditView>
       <GenModeDetailView>DoNotGenerate</GenModeDetailView>
       <RepositoryName>ITradeImageRepository</RepositoryName>
     </BaseEntitySetting>

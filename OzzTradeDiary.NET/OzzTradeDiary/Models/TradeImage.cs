@@ -34,6 +34,11 @@ namespace TD.Models
         [Display(ResourceType = typeof(LocalizedStrings), Name = "Trade")]
         public Trade? Trade { get; set; }
 
+        [RequiredSelection]
+        [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "Category")]
+        public TradeImageCategory Category { get; set; }
+
         /// <summary>
         /// Web URL or local file path of the image associated with a trade that is referred by TradeId
         /// </summary>
@@ -61,6 +66,7 @@ namespace TD.Models
         {
             var clone = new TradeImage();
             clone.TradeId = this.TradeId;
+            clone.Category = this.Category;
             clone.ImageURL = this.ImageURL;
             clone.Notes = this.Notes;
             clone.UpdatedAt = this.UpdatedAt;

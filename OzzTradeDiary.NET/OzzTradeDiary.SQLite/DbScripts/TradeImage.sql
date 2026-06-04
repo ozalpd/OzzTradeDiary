@@ -1,6 +1,7 @@
 CREATE TABLE IF NOT EXISTS TradeImages(
     Id INTEGER PRIMARY KEY,
 	TradeId INTEGER, 
+	Category INTEGER Not Null, 
 	ImageURL TEXT Not Null, 
 	Notes TEXT, 
 	UpdatedAt TEXT Not Null 

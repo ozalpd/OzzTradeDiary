@@ -1617,6 +1617,10 @@
     <Translation>Order Value</Translation>
   </Vocab>
   <Vocab>
+    <Name>Other</Name>
+    <Translation>Other</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Page</Name>
     <Translation>Page</Translation>
   </Vocab>
@@ -2029,6 +2033,10 @@
     <Translation>The {0} field is required when {1} selected in {2}.</Translation>
   </Vocab>
   <Vocab>
+    <Name>Review</Name>
+    <Translation>Review</Translation>
+  </Vocab>
+  <Vocab>
     <Name>ReviewNotes</Name>
     <Translation>Review Notes</Translation>
   </Vocab>
@@ -2151,6 +2159,10 @@
   <Vocab>
     <Name>SettingType</Name>
     <Translation>Setting Type</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Setup</Name>
+    <Translation>Setup</Translation>
   </Vocab>
   <Vocab>
     <Name>SetupNotes</Name>
@@ -2443,6 +2455,10 @@
   <Vocab>
     <Name>TradeImage</Name>
     <Translation>Trade Image</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>TradeImageCategory</Name>
+    <Translation>Trade Image Category</Translation>
   </Vocab>
   <Vocab>
     <Name>TradeImages</Name>

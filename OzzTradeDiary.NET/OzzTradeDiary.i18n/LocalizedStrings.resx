@@ -190,6 +190,9 @@
     <data name="Cancelled" xml:space="preserve">
         <value>Cancelled</value>
     </data>
+    <data name="Category" xml:space="preserve">
+        <value>Category</value>
+    </data>
     <data name="Closed" xml:space="preserve">
         <value>Closed</value>
     </data>
@@ -367,6 +370,9 @@
     <data name="Email" xml:space="preserve">
         <value>Email</value>
     </data>
+    <data name="Entry" xml:space="preserve">
+        <value>Entry</value>
+    </data>
     <data name="EntryOrder" xml:space="preserve">
         <value>Entry Order</value>
     </data>
@@ -411,6 +417,9 @@
     </data>
     <data name="ExecutedTP" xml:space="preserve">
         <value>Executed TP</value>
+    </data>
+    <data name="Exit" xml:space="preserve">
+        <value>Exit</value>
     </data>
     <data name="ExitOrderType" xml:space="preserve">
         <value>Exit Order Type</value>
@@ -562,6 +571,9 @@
     <data name="OrderValue" xml:space="preserve">
         <value>Order Value</value>
     </data>
+    <data name="Other" xml:space="preserve">
+        <value>Other</value>
+    </data>
     <data name="Pending" xml:space="preserve">
         <value>Pending</value>
     </data>
@@ -679,6 +691,9 @@
     <data name="ReportType" xml:space="preserve">
         <value>Report Type</value>
     </data>
+    <data name="Review" xml:space="preserve">
+        <value>Review</value>
+    </data>
     <data name="ReviewNotes" xml:space="preserve">
         <value>Review Notes</value>
     </data>
@@ -696,6 +711,9 @@
     </data>
     <data name="SettingType" xml:space="preserve">
         <value>Setting Type</value>
+    </data>
+    <data name="Setup" xml:space="preserve">
+        <value>Setup</value>
     </data>
     <data name="SetupNotes" xml:space="preserve">
         <value>Setup Notes</value>
@@ -810,6 +828,9 @@
     </data>
     <data name="TradeImage" xml:space="preserve">
         <value>Trade Image</value>
+    </data>
+    <data name="TradeImageCategory" xml:space="preserve">
+        <value>Trade Image Category</value>
     </data>
     <data name="TradeImages" xml:space="preserve">
         <value>Trade Images</value>

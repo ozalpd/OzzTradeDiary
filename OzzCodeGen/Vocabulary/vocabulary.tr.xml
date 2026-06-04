@@ -1617,6 +1617,10 @@
     <Translation>Emir Tutarı</Translation>
   </Vocab>
   <Vocab>
+    <Name>Other</Name>
+    <Translation>Diğer</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Page</Name>
     <Translation>Sayfa</Translation>
   </Vocab>
@@ -2029,6 +2033,10 @@
     <Translation>{2} sahası {1} seçilmişken {0} sahası boş kalamaz.</Translation>
   </Vocab>
   <Vocab>
+    <Name>Review</Name>
+    <Translation>Değerlendirme</Translation>
+  </Vocab>
+  <Vocab>
     <Name>ReviewNotes</Name>
     <Translation>Değerlendirme Notu</Translation>
   </Vocab>
@@ -2151,6 +2159,10 @@
   <Vocab>
     <Name>SettingType</Name>
     <Translation>Ayar Tipi</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Setup</Name>
+    <Translation>Setup</Translation>
   </Vocab>
   <Vocab>
     <Name>SetupNotes</Name>
@@ -2443,6 +2455,10 @@
   <Vocab>
     <Name>TradeImage</Name>
     <Translation>İşlem Resmi</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>TradeImageCategory</Name>
+    <Translation>İşlem Resim Kategorisi</Translation>
   </Vocab>
   <Vocab>
     <Name>TradeImages</Name>

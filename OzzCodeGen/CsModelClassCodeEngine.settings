@@ -918,6 +918,16 @@
           <IsSearchParameter>false</IsSearchParameter>
         </ModelPropertySetting>
         <ModelPropertySetting>
+          <Name>Category</Name>
+          <Exclude>false</Exclude>
+          <CustomAttributes>RequiredSelection</CustomAttributes>
+          <DataType />
+          <DTOExclusion>false</DTOExclusion>
+          <HtmlEncode xsi:nil="true" />
+          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
+          <IsSearchParameter>false</IsSearchParameter>
+        </ModelPropertySetting>
+        <ModelPropertySetting>
           <Name>ImageURL</Name>
           <Exclude>false</Exclude>
           <DataType>ImageUrl</DataType>

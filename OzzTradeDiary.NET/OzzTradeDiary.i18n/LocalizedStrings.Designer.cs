@@ -457,6 +457,15 @@ namespace TD.i18n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Category.
+        /// </summary>
+        public static string Category {
+            get {
+                return ResourceManager.GetString("Category", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Closed.
         /// </summary>
         public static string Closed {
@@ -988,6 +997,15 @@ namespace TD.i18n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Entry.
+        /// </summary>
+        public static string Entry {
+            get {
+                return ResourceManager.GetString("Entry", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Entry Order.
         /// </summary>
         public static string EntryOrder {
@@ -1119,6 +1137,15 @@ namespace TD.i18n {
         public static string ExecutedTP {
             get {
                 return ResourceManager.GetString("ExecutedTP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Exit.
+        /// </summary>
+        public static string Exit {
+            get {
+                return ResourceManager.GetString("Exit", resourceCulture);
             }
         }
         
@@ -1573,6 +1600,15 @@ namespace TD.i18n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Other.
+        /// </summary>
+        public static string Other {
+            get {
+                return ResourceManager.GetString("Other", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Pending.
         /// </summary>
         public static string Pending {
@@ -1924,6 +1960,15 @@ namespace TD.i18n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Review.
+        /// </summary>
+        public static string Review {
+            get {
+                return ResourceManager.GetString("Review", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Review Notes.
         /// </summary>
         public static string ReviewNotes {
@@ -1974,6 +2019,15 @@ namespace TD.i18n {
         public static string SettingType {
             get {
                 return ResourceManager.GetString("SettingType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Setup.
+        /// </summary>
+        public static string Setup {
+            get {
+                return ResourceManager.GetString("Setup", resourceCulture);
             }
         }
         
@@ -2316,6 +2370,15 @@ namespace TD.i18n {
         public static string TradeImage {
             get {
                 return ResourceManager.GetString("TradeImage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Trade Image Category.
+        /// </summary>
+        public static string TradeImageCategory {
+            get {
+                return ResourceManager.GetString("TradeImageCategory", resourceCulture);
             }
         }
         

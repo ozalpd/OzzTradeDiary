@@ -34,6 +34,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
   - Filled price required when filled quantity is set
   - Filled quantity cannot exceed trade's remaining open quantity
   - Filled quantity required when filled price is set
+- Introduced `TradeImageCategory` enum and required `Category` property to `TradeImage` for image categorization. Updated model, repository, schema, and WPF MVVM code generation to support the new field.
 - Minor code style and whitespace cleanups.
 - No breaking changes; all updates are backward-compatible.
 

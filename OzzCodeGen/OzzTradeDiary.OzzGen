@@ -311,6 +311,32 @@
       </Members>
     </EnumDefinition>
     <EnumDefinition>
+      <Name>TradeImageCategory</Name>
+      <NamespaceName>TD</NamespaceName>
+      <Members>
+        <EnumMember>
+          <Name>Setup</Name>
+          <Value>10</Value>
+        </EnumMember>
+        <EnumMember>
+          <Name>Entry</Name>
+          <Value>20</Value>
+        </EnumMember>
+        <EnumMember>
+          <Name>Exit</Name>
+          <Value>30</Value>
+        </EnumMember>
+        <EnumMember>
+          <Name>Review</Name>
+          <Value>40</Value>
+        </EnumMember>
+        <EnumMember>
+          <Name>Other</Name>
+          <Value>50</Value>
+        </EnumMember>
+      </Members>
+    </EnumDefinition>
+    <EnumDefinition>
       <Name>TradeStatus</Name>
       <NamespaceName>TD</NamespaceName>
       <Members>
@@ -1826,10 +1852,25 @@
           <DependentPropertyName>TradeId</DependentPropertyName>
           <DependentPropertyType>int</DependentPropertyType>
         </BaseProperty>
+        <BaseProperty xsi:type="SimpleProperty">
+          <Name>Category</Name>
+          <DisplayOrder>10300</DisplayOrder>
+          <DisplayName>Category</DisplayName>
+          <TypeName>int</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <RestrictedData>false</RestrictedData>
+          <EnumTypeName>TradeImageCategory</EnumTypeName>
+          <IsKey>false</IsKey>
+          <IsForeignKey>false</IsForeignKey>
+          <IsImmutable>false</IsImmutable>
+          <IsNullable>false</IsNullable>
+          <IsStoreGenerated>false</IsStoreGenerated>
+        </BaseProperty>
         <BaseProperty xsi:type="StringProperty">
           <Name>ImageURL</Name>
           <Comment>Web URL or local file path of the image associated with a trade that is referred by TradeId</Comment>
-          <DisplayOrder>10300</DisplayOrder>
+          <DisplayOrder>10400</DisplayOrder>
           <DisplayName>Image URL</DisplayName>
           <TypeName>string</TypeName>
           <IsClientComputed>false</IsClientComputed>
@@ -1845,7 +1886,7 @@
         </BaseProperty>
         <BaseProperty xsi:type="StringProperty">
           <Name>Notes</Name>
-          <DisplayOrder>10400</DisplayOrder>
+          <DisplayOrder>10500</DisplayOrder>
           <DisplayName>Notes</DisplayName>
           <TypeName>string</TypeName>
           <IsClientComputed>false</IsClientComputed>
@@ -2407,11 +2448,10 @@
   <StripSourcePrefixes>false</StripSourcePrefixes>
   <SourceClassPrefix />
   <CodeEngineList>
-    <string>Localization_Resource_Generator</string>
-    <string>CS_Model_Class_Generator</string>
-    <string>Sqlite_Scripts_Generator</string>
     <string>Wpf_Mvvm_View_ViewModel_Generator</string>
     <string>CS_Sqlite_Repository_Generator</string>
-    <string>T-Sql_Scripts_Generator</string>
+    <string>CS_Model_Class_Generator</string>
+    <string>Sqlite_Scripts_Generator</string>
+    <string>Localization_Resource_Generator</string>
   </CodeEngineList>
 </CodeGenProject>

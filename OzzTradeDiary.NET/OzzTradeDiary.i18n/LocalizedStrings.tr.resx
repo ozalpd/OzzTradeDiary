@@ -190,6 +190,9 @@
     <data name="Cancelled" xml:space="preserve">
         <value>İptal Edildi</value>
     </data>
+    <data name="Category" xml:space="preserve">
+        <value>Kategori</value>
+    </data>
     <data name="Closed" xml:space="preserve">
         <value>Kapandı</value>
     </data>
@@ -367,6 +370,9 @@
     <data name="Email" xml:space="preserve">
         <value>E-Posta</value>
     </data>
+    <data name="Entry" xml:space="preserve">
+        <value>İşleme Giriş</value>
+    </data>
     <data name="EntryOrder" xml:space="preserve">
         <value>Giriş Emri</value>
     </data>
@@ -411,6 +417,9 @@
     </data>
     <data name="ExecutedTP" xml:space="preserve">
         <value>Gerçekleşen Kar Al</value>
+    </data>
+    <data name="Exit" xml:space="preserve">
+        <value>Kapat</value>
     </data>
     <data name="ExitOrderType" xml:space="preserve">
         <value>Çıkış Emir Tipi</value>
@@ -562,6 +571,9 @@
     <data name="OrderValue" xml:space="preserve">
         <value>Emir Tutarı</value>
     </data>
+    <data name="Other" xml:space="preserve">
+        <value>Diğer</value>
+    </data>
     <data name="Pending" xml:space="preserve">
         <value>Beklemede</value>
     </data>
@@ -679,6 +691,9 @@
     <data name="ReportType" xml:space="preserve">
         <value>Rapor Tipi</value>
     </data>
+    <data name="Review" xml:space="preserve">
+        <value>Değerlendirme</value>
+    </data>
     <data name="ReviewNotes" xml:space="preserve">
         <value>Değerlendirme Notu</value>
     </data>
@@ -696,6 +711,9 @@
     </data>
     <data name="SettingType" xml:space="preserve">
         <value>Ayar Tipi</value>
+    </data>
+    <data name="Setup" xml:space="preserve">
+        <value>Setup</value>
     </data>
     <data name="SetupNotes" xml:space="preserve">
         <value>Setup Notu</value>
@@ -810,6 +828,9 @@
     </data>
     <data name="TradeImage" xml:space="preserve">
         <value>İşlem Resmi</value>
+    </data>
+    <data name="TradeImageCategory" xml:space="preserve">
+        <value>İşlem Resim Kategorisi</value>
     </data>
     <data name="TradeImages" xml:space="preserve">
         <value>İşlem Resimleri</value>

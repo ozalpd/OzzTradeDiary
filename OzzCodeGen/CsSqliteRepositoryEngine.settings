@@ -962,6 +962,15 @@
           <DecimalToIntegerScale>0</DecimalToIntegerScale>
         </SqliteRepositoryPropertySetting>
         <SqliteRepositoryPropertySetting>
+          <Name>Category</Name>
+          <Exclude>false</Exclude>
+          <AutoLoad>false</AutoLoad>
+          <CheckIfAltered>true</CheckIfAltered>
+          <ColumnName>Category</ColumnName>
+          <SingleColumnUpdate>false</SingleColumnUpdate>
+          <DecimalToIntegerScale>0</DecimalToIntegerScale>
+        </SqliteRepositoryPropertySetting>
+        <SqliteRepositoryPropertySetting>
           <Name>ImageURL</Name>
           <Exclude>false</Exclude>
           <AutoLoad>false</AutoLoad>

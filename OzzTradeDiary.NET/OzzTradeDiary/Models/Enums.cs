@@ -55,6 +55,15 @@ namespace TD.Models
         StopLimit = 50,
     }
 
+    public enum TradeImageCategory : int
+    {
+        Setup = 10,  // Chart showing the trade setup / entry signal
+        Entry = 20,  // Screenshot at entry execution
+        Exit = 30,  // Screenshot at exit execution
+        Review = 40,  // Post-trade analysis / journaling
+        Other = 50,  // Uncategorized
+    }
+
     public enum MarketType : int
     {
         [Display(ResourceType = typeof(LocalizedStrings), Name = "Unspecified")]
