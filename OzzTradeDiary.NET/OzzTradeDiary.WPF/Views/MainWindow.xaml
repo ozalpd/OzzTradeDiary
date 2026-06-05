@@ -392,28 +392,30 @@
                         <!-- Plan -->
                         <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.PlannedEntryPrice}" Width="90"
                                             Binding="{Binding RoundedPlannedEntryPrice}"
-                                            ElementStyle="{StaticResource RightAlignedTextBlockStyle}"/>
+                                            ElementStyle="{StaticResource RightAlignedDataGridTextBlockStyle}"/>
                         <!-- Execution -->
                         <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.FilledQuantity}" Width="80"
                                             Binding="{Binding RoundedFilledQuantity}"
-                                            ElementStyle="{StaticResource RightAlignedTextBlockStyle}"/>
+                                            ElementStyle="{StaticResource RightAlignedDataGridTextBlockStyle}"/>
                         <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.ExecutedEntryPrice}" Width="90"
                                             Binding="{Binding RoundedExecutedEntryPrice}"
-                                            ElementStyle="{StaticResource RightAlignedTextBlockStyle}"/>
+                                            ElementStyle="{StaticResource RightAlignedDataGridTextBlockStyle}"/>
                         <!-- P&L -->
                         <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.PlannedProfit}" Width="80"
                                             Binding="{Binding PlannedProfitLoss, StringFormat=\{0:N2\}}"
-                                            ElementStyle="{StaticResource RightAlignedTextBlockStyle}"/>
+                                            ElementStyle="{StaticResource RightAlignedDataGridTextBlockStyle}"/>
                         <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.RealizedProfitLoss}" Width="80"
                                             Binding="{Binding RealizedProfitLoss, StringFormat=\{0:N2\}}"
-                                            ElementStyle="{StaticResource RightAlignedTextBlockStyle}"/>
+                                            CellStyle="{StaticResource NetProfitLossCellStyleLight}"
+                                            ElementStyle="{StaticResource RightAlignedDataGridTextBlockStyle}"/>
                         <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.NetProfitLoss}" Width="80"
                                             Binding="{Binding NetProfitLoss, StringFormat=\{0:N2\}}"
-                                            ElementStyle="{StaticResource RightAlignedTextBlockStyle}"/>
+                                            CellStyle="{StaticResource NetProfitLossCellStyleLight}"
+                                            ElementStyle="{StaticResource RightAlignedDataGridTextBlockStyle}"/>
                         <!-- Risk -->
                         <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.PlannedRiskRewardRatio}" Width="60"
                                             Binding="{Binding PlannedRiskRewardRatio, StringFormat=\{0:N2\}}"
-                                            ElementStyle="{StaticResource RightAlignedTextBlockStyle}"/>
+                                            ElementStyle="{StaticResource RightAlignedDataGridTextBlockStyle}"/>
                         <!-- Tags -->
                         <DataGridTextColumn Header="{x:Static i18n:LocalizedStrings.Tags}" Width="*"
                                             Binding="{Binding Tags}"/>
@@ -737,13 +739,13 @@
                                            Text="{x:Static i18n:LocalizedStrings.RealizedProfitLoss}"/>
                                 <TextBlock Grid.Column="4" Grid.Row="8"
                                            Text="{Binding RealizedProfitLoss, StringFormat=\{0:N2\}, Mode=OneWay}"
-                                           Style="{StaticResource RightAlignedTextBlockStyle}" Margin="0,0,0,8"/>
+                                           Style="{StaticResource NetProfitLossTextBlockStyle}" Margin="0,0,0,8"/>
                                 <TextBlock Grid.Column="6" Grid.Row="8" FontWeight="Bold"
                                            Style="{StaticResource RightAlignedTextBlockStyle}"
                                            Text="{x:Static i18n:LocalizedStrings.NetProfitLoss}"/>
                                 <TextBlock Grid.Column="7" Grid.Row="8"
                                            Text="{Binding NetProfitLoss, StringFormat=\{0:N2\}, Mode=OneWay}"
-                                           Style="{StaticResource RightAlignedTextBlockStyle}" Margin="0,0,0,8"/>
+                                           Style="{StaticResource NetProfitLossTextBlockStyle}" Margin="0,0,0,8"/>
 
 
                                 <!-- Row 10: TotalFeesCalculated / TotalFeesCorrected / FundingFeeTotal -->
