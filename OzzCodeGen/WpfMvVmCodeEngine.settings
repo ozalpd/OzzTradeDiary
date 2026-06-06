@@ -1526,7 +1526,7 @@
       <GenModeCreateCommand>SkipManuallyEdited</GenModeCreateCommand>
       <GenModeEditCommand>SkipManuallyEdited</GenModeEditCommand>
       <GenModeDeleteCommand>SkipManuallyEdited</GenModeDeleteCommand>
-      <GenModeDetailCommand>DoNotGenerate</GenModeDetailCommand>
+      <GenModeDetailCommand>SkipManuallyEdited</GenModeDetailCommand>
       <GenModeLoadCommand>DoNotGenerate</GenModeLoadCommand>
       <GenModeCreateVM>GenerateIfNotExists</GenModeCreateVM>
       <GenModeEditVM>GenerateIfNotExists</GenModeEditVM>
@@ -1535,7 +1535,7 @@
       <GenModeLookupService>DoNotGenerate</GenModeLookupService>
       <GenModeCreateView>GenerateIfNotExists</GenModeCreateView>
       <GenModeEditView>GenerateIfNotExists</GenModeEditView>
-      <GenModeDetailView>DoNotGenerate</GenModeDetailView>
+      <GenModeDetailView>SkipManuallyEdited</GenModeDetailView>
       <RepositoryName>ITradeImageRepository</RepositoryName>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="WpfMvvmEntitySetting">

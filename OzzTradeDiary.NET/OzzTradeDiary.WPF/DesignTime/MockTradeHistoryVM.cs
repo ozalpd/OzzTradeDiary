@@ -118,30 +118,30 @@ namespace TD.WPF.DesignTime
                 UpdatedAt = DateTime.Now.AddDays(-10)
             });
 
-            //var settings = AppSettings.GetAppSettings();
-            //_selectedItem.TradeImages.Add(new TradeImage
-            //{
-            //    Category = TradeImageCategory.Setup,
-            //    ImageURL = Path.Combine(settings.GetDatabaseFolderPath(), "Images", "Demo-01.png"),
-            //    Notes = "Initial setup with entry and target levels.",
-            //    UpdatedAt = DateTime.Now.AddDays(-10)
-            //});
+            var settings = AppSettings.GetAppSettings();
+            _selectedItem.TradeImages.Add(new TradeImage
+            {
+                Category = TradeImageCategory.Setup,
+                ImageURL = Path.Combine(settings.GetDatabaseFolderPath(), "Images", "Demo-01.png"),
+                Notes = "Initial setup with entry and target levels.",
+                UpdatedAt = DateTime.Now.AddDays(-10)
+            });
 
-            //_selectedItem.TradeImages.Add(new TradeImage
-            //{
-            //    Category = TradeImageCategory.Other,
-            //    ImageURL = "https://s3.tradingview.com/snapshots/v/VxW2WUbH.png",
-            //    Notes = "Initial setup with entry and target levels.",
-            //    UpdatedAt = DateTime.Now.AddDays(-10)
-            //});
+            _selectedItem.TradeImages.Add(new TradeImage
+            {
+                Category = TradeImageCategory.Other,
+                ImageURL = "https://s3.tradingview.com/snapshots/v/VxW2WUbH.png",
+                Notes = "Initial setup with entry and target levels.",
+                UpdatedAt = DateTime.Now.AddDays(-10)
+            });
 
-            //_selectedItem.TradeImages.Add(new TradeImage
-            //{
-            //    Category = TradeImageCategory.Setup,
-            //    ImageURL = Path.Combine(settings.GetDatabaseFolderPath(), "Images", "Demo-02.png"),
-            //    Notes = "Initial setup with entry and target levels.",
-            //    UpdatedAt = DateTime.Now.AddDays(-10)
-            //});
+            _selectedItem.TradeImages.Add(new TradeImage
+            {
+                Category = TradeImageCategory.Setup,
+                ImageURL = Path.Combine(settings.GetDatabaseFolderPath(), "Images", "Demo-02.png"),
+                Notes = "Initial setup with entry and target levels.",
+                UpdatedAt = DateTime.Now.AddDays(-10)
+            });
 
             ReplaceCollection(TradeImages, _selectedItem.TradeImages);
             ReplaceCollection(EntryOrders, _selectedItem.EntryOrders);

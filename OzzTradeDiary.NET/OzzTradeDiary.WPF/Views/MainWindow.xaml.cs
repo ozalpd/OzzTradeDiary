@@ -68,19 +68,30 @@ namespace TD.WPF.Views
             }
 
         }
+
         private void TradeImageThumbnail_Click(object sender, RoutedEventArgs e)
         {
             if (sender is not Button btn || btn.Tag is not TradeImage tradeImage)
                 return;
-            if (_viewModel.TradeHistory.SelectedTradeImage == tradeImage)
-            {
-                var detailView = new TradeImageDetailView(tradeImage) { Owner = this };
-                detailView.ShowDialog();
-            }
-            else
+
+            if (_viewModel.TradeHistory.SelectedTradeImage != tradeImage)
             {
                 _viewModel.TradeHistory.SelectedTradeImage = tradeImage;
+                _lastClickToImgButton = DateTime.Now;
+                return;
             }
+
+            //Is it a double click?
+            var timeSinceLastClick = DateTime.Now - _lastClickToImgButton;
+            if (timeSinceLastClick.TotalMilliseconds > 500)
+            {
+                _lastClickToImgButton = DateTime.Now;
+                return; // Not a double click, just update the timestamp and return.
+            }
+
+            var detailView = new TradeImageDetailView(tradeImage) { Owner = this };
+            detailView.ShowDialog();
         }
+        private DateTime _lastClickToImgButton;
     }
 }

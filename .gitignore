@@ -215,8 +215,9 @@ ModelManifest.xml
 [Gg]enerated [Cc]odes/
 [Gg]enerated[Cc]odes/
 
-#SampleData Files
-[Ss]ample[Dd]ata/
+#SampleData Files - ignore root files but keep Images subfolder
+SampleData/*
+!SampleData/Images/
 
 #Draft Works
 /DraftNotes

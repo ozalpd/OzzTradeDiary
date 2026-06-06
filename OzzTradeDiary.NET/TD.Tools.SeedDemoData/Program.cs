@@ -369,12 +369,13 @@ static async Task<Trade> EnsureDemoTradeAsync(ITradeRepository tradeRepository, 
     var randomInt = random.Next(1, 5);
     for (int i = 0; i < randomInt; i++)
     {
+        int rndImg = random.Next(0, 6);
         var image = new TradeImage
         {
             TradeId = trade.Id,
             Category = random.Next(0, 2) == 0 ? TradeImageCategory.Setup : TradeImageCategory.Review,
-            ImageURL = random.Next(0, 4) == 0 ? $"https://s3.tradingview.com/snapshots/v/VxW2WUbH.png" : Path.Combine(settings.GetDatabaseFolderPath(), "Images", $"Demo-{i + 1:D2}.png"),
-            Notes = $"Demo trade screenshot placeholder {i + 1}",
+            ImageURL = rndImg == 0 ? $"https://s3.tradingview.com/snapshots/v/VxW2WUbH.png" : Path.Combine(settings.GetDatabaseFolderPath(), "Images", $"Demo-{rndImg:D2}.png"),
+            Notes = TD.Tools.Text.CreateLipsumParagraphs(random.Next(1, 3)),
             UpdatedAt = DateTime.UtcNow
         };
 

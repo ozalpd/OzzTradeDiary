@@ -21,7 +21,6 @@ namespace TD.WPF.Views.Trades
 
             _viewModel = new Trade();
             DataContext = _viewModel;
-            SourceInitialized += TradeDetailView_SourceInitialized;
         }
 
         /// <summary>
@@ -40,10 +39,8 @@ namespace TD.WPF.Views.Trades
 
         private async void TradeDetailView_SourceInitialized(object? sender, EventArgs e)
         {
-            OnSourceInitialized();
             _appSettings.TradeDetailViewPosition.SetWindowPositions(this);
         }
-        partial void OnSourceInitialized();
 
         private void Window_Closing(object? sender, System.ComponentModel.CancelEventArgs e)
         {

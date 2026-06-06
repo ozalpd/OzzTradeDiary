@@ -106,6 +106,8 @@ public partial class AppSettings
 
     public WindowPosition TradeDetailViewPosition { get; set; } = new WindowPosition();
 
+    public WindowPosition TradeImageDetailViewPosition { get; set; } = new WindowPosition();
+
     /// <summary>
     /// Gets or sets the BCP-47 culture name used for the application UI (e.g. <c>"en-US"</c>, <c>"tr-TR"</c>).
     /// </summary>

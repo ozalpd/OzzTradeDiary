@@ -11,7 +11,7 @@
         xmlns:designTime="clr-namespace:TD.WPF.DesignTime"
         mc:Ignorable="d"
         Title="Ozz Trade Diary"
-        Height="980" Width="1440" MinHeight="540" MinWidth="1280">
+        Height="1024" Width="1440" MinHeight="540" MinWidth="1280">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -1171,6 +1171,7 @@
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="Auto"/>
                                     <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
                                 </Grid.RowDefinitions>
                                 <TextBlock Grid.Row="0" Margin="-4,8,8,0"
                                            Text="{x:Static i18n:LocalizedStrings.TradeImages}" FontWeight="Bold"/>
@@ -1271,15 +1272,18 @@
                                             <Border BorderThickness="1" BorderBrush="#CCCCCC" CornerRadius="2"
                                                     Background="#F0F0F0" ToolTip="{Binding Notes}">
                                                 <Grid>
-                                                    <Image Width="198" Height="100" Stretch="UniformToFill"
-                                                          behaviors:AsyncImageLoader.SourceUrl="{Binding ImageURL}"
-                                                          RenderOptions.BitmapScalingMode="HighQuality"/>
+                                                    <Image x:Name="ThumbImg"
+                                                           Width="{Binding Path=(behaviors:AsyncImageLoader.ThumbWidth), RelativeSource={RelativeSource Self}}"
+                                                           Height="{Binding Path=(behaviors:AsyncImageLoader.ThumbHeight), RelativeSource={RelativeSource Self}}"
+                                                           Stretch="Fill"
+                                                           behaviors:AsyncImageLoader.SourceUrl="{Binding ImageURL}"
+                                                           behaviors:AsyncImageLoader.ThumbMaxSize="90"
+                                                           RenderOptions.BitmapScalingMode="HighQuality"/>
                                                     <Border VerticalAlignment="Bottom" Background="#AA000000" Padding="2,1" CornerRadius="0,0,2,2">
                                                         <TextBlock Text="{Binding Category}" Foreground="White"
                                                                    FontSize="9" HorizontalAlignment="Center"/>
                                                     </Border>
-                                                    <Button x:Name="ThumbnailOpenBtn"
-                                                            Width="198" Height="100" Opacity="0"
+                                                    <Button Opacity="0"
                                                             Tag="{Binding}"
                                                             Click="TradeImageThumbnail_Click"/>
                                                 </Grid>
@@ -1287,6 +1291,9 @@
                                         </DataTemplate>
                                     </ListBox.ItemTemplate>
                                 </ListBox>
+                                <Border Grid.Row="2" Grid.ColumnSpan="2" Margin="-4,0">
+                                    <TextBlock TextWrapping="Wrap" Text="{Binding SelectedTradeImage.Notes, Mode=OneWay}" Margin="0,0,4,8"/>
+                                </Border>
                             </Grid>
                         </Grid>
                     </ScrollViewer>
