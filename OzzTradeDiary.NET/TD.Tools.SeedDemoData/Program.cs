@@ -271,7 +271,7 @@ static async Task<Trade> EnsureDemoTradeAsync(ITradeRepository tradeRepository, 
     trade.TakeProfitOrders.Add(tp3);
 
     bool isExecuted = random.Next(0, 4) != 0; // 75% chance the trade is executed
-    DateTime? entryTime = isExecuted 
+    DateTime? entryTime = isExecuted
                         ? DateTime.UtcNow.AddDays(-daysAgo).AddHours(random.Next(0, 12)).AddMinutes(random.Next(0, 60))
                         : null;
     if (isExecuted && entryTime.HasValue)
@@ -365,13 +365,15 @@ static async Task<Trade> EnsureDemoTradeAsync(ITradeRepository tradeRepository, 
     if (noImages)
         return trade;
 
+    var settings = AppSettings.GetAppSettings();
     var randomInt = random.Next(1, 5);
     for (int i = 0; i < randomInt; i++)
     {
         var image = new TradeImage
         {
             TradeId = trade.Id,
-            ImageURL = $"https://example.com/demo-trade-{i + 1}.png",
+            Category = random.Next(0, 2) == 0 ? TradeImageCategory.Setup : TradeImageCategory.Review,
+            ImageURL = random.Next(0, 4) == 0 ? $"https://s3.tradingview.com/snapshots/v/VxW2WUbH.png" : Path.Combine(settings.GetDatabaseFolderPath(), "Images", $"Demo-{i + 1:D2}.png"),
             Notes = $"Demo trade screenshot placeholder {i + 1}",
             UpdatedAt = DateTime.UtcNow
         };

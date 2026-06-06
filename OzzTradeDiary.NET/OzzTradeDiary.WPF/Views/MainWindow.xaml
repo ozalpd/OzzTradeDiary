@@ -7,6 +7,7 @@
         xmlns:sys="clr-namespace:System;assembly=System.Runtime"
         xmlns:i18n="clr-namespace:TD.i18n;assembly=OzzTradeDiary.i18n"
         xmlns:converters="clr-namespace:TD.WPF.Converters"
+        xmlns:behaviors="clr-namespace:TD.WPF.Behaviors"
         xmlns:designTime="clr-namespace:TD.WPF.DesignTime"
         mc:Ignorable="d"
         Title="Ozz Trade Diary"
@@ -548,6 +549,7 @@
                     <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Auto" MaxWidth="640">
                         <Grid Margin="4,4,4,8">
                             <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
                                 <RowDefinition Height="Auto"/>
                                 <RowDefinition Height="Auto"/>
                                 <RowDefinition Height="Auto"/>
@@ -1158,6 +1160,133 @@
                                 <Border Grid.Row="3" Margin="-4,0">
                                     <TextBlock TextWrapping="Wrap" Text="{Binding ReviewNotes, Mode=OneWay}" Margin="0,0,4,8"/>
                                 </Border>
+                            </Grid>
+
+                            <!-- ═══ Trade Images ═══ -->
+                            <Grid Grid.Row="3">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <TextBlock Grid.Row="0" Margin="-4,8,8,0"
+                                           Text="{x:Static i18n:LocalizedStrings.TradeImages}" FontWeight="Bold"/>
+                                <StackPanel Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="0" Orientation="Horizontal">
+                                    <Button Style="{StaticResource IconButtonStyle-22x18}"
+                                            ToolTip="{x:Static i18n:LocalizedStrings.AddTradeImage}"
+                                            Command="{Binding TradeImageCreateCommand}"
+                                            CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}">
+                                        <Viewbox Width="14" Height="14">
+                                            <Path>
+                                                <Path.Style>
+                                                    <Style TargetType="Path">
+                                                        <Setter Property="Fill" Value="#0044D7"/>
+                                                        <Setter Property="Data" Value="{StaticResource plus-circle}"/>
+                                                        <Style.Triggers>
+                                                            <DataTrigger Binding="{Binding IsEnabled, RelativeSource={RelativeSource AncestorType=Button}}" Value="False">
+                                                                <Setter Property="Fill" Value="#A0A0A0"/>
+                                                            </DataTrigger>
+                                                            <DataTrigger Binding="{Binding IsMouseOver, RelativeSource={RelativeSource AncestorType=Button}}" Value="True">
+                                                                <Setter Property="Fill" Value="#000000"/>
+                                                            </DataTrigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </Path.Style>
+                                            </Path>
+                                        </Viewbox>
+                                    </Button>
+                                    <Button Style="{StaticResource IconButtonStyle-22x18}"
+                                            ToolTip="{x:Static i18n:ActionStrings.Edit}"
+                                            Command="{Binding TradeImageEditCommand}"
+                                            CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}">
+                                        <Viewbox Width="14" Height="14">
+                                            <Path>
+                                                <Path.Style>
+                                                    <Style TargetType="Path">
+                                                        <Setter Property="Fill" Value="#0044D7"/>
+                                                        <Setter Property="Data" Value="{StaticResource pencil-square}"/>
+                                                        <Style.Triggers>
+                                                            <DataTrigger Binding="{Binding IsEnabled, RelativeSource={RelativeSource AncestorType=Button}}" Value="False">
+                                                                <Setter Property="Fill" Value="#A0A0A0"/>
+                                                            </DataTrigger>
+                                                            <DataTrigger Binding="{Binding IsMouseOver, RelativeSource={RelativeSource AncestorType=Button}}" Value="True">
+                                                                <Setter Property="Fill" Value="#000000"/>
+                                                            </DataTrigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </Path.Style>
+                                            </Path>
+                                        </Viewbox>
+                                    </Button>
+
+                                    <Button Style="{StaticResource IconButtonStyle-22x18}"
+                                            ToolTip="{x:Static i18n:LocalizedStrings.DeleteTradeImage}"
+                                            Background="#C80000"
+                                            Command="{Binding TradeImageDeleteCommand}"
+                                            CommandParameter="{Binding}">
+                                        <Viewbox Width="14" Height="14">
+                                            <Path>
+                                                <Path.Style>
+                                                    <Style TargetType="Path">
+                                                        <Setter Property="Fill" Value="#F8F8F8"/>
+                                                        <Setter Property="Data" Value="{StaticResource trash3}"/>
+                                                        <Style.Triggers>
+                                                            <DataTrigger Binding="{Binding IsEnabled, RelativeSource={RelativeSource AncestorType=Button}}" Value="False">
+                                                                <Setter Property="Fill" Value="#A0A0A0"/>
+                                                            </DataTrigger>
+                                                            <DataTrigger Binding="{Binding IsMouseOver, RelativeSource={RelativeSource AncestorType=Button}}" Value="True">
+                                                                <Setter Property="Fill" Value="#C80000"/>
+                                                            </DataTrigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </Path.Style>
+                                            </Path>
+                                        </Viewbox>
+                                    </Button>
+                                </StackPanel>
+                                <ListBox Grid.ColumnSpan="2" Grid.Row="1" Margin="-4,4,0,4"
+                                         x:Name="TradeImagesListBox"
+                                         ItemsSource="{Binding TradeImages}"
+                                         SelectedItem="{Binding SelectedTradeImage}"
+                                         Background="Transparent"
+                                         BorderThickness="0"
+                                         ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                                    <ListBox.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <WrapPanel Orientation="Horizontal"/>
+                                        </ItemsPanelTemplate>
+                                    </ListBox.ItemsPanel>
+                                    <ListBox.ItemContainerStyle>
+                                        <Style TargetType="ListBoxItem">
+                                            <Setter Property="Padding" Value="2"/>
+                                            <Setter Property="Margin" Value="2"/>
+                                            <Setter Property="Cursor" Value="Hand"/>
+                                        </Style>
+                                    </ListBox.ItemContainerStyle>
+                                    <ListBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <Border BorderThickness="1" BorderBrush="#CCCCCC" CornerRadius="2"
+                                                    Background="#F0F0F0" ToolTip="{Binding Notes}">
+                                                <Grid>
+                                                    <Image Width="198" Height="100" Stretch="UniformToFill"
+                                                          behaviors:AsyncImageLoader.SourceUrl="{Binding ImageURL}"
+                                                          RenderOptions.BitmapScalingMode="HighQuality"/>
+                                                    <Border VerticalAlignment="Bottom" Background="#AA000000" Padding="2,1" CornerRadius="0,0,2,2">
+                                                        <TextBlock Text="{Binding Category}" Foreground="White"
+                                                                   FontSize="9" HorizontalAlignment="Center"/>
+                                                    </Border>
+                                                    <Button x:Name="ThumbnailOpenBtn"
+                                                            Width="198" Height="100" Opacity="0"
+                                                            Tag="{Binding}"
+                                                            Click="TradeImageThumbnail_Click"/>
+                                                </Grid>
+                                            </Border>
+                                        </DataTemplate>
+                                    </ListBox.ItemTemplate>
+                                </ListBox>
                             </Grid>
                         </Grid>
                     </ScrollViewer>

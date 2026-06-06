@@ -7,13 +7,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 ## [0.2.2] - 2026-06-05
 
 ### Added
-- Added `TradeImageCreateView`/`EditView` and corresponding ViewModels
+- Added `TradeImageCreateView`/`EditView`/`TradeImageDetailView` and corresponding ViewModels
 
 ### Changed
 - Implemented `TradeImage` create/edit/delete commands and dialogs in WPF
 - Extended `TradeHistoryVM` for `TradeImage` management and selection
 - Added `SaveTradeImagesAsync` to `ITradeRepository` and implementations
 - Updated `IWindowDialogService` for `TradeImage` dialogs
+- Added TradeImageDetailCommand and wire up to TradeHistoryVM
+- Displaying trade image thumbnails with category overlays in MainWindow
 - Introduced `ProfitLossToColor` WPF converter for `NetProfitLoss` cell coloring. Registered new converter resources and applied them in `MainWindow` DataGrid. Added profit/loss-specific styles for cells and text.
 - Bumped version to 0.2.2 and updated changelog
 

@@ -222,6 +222,17 @@ namespace TD.WPF.Services
         }
 
         /// <inheritdoc />
+        public void ShowTradeImageDetailDialog(Window owner, TradeImage tradeImage)
+        {
+            var dialog = new TradeImageDetailView(tradeImage)
+            {
+                Owner = owner
+            };
+
+            dialog.ShowDialog();
+        }
+
+        /// <inheritdoc />
         public (bool IsConfirmed, TradingAccount? TradingAccount) ShowTradingAccountCreateDialog(Window owner, IExchangeLookupService exchangeLookupService,
                                                                                                  Exchange? preselectedExchange)
         {

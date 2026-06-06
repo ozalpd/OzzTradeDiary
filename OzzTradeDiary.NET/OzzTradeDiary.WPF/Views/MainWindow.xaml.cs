@@ -6,6 +6,7 @@ using TD.Models;
 using TD.WPF.DesignTime;
 using TD.WPF.Models;
 using TD.WPF.ViewModels;
+using TD.WPF.Views.Trades;
 
 namespace TD.WPF.Views
 {
@@ -66,6 +67,20 @@ namespace TD.WPF.Views
                     break;
             }
 
+        }
+        private void TradeImageThumbnail_Click(object sender, RoutedEventArgs e)
+        {
+            if (sender is not Button btn || btn.Tag is not TradeImage tradeImage)
+                return;
+            if (_viewModel.TradeHistory.SelectedTradeImage == tradeImage)
+            {
+                var detailView = new TradeImageDetailView(tradeImage) { Owner = this };
+                detailView.ShowDialog();
+            }
+            else
+            {
+                _viewModel.TradeHistory.SelectedTradeImage = tradeImage;
+            }
         }
     }
 }

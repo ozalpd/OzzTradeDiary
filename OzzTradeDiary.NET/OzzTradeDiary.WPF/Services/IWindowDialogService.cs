@@ -203,6 +203,14 @@ namespace TD.WPF.Services
         (bool IsConfirmed, bool IsDirty) ShowTradeImageEditDialog(Window owner, TradeImage tradeImage);
 
         /// <summary>
+        /// Displays a dialog showing detailed information for the specified tradeImage.
+        /// </summary>
+        /// <param name="owner">The window that will own the dialog. This parameter determines the parent window for modal behavior and dialog
+        /// positioning.</param>
+        /// <param name="tradeImage">The tradeImage entity to display in the detail dialog.</param>
+        void ShowTradeImageDetailDialog(Window owner, TradeImage tradeImage);
+
+        /// <summary>
         /// Displays the Trading Account creation dialog and returns the result indicating whether the user confirmed the dialog
         /// and the created Trading Account, if any.
         /// </summary>

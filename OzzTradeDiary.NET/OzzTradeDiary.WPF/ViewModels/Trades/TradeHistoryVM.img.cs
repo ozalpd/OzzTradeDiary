@@ -10,6 +10,7 @@ namespace TD.WPF.ViewModels.Trades
         public ObservableCollection<TradeImage> TradeImages { get; }
         public TradeImageCreateCommand TradeImageCreateCommand { get; }
         public TradeImageDeleteCommand TradeImageDeleteCommand { get; }
+        public TradeImageDetailCommand TradeImageDetailCommand { get; }
         public TradeImageEditCommand TradeImageEditCommand { get; }
 
         /// <summary>
@@ -24,8 +25,7 @@ namespace TD.WPF.ViewModels.Trades
             {
                 _selectedTradeImage = value;
                 RaisePropertyChanged(nameof(SelectedTradeImage));
-                TradeImageEditCommand.RaiseCanExecuteChanged();
-                TradeImageDeleteCommand.RaiseCanExecuteChanged();
+                RaiseTradeImageCmdCanExecute();
             }
         }
         TradeImage? _selectedTradeImage;
@@ -75,6 +75,7 @@ namespace TD.WPF.ViewModels.Trades
             TradeImageCreateCommand.RaiseCanExecuteChanged();
             TradeImageDeleteCommand.RaiseCanExecuteChanged();
             TradeImageEditCommand.RaiseCanExecuteChanged();
+            TradeImageDetailCommand.RaiseCanExecuteChanged();
         }
 
         /// <summary>

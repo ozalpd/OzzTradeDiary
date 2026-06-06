@@ -15,7 +15,7 @@ namespace TD.WPF.DesignTime
         public (bool IsConfirmed, bool IsDirty) ShowSymbolEditDialog(Window owner, Symbol symbol) => (false, false);
         public (bool IsConfirmed, Trade? Trade) ShowTradeCreateDialog(Window owner, ISymbolLookupService symbolLookupService, ITradingAccountLookupService tradingAccountLookupService, TradingAccount? preselectedTradingAccount) => (false, null);
         public (bool IsConfirmed, bool IsDirty) ShowTradeEditDialog(Window owner, Trade trade) => (false, false);
-        public void ShowTradeDetailDialog(Window owner, Trade trade) { }
+        public void ShowTradeDetailDialog(Window owner, Trade trade) => throw new NotImplementedException();
         public (bool IsConfirmed, TradingAccount? TradingAccount) ShowTradingAccountCreateDialog(Window owner, IExchangeLookupService exchangeLookupService, Exchange? preselectedExchange) => (false, null);
         public (bool IsConfirmed, bool IsDirty) ShowTradingAccountEditDialog(Window owner, TradingAccount tradingAccount) => (false, false);
         public (bool IsConfirmed, EntryOrder? EntryOrder) ShowEntryOrderCreateDialog(Window owner, Trade? preselectedTrade) => (false, null);
@@ -26,5 +26,6 @@ namespace TD.WPF.DesignTime
         public (bool IsConfirmed, bool IsDirty) ShowTakeProfitOrderEditDialog(Window owner, TakeProfitOrder takeProfitOrder) => (false, false);
         public (bool IsConfirmed, TradeImage? TradeImage) ShowTradeImageCreateDialog(Window owner, Trade? preselectedTrade) => (false, null);
         public (bool IsConfirmed, bool IsDirty) ShowTradeImageEditDialog(Window owner, TradeImage tradeImage) => (false, false);
+        public void ShowTradeImageDetailDialog(Window owner, TradeImage tradeImage) => throw new NotImplementedException();
     }
 }

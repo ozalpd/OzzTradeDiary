@@ -9,4 +9,5 @@
     <converters:ProfitLossToColor x:Key="NetProfitLossForDarkText" ColorForProfit="#FFB8F4B8" ColorForLoss="#FFF8B8B8" ColorForDefault="Transparent"/>
     <converters:ProfitLossToColor x:Key="NetProfitLossForLightText" ColorForProfit="#FF00C000" ColorForLoss="#FFC80000" ColorForDefault="Transparent"/>
     <converters:ProfitLossToColor x:Key="NetProfitLossForSelectedCell" ColorForProfit="#FF00C000" ColorForLoss="#FFC80000" ColorForDefault="#0078D7"/>
+    <converters:ImageUrlToSource x:Key="ImageUrlToSource"/>
 </ResourceDictionary>

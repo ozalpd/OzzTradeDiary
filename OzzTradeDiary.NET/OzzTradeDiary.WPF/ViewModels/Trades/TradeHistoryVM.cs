@@ -46,6 +46,7 @@ namespace TD.WPF.ViewModels.Trades
             TradeImageCategoryValues = GetValues<TradeImageCategory>();
             TradeImageCreateCommand = new TradeImageCreateCommand(this, windowDialogService);
             TradeImageDeleteCommand = new TradeImageDeleteCommand(this);
+            TradeImageDetailCommand = new TradeImageDetailCommand(this, windowDialogService);
             TradeImageEditCommand = new TradeImageEditCommand(this, windowDialogService);
 
             QueryVM.PageSize = 50;
