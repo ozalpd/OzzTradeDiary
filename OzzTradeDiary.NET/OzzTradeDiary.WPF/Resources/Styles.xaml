@@ -23,6 +23,16 @@
         <Setter Property="Background" Value="{Binding TradeDirection, Converter={StaticResource TradeDirectionForLightText}}"/>
     </Style>
 
+
+    <!-- TextBlock Style: for detail pane -->
+    <Style x:Key="DetailTextBlockStyle" TargetType="TextBlock">
+        <Setter Property="Margin" Value="4,2,2,8"/>
+        <Setter Property="VerticalAlignment" Value="Top"/>
+    </Style>
+    <Style x:Key="DetailNumTextBlockStyle" TargetType="TextBlock" BasedOn="{StaticResource DetailTextBlockStyle}">
+        <Setter Property="HorizontalAlignment" Value="Right"/>
+    </Style>
+
     <!-- Trade Status Styles -->
     <Style x:Key="TradeStatusTextBlockStyle" TargetType="TextBlock">
         <Setter Property="Foreground" Value="#002020"/>

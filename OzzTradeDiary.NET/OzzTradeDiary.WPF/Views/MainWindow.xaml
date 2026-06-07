@@ -65,18 +65,18 @@
                                 ToolTip="{x:Static i18n:LocalizedStrings.AddTrade}"
                                 Command="{Binding TradeCreateCommand}"
                                 CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}">
-                    <Viewbox Width="14" Height="14">
-                        <Path Margin="-2">
+                    <Viewbox Width="18" Height="18">
+                        <Path Margin="-2,-2,-1,-1">
                             <Path.Style>
                                 <Style TargetType="Path">
-                                    <Setter Property="Fill" Value="#0044D7"/>
+                                    <Setter Property="Fill" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
                                     <Setter Property="Data" Value="{StaticResource plus-circle}"/>
                                     <Style.Triggers>
                                         <DataTrigger Binding="{Binding IsEnabled, RelativeSource={RelativeSource AncestorType=Button}}" Value="False">
-                                            <Setter Property="Fill" Value="#A0A0A0"/>
+                                            <Setter Property="Fill" Value="#808890"/>
                                         </DataTrigger>
                                         <DataTrigger Binding="{Binding IsMouseOver, RelativeSource={RelativeSource AncestorType=Button}}" Value="True">
-                                            <Setter Property="Fill" Value="#000000"/>
+                                            <Setter Property="Fill" Value="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}"/>
                                         </DataTrigger>
                                     </Style.Triggers>
                                 </Style>
@@ -88,18 +88,18 @@
                                 ToolTip="{x:Static i18n:LocalizedStrings.EditTrade}"
                                 Command="{Binding TradeEditCommand}"
                                 CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}">
-                    <Viewbox Width="14" Height="14">
-                        <Path Margin="-2">
+                    <Viewbox Width="18" Height="18">
+                        <Path Margin="-2,-2,-1,-1">
                             <Path.Style>
                                 <Style TargetType="Path">
-                                    <Setter Property="Fill" Value="#0044D7"/>
+                                    <Setter Property="Fill" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
                                     <Setter Property="Data" Value="{StaticResource pencil-square}"/>
                                     <Style.Triggers>
                                         <DataTrigger Binding="{Binding IsEnabled, RelativeSource={RelativeSource AncestorType=Button}}" Value="False">
-                                            <Setter Property="Fill" Value="#A0A0A0"/>
+                                            <Setter Property="Fill" Value="#808890"/>
                                         </DataTrigger>
                                         <DataTrigger Binding="{Binding IsMouseOver, RelativeSource={RelativeSource AncestorType=Button}}" Value="True">
-                                            <Setter Property="Fill" Value="#000000"/>
+                                            <Setter Property="Fill" Value="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}"/>
                                         </DataTrigger>
                                     </Style.Triggers>
                                 </Style>
@@ -111,21 +111,20 @@
                 <Separator/>
                 <Button Style="{StaticResource IconButtonStyle-28x24}"
                                 ToolTip="{x:Static i18n:LocalizedStrings.DeleteTrade}"
-                                Background="#C80000"
                                 Command="{Binding TradeDeleteCommand}"
                                 CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}">
-                    <Viewbox Width="14" Height="14">
-                        <Path Margin="-1">
+                    <Viewbox Width="18" Height="18">
+                        <Path Margin="-2,-2,-1,-1">
                             <Path.Style>
                                 <Style TargetType="Path">
-                                    <Setter Property="Fill" Value="#F8F8F8"/>
-                                    <Setter Property="Data" Value="{StaticResource trash3}"/>
+                                    <Setter Property="Fill" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+                                    <Setter Property="Data" Value="{StaticResource trash}"/>
                                     <Style.Triggers>
                                         <DataTrigger Binding="{Binding IsEnabled, RelativeSource={RelativeSource AncestorType=Button}}" Value="False">
-                                            <Setter Property="Fill" Value="#A0A0A0"/>
+                                            <Setter Property="Fill" Value="#808890"/>
                                         </DataTrigger>
                                         <DataTrigger Binding="{Binding IsMouseOver, RelativeSource={RelativeSource AncestorType=Button}}" Value="True">
-                                            <Setter Property="Fill" Value="#C80000"/>
+                                            <Setter Property="Fill" Value="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}"/>
                                         </DataTrigger>
                                     </Style.Triggers>
                                 </Style>
@@ -136,21 +135,21 @@
                 <Separator/>
 
                 <Button Style="{StaticResource IconButtonStyle-28x24}"
-                                ToolTip="{x:Static i18n:LocalizedStrings.Trade}"
+                                ToolTip="{x:Static i18n:ActionStrings.OpenDetail}"
                                 Command="{Binding TradeDetailCommand}"
                                 CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}">
                     <Viewbox Width="18" Height="18">
-                        <Path Margin="-3,0,0,-3">
+                        <Path Margin="-2,-2,-1,-1">
                             <Path.Style>
                                 <Style TargetType="Path">
-                                    <Setter Property="Fill" Value="#0044D7"/>
-                                    <Setter Property="Data" Value="{StaticResource currency-exchange}"/>
+                                    <Setter Property="Fill" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+                                    <Setter Property="Data" Value="{StaticResource box-arrow-up-right}"/>
                                     <Style.Triggers>
                                         <DataTrigger Binding="{Binding IsEnabled, RelativeSource={RelativeSource AncestorType=Button}}" Value="False">
-                                            <Setter Property="Fill" Value="#A0A0A0"/>
+                                            <Setter Property="Fill" Value="#808890"/>
                                         </DataTrigger>
                                         <DataTrigger Binding="{Binding IsMouseOver, RelativeSource={RelativeSource AncestorType=Button}}" Value="True">
-                                            <Setter Property="Fill" Value="#000000"/>
+                                            <Setter Property="Fill" Value="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}"/>
                                         </DataTrigger>
                                     </Style.Triggers>
                                 </Style>
@@ -261,7 +260,7 @@
                         Command="{Binding TradesLoadCommand}">
                     <StackPanel Orientation="Horizontal">
                         <Viewbox Width="18" Height="18">
-                            <Path Margin="-3,-3,0,-3"
+                            <Path Margin="-2,-3,-2,-3"
                                   Fill="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"
                                   Data="{StaticResource journal-arrow-up}"/>
                         </Viewbox>
@@ -276,17 +275,17 @@
                                 ToolTip="{x:Static i18n:ActionStrings.OpenMaintenanceWindow}"
                                 Command="{Binding ShowMaintenanceCommand}">
                     <Viewbox Width="18" Height="18">
-                        <Path Margin="-3,0,0,-3">
+                        <Path Margin="-2,-2,-2,-2">
                             <Path.Style>
                                 <Style TargetType="Path">
-                                    <Setter Property="Fill" Value="#0044D7"/>
+                                    <Setter Property="Fill" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
                                     <Setter Property="Data" Value="{StaticResource gear-wide-connected}"/>
                                     <Style.Triggers>
                                         <DataTrigger Binding="{Binding IsEnabled, RelativeSource={RelativeSource AncestorType=Button}}" Value="False">
-                                            <Setter Property="Fill" Value="#A0A0A0"/>
+                                            <Setter Property="Fill" Value="#808890"/>
                                         </DataTrigger>
                                         <DataTrigger Binding="{Binding IsMouseOver, RelativeSource={RelativeSource AncestorType=Button}}" Value="True">
-                                            <Setter Property="Fill" Value="#000000"/>
+                                            <Setter Property="Fill" Value="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}"/>
                                         </DataTrigger>
                                     </Style.Triggers>
                                 </Style>
@@ -590,25 +589,29 @@
                                            Style="{StaticResource RightAlignedTextBlockStyle}"
                                            Text="{x:Static i18n:LocalizedStrings.EntryTime}"/>
                                 <TextBlock Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="0"
-                                           Text="{Binding EntryTime, StringFormat=\{0:yyyy-MM-dd HH:mm\}, Mode=OneWay}" Margin="0,0,0,8"/>
+                                           Style="{StaticResource DetailTextBlockStyle}"
+                                           Text="{Binding EntryTime, StringFormat=\{0:yyyy-MM-dd HH:mm\}, Mode=OneWay}"/>
                                 <TextBlock Grid.Column="3" Grid.Row="0" FontWeight="Bold"
                                            Style="{StaticResource RightAlignedTextBlockStyle}"
                                            Text="{x:Static i18n:LocalizedStrings.ExitTime}"/>
                                 <TextBlock Grid.Column="4" Grid.ColumnSpan="3" Grid.Row="0"
-                                           Text="{Binding ExitTime, StringFormat=\{0:yyyy-MM-dd HH:mm\}, Mode=OneWay}" Margin="0,0,0,8"/>
+                                           Style="{StaticResource DetailTextBlockStyle}"
+                                           Text="{Binding ExitTime, StringFormat=\{0:yyyy-MM-dd HH:mm\}, Mode=OneWay}"/>
 
                                 <!-- Row 1: CancellationTime / IsFullyClosed -->
                                 <TextBlock Grid.Column="0" Grid.Row="1" FontWeight="Bold"
                                            Style="{StaticResource RightAlignedTextBlockStyle}"
                                            Text="{x:Static i18n:LocalizedStrings.CancellationTime}"/>
                                 <TextBlock Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="1"
-                                           Text="{Binding CancellationTime, StringFormat=\{0:yyyy-MM-dd HH:mm\}, Mode=OneWay}" Margin="0,0,0,8"/>
+                                           Style="{StaticResource DetailTextBlockStyle}"
+                                           Text="{Binding CancellationTime, StringFormat=\{0:yyyy-MM-dd HH:mm\}, Mode=OneWay}"/>
 
                                 <TextBlock Grid.Column="3" Grid.Row="1" FontWeight="Bold"
                                            Style="{StaticResource RightAlignedTextBlockStyle}"
                                            Text="{x:Static i18n:LocalizedStrings.UpdatedAt}"/>
                                 <TextBlock Grid.Column="4" Grid.ColumnSpan="3" Grid.Row="1"
-                                           Text="{Binding UpdatedAt, StringFormat=\{0:yyyy-MM-dd HH:mm\}, Mode=OneWay}" Margin="0,0,0,8"/>
+                                           Style="{StaticResource DetailTextBlockStyle}"
+                                           Text="{Binding UpdatedAt, StringFormat=\{0:yyyy-MM-dd HH:mm\}, Mode=OneWay}"/>
 
                                 <!-- Row 2: PlannedEntryPrice / ExecutedEntryPrice -->
                                 <TextBlock Grid.Column="0" Grid.Row="2" FontWeight="Bold"
@@ -616,13 +619,13 @@
                                            Text="{x:Static i18n:LocalizedStrings.PlannedEntryPrice}"/>
                                 <TextBlock Grid.Column="1" Grid.Row="2"
                                            Text="{Binding RoundedPlannedEntryPrice, Mode=OneWay}"
-                                           Style="{StaticResource RightAlignedTextBlockStyle}" Margin="0,0,0,8"/>
+                                           Style="{StaticResource DetailNumTextBlockStyle}"/>
                                 <TextBlock Grid.Column="3" Grid.Row="2" FontWeight="Bold"
                                            Style="{StaticResource RightAlignedTextBlockStyle}"
                                            Text="{x:Static i18n:LocalizedStrings.ExecutedEntryPrice}"/>
                                 <TextBlock Grid.Column="4" Grid.Row="2"
                                            Text="{Binding RoundedExecutedEntryPrice, Mode=OneWay}"
-                                           Style="{StaticResource RightAlignedTextBlockStyle}" Margin="0,0,0,8"/>
+                                           Style="{StaticResource DetailNumTextBlockStyle}"/>
 
                                 <!-- Row 3: OrderQuantity / FilledQuantity -->
                                 <TextBlock Grid.Column="0" Grid.Row="3" FontWeight="Bold"
@@ -630,20 +633,20 @@
                                            Text="{x:Static i18n:LocalizedStrings.OrderQuantity}"/>
                                 <TextBlock Grid.Column="1" Grid.Row="3"
                                            Text="{Binding RoundedOrderQuantity, Mode=OneWay}"
-                                           Style="{StaticResource RightAlignedTextBlockStyle}" Margin="0,0,0,8"/>
+                                           Style="{StaticResource DetailNumTextBlockStyle}"/>
                                 <TextBlock Grid.Column="3" Grid.Row="3" FontWeight="Bold"
                                            Style="{StaticResource RightAlignedTextBlockStyle}"
                                            Text="{x:Static i18n:LocalizedStrings.FilledQuantity}"/>
                                 <TextBlock Grid.Column="4" Grid.Row="3"
                                            Text="{Binding RoundedFilledQuantity, Mode=OneWay}"
-                                           Style="{StaticResource RightAlignedTextBlockStyle}" Margin="0,0,0,8"/>
+                                           Style="{StaticResource DetailNumTextBlockStyle}"/>
 
                                 <TextBlock Grid.Column="6" Grid.Row="3" FontWeight="Bold"
                                            Style="{StaticResource RightAlignedTextBlockStyle}"
                                            Text="{x:Static i18n:LocalizedStrings.RemainingQuantity}"/>
                                 <TextBlock Grid.Column="7" Grid.Row="3"
                                            Text="{Binding RoundedRemainingOpenQuantity, Mode=OneWay}"
-                                           Style="{StaticResource RightAlignedTextBlockStyle}" Margin="0,0,0,8"/>
+                                           Style="{StaticResource DetailNumTextBlockStyle}"/>
 
                                 <!-- Row 4: PlannedPositionValue / ExecutedPositionValue / RemainingPositionValue -->
                                 <TextBlock Grid.Column="0" Grid.Row="4" FontWeight="Bold"
@@ -651,20 +654,20 @@
                                            Text="{x:Static i18n:LocalizedStrings.PlannedPositionValue}"/>
                                 <TextBlock Grid.Column="1" Grid.Row="4"
                                            Text="{Binding PlannedPositionValue, StringFormat=\{0:N2\}, Mode=OneWay}"
-                                           Style="{StaticResource RightAlignedTextBlockStyle}" Margin="0,0,0,8"/>
+                                           Style="{StaticResource DetailNumTextBlockStyle}"/>
                                 <TextBlock Grid.Column="3" Grid.Row="4" FontWeight="Bold"
                                            Style="{StaticResource RightAlignedTextBlockStyle}"
                                            Text="{x:Static i18n:LocalizedStrings.ExecutedPositionValue}"/>
                                 <TextBlock Grid.Column="4" Grid.Row="4"
                                            Text="{Binding ExecutedPositionValue, StringFormat=\{0:N2\}, Mode=OneWay}"
-                                           Style="{StaticResource RightAlignedTextBlockStyle}" Margin="0,0,0,8"/>
+                                           Style="{StaticResource DetailNumTextBlockStyle}"/>
 
                                 <TextBlock Grid.Column="6" Grid.Row="4" FontWeight="Bold"
                                            Style="{StaticResource RightAlignedTextBlockStyle}"
                                            Text="{x:Static i18n:LocalizedStrings.RemainingPositionValue}"/>
                                 <TextBlock Grid.Column="7" Grid.Row="4"
                                            Text="{Binding RoundedRemainingOpenPositionValue, Mode=OneWay}"
-                                           Style="{StaticResource RightAlignedTextBlockStyle}" Margin="0,0,0,8"/>
+                                           Style="{StaticResource DetailNumTextBlockStyle}"/>
 
                                 <!-- Row 5: PlannedSL / ExecutedSL -->
                                 <TextBlock Grid.Column="0" Grid.Row="5" FontWeight="Bold"
@@ -672,20 +675,20 @@
                                            Text="{x:Static i18n:LocalizedStrings.PlannedSL}"/>
                                 <TextBlock Grid.Column="1" Grid.Row="5"
                                            Text="{Binding RoundedPlannedSL, Mode=OneWay}"
-                                           Style="{StaticResource RightAlignedTextBlockStyle}" Margin="0,0,0,8"/>
+                                           Style="{StaticResource DetailNumTextBlockStyle}"/>
                                 <TextBlock Grid.Column="3" Grid.Row="5" FontWeight="Bold"
                                            Style="{StaticResource RightAlignedTextBlockStyle}"
                                            Text="{x:Static i18n:LocalizedStrings.ExecutedSL}"/>
                                 <TextBlock Grid.Column="4" Grid.Row="5"
                                            Text="{Binding RoundedExecutedSL, Mode=OneWay}"
-                                           Style="{StaticResource RightAlignedTextBlockStyle}" Margin="0,0,0,8"/>
+                                           Style="{StaticResource DetailNumTextBlockStyle}"/>
 
                                 <TextBlock Grid.Column="6" Grid.Row="5" FontWeight="Bold"
                                            Style="{StaticResource RightAlignedTextBlockStyle}"
                                            Text="{x:Static i18n:LocalizedStrings.UnallocatedSLQuantity}"/>
                                 <TextBlock Grid.Column="7" Grid.Row="5"
                                            Text="{Binding RoundedUnallocatedSLQuantity, Mode=OneWay}"
-                                           Style="{StaticResource RightAlignedTextBlockStyle}" Margin="0,0,0,8"/>
+                                           Style="{StaticResource DetailNumTextBlockStyle}"/>
 
                                 <!-- Row 6: PlannedTP / ExecutedTP -->
                                 <TextBlock Grid.Column="0" Grid.Row="6" FontWeight="Bold"
@@ -693,20 +696,20 @@
                                            Text="{x:Static i18n:LocalizedStrings.PlannedTP}"/>
                                 <TextBlock Grid.Column="1" Grid.Row="6"
                                            Text="{Binding RoundedPlannedTP, Mode=OneWay}"
-                                           Style="{StaticResource RightAlignedTextBlockStyle}" Margin="0,0,0,8"/>
+                                           Style="{StaticResource DetailNumTextBlockStyle}"/>
                                 <TextBlock Grid.Column="3" Grid.Row="6" FontWeight="Bold"
                                            Style="{StaticResource RightAlignedTextBlockStyle}"
                                            Text="{x:Static i18n:LocalizedStrings.ExecutedTP}"/>
                                 <TextBlock Grid.Column="4" Grid.Row="6"
                                            Text="{Binding RoundedExecutedTP, Mode=OneWay}"
-                                           Style="{StaticResource RightAlignedTextBlockStyle}" Margin="0,0,0,8"/>
+                                           Style="{StaticResource DetailNumTextBlockStyle}"/>
 
                                 <TextBlock Grid.Column="6" Grid.Row="6" FontWeight="Bold"
                                            Style="{StaticResource RightAlignedTextBlockStyle}"
                                            Text="{x:Static i18n:LocalizedStrings.UnallocatedTPQuantity}"/>
                                 <TextBlock Grid.Column="7" Grid.Row="6"
                                            Text="{Binding RoundedUnallocatedTPQuantity, Mode=OneWay}"
-                                           Style="{StaticResource RightAlignedTextBlockStyle}" Margin="0,0,0,8"/>
+                                           Style="{StaticResource DetailNumTextBlockStyle}"/>
 
                                 <!-- Row 7: PlannedRiskAmount / RealizedRiskAmount / PlannedRiskRewardRatio -->
                                 <TextBlock Grid.Column="0" Grid.Row="7" FontWeight="Bold"
@@ -714,20 +717,20 @@
                                            Text="{x:Static i18n:LocalizedStrings.PlannedRiskAmount}"/>
                                 <TextBlock Grid.Column="1" Grid.Row="7"
                                            Text="{Binding PlannedRiskAmount, StringFormat=\{0:N2\}, Mode=OneWay}"
-                                           Style="{StaticResource RightAlignedTextBlockStyle}" Margin="0,0,0,8"/>
+                                           Style="{StaticResource DetailNumTextBlockStyle}"/>
                                 <TextBlock Grid.Column="3" Grid.Row="7" FontWeight="Bold"
                                            Style="{StaticResource RightAlignedTextBlockStyle}"
                                            Text="{x:Static i18n:LocalizedStrings.RealizedRiskAmount}"/>
                                 <TextBlock Grid.Column="4" Grid.Row="7"
                                            Text="{Binding RealizedRiskAmount, StringFormat=\{0:N2\}, Mode=OneWay}"
-                                           Style="{StaticResource RightAlignedTextBlockStyle}" Margin="0,0,0,8"/>
+                                           Style="{StaticResource DetailNumTextBlockStyle}"/>
 
                                 <TextBlock Grid.Column="6" Grid.Row="7" FontWeight="Bold"
                                            Style="{StaticResource RightAlignedTextBlockStyle}"
                                            Text="{x:Static i18n:LocalizedStrings.PlannedRiskRewardRatio}"/>
                                 <TextBlock Grid.Column="7" Grid.Row="7"
                                            Text="{Binding PlannedRiskRewardRatio, StringFormat=\{0:N2\}, Mode=OneWay}"
-                                           Style="{StaticResource RightAlignedTextBlockStyle}" Margin="0,0,0,8"/>
+                                           Style="{StaticResource DetailNumTextBlockStyle}"/>
 
                                 <!-- Row 8: PlannedProfit / RealizedProfitLoss / NetProfitLoss -->
                                 <TextBlock Grid.Column="0" Grid.Row="8" FontWeight="Bold"
@@ -735,7 +738,7 @@
                                            Text="{x:Static i18n:LocalizedStrings.PlannedProfit}"/>
                                 <TextBlock Grid.Column="1" Grid.Row="8"
                                            Text="{Binding PlannedProfitLoss, StringFormat=\{0:N2\}, Mode=OneWay}"
-                                           Style="{StaticResource RightAlignedTextBlockStyle}" Margin="0,0,0,8"/>
+                                           Style="{StaticResource DetailNumTextBlockStyle}"/>
                                 <TextBlock Grid.Column="3" Grid.Row="8" FontWeight="Bold"
                                            Style="{StaticResource RightAlignedTextBlockStyle}"
                                            Text="{x:Static i18n:LocalizedStrings.RealizedProfitLoss}"/>
@@ -756,27 +759,28 @@
                                            Text="{x:Static i18n:LocalizedStrings.TotalFeesCalculated}"/>
                                 <TextBlock Grid.Column="1" Grid.Row="10"
                                            Text="{Binding TotalFeesCalculated, StringFormat=\{0:N2\}, Mode=OneWay}"
-                                           Style="{StaticResource RightAlignedTextBlockStyle}" Margin="0,0,0,8"/>
+                                           Style="{StaticResource DetailNumTextBlockStyle}"/>
                                 <TextBlock Grid.Column="3" Grid.Row="10" FontWeight="Bold"
                                            Style="{StaticResource RightAlignedTextBlockStyle}"
                                            Text="{x:Static i18n:LocalizedStrings.TotalFeesCorrected}"/>
                                 <TextBlock Grid.Column="4" Grid.Row="10"
                                            Text="{Binding TotalFeesCorrected, StringFormat=\{0:N2\}, Mode=OneWay}"
-                                           Style="{StaticResource RightAlignedTextBlockStyle}" Margin="0,0,0,8"/>
+                                           Style="{StaticResource DetailNumTextBlockStyle}"/>
 
                                 <TextBlock Grid.Column="6" Grid.Row="10" FontWeight="Bold"
                                            Style="{StaticResource RightAlignedTextBlockStyle}"
                                            Text="{x:Static i18n:LocalizedStrings.FundingFeeTotal}"/>
                                 <TextBlock Grid.Column="7" Grid.Row="10"
                                            Text="{Binding FundingFeeTotal, StringFormat=\{0:N2\}, Mode=OneWay}"
-                                           Style="{StaticResource RightAlignedTextBlockStyle}" Margin="0,0,0,8"/>
+                                           Style="{StaticResource DetailNumTextBlockStyle}"/>
 
                                 <!-- Row 11: Tags -->
                                 <TextBlock Grid.Column="0" Grid.Row="11" FontWeight="Bold"
                                            Style="{StaticResource RightAlignedTextBlockStyle}"
                                            Text="{x:Static i18n:LocalizedStrings.Tags}"/>
                                 <TextBlock Grid.Column="1" Grid.Row="11" Grid.ColumnSpan="5"
-                                           Text="{Binding Tags, Mode=OneWay}" TextWrapping="Wrap" Margin="0,0,0,8"/>
+                                           Style="{StaticResource DetailTextBlockStyle}"
+                                           Text="{Binding Tags, Mode=OneWay}" TextWrapping="Wrap"/>
                             </Grid>
 
                             <!-- ═══ Order Data Grids and Command Buttons ═══ -->
@@ -808,14 +812,14 @@
                                             <Path>
                                                 <Path.Style>
                                                     <Style TargetType="Path">
-                                                        <Setter Property="Fill" Value="#0044D7"/>
+                                                        <Setter Property="Fill" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
                                                         <Setter Property="Data" Value="{StaticResource plus-circle}"/>
                                                         <Style.Triggers>
                                                             <DataTrigger Binding="{Binding IsEnabled, RelativeSource={RelativeSource AncestorType=Button}}" Value="False">
-                                                                <Setter Property="Fill" Value="#A0A0A0"/>
+                                                                <Setter Property="Fill" Value="#808890"/>
                                                             </DataTrigger>
                                                             <DataTrigger Binding="{Binding IsMouseOver, RelativeSource={RelativeSource AncestorType=Button}}" Value="True">
-                                                                <Setter Property="Fill" Value="#000000"/>
+                                                                <Setter Property="Fill" Value="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}"/>
                                                             </DataTrigger>
                                                         </Style.Triggers>
                                                     </Style>
@@ -831,14 +835,14 @@
                                             <Path>
                                                 <Path.Style>
                                                     <Style TargetType="Path">
-                                                        <Setter Property="Fill" Value="#0044D7"/>
+                                                        <Setter Property="Fill" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
                                                         <Setter Property="Data" Value="{StaticResource pencil-square}"/>
                                                         <Style.Triggers>
                                                             <DataTrigger Binding="{Binding IsEnabled, RelativeSource={RelativeSource AncestorType=Button}}" Value="False">
-                                                                <Setter Property="Fill" Value="#A0A0A0"/>
+                                                                <Setter Property="Fill" Value="#808890"/>
                                                             </DataTrigger>
                                                             <DataTrigger Binding="{Binding IsMouseOver, RelativeSource={RelativeSource AncestorType=Button}}" Value="True">
-                                                                <Setter Property="Fill" Value="#000000"/>
+                                                                <Setter Property="Fill" Value="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}"/>
                                                             </DataTrigger>
                                                         </Style.Triggers>
                                                     </Style>
@@ -860,7 +864,7 @@
                                                         <Setter Property="Data" Value="{StaticResource trash3}"/>
                                                         <Style.Triggers>
                                                             <DataTrigger Binding="{Binding IsEnabled, RelativeSource={RelativeSource AncestorType=Button}}" Value="False">
-                                                                <Setter Property="Fill" Value="#A0A0A0"/>
+                                                                <Setter Property="Fill" Value="#808890"/>
                                                             </DataTrigger>
                                                             <DataTrigger Binding="{Binding IsMouseOver, RelativeSource={RelativeSource AncestorType=Button}}" Value="True">
                                                                 <Setter Property="Fill" Value="#C80000"/>
@@ -923,14 +927,14 @@
                                             <Path>
                                                 <Path.Style>
                                                     <Style TargetType="Path">
-                                                        <Setter Property="Fill" Value="#0044D7"/>
+                                                        <Setter Property="Fill" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
                                                         <Setter Property="Data" Value="{StaticResource plus-circle}"/>
                                                         <Style.Triggers>
                                                             <DataTrigger Binding="{Binding IsEnabled, RelativeSource={RelativeSource AncestorType=Button}}" Value="False">
-                                                                <Setter Property="Fill" Value="#A0A0A0"/>
+                                                                <Setter Property="Fill" Value="#808890"/>
                                                             </DataTrigger>
                                                             <DataTrigger Binding="{Binding IsMouseOver, RelativeSource={RelativeSource AncestorType=Button}}" Value="True">
-                                                                <Setter Property="Fill" Value="#000000"/>
+                                                                <Setter Property="Fill" Value="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}"/>
                                                             </DataTrigger>
                                                         </Style.Triggers>
                                                     </Style>
@@ -946,14 +950,14 @@
                                             <Path>
                                                 <Path.Style>
                                                     <Style TargetType="Path">
-                                                        <Setter Property="Fill" Value="#0044D7"/>
+                                                        <Setter Property="Fill" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
                                                         <Setter Property="Data" Value="{StaticResource pencil-square}"/>
                                                         <Style.Triggers>
                                                             <DataTrigger Binding="{Binding IsEnabled, RelativeSource={RelativeSource AncestorType=Button}}" Value="False">
-                                                                <Setter Property="Fill" Value="#A0A0A0"/>
+                                                                <Setter Property="Fill" Value="#808890"/>
                                                             </DataTrigger>
                                                             <DataTrigger Binding="{Binding IsMouseOver, RelativeSource={RelativeSource AncestorType=Button}}" Value="True">
-                                                                <Setter Property="Fill" Value="#000000"/>
+                                                                <Setter Property="Fill" Value="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}"/>
                                                             </DataTrigger>
                                                         </Style.Triggers>
                                                     </Style>
@@ -975,7 +979,7 @@
                                                         <Setter Property="Data" Value="{StaticResource trash3}"/>
                                                         <Style.Triggers>
                                                             <DataTrigger Binding="{Binding IsEnabled, RelativeSource={RelativeSource AncestorType=Button}}" Value="False">
-                                                                <Setter Property="Fill" Value="#A0A0A0"/>
+                                                                <Setter Property="Fill" Value="#808890"/>
                                                             </DataTrigger>
                                                             <DataTrigger Binding="{Binding IsMouseOver, RelativeSource={RelativeSource AncestorType=Button}}" Value="True">
                                                                 <Setter Property="Fill" Value="#C80000"/>
@@ -1037,14 +1041,14 @@
                                             <Path>
                                                 <Path.Style>
                                                     <Style TargetType="Path">
-                                                        <Setter Property="Fill" Value="#0044D7"/>
+                                                        <Setter Property="Fill" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
                                                         <Setter Property="Data" Value="{StaticResource plus-circle}"/>
                                                         <Style.Triggers>
                                                             <DataTrigger Binding="{Binding IsEnabled, RelativeSource={RelativeSource AncestorType=Button}}" Value="False">
-                                                                <Setter Property="Fill" Value="#A0A0A0"/>
+                                                                <Setter Property="Fill" Value="#808890"/>
                                                             </DataTrigger>
                                                             <DataTrigger Binding="{Binding IsMouseOver, RelativeSource={RelativeSource AncestorType=Button}}" Value="True">
-                                                                <Setter Property="Fill" Value="#000000"/>
+                                                                <Setter Property="Fill" Value="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}"/>
                                                             </DataTrigger>
                                                         </Style.Triggers>
                                                     </Style>
@@ -1060,14 +1064,14 @@
                                             <Path>
                                                 <Path.Style>
                                                     <Style TargetType="Path">
-                                                        <Setter Property="Fill" Value="#0044D7"/>
+                                                        <Setter Property="Fill" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
                                                         <Setter Property="Data" Value="{StaticResource pencil-square}"/>
                                                         <Style.Triggers>
                                                             <DataTrigger Binding="{Binding IsEnabled, RelativeSource={RelativeSource AncestorType=Button}}" Value="False">
-                                                                <Setter Property="Fill" Value="#A0A0A0"/>
+                                                                <Setter Property="Fill" Value="#808890"/>
                                                             </DataTrigger>
                                                             <DataTrigger Binding="{Binding IsMouseOver, RelativeSource={RelativeSource AncestorType=Button}}" Value="True">
-                                                                <Setter Property="Fill" Value="#000000"/>
+                                                                <Setter Property="Fill" Value="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}"/>
                                                             </DataTrigger>
                                                         </Style.Triggers>
                                                     </Style>
@@ -1089,7 +1093,7 @@
                                                         <Setter Property="Data" Value="{StaticResource trash3}"/>
                                                         <Style.Triggers>
                                                             <DataTrigger Binding="{Binding IsEnabled, RelativeSource={RelativeSource AncestorType=Button}}" Value="False">
-                                                                <Setter Property="Fill" Value="#A0A0A0"/>
+                                                                <Setter Property="Fill" Value="#808890"/>
                                                             </DataTrigger>
                                                             <DataTrigger Binding="{Binding IsMouseOver, RelativeSource={RelativeSource AncestorType=Button}}" Value="True">
                                                                 <Setter Property="Fill" Value="#C80000"/>
@@ -1184,14 +1188,14 @@
                                             <Path>
                                                 <Path.Style>
                                                     <Style TargetType="Path">
-                                                        <Setter Property="Fill" Value="#0044D7"/>
+                                                        <Setter Property="Fill" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
                                                         <Setter Property="Data" Value="{StaticResource plus-circle}"/>
                                                         <Style.Triggers>
                                                             <DataTrigger Binding="{Binding IsEnabled, RelativeSource={RelativeSource AncestorType=Button}}" Value="False">
-                                                                <Setter Property="Fill" Value="#A0A0A0"/>
+                                                                <Setter Property="Fill" Value="#808890"/>
                                                             </DataTrigger>
                                                             <DataTrigger Binding="{Binding IsMouseOver, RelativeSource={RelativeSource AncestorType=Button}}" Value="True">
-                                                                <Setter Property="Fill" Value="#000000"/>
+                                                                <Setter Property="Fill" Value="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}"/>
                                                             </DataTrigger>
                                                         </Style.Triggers>
                                                     </Style>
@@ -1207,14 +1211,14 @@
                                             <Path>
                                                 <Path.Style>
                                                     <Style TargetType="Path">
-                                                        <Setter Property="Fill" Value="#0044D7"/>
+                                                        <Setter Property="Fill" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
                                                         <Setter Property="Data" Value="{StaticResource pencil-square}"/>
                                                         <Style.Triggers>
                                                             <DataTrigger Binding="{Binding IsEnabled, RelativeSource={RelativeSource AncestorType=Button}}" Value="False">
-                                                                <Setter Property="Fill" Value="#A0A0A0"/>
+                                                                <Setter Property="Fill" Value="#808890"/>
                                                             </DataTrigger>
                                                             <DataTrigger Binding="{Binding IsMouseOver, RelativeSource={RelativeSource AncestorType=Button}}" Value="True">
-                                                                <Setter Property="Fill" Value="#000000"/>
+                                                                <Setter Property="Fill" Value="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}"/>
                                                             </DataTrigger>
                                                         </Style.Triggers>
                                                     </Style>
@@ -1236,7 +1240,7 @@
                                                         <Setter Property="Data" Value="{StaticResource trash3}"/>
                                                         <Style.Triggers>
                                                             <DataTrigger Binding="{Binding IsEnabled, RelativeSource={RelativeSource AncestorType=Button}}" Value="False">
-                                                                <Setter Property="Fill" Value="#A0A0A0"/>
+                                                                <Setter Property="Fill" Value="#808890"/>
                                                             </DataTrigger>
                                                             <DataTrigger Binding="{Binding IsMouseOver, RelativeSource={RelativeSource AncestorType=Button}}" Value="True">
                                                                 <Setter Property="Fill" Value="#C80000"/>
