@@ -163,7 +163,8 @@ namespace TD.WPF.ViewModels.Trades
                 else
                 {
                     int exchangeId = _byTradingAccount.ExchangeId;
-                    var symbols = _allSymbols.Where(s => s.ExchangeId == exchangeId)
+                    var symbols = _allSymbols.Where(s => s.ExchangeId == exchangeId
+                                                      && s.MarketType == _byTradingAccount.MarketType)
                                              .ToList();
                     ReplaceCollection(Symbols, symbols);
                     QueryVM.ByTradingAccountId = _byTradingAccount.Id;

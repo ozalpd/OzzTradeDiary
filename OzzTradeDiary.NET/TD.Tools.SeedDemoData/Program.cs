@@ -51,13 +51,13 @@ static async Task SeedDemoDataAsync(string databasePath, int daysAgoStart, bool 
         await EnsureDemoSymbolAsync(symbolRepository, currencyRepository, exchange1, tickers[i], 100 * (i + 1));
     }
 
-    var tradingAccount1 = await EnsureDemoAccountAsync(tradingAccountRepository, exchange1);
+    var tradingAccount1 = await EnsureDemoAccountAsync(tradingAccountRepository, exchange1, MarketType.Crypto);
     await exchangeRepository.LoadNavigationCollections(exchange1);
 
     var exchange2 = await exchangeRepository.GetByExchangeCodeAsync("BYBIT");
     TradingAccount? tradingAccount2 = null;
     if (exchange2 != null)
-        tradingAccount2 = await EnsureDemoAccountAsync(tradingAccountRepository, exchange2);
+        tradingAccount2 = await EnsureDemoAccountAsync(tradingAccountRepository, exchange2, MarketType.CryptoPerpetual);
 
     for (int i = daysAgoStart / 2; i > 0; i--)
     {
@@ -155,9 +155,9 @@ static async Task<Symbol?> EnsureDemoSymbolAsync(ISymbolRepository symbolReposit
     return symbol;
 }
 
-static async Task<TradingAccount> EnsureDemoAccountAsync(ITradingAccountRepository tradingAccountRepository, Exchange exchange)
+static async Task<TradingAccount> EnsureDemoAccountAsync(ITradingAccountRepository tradingAccountRepository, Exchange exchange, MarketType marketType)
 {
-    string title = $"Demo {exchange.ExchangeCode} Trading Account";
+    string title = $"Demo {exchange.ExchangeCode} Account";
     var existing = await tradingAccountRepository.GetByTitleAsync(title);
     if (existing is not null)
     {
@@ -171,6 +171,7 @@ static async Task<TradingAccount> EnsureDemoAccountAsync(ITradingAccountReposito
         ExchangeId = exchange.Id,
         Notes = "Local debug/demo account",
         DisplayOrder = 9990,
+        MarketType = marketType,
         MakerFeeRate = 0.0002m,
         TakerFeeRate = 0.0005m,
         IsActive = true

@@ -2,9 +2,10 @@ CREATE TABLE IF NOT EXISTS TradingAccounts(
     Id INTEGER PRIMARY KEY,
 	Title TEXT Not Null, 
 	ExchangeId INTEGER Not Null, 
-	Notes TEXT, 
+	MarketType INTEGER Not Null, 
 	MakerFeeRate TEXT, 
 	TakerFeeRate TEXT, 
+	Notes TEXT, 
 	DisplayOrder INTEGER Not Null, 
 	IsActive INTEGER Not Null 
 );

@@ -207,15 +207,16 @@ namespace TD.SQLite
 
             await using var command = connection.CreateCommand();
             command.CommandText = @$"INSERT INTO {_tableName} ({string.Join(", ", ColumnNames[1..])})
-            VALUES (@title, @exchangeId, @notes, @makerFeeRate, @takerFeeRate, @displayOrder,
-                    @isActive);
+            VALUES (@title, @exchangeId, @marketType, @makerFeeRate, @takerFeeRate, @notes,
+                    @displayOrder, @isActive);
             SELECT last_insert_rowid();";
 
             command.AddParameter("@title", tradingAccount.Title);
             command.AddParameter("@exchangeId", tradingAccount.ExchangeId);
-            command.AddNullableParameter("@notes", tradingAccount.Notes);
+            command.AddParameter("@marketType", (int)tradingAccount.MarketType);
             command.AddDecimalToTextParameter("@makerFeeRate", tradingAccount.MakerFeeRate);
             command.AddDecimalToTextParameter("@takerFeeRate", tradingAccount.TakerFeeRate);
+            command.AddNullableParameter("@notes", tradingAccount.Notes);
             command.AddParameter("@displayOrder", tradingAccount.DisplayOrder);
             command.AddParameter("@isActive", tradingAccount.IsActive);
 
@@ -283,9 +284,10 @@ namespace TD.SQLite
             existingTradingAccount = await GetByIdAsync(tradingAccount.Id);
             bool noChanges = existingTradingAccount != null
                           && existingTradingAccount.Title == tradingAccount.Title
-                          && existingTradingAccount.Notes == tradingAccount.Notes
+                          && existingTradingAccount.MarketType == tradingAccount.MarketType
                           && existingTradingAccount.MakerFeeRate == tradingAccount.MakerFeeRate
                           && existingTradingAccount.TakerFeeRate == tradingAccount.TakerFeeRate
+                          && existingTradingAccount.Notes == tradingAccount.Notes
                           && existingTradingAccount.DisplayOrder == tradingAccount.DisplayOrder
                           && existingTradingAccount.IsActive == tradingAccount.IsActive;
 
@@ -294,21 +296,23 @@ namespace TD.SQLite
 
             await using var command = connection.CreateCommand();
             // ExchangeId is not updated to avoid complications with existing references,
-            // so only Title, Notes, MakerFeeRate, TakerFeeRate, DisplayOrder, IsActive are updated
+            // so only Title, MarketType, MakerFeeRate, TakerFeeRate, Notes, DisplayOrder, IsActive are updated
             command.CommandText = @$"UPDATE {_tableName} SET
                 Title = @title,
-                Notes = @notes,
+                MarketType = @marketType,
                 MakerFeeRate = @makerFeeRate,
                 TakerFeeRate = @takerFeeRate,
+                Notes = @notes,
                 DisplayOrder = @displayOrder,
                 IsActive = @isActive
             WHERE Id = @id";
 
             command.AddParameter("@id", tradingAccount.Id);
             command.AddParameter("@title", tradingAccount.Title);
-            command.AddNullableParameter("@notes", tradingAccount.Notes);
+            command.AddParameter("@marketType", (int)tradingAccount.MarketType);
             command.AddDecimalToTextParameter("@makerFeeRate", tradingAccount.MakerFeeRate);
             command.AddDecimalToTextParameter("@takerFeeRate", tradingAccount.TakerFeeRate);
+            command.AddNullableParameter("@notes", tradingAccount.Notes);
             command.AddParameter("@displayOrder", tradingAccount.DisplayOrder);
             command.AddParameter("@isActive", tradingAccount.IsActive);
 
@@ -337,12 +341,13 @@ namespace TD.SQLite
                 Id = reader.GetInt32(ColNrs.Id),
                 Title = reader.GetString(ColNrs.Title),
                 ExchangeId = reader.GetInt32(ColNrs.ExchangeId),
-                Notes = reader.IsDBNull(ColNrs.Notes) ? null
-                      : reader.GetString(ColNrs.Notes),
+                MarketType = (MarketType)reader.GetInt32(ColNrs.MarketType),
                 MakerFeeRate = reader.IsDBNull(ColNrs.MakerFeeRate) ? null
                              : reader.GetDecimalFromText(ColNrs.MakerFeeRate),
                 TakerFeeRate = reader.IsDBNull(ColNrs.TakerFeeRate) ? null
                              : reader.GetDecimalFromText(ColNrs.TakerFeeRate),
+                Notes = reader.IsDBNull(ColNrs.Notes) ? null
+                      : reader.GetString(ColNrs.Notes),
                 DisplayOrder = reader.GetInt32(ColNrs.DisplayOrder),
                 IsActive = reader.GetInt64(ColNrs.IsActive) == 1
             };
@@ -358,11 +363,12 @@ namespace TD.SQLite
             public readonly static int Id = 0;
             public readonly static int Title = 1;
             public readonly static int ExchangeId = 2;
-            public readonly static int Notes = 3;
+            public readonly static int MarketType = 3;
             public readonly static int MakerFeeRate = 4;
             public readonly static int TakerFeeRate = 5;
-            public readonly static int DisplayOrder = 6;
-            public readonly static int IsActive = 7;
+            public readonly static int Notes = 6;
+            public readonly static int DisplayOrder = 7;
+            public readonly static int IsActive = 8;
         }
 
         /// <summary>
@@ -372,9 +378,10 @@ namespace TD.SQLite
             "Id",
             "Title",
             "ExchangeId",
-            "Notes",
+            "MarketType",
             "MakerFeeRate",
             "TakerFeeRate",
+            "Notes",
             "DisplayOrder",
             "IsActive"
         };

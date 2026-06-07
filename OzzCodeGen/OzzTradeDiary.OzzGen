@@ -1375,21 +1375,20 @@
           <DependentPropertyName>ExchangeId</DependentPropertyName>
           <DependentPropertyType>int</DependentPropertyType>
         </BaseProperty>
-        <BaseProperty xsi:type="StringProperty">
-          <Name>Notes</Name>
+        <BaseProperty xsi:type="SimpleProperty">
+          <Name>MarketType</Name>
           <DisplayOrder>10400</DisplayOrder>
-          <DisplayName>Notes</DisplayName>
-          <TypeName>string</TypeName>
+          <DisplayName>Market Type</DisplayName>
+          <TypeName>int</TypeName>
           <IsClientComputed>false</IsClientComputed>
           <IsServerComputed>false</IsServerComputed>
           <RestrictedData>false</RestrictedData>
-          <EnumTypeName />
+          <EnumTypeName>MarketType</EnumTypeName>
           <IsKey>false</IsKey>
           <IsForeignKey>false</IsForeignKey>
           <IsImmutable>false</IsImmutable>
-          <IsNullable>true</IsNullable>
+          <IsNullable>false</IsNullable>
           <IsStoreGenerated>false</IsStoreGenerated>
-          <MaxLength>0</MaxLength>
         </BaseProperty>
         <BaseProperty xsi:type="SimpleProperty">
           <Name>MakerFeeRate</Name>
@@ -1420,6 +1419,22 @@
           <IsImmutable>false</IsImmutable>
           <IsNullable>true</IsNullable>
           <IsStoreGenerated>false</IsStoreGenerated>
+        </BaseProperty>
+        <BaseProperty xsi:type="StringProperty">
+          <Name>Notes</Name>
+          <DisplayOrder>10700</DisplayOrder>
+          <DisplayName>Notes</DisplayName>
+          <TypeName>string</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <RestrictedData>false</RestrictedData>
+          <EnumTypeName />
+          <IsKey>false</IsKey>
+          <IsForeignKey>false</IsForeignKey>
+          <IsImmutable>false</IsImmutable>
+          <IsNullable>true</IsNullable>
+          <IsStoreGenerated>false</IsStoreGenerated>
+          <MaxLength>0</MaxLength>
         </BaseProperty>
       </Properties>
     </EntityDefinition>
@@ -2450,8 +2465,8 @@
   <CodeEngineList>
     <string>Wpf_Mvvm_View_ViewModel_Generator</string>
     <string>Localization_Resource_Generator</string>
-    <string>CS_Sqlite_Repository_Generator</string>
     <string>CS_Model_Class_Generator</string>
+    <string>CS_Sqlite_Repository_Generator</string>
     <string>Sqlite_Scripts_Generator</string>
   </CodeEngineList>
 </CodeGenProject>

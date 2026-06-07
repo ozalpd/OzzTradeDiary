@@ -46,15 +46,20 @@ namespace TD.Models
         [Display(ResourceType = typeof(LocalizedStrings), Name = "Exchange")]
         public Exchange Exchange { get; set; }
 
-        [DataType(DataType.MultilineText)]
-        [Display(ResourceType = typeof(LocalizedStrings), Name = "Notes")]
-        public string? Notes { get; set; }
+        [RequiredSelection]
+        [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "MarketType")]
+        public MarketType MarketType { get; set; }
 
         [Display(ResourceType = typeof(LocalizedStrings), Name = "MakerFeeRate")]
         public decimal? MakerFeeRate { get; set; }
 
         [Display(ResourceType = typeof(LocalizedStrings), Name = "TakerFeeRate")]
         public decimal? TakerFeeRate { get; set; }
+
+        [DataType(DataType.MultilineText)]
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "Notes")]
+        public string? Notes { get; set; }
 
         [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
         [Display(ResourceType = typeof(LocalizedStrings), Name = "DisplayOrder")]
@@ -74,9 +79,10 @@ namespace TD.Models
             var clone = new TradingAccount();
             clone.Title = this.Title;
             clone.ExchangeId = this.ExchangeId;
-            clone.Notes = this.Notes;
+            clone.MarketType = this.MarketType;
             clone.MakerFeeRate = this.MakerFeeRate;
             clone.TakerFeeRate = this.TakerFeeRate;
+            clone.Notes = this.Notes;
             clone.DisplayOrder = this.DisplayOrder;
             clone.IsActive = this.IsActive;
 

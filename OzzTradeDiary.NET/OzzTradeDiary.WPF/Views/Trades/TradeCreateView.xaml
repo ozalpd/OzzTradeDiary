@@ -172,7 +172,7 @@
         <TextBlock Grid.Column="0" Grid.Row="10" FontWeight="Bold"
                    Style="{StaticResource RightAlignedTextBlockStyle}" Text="{x:Static i18n:LocalizedStrings.PlannedRiskRewardRatio}"/>
         <TextBox Grid.Row="10" Grid.Column="1"
-                 Text="{Binding PlannedRiskRewardRatio, Mode=OneWay}"
+                 Text="{Binding PlannedRiskRewardRatio, StringFormat=\{0:N2\}, Mode=OneWay}"
                  Style="{StaticResource ReadOnlyTextBoxStyle}"/>
 
         <TextBlock Grid.Column="0" Grid.Row="11" FontWeight="Bold"

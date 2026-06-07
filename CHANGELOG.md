@@ -12,8 +12,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ### Changed
 - Updated `TradeImage` create/edit views: larger window, image preview, file picker button, read-only trade label
-- Improved `TradeImage` detail view image layout
-- Refactored `TradeImageEditVM` for correct Trade/TradeId binding
+- Improved `TradeImage` detail view image layout.
+- Refactored `TradeImageEditVM` for correct Trade/TradeId binding.
+- Added `MarketType` (enum) property to `TradingAccount` with validation and display attributes.
 - Bumped version to 0.2.3
 
 ## [0.2.2] - 2026-06-05

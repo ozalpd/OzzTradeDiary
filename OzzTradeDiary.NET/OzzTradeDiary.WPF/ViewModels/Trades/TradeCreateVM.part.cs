@@ -220,7 +220,8 @@ namespace TD.WPF.ViewModels.Trades
                 return;
 
             var accountSymbols = selectedAccount != null
-                               ? _allSymbols.Where(s => s.ExchangeId == selectedAccount.ExchangeId)
+                               ? _allSymbols.Where(s => s.ExchangeId == selectedAccount.ExchangeId
+                                                     && s.MarketType == selectedAccount.MarketType)
                                : _allSymbols;
 
             Symbols.Clear();

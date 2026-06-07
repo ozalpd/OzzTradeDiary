@@ -606,12 +606,13 @@
           <IsSearchParameter>false</IsSearchParameter>
         </ModelPropertySetting>
         <ModelPropertySetting>
-          <Name>Notes</Name>
+          <Name>MarketType</Name>
           <Exclude>false</Exclude>
-          <DataType>MultilineText</DataType>
+          <CustomAttributes>RequiredSelection</CustomAttributes>
+          <DataType />
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
-          <Required />
+          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
           <IsSearchParameter>false</IsSearchParameter>
         </ModelPropertySetting>
         <ModelPropertySetting>
@@ -627,6 +628,15 @@
           <Name>TakerFeeRate</Name>
           <Exclude>false</Exclude>
           <DataType />
+          <DTOExclusion>false</DTOExclusion>
+          <HtmlEncode xsi:nil="true" />
+          <Required />
+          <IsSearchParameter>false</IsSearchParameter>
+        </ModelPropertySetting>
+        <ModelPropertySetting>
+          <Name>Notes</Name>
+          <Exclude>false</Exclude>
+          <DataType>MultilineText</DataType>
           <DTOExclusion>false</DTOExclusion>
           <HtmlEncode xsi:nil="true" />
           <Required />

@@ -959,12 +959,12 @@
           <ValueConstraint />
         </WpfMvvmPropertySetting>
         <WpfMvvmPropertySetting>
-          <Name>Notes</Name>
+          <Name>MarketType</Name>
           <Exclude>false</Exclude>
           <CreateEditOrder>10400</CreateEditOrder>
           <DefaultValue />
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
-          <IsMultiLine>true</IsMultiLine>
+          <IsMultiLine>false</IsMultiLine>
           <CreateViewMode>Editable</CreateViewMode>
           <EditViewMode>Editable</EditViewMode>
           <ShowInCollection>true</ShowInCollection>
@@ -991,6 +991,19 @@
           <DefaultValue />
           <IsPreselectedInCreate>false</IsPreselectedInCreate>
           <IsMultiLine>false</IsMultiLine>
+          <CreateViewMode>Editable</CreateViewMode>
+          <EditViewMode>Editable</EditViewMode>
+          <ShowInCollection>true</ShowInCollection>
+          <ShowInDetail>true</ShowInDetail>
+          <ValueConstraint />
+        </WpfMvvmPropertySetting>
+        <WpfMvvmPropertySetting>
+          <Name>Notes</Name>
+          <Exclude>false</Exclude>
+          <CreateEditOrder>10400</CreateEditOrder>
+          <DefaultValue />
+          <IsPreselectedInCreate>false</IsPreselectedInCreate>
+          <IsMultiLine>true</IsMultiLine>
           <CreateViewMode>Editable</CreateViewMode>
           <EditViewMode>Editable</EditViewMode>
           <ShowInCollection>true</ShowInCollection>
