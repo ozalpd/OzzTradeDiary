@@ -4,6 +4,17 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.2.3] - 2026-06-07
+
+### Added
+- Added `OpenFileCommand` and `IOpenFileContext` for file dialog integration
+
+### Changed
+- Updated `TradeImage` create/edit views: larger window, image preview, file picker button, read-only trade label
+- Improved `TradeImage` detail view image layout
+- Refactored `TradeImageEditVM` for correct Trade/TradeId binding
+- Bumped version to 0.2.3
+
 ## [0.2.2] - 2026-06-05
 
 ### Added
@@ -17,7 +28,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - Added TradeImageDetailCommand and wire up to TradeHistoryVM
 - Displaying trade image thumbnails with category overlays in MainWindow
 - Introduced `ProfitLossToColor` WPF converter for `NetProfitLoss` cell coloring. Registered new converter resources and applied them in `MainWindow` DataGrid. Added profit/loss-specific styles for cells and text.
-- Bumped version to 0.2.2 and updated changelog
+- Bumped version to 0.2.2
 
 ## [0.2.1] - 2026-06-04
 

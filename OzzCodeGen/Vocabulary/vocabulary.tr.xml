@@ -1521,6 +1521,14 @@
     <Translation>Detayları Aç</Translation>
   </Vocab>
   <Vocab>
+    <Name>OpenFile</Name>
+    <Translation>Dosya Aç</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>OpenImageFile</Name>
+    <Translation>Resim Dosyası Aç</Translation>
+  </Vocab>
+  <Vocab>
     <Name>OpeningAuction</Name>
     <Translation>Açılış Seansı</Translation>
   </Vocab>
@@ -2075,6 +2083,14 @@
   <Vocab>
     <Name>SelectExchange</Name>
     <Translation>Borsa Seçiniz</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>SelectFile</Name>
+    <Translation>Dosya Seç</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>SelectImageFile</Name>
+    <Translation>Resim Dosyası Seç</Translation>
   </Vocab>
   <Vocab>
     <Name>SelectPlease</Name>

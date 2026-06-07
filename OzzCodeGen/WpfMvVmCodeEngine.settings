@@ -1473,7 +1473,7 @@
           <IsPreselectedInCreate>true</IsPreselectedInCreate>
           <IsMultiLine>false</IsMultiLine>
           <CreateViewMode>Editable</CreateViewMode>
-          <EditViewMode>Editable</EditViewMode>
+          <EditViewMode>ReadOnly</EditViewMode>
           <ShowInCollection>true</ShowInCollection>
           <ShowInDetail>true</ShowInDetail>
           <ValueConstraint />
@@ -1533,8 +1533,8 @@
       <GenerateGetPaged>false</GenerateGetPaged>
       <GenModeCollectionVM>DoNotGenerate</GenModeCollectionVM>
       <GenModeLookupService>DoNotGenerate</GenModeLookupService>
-      <GenModeCreateView>GenerateIfNotExists</GenModeCreateView>
-      <GenModeEditView>GenerateIfNotExists</GenModeEditView>
+      <GenModeCreateView>SkipManuallyEdited</GenModeCreateView>
+      <GenModeEditView>SkipManuallyEdited</GenModeEditView>
       <GenModeDetailView>SkipManuallyEdited</GenModeDetailView>
       <RepositoryName>ITradeImageRepository</RepositoryName>
     </BaseEntitySetting>

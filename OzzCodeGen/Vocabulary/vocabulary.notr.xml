@@ -1294,27 +1294,27 @@
   </Vocab>
   <Vocab>
     <Name>IsActive</Name>
-    <Translation>Is Active</Translation>
+    <Translation>Active</Translation>
   </Vocab>
   <Vocab>
     <Name>IsAlwaysOpen</Name>
-    <Translation>Is Always Open</Translation>
+    <Translation>Always Open</Translation>
   </Vocab>
   <Vocab>
     <Name>IsApproved</Name>
-    <Translation>Is Approved</Translation>
+    <Translation>Approved</Translation>
   </Vocab>
   <Vocab>
     <Name>IsFullyClosed</Name>
-    <Translation>Is Fully Closed</Translation>
+    <Translation>Fully Closed</Translation>
   </Vocab>
   <Vocab>
     <Name>IsHalfDay</Name>
-    <Translation>Is Half Day</Translation>
+    <Translation>Half Day</Translation>
   </Vocab>
   <Vocab>
     <Name>IsPublished</Name>
-    <Translation>Is Published</Translation>
+    <Translation>Published</Translation>
   </Vocab>
   <Vocab>
     <Name>Lastname</Name>
@@ -1519,6 +1519,14 @@
   <Vocab>
     <Name>OpenDetails</Name>
     <Translation>Open Details</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>OpenFile</Name>
+    <Translation>Open File</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>OpenImageFile</Name>
+    <Translation>Open Image File</Translation>
   </Vocab>
   <Vocab>
     <Name>OpeningAuction</Name>
@@ -2075,6 +2083,14 @@
   <Vocab>
     <Name>SelectExchange</Name>
     <Translation>Select Exchange</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>SelectFile</Name>
+    <Translation>Select File</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>SelectImageFile</Name>
+    <Translation>Select Image File</Translation>
   </Vocab>
   <Vocab>
     <Name>SelectPlease</Name>

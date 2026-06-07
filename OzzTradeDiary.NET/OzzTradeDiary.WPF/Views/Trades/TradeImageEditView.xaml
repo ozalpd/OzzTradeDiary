@@ -4,10 +4,11 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TD.WPF.Views.Trades"
+        xmlns:behaviors="clr-namespace:TD.WPF.Behaviors"
         xmlns:i18n="clr-namespace:TD.i18n;assembly=OzzTradeDiary.i18n"
         xmlns:base="clr-namespace:TD.WPF.Views"
         Title="{x:Static i18n:LocalizedStrings.EditTradeImage}"
-        Height="290" Width="420" MinHeight="290" MinWidth="420"
+        Height="832" Width="640" MinHeight="640" MinWidth="420"
         WindowStartupLocation="CenterOwner"
         mc:Ignorable="d">
     <Grid Margin="8,12">
@@ -19,6 +20,7 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
@@ -26,8 +28,8 @@
         <TextBlock Grid.Column="0" Grid.Row="0" FontWeight="Bold"
                    Style="{StaticResource RightAlignedTextBlockStyle}" Text="{x:Static i18n:LocalizedStrings.Trade}"/>
         <TextBox Grid.Row="0" Grid.Column="1"
-                 Text="{Binding TradeId, Mode=OneWay}"
-                 Style="{StaticResource ReadOnlyTextBoxStyle}"/>
+         Text="{Binding Trade.Label, Mode=OneWay}"
+         Style="{StaticResource ReadOnlyTextBoxStyle}"/>
 
         <TextBlock Grid.Column="0" Grid.Row="1" FontWeight="Bold"
                    Style="{StaticResource RightAlignedTextBlockStyle}" Text="{x:Static i18n:LocalizedStrings.Category}"/>
@@ -42,11 +44,18 @@
                    Style="{StaticResource RightAlignedTextBlockStyle}" Text="{x:Static i18n:LocalizedStrings.ImageURL}"/>
         <TextBox x:Name="ImageURLTextBox" Grid.Row="2" Grid.Column="1"
                  Text="{Binding ImageURL, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"
-                 Style="{StaticResource ValidationTextBoxStyle}"/>
+                 Style="{StaticResource ReadOnlyTextBoxStyle}"/>
 
-        <TextBlock Grid.Column="0" Grid.Row="3" FontWeight="Bold"
+        <!-- Image display -->
+        <Border Grid.Column="1" Grid.Row="3" BorderThickness="1" BorderBrush="#CCCCCC" Margin="0">
+            <Image behaviors:AsyncImageLoader.SourceUrl="{Binding ImageURL, Mode=OneWay}"
+                   Stretch="Uniform"
+                   RenderOptions.BitmapScalingMode="HighQuality"/>
+        </Border>
+
+        <TextBlock Grid.Column="0" Grid.Row="4" FontWeight="Bold"
                    Style="{StaticResource RightAlignedTextBlockStyle}" Text="{x:Static i18n:LocalizedStrings.Notes}"/>
-        <TextBox x:Name="NotesTextBox" Grid.Row="3" Grid.Column="1"
+        <TextBox x:Name="NotesTextBox" Grid.Row="4" Grid.Column="1"
                  Style="{StaticResource ValidationMutliLineTextBoxStyle}"
                  Text="{Binding Notes, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"/>
 

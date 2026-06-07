@@ -439,6 +439,24 @@ namespace TD.i18n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Open File.
+        /// </summary>
+        public static string OpenFile {
+            get {
+                return ResourceManager.GetString("OpenFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Open Image File.
+        /// </summary>
+        public static string OpenImageFile {
+            get {
+                return ResourceManager.GetString("OpenImageFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Open Maintenance Window.
         /// </summary>
         public static string OpenMaintenanceWindow {
@@ -516,6 +534,24 @@ namespace TD.i18n {
         public static string SelectExchange {
             get {
                 return ResourceManager.GetString("SelectExchange", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select File.
+        /// </summary>
+        public static string SelectFile {
+            get {
+                return ResourceManager.GetString("SelectFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select Image File.
+        /// </summary>
+        public static string SelectImageFile {
+            get {
+                return ResourceManager.GetString("SelectImageFile", resourceCulture);
             }
         }
         

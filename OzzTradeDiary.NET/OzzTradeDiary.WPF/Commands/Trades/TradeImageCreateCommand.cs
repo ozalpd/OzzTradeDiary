@@ -18,6 +18,11 @@ namespace TD.WPF.Commands.Trades
             _windowDialogService = windowDialogService;
         }
 
+        public override bool CanExecute(object? parameter)
+        {
+            return PreselectedTrade != null;
+        }
+
         public override async void Execute(object? parameter)
         {
             if (parameter is not Window owner)

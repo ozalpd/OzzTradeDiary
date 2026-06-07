@@ -494,13 +494,13 @@
         <value>Integer Array</value>
     </data>
     <data name="IsActive" xml:space="preserve">
-        <value>Is Active</value>
+        <value>Active</value>
     </data>
     <data name="IsAlwaysOpen" xml:space="preserve">
-        <value>Is Always Open</value>
+        <value>Always Open</value>
     </data>
     <data name="IsHalfDay" xml:space="preserve">
-        <value>Is Half Day</value>
+        <value>Half Day</value>
     </data>
     <data name="Limit" xml:space="preserve">
         <value>Limit</value>

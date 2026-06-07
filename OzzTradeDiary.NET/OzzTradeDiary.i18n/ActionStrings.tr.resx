@@ -184,6 +184,12 @@
     <data name="OpenDetails" xml:space="preserve">
         <value>Detayları Aç</value>
     </data>
+    <data name="OpenFile" xml:space="preserve">
+        <value>Dosya Aç</value>
+    </data>
+    <data name="OpenImageFile" xml:space="preserve">
+        <value>Resim Dosyası Aç</value>
+    </data>
     <data name="OpenMaintenanceWindow" xml:space="preserve">
         <value>Bakım Penceresini Aç</value>
     </data>
@@ -210,6 +216,12 @@
     </data>
     <data name="SelectExchange" xml:space="preserve">
         <value>Borsa Seçiniz</value>
+    </data>
+    <data name="SelectFile" xml:space="preserve">
+        <value>Dosya Seç</value>
+    </data>
+    <data name="SelectImageFile" xml:space="preserve">
+        <value>Resim Dosyası Seç</value>
     </data>
     <data name="SelectPlease" xml:space="preserve">
         <value>Lütfen Seçiniz</value>

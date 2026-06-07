@@ -16,9 +16,9 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-       
+
         <!-- Image display -->
-        <Border Grid.Row="1" BorderThickness="1" BorderBrush="#CCCCCC" Margin="-10,0,0,0">
+        <Border Grid.Row="1" BorderThickness="1" BorderBrush="#CCCCCC" Margin="0">
             <Image behaviors:AsyncImageLoader.SourceUrl="{Binding ImageURL, Mode=OneWay}"
                    Stretch="Uniform"
                    RenderOptions.BitmapScalingMode="HighQuality"/>
@@ -43,7 +43,7 @@
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
-           
+
             <TextBlock Grid.Column="0" Grid.Row="0" FontWeight="Bold" Margin="0,0,6,4" Text="{x:Static i18n:LocalizedStrings.ImageURL}"/>
             <TextBlock Grid.Column="1" Grid.Row="0" TextWrapping="Wrap" Text="{Binding ImageURL, Mode=OneWay}"/>
 

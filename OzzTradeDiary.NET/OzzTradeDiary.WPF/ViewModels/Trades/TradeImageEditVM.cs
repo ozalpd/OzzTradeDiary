@@ -32,19 +32,7 @@ namespace TD.WPF.ViewModels.Trades
 
         public int? TradeId => _tradeImage.TradeId;
 
-        public Trade? Trade
-        {
-            get { return _tradeImage.Trade; }
-            set
-            {
-                if (_tradeImage.Trade != value)
-                {
-                    _tradeImage.Trade = value;
-                    RaisePropertyChanged(nameof(Trade));
-                    ValidateProperty(_tradeImage, nameof(Trade));
-                }
-            }
-        }
+        public Trade? Trade => _tradeImage.Trade;
 
         public TradeImageCategory Category
         {

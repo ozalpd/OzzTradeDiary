@@ -4,17 +4,20 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TD.WPF.Views.Trades"
+        xmlns:behaviors="clr-namespace:TD.WPF.Behaviors"
         xmlns:i18n="clr-namespace:TD.i18n;assembly=OzzTradeDiary.i18n"
         Title="{x:Static i18n:LocalizedStrings.CreateTradeImage}"
-        Height="290" Width="420" MinHeight="290" MinWidth="420"
+        Height="832" Width="640" MinHeight="640" MinWidth="420"
         WindowStartupLocation="CenterOwner"
         mc:Ignorable="d">
     <Grid Margin="8,12">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
@@ -24,10 +27,9 @@
 
         <TextBlock Grid.Column="0" Grid.Row="0" FontWeight="Bold"
                    Style="{StaticResource RightAlignedTextBlockStyle}" Text="{x:Static i18n:LocalizedStrings.Trade}"/>
-        <TextBox x:Name="TradeIdTextBox" Grid.Row="0" Grid.Column="1"
-                 PreviewTextInput="IntegerTextBox_PreviewTextInput"
-                 Text="{Binding TradeId, UpdateSourceTrigger=LostFocus, ValidatesOnNotifyDataErrors=True}"
-                 Style="{StaticResource ValidationTextBoxStyle}"/>
+        <TextBox Grid.Row="0" Grid.Column="1"
+                 Text="{Binding Trade.Label, Mode=OneWay}"
+                 Style="{StaticResource ReadOnlyTextBoxStyle}"/>
 
         <TextBlock Grid.Column="0" Grid.Row="1" FontWeight="Bold"
                    Style="{StaticResource RightAlignedTextBlockStyle}" Text="{x:Static i18n:LocalizedStrings.Category}"/>
@@ -43,14 +45,44 @@
         <TextBox x:Name="ImageURLTextBox" Grid.Row="2" Grid.Column="1"
                  Text="{Binding ImageURL, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"
                  Style="{StaticResource ValidationTextBoxStyle}"/>
+        <Button Grid.Row="2" Grid.Column="2" Style="{StaticResource IconButtonStyle-28x24}"
+                ToolTip="{x:Static i18n:ActionStrings.SelectImageFile}"
+                Command="{Binding OpenFileCommand}"
+                CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}" Margin="0,0,0,1">
+            <Viewbox Width="18" Height="18">
+                <Path Margin="-2,-3,-2,-1">
+                    <Path.Style>
+                        <Style TargetType="Path">
+                            <Setter Property="Fill" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+                            <Setter Property="Data" Value="{StaticResource folder2-open}"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding IsEnabled, RelativeSource={RelativeSource AncestorType=Button}}" Value="False">
+                                    <Setter Property="Fill" Value="#808890"/>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding IsMouseOver, RelativeSource={RelativeSource AncestorType=Button}}" Value="True">
+                                    <Setter Property="Fill" Value="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Path.Style>
+                </Path>
+            </Viewbox>
+        </Button>
 
-        <TextBlock Grid.Column="0" Grid.Row="3" FontWeight="Bold"
+        <!-- Image display -->
+        <Border Grid.Column="1" Grid.Row="3" BorderThickness="1" BorderBrush="#CCCCCC" Margin="0">
+            <Image behaviors:AsyncImageLoader.SourceUrl="{Binding ImageURL, Mode=OneWay}"
+                   Stretch="Uniform"
+                   RenderOptions.BitmapScalingMode="HighQuality"/>
+        </Border>
+        
+        <TextBlock Grid.Column="0" Grid.Row="4" FontWeight="Bold"
                    Style="{StaticResource RightAlignedTextBlockStyle}" Text="{x:Static i18n:LocalizedStrings.Notes}"/>
-        <TextBox x:Name="NotesTextBox" Grid.Row="3" Grid.Column="1"
+        <TextBox x:Name="NotesTextBox" Grid.Row="4" Grid.Column="1"
                  Style="{StaticResource ValidationMutliLineTextBoxStyle}"
                  Text="{Binding Notes, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"/>
 
-        <StackPanel Grid.Row="5" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,6" VerticalAlignment="Bottom">
+        <StackPanel Grid.Row="5" Grid.ColumnSpan="3" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,6" VerticalAlignment="Bottom">
             <Button Content="{x:Static i18n:ActionStrings.OK}" Width="90" Margin="0,0,18,0" IsDefault="True" IsEnabled="{Binding IsValid}" Click="OkButton_Click" />
             <Button Content="{x:Static i18n:ActionStrings.Cancel}" Width="90" IsCancel="True" />
         </StackPanel>

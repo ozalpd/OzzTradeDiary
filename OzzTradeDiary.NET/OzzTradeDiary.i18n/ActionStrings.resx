@@ -184,6 +184,12 @@
     <data name="OpenDetails" xml:space="preserve">
         <value>Open Details</value>
     </data>
+    <data name="OpenFile" xml:space="preserve">
+        <value>Open File</value>
+    </data>
+    <data name="OpenImageFile" xml:space="preserve">
+        <value>Open Image File</value>
+    </data>
     <data name="OpenMaintenanceWindow" xml:space="preserve">
         <value>Open Maintenance Window</value>
     </data>
@@ -210,6 +216,12 @@
     </data>
     <data name="SelectExchange" xml:space="preserve">
         <value>Select Exchange</value>
+    </data>
+    <data name="SelectFile" xml:space="preserve">
+        <value>Select File</value>
+    </data>
+    <data name="SelectImageFile" xml:space="preserve">
+        <value>Select Image File</value>
     </data>
     <data name="SelectPlease" xml:space="preserve">
         <value>Please Select</value>
