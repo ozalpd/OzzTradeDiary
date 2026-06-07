@@ -365,16 +365,20 @@ static async Task<Trade> EnsureDemoTradeAsync(ITradeRepository tradeRepository, 
     if (noImages)
         return trade;
 
+    var imgNrList = new List<int> { 1, 2, 3, 4, 5, 6 };
+    //scramble imgNrList
+    imgNrList = [.. imgNrList.OrderBy(x => random.Next())];
+
     var settings = AppSettings.GetAppSettings();
     var randomInt = random.Next(1, 5);
     for (int i = 0; i < randomInt; i++)
     {
-        int rndImg = random.Next(0, 6);
+        int imgNr = imgNrList[i];
         var image = new TradeImage
         {
             TradeId = trade.Id,
             Category = random.Next(0, 2) == 0 ? TradeImageCategory.Setup : TradeImageCategory.Review,
-            ImageURL = rndImg == 0 ? $"https://s3.tradingview.com/snapshots/v/VxW2WUbH.png" : Path.Combine(settings.GetDatabaseFolderPath(), "Images", $"Demo-{rndImg:D2}.png"),
+            ImageURL = imgNr == 0 ? $"https://s3.tradingview.com/snapshots/v/VxW2WUbH.png" : Path.Combine(settings.GetDatabaseFolderPath(), "Images", $"Demo-{imgNr:D2}.png"),
             Notes = TD.Tools.Text.CreateLipsumParagraphs(random.Next(1, 3)),
             UpdatedAt = DateTime.UtcNow
         };
