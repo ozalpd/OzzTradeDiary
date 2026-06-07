@@ -92,7 +92,7 @@ public partial class AppSettings
 
         set => backupFilesToKeep = value;
     }
-    uint backupFilesToKeep = 10;
+    uint backupFilesToKeep = 100;
 
     /// <summary>
     /// Gets or sets the position and size of the main application window.

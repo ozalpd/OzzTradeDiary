@@ -8,6 +8,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ### Added
 - Added `OpenFileCommand` and `IOpenFileContext` for file dialog integration
+- Added async auto-backup with timer and exit handling.
 
 ### Changed
 - Updated `TradeImage` create/edit views: larger window, image preview, file picker button, read-only trade label

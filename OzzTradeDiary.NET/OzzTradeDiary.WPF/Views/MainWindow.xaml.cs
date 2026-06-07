@@ -3,7 +3,6 @@ using System.Windows.Controls;
 using TD.AppInfra.DesignTime;
 using TD.AppInfra.Models;
 using TD.Models;
-using TD.WPF.DesignTime;
 using TD.WPF.Models;
 using TD.WPF.ViewModels;
 using TD.WPF.Views.Trades;
@@ -42,7 +41,6 @@ namespace TD.WPF.Views
         private void MainWindow_Closing(object? sender, System.ComponentModel.CancelEventArgs e)
         {
             _appSettings.MainWindowPosition.GetWindowPositions(this);
-            _appSettings.Save();
         }
 
         private void ClearComboBox_Click(object sender, RoutedEventArgs e)

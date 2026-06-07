@@ -31,13 +31,13 @@ internal class DatabaseBackupService : IBackupService
         }
 
         //Since this is a desktop application users don't need more than one backup in a minute,
-        //so we can use minute-level timestamps to avoid creating multiple backups in a short time frame.
-        var timestamp = DateTime.Now.ToString("yyyy-MM-dd-HHmm");
+        //so we can use second-level timestamps to avoid creating multiple backups in a short time frame.
+        var timestamp = DateTime.Now.ToString("yyyy-MM-dd-HHmmss");
         var backupFileName = $"{_backupFilePrefix}{timestamp}.zip";
         var backupPath = Path.Combine(backupFolder, backupFileName);
 
         //Also users can easily click to the manual backup button multiple times,
-        //so we should prevent creating multiple backups in the same minute.
+        //so we should prevent creating multiple backups in the same second.
         if (File.Exists(backupPath))
             return null;
 

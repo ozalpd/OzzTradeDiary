@@ -3,6 +3,7 @@ using System.Windows;
 using TD.AppInfra.Models;
 using TD.SQLite;
 using TD.WPF.Models;
+using TD.WPF.Services;
 using TD.WPF.Views;
 
 namespace TD.WPF
@@ -12,7 +13,9 @@ namespace TD.WPF
     /// </summary>
     public partial class App : Application
     {
-        private void OnStartup(object sender, StartupEventArgs e)
+        private System.Timers.Timer? _backupTimer;
+
+        private async void OnStartupAsync(object sender, StartupEventArgs e)
         {
             var settings = AppSettings.GetAppSettings();
 
@@ -45,7 +48,29 @@ namespace TD.WPF
             var dataSources = new AppDataSources(currencyRepository, entryOrderRepository, exchangeRepository,
                                                  stopLossOrderRepository, symbolRepository, takeProfitOrderRepository,
                                                  tradingAccountRepository, tradeRepository);
+            if (settings.AutoBackupEnabled)
+            {
+                await AutoBackupHelper.RunAsync();
+                int backupInterval = (int)settings.AutoBackupIntervalMinutes;
+                _backupTimer = new System.Timers.Timer(backupInterval * 60 * 1000);
+                _backupTimer.Elapsed += async (sender, args) => await AutoBackupHelper.RunAsync();
+                _backupTimer.Start();
+            }
+
             new MainWindow(dataSources).Show();
+        }
+
+        private void Application_Exit(object sender, ExitEventArgs e)
+        {
+            _backupTimer?.Stop();
+            _backupTimer?.Dispose();
+
+            var settings = AppSettings.GetAppSettings();
+            if (settings.AutoBackupEnabled)
+                Task.Run(() => AutoBackupHelper.RunAsync(byPassIsBackupDue: true)).GetAwaiter()
+                                                                                  .GetResult();
+
+            settings.Save();
         }
     }
 }
