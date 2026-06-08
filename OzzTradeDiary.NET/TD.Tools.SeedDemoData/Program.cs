@@ -145,7 +145,7 @@ static async Task<Symbol?> EnsureDemoSymbolAsync(ISymbolRepository symbolReposit
         PriceCurrencyId = priceCurrency.Id,
         Description = $"Demo {ticker} symbol for local debugging",
         ExchangeId = exchange.Id,
-        MarketType = MarketType.Crypto,
+        MarketType = MarketType.CryptoSpot,
         DisplayOrder = displayOrder,
         IsActive = true
     };
