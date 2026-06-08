@@ -1,5 +1,5 @@
 ﻿using System.IO;
-using System.Text.Json;
+using static System.Environment;
 
 //This file contains properties that are specific to the WPF application, such as window positions and backup settings.
 //It is separate from the core AppSettings class to avoid dependencies on WPF-specific types in the core library.
@@ -8,6 +8,8 @@ namespace TD.WPF.Models;
 public partial class AppSettings
 {
     public AppSettings() { }
+
+    private static string images = "Images";
 
 
     /// <summary>
@@ -64,10 +66,47 @@ public partial class AppSettings
     }
     string _backupDir = string.Empty;
 
-    private static string GetDefaultBackupFolderPath() => Path.Combine(
-        Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
-        "OzzTradeDiary",
-        "BackUp");
+    private static string GetDefaultBackupFolderPath()
+    {
+        return Path.Combine(GetFolderPath(SpecialFolder.MyDocuments),
+                            ozzTradeDiary,
+                            "BackUp");
+    }
+
+    public string ImagesFolder
+    {
+        get
+        {
+            if (string.IsNullOrWhiteSpace(_imagesDir))
+            {
+                _imagesDir = GetDefaultImagesFolderPath();
+            }
+
+            if (!string.IsNullOrWhiteSpace(_imagesDir) && !Directory.Exists(_imagesDir))
+            {
+                Directory.CreateDirectory(_imagesDir);
+            }
+            return _imagesDir;
+        }
+        set => _imagesDir = value;
+    }
+    string _imagesDir = string.Empty;
+
+    private static string GetDefaultImagesFolderPath()
+    {
+
+#if DEBUG
+        var sampleDataPath = TryGetDebugSampleDataFolderPath();
+        if (!string.IsNullOrWhiteSpace(sampleDataPath))
+        {
+            Directory.CreateDirectory(sampleDataPath);
+            return Path.Combine(sampleDataPath, images);
+        }
+#endif
+        return Path.Combine(GetFolderPath(SpecialFolder.MyDocuments),
+                            ozzTradeDiary,
+                            images);
+    }
 
 
     /// <summary>
@@ -113,12 +152,4 @@ public partial class AppSettings
     /// </summary>
     /// <remarks>When empty, the operating system's current culture is used.</remarks>
     public string UiCulture { get; set; } = string.Empty;
-
-
-    public void Save()
-    {
-        var settingsFilePath = GetSettingsFilePath();
-        var settingsJson = JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
-        File.WriteAllText(settingsFilePath, settingsJson);
-    }
 }

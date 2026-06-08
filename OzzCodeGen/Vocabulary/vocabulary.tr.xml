@@ -645,6 +645,10 @@
     <Translation>Süresiz Kripto Sözleşmesi</Translation>
   </Vocab>
   <Vocab>
+    <Name>CryptoSpot</Name>
+    <Translation>Kripto Spot</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Currencies</Name>
     <Translation>Dövizler</Translation>
   </Vocab>

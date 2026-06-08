@@ -241,11 +241,11 @@
     <data name="CreateTradingAccount" xml:space="preserve">
         <value>İşlem Hesabı Oluştur</value>
     </data>
-    <data name="Crypto" xml:space="preserve">
-        <value>Kripto</value>
-    </data>
     <data name="CryptoPerpetual" xml:space="preserve">
         <value>Süresiz Kripto Sözleşmesi</value>
+    </data>
+    <data name="CryptoSpot" xml:space="preserve">
+        <value>Kripto Spot</value>
     </data>
     <data name="Currencies" xml:space="preserve">
         <value>Dövizler</value>

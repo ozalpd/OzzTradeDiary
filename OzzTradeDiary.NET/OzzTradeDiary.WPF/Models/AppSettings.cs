@@ -1,5 +1,6 @@
 ﻿using System.IO;
 using System.Text.Json;
+using static System.Environment;
 
 namespace TD.WPF.Models;
 
@@ -7,6 +8,9 @@ public partial class AppSettings
 {
     private static AppSettings? _instance;
     private static readonly object _syncRoot = new();
+
+    private static string ozzTradeDiary = "OzzTradeDiary";
+    private static string settingsFileName = "tdsettings.json";
 
     /// <summary>
     /// Gets or sets the file path to the database used by the application. If the path is not set, a default path
@@ -46,10 +50,8 @@ public partial class AppSettings
         }
 #endif
 
-        string dbFolderPath = Path.Combine(
-            Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
-            "OzzTradeDiary");
-        return dbFolderPath;
+        return Path.Combine(GetFolderPath(SpecialFolder.LocalApplicationData),
+                                          ozzTradeDiary);
     }
 
     private static string? TryGetDebugSampleDataFolderPath()
@@ -121,14 +123,18 @@ public partial class AppSettings
             return Path.Combine(sampleDataPath, settingsFileName);
         }
 #endif
-        var settingsFolder = Path.Combine(
-        Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
-            "OzzTradeDiary");
+        var settingsFolder = Path.Combine(GetFolderPath(SpecialFolder.ApplicationData),
+                                         ozzTradeDiary);
         Directory.CreateDirectory(settingsFolder);
 
         return Path.Combine(settingsFolder, settingsFileName);
     }
-    private static string settingsFileName = "tdsettings.json";
 
+    public void Save()
+    {
+        var settingsFilePath = GetSettingsFilePath();
+        var settingsJson = JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+        File.WriteAllText(settingsFilePath, settingsJson);
+    }
 }
 

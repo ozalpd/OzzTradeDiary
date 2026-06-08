@@ -241,11 +241,11 @@
     <data name="CreateTradingAccount" xml:space="preserve">
         <value>Create Trading Account</value>
     </data>
-    <data name="Crypto" xml:space="preserve">
-        <value>Crypto</value>
-    </data>
     <data name="CryptoPerpetual" xml:space="preserve">
         <value>Crypto Perpetual</value>
+    </data>
+    <data name="CryptoSpot" xml:space="preserve">
+        <value>Crypto Spot</value>
     </data>
     <data name="Currencies" xml:space="preserve">
         <value>Currencies</value>

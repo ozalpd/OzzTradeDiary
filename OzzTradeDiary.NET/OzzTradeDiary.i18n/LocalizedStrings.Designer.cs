@@ -610,20 +610,20 @@ namespace TD.i18n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Crypto.
-        /// </summary>
-        public static string Crypto {
-            get {
-                return ResourceManager.GetString("Crypto", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Crypto Perpetual.
         /// </summary>
         public static string CryptoPerpetual {
             get {
                 return ResourceManager.GetString("CryptoPerpetual", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Crypto Spot.
+        /// </summary>
+        public static string CryptoSpot {
+            get {
+                return ResourceManager.GetString("CryptoSpot", resourceCulture);
             }
         }
         
@@ -1366,7 +1366,7 @@ namespace TD.i18n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Is Active.
+        ///   Looks up a localized string similar to Active.
         /// </summary>
         public static string IsActive {
             get {
@@ -1375,7 +1375,7 @@ namespace TD.i18n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Is Always Open.
+        ///   Looks up a localized string similar to Always Open.
         /// </summary>
         public static string IsAlwaysOpen {
             get {
@@ -1384,7 +1384,7 @@ namespace TD.i18n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Is Half Day.
+        ///   Looks up a localized string similar to Half Day.
         /// </summary>
         public static string IsHalfDay {
             get {

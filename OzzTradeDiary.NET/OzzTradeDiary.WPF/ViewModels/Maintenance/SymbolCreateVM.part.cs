@@ -97,7 +97,7 @@ namespace TD.WPF.ViewModels.Maintenance
 
             bool needToCatchBaseCurrency = MarketType == MarketType.Unspecified
                                  || MarketType == MarketType.Forex
-                                 || MarketType == MarketType.Crypto
+                                 || MarketType == MarketType.CryptoSpot
                                  || MarketType == MarketType.CryptoPerpetual;
             if (needToCatchBaseCurrency)
             {

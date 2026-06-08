@@ -85,8 +85,8 @@ namespace TD.Models
         Option = 60,
         [Display(ResourceType = typeof(LocalizedStrings), Name = "Commodity")]
         Commodity = 70,
-        [Display(ResourceType = typeof(LocalizedStrings), Name = "Crypto")]
-        Crypto = 80,
+        [Display(ResourceType = typeof(LocalizedStrings), Name = "CryptoSpot")]
+        CryptoSpot = 80,
         [Display(ResourceType = typeof(LocalizedStrings), Name = "CryptoPerpetual")]
         CryptoPerpetual = 90,
         [Display(ResourceType = typeof(LocalizedStrings), Name = "Index")]

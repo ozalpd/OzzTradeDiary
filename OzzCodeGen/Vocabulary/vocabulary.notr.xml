@@ -645,6 +645,10 @@
     <Translation>Crypto Perpetual</Translation>
   </Vocab>
   <Vocab>
+    <Name>CryptoSpot</Name>
+    <Translation>Crypto Spot</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Currencies</Name>
     <Translation>Currencies</Translation>
   </Vocab>

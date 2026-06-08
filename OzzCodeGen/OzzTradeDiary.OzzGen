@@ -143,7 +143,7 @@
           <Value>70</Value>
         </EnumMember>
         <EnumMember>
-          <Name>Crypto</Name>
+          <Name>CryptoSpot</Name>
           <Value>80</Value>
         </EnumMember>
         <EnumMember>
@@ -2463,8 +2463,8 @@
   <StripSourcePrefixes>false</StripSourcePrefixes>
   <SourceClassPrefix />
   <CodeEngineList>
-    <string>Wpf_Mvvm_View_ViewModel_Generator</string>
     <string>Localization_Resource_Generator</string>
+    <string>Wpf_Mvvm_View_ViewModel_Generator</string>
     <string>CS_Model_Class_Generator</string>
     <string>CS_Sqlite_Repository_Generator</string>
     <string>Sqlite_Scripts_Generator</string>

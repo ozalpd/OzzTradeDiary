@@ -11,10 +11,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - Added async auto-backup with timer and exit handling.
 
 ### Changed
-- Updated `TradeImage` create/edit views: larger window, image preview, file picker button, read-only trade label
-- Improved `TradeImage` detail view image layout.
+- Updated `TradeImage` create/edit views: larger window, image preview, file picker button, read-only trade label. 
 - Refactored `TradeImageEditVM` for correct Trade/TradeId binding.
+- Improved `TradeImage` detail view image layout.
+- Refactored `AppSettings` to introduce shared folder name constants, added default images folder handling, and improved directory creation logic. Moved the `Save()` method to the core partial class.
 - Added `MarketType` (enum) property to `TradingAccount` with validation and display attributes.
+- Renamed the `Crypto` enum value in `MarketType` to `CryptoSpot` (value 80) for clarity and domain alignment. Updated all references, including ViewModels and demo data seeding. Removed the `Crypto` localization string and added `CryptoSpot` entries in English and Turkish resource files and vocabulary XMLs.
 - Bumped version to 0.2.3
 
 ## [0.2.2] - 2026-06-05

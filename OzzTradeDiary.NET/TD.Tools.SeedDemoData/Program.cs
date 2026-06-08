@@ -51,7 +51,7 @@ static async Task SeedDemoDataAsync(string databasePath, int daysAgoStart, bool 
         await EnsureDemoSymbolAsync(symbolRepository, currencyRepository, exchange1, tickers[i], 100 * (i + 1));
     }
 
-    var tradingAccount1 = await EnsureDemoAccountAsync(tradingAccountRepository, exchange1, MarketType.Crypto);
+    var tradingAccount1 = await EnsureDemoAccountAsync(tradingAccountRepository, exchange1, MarketType.CryptoSpot);
     await exchangeRepository.LoadNavigationCollections(exchange1);
 
     var exchange2 = await exchangeRepository.GetByExchangeCodeAsync("BYBIT");
