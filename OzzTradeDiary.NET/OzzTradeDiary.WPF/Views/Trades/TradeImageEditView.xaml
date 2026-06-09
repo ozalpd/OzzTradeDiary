@@ -47,7 +47,8 @@
                  Style="{StaticResource ReadOnlyTextBoxStyle}"/>
 
         <!-- Image display -->
-        <Border Grid.Column="1" Grid.Row="3" BorderThickness="1" BorderBrush="#CCCCCC" Margin="0">
+        <Border x:Name="ImgContainer" Grid.Column="1" Grid.Row="3" BorderThickness="1" BorderBrush="#CCCCCC" Margin="0,0,0,4"
+                SizeChanged="ImgContainer_SizeChanged">
             <Image behaviors:AsyncImageLoader.SourceUrl="{Binding ImageURL, Mode=OneWay}"
                    Stretch="Uniform"
                    RenderOptions.BitmapScalingMode="HighQuality"/>

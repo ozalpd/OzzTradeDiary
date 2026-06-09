@@ -56,6 +56,19 @@ namespace TD.WPF.Views.Trades
             e.Handled = !char.IsDigit(e.Text, 0);
         }
 
+        private void ImgContainer_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            if (sender is not Border border)
+                return;
+
+            double height = border.ActualHeight;
+            if (height > this.Height * 0.6)
+            {
+                height = this.Height * 0.6;
+                border.MaxHeight = height;
+            }
+        }
+
         private void OkButton_Click(object sender, RoutedEventArgs e)
         {
             if (!_viewModel.ValidateModel())

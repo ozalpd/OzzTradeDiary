@@ -1,7 +1,6 @@
 using System.Windows;
 using TD.Models;
 using TD.WPF.Models;
-using TD.WPF.ViewModels.Trades;
 
 namespace TD.WPF.Views.Trades
 {
@@ -35,6 +34,7 @@ namespace TD.WPF.Views.Trades
             _viewModel = tradeImage;
             DataContext = _viewModel;
             SourceInitialized += TradeImageDetailView_SourceInitialized;
+            Deactivated += Window_Deactivated;
             Closing += Window_Closing;
         }
 
@@ -43,10 +43,18 @@ namespace TD.WPF.Views.Trades
             _appSettings.TradeImageDetailViewPosition.SetWindowPositions(this);
         }
 
+        private void Window_Deactivated(object? sender, EventArgs e)
+        {
+            if (!_isClosimg)
+                Close();
+        }
+
         private void Window_Closing(object? sender, System.ComponentModel.CancelEventArgs e)
         {
+            _isClosimg = true;
             _appSettings.TradeImageDetailViewPosition.GetWindowPositions(this);
             _appSettings.Save();
         }
+        bool _isClosimg = false;
     }
 }

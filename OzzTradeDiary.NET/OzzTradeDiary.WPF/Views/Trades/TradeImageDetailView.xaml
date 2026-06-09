@@ -7,7 +7,7 @@
         xmlns:behaviors="clr-namespace:TD.WPF.Behaviors"
         xmlns:i18n="clr-namespace:TD.i18n;assembly=OzzTradeDiary.i18n"
         Title="{x:Static i18n:LocalizedStrings.TradeImage}"
-        Height="920" Width="1280" MinHeight="400" MinWidth="480"
+        Height="1020" Width="1280" MinHeight="400" MinWidth="480"
         WindowStartupLocation="CenterOwner"
         mc:Ignorable="d">
     <Grid Margin="2,2,2,8">
@@ -36,19 +36,17 @@
         <!-- Metadata -->
         <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="5*" />
+                <ColumnDefinition Width="4*" />
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
 
-            <TextBlock Grid.Column="0" Grid.Row="0" FontWeight="Bold" Margin="0,0,6,4" Text="{x:Static i18n:LocalizedStrings.ImageURL}"/>
-            <TextBlock Grid.Column="1" Grid.Row="0" TextWrapping="Wrap" Text="{Binding ImageURL, Mode=OneWay}"/>
-
-            <TextBlock Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" TextWrapping="Wrap" Margin="0,0,0,4"
-                       Text="{Binding Notes, Mode=OneWay}"/>
+            <TextBlock Grid.Column="1" Grid.Row="0" TextWrapping="Wrap" Margin="4"
+                       Text="{Binding Notes, Mode=OneWay}" FontSize="14"/>
         </Grid>
     </Grid>
 </Window>

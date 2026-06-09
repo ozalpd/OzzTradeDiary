@@ -58,5 +58,18 @@ namespace TD.WPF.Views.Trades
 
             DialogResult = true;
         }
+
+        private void ImgContainer_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            if (sender is not Border border)
+                return;
+
+            double height = border.ActualHeight;
+            if (height > this.Height * 0.6)
+            {
+                height = this.Height * 0.6;
+                border.MaxHeight = height;
+            }
+        }
     }
 }
