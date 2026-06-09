@@ -1001,7 +1001,7 @@
       <GenerateGetPaged>false</GenerateGetPaged>
       <TableName>TradeImages</TableName>
       <FileNameDDL>TradeImage.sql</FileNameDDL>
-      <OrderByClause>ORDER BY TradeId DESC, Id DESC</OrderByClause>
+      <OrderByClause>ORDER BY TradeId DESC, Category, UpdatedAt</OrderByClause>
       <UpdatedAtName>UpdatedAt</UpdatedAtName>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="SqliteRepositoryEntitySetting">

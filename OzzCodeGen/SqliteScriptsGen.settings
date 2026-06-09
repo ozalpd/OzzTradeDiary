@@ -1179,7 +1179,7 @@
           <Indexed>true</Indexed>
           <Unique>false</Unique>
           <SortDesc>false</SortDesc>
-          <CompositeIndexColumns>UpdatedAt DESC</CompositeIndexColumns>
+          <CompositeIndexColumns>Category; UpdatedAt</CompositeIndexColumns>
           <Nullable>true</Nullable>
           <CheckIfAltered>false</CheckIfAltered>
           <DoNotLog>false</DoNotLog>
@@ -1194,6 +1194,7 @@
           <Indexed>false</Indexed>
           <Unique>false</Unique>
           <SortDesc>false</SortDesc>
+          <CompositeIndexColumns>UpdatedAt</CompositeIndexColumns>
           <Nullable>false</Nullable>
           <CheckIfAltered>false</CheckIfAltered>
           <DoNotLog>false</DoNotLog>

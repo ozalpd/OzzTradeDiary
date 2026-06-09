@@ -44,7 +44,7 @@ namespace TD.SQLite
             await using var connection = await GetOpenConnectionAsync();
             await using var command = connection.CreateCommand();
             command.CommandText = _selectStatement;
-            command.CommandText += " ORDER BY TradeId DESC, Id DESC";
+            command.CommandText += " ORDER BY TradeId DESC, Category, UpdatedAt";
 
             await using var reader = await command.ExecuteReaderAsync();
             while (await reader.ReadAsync())
@@ -79,7 +79,7 @@ namespace TD.SQLite
             command.CommandText = _selectStatement;
             command.CommandText += " WHERE TradeId = @tradeId";
             command.AddParameter("@tradeId", tradeId);
-            command.CommandText += " ORDER BY TradeId DESC, Id DESC";
+            command.CommandText += " ORDER BY TradeId DESC, Category, UpdatedAt";
 
             await using var reader = await command.ExecuteReaderAsync();
             while (await reader.ReadAsync())

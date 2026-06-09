@@ -92,7 +92,8 @@
             {
                 s = value.RoundToQuantum().ToString("N7");
             }
-            return s;
+
+            return s.TrimEnd('0').TrimEnd('.').TrimEnd(',');
         }
 
         public static string ToRoundedString(this decimal? value)
