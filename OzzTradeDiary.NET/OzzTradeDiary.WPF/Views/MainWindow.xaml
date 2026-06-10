@@ -1147,22 +1147,52 @@
                             <Grid Grid.Row="2"  DataContext="{Binding SelectedTrade}">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="Auto" MinHeight="64"/>
                                     <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="Auto" MinHeight="64"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
                                 </Grid.RowDefinitions>
                                 <!-- ═══ Setup Notes ═══ -->
                                 <TextBlock Grid.Row="0" Margin="-4,8,8,0"
-                                           Text="{x:Static i18n:LocalizedStrings.SetupNotes}" FontWeight="Bold"/>
+                                           Text="{x:Static i18n:LocalizedStrings.SetupNotes}" FontWeight="Bold">
+                                    <TextBlock.Style>
+                                        <Style TargetType="TextBlock">
+                                            <Setter Property="Visibility" Value="Visible" />
+                                            <Style.Triggers>
+                                                <MultiDataTrigger>
+                                                    <MultiDataTrigger.Conditions>
+                                                        <Condition Binding="{Binding IsFocused, ElementName=SetupNotesTextBlock}" Value="False" />
+                                                        <Condition Binding="{Binding Text.Length, ElementName=SetupNotesTextBlock, FallbackValue=0}" Value="0" />
+                                                    </MultiDataTrigger.Conditions>
+                                                    <Setter Property="Visibility" Value="Collapsed" />
+                                                </MultiDataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </TextBlock.Style>
+                                </TextBlock>
                                 <Border Grid.Row="1" Margin="-4,0">
-                                    <TextBlock TextWrapping="Wrap" Text="{Binding SetupNotes, Mode=OneWay}" Margin="0,0,4,8"/>
+                                    <TextBlock x:Name="SetupNotesTextBlock" TextWrapping="Wrap" Text="{Binding SetupNotes, Mode=OneWay}" Margin="0,0,4,8"/>
                                 </Border>
 
                                 <!-- ═══ Review Notes ═══ -->
                                 <TextBlock Grid.Row="2" Margin="-4,8,8,0"
-                                           Text="{x:Static i18n:LocalizedStrings.ReviewNotes}" FontWeight="Bold"/>
+                                           Text="{x:Static i18n:LocalizedStrings.ReviewNotes}" FontWeight="Bold">
+                                    <TextBlock.Style>
+                                        <Style TargetType="TextBlock">
+                                            <Setter Property="Visibility" Value="Visible" />
+                                            <Style.Triggers>
+                                                <MultiDataTrigger>
+                                                    <MultiDataTrigger.Conditions>
+                                                        <Condition Binding="{Binding IsFocused, ElementName=ReviewNotesTextBlock}" Value="False" />
+                                                        <Condition Binding="{Binding Text.Length, ElementName=ReviewNotesTextBlock, FallbackValue=0}" Value="0" />
+                                                    </MultiDataTrigger.Conditions>
+                                                    <Setter Property="Visibility" Value="Collapsed" />
+                                                </MultiDataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </TextBlock.Style>
+                                </TextBlock>
                                 <Border Grid.Row="3" Margin="-4,0">
-                                    <TextBlock TextWrapping="Wrap" Text="{Binding ReviewNotes, Mode=OneWay}" Margin="0,0,4,8"/>
+                                    <TextBlock x:Name="ReviewNotesTextBlock" TextWrapping="Wrap" Text="{Binding ReviewNotes, Mode=OneWay}" Margin="0,0,4,8"/>
                                 </Border>
                             </Grid>
 
