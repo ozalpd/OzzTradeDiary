@@ -28,7 +28,7 @@
                                 ToolTip="{x:Static i18n:LocalizedStrings.AddTradingAccount}"
                                 Command="{Binding TradingAccountCreateCommand}"
                                 CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}">
-                            <Viewbox Width="14" Height="14">
+                            <Viewbox Width="18" Height="18">
                                 <Path>
                                     <Path.Style>
                                         <Style TargetType="Path">
@@ -51,7 +51,7 @@
                                 ToolTip="{x:Static i18n:ActionStrings.Edit}"
                                 Command="{Binding TradingAccountEditCommand}"
                                 CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}">
-                            <Viewbox Width="14" Height="14">
+                            <Viewbox Width="18" Height="18">
                                 <Path>
                                     <Path.Style>
                                         <Style TargetType="Path">
@@ -101,12 +101,12 @@
                         <Button Style="{StaticResource IconButtonStyle-28x24}"
                                 ToolTip="{x:Static i18n:ActionStrings.Refresh}"
                                 Click="RefreshTradingAccounts_Click">
-                            <Viewbox Width="14" Height="14">
+                            <Viewbox Width="18" Height="18">
                                 <Path>
                                     <Path.Style>
                                         <Style TargetType="Path">
                                             <Setter Property="Fill" Value="#0044D7"/>
-                                            <Setter Property="Data" Value="{StaticResource arrow-clockwise}"/>
+                                            <Setter Property="Data" Value="{StaticResource arrow-repeat}"/>
                                             <Style.Triggers>
                                                 <DataTrigger Binding="{Binding IsEnabled, RelativeSource={RelativeSource AncestorType=Button}}" Value="False">
                                                     <Setter Property="Fill" Value="#A0A0A0"/>
@@ -146,7 +146,7 @@
                                 ToolTip="{x:Static i18n:LocalizedStrings.AddExchange}"
                                 Command="{Binding ExchangeCreateCommand}"
                                 CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}">
-                            <Viewbox Width="14" Height="14">
+                            <Viewbox Width="18" Height="18">
                                 <Path>
                                     <Path.Style>
                                         <Style TargetType="Path">
@@ -169,7 +169,7 @@
                                 ToolTip="{x:Static i18n:ActionStrings.Edit}"
                                 Command="{Binding ExchangeEditCommand}"
                                 CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}">
-                            <Viewbox Width="14" Height="14">
+                            <Viewbox Width="18" Height="18">
                                 <Path>
                                     <Path.Style>
                                         <Style TargetType="Path">
@@ -219,12 +219,12 @@
                         <Button Style="{StaticResource IconButtonStyle-28x24}"
                                 ToolTip="{x:Static i18n:ActionStrings.Refresh}"
                                 Click="RefreshExchanges_Click">
-                            <Viewbox Width="14" Height="14">
+                            <Viewbox Width="18" Height="18">
                                 <Path>
                                     <Path.Style>
                                         <Style TargetType="Path">
                                             <Setter Property="Fill" Value="#0044D7"/>
-                                            <Setter Property="Data" Value="{StaticResource arrow-clockwise}"/>
+                                            <Setter Property="Data" Value="{StaticResource arrow-repeat}"/>
                                             <Style.Triggers>
                                                 <DataTrigger Binding="{Binding IsEnabled, RelativeSource={RelativeSource AncestorType=Button}}" Value="False">
                                                     <Setter Property="Fill" Value="#A0A0A0"/>
@@ -268,7 +268,7 @@
                                 ToolTip="{x:Static i18n:LocalizedStrings.AddCurrency}"
                                 Command="{Binding CurrencyCreateCommand}"
                                 CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}">
-                            <Viewbox Width="14" Height="14">
+                            <Viewbox Width="18" Height="18">
                                 <Path>
                                     <Path.Style>
                                         <Style TargetType="Path">
@@ -291,7 +291,7 @@
                                 ToolTip="{x:Static i18n:ActionStrings.Edit}"
                                 Command="{Binding CurrencyEditCommand}"
                                 CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}">
-                            <Viewbox Width="14" Height="14">
+                            <Viewbox Width="18" Height="18">
                                 <Path>
                                     <Path.Style>
                                         <Style TargetType="Path">
@@ -341,12 +341,12 @@
                         <Button Style="{StaticResource IconButtonStyle-28x24}"
                                 ToolTip="{x:Static i18n:ActionStrings.Refresh}"
                                 Click="RefreshCurrencies_Click">
-                            <Viewbox Width="14" Height="14">
+                            <Viewbox Width="18" Height="18">
                                 <Path>
                                     <Path.Style>
                                         <Style TargetType="Path">
                                             <Setter Property="Fill" Value="#0044D7"/>
-                                            <Setter Property="Data" Value="{StaticResource arrow-clockwise}"/>
+                                            <Setter Property="Data" Value="{StaticResource arrow-repeat}"/>
                                             <Style.Triggers>
                                                 <DataTrigger Binding="{Binding IsEnabled, RelativeSource={RelativeSource AncestorType=Button}}" Value="False">
                                                     <Setter Property="Fill" Value="#A0A0A0"/>
@@ -384,7 +384,7 @@
                                 ToolTip="{x:Static i18n:LocalizedStrings.AddSymbol}"
                                 Command="{Binding SymbolCreateCommand}"
                                 CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}">
-                            <Viewbox Width="14" Height="14">
+                            <Viewbox Width="18" Height="18">
                                 <Path>
                                     <Path.Style>
                                         <Style TargetType="Path">
@@ -407,7 +407,7 @@
                                 ToolTip="{x:Static i18n:ActionStrings.Edit}"
                                 Command="{Binding SymbolEditCommand}"
                                 CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}">
-                            <Viewbox Width="14" Height="14">
+                            <Viewbox Width="18" Height="18">
                                 <Path>
                                     <Path.Style>
                                         <Style TargetType="Path">
@@ -457,12 +457,12 @@
                         <Button Style="{StaticResource IconButtonStyle-28x24}"
                                 ToolTip="{x:Static i18n:ActionStrings.Refresh}"
                                 Click="RefreshSymbols_Click">
-                            <Viewbox Width="14" Height="14">
+                            <Viewbox Width="18" Height="18">
                                 <Path>
                                     <Path.Style>
                                         <Style TargetType="Path">
                                             <Setter Property="Fill" Value="#0044D7"/>
-                                            <Setter Property="Data" Value="{StaticResource arrow-clockwise}"/>
+                                            <Setter Property="Data" Value="{StaticResource arrow-repeat}"/>
                                             <Style.Triggers>
                                                 <DataTrigger Binding="{Binding IsEnabled, RelativeSource={RelativeSource AncestorType=Button}}" Value="False">
                                                     <Setter Property="Fill" Value="#A0A0A0"/>

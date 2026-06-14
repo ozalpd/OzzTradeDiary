@@ -258,13 +258,19 @@
                 <Button Style="{StaticResource IconButtonStyle-28x24}"
                         ToolTip="{x:Static i18n:ActionStrings.LoadJournal}"
                         Command="{Binding TradesLoadCommand}">
-                    <StackPanel Orientation="Horizontal">
+                    <Grid>
                         <Viewbox Width="18" Height="18">
                             <Path Margin="-2,-3,-2,-3"
                                   Fill="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"
-                                  Data="{StaticResource journal-arrow-up}"/>
+                                  Data="{StaticResource journal}"/>
+
                         </Viewbox>
-                    </StackPanel>
+                        <Viewbox Width="16" Height="16">
+                            <Path Margin="2,-1,0,0" Opacity="0.75"
+                                  Fill="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"
+                                  Data="{StaticResource arrow-repeat}"/>
+                        </Viewbox>
+                    </Grid>
                 </Button>
                 <Separator/>
                 <Border Width="16" Background="Transparent" />
